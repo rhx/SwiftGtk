@@ -15,17 +15,21 @@ import Gdk
 
 // MARK: - TextBuffer Class
 
-/// The `TextBufferProtocol` protocol exposes the methods and properties of an underlying `GtkTextBuffer` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TextBuffer`.
-/// Alternatively, use `TextBufferRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Stores text and attributes for display in a `GtkTextView`.
 /// 
 /// You may wish to begin by reading the
 /// [text widget conceptual overview](section-text-widget.html),
 /// which gives an overview of all the objects and data types
 /// related to the text widget and how they work together.
+/// 
+/// GtkTextBuffer can support undoing changes to the buffer
+/// content, see [method`Gtk.TextBuffer.set_enable_undo`].
+///
+/// The `TextBufferProtocol` protocol exposes the methods and properties of an underlying `GtkTextBuffer` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TextBuffer`.
+/// Alternatively, use `TextBufferRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TextBufferProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkTextBuffer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -37,16 +41,20 @@ public protocol TextBufferProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TextBufferRef` type acts as a lightweight Swift reference to an underlying `GtkTextBuffer` instance.
-/// It exposes methods that can operate on this data type through `TextBufferProtocol` conformance.
-/// Use `TextBufferRef` only as an `unowned` reference to an existing `GtkTextBuffer` instance.
-///
 /// Stores text and attributes for display in a `GtkTextView`.
 /// 
 /// You may wish to begin by reading the
 /// [text widget conceptual overview](section-text-widget.html),
 /// which gives an overview of all the objects and data types
 /// related to the text widget and how they work together.
+/// 
+/// GtkTextBuffer can support undoing changes to the buffer
+/// content, see [method`Gtk.TextBuffer.set_enable_undo`].
+///
+/// The `TextBufferRef` type acts as a lightweight Swift reference to an underlying `GtkTextBuffer` instance.
+/// It exposes methods that can operate on this data type through `TextBufferProtocol` conformance.
+/// Use `TextBufferRef` only as an `unowned` reference to an existing `GtkTextBuffer` instance.
+///
 public struct TextBufferRef: TextBufferProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTextBuffer` instance.
     /// For type-safe access, use the generated, typed pointer `text_buffer_ptr` property instead.
@@ -133,16 +141,20 @@ public extension TextBufferRef {
     }
 }
 
-/// The `TextBuffer` type acts as a reference-counted owner of an underlying `GtkTextBuffer` instance.
-/// It provides the methods that can operate on this data type through `TextBufferProtocol` conformance.
-/// Use `TextBuffer` as a strong reference or owner of a `GtkTextBuffer` instance.
-///
 /// Stores text and attributes for display in a `GtkTextView`.
 /// 
 /// You may wish to begin by reading the
 /// [text widget conceptual overview](section-text-widget.html),
 /// which gives an overview of all the objects and data types
 /// related to the text widget and how they work together.
+/// 
+/// GtkTextBuffer can support undoing changes to the buffer
+/// content, see [method`Gtk.TextBuffer.set_enable_undo`].
+///
+/// The `TextBuffer` type acts as a reference-counted owner of an underlying `GtkTextBuffer` instance.
+/// It provides the methods that can operate on this data type through `TextBufferProtocol` conformance.
+/// Use `TextBuffer` as a strong reference or owner of a `GtkTextBuffer` instance.
+///
 open class TextBuffer: GLibObject.Object, TextBufferProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -292,6 +304,7 @@ public enum TextBufferPropertyName: String, PropertyNameProtocol {
     case enableUndo = "enable-undo"
     /// Whether the buffer has some text currently selected.
     case hasSelection = "has-selection"
+    /// The GtkTextTagTable for the buffer.
     case tagTable = "tag-table"
     /// The text content of the buffer.
     /// 
@@ -435,7 +448,7 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     /// revalidate it). The default signal handler revalidates
     /// it to point to the end of the inserted text.
     /// 
-    /// See also: [method`Gtk`,TextBuffer.insert],
+    /// See also: [method`Gtk.TextBuffer.insert`],
     /// [method`Gtk.TextBuffer.insert_range`].
     case insertText = "insert-text"
     /// Emitted as notification after a `GtkTextMark` is deleted.
@@ -467,12 +480,14 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -514,6 +529,7 @@ public enum TextBufferSignalName: String, SignalNameProtocol {
     case notifyEnableUndo = "notify::enable-undo"
     /// Whether the buffer has some text currently selected.
     case notifyHasSelection = "notify::has-selection"
+    /// The GtkTextTagTable for the buffer.
     case notifyTagTable = "notify::tag-table"
     /// The text content of the buffer.
     /// 
@@ -801,7 +817,7 @@ public extension TextBufferProtocol {
     /// revalidate it). The default signal handler revalidates
     /// it to point to the end of the inserted text.
     /// 
-    /// See also: [method`Gtk`,TextBuffer.insert],
+    /// See also: [method`Gtk.TextBuffer.insert`],
     /// [method`Gtk.TextBuffer.insert_range`].
     /// - Note: This represents the underlying `insert-text` signal
     /// - Parameter flags: Flags
@@ -1051,12 +1067,14 @@ public extension TextBufferProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1100,12 +1118,14 @@ public extension TextBufferProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1149,12 +1169,14 @@ public extension TextBufferProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1198,12 +1220,14 @@ public extension TextBufferProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1247,12 +1271,14 @@ public extension TextBufferProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1296,12 +1322,14 @@ public extension TextBufferProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1345,12 +1373,14 @@ public extension TextBufferProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1392,8 +1422,8 @@ public extension TextBufferProtocol {
     /// is not `nil` then there must not be another mark in the buffer
     /// with the same name.
     /// 
-    /// Emits the `GtkTextBuffer``mark-set` signal as notification of
-    /// the mark's initial placement.
+    /// Emits the [signal`Gtk.TextBuffer::mark-set`] signal as notification
+    /// of the mark's initial placement.
     @inlinable func add<TextIterT: TextIterProtocol, TextMarkT: TextMarkProtocol>(mark: TextMarkT, `where`: TextIterT) {
         gtk_text_buffer_add_mark(text_buffer_ptr, mark.text_mark_ptr, `where`.text_iter_ptr)
     
@@ -1454,8 +1484,8 @@ public extension TextBufferProtocol {
     /// [method`Gtk.TextBuffer.end_irreversible_action`] after the irreversible
     /// action has completed.
     /// 
-    /// You may nest calls to `gtk_text_buffer_begin_irreversible_action()` and
-    /// `gtk_text_buffer_end_irreversible_action()` pairs.
+    /// You may nest calls to `gtk_text_buffer_begin_irreversible_action()`
+    /// and `gtk_text_buffer_end_irreversible_action()` pairs.
     @inlinable func beginIrreversibleAction() {
         gtk_text_buffer_begin_irreversible_action(text_buffer_ptr)
     
@@ -1520,8 +1550,8 @@ public extension TextBufferProtocol {
     /// return value if you like. Marks are owned by the buffer and go
     /// away when the buffer does.
     /// 
-    /// Emits the `GtkTextBuffer``mark-set` signal as notification of
-    /// the mark's initial placement.
+    /// Emits the [signal`Gtk.TextBuffer::mark-set`] signal as notification
+    /// of the mark's initial placement.
     @inlinable func createMark<TextIterT: TextIterProtocol>(markName: UnsafePointer<CChar>? = nil, `where`: TextIterT, leftGravity: Bool) -> TextMarkRef! {
         let rv = TextMarkRef(gconstpointer: gconstpointer(gtk_text_buffer_create_mark(text_buffer_ptr, markName, `where`.text_iter_ptr, gboolean((leftGravity) ? 1 : 0))))
         return rv
@@ -1605,11 +1635,11 @@ public extension TextBufferProtocol {
     /// queue to be cleared.
     /// 
     /// This should be called after completing modifications to the
-    /// text buffer after `gtk_text_buffer_begin_irreversible_action()`
+    /// text buffer after [method`Gtk.TextBuffer.begin_irreversible_action`]
     /// was called.
     /// 
-    /// You may nest calls to `gtk_text_buffer_begin_irreversible_action()` and
-    /// `gtk_text_buffer_end_irreversible_action()` pairs.
+    /// You may nest calls to `gtk_text_buffer_begin_irreversible_action()`
+    /// and `gtk_text_buffer_end_irreversible_action()` pairs.
     @inlinable func endIrreversibleAction() {
         gtk_text_buffer_end_irreversible_action(text_buffer_ptr)
     
@@ -1972,7 +2002,7 @@ public extension TextBufferProtocol {
     /// images and tags. If `start` and `end` are in a different buffer from
     /// `buffer`, the two buffers must share the same tag table.
     /// 
-    /// Implemented via emissions of the insert_text and apply_tag signals,
+    /// Implemented via emissions of the `insert-text` and `apply-tag` signals,
     /// so expect those.
     @inlinable func insertRange<TextIterT: TextIterProtocol>(iter: TextIterT, start: TextIterT, end: TextIterT) {
         gtk_text_buffer_insert_range(text_buffer_ptr, iter.text_iter_ptr, start.text_iter_ptr, end.text_iter_ptr)
@@ -2002,8 +2032,8 @@ public extension TextBufferProtocol {
 
     /// Moves `mark` to the new location `where`.
     /// 
-    /// Emits the `GtkTextBuffer``mark-set`
-    /// signal as notification of the move.
+    /// Emits the [signal`Gtk.TextBuffer::mark-set`] signal
+    /// as notification of the move.
     @inlinable func move<TextIterT: TextIterProtocol, TextMarkT: TextMarkProtocol>(mark: TextMarkT, `where`: TextIterT) {
         gtk_text_buffer_move_mark(text_buffer_ptr, mark.text_mark_ptr, `where`.text_iter_ptr)
     
@@ -2118,6 +2148,9 @@ public extension TextBufferProtocol {
 
     /// Sets whether or not to enable undoable actions in the text buffer.
     /// 
+    /// Undoable actions in this context are changes to the text content of
+    /// the buffer. Changes to tags and marks are not tracked.
+    /// 
     /// If enabled, the user will be able to undo the last number of actions
     /// up to [method`Gtk.TextBuffer.get_max_undo_levels`].
     /// 
@@ -2224,6 +2257,9 @@ public extension TextBufferProtocol {
             return rv
         }
         /// Sets whether or not to enable undoable actions in the text buffer.
+        /// 
+        /// Undoable actions in this context are changes to the text content of
+        /// the buffer. Changes to tags and marks are not tracked.
         /// 
         /// If enabled, the user will be able to undo the last number of actions
         /// up to [method`Gtk.TextBuffer.get_max_undo_levels`].
@@ -2399,15 +2435,16 @@ public extension TextBufferProtocol {
 
 // MARK: - TextChildAnchor Class
 
+/// A `GtkTextChildAnchor` is a spot in a `GtkTextBuffer` where child widgets can
+/// be “anchored”.
+/// 
+/// The anchor can have multiple widgets anchored, to allow for multiple views.
+///
 /// The `TextChildAnchorProtocol` protocol exposes the methods and properties of an underlying `GtkTextChildAnchor` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TextChildAnchor`.
 /// Alternatively, use `TextChildAnchorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkTextChildAnchor` is a spot in a `GtkTextBuffer` where child widgets can
-/// be “anchored”.
-/// 
-/// The anchor can have multiple widgets anchored, to allow for multiple views.
 public protocol TextChildAnchorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkTextChildAnchor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2419,14 +2456,15 @@ public protocol TextChildAnchorProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TextChildAnchorRef` type acts as a lightweight Swift reference to an underlying `GtkTextChildAnchor` instance.
-/// It exposes methods that can operate on this data type through `TextChildAnchorProtocol` conformance.
-/// Use `TextChildAnchorRef` only as an `unowned` reference to an existing `GtkTextChildAnchor` instance.
-///
 /// A `GtkTextChildAnchor` is a spot in a `GtkTextBuffer` where child widgets can
 /// be “anchored”.
 /// 
 /// The anchor can have multiple widgets anchored, to allow for multiple views.
+///
+/// The `TextChildAnchorRef` type acts as a lightweight Swift reference to an underlying `GtkTextChildAnchor` instance.
+/// It exposes methods that can operate on this data type through `TextChildAnchorProtocol` conformance.
+/// Use `TextChildAnchorRef` only as an `unowned` reference to an existing `GtkTextChildAnchor` instance.
+///
 public struct TextChildAnchorRef: TextChildAnchorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTextChildAnchor` instance.
     /// For type-safe access, use the generated, typed pointer `text_child_anchor_ptr` property instead.
@@ -2518,14 +2556,15 @@ public extension TextChildAnchorRef {
     }
 }
 
-/// The `TextChildAnchor` type acts as a reference-counted owner of an underlying `GtkTextChildAnchor` instance.
-/// It provides the methods that can operate on this data type through `TextChildAnchorProtocol` conformance.
-/// Use `TextChildAnchor` as a strong reference or owner of a `GtkTextChildAnchor` instance.
-///
 /// A `GtkTextChildAnchor` is a spot in a `GtkTextBuffer` where child widgets can
 /// be “anchored”.
 /// 
 /// The anchor can have multiple widgets anchored, to allow for multiple views.
+///
+/// The `TextChildAnchor` type acts as a reference-counted owner of an underlying `GtkTextChildAnchor` instance.
+/// It provides the methods that can operate on this data type through `TextChildAnchorProtocol` conformance.
+/// Use `TextChildAnchor` as a strong reference or owner of a `GtkTextChildAnchor` instance.
+///
 open class TextChildAnchor: GLibObject.Object, TextChildAnchorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2684,12 +2723,14 @@ public enum TextChildAnchorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2761,11 +2802,6 @@ public extension TextChildAnchorProtocol {
 
 // MARK: - TextMark Class
 
-/// The `TextMarkProtocol` protocol exposes the methods and properties of an underlying `GtkTextMark` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TextMark`.
-/// Alternatively, use `TextMarkRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkTextMark` is a position in a `GtkTextbuffer` that is preserved
 /// across modifications.
 /// 
@@ -2799,6 +2835,12 @@ public extension TextChildAnchorProtocol {
 /// 
 /// Marks are typically created using the [method`Gtk.TextBuffer.create_mark`]
 /// function.
+///
+/// The `TextMarkProtocol` protocol exposes the methods and properties of an underlying `GtkTextMark` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TextMark`.
+/// Alternatively, use `TextMarkRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TextMarkProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkTextMark` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2810,10 +2852,6 @@ public protocol TextMarkProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TextMarkRef` type acts as a lightweight Swift reference to an underlying `GtkTextMark` instance.
-/// It exposes methods that can operate on this data type through `TextMarkProtocol` conformance.
-/// Use `TextMarkRef` only as an `unowned` reference to an existing `GtkTextMark` instance.
-///
 /// A `GtkTextMark` is a position in a `GtkTextbuffer` that is preserved
 /// across modifications.
 /// 
@@ -2847,6 +2885,11 @@ public protocol TextMarkProtocol: GLibObject.ObjectProtocol {
 /// 
 /// Marks are typically created using the [method`Gtk.TextBuffer.create_mark`]
 /// function.
+///
+/// The `TextMarkRef` type acts as a lightweight Swift reference to an underlying `GtkTextMark` instance.
+/// It exposes methods that can operate on this data type through `TextMarkProtocol` conformance.
+/// Use `TextMarkRef` only as an `unowned` reference to an existing `GtkTextMark` instance.
+///
 public struct TextMarkRef: TextMarkProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTextMark` instance.
     /// For type-safe access, use the generated, typed pointer `text_mark_ptr` property instead.
@@ -2943,10 +2986,6 @@ public extension TextMarkRef {
     }
 }
 
-/// The `TextMark` type acts as a reference-counted owner of an underlying `GtkTextMark` instance.
-/// It provides the methods that can operate on this data type through `TextMarkProtocol` conformance.
-/// Use `TextMark` as a strong reference or owner of a `GtkTextMark` instance.
-///
 /// A `GtkTextMark` is a position in a `GtkTextbuffer` that is preserved
 /// across modifications.
 /// 
@@ -2980,6 +3019,11 @@ public extension TextMarkRef {
 /// 
 /// Marks are typically created using the [method`Gtk.TextBuffer.create_mark`]
 /// function.
+///
+/// The `TextMark` type acts as a reference-counted owner of an underlying `GtkTextMark` instance.
+/// It provides the methods that can operate on this data type through `TextMarkProtocol` conformance.
+/// Use `TextMark` as a strong reference or owner of a `GtkTextMark` instance.
+///
 open class TextMark: GLibObject.Object, TextMarkProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3205,12 +3249,14 @@ public enum TextMarkSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3353,11 +3399,6 @@ public extension TextMarkProtocol {
 
 // MARK: - TextTag Class
 
-/// The `TextTagProtocol` protocol exposes the methods and properties of an underlying `GtkTextTag` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TextTag`.
-/// Alternatively, use `TextTagRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A tag that can be applied to text contained in a `GtkTextBuffer`.
 /// 
 /// You may wish to begin by reading the
@@ -3376,6 +3417,12 @@ public extension TextMarkProtocol {
 /// whether a property has been set or not.
 /// 
 /// They are maintained by GTK and you should not set them independently.
+///
+/// The `TextTagProtocol` protocol exposes the methods and properties of an underlying `GtkTextTag` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TextTag`.
+/// Alternatively, use `TextTagRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TextTagProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkTextTag` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3387,10 +3434,6 @@ public protocol TextTagProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TextTagRef` type acts as a lightweight Swift reference to an underlying `GtkTextTag` instance.
-/// It exposes methods that can operate on this data type through `TextTagProtocol` conformance.
-/// Use `TextTagRef` only as an `unowned` reference to an existing `GtkTextTag` instance.
-///
 /// A tag that can be applied to text contained in a `GtkTextBuffer`.
 /// 
 /// You may wish to begin by reading the
@@ -3409,6 +3452,11 @@ public protocol TextTagProtocol: GLibObject.ObjectProtocol {
 /// whether a property has been set or not.
 /// 
 /// They are maintained by GTK and you should not set them independently.
+///
+/// The `TextTagRef` type acts as a lightweight Swift reference to an underlying `GtkTextTag` instance.
+/// It exposes methods that can operate on this data type through `TextTagProtocol` conformance.
+/// Use `TextTagRef` only as an `unowned` reference to an existing `GtkTextTag` instance.
+///
 public struct TextTagRef: TextTagProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTextTag` instance.
     /// For type-safe access, use the generated, typed pointer `text_tag_ptr` property instead.
@@ -3495,10 +3543,6 @@ public extension TextTagRef {
     }
 }
 
-/// The `TextTag` type acts as a reference-counted owner of an underlying `GtkTextTag` instance.
-/// It provides the methods that can operate on this data type through `TextTagProtocol` conformance.
-/// Use `TextTag` as a strong reference or owner of a `GtkTextTag` instance.
-///
 /// A tag that can be applied to text contained in a `GtkTextBuffer`.
 /// 
 /// You may wish to begin by reading the
@@ -3517,6 +3561,11 @@ public extension TextTagRef {
 /// whether a property has been set or not.
 /// 
 /// They are maintained by GTK and you should not set them independently.
+///
+/// The `TextTag` type acts as a reference-counted owner of an underlying `GtkTextTag` instance.
+/// It provides the methods that can operate on this data type through `TextTagProtocol` conformance.
+/// Use `TextTag` as a strong reference or owner of a `GtkTextTag` instance.
+///
 open class TextTag: GLibObject.Object, TextTagProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3891,12 +3940,14 @@ public enum TextTagSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4151,11 +4202,6 @@ public extension TextTagProtocol {
 
 // MARK: - TextTagTable Class
 
-/// The `TextTagTableProtocol` protocol exposes the methods and properties of an underlying `GtkTextTagTable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TextTagTable`.
-/// Alternatively, use `TextTagTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The collection of tags in a `GtkTextBuffer`
 /// 
 /// You may wish to begin by reading the
@@ -4177,6 +4223,12 @@ public extension TextTagProtocol {
 ///  &lt;/child&gt;
 /// &lt;/object&gt;
 /// ```
+///
+/// The `TextTagTableProtocol` protocol exposes the methods and properties of an underlying `GtkTextTagTable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TextTagTable`.
+/// Alternatively, use `TextTagTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TextTagTableProtocol: GLibObject.ObjectProtocol, BuildableProtocol {
         /// Untyped pointer to the underlying `GtkTextTagTable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4188,10 +4240,6 @@ public protocol TextTagTableProtocol: GLibObject.ObjectProtocol, BuildableProtoc
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TextTagTableRef` type acts as a lightweight Swift reference to an underlying `GtkTextTagTable` instance.
-/// It exposes methods that can operate on this data type through `TextTagTableProtocol` conformance.
-/// Use `TextTagTableRef` only as an `unowned` reference to an existing `GtkTextTagTable` instance.
-///
 /// The collection of tags in a `GtkTextBuffer`
 /// 
 /// You may wish to begin by reading the
@@ -4213,6 +4261,11 @@ public protocol TextTagTableProtocol: GLibObject.ObjectProtocol, BuildableProtoc
 ///  &lt;/child&gt;
 /// &lt;/object&gt;
 /// ```
+///
+/// The `TextTagTableRef` type acts as a lightweight Swift reference to an underlying `GtkTextTagTable` instance.
+/// It exposes methods that can operate on this data type through `TextTagTableProtocol` conformance.
+/// Use `TextTagTableRef` only as an `unowned` reference to an existing `GtkTextTagTable` instance.
+///
 public struct TextTagTableRef: TextTagTableProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTextTagTable` instance.
     /// For type-safe access, use the generated, typed pointer `text_tag_table_ptr` property instead.
@@ -4301,10 +4354,6 @@ public extension TextTagTableRef {
     }
 }
 
-/// The `TextTagTable` type acts as a reference-counted owner of an underlying `GtkTextTagTable` instance.
-/// It provides the methods that can operate on this data type through `TextTagTableProtocol` conformance.
-/// Use `TextTagTable` as a strong reference or owner of a `GtkTextTagTable` instance.
-///
 /// The collection of tags in a `GtkTextBuffer`
 /// 
 /// You may wish to begin by reading the
@@ -4326,6 +4375,11 @@ public extension TextTagTableRef {
 ///  &lt;/child&gt;
 /// &lt;/object&gt;
 /// ```
+///
+/// The `TextTagTable` type acts as a reference-counted owner of an underlying `GtkTextTagTable` instance.
+/// It provides the methods that can operate on this data type through `TextTagTableProtocol` conformance.
+/// Use `TextTagTable` as a strong reference or owner of a `GtkTextTagTable` instance.
+///
 open class TextTagTable: GLibObject.Object, TextTagTableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4481,12 +4535,14 @@ public enum TextTagTableSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4679,11 +4735,6 @@ public extension TextTagTableProtocol {
 
 // MARK: - TextView Class
 
-/// The `TextViewProtocol` protocol exposes the methods and properties of an underlying `GtkTextView` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TextView`.
-/// Alternatively, use `TextViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A widget that displays the contents of a [class`Gtk.TextBuffer`].
 /// 
 /// ![An example GtkTextview](multiline-text.png)
@@ -4718,6 +4769,12 @@ public extension TextTagTableProtocol {
 /// ## Accessibility
 /// 
 /// `GtkTextView` uses the `GTK_ACCESSIBLE_ROLE_TEXT_BOX` role.
+///
+/// The `TextViewProtocol` protocol exposes the methods and properties of an underlying `GtkTextView` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TextView`.
+/// Alternatively, use `TextViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TextViewProtocol: WidgetProtocol, ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkTextView` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4729,10 +4786,6 @@ public protocol TextViewProtocol: WidgetProtocol, ScrollableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TextViewRef` type acts as a lightweight Swift reference to an underlying `GtkTextView` instance.
-/// It exposes methods that can operate on this data type through `TextViewProtocol` conformance.
-/// Use `TextViewRef` only as an `unowned` reference to an existing `GtkTextView` instance.
-///
 /// A widget that displays the contents of a [class`Gtk.TextBuffer`].
 /// 
 /// ![An example GtkTextview](multiline-text.png)
@@ -4767,6 +4820,11 @@ public protocol TextViewProtocol: WidgetProtocol, ScrollableProtocol {
 /// ## Accessibility
 /// 
 /// `GtkTextView` uses the `GTK_ACCESSIBLE_ROLE_TEXT_BOX` role.
+///
+/// The `TextViewRef` type acts as a lightweight Swift reference to an underlying `GtkTextView` instance.
+/// It exposes methods that can operate on this data type through `TextViewProtocol` conformance.
+/// Use `TextViewRef` only as an `unowned` reference to an existing `GtkTextView` instance.
+///
 public struct TextViewRef: TextViewProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTextView` instance.
     /// For type-safe access, use the generated, typed pointer `text_view_ptr` property instead.
@@ -4879,10 +4937,6 @@ public extension TextViewRef {
     }
 }
 
-/// The `TextView` type acts as a reference-counted owner of an underlying `GtkTextView` instance.
-/// It provides the methods that can operate on this data type through `TextViewProtocol` conformance.
-/// Use `TextView` as a strong reference or owner of a `GtkTextView` instance.
-///
 /// A widget that displays the contents of a [class`Gtk.TextBuffer`].
 /// 
 /// ![An example GtkTextview](multiline-text.png)
@@ -4917,6 +4971,11 @@ public extension TextViewRef {
 /// ## Accessibility
 /// 
 /// `GtkTextView` uses the `GTK_ACCESSIBLE_ROLE_TEXT_BOX` role.
+///
+/// The `TextView` type acts as a reference-counted owner of an underlying `GtkTextView` instance.
+/// It provides the methods that can operate on this data type through `TextViewProtocol` conformance.
+/// Use `TextView` as a strong reference or owner of a `GtkTextView` instance.
+///
 open class TextView: Widget, TextViewProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5143,7 +5202,7 @@ public enum TextViewPropertyName: String, PropertyNameProtocol {
     case hexpandSet = "hexpand-set"
     /// Which IM (input method) module should be used for this text_view.
     /// 
-    /// See [class`Gtk.IMContext`].
+    /// See [class`Gtk.IMMulticontext`].
     /// 
     /// Setting this to a non-`nil` value overrides the system-wide IM module
     /// setting. See the GtkSettings [property`Gtk.Settings:gtk-im-module`] property.
@@ -5480,12 +5539,14 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5641,7 +5702,7 @@ public enum TextViewSignalName: String, SignalNameProtocol {
     case notifyHexpandSet = "notify::hexpand-set"
     /// Which IM (input method) module should be used for this text_view.
     /// 
-    /// See [class`Gtk.IMContext`].
+    /// See [class`Gtk.IMMulticontext`].
     /// 
     /// Setting this to a non-`nil` value overrides the system-wide IM module
     /// setting. See the GtkSettings [property`Gtk.Settings:gtk-im-module`] property.
@@ -6329,12 +6390,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6378,12 +6441,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6427,12 +6492,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6476,12 +6543,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6525,12 +6594,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6574,12 +6645,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6623,12 +6696,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6672,12 +6747,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6721,12 +6798,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6770,12 +6849,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6819,12 +6900,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6868,12 +6951,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6917,12 +7002,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6966,12 +7053,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7015,12 +7104,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7064,12 +7155,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7113,12 +7206,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7162,12 +7257,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7211,12 +7308,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7260,12 +7359,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7309,12 +7410,14 @@ public extension TextViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7433,7 +7536,7 @@ public extension TextViewProtocol {
         return rv
     }
 
-    /// Returns whether pressing the Tab key inserts a tab characters.
+    /// Returns whether pressing the &lt;kbd&gt;Tab&lt;/kbd&gt; key inserts a tab characters.
     /// 
     /// See [method`Gtk.TextView.set_accepts_tab`].
     @inlinable func getAcceptsTab() -> Bool {
@@ -7632,6 +7735,15 @@ public extension TextViewProtocol {
     
     }
 
+    /// Gets the `PangoContext` that is used for rendering LTR directed
+    /// text layouts.
+    /// 
+    /// The context may be replaced when CSS changes occur.
+    @inlinable func getLtrContext() -> Pango.ContextRef! {
+        let rv = Pango.ContextRef(gtk_text_view_get_ltr_context(text_view_ptr))
+        return rv
+    }
+
     /// Gets whether the `GtkTextView` uses monospace styling.
     @inlinable func getMonospace() -> Bool {
         let rv = ((gtk_text_view_get_monospace(text_view_ptr)) != 0)
@@ -7674,6 +7786,15 @@ public extension TextViewProtocol {
     /// Tags in the buffer may override the default.
     @inlinable func getRightMargin() -> Int {
         let rv = Int(gtk_text_view_get_right_margin(text_view_ptr))
+        return rv
+    }
+
+    /// Gets the `PangoContext` that is used for rendering RTL directed
+    /// text layouts.
+    /// 
+    /// The context may be replaced when CSS changes occur.
+    @inlinable func getRtlContext() -> Pango.ContextRef! {
+        let rv = Pango.ContextRef(gtk_text_view_get_rtl_context(text_view_ptr))
         return rv
     }
 
@@ -7852,7 +7973,7 @@ public extension TextViewProtocol {
     
     }
 
-    /// Sets the behavior of the text widget when the Tab key is pressed.
+    /// Sets the behavior of the text widget when the &lt;kbd&gt;Tab&lt;/kbd&gt; key is pressed.
     /// 
     /// If `accepts_tab` is `true`, a tab character is inserted. If `accepts_tab`
     /// is `false` the keyboard focus is moved to the next widget in the focus
@@ -8080,18 +8201,18 @@ public extension TextViewProtocol {
         gtk_text_view_window_to_buffer_coords(text_view_ptr, win, gint(windowX), gint(windowY), bufferX, bufferY)
     
     }
-    /// Returns whether pressing the Tab key inserts a tab characters.
+    /// Returns whether pressing the &lt;kbd&gt;Tab&lt;/kbd&gt; key inserts a tab characters.
     /// 
     /// See [method`Gtk.TextView.set_accepts_tab`].
     @inlinable var acceptsTab: Bool {
-        /// Returns whether pressing the Tab key inserts a tab characters.
+        /// Returns whether pressing the &lt;kbd&gt;Tab&lt;/kbd&gt; key inserts a tab characters.
         /// 
         /// See [method`Gtk.TextView.set_accepts_tab`].
         get {
             let rv = ((gtk_text_view_get_accepts_tab(text_view_ptr)) != 0)
             return rv
         }
-        /// Sets the behavior of the text widget when the Tab key is pressed.
+        /// Sets the behavior of the text widget when the &lt;kbd&gt;Tab&lt;/kbd&gt; key is pressed.
         /// 
         /// If `accepts_tab` is `true`, a tab character is inserted. If `accepts_tab`
         /// is `false` the keyboard focus is moved to the next widget in the focus
@@ -8280,6 +8401,21 @@ public extension TextViewProtocol {
         }
     }
 
+    /// Gets the `PangoContext` that is used for rendering LTR directed
+    /// text layouts.
+    /// 
+    /// The context may be replaced when CSS changes occur.
+    @inlinable var ltrContext: Pango.ContextRef! {
+        /// Gets the `PangoContext` that is used for rendering LTR directed
+        /// text layouts.
+        /// 
+        /// The context may be replaced when CSS changes occur.
+        get {
+            let rv = Pango.ContextRef(gtk_text_view_get_ltr_context(text_view_ptr))
+            return rv
+        }
+    }
+
     /// Whether text should be displayed in a monospace font.
     /// 
     /// If `true`, set the .monospace style class on the
@@ -8393,6 +8529,21 @@ public extension TextViewProtocol {
         }
     }
 
+    /// Gets the `PangoContext` that is used for rendering RTL directed
+    /// text layouts.
+    /// 
+    /// The context may be replaced when CSS changes occur.
+    @inlinable var rtlContext: Pango.ContextRef! {
+        /// Gets the `PangoContext` that is used for rendering RTL directed
+        /// text layouts.
+        /// 
+        /// The context may be replaced when CSS changes occur.
+        get {
+            let rv = Pango.ContextRef(gtk_text_view_get_rtl_context(text_view_ptr))
+            return rv
+        }
+    }
+
     @inlinable var tabs: Pango.TabArrayRef! {
         /// Gets the default tabs for `text_view`.
         /// 
@@ -8455,11 +8606,6 @@ public extension TextViewProtocol {
 
 // MARK: - ToggleButton Class
 
-/// The `ToggleButtonProtocol` protocol exposes the methods and properties of an underlying `GtkToggleButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ToggleButton`.
-/// Alternatively, use `ToggleButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkToggleButton` is a button which remains “pressed-in” when
 /// clicked.
 /// 
@@ -8526,6 +8672,12 @@ public extension TextViewProtocol {
 ///   gtk_widget_show (window);
 /// }
 /// ```
+///
+/// The `ToggleButtonProtocol` protocol exposes the methods and properties of an underlying `GtkToggleButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ToggleButton`.
+/// Alternatively, use `ToggleButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ToggleButtonProtocol: ButtonProtocol {
         /// Untyped pointer to the underlying `GtkToggleButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8537,10 +8689,6 @@ public protocol ToggleButtonProtocol: ButtonProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ToggleButtonRef` type acts as a lightweight Swift reference to an underlying `GtkToggleButton` instance.
-/// It exposes methods that can operate on this data type through `ToggleButtonProtocol` conformance.
-/// Use `ToggleButtonRef` only as an `unowned` reference to an existing `GtkToggleButton` instance.
-///
 /// A `GtkToggleButton` is a button which remains “pressed-in” when
 /// clicked.
 /// 
@@ -8607,6 +8755,11 @@ public protocol ToggleButtonProtocol: ButtonProtocol {
 ///   gtk_widget_show (window);
 /// }
 /// ```
+///
+/// The `ToggleButtonRef` type acts as a lightweight Swift reference to an underlying `GtkToggleButton` instance.
+/// It exposes methods that can operate on this data type through `ToggleButtonProtocol` conformance.
+/// Use `ToggleButtonRef` only as an `unowned` reference to an existing `GtkToggleButton` instance.
+///
 public struct ToggleButtonRef: ToggleButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkToggleButton` instance.
     /// For type-safe access, use the generated, typed pointer `toggle_button_ptr` property instead.
@@ -8724,10 +8877,6 @@ public extension ToggleButtonRef {
     }
 }
 
-/// The `ToggleButton` type acts as a reference-counted owner of an underlying `GtkToggleButton` instance.
-/// It provides the methods that can operate on this data type through `ToggleButtonProtocol` conformance.
-/// Use `ToggleButton` as a strong reference or owner of a `GtkToggleButton` instance.
-///
 /// A `GtkToggleButton` is a button which remains “pressed-in” when
 /// clicked.
 /// 
@@ -8794,6 +8943,11 @@ public extension ToggleButtonRef {
 ///   gtk_widget_show (window);
 /// }
 /// ```
+///
+/// The `ToggleButton` type acts as a reference-counted owner of an underlying `GtkToggleButton` instance.
+/// It provides the methods that can operate on this data type through `ToggleButtonProtocol` conformance.
+/// Use `ToggleButton` as a strong reference or owner of a `GtkToggleButton` instance.
+///
 open class ToggleButton: Button, ToggleButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9229,12 +9383,14 @@ public enum ToggleButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9504,12 +9660,14 @@ public extension ToggleButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9553,12 +9711,14 @@ public extension ToggleButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9622,7 +9782,7 @@ public extension ToggleButtonProtocol {
     /// 
     /// Setting up groups in a cycle leads to undefined behavior.
     /// 
-    /// Note that the same effect can be achieved via the [interface`Gtk.Actionable`]
+    /// Note that the same effect can be achieved via the [iface`Gtk.Actionable`]
     /// API, by using the same action with parameter type and state type 's'
     /// for all buttons in the group, and giving each button its own target
     /// value.
@@ -9637,7 +9797,7 @@ public extension ToggleButtonProtocol {
     /// 
     /// Setting up groups in a cycle leads to undefined behavior.
     /// 
-    /// Note that the same effect can be achieved via the [interface`Gtk.Actionable`]
+    /// Note that the same effect can be achieved via the [iface`Gtk.Actionable`]
     /// API, by using the same action with parameter type and state type 's'
     /// for all buttons in the group, and giving each button its own target
     /// value.
@@ -9683,11 +9843,6 @@ public extension ToggleButtonProtocol {
 
 // MARK: - Tooltip Class
 
-/// The `TooltipProtocol` protocol exposes the methods and properties of an underlying `GtkTooltip` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Tooltip`.
-/// Alternatively, use `TooltipRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkTooltip` is an object representing a widget tooltip.
 /// 
 /// Basic tooltips can be realized simply by using
@@ -9715,6 +9870,12 @@ public extension ToggleButtonProtocol {
 /// 
 /// - Return `true` from your `query-tooltip` handler. This causes the tooltip
 ///   to be show. If you return `false`, it will not be shown.
+///
+/// The `TooltipProtocol` protocol exposes the methods and properties of an underlying `GtkTooltip` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Tooltip`.
+/// Alternatively, use `TooltipRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TooltipProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkTooltip` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9726,10 +9887,6 @@ public protocol TooltipProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TooltipRef` type acts as a lightweight Swift reference to an underlying `GtkTooltip` instance.
-/// It exposes methods that can operate on this data type through `TooltipProtocol` conformance.
-/// Use `TooltipRef` only as an `unowned` reference to an existing `GtkTooltip` instance.
-///
 /// `GtkTooltip` is an object representing a widget tooltip.
 /// 
 /// Basic tooltips can be realized simply by using
@@ -9757,6 +9914,11 @@ public protocol TooltipProtocol: GLibObject.ObjectProtocol {
 /// 
 /// - Return `true` from your `query-tooltip` handler. This causes the tooltip
 ///   to be show. If you return `false`, it will not be shown.
+///
+/// The `TooltipRef` type acts as a lightweight Swift reference to an underlying `GtkTooltip` instance.
+/// It exposes methods that can operate on this data type through `TooltipProtocol` conformance.
+/// Use `TooltipRef` only as an `unowned` reference to an existing `GtkTooltip` instance.
+///
 public struct TooltipRef: TooltipProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTooltip` instance.
     /// For type-safe access, use the generated, typed pointer `tooltip_ptr` property instead.
@@ -9838,10 +10000,6 @@ public extension TooltipRef {
 
     }
 
-/// The `Tooltip` type acts as a reference-counted owner of an underlying `GtkTooltip` instance.
-/// It provides the methods that can operate on this data type through `TooltipProtocol` conformance.
-/// Use `Tooltip` as a strong reference or owner of a `GtkTooltip` instance.
-///
 /// `GtkTooltip` is an object representing a widget tooltip.
 /// 
 /// Basic tooltips can be realized simply by using
@@ -9869,6 +10027,11 @@ public extension TooltipRef {
 /// 
 /// - Return `true` from your `query-tooltip` handler. This causes the tooltip
 ///   to be show. If you return `false`, it will not be shown.
+///
+/// The `Tooltip` type acts as a reference-counted owner of an underlying `GtkTooltip` instance.
+/// It provides the methods that can operate on this data type through `TooltipProtocol` conformance.
+/// Use `Tooltip` as a strong reference or owner of a `GtkTooltip` instance.
+///
 open class Tooltip: GLibObject.Object, TooltipProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10016,12 +10179,14 @@ public enum TooltipSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10130,11 +10295,6 @@ public extension TooltipProtocol {
 
 // MARK: - TreeExpander Class
 
-/// The `TreeExpanderProtocol` protocol exposes the methods and properties of an underlying `GtkTreeExpander` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeExpander`.
-/// Alternatively, use `TreeExpanderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkTreeExpander` is a widget that provides an expander for a list.
 /// 
 /// It is typically placed as a bottommost child into a `GtkListView`
@@ -10174,6 +10334,12 @@ public extension TooltipProtocol {
 /// `GtkTreeExpander` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role. The expander icon
 /// is represented as a `GTK_ACCESSIBLE_ROLE_BUTTON`, labelled by the expander's
 /// child, and toggling it will change the `GTK_ACCESSIBLE_STATE_EXPANDED` state.
+///
+/// The `TreeExpanderProtocol` protocol exposes the methods and properties of an underlying `GtkTreeExpander` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeExpander`.
+/// Alternatively, use `TreeExpanderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeExpanderProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkTreeExpander` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -10185,10 +10351,6 @@ public protocol TreeExpanderProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeExpanderRef` type acts as a lightweight Swift reference to an underlying `GtkTreeExpander` instance.
-/// It exposes methods that can operate on this data type through `TreeExpanderProtocol` conformance.
-/// Use `TreeExpanderRef` only as an `unowned` reference to an existing `GtkTreeExpander` instance.
-///
 /// `GtkTreeExpander` is a widget that provides an expander for a list.
 /// 
 /// It is typically placed as a bottommost child into a `GtkListView`
@@ -10228,6 +10390,11 @@ public protocol TreeExpanderProtocol: WidgetProtocol {
 /// `GtkTreeExpander` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role. The expander icon
 /// is represented as a `GTK_ACCESSIBLE_ROLE_BUTTON`, labelled by the expander's
 /// child, and toggling it will change the `GTK_ACCESSIBLE_STATE_EXPANDED` state.
+///
+/// The `TreeExpanderRef` type acts as a lightweight Swift reference to an underlying `GtkTreeExpander` instance.
+/// It exposes methods that can operate on this data type through `TreeExpanderProtocol` conformance.
+/// Use `TreeExpanderRef` only as an `unowned` reference to an existing `GtkTreeExpander` instance.
+///
 public struct TreeExpanderRef: TreeExpanderProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTreeExpander` instance.
     /// For type-safe access, use the generated, typed pointer `tree_expander_ptr` property instead.
@@ -10314,10 +10481,6 @@ public extension TreeExpanderRef {
     }
 }
 
-/// The `TreeExpander` type acts as a reference-counted owner of an underlying `GtkTreeExpander` instance.
-/// It provides the methods that can operate on this data type through `TreeExpanderProtocol` conformance.
-/// Use `TreeExpander` as a strong reference or owner of a `GtkTreeExpander` instance.
-///
 /// `GtkTreeExpander` is a widget that provides an expander for a list.
 /// 
 /// It is typically placed as a bottommost child into a `GtkListView`
@@ -10357,6 +10520,11 @@ public extension TreeExpanderRef {
 /// `GtkTreeExpander` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role. The expander icon
 /// is represented as a `GTK_ACCESSIBLE_ROLE_BUTTON`, labelled by the expander's
 /// child, and toggling it will change the `GTK_ACCESSIBLE_STATE_EXPANDED` state.
+///
+/// The `TreeExpander` type acts as a reference-counted owner of an underlying `GtkTreeExpander` instance.
+/// It provides the methods that can operate on this data type through `TreeExpanderProtocol` conformance.
+/// Use `TreeExpander` as a strong reference or owner of a `GtkTreeExpander` instance.
+///
 open class TreeExpander: Widget, TreeExpanderProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10741,12 +10909,14 @@ public enum TreeExpanderSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11036,12 +11206,13 @@ public extension TreeExpanderProtocol {
 
 // MARK: - TreeListModel Class
 
+/// `GtkTreeListModel` is a list model that can create child models on demand.
+///
 /// The `TreeListModelProtocol` protocol exposes the methods and properties of an underlying `GtkTreeListModel` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeListModel`.
 /// Alternatively, use `TreeListModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkTreeListModel` is a list model that can create child models on demand.
 public protocol TreeListModelProtocol: GLibObject.ObjectProtocol, GIO.ListModelProtocol {
         /// Untyped pointer to the underlying `GtkTreeListModel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -11053,11 +11224,12 @@ public protocol TreeListModelProtocol: GLibObject.ObjectProtocol, GIO.ListModelP
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkTreeListModel` is a list model that can create child models on demand.
+///
 /// The `TreeListModelRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListModel` instance.
 /// It exposes methods that can operate on this data type through `TreeListModelProtocol` conformance.
 /// Use `TreeListModelRef` only as an `unowned` reference to an existing `GtkTreeListModel` instance.
 ///
-/// `GtkTreeListModel` is a list model that can create child models on demand.
 public struct TreeListModelRef: TreeListModelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTreeListModel` instance.
     /// For type-safe access, use the generated, typed pointer `tree_list_model_ptr` property instead.
@@ -11145,11 +11317,12 @@ public extension TreeListModelRef {
     }
 }
 
+/// `GtkTreeListModel` is a list model that can create child models on demand.
+///
 /// The `TreeListModel` type acts as a reference-counted owner of an underlying `GtkTreeListModel` instance.
 /// It provides the methods that can operate on this data type through `TreeListModelProtocol` conformance.
 /// Use `TreeListModel` as a strong reference or owner of a `GtkTreeListModel` instance.
 ///
-/// `GtkTreeListModel` is a list model that can create child models on demand.
 open class TreeListModel: GLibObject.Object, TreeListModelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -11368,12 +11541,14 @@ public enum TreeListModelSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11529,11 +11704,6 @@ public extension TreeListModelProtocol {
 
 // MARK: - TreeListRow Class
 
-/// The `TreeListRowProtocol` protocol exposes the methods and properties of an underlying `GtkTreeListRow` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeListRow`.
-/// Alternatively, use `TreeListRowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkTreeListRow` is used by `GtkTreeListModel` to represent items.
 /// 
 /// It allows navigating the model as a tree and modify the state of rows.
@@ -11545,6 +11715,12 @@ public extension TreeListModelProtocol {
 /// objects, such as the [class`Gtk.TreeExpander`] widget that allows displaying
 /// an icon to expand or collapse a row or [class`Gtk.TreeListRowSorter`] that
 /// makes it possible to sort trees properly.
+///
+/// The `TreeListRowProtocol` protocol exposes the methods and properties of an underlying `GtkTreeListRow` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeListRow`.
+/// Alternatively, use `TreeListRowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeListRowProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkTreeListRow` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -11556,10 +11732,6 @@ public protocol TreeListRowProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeListRowRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListRow` instance.
-/// It exposes methods that can operate on this data type through `TreeListRowProtocol` conformance.
-/// Use `TreeListRowRef` only as an `unowned` reference to an existing `GtkTreeListRow` instance.
-///
 /// `GtkTreeListRow` is used by `GtkTreeListModel` to represent items.
 /// 
 /// It allows navigating the model as a tree and modify the state of rows.
@@ -11571,6 +11743,11 @@ public protocol TreeListRowProtocol: GLibObject.ObjectProtocol {
 /// objects, such as the [class`Gtk.TreeExpander`] widget that allows displaying
 /// an icon to expand or collapse a row or [class`Gtk.TreeListRowSorter`] that
 /// makes it possible to sort trees properly.
+///
+/// The `TreeListRowRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListRow` instance.
+/// It exposes methods that can operate on this data type through `TreeListRowProtocol` conformance.
+/// Use `TreeListRowRef` only as an `unowned` reference to an existing `GtkTreeListRow` instance.
+///
 public struct TreeListRowRef: TreeListRowProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTreeListRow` instance.
     /// For type-safe access, use the generated, typed pointer `tree_list_row_ptr` property instead.
@@ -11652,10 +11829,6 @@ public extension TreeListRowRef {
 
     }
 
-/// The `TreeListRow` type acts as a reference-counted owner of an underlying `GtkTreeListRow` instance.
-/// It provides the methods that can operate on this data type through `TreeListRowProtocol` conformance.
-/// Use `TreeListRow` as a strong reference or owner of a `GtkTreeListRow` instance.
-///
 /// `GtkTreeListRow` is used by `GtkTreeListModel` to represent items.
 /// 
 /// It allows navigating the model as a tree and modify the state of rows.
@@ -11667,6 +11840,11 @@ public extension TreeListRowRef {
 /// objects, such as the [class`Gtk.TreeExpander`] widget that allows displaying
 /// an icon to expand or collapse a row or [class`Gtk.TreeListRowSorter`] that
 /// makes it possible to sort trees properly.
+///
+/// The `TreeListRow` type acts as a reference-counted owner of an underlying `GtkTreeListRow` instance.
+/// It provides the methods that can operate on this data type through `TreeListRowProtocol` conformance.
+/// Use `TreeListRow` as a strong reference or owner of a `GtkTreeListRow` instance.
+///
 open class TreeListRow: GLibObject.Object, TreeListRowProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -11878,12 +12056,14 @@ public enum TreeListRowSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12110,11 +12290,6 @@ public extension TreeListRowProtocol {
 
 // MARK: - TreeListRowSorter Class
 
-/// The `TreeListRowSorterProtocol` protocol exposes the methods and properties of an underlying `GtkTreeListRowSorter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeListRowSorter`.
-/// Alternatively, use `TreeListRowSorterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkTreeListRowSorter` is a special-purpose sorter that will apply a given
 /// sorter to the levels in a tree.
 /// 
@@ -12128,6 +12303,12 @@ public extension TreeListRowProtocol {
 /// selection = gtk_single_selection_new (sort_model);
 /// gtk_column_view_set_model (view, G_LIST_MODEL (selection));
 /// ```
+///
+/// The `TreeListRowSorterProtocol` protocol exposes the methods and properties of an underlying `GtkTreeListRowSorter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeListRowSorter`.
+/// Alternatively, use `TreeListRowSorterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeListRowSorterProtocol: SorterProtocol {
         /// Untyped pointer to the underlying `GtkTreeListRowSorter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12139,10 +12320,6 @@ public protocol TreeListRowSorterProtocol: SorterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeListRowSorterRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListRowSorter` instance.
-/// It exposes methods that can operate on this data type through `TreeListRowSorterProtocol` conformance.
-/// Use `TreeListRowSorterRef` only as an `unowned` reference to an existing `GtkTreeListRowSorter` instance.
-///
 /// `GtkTreeListRowSorter` is a special-purpose sorter that will apply a given
 /// sorter to the levels in a tree.
 /// 
@@ -12156,6 +12333,11 @@ public protocol TreeListRowSorterProtocol: SorterProtocol {
 /// selection = gtk_single_selection_new (sort_model);
 /// gtk_column_view_set_model (view, G_LIST_MODEL (selection));
 /// ```
+///
+/// The `TreeListRowSorterRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListRowSorter` instance.
+/// It exposes methods that can operate on this data type through `TreeListRowSorterProtocol` conformance.
+/// Use `TreeListRowSorterRef` only as an `unowned` reference to an existing `GtkTreeListRowSorter` instance.
+///
 public struct TreeListRowSorterRef: TreeListRowSorterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTreeListRowSorter` instance.
     /// For type-safe access, use the generated, typed pointer `tree_list_row_sorter_ptr` property instead.
@@ -12246,10 +12428,6 @@ public extension TreeListRowSorterRef {
     }
 }
 
-/// The `TreeListRowSorter` type acts as a reference-counted owner of an underlying `GtkTreeListRowSorter` instance.
-/// It provides the methods that can operate on this data type through `TreeListRowSorterProtocol` conformance.
-/// Use `TreeListRowSorter` as a strong reference or owner of a `GtkTreeListRowSorter` instance.
-///
 /// `GtkTreeListRowSorter` is a special-purpose sorter that will apply a given
 /// sorter to the levels in a tree.
 /// 
@@ -12263,6 +12441,11 @@ public extension TreeListRowSorterRef {
 /// selection = gtk_single_selection_new (sort_model);
 /// gtk_column_view_set_model (view, G_LIST_MODEL (selection));
 /// ```
+///
+/// The `TreeListRowSorter` type acts as a reference-counted owner of an underlying `GtkTreeListRowSorter` instance.
+/// It provides the methods that can operate on this data type through `TreeListRowSorterProtocol` conformance.
+/// Use `TreeListRowSorter` as a strong reference or owner of a `GtkTreeListRowSorter` instance.
+///
 open class TreeListRowSorter: Sorter, TreeListRowSorterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -12487,12 +12670,14 @@ public enum TreeListRowSorterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12552,12 +12737,7 @@ public extension TreeListRowSorterProtocol {
 
 // MARK: - TreeModelFilter Class
 
-/// The `TreeModelFilterProtocol` protocol exposes the methods and properties of an underlying `GtkTreeModelFilter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeModelFilter`.
-/// Alternatively, use `TreeModelFilterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-/// A GtkTreeModel which hides parts of an underlying tree model
+/// A `GtkTreeModel` which hides parts of an underlying tree model
 /// 
 /// A `GtkTreeModelFilter` is a tree model which wraps another tree model,
 /// and can do the following things:
@@ -12624,6 +12804,12 @@ public extension TreeListRowSorterProtocol {
 /// because it does not implement reference counting, or for models that
 /// do implement reference counting, obtain references on these child levels
 /// yourself.
+///
+/// The `TreeModelFilterProtocol` protocol exposes the methods and properties of an underlying `GtkTreeModelFilter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeModelFilter`.
+/// Alternatively, use `TreeModelFilterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeModelFilterProtocol: GLibObject.ObjectProtocol, TreeDragSourceProtocol, TreeModelProtocol {
         /// Untyped pointer to the underlying `GtkTreeModelFilter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12635,11 +12821,7 @@ public protocol TreeModelFilterProtocol: GLibObject.ObjectProtocol, TreeDragSour
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeModelFilterRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelFilter` instance.
-/// It exposes methods that can operate on this data type through `TreeModelFilterProtocol` conformance.
-/// Use `TreeModelFilterRef` only as an `unowned` reference to an existing `GtkTreeModelFilter` instance.
-///
-/// A GtkTreeModel which hides parts of an underlying tree model
+/// A `GtkTreeModel` which hides parts of an underlying tree model
 /// 
 /// A `GtkTreeModelFilter` is a tree model which wraps another tree model,
 /// and can do the following things:
@@ -12706,6 +12888,11 @@ public protocol TreeModelFilterProtocol: GLibObject.ObjectProtocol, TreeDragSour
 /// because it does not implement reference counting, or for models that
 /// do implement reference counting, obtain references on these child levels
 /// yourself.
+///
+/// The `TreeModelFilterRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelFilter` instance.
+/// It exposes methods that can operate on this data type through `TreeModelFilterProtocol` conformance.
+/// Use `TreeModelFilterRef` only as an `unowned` reference to an existing `GtkTreeModelFilter` instance.
+///
 public struct TreeModelFilterRef: TreeModelFilterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTreeModelFilter` instance.
     /// For type-safe access, use the generated, typed pointer `tree_model_filter_ptr` property instead.
@@ -12787,11 +12974,7 @@ public extension TreeModelFilterRef {
 
     }
 
-/// The `TreeModelFilter` type acts as a reference-counted owner of an underlying `GtkTreeModelFilter` instance.
-/// It provides the methods that can operate on this data type through `TreeModelFilterProtocol` conformance.
-/// Use `TreeModelFilter` as a strong reference or owner of a `GtkTreeModelFilter` instance.
-///
-/// A GtkTreeModel which hides parts of an underlying tree model
+/// A `GtkTreeModel` which hides parts of an underlying tree model
 /// 
 /// A `GtkTreeModelFilter` is a tree model which wraps another tree model,
 /// and can do the following things:
@@ -12858,6 +13041,11 @@ public extension TreeModelFilterRef {
 /// because it does not implement reference counting, or for models that
 /// do implement reference counting, obtain references on these child levels
 /// yourself.
+///
+/// The `TreeModelFilter` type acts as a reference-counted owner of an underlying `GtkTreeModelFilter` instance.
+/// It provides the methods that can operate on this data type through `TreeModelFilterProtocol` conformance.
+/// Use `TreeModelFilter` as a strong reference or owner of a `GtkTreeModelFilter` instance.
+///
 open class TreeModelFilter: GLibObject.Object, TreeModelFilterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -13061,12 +13249,14 @@ public enum TreeModelFilterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13230,11 +13420,6 @@ public extension TreeModelFilterProtocol {
 
 // MARK: - TreeModelSort Class
 
-/// The `TreeModelSortProtocol` protocol exposes the methods and properties of an underlying `GtkTreeModelSort` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeModelSort`.
-/// Alternatively, use `TreeModelSortRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A GtkTreeModel which makes an underlying tree model sortable
 /// 
 /// The `GtkTreeModelSort` is a model which implements the `GtkTreeSortable`
@@ -13248,7 +13433,7 @@ public extension TreeModelFilterProtocol {
 /// The use of this is best demonstrated through an example.  In the
 /// following sample code we create two `GtkTreeView` widgets each with a
 /// view of the same data.  As the model is wrapped here by a
-/// `GtkTreeModelSort`, the two `GtkTreeViews` can each sort their
+/// `GtkTreeModelSort`, the two `GtkTreeView`s can each sort their
 /// view of the data without affecting the other.  By contrast, if we
 /// simply put the same model in each widget, then sorting the first would
 /// sort the second.
@@ -13285,7 +13470,7 @@ public extension TreeModelFilterProtocol {
 /// 
 /// To demonstrate how to access the underlying child model from the sort
 /// model, the next example will be a callback for the `GtkTreeSelection`
-/// `GtkTreeSelection::changed` signal.  In this callback, we get a string
+/// `GtkTreeSelection`changed`` signal.  In this callback, we get a string
 /// from COLUMN_1 of the model.  We then modify the string, find the same
 /// selected row on the child model, and change the row there.
 /// 
@@ -13334,6 +13519,12 @@ public extension TreeModelFilterProtocol {
 /// }
 /// ```
 /// 
+///
+/// The `TreeModelSortProtocol` protocol exposes the methods and properties of an underlying `GtkTreeModelSort` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeModelSort`.
+/// Alternatively, use `TreeModelSortRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeModelSortProtocol: GLibObject.ObjectProtocol, TreeDragSourceProtocol, TreeModelProtocol, TreeSortableProtocol {
         /// Untyped pointer to the underlying `GtkTreeModelSort` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -13345,10 +13536,6 @@ public protocol TreeModelSortProtocol: GLibObject.ObjectProtocol, TreeDragSource
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeModelSortRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelSort` instance.
-/// It exposes methods that can operate on this data type through `TreeModelSortProtocol` conformance.
-/// Use `TreeModelSortRef` only as an `unowned` reference to an existing `GtkTreeModelSort` instance.
-///
 /// A GtkTreeModel which makes an underlying tree model sortable
 /// 
 /// The `GtkTreeModelSort` is a model which implements the `GtkTreeSortable`
@@ -13362,7 +13549,7 @@ public protocol TreeModelSortProtocol: GLibObject.ObjectProtocol, TreeDragSource
 /// The use of this is best demonstrated through an example.  In the
 /// following sample code we create two `GtkTreeView` widgets each with a
 /// view of the same data.  As the model is wrapped here by a
-/// `GtkTreeModelSort`, the two `GtkTreeViews` can each sort their
+/// `GtkTreeModelSort`, the two `GtkTreeView`s can each sort their
 /// view of the data without affecting the other.  By contrast, if we
 /// simply put the same model in each widget, then sorting the first would
 /// sort the second.
@@ -13399,7 +13586,7 @@ public protocol TreeModelSortProtocol: GLibObject.ObjectProtocol, TreeDragSource
 /// 
 /// To demonstrate how to access the underlying child model from the sort
 /// model, the next example will be a callback for the `GtkTreeSelection`
-/// `GtkTreeSelection::changed` signal.  In this callback, we get a string
+/// `GtkTreeSelection`changed`` signal.  In this callback, we get a string
 /// from COLUMN_1 of the model.  We then modify the string, find the same
 /// selected row on the child model, and change the row there.
 /// 
@@ -13448,6 +13635,11 @@ public protocol TreeModelSortProtocol: GLibObject.ObjectProtocol, TreeDragSource
 /// }
 /// ```
 /// 
+///
+/// The `TreeModelSortRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelSort` instance.
+/// It exposes methods that can operate on this data type through `TreeModelSortProtocol` conformance.
+/// Use `TreeModelSortRef` only as an `unowned` reference to an existing `GtkTreeModelSort` instance.
+///
 public struct TreeModelSortRef: TreeModelSortProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTreeModelSort` instance.
     /// For type-safe access, use the generated, typed pointer `tree_model_sort_ptr` property instead.
@@ -13529,10 +13721,6 @@ public extension TreeModelSortRef {
 
     }
 
-/// The `TreeModelSort` type acts as a reference-counted owner of an underlying `GtkTreeModelSort` instance.
-/// It provides the methods that can operate on this data type through `TreeModelSortProtocol` conformance.
-/// Use `TreeModelSort` as a strong reference or owner of a `GtkTreeModelSort` instance.
-///
 /// A GtkTreeModel which makes an underlying tree model sortable
 /// 
 /// The `GtkTreeModelSort` is a model which implements the `GtkTreeSortable`
@@ -13546,7 +13734,7 @@ public extension TreeModelSortRef {
 /// The use of this is best demonstrated through an example.  In the
 /// following sample code we create two `GtkTreeView` widgets each with a
 /// view of the same data.  As the model is wrapped here by a
-/// `GtkTreeModelSort`, the two `GtkTreeViews` can each sort their
+/// `GtkTreeModelSort`, the two `GtkTreeView`s can each sort their
 /// view of the data without affecting the other.  By contrast, if we
 /// simply put the same model in each widget, then sorting the first would
 /// sort the second.
@@ -13583,7 +13771,7 @@ public extension TreeModelSortRef {
 /// 
 /// To demonstrate how to access the underlying child model from the sort
 /// model, the next example will be a callback for the `GtkTreeSelection`
-/// `GtkTreeSelection::changed` signal.  In this callback, we get a string
+/// `GtkTreeSelection`changed`` signal.  In this callback, we get a string
 /// from COLUMN_1 of the model.  We then modify the string, find the same
 /// selected row on the child model, and change the row there.
 /// 
@@ -13632,6 +13820,11 @@ public extension TreeModelSortRef {
 /// }
 /// ```
 /// 
+///
+/// The `TreeModelSort` type acts as a reference-counted owner of an underlying `GtkTreeModelSort` instance.
+/// It provides the methods that can operate on this data type through `TreeModelSortProtocol` conformance.
+/// Use `TreeModelSort` as a strong reference or owner of a `GtkTreeModelSort` instance.
+///
 open class TreeModelSort: GLibObject.Object, TreeModelSortProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -13834,12 +14027,14 @@ public enum TreeModelSortSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13943,11 +14138,6 @@ public extension TreeModelSortProtocol {
 
 // MARK: - TreeSelection Class
 
-/// The `TreeSelectionProtocol` protocol exposes the methods and properties of an underlying `GtkTreeSelection` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeSelection`.
-/// Alternatively, use `TreeSelectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The selection object for GtkTreeView
 /// 
 /// The `GtkTreeSelection` object is a helper object to manage the selection
@@ -13968,11 +14158,17 @@ public extension TreeModelSortProtocol {
 /// first.
 /// 
 /// One of the important things to remember when monitoring the selection of
-/// a view is that the `GtkTreeSelection::changed` signal is mostly a hint.
+/// a view is that the `GtkTreeSelection``changed` signal is mostly a hint.
 /// That is, it may only emit one signal when a range of rows is selected.
-/// Additionally, it may on occasion emit a `GtkTreeSelection::changed` signal
+/// Additionally, it may on occasion emit a `GtkTreeSelection``changed` signal
 /// when nothing has happened (mostly as a result of programmers calling
 /// select_row on an already selected row).
+///
+/// The `TreeSelectionProtocol` protocol exposes the methods and properties of an underlying `GtkTreeSelection` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeSelection`.
+/// Alternatively, use `TreeSelectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeSelectionProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkTreeSelection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -13984,10 +14180,6 @@ public protocol TreeSelectionProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeSelectionRef` type acts as a lightweight Swift reference to an underlying `GtkTreeSelection` instance.
-/// It exposes methods that can operate on this data type through `TreeSelectionProtocol` conformance.
-/// Use `TreeSelectionRef` only as an `unowned` reference to an existing `GtkTreeSelection` instance.
-///
 /// The selection object for GtkTreeView
 /// 
 /// The `GtkTreeSelection` object is a helper object to manage the selection
@@ -14008,11 +14200,16 @@ public protocol TreeSelectionProtocol: GLibObject.ObjectProtocol {
 /// first.
 /// 
 /// One of the important things to remember when monitoring the selection of
-/// a view is that the `GtkTreeSelection::changed` signal is mostly a hint.
+/// a view is that the `GtkTreeSelection``changed` signal is mostly a hint.
 /// That is, it may only emit one signal when a range of rows is selected.
-/// Additionally, it may on occasion emit a `GtkTreeSelection::changed` signal
+/// Additionally, it may on occasion emit a `GtkTreeSelection``changed` signal
 /// when nothing has happened (mostly as a result of programmers calling
 /// select_row on an already selected row).
+///
+/// The `TreeSelectionRef` type acts as a lightweight Swift reference to an underlying `GtkTreeSelection` instance.
+/// It exposes methods that can operate on this data type through `TreeSelectionProtocol` conformance.
+/// Use `TreeSelectionRef` only as an `unowned` reference to an existing `GtkTreeSelection` instance.
+///
 public struct TreeSelectionRef: TreeSelectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTreeSelection` instance.
     /// For type-safe access, use the generated, typed pointer `tree_selection_ptr` property instead.
@@ -14094,10 +14291,6 @@ public extension TreeSelectionRef {
 
     }
 
-/// The `TreeSelection` type acts as a reference-counted owner of an underlying `GtkTreeSelection` instance.
-/// It provides the methods that can operate on this data type through `TreeSelectionProtocol` conformance.
-/// Use `TreeSelection` as a strong reference or owner of a `GtkTreeSelection` instance.
-///
 /// The selection object for GtkTreeView
 /// 
 /// The `GtkTreeSelection` object is a helper object to manage the selection
@@ -14118,11 +14311,16 @@ public extension TreeSelectionRef {
 /// first.
 /// 
 /// One of the important things to remember when monitoring the selection of
-/// a view is that the `GtkTreeSelection::changed` signal is mostly a hint.
+/// a view is that the `GtkTreeSelection``changed` signal is mostly a hint.
 /// That is, it may only emit one signal when a range of rows is selected.
-/// Additionally, it may on occasion emit a `GtkTreeSelection::changed` signal
+/// Additionally, it may on occasion emit a `GtkTreeSelection``changed` signal
 /// when nothing has happened (mostly as a result of programmers calling
 /// select_row on an already selected row).
+///
+/// The `TreeSelection` type acts as a reference-counted owner of an underlying `GtkTreeSelection` instance.
+/// It provides the methods that can operate on this data type through `TreeSelectionProtocol` conformance.
+/// Use `TreeSelection` as a strong reference or owner of a `GtkTreeSelection` instance.
+///
 open class TreeSelection: GLibObject.Object, TreeSelectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -14332,12 +14530,14 @@ public enum TreeSelectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14418,12 +14618,14 @@ public extension TreeSelectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14499,7 +14701,7 @@ public extension TreeSelectionProtocol {
 
     /// Creates a list of path of all selected rows. Additionally, if you are
     /// planning on modifying the model after calling this function, you may
-    /// want to convert the returned list into a list of `GtkTreeRowReferences`.
+    /// want to convert the returned list into a list of `GtkTreeRowReference`s.
     /// To do this, you can use `gtk_tree_row_reference_new()`.
     /// 
     /// To free the return value, use:
@@ -14666,11 +14868,6 @@ public extension TreeSelectionProtocol {
 
 // MARK: - TreeStore Class
 
-/// The `TreeStoreProtocol` protocol exposes the methods and properties of an underlying `GtkTreeStore` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeStore`.
-/// Alternatively, use `TreeStoreRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A tree-like data structure that can be used with the GtkTreeView
 /// 
 /// The `GtkTreeStore` object is a list model for use with a `GtkTreeView`
@@ -14699,6 +14896,12 @@ public extension TreeSelectionProtocol {
 /// </object>
 /// ```
 /// 
+///
+/// The `TreeStoreProtocol` protocol exposes the methods and properties of an underlying `GtkTreeStore` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeStore`.
+/// Alternatively, use `TreeStoreRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol, TreeDragDestProtocol, TreeDragSourceProtocol, TreeModelProtocol, TreeSortableProtocol {
         /// Untyped pointer to the underlying `GtkTreeStore` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -14710,10 +14913,6 @@ public protocol TreeStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeStoreRef` type acts as a lightweight Swift reference to an underlying `GtkTreeStore` instance.
-/// It exposes methods that can operate on this data type through `TreeStoreProtocol` conformance.
-/// Use `TreeStoreRef` only as an `unowned` reference to an existing `GtkTreeStore` instance.
-///
 /// A tree-like data structure that can be used with the GtkTreeView
 /// 
 /// The `GtkTreeStore` object is a list model for use with a `GtkTreeView`
@@ -14742,6 +14941,11 @@ public protocol TreeStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
 /// </object>
 /// ```
 /// 
+///
+/// The `TreeStoreRef` type acts as a lightweight Swift reference to an underlying `GtkTreeStore` instance.
+/// It exposes methods that can operate on this data type through `TreeStoreProtocol` conformance.
+/// Use `TreeStoreRef` only as an `unowned` reference to an existing `GtkTreeStore` instance.
+///
 public struct TreeStoreRef: TreeStoreProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTreeStore` instance.
     /// For type-safe access, use the generated, typed pointer `tree_store_ptr` property instead.
@@ -14837,10 +15041,6 @@ public extension TreeStoreRef {
     }
 }
 
-/// The `TreeStore` type acts as a reference-counted owner of an underlying `GtkTreeStore` instance.
-/// It provides the methods that can operate on this data type through `TreeStoreProtocol` conformance.
-/// Use `TreeStore` as a strong reference or owner of a `GtkTreeStore` instance.
-///
 /// A tree-like data structure that can be used with the GtkTreeView
 /// 
 /// The `GtkTreeStore` object is a list model for use with a `GtkTreeView`
@@ -14869,6 +15069,11 @@ public extension TreeStoreRef {
 /// </object>
 /// ```
 /// 
+///
+/// The `TreeStore` type acts as a reference-counted owner of an underlying `GtkTreeStore` instance.
+/// It provides the methods that can operate on this data type through `TreeStoreProtocol` conformance.
+/// Use `TreeStore` as a strong reference or owner of a `GtkTreeStore` instance.
+///
 open class TreeStore: GLibObject.Object, TreeStoreProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -15032,12 +15237,14 @@ public enum TreeStoreSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15140,10 +15347,10 @@ public extension TreeStoreProtocol {
         return rv
     }
 
-    /// WARNING: This function is slow. Only use it for debugging and/or testing
-    /// purposes.
-    /// 
     /// Checks if the given iter is a valid iter for this `GtkTreeStore`.
+    /// 
+    /// This function is slow. Only use it for debugging and/or testing
+    /// purposes.
     @inlinable func iterIsValid<TreeIterT: TreeIterProtocol>(iter: TreeIterT) -> Bool {
         let rv = ((gtk_tree_store_iter_is_valid(tree_store_ptr, iter.tree_iter_ptr)) != 0)
         return rv
@@ -15259,11 +15466,6 @@ public extension TreeStoreProtocol {
 
 // MARK: - TreeView Class
 
-/// The `TreeViewProtocol` protocol exposes the methods and properties of an underlying `GtkTreeView` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeView`.
-/// Alternatively, use `TreeViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A widget for displaying both trees and lists
 /// 
 /// Widget that displays any object that implements the [iface`Gtk.TreeModel`] interface.
@@ -15350,6 +15552,12 @@ public extension TreeStoreProtocol {
 /// For rubberband selection, a subnode with name `rubberband` is used.
 /// 
 /// For the drop target location during DND, a subnode with name `dndtarget` is used.
+///
+/// The `TreeViewProtocol` protocol exposes the methods and properties of an underlying `GtkTreeView` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeView`.
+/// Alternatively, use `TreeViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeViewProtocol: WidgetProtocol, ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkTreeView` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -15361,10 +15569,6 @@ public protocol TreeViewProtocol: WidgetProtocol, ScrollableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeViewRef` type acts as a lightweight Swift reference to an underlying `GtkTreeView` instance.
-/// It exposes methods that can operate on this data type through `TreeViewProtocol` conformance.
-/// Use `TreeViewRef` only as an `unowned` reference to an existing `GtkTreeView` instance.
-///
 /// A widget for displaying both trees and lists
 /// 
 /// Widget that displays any object that implements the [iface`Gtk.TreeModel`] interface.
@@ -15451,6 +15655,11 @@ public protocol TreeViewProtocol: WidgetProtocol, ScrollableProtocol {
 /// For rubberband selection, a subnode with name `rubberband` is used.
 /// 
 /// For the drop target location during DND, a subnode with name `dndtarget` is used.
+///
+/// The `TreeViewRef` type acts as a lightweight Swift reference to an underlying `GtkTreeView` instance.
+/// It exposes methods that can operate on this data type through `TreeViewProtocol` conformance.
+/// Use `TreeViewRef` only as an `unowned` reference to an existing `GtkTreeView` instance.
+///
 public struct TreeViewRef: TreeViewProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTreeView` instance.
     /// For type-safe access, use the generated, typed pointer `tree_view_ptr` property instead.
@@ -15548,10 +15757,6 @@ public extension TreeViewRef {
     }
 }
 
-/// The `TreeView` type acts as a reference-counted owner of an underlying `GtkTreeView` instance.
-/// It provides the methods that can operate on this data type through `TreeViewProtocol` conformance.
-/// Use `TreeView` as a strong reference or owner of a `GtkTreeView` instance.
-///
 /// A widget for displaying both trees and lists
 /// 
 /// Widget that displays any object that implements the [iface`Gtk.TreeModel`] interface.
@@ -15638,6 +15843,11 @@ public extension TreeViewRef {
 /// For rubberband selection, a subnode with name `rubberband` is used.
 /// 
 /// For the drop target location during DND, a subnode with name `dndtarget` is used.
+///
+/// The `TreeView` type acts as a reference-counted owner of an underlying `GtkTreeView` instance.
+/// It provides the methods that can operate on this data type through `TreeViewProtocol` conformance.
+/// Use `TreeView` as a strong reference or owner of a `GtkTreeView` instance.
+///
 open class TreeView: Widget, TreeViewProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -16056,15 +16266,15 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     /// The default handler for this signal activates `widget` if `group_cycling`
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
-    /// The `GtkTreeView::move-cursor` signal is a [keybinding
-    /// signal](#GtkSignalAction) which gets emitted when the user
+    /// The `GtkTreeView``move-cursor` signal is a [keybinding
+    /// signal](#class@Gtk.SignalAction) which gets emitted when the user
     /// presses one of the cursor keys.
     /// 
     /// Applications should not connect to it, but may emit it with
     /// `g_signal_emit_by_name()` if they need to control the cursor
     /// programmatically. In contrast to `gtk_tree_view_set_cursor()` and
     /// `gtk_tree_view_set_cursor_on_cell()` when moving horizontally
-    /// `GtkTreeView::move-cursor` does not reset the current selection.
+    /// `GtkTreeView``move-cursor` does not reset the current selection.
     case moveCursor = "move-cursor"
     /// Emitted when the focus is moved.
     case moveFocus = "move-focus"
@@ -16083,12 +16293,14 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16114,12 +16326,14 @@ public enum TreeViewSignalName: String, SignalNameProtocol {
     /// or the widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
     /// The "row-activated" signal is emitted when the method
-    /// `gtk_tree_view_row_activated()` is called, when the user double
-    /// clicks a treeview row with the "activate-on-single-click"
-    /// property set to `false`, or when the user single clicks a row when
-    /// the "activate-on-single-click" property set to `true`. It is also
-    /// emitted when a non-editable row is selected and one of the keys:
-    /// Space, Shift+Space, Return or Enter is pressed.
+    /// `gtk_tree_view_row_activated()` is called.
+    /// 
+    /// This signal is emitted when the user double-clicks a treeview row with the
+    /// [property`Gtk.TreeView:activate-on-single-click`] property set to `false`,
+    /// or when the user single-clicks a row when that property set to `true`.
+    /// 
+    /// This signal is also emitted when a non-editable row is selected and one
+    /// of the keys: &lt;kbd&gt;Space&lt;/kbd&gt;, &lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;Space&lt;/kbd&gt;, &lt;kbd&gt;Return&lt;/kbd&gt; or &lt;kbd&gt;Enter&lt;/kbd&gt; is pressed.
     /// 
     /// For selection handling refer to the
     /// [tree widget conceptual overview](#TreeWidget)
@@ -16445,15 +16659,15 @@ public extension TreeViewProtocol {
     /// Typed `expand-collapse-cursor-row` signal for using the `connect(signal:)` methods
     static var expandCollapseCursorRowSignal: TreeViewSignalName { .expandCollapseCursorRow }
     
-    /// The `GtkTreeView::move-cursor` signal is a [keybinding
-    /// signal](#GtkSignalAction) which gets emitted when the user
+    /// The `GtkTreeView``move-cursor` signal is a [keybinding
+    /// signal](#class@Gtk.SignalAction) which gets emitted when the user
     /// presses one of the cursor keys.
     /// 
     /// Applications should not connect to it, but may emit it with
     /// `g_signal_emit_by_name()` if they need to control the cursor
     /// programmatically. In contrast to `gtk_tree_view_set_cursor()` and
     /// `gtk_tree_view_set_cursor_on_cell()` when moving horizontally
-    /// `GtkTreeView::move-cursor` does not reset the current selection.
+    /// `GtkTreeView``move-cursor` does not reset the current selection.
     /// - Note: This represents the underlying `move-cursor` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -16483,12 +16697,14 @@ public extension TreeViewProtocol {
     static var moveCursorSignal: TreeViewSignalName { .moveCursor }
     
     /// The "row-activated" signal is emitted when the method
-    /// `gtk_tree_view_row_activated()` is called, when the user double
-    /// clicks a treeview row with the "activate-on-single-click"
-    /// property set to `false`, or when the user single clicks a row when
-    /// the "activate-on-single-click" property set to `true`. It is also
-    /// emitted when a non-editable row is selected and one of the keys:
-    /// Space, Shift+Space, Return or Enter is pressed.
+    /// `gtk_tree_view_row_activated()` is called.
+    /// 
+    /// This signal is emitted when the user double-clicks a treeview row with the
+    /// [property`Gtk.TreeView:activate-on-single-click`] property set to `false`,
+    /// or when the user single-clicks a row when that property set to `true`.
+    /// 
+    /// This signal is also emitted when a non-editable row is selected and one
+    /// of the keys: &lt;kbd&gt;Space&lt;/kbd&gt;, &lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;Space&lt;/kbd&gt;, &lt;kbd&gt;Return&lt;/kbd&gt; or &lt;kbd&gt;Enter&lt;/kbd&gt; is pressed.
     /// 
     /// For selection handling refer to the
     /// [tree widget conceptual overview](#TreeWidget)
@@ -16500,11 +16716,11 @@ public extension TreeViewProtocol {
     /// - Parameter column: the `GtkTreeViewColumn` in which the activation occurred
     /// - Parameter handler: The signal handler to call
     /// Run the given callback whenever the `rowActivated` signal is emitted
-    @discardableResult @inlinable func onRowActivated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeViewRef, _ path: TreePathRef, _ column: TreeViewColumnRef) -> Void ) -> Int {
-        typealias SwiftHandler = GLib.ClosureHolder3<TreeViewRef, TreePathRef, TreeViewColumnRef, Void>
-        let cCallback: @convention(c) (gpointer, gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
+    @discardableResult @inlinable func onRowActivated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeViewRef, _ path: TreePathRef, _ column: TreeViewColumnRef?) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder3<TreeViewRef, TreePathRef, TreeViewColumnRef?, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer?, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
-            let output: Void = holder.call(TreeViewRef(raw: unownedSelf), TreePathRef(raw: arg1), TreeViewColumnRef(raw: arg2))
+            let output: Void = holder.call(TreeViewRef(raw: unownedSelf), TreePathRef(raw: arg1), arg2.flatMap(TreeViewColumnRef.init(raw:)))
             return output
         }
         return connect(
@@ -16789,12 +17005,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16838,12 +17056,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16887,12 +17107,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16936,12 +17158,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16985,12 +17209,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17034,12 +17260,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17083,12 +17311,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17132,12 +17362,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17181,12 +17413,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17230,12 +17464,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17279,12 +17515,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17328,12 +17566,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17377,12 +17617,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17426,12 +17668,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17475,12 +17719,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17524,12 +17770,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17573,12 +17821,14 @@ public extension TreeViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17689,14 +17939,14 @@ public extension TreeViewProtocol {
     }
 
     /// Turns `tree_view` into a drop destination for automatic DND. Calling
-    /// this method sets `GtkTreeView:reorderable` to `false`.
+    /// this method sets `GtkTreeView`:reorderable to `false`.
     @inlinable func enableModelDragDest<ContentFormatsT: Gdk.ContentFormatsProtocol>(formats: ContentFormatsT, actions: Gdk.DragAction) {
         gtk_tree_view_enable_model_drag_dest(tree_view_ptr, formats.content_formats_ptr, actions.value)
     
     }
 
     /// Turns `tree_view` into a drag source for automatic DND. Calling this
-    /// method sets `GtkTreeView:reorderable` to `false`.
+    /// method sets `GtkTreeView`:reorderable to `false`.
     @inlinable func enableModelDragSource<ContentFormatsT: Gdk.ContentFormatsProtocol>(startButtonMask: Gdk.ModifierType, formats: ContentFormatsT, actions: Gdk.DragAction) {
         gtk_tree_view_enable_model_drag_source(tree_view_ptr, startButtonMask.value, formats.content_formats_ptr, actions.value)
     
@@ -17787,7 +18037,7 @@ public extension TreeViewProtocol {
         return rv
     }
 
-    /// Returns a `GList` of all the `GtkTreeViewColumn` s currently in `tree_view`.
+    /// Returns a `GList` of all the `GtkTreeViewColumn`s currently in `tree_view`.
     /// The returned list must be freed with g_list_free ().
     @inlinable func getColumns() -> GLib.ListRef! {
         let rv = GLib.ListRef(gtk_tree_view_get_columns(tree_view_ptr))
@@ -17978,31 +18228,31 @@ public extension TreeViewProtocol {
         return rv
     }
 
-    /// This function is supposed to be used in a `GtkWidget::query-tooltip`
-    /// signal handler for `GtkTreeView`.  The `x`, `y` and `keyboard_tip` values
+    /// This function is supposed to be used in a `query-tooltip`
+    /// signal handler for `GtkTreeView`. The `x`, `y` and `keyboard_tip` values
     /// which are received in the signal handler, should be passed to this
     /// function without modification.
     /// 
     /// The return value indicates whether there is a tree view row at the given
-    /// coordinates (`true`) or not (`false`) for mouse tooltips.  For keyboard
-    /// tooltips the row returned will be the cursor row.  When `true`, then any of
+    /// coordinates (`true`) or not (`false`) for mouse tooltips. For keyboard
+    /// tooltips the row returned will be the cursor row. When `true`, then any of
     /// `model`, `path` and `iter` which have been provided will be set to point to
-    /// that row and the corresponding model.  `x` and `y` will always be converted
+    /// that row and the corresponding model. `x` and `y` will always be converted
     /// to be relative to `tree_view`’s bin_window if `keyboard_tooltip` is `false`.
     @inlinable func getTooltipContext(x: Int, y: Int, keyboardTip: Bool, model: UnsafeMutablePointer<UnsafeMutablePointer<GtkTreeModel>?>? = nil, path: UnsafeMutablePointer<UnsafeMutablePointer<GtkTreePath>?>! = nil, iter: TreeIterRef? = nil) -> Bool {
         let rv = ((gtk_tree_view_get_tooltip_context(tree_view_ptr, gint(x), gint(y), gboolean((keyboardTip) ? 1 : 0), model, path, iter?.tree_iter_ptr)) != 0)
         return rv
     }
-    /// This function is supposed to be used in a `GtkWidget::query-tooltip`
-    /// signal handler for `GtkTreeView`.  The `x`, `y` and `keyboard_tip` values
+    /// This function is supposed to be used in a `query-tooltip`
+    /// signal handler for `GtkTreeView`. The `x`, `y` and `keyboard_tip` values
     /// which are received in the signal handler, should be passed to this
     /// function without modification.
     /// 
     /// The return value indicates whether there is a tree view row at the given
-    /// coordinates (`true`) or not (`false`) for mouse tooltips.  For keyboard
-    /// tooltips the row returned will be the cursor row.  When `true`, then any of
+    /// coordinates (`true`) or not (`false`) for mouse tooltips. For keyboard
+    /// tooltips the row returned will be the cursor row. When `true`, then any of
     /// `model`, `path` and `iter` which have been provided will be set to point to
-    /// that row and the corresponding model.  `x` and `y` will always be converted
+    /// that row and the corresponding model. `x` and `y` will always be converted
     /// to be relative to `tree_view`’s bin_window if `keyboard_tooltip` is `false`.
     @inlinable func getTooltipContext<TreeIterT: TreeIterProtocol>(x: Int, y: Int, keyboardTip: Bool, model: UnsafeMutablePointer<UnsafeMutablePointer<GtkTreeModel>?>? = nil, path: UnsafeMutablePointer<UnsafeMutablePointer<GtkTreePath>?>! = nil, iter: TreeIterT?) -> Bool {
         let rv = ((gtk_tree_view_get_tooltip_context(tree_view_ptr, gint(x), gint(y), gboolean((keyboardTip) ? 1 : 0), model, path, iter?.tree_iter_ptr)) != 0)
@@ -18094,8 +18344,13 @@ public extension TreeViewProtocol {
     }
 
     /// Activates the cell determined by `path` and `column`.
-    @inlinable func rowActivated<TreePathT: TreePathProtocol, TreeViewColumnT: TreeViewColumnProtocol>(path: TreePathT, column: TreeViewColumnT) {
-        gtk_tree_view_row_activated(tree_view_ptr, path.tree_path_ptr, column.tree_view_column_ptr)
+    @inlinable func rowActivated<TreePathT: TreePathProtocol>(path: TreePathT, column: TreeViewColumnRef? = nil) {
+        gtk_tree_view_row_activated(tree_view_ptr, path.tree_path_ptr, column?.tree_view_column_ptr)
+    
+    }
+    /// Activates the cell determined by `path` and `column`.
+    @inlinable func rowActivated<TreePathT: TreePathProtocol, TreeViewColumnT: TreeViewColumnProtocol>(path: TreePathT, column: TreeViewColumnT?) {
+        gtk_tree_view_row_activated(tree_view_ptr, path.tree_path_ptr, column?.tree_view_column_ptr)
     
     }
 
@@ -18158,7 +18413,7 @@ public extension TreeViewProtocol {
     
     }
 
-    /// Cause the `GtkTreeView::row-activated` signal to be emitted
+    /// Cause the `GtkTreeView``row-activated` signal to be emitted
     /// on a single click instead of a double click.
     @inlinable func setActivateOnSingleClick(single: Bool) {
         gtk_tree_view_set_activate_on_single_click(tree_view_ptr, gboolean((single) ? 1 : 0))
@@ -18169,7 +18424,7 @@ public extension TreeViewProtocol {
     /// dragged.  This function is called on every column pair in turn at the
     /// beginning of a column drag to determine where a drop can take place.  The
     /// arguments passed to `func` are: the `tree_view`, the `GtkTreeViewColumn` being
-    /// dragged, the two `GtkTreeViewColumn` s determining the drop spot, and
+    /// dragged, the two `GtkTreeViewColumn`s determining the drop spot, and
     /// `user_data`.  If either of the `GtkTreeViewColumn` arguments for the drop spot
     /// are `nil`, then they indicate an edge.  If `func` is set to be `nil`, then
     /// `tree_view` reverts to the default behavior of allowing all columns to be
@@ -18373,8 +18628,8 @@ public extension TreeViewProtocol {
     /// `GtkTreeDragDestIface`.  Both `GtkTreeStore` and `GtkListStore` support
     /// these.  If `reorderable` is `true`, then the user can reorder the
     /// model by dragging and dropping rows. The developer can listen to
-    /// these changes by connecting to the model’s `GtkTreeModel::row-inserted`
-    /// and `GtkTreeModel::row-deleted` signals. The reordering is implemented
+    /// these changes by connecting to the model’s `GtkTreeModel`row-inserted``
+    /// and `GtkTreeModel`row-deleted`` signals. The reordering is implemented
     /// by setting up the tree view as a drag source and destination.
     /// Therefore, drag and drop can not be used in a reorderable view for any
     /// other purpose.
@@ -18438,7 +18693,7 @@ public extension TreeViewProtocol {
 
     /// Sets the compare function for the interactive search capabilities; note
     /// that somewhat like `strcmp()` returning 0 for equality
-    /// `GtkTreeViewSearchEqualFunc` returns `false` on matches.
+    /// `GtkTreeView`SearchEqualFunc returns `false` on matches.
     @inlinable func set(searchEqualFunc: GtkTreeViewSearchEqualFunc?, searchUserData: gpointer! = nil, searchDestroy: GDestroyNotify? = nil) {
         gtk_tree_view_set_search_equal_func(tree_view_ptr, searchEqualFunc, searchUserData, searchDestroy)
     
@@ -18493,7 +18748,7 @@ public extension TreeViewProtocol {
     /// containing the tooltip texts, or -1 to disable this feature.
     /// 
     /// When enabled, `GtkWidget:has-tooltip` will be set to `true` and
-    /// `tree_view` will connect a `GtkWidget::query-tooltip` signal handler.
+    /// `tree_view` will connect a `GtkWidget`query-tooltip`` signal handler.
     /// 
     /// Note that the signal handler sets the text with `gtk_tooltip_set_markup()`,
     /// so &, &lt;, etc have to be escaped in the text.
@@ -18512,7 +18767,7 @@ public extension TreeViewProtocol {
 
     /// Undoes the effect of
     /// `gtk_tree_view_enable_model_drag_dest()`. Calling this method sets
-    /// `GtkTreeView:reorderable` to `false`.
+    /// `GtkTreeView`:reorderable to `false`.
     @inlinable func unsetRowsDragDest() {
         gtk_tree_view_unset_rows_drag_dest(tree_view_ptr)
     
@@ -18520,7 +18775,7 @@ public extension TreeViewProtocol {
 
     /// Undoes the effect of
     /// `gtk_tree_view_enable_model_drag_source()`. Calling this method sets
-    /// `GtkTreeView:reorderable` to `false`.
+    /// `GtkTreeView`:reorderable to `false`.
     @inlinable func unsetRowsDragSource() {
         gtk_tree_view_unset_rows_drag_source(tree_view_ptr)
     
@@ -18532,17 +18787,17 @@ public extension TreeViewProtocol {
             let rv = ((gtk_tree_view_get_activate_on_single_click(tree_view_ptr)) != 0)
             return rv
         }
-        /// Cause the `GtkTreeView::row-activated` signal to be emitted
+        /// Cause the `GtkTreeView``row-activated` signal to be emitted
         /// on a single click instead of a double click.
         nonmutating set {
             gtk_tree_view_set_activate_on_single_click(tree_view_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    /// Returns a `GList` of all the `GtkTreeViewColumn` s currently in `tree_view`.
+    /// Returns a `GList` of all the `GtkTreeViewColumn`s currently in `tree_view`.
     /// The returned list must be freed with g_list_free ().
     @inlinable var columns: GLib.ListRef! {
-        /// Returns a `GList` of all the `GtkTreeViewColumn` s currently in `tree_view`.
+        /// Returns a `GList` of all the `GtkTreeViewColumn`s currently in `tree_view`.
         /// The returned list must be freed with g_list_free ().
         get {
             let rv = GLib.ListRef(gtk_tree_view_get_columns(tree_view_ptr))
@@ -18758,8 +19013,8 @@ public extension TreeViewProtocol {
         /// `GtkTreeDragDestIface`.  Both `GtkTreeStore` and `GtkListStore` support
         /// these.  If `reorderable` is `true`, then the user can reorder the
         /// model by dragging and dropping rows. The developer can listen to
-        /// these changes by connecting to the model’s `GtkTreeModel::row-inserted`
-        /// and `GtkTreeModel::row-deleted` signals. The reordering is implemented
+        /// these changes by connecting to the model’s `GtkTreeModel`row-inserted``
+        /// and `GtkTreeModel`row-deleted`` signals. The reordering is implemented
         /// by setting up the tree view as a drag source and destination.
         /// Therefore, drag and drop can not be used in a reorderable view for any
         /// other purpose.
@@ -18894,7 +19149,7 @@ public extension TreeViewProtocol {
         /// containing the tooltip texts, or -1 to disable this feature.
         /// 
         /// When enabled, `GtkWidget:has-tooltip` will be set to `true` and
-        /// `tree_view` will connect a `GtkWidget::query-tooltip` signal handler.
+        /// `tree_view` will connect a `GtkWidget`query-tooltip`` signal handler.
         /// 
         /// Note that the signal handler sets the text with `gtk_tooltip_set_markup()`,
         /// so &, &lt;, etc have to be escaped in the text.
@@ -18916,11 +19171,6 @@ public extension TreeViewProtocol {
 
 // MARK: - TreeViewColumn Class
 
-/// The `TreeViewColumnProtocol` protocol exposes the methods and properties of an underlying `GtkTreeViewColumn` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeViewColumn`.
-/// Alternatively, use `TreeViewColumnRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A visible column in a GtkTreeView widget
 /// 
 /// The GtkTreeViewColumn object represents a visible column in a `GtkTreeView` widget.
@@ -18931,6 +19181,12 @@ public extension TreeViewProtocol {
 /// for an overview of all the objects and data types related to the tree widget and
 /// how they work together, and to the `GtkTreeView` documentation for specifics about
 /// the CSS node structure for treeviews and their headers.
+///
+/// The `TreeViewColumnProtocol` protocol exposes the methods and properties of an underlying `GtkTreeViewColumn` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeViewColumn`.
+/// Alternatively, use `TreeViewColumnRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeViewColumnProtocol: GLibObject.InitiallyUnownedProtocol, BuildableProtocol, CellLayoutProtocol {
         /// Untyped pointer to the underlying `GtkTreeViewColumn` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -18942,10 +19198,6 @@ public protocol TreeViewColumnProtocol: GLibObject.InitiallyUnownedProtocol, Bui
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeViewColumnRef` type acts as a lightweight Swift reference to an underlying `GtkTreeViewColumn` instance.
-/// It exposes methods that can operate on this data type through `TreeViewColumnProtocol` conformance.
-/// Use `TreeViewColumnRef` only as an `unowned` reference to an existing `GtkTreeViewColumn` instance.
-///
 /// A visible column in a GtkTreeView widget
 /// 
 /// The GtkTreeViewColumn object represents a visible column in a `GtkTreeView` widget.
@@ -18956,6 +19208,11 @@ public protocol TreeViewColumnProtocol: GLibObject.InitiallyUnownedProtocol, Bui
 /// for an overview of all the objects and data types related to the tree widget and
 /// how they work together, and to the `GtkTreeView` documentation for specifics about
 /// the CSS node structure for treeviews and their headers.
+///
+/// The `TreeViewColumnRef` type acts as a lightweight Swift reference to an underlying `GtkTreeViewColumn` instance.
+/// It exposes methods that can operate on this data type through `TreeViewColumnProtocol` conformance.
+/// Use `TreeViewColumnRef` only as an `unowned` reference to an existing `GtkTreeViewColumn` instance.
+///
 public struct TreeViewColumnRef: TreeViewColumnProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkTreeViewColumn` instance.
     /// For type-safe access, use the generated, typed pointer `tree_view_column_ptr` property instead.
@@ -19061,10 +19318,6 @@ public extension TreeViewColumnRef {
 
 }
 
-/// The `TreeViewColumn` type acts as a reference-counted owner of an underlying `GtkTreeViewColumn` instance.
-/// It provides the methods that can operate on this data type through `TreeViewColumnProtocol` conformance.
-/// Use `TreeViewColumn` as a strong reference or owner of a `GtkTreeViewColumn` instance.
-///
 /// A visible column in a GtkTreeView widget
 /// 
 /// The GtkTreeViewColumn object represents a visible column in a `GtkTreeView` widget.
@@ -19075,6 +19328,11 @@ public extension TreeViewColumnRef {
 /// for an overview of all the objects and data types related to the tree widget and
 /// how they work together, and to the `GtkTreeView` documentation for specifics about
 /// the CSS node structure for treeviews and their headers.
+///
+/// The `TreeViewColumn` type acts as a reference-counted owner of an underlying `GtkTreeViewColumn` instance.
+/// It provides the methods that can operate on this data type through `TreeViewColumnProtocol` conformance.
+/// Use `TreeViewColumn` as a strong reference or owner of a `GtkTreeViewColumn` instance.
+///
 open class TreeViewColumn: GLibObject.InitiallyUnowned, TreeViewColumnProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -19330,12 +19588,14 @@ public enum TreeViewColumnSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19435,12 +19695,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19484,12 +19746,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19533,12 +19797,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19582,12 +19848,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19631,12 +19899,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19680,12 +19950,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19729,12 +20001,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19778,12 +20052,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19827,12 +20103,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19876,12 +20154,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19925,12 +20205,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19974,12 +20256,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20023,12 +20307,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20072,12 +20358,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20121,12 +20409,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20170,12 +20460,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20219,12 +20511,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20268,12 +20562,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20317,12 +20613,14 @@ public extension TreeViewColumnProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20358,7 +20656,9 @@ public extension TreeViewColumnProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkTreeViewColumn` instance.
     @inlinable var tree_view_column_ptr: UnsafeMutablePointer<GtkTreeViewColumn>! { return ptr?.assumingMemoryBound(to: GtkTreeViewColumn.self) }
 
-    /// Adds an attribute mapping to the list in `tree_column`.  The `column` is the
+    /// Adds an attribute mapping to the list in `tree_column`.
+    /// 
+    /// The `column` is the
     /// column of the model to get a value from, and the `attribute` is the
     /// parameter on `cell_renderer` to be set from the value. So for example
     /// if column 2 of the model contains strings, you could have the
@@ -20369,9 +20669,10 @@ public extension TreeViewColumnProtocol {
     
     }
 
-    /// Obtains the horizontal position and size of a cell in a column. If the
-    /// cell is not found in the column, `start_pos` and `width` are not changed and
-    /// `false` is returned.
+    /// Obtains the horizontal position and size of a cell in a column.
+    /// 
+    /// If the  cell is not found in the column, `start_pos` and `width`
+    /// are not changed and `false` is returned.
     @inlinable func cellGetPosition<CellRendererT: CellRendererProtocol>(cellRenderer: CellRendererT, xOffset: UnsafeMutablePointer<gint>! = nil, width: UnsafeMutablePointer<gint>! = nil) -> Bool {
         let rv = ((gtk_tree_view_column_cell_get_position(tree_view_column_ptr, cellRenderer.cell_renderer_ptr, xOffset, width)) != 0)
         return rv
@@ -20492,9 +20793,10 @@ public extension TreeViewColumnProtocol {
         return rv
     }
 
-    /// Gets the logical `sort_column_id` that the model sorts on when this
-    /// column is selected for sorting.
-    /// See `gtk_tree_view_column_set_sort_column_id()`.
+    /// Gets the logical `sort_column_id` that the model sorts on
+    /// when this column is selected for sorting.
+    /// 
+    /// See [method`Gtk.TreeViewColumn.set_sort_column_id`].
     @inlinable func getSortColumnId() -> Int {
         let rv = Int(gtk_tree_view_column_get_sort_column_id(tree_view_column_ptr))
         return rv
@@ -20539,6 +20841,7 @@ public extension TreeViewColumnProtocol {
     }
 
     /// Returns the `GtkWidget` in the button on the column header.
+    /// 
     /// If a custom widget has not been set then `nil` is returned.
     @inlinable func getWidget() -> WidgetRef! {
         let rv = WidgetRef(gconstpointer: gconstpointer(gtk_tree_view_column_get_widget(tree_view_column_ptr)))
@@ -20592,7 +20895,9 @@ public extension TreeViewColumnProtocol {
     // *** setAttributes() is not available because it has a varargs (...) parameter!
 
 
-    /// Sets the `GtkTreeCellDataFunc` to use for the column.  This
+    /// Sets the `GtkTreeCellDataFunc` to use for the column.
+    /// 
+    /// This
     /// function is used instead of the standard attributes mapping for
     /// setting the column value, and should set the value of `tree_column`'s
     /// cell renderer as appropriate.  `func` may be `nil` to remove an
@@ -20661,7 +20966,9 @@ public extension TreeViewColumnProtocol {
     }
 
     /// If `resizable` is `true`, then the user can explicitly resize the column by
-    /// grabbing the outer edge of the column button.  If resizable is `true` and
+    /// grabbing the outer edge of the column button.
+    /// 
+    /// If resizable is `true` and
     /// sizing mode of the column is `GTK_TREE_VIEW_COLUMN_AUTOSIZE`, then the sizing
     /// mode is changed to `GTK_TREE_VIEW_COLUMN_GROW_ONLY`.
     @inlinable func set(resizable: Bool) {
@@ -20873,7 +21180,9 @@ public extension TreeViewColumnProtocol {
             return rv
         }
         /// If `resizable` is `true`, then the user can explicitly resize the column by
-        /// grabbing the outer edge of the column button.  If resizable is `true` and
+        /// grabbing the outer edge of the column button.
+        /// 
+        /// If resizable is `true` and
         /// sizing mode of the column is `GTK_TREE_VIEW_COLUMN_AUTOSIZE`, then the sizing
         /// mode is changed to `GTK_TREE_VIEW_COLUMN_GROW_ONLY`.
         nonmutating set {
@@ -20893,13 +21202,15 @@ public extension TreeViewColumnProtocol {
         }
     }
 
-    /// Gets the logical `sort_column_id` that the model sorts on when this
-    /// column is selected for sorting.
-    /// See `gtk_tree_view_column_set_sort_column_id()`.
+    /// Gets the logical `sort_column_id` that the model sorts on
+    /// when this column is selected for sorting.
+    /// 
+    /// See [method`Gtk.TreeViewColumn.set_sort_column_id`].
     @inlinable var sortColumnId: Int {
-        /// Gets the logical `sort_column_id` that the model sorts on when this
-        /// column is selected for sorting.
-        /// See `gtk_tree_view_column_set_sort_column_id()`.
+        /// Gets the logical `sort_column_id` that the model sorts on
+        /// when this column is selected for sorting.
+        /// 
+        /// See [method`Gtk.TreeViewColumn.set_sort_column_id`].
         get {
             let rv = Int(gtk_tree_view_column_get_sort_column_id(tree_view_column_ptr))
             return rv
@@ -21003,6 +21314,7 @@ public extension TreeViewColumnProtocol {
 
     @inlinable var widget: WidgetRef! {
         /// Returns the `GtkWidget` in the button on the column header.
+        /// 
         /// If a custom widget has not been set then `nil` is returned.
         get {
             let rv = WidgetRef(gconstpointer: gconstpointer(gtk_tree_view_column_get_widget(tree_view_column_ptr)))
@@ -21039,11 +21351,6 @@ public extension TreeViewColumnProtocol {
 
 // MARK: - Video Class
 
-/// The `VideoProtocol` protocol exposes the methods and properties of an underlying `GtkVideo` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Video`.
-/// Alternatively, use `VideoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkVideo` is a widget to show a `GtkMediaStream` with media controls.
 /// 
 /// ![An example GtkVideo](video.png)
@@ -21058,6 +21365,12 @@ public extension TreeViewColumnProtocol {
 /// selection, or input. If you are writing a full-fledged video player,
 /// you may want to use the [class`Gdk.Paintable`] API and a media framework
 /// such as Gstreamer directly.
+///
+/// The `VideoProtocol` protocol exposes the methods and properties of an underlying `GtkVideo` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Video`.
+/// Alternatively, use `VideoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol VideoProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkVideo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -21069,10 +21382,6 @@ public protocol VideoProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `VideoRef` type acts as a lightweight Swift reference to an underlying `GtkVideo` instance.
-/// It exposes methods that can operate on this data type through `VideoProtocol` conformance.
-/// Use `VideoRef` only as an `unowned` reference to an existing `GtkVideo` instance.
-///
 /// `GtkVideo` is a widget to show a `GtkMediaStream` with media controls.
 /// 
 /// ![An example GtkVideo](video.png)
@@ -21087,6 +21396,11 @@ public protocol VideoProtocol: WidgetProtocol {
 /// selection, or input. If you are writing a full-fledged video player,
 /// you may want to use the [class`Gdk.Paintable`] API and a media framework
 /// such as Gstreamer directly.
+///
+/// The `VideoRef` type acts as a lightweight Swift reference to an underlying `GtkVideo` instance.
+/// It exposes methods that can operate on this data type through `VideoProtocol` conformance.
+/// Use `VideoRef` only as an `unowned` reference to an existing `GtkVideo` instance.
+///
 public struct VideoRef: VideoProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkVideo` instance.
     /// For type-safe access, use the generated, typed pointer `video_ptr` property instead.
@@ -21232,10 +21546,6 @@ public extension VideoRef {
     }
 }
 
-/// The `Video` type acts as a reference-counted owner of an underlying `GtkVideo` instance.
-/// It provides the methods that can operate on this data type through `VideoProtocol` conformance.
-/// Use `Video` as a strong reference or owner of a `GtkVideo` instance.
-///
 /// `GtkVideo` is a widget to show a `GtkMediaStream` with media controls.
 /// 
 /// ![An example GtkVideo](video.png)
@@ -21250,6 +21560,11 @@ public extension VideoRef {
 /// selection, or input. If you are writing a full-fledged video player,
 /// you may want to use the [class`Gdk.Paintable`] API and a media framework
 /// such as Gstreamer directly.
+///
+/// The `Video` type acts as a reference-counted owner of an underlying `GtkVideo` instance.
+/// It provides the methods that can operate on this data type through `VideoProtocol` conformance.
+/// Use `Video` as a strong reference or owner of a `GtkVideo` instance.
+///
 open class Video: Widget, VideoProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -21703,12 +22018,14 @@ public enum VideoSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

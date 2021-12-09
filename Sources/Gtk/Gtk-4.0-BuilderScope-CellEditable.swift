@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - BuilderScope Interface
 
-/// The `BuilderScopeProtocol` protocol exposes the methods and properties of an underlying `GtkBuilderScope` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `BuilderScope`.
-/// Alternatively, use `BuilderScopeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkBuilderScope` is an interface to provide language binding support
 /// to `GtkBuilder`.
 /// 
@@ -34,6 +29,12 @@ import Gdk
 /// 
 /// By default, GTK will use its own implementation of `GtkBuilderScope`
 /// for the C language which can be created via [ctor`Gtk.BuilderCScope.new`].
+///
+/// The `BuilderScopeProtocol` protocol exposes the methods and properties of an underlying `GtkBuilderScope` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `BuilderScope`.
+/// Alternatively, use `BuilderScopeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BuilderScopeProtocol {
         /// Untyped pointer to the underlying `GtkBuilderScope` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -45,10 +46,6 @@ public protocol BuilderScopeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BuilderScopeRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderScope` instance.
-/// It exposes methods that can operate on this data type through `BuilderScopeProtocol` conformance.
-/// Use `BuilderScopeRef` only as an `unowned` reference to an existing `GtkBuilderScope` instance.
-///
 /// `GtkBuilderScope` is an interface to provide language binding support
 /// to `GtkBuilder`.
 /// 
@@ -63,6 +60,11 @@ public protocol BuilderScopeProtocol {
 /// 
 /// By default, GTK will use its own implementation of `GtkBuilderScope`
 /// for the C language which can be created via [ctor`Gtk.BuilderCScope.new`].
+///
+/// The `BuilderScopeRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderScope` instance.
+/// It exposes methods that can operate on this data type through `BuilderScopeProtocol` conformance.
+/// Use `BuilderScopeRef` only as an `unowned` reference to an existing `GtkBuilderScope` instance.
+///
 public struct BuilderScopeRef: BuilderScopeProtocol {
         /// Untyped pointer to the underlying `GtkBuilderScope` instance.
     /// For type-safe access, use the generated, typed pointer `builder_scope_ptr` property instead.
@@ -141,10 +143,6 @@ public extension BuilderScopeRef {
 
     }
 
-/// The `BuilderScope` type acts as an owner of an underlying `GtkBuilderScope` instance.
-/// It provides the methods that can operate on this data type through `BuilderScopeProtocol` conformance.
-/// Use `BuilderScope` as a strong reference or owner of a `GtkBuilderScope` instance.
-///
 /// `GtkBuilderScope` is an interface to provide language binding support
 /// to `GtkBuilder`.
 /// 
@@ -159,6 +157,11 @@ public extension BuilderScopeRef {
 /// 
 /// By default, GTK will use its own implementation of `GtkBuilderScope`
 /// for the C language which can be created via [ctor`Gtk.BuilderCScope.new`].
+///
+/// The `BuilderScope` type acts as an owner of an underlying `GtkBuilderScope` instance.
+/// It provides the methods that can operate on this data type through `BuilderScopeProtocol` conformance.
+/// Use `BuilderScope` as a strong reference or owner of a `GtkBuilderScope` instance.
+///
 open class BuilderScope: BuilderScopeProtocol {
         /// Untyped pointer to the underlying `GtkBuilderScope` instance.
     /// For type-safe access, use the generated, typed pointer `builder_scope_ptr` property instead.
@@ -321,16 +324,17 @@ public extension BuilderScopeProtocol {
 
 // MARK: - CellEditable Interface
 
-/// The `CellEditableProtocol` protocol exposes the methods and properties of an underlying `GtkCellEditable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellEditable`.
-/// Alternatively, use `CellEditableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Interface for widgets that can be used for editing cells
 /// 
 /// The `GtkCellEditable` interface must be implemented for widgets to be usable
 /// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
 /// temporary widgets should be configured for editing, get the new value, etc.
+///
+/// The `CellEditableProtocol` protocol exposes the methods and properties of an underlying `GtkCellEditable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellEditable`.
+/// Alternatively, use `CellEditableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellEditableProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkCellEditable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -342,15 +346,16 @@ public protocol CellEditableProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellEditableRef` type acts as a lightweight Swift reference to an underlying `GtkCellEditable` instance.
-/// It exposes methods that can operate on this data type through `CellEditableProtocol` conformance.
-/// Use `CellEditableRef` only as an `unowned` reference to an existing `GtkCellEditable` instance.
-///
 /// Interface for widgets that can be used for editing cells
 /// 
 /// The `GtkCellEditable` interface must be implemented for widgets to be usable
 /// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
 /// temporary widgets should be configured for editing, get the new value, etc.
+///
+/// The `CellEditableRef` type acts as a lightweight Swift reference to an underlying `GtkCellEditable` instance.
+/// It exposes methods that can operate on this data type through `CellEditableProtocol` conformance.
+/// Use `CellEditableRef` only as an `unowned` reference to an existing `GtkCellEditable` instance.
+///
 public struct CellEditableRef: CellEditableProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellEditable` instance.
     /// For type-safe access, use the generated, typed pointer `cell_editable_ptr` property instead.
@@ -432,15 +437,16 @@ public extension CellEditableRef {
 
     }
 
-/// The `CellEditable` type acts as a reference-counted owner of an underlying `GtkCellEditable` instance.
-/// It provides the methods that can operate on this data type through `CellEditableProtocol` conformance.
-/// Use `CellEditable` as a strong reference or owner of a `GtkCellEditable` instance.
-///
 /// Interface for widgets that can be used for editing cells
 /// 
 /// The `GtkCellEditable` interface must be implemented for widgets to be usable
 /// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
 /// temporary widgets should be configured for editing, get the new value, etc.
+///
+/// The `CellEditable` type acts as a reference-counted owner of an underlying `GtkCellEditable` instance.
+/// It provides the methods that can operate on this data type through `CellEditableProtocol` conformance.
+/// Use `CellEditable` as a strong reference or owner of a `GtkCellEditable` instance.
+///
 open class CellEditable: Widget, CellEditableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -787,7 +793,7 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// disconnect the `cell_editable` from signals on the `GtkCellRenderer`, etc.
     /// 
     /// `gtk_cell_editable_editing_done()` is a convenience method
-    /// for emitting `GtkCellEditable::editing-done`.
+    /// for emitting `GtkCellEditable`editing-done``.
     case editingDone = "editing-done"
     /// Emitted when `widget` is hidden.
     case hide = "hide"
@@ -827,12 +833,14 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -863,12 +871,12 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// 
     /// Implementations of `GtkCellEditable` are responsible for
     /// emitting this signal when they are done editing. It must
-    /// be emitted after the `GtkCellEditable::editing-done` signal,
+    /// be emitted after the `GtkCellEditable`editing-done`` signal,
     /// to give the cell renderer a chance to update the cell's value
     /// before the widget is removed.
     /// 
     /// `gtk_cell_editable_remove_widget()` is a convenience method
-    /// for emitting `GtkCellEditable::remove-widget`.
+    /// for emitting `GtkCellEditable`remove-widget``.
     case removeWidget = "remove-widget"
     /// Emitted when `widget` is shown.
     case show = "show"
@@ -1070,7 +1078,7 @@ public extension CellEditableProtocol {
     /// disconnect the `cell_editable` from signals on the `GtkCellRenderer`, etc.
     /// 
     /// `gtk_cell_editable_editing_done()` is a convenience method
-    /// for emitting `GtkCellEditable::editing-done`.
+    /// for emitting `GtkCellEditable`editing-done``.
     /// - Note: This represents the underlying `editing-done` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1101,12 +1109,12 @@ public extension CellEditableProtocol {
     /// 
     /// Implementations of `GtkCellEditable` are responsible for
     /// emitting this signal when they are done editing. It must
-    /// be emitted after the `GtkCellEditable::editing-done` signal,
+    /// be emitted after the `GtkCellEditable`editing-done`` signal,
     /// to give the cell renderer a chance to update the cell's value
     /// before the widget is removed.
     /// 
     /// `gtk_cell_editable_remove_widget()` is a convenience method
-    /// for emitting `GtkCellEditable::remove-widget`.
+    /// for emitting `GtkCellEditable`remove-widget``.
     /// - Note: This represents the underlying `remove-widget` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1146,12 +1154,14 @@ public extension CellEditableProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1187,13 +1197,13 @@ public extension CellEditableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkCellEditable` instance.
     @inlinable var cell_editable_ptr: UnsafeMutablePointer<GtkCellEditable>! { return ptr?.assumingMemoryBound(to: GtkCellEditable.self) }
 
-    /// Emits the `GtkCellEditable::editing-done` signal.
+    /// Emits the `GtkCellEditable`editing-done`` signal.
     @inlinable func editingDone() {
         gtk_cell_editable_editing_done(cell_editable_ptr)
     
     }
 
-    /// Emits the `GtkCellEditable::remove-widget` signal.
+    /// Emits the `GtkCellEditable`remove-widget`` signal.
     @inlinable func removeWidget() {
         gtk_cell_editable_remove_widget(cell_editable_ptr)
     
@@ -1205,7 +1215,7 @@ public extension CellEditableProtocol {
     /// `gtk_cell_renderer_start_editing()`, configured for the `GtkCellRenderer` type.
     /// 
     /// `gtk_cell_editable_start_editing()` can then set up `cell_editable` suitably for
-    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable::editing-done`.
+    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable`editing-done``.
     /// 
     /// Note that the `cell_editable` is created on-demand for the current edit; its
     /// lifetime is temporary and does not persist across other edits and/or cells.
@@ -1219,7 +1229,7 @@ public extension CellEditableProtocol {
     /// `gtk_cell_renderer_start_editing()`, configured for the `GtkCellRenderer` type.
     /// 
     /// `gtk_cell_editable_start_editing()` can then set up `cell_editable` suitably for
-    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable::editing-done`.
+    /// editing a cell, e.g. making the Esc key emit `GtkCellEditable`editing-done``.
     /// 
     /// Note that the `cell_editable` is created on-demand for the current edit; its
     /// lifetime is temporary and does not persist across other edits and/or cells.

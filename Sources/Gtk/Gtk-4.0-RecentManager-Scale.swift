@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - RecentManager Class
 
-/// The `RecentManagerProtocol` protocol exposes the methods and properties of an underlying `GtkRecentManager` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RecentManager`.
-/// Alternatively, use `RecentManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkRecentManager` manages and looks up recently used files.
 /// 
 /// Each recently used file is identified by its URI, and has meta-data
@@ -76,6 +71,12 @@ import Gdk
 /// Note that the maximum age of the recently used files list is
 /// controllable through the [property`Gtk.Settings:gtk-recent-files-max-age`]
 /// property.
+///
+/// The `RecentManagerProtocol` protocol exposes the methods and properties of an underlying `GtkRecentManager` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RecentManager`.
+/// Alternatively, use `RecentManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RecentManagerProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkRecentManager` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -87,10 +88,6 @@ public protocol RecentManagerProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RecentManagerRef` type acts as a lightweight Swift reference to an underlying `GtkRecentManager` instance.
-/// It exposes methods that can operate on this data type through `RecentManagerProtocol` conformance.
-/// Use `RecentManagerRef` only as an `unowned` reference to an existing `GtkRecentManager` instance.
-///
 /// `GtkRecentManager` manages and looks up recently used files.
 /// 
 /// Each recently used file is identified by its URI, and has meta-data
@@ -147,6 +144,11 @@ public protocol RecentManagerProtocol: GLibObject.ObjectProtocol {
 /// Note that the maximum age of the recently used files list is
 /// controllable through the [property`Gtk.Settings:gtk-recent-files-max-age`]
 /// property.
+///
+/// The `RecentManagerRef` type acts as a lightweight Swift reference to an underlying `GtkRecentManager` instance.
+/// It exposes methods that can operate on this data type through `RecentManagerProtocol` conformance.
+/// Use `RecentManagerRef` only as an `unowned` reference to an existing `GtkRecentManager` instance.
+///
 public struct RecentManagerRef: RecentManagerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRecentManager` instance.
     /// For type-safe access, use the generated, typed pointer `recent_manager_ptr` property instead.
@@ -234,7 +236,7 @@ public extension RecentManagerRef {
     /// signal each time something inside the list changes.
     /// 
     /// `GtkRecentManager` objects are expensive: be sure to create them
-    /// only when needed. You should use [type_func`Gtk.RecentManager.get_default`]
+    /// only when needed. You should use [func`Gtk.RecentManager.get_default`]
     /// instead.
     @inlinable init() {
         let rv = gtk_recent_manager_new()
@@ -248,10 +250,6 @@ public extension RecentManagerRef {
     }
 }
 
-/// The `RecentManager` type acts as a reference-counted owner of an underlying `GtkRecentManager` instance.
-/// It provides the methods that can operate on this data type through `RecentManagerProtocol` conformance.
-/// Use `RecentManager` as a strong reference or owner of a `GtkRecentManager` instance.
-///
 /// `GtkRecentManager` manages and looks up recently used files.
 /// 
 /// Each recently used file is identified by its URI, and has meta-data
@@ -308,6 +306,11 @@ public extension RecentManagerRef {
 /// Note that the maximum age of the recently used files list is
 /// controllable through the [property`Gtk.Settings:gtk-recent-files-max-age`]
 /// property.
+///
+/// The `RecentManager` type acts as a reference-counted owner of an underlying `GtkRecentManager` instance.
+/// It provides the methods that can operate on this data type through `RecentManagerProtocol` conformance.
+/// Use `RecentManager` as a strong reference or owner of a `GtkRecentManager` instance.
+///
 open class RecentManager: GLibObject.Object, RecentManagerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -441,7 +444,7 @@ open class RecentManager: GLibObject.Object, RecentManagerProtocol {
     /// signal each time something inside the list changes.
     /// 
     /// `GtkRecentManager` objects are expensive: be sure to create them
-    /// only when needed. You should use [type_func`Gtk.RecentManager.get_default`]
+    /// only when needed. You should use [func`Gtk.RecentManager.get_default`]
     /// instead.
     @inlinable public init() {
         let rv = gtk_recent_manager_new()
@@ -542,12 +545,14 @@ public enum RecentManagerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -631,12 +636,14 @@ public extension RecentManagerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -680,12 +687,14 @@ public extension RecentManagerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -828,11 +837,6 @@ public extension RecentManagerProtocol {
 
 // MARK: - Revealer Class
 
-/// The `RevealerProtocol` protocol exposes the methods and properties of an underlying `GtkRevealer` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Revealer`.
-/// Alternatively, use `RevealerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkRevealer` animates the transition of its child from invisible to visible.
 /// 
 /// The style of transition can be controlled with
@@ -854,6 +858,12 @@ public extension RecentManagerProtocol {
 /// 
 /// The child of `GtkRevealer`, if set, is always available in the accessibility
 /// tree, regardless of the state of the revealer widget.
+///
+/// The `RevealerProtocol` protocol exposes the methods and properties of an underlying `GtkRevealer` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Revealer`.
+/// Alternatively, use `RevealerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RevealerProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkRevealer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -865,10 +875,6 @@ public protocol RevealerProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RevealerRef` type acts as a lightweight Swift reference to an underlying `GtkRevealer` instance.
-/// It exposes methods that can operate on this data type through `RevealerProtocol` conformance.
-/// Use `RevealerRef` only as an `unowned` reference to an existing `GtkRevealer` instance.
-///
 /// A `GtkRevealer` animates the transition of its child from invisible to visible.
 /// 
 /// The style of transition can be controlled with
@@ -890,6 +896,11 @@ public protocol RevealerProtocol: WidgetProtocol {
 /// 
 /// The child of `GtkRevealer`, if set, is always available in the accessibility
 /// tree, regardless of the state of the revealer widget.
+///
+/// The `RevealerRef` type acts as a lightweight Swift reference to an underlying `GtkRevealer` instance.
+/// It exposes methods that can operate on this data type through `RevealerProtocol` conformance.
+/// Use `RevealerRef` only as an `unowned` reference to an existing `GtkRevealer` instance.
+///
 public struct RevealerRef: RevealerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRevealer` instance.
     /// For type-safe access, use the generated, typed pointer `revealer_ptr` property instead.
@@ -976,10 +987,6 @@ public extension RevealerRef {
     }
 }
 
-/// The `Revealer` type acts as a reference-counted owner of an underlying `GtkRevealer` instance.
-/// It provides the methods that can operate on this data type through `RevealerProtocol` conformance.
-/// Use `Revealer` as a strong reference or owner of a `GtkRevealer` instance.
-///
 /// A `GtkRevealer` animates the transition of its child from invisible to visible.
 /// 
 /// The style of transition can be controlled with
@@ -1001,6 +1008,11 @@ public extension RevealerRef {
 /// 
 /// The child of `GtkRevealer`, if set, is always available in the accessibility
 /// tree, regardless of the state of the revealer widget.
+///
+/// The `Revealer` type acts as a reference-counted owner of an underlying `GtkRevealer` instance.
+/// It provides the methods that can operate on this data type through `RevealerProtocol` conformance.
+/// Use `Revealer` as a strong reference or owner of a `GtkRevealer` instance.
+///
 open class Revealer: Widget, RevealerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1389,12 +1401,14 @@ public enum RevealerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1763,11 +1777,6 @@ public extension RevealerProtocol {
 
 // MARK: - Scale Class
 
-/// The `ScaleProtocol` protocol exposes the methods and properties of an underlying `GtkScale` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Scale`.
-/// Alternatively, use `ScaleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkScale` is a slider control used to select a numeric value.
 /// 
 /// ![An example GtkScale](scales.png)
@@ -1848,6 +1857,12 @@ public extension RevealerProtocol {
 /// # Accessibility
 /// 
 /// `GtkScale` uses the `GTK_ACCESSIBLE_ROLE_SLIDER` role.
+///
+/// The `ScaleProtocol` protocol exposes the methods and properties of an underlying `GtkScale` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Scale`.
+/// Alternatively, use `ScaleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ScaleProtocol: RangeProtocol {
         /// Untyped pointer to the underlying `GtkScale` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1859,10 +1874,6 @@ public protocol ScaleProtocol: RangeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ScaleRef` type acts as a lightweight Swift reference to an underlying `GtkScale` instance.
-/// It exposes methods that can operate on this data type through `ScaleProtocol` conformance.
-/// Use `ScaleRef` only as an `unowned` reference to an existing `GtkScale` instance.
-///
 /// A `GtkScale` is a slider control used to select a numeric value.
 /// 
 /// ![An example GtkScale](scales.png)
@@ -1943,6 +1954,11 @@ public protocol ScaleProtocol: RangeProtocol {
 /// # Accessibility
 /// 
 /// `GtkScale` uses the `GTK_ACCESSIBLE_ROLE_SLIDER` role.
+///
+/// The `ScaleRef` type acts as a lightweight Swift reference to an underlying `GtkScale` instance.
+/// It exposes methods that can operate on this data type through `ScaleProtocol` conformance.
+/// Use `ScaleRef` only as an `unowned` reference to an existing `GtkScale` instance.
+///
 public struct ScaleRef: ScaleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkScale` instance.
     /// For type-safe access, use the generated, typed pointer `scale_ptr` property instead.
@@ -2060,10 +2076,6 @@ public extension ScaleRef {
     }
 }
 
-/// The `Scale` type acts as a reference-counted owner of an underlying `GtkScale` instance.
-/// It provides the methods that can operate on this data type through `ScaleProtocol` conformance.
-/// Use `Scale` as a strong reference or owner of a `GtkScale` instance.
-///
 /// A `GtkScale` is a slider control used to select a numeric value.
 /// 
 /// ![An example GtkScale](scales.png)
@@ -2144,6 +2156,11 @@ public extension ScaleRef {
 /// # Accessibility
 /// 
 /// `GtkScale` uses the `GTK_ACCESSIBLE_ROLE_SLIDER` role.
+///
+/// The `Scale` type acts as a reference-counted owner of an underlying `GtkScale` instance.
+/// It provides the methods that can operate on this data type through `ScaleProtocol` conformance.
+/// Use `Scale` as a strong reference or owner of a `GtkScale` instance.
+///
 open class Scale: Range, ScaleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2600,12 +2617,14 @@ public enum ScaleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - Bitset Record
 
-/// The `BitsetProtocol` protocol exposes the methods and properties of an underlying `GtkBitset` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Bitset`.
-/// Alternatively, use `BitsetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkBitset` represents a set of unsigned integers.
 /// 
 /// Another name for this data structure is "bitmap".
@@ -35,6 +30,12 @@ import Gdk
 /// 
 /// The main use case for `GtkBitset` is implementing complex selections for
 /// [iface`Gtk.SelectionModel`].
+///
+/// The `BitsetProtocol` protocol exposes the methods and properties of an underlying `GtkBitset` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Bitset`.
+/// Alternatively, use `BitsetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BitsetProtocol {
         /// Untyped pointer to the underlying `GtkBitset` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -46,10 +47,6 @@ public protocol BitsetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BitsetRef` type acts as a lightweight Swift reference to an underlying `GtkBitset` instance.
-/// It exposes methods that can operate on this data type through `BitsetProtocol` conformance.
-/// Use `BitsetRef` only as an `unowned` reference to an existing `GtkBitset` instance.
-///
 /// A `GtkBitset` represents a set of unsigned integers.
 /// 
 /// Another name for this data structure is "bitmap".
@@ -65,6 +62,11 @@ public protocol BitsetProtocol {
 /// 
 /// The main use case for `GtkBitset` is implementing complex selections for
 /// [iface`Gtk.SelectionModel`].
+///
+/// The `BitsetRef` type acts as a lightweight Swift reference to an underlying `GtkBitset` instance.
+/// It exposes methods that can operate on this data type through `BitsetProtocol` conformance.
+/// Use `BitsetRef` only as an `unowned` reference to an existing `GtkBitset` instance.
+///
 public struct BitsetRef: BitsetProtocol {
         /// Untyped pointer to the underlying `GtkBitset` instance.
     /// For type-safe access, use the generated, typed pointer `bitset_ptr` property instead.
@@ -159,10 +161,6 @@ public extension BitsetRef {
     }
 }
 
-/// The `Bitset` type acts as a reference-counted owner of an underlying `GtkBitset` instance.
-/// It provides the methods that can operate on this data type through `BitsetProtocol` conformance.
-/// Use `Bitset` as a strong reference or owner of a `GtkBitset` instance.
-///
 /// A `GtkBitset` represents a set of unsigned integers.
 /// 
 /// Another name for this data structure is "bitmap".
@@ -178,6 +176,11 @@ public extension BitsetRef {
 /// 
 /// The main use case for `GtkBitset` is implementing complex selections for
 /// [iface`Gtk.SelectionModel`].
+///
+/// The `Bitset` type acts as a reference-counted owner of an underlying `GtkBitset` instance.
+/// It provides the methods that can operate on this data type through `BitsetProtocol` conformance.
+/// Use `Bitset` as a strong reference or owner of a `GtkBitset` instance.
+///
 open class Bitset: BitsetProtocol {
         /// Untyped pointer to the underlying `GtkBitset` instance.
     /// For type-safe access, use the generated, typed pointer `bitset_ptr` property instead.
@@ -657,17 +660,18 @@ public extension BitsetProtocol {
 
 // MARK: - BitsetIter Record
 
-/// The `BitsetIterProtocol` protocol exposes the methods and properties of an underlying `GtkBitsetIter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `BitsetIter`.
-/// Alternatively, use `BitsetIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// An opaque, stack-allocated struct for iterating
 /// over the elements of a `GtkBitset`.
 /// 
 /// Before a `GtkBitsetIter` can be used, it needs to be initialized with
 /// [func`Gtk.BitsetIter.init_first`], [func`Gtk.BitsetIter.init_last`]
 /// or [func`Gtk.BitsetIter.init_at`].
+///
+/// The `BitsetIterProtocol` protocol exposes the methods and properties of an underlying `GtkBitsetIter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `BitsetIter`.
+/// Alternatively, use `BitsetIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BitsetIterProtocol {
         /// Untyped pointer to the underlying `GtkBitsetIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -679,16 +683,17 @@ public protocol BitsetIterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BitsetIterRef` type acts as a lightweight Swift reference to an underlying `GtkBitsetIter` instance.
-/// It exposes methods that can operate on this data type through `BitsetIterProtocol` conformance.
-/// Use `BitsetIterRef` only as an `unowned` reference to an existing `GtkBitsetIter` instance.
-///
 /// An opaque, stack-allocated struct for iterating
 /// over the elements of a `GtkBitset`.
 /// 
 /// Before a `GtkBitsetIter` can be used, it needs to be initialized with
 /// [func`Gtk.BitsetIter.init_first`], [func`Gtk.BitsetIter.init_last`]
 /// or [func`Gtk.BitsetIter.init_at`].
+///
+/// The `BitsetIterRef` type acts as a lightweight Swift reference to an underlying `GtkBitsetIter` instance.
+/// It exposes methods that can operate on this data type through `BitsetIterProtocol` conformance.
+/// Use `BitsetIterRef` only as an `unowned` reference to an existing `GtkBitsetIter` instance.
+///
 public struct BitsetIterRef: BitsetIterProtocol {
         /// Untyped pointer to the underlying `GtkBitsetIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -767,16 +772,17 @@ public extension BitsetIterRef {
 
     }
 
-/// The `BitsetIter` type acts as an owner of an underlying `GtkBitsetIter` instance.
-/// It provides the methods that can operate on this data type through `BitsetIterProtocol` conformance.
-/// Use `BitsetIter` as a strong reference or owner of a `GtkBitsetIter` instance.
-///
 /// An opaque, stack-allocated struct for iterating
 /// over the elements of a `GtkBitset`.
 /// 
 /// Before a `GtkBitsetIter` can be used, it needs to be initialized with
 /// [func`Gtk.BitsetIter.init_first`], [func`Gtk.BitsetIter.init_last`]
 /// or [func`Gtk.BitsetIter.init_at`].
+///
+/// The `BitsetIter` type acts as an owner of an underlying `GtkBitsetIter` instance.
+/// It provides the methods that can operate on this data type through `BitsetIterProtocol` conformance.
+/// Use `BitsetIter` as a strong reference or owner of a `GtkBitsetIter` instance.
+///
 open class BitsetIter: BitsetIterProtocol {
         /// Untyped pointer to the underlying `GtkBitsetIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1058,12 +1064,13 @@ public extension BookmarkListClassRef {
 
 // MARK: - BookmarkListClass Record
 
+
+///
 /// The `BookmarkListClassProtocol` protocol exposes the methods and properties of an underlying `GtkBookmarkListClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BookmarkListClass`.
 /// Alternatively, use `BookmarkListClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol BookmarkListClassProtocol {
         /// Untyped pointer to the underlying `GtkBookmarkListClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1075,11 +1082,12 @@ public protocol BookmarkListClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `BookmarkListClassRef` type acts as a lightweight Swift reference to an underlying `GtkBookmarkListClass` instance.
 /// It exposes methods that can operate on this data type through `BookmarkListClassProtocol` conformance.
 /// Use `BookmarkListClassRef` only as an `unowned` reference to an existing `GtkBookmarkListClass` instance.
 ///
-
 public struct BookmarkListClassRef: BookmarkListClassProtocol {
         /// Untyped pointer to the underlying `GtkBookmarkListClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1192,12 +1200,13 @@ public extension BoolFilterClassRef {
 
 // MARK: - BoolFilterClass Record
 
+
+///
 /// The `BoolFilterClassProtocol` protocol exposes the methods and properties of an underlying `GtkBoolFilterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BoolFilterClass`.
 /// Alternatively, use `BoolFilterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol BoolFilterClassProtocol {
         /// Untyped pointer to the underlying `GtkBoolFilterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1209,11 +1218,12 @@ public protocol BoolFilterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `BoolFilterClassRef` type acts as a lightweight Swift reference to an underlying `GtkBoolFilterClass` instance.
 /// It exposes methods that can operate on this data type through `BoolFilterClassProtocol` conformance.
 /// Use `BoolFilterClassRef` only as an `unowned` reference to an existing `GtkBoolFilterClass` instance.
 ///
-
 public struct BoolFilterClassRef: BoolFilterClassProtocol {
         /// Untyped pointer to the underlying `GtkBoolFilterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1311,14 +1321,15 @@ public extension BoolFilterClassProtocol {
 
 // MARK: - Border Record
 
+/// A struct that specifies a border around a rectangular area.
+/// 
+/// Each side can have different width.
+///
 /// The `BorderProtocol` protocol exposes the methods and properties of an underlying `GtkBorder` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Border`.
 /// Alternatively, use `BorderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A struct that specifies a border around a rectangular area.
-/// 
-/// Each side can have different width.
 public protocol BorderProtocol {
         /// Untyped pointer to the underlying `GtkBorder` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1330,13 +1341,14 @@ public protocol BorderProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A struct that specifies a border around a rectangular area.
+/// 
+/// Each side can have different width.
+///
 /// The `BorderRef` type acts as a lightweight Swift reference to an underlying `GtkBorder` instance.
 /// It exposes methods that can operate on this data type through `BorderProtocol` conformance.
 /// Use `BorderRef` only as an `unowned` reference to an existing `GtkBorder` instance.
 ///
-/// A struct that specifies a border around a rectangular area.
-/// 
-/// Each side can have different width.
 public struct BorderRef: BorderProtocol {
         /// Untyped pointer to the underlying `GtkBorder` instance.
     /// For type-safe access, use the generated, typed pointer `border_ptr` property instead.
@@ -1413,20 +1425,21 @@ public extension BorderRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Allocates a new `GtkBorder-struct` and initializes its elements to zero.
+        /// Allocates a new `GtkBorder` struct and initializes its elements to zero.
     @inlinable init() {
         let rv = gtk_border_new()
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
+/// A struct that specifies a border around a rectangular area.
+/// 
+/// Each side can have different width.
+///
 /// The `Border` type acts as an owner of an underlying `GtkBorder` instance.
 /// It provides the methods that can operate on this data type through `BorderProtocol` conformance.
 /// Use `Border` as a strong reference or owner of a `GtkBorder` instance.
 ///
-/// A struct that specifies a border around a rectangular area.
-/// 
-/// Each side can have different width.
 open class Border: BorderProtocol {
         /// Untyped pointer to the underlying `GtkBorder` instance.
     /// For type-safe access, use the generated, typed pointer `border_ptr` property instead.
@@ -1567,7 +1580,7 @@ open class Border: BorderProtocol {
         // no reference counting for GtkBorder, cannot ref(border_ptr)
     }
 
-    /// Allocates a new `GtkBorder-struct` and initializes its elements to zero.
+    /// Allocates a new `GtkBorder` struct and initializes its elements to zero.
     @inlinable public init() {
         let rv = gtk_border_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -1586,13 +1599,13 @@ public extension BorderProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkBorder` instance.
     @inlinable var border_ptr: UnsafeMutablePointer<GtkBorder>! { return ptr?.assumingMemoryBound(to: GtkBorder.self) }
 
-    /// Copies a `GtkBorder-struct`.
+    /// Copies a `GtkBorder`.
     @inlinable func copy() -> BorderRef! {
         guard let rv = BorderRef(gconstpointer: gconstpointer(gtk_border_copy(border_ptr))) else { return nil }
         return rv
     }
 
-    /// Frees a `GtkBorder-struct`.
+    /// Frees a `GtkBorder`.
     @inlinable func free() {
         gtk_border_free(border_ptr)
     
@@ -1671,12 +1684,13 @@ public extension BoxClassRef {
 
 // MARK: - BoxClass Record
 
+
+///
 /// The `BoxClassProtocol` protocol exposes the methods and properties of an underlying `GtkBoxClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BoxClass`.
 /// Alternatively, use `BoxClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol BoxClassProtocol {
         /// Untyped pointer to the underlying `GtkBoxClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1688,11 +1702,12 @@ public protocol BoxClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `BoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkBoxClass` instance.
 /// It exposes methods that can operate on this data type through `BoxClassProtocol` conformance.
 /// Use `BoxClassRef` only as an `unowned` reference to an existing `GtkBoxClass` instance.
 ///
-
 public struct BoxClassRef: BoxClassProtocol {
         /// Untyped pointer to the underlying `GtkBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1809,12 +1824,13 @@ public extension BoxLayoutClassRef {
 
 // MARK: - BoxLayoutClass Record
 
+
+///
 /// The `BoxLayoutClassProtocol` protocol exposes the methods and properties of an underlying `GtkBoxLayoutClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BoxLayoutClass`.
 /// Alternatively, use `BoxLayoutClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol BoxLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkBoxLayoutClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1826,11 +1842,12 @@ public protocol BoxLayoutClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `BoxLayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkBoxLayoutClass` instance.
 /// It exposes methods that can operate on this data type through `BoxLayoutClassProtocol` conformance.
 /// Use `BoxLayoutClassRef` only as an `unowned` reference to an existing `GtkBoxLayoutClass` instance.
 ///
-
 public struct BoxLayoutClassRef: BoxLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkBoxLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1943,14 +1960,15 @@ public extension BuildableIfaceRef {
 
 // MARK: - BuildableIface Record
 
+/// The `GtkBuildableIface` interface contains methods that are
+/// necessary to allow `GtkBuilder` to construct an object from
+/// a `GtkBuilder` UI definition.
+///
 /// The `BuildableIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkBuildableIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BuildableIface`.
 /// Alternatively, use `BuildableIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkBuildableIface` interface contains methods that are
-/// necessary to allow `GtkBuilder` to construct an object from
-/// a `GtkBuilder` UI definition.
 public protocol BuildableIfaceProtocol {
         /// Untyped pointer to the underlying `GtkBuildableIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1962,13 +1980,14 @@ public protocol BuildableIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GtkBuildableIface` interface contains methods that are
+/// necessary to allow `GtkBuilder` to construct an object from
+/// a `GtkBuilder` UI definition.
+///
 /// The `BuildableIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkBuildableIface` instance.
 /// It exposes methods that can operate on this data type through `BuildableIfaceProtocol` conformance.
 /// Use `BuildableIfaceRef` only as an `unowned` reference to an existing `GtkBuildableIface` instance.
 ///
-/// The `GtkBuildableIface` interface contains methods that are
-/// necessary to allow `GtkBuilder` to construct an object from
-/// a `GtkBuilder` UI definition.
 public struct BuildableIfaceRef: BuildableIfaceProtocol {
         /// Untyped pointer to the underlying `GtkBuildableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2088,12 +2107,13 @@ public extension BuildableIfaceProtocol {
 
 // MARK: - BuildableParseContext Record
 
+/// An opaque context struct for `GtkBuildableParser`.
+///
 /// The `BuildableParseContextProtocol` protocol exposes the methods and properties of an underlying `GtkBuildableParseContext` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BuildableParseContext`.
 /// Alternatively, use `BuildableParseContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque context struct for `GtkBuildableParser`.
 public protocol BuildableParseContextProtocol {
         /// Untyped pointer to the underlying `GtkBuildableParseContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2105,11 +2125,12 @@ public protocol BuildableParseContextProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque context struct for `GtkBuildableParser`.
+///
 /// The `BuildableParseContextRef` type acts as a lightweight Swift reference to an underlying `GtkBuildableParseContext` instance.
 /// It exposes methods that can operate on this data type through `BuildableParseContextProtocol` conformance.
 /// Use `BuildableParseContextRef` only as an `unowned` reference to an existing `GtkBuildableParseContext` instance.
 ///
-/// An opaque context struct for `GtkBuildableParser`.
 public struct BuildableParseContextRef: BuildableParseContextProtocol {
         /// Untyped pointer to the underlying `GtkBuildableParseContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2188,11 +2209,12 @@ public extension BuildableParseContextRef {
 
     }
 
+/// An opaque context struct for `GtkBuildableParser`.
+///
 /// The `BuildableParseContext` type acts as an owner of an underlying `GtkBuildableParseContext` instance.
 /// It provides the methods that can operate on this data type through `BuildableParseContextProtocol` conformance.
 /// Use `BuildableParseContext` as a strong reference or owner of a `GtkBuildableParseContext` instance.
 ///
-/// An opaque context struct for `GtkBuildableParser`.
 open class BuildableParseContext: BuildableParseContextProtocol {
         /// Untyped pointer to the underlying `GtkBuildableParseContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2486,12 +2508,13 @@ public extension BuildableParseContextProtocol {
 
 // MARK: - BuildableParser Record
 
+/// A sub-parser for `GtkBuildable` implementations.
+///
 /// The `BuildableParserProtocol` protocol exposes the methods and properties of an underlying `GtkBuildableParser` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BuildableParser`.
 /// Alternatively, use `BuildableParserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A sub-parser for `GtkBuildable` implementations.
 public protocol BuildableParserProtocol {
         /// Untyped pointer to the underlying `GtkBuildableParser` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2503,11 +2526,12 @@ public protocol BuildableParserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A sub-parser for `GtkBuildable` implementations.
+///
 /// The `BuildableParserRef` type acts as a lightweight Swift reference to an underlying `GtkBuildableParser` instance.
 /// It exposes methods that can operate on this data type through `BuildableParserProtocol` conformance.
 /// Use `BuildableParserRef` only as an `unowned` reference to an existing `GtkBuildableParser` instance.
 ///
-/// A sub-parser for `GtkBuildable` implementations.
 public struct BuildableParserRef: BuildableParserProtocol {
         /// Untyped pointer to the underlying `GtkBuildableParser` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2586,11 +2610,12 @@ public extension BuildableParserRef {
 
     }
 
+/// A sub-parser for `GtkBuildable` implementations.
+///
 /// The `BuildableParser` type acts as an owner of an underlying `GtkBuildableParser` instance.
 /// It provides the methods that can operate on this data type through `BuildableParserProtocol` conformance.
 /// Use `BuildableParser` as a strong reference or owner of a `GtkBuildableParser` instance.
 ///
-/// A sub-parser for `GtkBuildable` implementations.
 open class BuildableParser: BuildableParserProtocol {
         /// Untyped pointer to the underlying `GtkBuildableParser` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2777,12 +2802,13 @@ public extension BuilderCScopeClassRef {
 
 // MARK: - BuilderCScopeClass Record
 
+
+///
 /// The `BuilderCScopeClassProtocol` protocol exposes the methods and properties of an underlying `GtkBuilderCScopeClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BuilderCScopeClass`.
 /// Alternatively, use `BuilderCScopeClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol BuilderCScopeClassProtocol {
         /// Untyped pointer to the underlying `GtkBuilderCScopeClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2794,11 +2820,12 @@ public protocol BuilderCScopeClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `BuilderCScopeClassRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderCScopeClass` instance.
 /// It exposes methods that can operate on this data type through `BuilderCScopeClassProtocol` conformance.
 /// Use `BuilderCScopeClassRef` only as an `unowned` reference to an existing `GtkBuilderCScopeClass` instance.
 ///
-
 public struct BuilderCScopeClassRef: BuilderCScopeClassProtocol {
         /// Untyped pointer to the underlying `GtkBuilderCScopeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2911,12 +2938,13 @@ public extension BuilderClassRef {
 
 // MARK: - BuilderClass Record
 
+
+///
 /// The `BuilderClassProtocol` protocol exposes the methods and properties of an underlying `GtkBuilderClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BuilderClass`.
 /// Alternatively, use `BuilderClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol BuilderClassProtocol {
         /// Untyped pointer to the underlying `GtkBuilderClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2928,11 +2956,12 @@ public protocol BuilderClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `BuilderClassRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderClass` instance.
 /// It exposes methods that can operate on this data type through `BuilderClassProtocol` conformance.
 /// Use `BuilderClassRef` only as an `unowned` reference to an existing `GtkBuilderClass` instance.
 ///
-
 public struct BuilderClassRef: BuilderClassProtocol {
         /// Untyped pointer to the underlying `GtkBuilderClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3039,12 +3068,13 @@ public extension BuilderListItemFactoryClassRef {
 
 // MARK: - BuilderListItemFactoryClass Record
 
+
+///
 /// The `BuilderListItemFactoryClassProtocol` protocol exposes the methods and properties of an underlying `GtkBuilderListItemFactoryClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BuilderListItemFactoryClass`.
 /// Alternatively, use `BuilderListItemFactoryClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol BuilderListItemFactoryClassProtocol {
         /// Untyped pointer to the underlying `GtkBuilderListItemFactoryClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3056,11 +3086,12 @@ public protocol BuilderListItemFactoryClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `BuilderListItemFactoryClassRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderListItemFactoryClass` instance.
 /// It exposes methods that can operate on this data type through `BuilderListItemFactoryClassProtocol` conformance.
 /// Use `BuilderListItemFactoryClassRef` only as an `unowned` reference to an existing `GtkBuilderListItemFactoryClass` instance.
 ///
-
 public struct BuilderListItemFactoryClassRef: BuilderListItemFactoryClassProtocol {
         /// Untyped pointer to the underlying `GtkBuilderListItemFactoryClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3167,14 +3198,15 @@ public extension BuilderScopeInterfaceRef {
 
 // MARK: - BuilderScopeInterface Record
 
+/// The virtual function table to implement for `GtkBuilderScope` implementations.
+/// Default implementations for each function do exist, but they usually just fail,
+/// so it is suggested that implementations implement all of them.
+///
 /// The `BuilderScopeInterfaceProtocol` protocol exposes the methods and properties of an underlying `GtkBuilderScopeInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BuilderScopeInterface`.
 /// Alternatively, use `BuilderScopeInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The virtual function table to implement for `GtkBuilderScope` implementations.
-/// Default implementations for each function do exist, but they usually just fail,
-/// so it is suggested that implementations implement all of them.
 public protocol BuilderScopeInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkBuilderScopeInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3186,13 +3218,14 @@ public protocol BuilderScopeInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The virtual function table to implement for `GtkBuilderScope` implementations.
+/// Default implementations for each function do exist, but they usually just fail,
+/// so it is suggested that implementations implement all of them.
+///
 /// The `BuilderScopeInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderScopeInterface` instance.
 /// It exposes methods that can operate on this data type through `BuilderScopeInterfaceProtocol` conformance.
 /// Use `BuilderScopeInterfaceRef` only as an `unowned` reference to an existing `GtkBuilderScopeInterface` instance.
 ///
-/// The virtual function table to implement for `GtkBuilderScope` implementations.
-/// Default implementations for each function do exist, but they usually just fail,
-/// so it is suggested that implementations implement all of them.
 public struct BuilderScopeInterfaceRef: BuilderScopeInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkBuilderScopeInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3306,12 +3339,13 @@ public extension ButtonClassRef {
 
 // MARK: - ButtonClass Record
 
+
+///
 /// The `ButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ButtonClass`.
 /// Alternatively, use `ButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3323,11 +3357,12 @@ public protocol ButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkButtonClass` instance.
 /// It exposes methods that can operate on this data type through `ButtonClassProtocol` conformance.
 /// Use `ButtonClassRef` only as an `unowned` reference to an existing `GtkButtonClass` instance.
 ///
-
 public struct ButtonClassRef: ButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3448,12 +3483,13 @@ public extension CallbackActionClassRef {
 
 // MARK: - CallbackActionClass Record
 
+
+///
 /// The `CallbackActionClassProtocol` protocol exposes the methods and properties of an underlying `GtkCallbackActionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CallbackActionClass`.
 /// Alternatively, use `CallbackActionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CallbackActionClassProtocol {
         /// Untyped pointer to the underlying `GtkCallbackActionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3465,11 +3501,12 @@ public protocol CallbackActionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CallbackActionClassRef` type acts as a lightweight Swift reference to an underlying `GtkCallbackActionClass` instance.
 /// It exposes methods that can operate on this data type through `CallbackActionClassProtocol` conformance.
 /// Use `CallbackActionClassRef` only as an `unowned` reference to an existing `GtkCallbackActionClass` instance.
 ///
-
 public struct CallbackActionClassRef: CallbackActionClassProtocol {
         /// Untyped pointer to the underlying `GtkCallbackActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

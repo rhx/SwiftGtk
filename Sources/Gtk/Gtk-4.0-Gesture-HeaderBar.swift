@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - Gesture Class
 
-/// The `GestureProtocol` protocol exposes the methods and properties of an underlying `GtkGesture` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Gesture`.
-/// Alternatively, use `GestureRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGesture` is the base class for gesture recognition.
 /// 
 /// Although `GtkGesture` is quite generalized to serve as a base for
@@ -109,6 +104,12 @@ import Gdk
 /// 
 /// - If the gesture has `GTK_PHASE_NONE`, ensuring events of type
 ///   `GDK_TOUCHPAD_SWIPE` and `GDK_TOUCHPAD_PINCH` are handled by the `GtkGesture`
+///
+/// The `GestureProtocol` protocol exposes the methods and properties of an underlying `GtkGesture` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Gesture`.
+/// Alternatively, use `GestureRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GestureProtocol: EventControllerProtocol {
         /// Untyped pointer to the underlying `GtkGesture` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -120,10 +121,6 @@ public protocol GestureProtocol: EventControllerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GestureRef` type acts as a lightweight Swift reference to an underlying `GtkGesture` instance.
-/// It exposes methods that can operate on this data type through `GestureProtocol` conformance.
-/// Use `GestureRef` only as an `unowned` reference to an existing `GtkGesture` instance.
-///
 /// `GtkGesture` is the base class for gesture recognition.
 /// 
 /// Although `GtkGesture` is quite generalized to serve as a base for
@@ -213,6 +210,11 @@ public protocol GestureProtocol: EventControllerProtocol {
 /// 
 /// - If the gesture has `GTK_PHASE_NONE`, ensuring events of type
 ///   `GDK_TOUCHPAD_SWIPE` and `GDK_TOUCHPAD_PINCH` are handled by the `GtkGesture`
+///
+/// The `GestureRef` type acts as a lightweight Swift reference to an underlying `GtkGesture` instance.
+/// It exposes methods that can operate on this data type through `GestureProtocol` conformance.
+/// Use `GestureRef` only as an `unowned` reference to an existing `GtkGesture` instance.
+///
 public struct GestureRef: GestureProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGesture` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_ptr` property instead.
@@ -294,10 +296,6 @@ public extension GestureRef {
 
     }
 
-/// The `Gesture` type acts as a reference-counted owner of an underlying `GtkGesture` instance.
-/// It provides the methods that can operate on this data type through `GestureProtocol` conformance.
-/// Use `Gesture` as a strong reference or owner of a `GtkGesture` instance.
-///
 /// `GtkGesture` is the base class for gesture recognition.
 /// 
 /// Although `GtkGesture` is quite generalized to serve as a base for
@@ -387,6 +385,11 @@ public extension GestureRef {
 /// 
 /// - If the gesture has `GTK_PHASE_NONE`, ensuring events of type
 ///   `GDK_TOUCHPAD_SWIPE` and `GDK_TOUCHPAD_PINCH` are handled by the `GtkGesture`
+///
+/// The `Gesture` type acts as a reference-counted owner of an underlying `GtkGesture` instance.
+/// It provides the methods that can operate on this data type through `GestureProtocol` conformance.
+/// Use `Gesture` as a strong reference or owner of a `GtkGesture` instance.
+///
 open class Gesture: EventController, GestureProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -630,12 +633,14 @@ public enum GestureSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -866,12 +871,14 @@ public extension GestureProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1189,11 +1196,6 @@ public extension GestureProtocol {
 
 // MARK: - GestureClick Class
 
-/// The `GestureClickProtocol` protocol exposes the methods and properties of an underlying `GtkGestureClick` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `GestureClick`.
-/// Alternatively, use `GestureClickRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGestureClick` is a `GtkGesture` implementation for clicks.
 /// 
 /// It is able to recognize multiple clicks on a nearby zone, which
@@ -1201,6 +1203,12 @@ public extension GestureProtocol {
 /// signal. Whenever time or distance between clicks exceed the GTK
 /// defaults, [signal`Gtk.GestureClick::stopped`] is emitted, and the
 /// click counter is reset.
+///
+/// The `GestureClickProtocol` protocol exposes the methods and properties of an underlying `GtkGestureClick` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `GestureClick`.
+/// Alternatively, use `GestureClickRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GestureClickProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkGestureClick` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1212,10 +1220,6 @@ public protocol GestureClickProtocol: GestureSingleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GestureClickRef` type acts as a lightweight Swift reference to an underlying `GtkGestureClick` instance.
-/// It exposes methods that can operate on this data type through `GestureClickProtocol` conformance.
-/// Use `GestureClickRef` only as an `unowned` reference to an existing `GtkGestureClick` instance.
-///
 /// `GtkGestureClick` is a `GtkGesture` implementation for clicks.
 /// 
 /// It is able to recognize multiple clicks on a nearby zone, which
@@ -1223,6 +1227,11 @@ public protocol GestureClickProtocol: GestureSingleProtocol {
 /// signal. Whenever time or distance between clicks exceed the GTK
 /// defaults, [signal`Gtk.GestureClick::stopped`] is emitted, and the
 /// click counter is reset.
+///
+/// The `GestureClickRef` type acts as a lightweight Swift reference to an underlying `GtkGestureClick` instance.
+/// It exposes methods that can operate on this data type through `GestureClickProtocol` conformance.
+/// Use `GestureClickRef` only as an `unowned` reference to an existing `GtkGestureClick` instance.
+///
 public struct GestureClickRef: GestureClickProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureClick` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_click_ptr` property instead.
@@ -1310,10 +1319,6 @@ public extension GestureClickRef {
     }
 }
 
-/// The `GestureClick` type acts as a reference-counted owner of an underlying `GtkGestureClick` instance.
-/// It provides the methods that can operate on this data type through `GestureClickProtocol` conformance.
-/// Use `GestureClick` as a strong reference or owner of a `GtkGestureClick` instance.
-///
 /// `GtkGestureClick` is a `GtkGesture` implementation for clicks.
 /// 
 /// It is able to recognize multiple clicks on a nearby zone, which
@@ -1321,6 +1326,11 @@ public extension GestureClickRef {
 /// signal. Whenever time or distance between clicks exceed the GTK
 /// defaults, [signal`Gtk.GestureClick::stopped`] is emitted, and the
 /// click counter is reset.
+///
+/// The `GestureClick` type acts as a reference-counted owner of an underlying `GtkGestureClick` instance.
+/// It provides the methods that can operate on this data type through `GestureClickProtocol` conformance.
+/// Use `GestureClick` as a strong reference or owner of a `GtkGestureClick` instance.
+///
 open class GestureClick: GestureSingle, GestureClickProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1579,12 +1589,14 @@ public enum GestureClickSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1801,11 +1813,6 @@ public extension GestureClickProtocol {
 
 // MARK: - GestureDrag Class
 
-/// The `GestureDragProtocol` protocol exposes the methods and properties of an underlying `GtkGestureDrag` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `GestureDrag`.
-/// Alternatively, use `GestureDragRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGestureDrag` is a `GtkGesture` implementation for drags.
 /// 
 /// The drag operation itself can be tracked throughout the
@@ -1815,6 +1822,12 @@ public extension GestureClickProtocol {
 /// coordinates can be extracted through
 /// [method`Gtk.GestureDrag.get_offset`] and
 /// [method`Gtk.GestureDrag.get_start_point`].
+///
+/// The `GestureDragProtocol` protocol exposes the methods and properties of an underlying `GtkGestureDrag` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `GestureDrag`.
+/// Alternatively, use `GestureDragRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GestureDragProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkGestureDrag` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1826,10 +1839,6 @@ public protocol GestureDragProtocol: GestureSingleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GestureDragRef` type acts as a lightweight Swift reference to an underlying `GtkGestureDrag` instance.
-/// It exposes methods that can operate on this data type through `GestureDragProtocol` conformance.
-/// Use `GestureDragRef` only as an `unowned` reference to an existing `GtkGestureDrag` instance.
-///
 /// `GtkGestureDrag` is a `GtkGesture` implementation for drags.
 /// 
 /// The drag operation itself can be tracked throughout the
@@ -1839,6 +1848,11 @@ public protocol GestureDragProtocol: GestureSingleProtocol {
 /// coordinates can be extracted through
 /// [method`Gtk.GestureDrag.get_offset`] and
 /// [method`Gtk.GestureDrag.get_start_point`].
+///
+/// The `GestureDragRef` type acts as a lightweight Swift reference to an underlying `GtkGestureDrag` instance.
+/// It exposes methods that can operate on this data type through `GestureDragProtocol` conformance.
+/// Use `GestureDragRef` only as an `unowned` reference to an existing `GtkGestureDrag` instance.
+///
 public struct GestureDragRef: GestureDragProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureDrag` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_drag_ptr` property instead.
@@ -1925,10 +1939,6 @@ public extension GestureDragRef {
     }
 }
 
-/// The `GestureDrag` type acts as a reference-counted owner of an underlying `GtkGestureDrag` instance.
-/// It provides the methods that can operate on this data type through `GestureDragProtocol` conformance.
-/// Use `GestureDrag` as a strong reference or owner of a `GtkGestureDrag` instance.
-///
 /// `GtkGestureDrag` is a `GtkGesture` implementation for drags.
 /// 
 /// The drag operation itself can be tracked throughout the
@@ -1938,6 +1948,11 @@ public extension GestureDragRef {
 /// coordinates can be extracted through
 /// [method`Gtk.GestureDrag.get_offset`] and
 /// [method`Gtk.GestureDrag.get_start_point`].
+///
+/// The `GestureDrag` type acts as a reference-counted owner of an underlying `GtkGestureDrag` instance.
+/// It provides the methods that can operate on this data type through `GestureDragProtocol` conformance.
+/// Use `GestureDrag` as a strong reference or owner of a `GtkGestureDrag` instance.
+///
 open class GestureDrag: GestureSingle, GestureDragProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2201,12 +2216,14 @@ public enum GestureDragSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2385,11 +2402,6 @@ public extension GestureDragProtocol {
 
 // MARK: - GestureLongPress Class
 
-/// The `GestureLongPressProtocol` protocol exposes the methods and properties of an underlying `GtkGestureLongPress` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `GestureLongPress`.
-/// Alternatively, use `GestureLongPressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGestureLongPress` is a `GtkGesture` for long presses.
 /// 
 /// This gesture is also known as “Press and Hold”.
@@ -2405,6 +2417,12 @@ public extension GestureDragProtocol {
 /// determined by the [property`Gtk.Settings:gtk-long-press-time`] setting.
 /// It can be modified by the [property`Gtk.GestureLongPress:delay-factor`]
 /// property.
+///
+/// The `GestureLongPressProtocol` protocol exposes the methods and properties of an underlying `GtkGestureLongPress` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `GestureLongPress`.
+/// Alternatively, use `GestureLongPressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GestureLongPressProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkGestureLongPress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2416,10 +2434,6 @@ public protocol GestureLongPressProtocol: GestureSingleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GestureLongPressRef` type acts as a lightweight Swift reference to an underlying `GtkGestureLongPress` instance.
-/// It exposes methods that can operate on this data type through `GestureLongPressProtocol` conformance.
-/// Use `GestureLongPressRef` only as an `unowned` reference to an existing `GtkGestureLongPress` instance.
-///
 /// `GtkGestureLongPress` is a `GtkGesture` for long presses.
 /// 
 /// This gesture is also known as “Press and Hold”.
@@ -2435,6 +2449,11 @@ public protocol GestureLongPressProtocol: GestureSingleProtocol {
 /// determined by the [property`Gtk.Settings:gtk-long-press-time`] setting.
 /// It can be modified by the [property`Gtk.GestureLongPress:delay-factor`]
 /// property.
+///
+/// The `GestureLongPressRef` type acts as a lightweight Swift reference to an underlying `GtkGestureLongPress` instance.
+/// It exposes methods that can operate on this data type through `GestureLongPressProtocol` conformance.
+/// Use `GestureLongPressRef` only as an `unowned` reference to an existing `GtkGestureLongPress` instance.
+///
 public struct GestureLongPressRef: GestureLongPressProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureLongPress` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_long_press_ptr` property instead.
@@ -2521,10 +2540,6 @@ public extension GestureLongPressRef {
     }
 }
 
-/// The `GestureLongPress` type acts as a reference-counted owner of an underlying `GtkGestureLongPress` instance.
-/// It provides the methods that can operate on this data type through `GestureLongPressProtocol` conformance.
-/// Use `GestureLongPress` as a strong reference or owner of a `GtkGestureLongPress` instance.
-///
 /// `GtkGestureLongPress` is a `GtkGesture` for long presses.
 /// 
 /// This gesture is also known as “Press and Hold”.
@@ -2540,6 +2555,11 @@ public extension GestureLongPressRef {
 /// determined by the [property`Gtk.Settings:gtk-long-press-time`] setting.
 /// It can be modified by the [property`Gtk.GestureLongPress:delay-factor`]
 /// property.
+///
+/// The `GestureLongPress` type acts as a reference-counted owner of an underlying `GtkGestureLongPress` instance.
+/// It provides the methods that can operate on this data type through `GestureLongPressProtocol` conformance.
+/// Use `GestureLongPress` as a strong reference or owner of a `GtkGestureLongPress` instance.
+///
 open class GestureLongPress: GestureSingle, GestureLongPressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2802,12 +2822,14 @@ public enum GestureLongPressSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2944,12 +2966,14 @@ public extension GestureLongPressProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3022,11 +3046,6 @@ public extension GestureLongPressProtocol {
 
 // MARK: - GesturePan Class
 
-/// The `GesturePanProtocol` protocol exposes the methods and properties of an underlying `GtkGesturePan` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `GesturePan`.
-/// Alternatively, use `GesturePanRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGesturePan` is a `GtkGesture` for pan gestures.
 /// 
 /// These are drags that are locked to happen along one axis. The axis
@@ -3041,6 +3060,12 @@ public extension GestureLongPressProtocol {
 /// Once a panning gesture along the expected axis is recognized,
 /// the [signal`Gtk.GesturePan::pan`] signal will be emitted as input
 /// events are received, containing the offset in the given axis.
+///
+/// The `GesturePanProtocol` protocol exposes the methods and properties of an underlying `GtkGesturePan` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `GesturePan`.
+/// Alternatively, use `GesturePanRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GesturePanProtocol: GestureDragProtocol {
         /// Untyped pointer to the underlying `GtkGesturePan` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3052,10 +3077,6 @@ public protocol GesturePanProtocol: GestureDragProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GesturePanRef` type acts as a lightweight Swift reference to an underlying `GtkGesturePan` instance.
-/// It exposes methods that can operate on this data type through `GesturePanProtocol` conformance.
-/// Use `GesturePanRef` only as an `unowned` reference to an existing `GtkGesturePan` instance.
-///
 /// `GtkGesturePan` is a `GtkGesture` for pan gestures.
 /// 
 /// These are drags that are locked to happen along one axis. The axis
@@ -3070,6 +3091,11 @@ public protocol GesturePanProtocol: GestureDragProtocol {
 /// Once a panning gesture along the expected axis is recognized,
 /// the [signal`Gtk.GesturePan::pan`] signal will be emitted as input
 /// events are received, containing the offset in the given axis.
+///
+/// The `GesturePanRef` type acts as a lightweight Swift reference to an underlying `GtkGesturePan` instance.
+/// It exposes methods that can operate on this data type through `GesturePanProtocol` conformance.
+/// Use `GesturePanRef` only as an `unowned` reference to an existing `GtkGesturePan` instance.
+///
 public struct GesturePanRef: GesturePanProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGesturePan` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_pan_ptr` property instead.
@@ -3156,10 +3182,6 @@ public extension GesturePanRef {
     }
 }
 
-/// The `GesturePan` type acts as a reference-counted owner of an underlying `GtkGesturePan` instance.
-/// It provides the methods that can operate on this data type through `GesturePanProtocol` conformance.
-/// Use `GesturePan` as a strong reference or owner of a `GtkGesturePan` instance.
-///
 /// `GtkGesturePan` is a `GtkGesture` for pan gestures.
 /// 
 /// These are drags that are locked to happen along one axis. The axis
@@ -3174,6 +3196,11 @@ public extension GesturePanRef {
 /// Once a panning gesture along the expected axis is recognized,
 /// the [signal`Gtk.GesturePan::pan`] signal will be emitted as input
 /// events are received, containing the offset in the given axis.
+///
+/// The `GesturePan` type acts as a reference-counted owner of an underlying `GtkGesturePan` instance.
+/// It provides the methods that can operate on this data type through `GesturePanProtocol` conformance.
+/// Use `GesturePan` as a strong reference or owner of a `GtkGesturePan` instance.
+///
 open class GesturePan: GestureDrag, GesturePanProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3439,12 +3466,14 @@ public enum GesturePanSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3553,12 +3582,14 @@ public extension GesturePanProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3625,15 +3656,16 @@ public extension GesturePanProtocol {
 
 // MARK: - GestureRotate Class
 
+/// `GtkGestureRotate` is a `GtkGesture` for 2-finger rotations.
+/// 
+/// Whenever the angle between both handled sequences changes, the
+/// [signal`Gtk.GestureRotate::angle-changed`] signal is emitted.
+///
 /// The `GestureRotateProtocol` protocol exposes the methods and properties of an underlying `GtkGestureRotate` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GestureRotate`.
 /// Alternatively, use `GestureRotateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGestureRotate` is a `GtkGesture` for 2-finger rotations.
-/// 
-/// Whenever the angle between both handled sequences changes, the
-/// [signal`Gtk.GestureRotate::angle-changed`] signal is emitted.
 public protocol GestureRotateProtocol: GestureProtocol {
         /// Untyped pointer to the underlying `GtkGestureRotate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3645,14 +3677,15 @@ public protocol GestureRotateProtocol: GestureProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GestureRotateRef` type acts as a lightweight Swift reference to an underlying `GtkGestureRotate` instance.
-/// It exposes methods that can operate on this data type through `GestureRotateProtocol` conformance.
-/// Use `GestureRotateRef` only as an `unowned` reference to an existing `GtkGestureRotate` instance.
-///
 /// `GtkGestureRotate` is a `GtkGesture` for 2-finger rotations.
 /// 
 /// Whenever the angle between both handled sequences changes, the
 /// [signal`Gtk.GestureRotate::angle-changed`] signal is emitted.
+///
+/// The `GestureRotateRef` type acts as a lightweight Swift reference to an underlying `GtkGestureRotate` instance.
+/// It exposes methods that can operate on this data type through `GestureRotateProtocol` conformance.
+/// Use `GestureRotateRef` only as an `unowned` reference to an existing `GtkGestureRotate` instance.
+///
 public struct GestureRotateRef: GestureRotateProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureRotate` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_rotate_ptr` property instead.
@@ -3740,14 +3773,15 @@ public extension GestureRotateRef {
     }
 }
 
-/// The `GestureRotate` type acts as a reference-counted owner of an underlying `GtkGestureRotate` instance.
-/// It provides the methods that can operate on this data type through `GestureRotateProtocol` conformance.
-/// Use `GestureRotate` as a strong reference or owner of a `GtkGestureRotate` instance.
-///
 /// `GtkGestureRotate` is a `GtkGesture` for 2-finger rotations.
 /// 
 /// Whenever the angle between both handled sequences changes, the
 /// [signal`Gtk.GestureRotate::angle-changed`] signal is emitted.
+///
+/// The `GestureRotate` type acts as a reference-counted owner of an underlying `GtkGestureRotate` instance.
+/// It provides the methods that can operate on this data type through `GestureRotateProtocol` conformance.
+/// Use `GestureRotate` as a strong reference or owner of a `GtkGestureRotate` instance.
+///
 open class GestureRotate: Gesture, GestureRotateProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4000,12 +4034,14 @@ public enum GestureRotateSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4128,11 +4164,6 @@ public extension GestureRotateProtocol {
 
 // MARK: - GestureSingle Class
 
-/// The `GestureSingleProtocol` protocol exposes the methods and properties of an underlying `GtkGestureSingle` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `GestureSingle`.
-/// Alternatively, use `GestureSingleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGestureSingle` is a `GtkGestures` subclass optimized for singe-touch
 /// and mouse gestures.
 /// 
@@ -4147,6 +4178,12 @@ public extension GestureRotateProtocol {
 /// to any mouse button by setting it to 0. While the gesture is active, the
 /// button being currently pressed can be known through
 /// [method`Gtk.GestureSingle.get_current_button`].
+///
+/// The `GestureSingleProtocol` protocol exposes the methods and properties of an underlying `GtkGestureSingle` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `GestureSingle`.
+/// Alternatively, use `GestureSingleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GestureSingleProtocol: GestureProtocol {
         /// Untyped pointer to the underlying `GtkGestureSingle` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4158,10 +4195,6 @@ public protocol GestureSingleProtocol: GestureProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GestureSingleRef` type acts as a lightweight Swift reference to an underlying `GtkGestureSingle` instance.
-/// It exposes methods that can operate on this data type through `GestureSingleProtocol` conformance.
-/// Use `GestureSingleRef` only as an `unowned` reference to an existing `GtkGestureSingle` instance.
-///
 /// `GtkGestureSingle` is a `GtkGestures` subclass optimized for singe-touch
 /// and mouse gestures.
 /// 
@@ -4176,6 +4209,11 @@ public protocol GestureSingleProtocol: GestureProtocol {
 /// to any mouse button by setting it to 0. While the gesture is active, the
 /// button being currently pressed can be known through
 /// [method`Gtk.GestureSingle.get_current_button`].
+///
+/// The `GestureSingleRef` type acts as a lightweight Swift reference to an underlying `GtkGestureSingle` instance.
+/// It exposes methods that can operate on this data type through `GestureSingleProtocol` conformance.
+/// Use `GestureSingleRef` only as an `unowned` reference to an existing `GtkGestureSingle` instance.
+///
 public struct GestureSingleRef: GestureSingleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureSingle` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_single_ptr` property instead.
@@ -4257,10 +4295,6 @@ public extension GestureSingleRef {
 
     }
 
-/// The `GestureSingle` type acts as a reference-counted owner of an underlying `GtkGestureSingle` instance.
-/// It provides the methods that can operate on this data type through `GestureSingleProtocol` conformance.
-/// Use `GestureSingle` as a strong reference or owner of a `GtkGestureSingle` instance.
-///
 /// `GtkGestureSingle` is a `GtkGestures` subclass optimized for singe-touch
 /// and mouse gestures.
 /// 
@@ -4275,6 +4309,11 @@ public extension GestureSingleRef {
 /// to any mouse button by setting it to 0. While the gesture is active, the
 /// button being currently pressed can be known through
 /// [method`Gtk.GestureSingle.get_current_button`].
+///
+/// The `GestureSingle` type acts as a reference-counted owner of an underlying `GtkGestureSingle` instance.
+/// It provides the methods that can operate on this data type through `GestureSingleProtocol` conformance.
+/// Use `GestureSingle` as a strong reference or owner of a `GtkGestureSingle` instance.
+///
 open class GestureSingle: Gesture, GestureSingleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4526,12 +4565,14 @@ public enum GestureSingleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4729,15 +4770,16 @@ public extension GestureSingleProtocol {
 
 // MARK: - GestureStylus Class
 
+/// `GtkGestureStylus` is a `GtkGesture` specific to stylus input.
+/// 
+/// The provided signals just relay the basic information of the
+/// stylus events.
+///
 /// The `GestureStylusProtocol` protocol exposes the methods and properties of an underlying `GtkGestureStylus` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GestureStylus`.
 /// Alternatively, use `GestureStylusRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkGestureStylus` is a `GtkGesture` specific to stylus input.
-/// 
-/// The provided signals just relay the basic information of the
-/// stylus events.
 public protocol GestureStylusProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkGestureStylus` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4749,14 +4791,15 @@ public protocol GestureStylusProtocol: GestureSingleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GestureStylusRef` type acts as a lightweight Swift reference to an underlying `GtkGestureStylus` instance.
-/// It exposes methods that can operate on this data type through `GestureStylusProtocol` conformance.
-/// Use `GestureStylusRef` only as an `unowned` reference to an existing `GtkGestureStylus` instance.
-///
 /// `GtkGestureStylus` is a `GtkGesture` specific to stylus input.
 /// 
 /// The provided signals just relay the basic information of the
 /// stylus events.
+///
+/// The `GestureStylusRef` type acts as a lightweight Swift reference to an underlying `GtkGestureStylus` instance.
+/// It exposes methods that can operate on this data type through `GestureStylusProtocol` conformance.
+/// Use `GestureStylusRef` only as an `unowned` reference to an existing `GtkGestureStylus` instance.
+///
 public struct GestureStylusRef: GestureStylusProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureStylus` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_stylus_ptr` property instead.
@@ -4843,14 +4886,15 @@ public extension GestureStylusRef {
     }
 }
 
-/// The `GestureStylus` type acts as a reference-counted owner of an underlying `GtkGestureStylus` instance.
-/// It provides the methods that can operate on this data type through `GestureStylusProtocol` conformance.
-/// Use `GestureStylus` as a strong reference or owner of a `GtkGestureStylus` instance.
-///
 /// `GtkGestureStylus` is a `GtkGesture` specific to stylus input.
 /// 
 /// The provided signals just relay the basic information of the
 /// stylus events.
+///
+/// The `GestureStylus` type acts as a reference-counted owner of an underlying `GtkGestureStylus` instance.
+/// It provides the methods that can operate on this data type through `GestureStylusProtocol` conformance.
+/// Use `GestureStylus` as a strong reference or owner of a `GtkGestureStylus` instance.
+///
 open class GestureStylus: GestureSingle, GestureStylusProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5112,12 +5156,14 @@ public enum GestureStylusSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5376,11 +5422,6 @@ public extension GestureStylusProtocol {
 
 // MARK: - GestureSwipe Class
 
-/// The `GestureSwipeProtocol` protocol exposes the methods and properties of an underlying `GtkGestureSwipe` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `GestureSwipe`.
-/// Alternatively, use `GestureSwipeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGestureSwipe` is a `GtkGesture` for swipe gestures.
 /// 
 /// After a press/move/.../move/release sequence happens, the
@@ -5393,6 +5434,12 @@ public extension GestureStylusProtocol {
 /// [signal`Gtk.Gesture::update`] handler.
 /// 
 /// All velocities are reported in pixels/sec units.
+///
+/// The `GestureSwipeProtocol` protocol exposes the methods and properties of an underlying `GtkGestureSwipe` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `GestureSwipe`.
+/// Alternatively, use `GestureSwipeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GestureSwipeProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkGestureSwipe` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5404,10 +5451,6 @@ public protocol GestureSwipeProtocol: GestureSingleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GestureSwipeRef` type acts as a lightweight Swift reference to an underlying `GtkGestureSwipe` instance.
-/// It exposes methods that can operate on this data type through `GestureSwipeProtocol` conformance.
-/// Use `GestureSwipeRef` only as an `unowned` reference to an existing `GtkGestureSwipe` instance.
-///
 /// `GtkGestureSwipe` is a `GtkGesture` for swipe gestures.
 /// 
 /// After a press/move/.../move/release sequence happens, the
@@ -5420,6 +5463,11 @@ public protocol GestureSwipeProtocol: GestureSingleProtocol {
 /// [signal`Gtk.Gesture::update`] handler.
 /// 
 /// All velocities are reported in pixels/sec units.
+///
+/// The `GestureSwipeRef` type acts as a lightweight Swift reference to an underlying `GtkGestureSwipe` instance.
+/// It exposes methods that can operate on this data type through `GestureSwipeProtocol` conformance.
+/// Use `GestureSwipeRef` only as an `unowned` reference to an existing `GtkGestureSwipe` instance.
+///
 public struct GestureSwipeRef: GestureSwipeProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureSwipe` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_swipe_ptr` property instead.
@@ -5506,10 +5554,6 @@ public extension GestureSwipeRef {
     }
 }
 
-/// The `GestureSwipe` type acts as a reference-counted owner of an underlying `GtkGestureSwipe` instance.
-/// It provides the methods that can operate on this data type through `GestureSwipeProtocol` conformance.
-/// Use `GestureSwipe` as a strong reference or owner of a `GtkGestureSwipe` instance.
-///
 /// `GtkGestureSwipe` is a `GtkGesture` for swipe gestures.
 /// 
 /// After a press/move/.../move/release sequence happens, the
@@ -5522,6 +5566,11 @@ public extension GestureSwipeRef {
 /// [signal`Gtk.Gesture::update`] handler.
 /// 
 /// All velocities are reported in pixels/sec units.
+///
+/// The `GestureSwipe` type acts as a reference-counted owner of an underlying `GtkGestureSwipe` instance.
+/// It provides the methods that can operate on this data type through `GestureSwipeProtocol` conformance.
+/// Use `GestureSwipe` as a strong reference or owner of a `GtkGestureSwipe` instance.
+///
 open class GestureSwipe: GestureSingle, GestureSwipeProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5779,12 +5828,14 @@ public enum GestureSwipeSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5905,16 +5956,17 @@ public extension GestureSwipeProtocol {
 
 // MARK: - GestureZoom Class
 
-/// The `GestureZoomProtocol` protocol exposes the methods and properties of an underlying `GtkGestureZoom` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `GestureZoom`.
-/// Alternatively, use `GestureZoomRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGestureZoom` is a `GtkGesture` for 2-finger pinch/zoom gestures.
 /// 
 /// Whenever the distance between both tracked sequences changes, the
 /// [signal`Gtk.GestureZoom::scale-changed`] signal is emitted to report
 /// the scale factor.
+///
+/// The `GestureZoomProtocol` protocol exposes the methods and properties of an underlying `GtkGestureZoom` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `GestureZoom`.
+/// Alternatively, use `GestureZoomRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GestureZoomProtocol: GestureProtocol {
         /// Untyped pointer to the underlying `GtkGestureZoom` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5926,15 +5978,16 @@ public protocol GestureZoomProtocol: GestureProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GestureZoomRef` type acts as a lightweight Swift reference to an underlying `GtkGestureZoom` instance.
-/// It exposes methods that can operate on this data type through `GestureZoomProtocol` conformance.
-/// Use `GestureZoomRef` only as an `unowned` reference to an existing `GtkGestureZoom` instance.
-///
 /// `GtkGestureZoom` is a `GtkGesture` for 2-finger pinch/zoom gestures.
 /// 
 /// Whenever the distance between both tracked sequences changes, the
 /// [signal`Gtk.GestureZoom::scale-changed`] signal is emitted to report
 /// the scale factor.
+///
+/// The `GestureZoomRef` type acts as a lightweight Swift reference to an underlying `GtkGestureZoom` instance.
+/// It exposes methods that can operate on this data type through `GestureZoomProtocol` conformance.
+/// Use `GestureZoomRef` only as an `unowned` reference to an existing `GtkGestureZoom` instance.
+///
 public struct GestureZoomRef: GestureZoomProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGestureZoom` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_zoom_ptr` property instead.
@@ -6022,15 +6075,16 @@ public extension GestureZoomRef {
     }
 }
 
-/// The `GestureZoom` type acts as a reference-counted owner of an underlying `GtkGestureZoom` instance.
-/// It provides the methods that can operate on this data type through `GestureZoomProtocol` conformance.
-/// Use `GestureZoom` as a strong reference or owner of a `GtkGestureZoom` instance.
-///
 /// `GtkGestureZoom` is a `GtkGesture` for 2-finger pinch/zoom gestures.
 /// 
 /// Whenever the distance between both tracked sequences changes, the
 /// [signal`Gtk.GestureZoom::scale-changed`] signal is emitted to report
 /// the scale factor.
+///
+/// The `GestureZoom` type acts as a reference-counted owner of an underlying `GtkGestureZoom` instance.
+/// It provides the methods that can operate on this data type through `GestureZoomProtocol` conformance.
+/// Use `GestureZoom` as a strong reference or owner of a `GtkGestureZoom` instance.
+///
 open class GestureZoom: Gesture, GestureZoomProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6281,12 +6335,14 @@ public enum GestureZoomSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6413,11 +6469,6 @@ public extension GestureZoomProtocol {
 
 // MARK: - Grid Class
 
-/// The `GridProtocol` protocol exposes the methods and properties of an underlying `GtkGrid` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Grid`.
-/// Alternatively, use `GridRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGrid` is a container which arranges its child widgets in
 /// rows and columns.
 /// 
@@ -6436,8 +6487,8 @@ public extension GestureZoomProtocol {
 /// # GtkGrid as GtkBuildable
 /// 
 /// Every child in a `GtkGrid` has access to a custom [iface`Gtk.Buildable`]
-/// element, called ´&lt;layout&gt;´. It can by used to specify a position in the
-/// grid and optionally spans. All properties that can be used in the ´&lt;layout&gt;´
+/// element, called `&lt;layout&gt;`. It can by used to specify a position in the
+/// grid and optionally spans. All properties that can be used in the `&lt;layout&gt;`
 /// element are implemented by [class`Gtk.GridLayoutChild`].
 /// 
 /// It is implemented by `GtkWidget` using [class`Gtk.LayoutManager`].
@@ -6489,9 +6540,9 @@ public extension GestureZoomProtocol {
 /// 
 /// It organizes the first two buttons side-by-side in one cell each.
 /// The third button is in the last column but spans across two rows.
-/// This is defined by the ´row-span´ property. The last button is
+/// This is defined by the `row-span` property. The last button is
 /// located in the second row and spans across two columns, which is
-/// defined by the ´column-span´ property.
+/// defined by the `column-span` property.
 /// 
 /// # CSS nodes
 /// 
@@ -6500,6 +6551,12 @@ public extension GestureZoomProtocol {
 /// # Accessibility
 /// 
 /// `GtkGrid` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `GridProtocol` protocol exposes the methods and properties of an underlying `GtkGrid` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Grid`.
+/// Alternatively, use `GridRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GridProtocol: WidgetProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkGrid` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6511,10 +6568,6 @@ public protocol GridProtocol: WidgetProtocol, OrientableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GridRef` type acts as a lightweight Swift reference to an underlying `GtkGrid` instance.
-/// It exposes methods that can operate on this data type through `GridProtocol` conformance.
-/// Use `GridRef` only as an `unowned` reference to an existing `GtkGrid` instance.
-///
 /// `GtkGrid` is a container which arranges its child widgets in
 /// rows and columns.
 /// 
@@ -6533,8 +6586,8 @@ public protocol GridProtocol: WidgetProtocol, OrientableProtocol {
 /// # GtkGrid as GtkBuildable
 /// 
 /// Every child in a `GtkGrid` has access to a custom [iface`Gtk.Buildable`]
-/// element, called ´&lt;layout&gt;´. It can by used to specify a position in the
-/// grid and optionally spans. All properties that can be used in the ´&lt;layout&gt;´
+/// element, called `&lt;layout&gt;`. It can by used to specify a position in the
+/// grid and optionally spans. All properties that can be used in the `&lt;layout&gt;`
 /// element are implemented by [class`Gtk.GridLayoutChild`].
 /// 
 /// It is implemented by `GtkWidget` using [class`Gtk.LayoutManager`].
@@ -6586,9 +6639,9 @@ public protocol GridProtocol: WidgetProtocol, OrientableProtocol {
 /// 
 /// It organizes the first two buttons side-by-side in one cell each.
 /// The third button is in the last column but spans across two rows.
-/// This is defined by the ´row-span´ property. The last button is
+/// This is defined by the `row-span` property. The last button is
 /// located in the second row and spans across two columns, which is
-/// defined by the ´column-span´ property.
+/// defined by the `column-span` property.
 /// 
 /// # CSS nodes
 /// 
@@ -6597,6 +6650,11 @@ public protocol GridProtocol: WidgetProtocol, OrientableProtocol {
 /// # Accessibility
 /// 
 /// `GtkGrid` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `GridRef` type acts as a lightweight Swift reference to an underlying `GtkGrid` instance.
+/// It exposes methods that can operate on this data type through `GridProtocol` conformance.
+/// Use `GridRef` only as an `unowned` reference to an existing `GtkGrid` instance.
+///
 public struct GridRef: GridProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGrid` instance.
     /// For type-safe access, use the generated, typed pointer `grid_ptr` property instead.
@@ -6683,10 +6741,6 @@ public extension GridRef {
     }
 }
 
-/// The `Grid` type acts as a reference-counted owner of an underlying `GtkGrid` instance.
-/// It provides the methods that can operate on this data type through `GridProtocol` conformance.
-/// Use `Grid` as a strong reference or owner of a `GtkGrid` instance.
-///
 /// `GtkGrid` is a container which arranges its child widgets in
 /// rows and columns.
 /// 
@@ -6705,8 +6759,8 @@ public extension GridRef {
 /// # GtkGrid as GtkBuildable
 /// 
 /// Every child in a `GtkGrid` has access to a custom [iface`Gtk.Buildable`]
-/// element, called ´&lt;layout&gt;´. It can by used to specify a position in the
-/// grid and optionally spans. All properties that can be used in the ´&lt;layout&gt;´
+/// element, called `&lt;layout&gt;`. It can by used to specify a position in the
+/// grid and optionally spans. All properties that can be used in the `&lt;layout&gt;`
 /// element are implemented by [class`Gtk.GridLayoutChild`].
 /// 
 /// It is implemented by `GtkWidget` using [class`Gtk.LayoutManager`].
@@ -6758,9 +6812,9 @@ public extension GridRef {
 /// 
 /// It organizes the first two buttons side-by-side in one cell each.
 /// The third button is in the last column but spans across two rows.
-/// This is defined by the ´row-span´ property. The last button is
+/// This is defined by the `row-span` property. The last button is
 /// located in the second row and spans across two columns, which is
-/// defined by the ´column-span´ property.
+/// defined by the `column-span` property.
 /// 
 /// # CSS nodes
 /// 
@@ -6769,6 +6823,11 @@ public extension GridRef {
 /// # Accessibility
 /// 
 /// `GtkGrid` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `Grid` type acts as a reference-counted owner of an underlying `GtkGrid` instance.
+/// It provides the methods that can operate on this data type through `GridProtocol` conformance.
+/// Use `Grid` as a strong reference or owner of a `GtkGrid` instance.
+///
 open class Grid: Widget, GridProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7157,12 +7216,14 @@ public enum GridSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7380,8 +7441,8 @@ public extension GridProtocol {
     /// left or right placement) or column 0 (for top or bottom placement),
     /// at the end indicated by `side`.
     /// 
-    /// Attaching widgets labeled [1], [2], [3] with `sibling` == `nil` and
-    /// `side` == `GTK_POS_LEFT` yields a layout of [3](#2)(#1).
+    /// Attaching widgets labeled `[1]`, `[2]`, `[3]` with ``sibling` == `nil`` and
+    /// ``side` == `GTK_POS_LEFT`` yields a layout of `[3](#2)(#1)`.
     @inlinable func attachNextTo<WidgetT: WidgetProtocol>(child: WidgetT, sibling: WidgetT?, side: GtkPositionType, width: Int, height: Int) {
         gtk_grid_attach_next_to(grid_ptr, child.widget_ptr, sibling?.widget_ptr, side, gint(width), gint(height))
     
@@ -7619,11 +7680,6 @@ public extension GridProtocol {
 
 // MARK: - GridLayout Class
 
-/// The `GridLayoutProtocol` protocol exposes the methods and properties of an underlying `GtkGridLayout` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `GridLayout`.
-/// Alternatively, use `GridLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGridLayout` is a layout manager which arranges child widgets in
 /// rows and columns.
 /// 
@@ -7638,6 +7694,12 @@ public extension GridProtocol {
 /// `GtkGridLayout` can be used like a `GtkBoxLayout` if all children are
 /// attached to the same row or column; however, if you only ever need a
 /// single row or column, you should consider using `GtkBoxLayout`.
+///
+/// The `GridLayoutProtocol` protocol exposes the methods and properties of an underlying `GtkGridLayout` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `GridLayout`.
+/// Alternatively, use `GridLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GridLayoutProtocol: LayoutManagerProtocol {
         /// Untyped pointer to the underlying `GtkGridLayout` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7649,10 +7711,6 @@ public protocol GridLayoutProtocol: LayoutManagerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GridLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkGridLayout` instance.
-/// It exposes methods that can operate on this data type through `GridLayoutProtocol` conformance.
-/// Use `GridLayoutRef` only as an `unowned` reference to an existing `GtkGridLayout` instance.
-///
 /// `GtkGridLayout` is a layout manager which arranges child widgets in
 /// rows and columns.
 /// 
@@ -7667,6 +7725,11 @@ public protocol GridLayoutProtocol: LayoutManagerProtocol {
 /// `GtkGridLayout` can be used like a `GtkBoxLayout` if all children are
 /// attached to the same row or column; however, if you only ever need a
 /// single row or column, you should consider using `GtkBoxLayout`.
+///
+/// The `GridLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkGridLayout` instance.
+/// It exposes methods that can operate on this data type through `GridLayoutProtocol` conformance.
+/// Use `GridLayoutRef` only as an `unowned` reference to an existing `GtkGridLayout` instance.
+///
 public struct GridLayoutRef: GridLayoutProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGridLayout` instance.
     /// For type-safe access, use the generated, typed pointer `grid_layout_ptr` property instead.
@@ -7753,10 +7816,6 @@ public extension GridLayoutRef {
     }
 }
 
-/// The `GridLayout` type acts as a reference-counted owner of an underlying `GtkGridLayout` instance.
-/// It provides the methods that can operate on this data type through `GridLayoutProtocol` conformance.
-/// Use `GridLayout` as a strong reference or owner of a `GtkGridLayout` instance.
-///
 /// `GtkGridLayout` is a layout manager which arranges child widgets in
 /// rows and columns.
 /// 
@@ -7771,6 +7830,11 @@ public extension GridLayoutRef {
 /// `GtkGridLayout` can be used like a `GtkBoxLayout` if all children are
 /// attached to the same row or column; however, if you only ever need a
 /// single row or column, you should consider using `GtkBoxLayout`.
+///
+/// The `GridLayout` type acts as a reference-counted owner of an underlying `GtkGridLayout` instance.
+/// It provides the methods that can operate on this data type through `GridLayoutProtocol` conformance.
+/// Use `GridLayout` as a strong reference or owner of a `GtkGridLayout` instance.
+///
 open class GridLayout: LayoutManager, GridLayoutProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7989,12 +8053,14 @@ public enum GridLayoutSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8175,12 +8241,13 @@ public extension GridLayoutProtocol {
 
 // MARK: - GridLayoutChild Class
 
+/// `GtkLayoutChild` subclass for children in a `GtkGridLayout`.
+///
 /// The `GridLayoutChildProtocol` protocol exposes the methods and properties of an underlying `GtkGridLayoutChild` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GridLayoutChild`.
 /// Alternatively, use `GridLayoutChildRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkLayoutChild` subclass for children in a `GtkGridLayout`.
 public protocol GridLayoutChildProtocol: LayoutChildProtocol {
         /// Untyped pointer to the underlying `GtkGridLayoutChild` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8192,11 +8259,12 @@ public protocol GridLayoutChildProtocol: LayoutChildProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkLayoutChild` subclass for children in a `GtkGridLayout`.
+///
 /// The `GridLayoutChildRef` type acts as a lightweight Swift reference to an underlying `GtkGridLayoutChild` instance.
 /// It exposes methods that can operate on this data type through `GridLayoutChildProtocol` conformance.
 /// Use `GridLayoutChildRef` only as an `unowned` reference to an existing `GtkGridLayoutChild` instance.
 ///
-/// `GtkLayoutChild` subclass for children in a `GtkGridLayout`.
 public struct GridLayoutChildRef: GridLayoutChildProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGridLayoutChild` instance.
     /// For type-safe access, use the generated, typed pointer `grid_layout_child_ptr` property instead.
@@ -8278,11 +8346,12 @@ public extension GridLayoutChildRef {
 
     }
 
+/// `GtkLayoutChild` subclass for children in a `GtkGridLayout`.
+///
 /// The `GridLayoutChild` type acts as a reference-counted owner of an underlying `GtkGridLayoutChild` instance.
 /// It provides the methods that can operate on this data type through `GridLayoutChildProtocol` conformance.
 /// Use `GridLayoutChild` as a strong reference or owner of a `GtkGridLayoutChild` instance.
 ///
-/// `GtkLayoutChild` subclass for children in a `GtkGridLayout`.
 open class GridLayoutChild: LayoutChild, GridLayoutChildProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8496,12 +8565,14 @@ public enum GridLayoutChildSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8632,11 +8703,6 @@ public extension GridLayoutChildProtocol {
 
 // MARK: - GridView Class
 
-/// The `GridViewProtocol` protocol exposes the methods and properties of an underlying `GtkGridView` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `GridView`.
-/// Alternatively, use `GridViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGridView` presents a large dynamic grid of items.
 /// 
 /// `GtkGridView` uses its factory to generate one child widget for each
@@ -8655,22 +8721,29 @@ public extension GridLayoutChildProtocol {
 /// 
 /// ```
 /// gridview
-/// ├── child
+/// ├── child[.activatable]
 /// │
-/// ├── child
+/// ├── child[.activatable]
 /// │
 /// ┊
 /// ╰── [rubberband]
 /// ```
 /// 
-/// `GtkGridView` uses a single CSS node with name gridview. Each child
-/// uses a single CSS node with name child. For rubberband selection,
-/// a subnode with name rubberband is used.
+/// `GtkGridView` uses a single CSS node with name `gridview`. Each child uses
+/// a single CSS node with name `child`. If the [property`Gtk.ListItem:activatable`]
+/// property is set, the corresponding row will have the `.activatable` style
+/// class. For rubberband selection, a subnode with name `rubberband` is used.
 /// 
 /// # Accessibility
 /// 
 /// `GtkGridView` uses the `GTK_ACCESSIBLE_ROLE_GRID` role, and the items
 /// use the `GTK_ACCESSIBLE_ROLE_GRID_CELL` role.
+///
+/// The `GridViewProtocol` protocol exposes the methods and properties of an underlying `GtkGridView` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `GridView`.
+/// Alternatively, use `GridViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GridViewProtocol: ListBaseProtocol {
         /// Untyped pointer to the underlying `GtkGridView` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8682,10 +8755,6 @@ public protocol GridViewProtocol: ListBaseProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GridViewRef` type acts as a lightweight Swift reference to an underlying `GtkGridView` instance.
-/// It exposes methods that can operate on this data type through `GridViewProtocol` conformance.
-/// Use `GridViewRef` only as an `unowned` reference to an existing `GtkGridView` instance.
-///
 /// `GtkGridView` presents a large dynamic grid of items.
 /// 
 /// `GtkGridView` uses its factory to generate one child widget for each
@@ -8704,22 +8773,28 @@ public protocol GridViewProtocol: ListBaseProtocol {
 /// 
 /// ```
 /// gridview
-/// ├── child
+/// ├── child[.activatable]
 /// │
-/// ├── child
+/// ├── child[.activatable]
 /// │
 /// ┊
 /// ╰── [rubberband]
 /// ```
 /// 
-/// `GtkGridView` uses a single CSS node with name gridview. Each child
-/// uses a single CSS node with name child. For rubberband selection,
-/// a subnode with name rubberband is used.
+/// `GtkGridView` uses a single CSS node with name `gridview`. Each child uses
+/// a single CSS node with name `child`. If the [property`Gtk.ListItem:activatable`]
+/// property is set, the corresponding row will have the `.activatable` style
+/// class. For rubberband selection, a subnode with name `rubberband` is used.
 /// 
 /// # Accessibility
 /// 
 /// `GtkGridView` uses the `GTK_ACCESSIBLE_ROLE_GRID` role, and the items
 /// use the `GTK_ACCESSIBLE_ROLE_GRID_CELL` role.
+///
+/// The `GridViewRef` type acts as a lightweight Swift reference to an underlying `GtkGridView` instance.
+/// It exposes methods that can operate on this data type through `GridViewProtocol` conformance.
+/// Use `GridViewRef` only as an `unowned` reference to an existing `GtkGridView` instance.
+///
 public struct GridViewRef: GridViewProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGridView` instance.
     /// For type-safe access, use the generated, typed pointer `grid_view_ptr` property instead.
@@ -8814,10 +8889,6 @@ public extension GridViewRef {
     }
 }
 
-/// The `GridView` type acts as a reference-counted owner of an underlying `GtkGridView` instance.
-/// It provides the methods that can operate on this data type through `GridViewProtocol` conformance.
-/// Use `GridView` as a strong reference or owner of a `GtkGridView` instance.
-///
 /// `GtkGridView` presents a large dynamic grid of items.
 /// 
 /// `GtkGridView` uses its factory to generate one child widget for each
@@ -8836,22 +8907,28 @@ public extension GridViewRef {
 /// 
 /// ```
 /// gridview
-/// ├── child
+/// ├── child[.activatable]
 /// │
-/// ├── child
+/// ├── child[.activatable]
 /// │
 /// ┊
 /// ╰── [rubberband]
 /// ```
 /// 
-/// `GtkGridView` uses a single CSS node with name gridview. Each child
-/// uses a single CSS node with name child. For rubberband selection,
-/// a subnode with name rubberband is used.
+/// `GtkGridView` uses a single CSS node with name `gridview`. Each child uses
+/// a single CSS node with name `child`. If the [property`Gtk.ListItem:activatable`]
+/// property is set, the corresponding row will have the `.activatable` style
+/// class. For rubberband selection, a subnode with name `rubberband` is used.
 /// 
 /// # Accessibility
 /// 
 /// `GtkGridView` uses the `GTK_ACCESSIBLE_ROLE_GRID` role, and the items
 /// use the `GTK_ACCESSIBLE_ROLE_GRID_CELL` role.
+///
+/// The `GridView` type acts as a reference-counted owner of an underlying `GtkGridView` instance.
+/// It provides the methods that can operate on this data type through `GridViewProtocol` conformance.
+/// Use `GridView` as a strong reference or owner of a `GtkGridView` instance.
+///
 open class GridView: ListBase, GridViewProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9263,12 +9340,14 @@ public enum GridViewSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9545,12 +9624,14 @@ public extension GridViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9594,12 +9675,14 @@ public extension GridViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9643,12 +9726,14 @@ public extension GridViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9692,12 +9777,14 @@ public extension GridViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9741,12 +9828,14 @@ public extension GridViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9790,12 +9879,14 @@ public extension GridViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10028,11 +10119,6 @@ public extension GridViewProtocol {
 
 // MARK: - HeaderBar Class
 
-/// The `HeaderBarProtocol` protocol exposes the methods and properties of an underlying `GtkHeaderBar` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `HeaderBar`.
-/// Alternatively, use `HeaderBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkHeaderBar` is a widget for creating custom title bars for windows.
 /// 
 /// ![An example GtkHeaderBar](headerbar.png)
@@ -10104,6 +10190,12 @@ public extension GridViewProtocol {
 /// # Accessibility
 /// 
 /// `GtkHeaderBar` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `HeaderBarProtocol` protocol exposes the methods and properties of an underlying `GtkHeaderBar` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `HeaderBar`.
+/// Alternatively, use `HeaderBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol HeaderBarProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkHeaderBar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -10115,10 +10207,6 @@ public protocol HeaderBarProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `HeaderBarRef` type acts as a lightweight Swift reference to an underlying `GtkHeaderBar` instance.
-/// It exposes methods that can operate on this data type through `HeaderBarProtocol` conformance.
-/// Use `HeaderBarRef` only as an `unowned` reference to an existing `GtkHeaderBar` instance.
-///
 /// `GtkHeaderBar` is a widget for creating custom title bars for windows.
 /// 
 /// ![An example GtkHeaderBar](headerbar.png)
@@ -10190,6 +10278,11 @@ public protocol HeaderBarProtocol: WidgetProtocol {
 /// # Accessibility
 /// 
 /// `GtkHeaderBar` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `HeaderBarRef` type acts as a lightweight Swift reference to an underlying `GtkHeaderBar` instance.
+/// It exposes methods that can operate on this data type through `HeaderBarProtocol` conformance.
+/// Use `HeaderBarRef` only as an `unowned` reference to an existing `GtkHeaderBar` instance.
+///
 public struct HeaderBarRef: HeaderBarProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkHeaderBar` instance.
     /// For type-safe access, use the generated, typed pointer `header_bar_ptr` property instead.
@@ -10276,10 +10369,6 @@ public extension HeaderBarRef {
     }
 }
 
-/// The `HeaderBar` type acts as a reference-counted owner of an underlying `GtkHeaderBar` instance.
-/// It provides the methods that can operate on this data type through `HeaderBarProtocol` conformance.
-/// Use `HeaderBar` as a strong reference or owner of a `GtkHeaderBar` instance.
-///
 /// `GtkHeaderBar` is a widget for creating custom title bars for windows.
 /// 
 /// ![An example GtkHeaderBar](headerbar.png)
@@ -10351,6 +10440,11 @@ public extension HeaderBarRef {
 /// # Accessibility
 /// 
 /// `GtkHeaderBar` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `HeaderBar` type acts as a reference-counted owner of an underlying `GtkHeaderBar` instance.
+/// It provides the methods that can operate on this data type through `HeaderBarProtocol` conformance.
+/// Use `HeaderBar` as a strong reference or owner of a `GtkHeaderBar` instance.
+///
 open class HeaderBar: Widget, HeaderBarProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10742,12 +10836,14 @@ public enum HeaderBarSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

@@ -42,10 +42,9 @@ import Gdk
 /// The string may be translated.
 /// 
 /// This function is similar to [func`Gtk.accelerator_get_label`],
-/// but handling keycodes.
-/// 
-/// This is only useful for system-level components, applications
-/// should use `gtk_accelerator_parse()` instead.
+/// but handling keycodes. This is only useful for system-level
+/// components, applications should use [func`Gtk.accelerator_get_label`]
+/// instead.
 @inlinable public func acceleratorGetLabelWithKeycode(display: Gdk.DisplayRef? = nil, acceleratorKey: Int, keycode: Int, acceleratorMods: Gdk.ModifierType) -> String! {
     guard let rv = gtk_accelerator_get_label_with_keycode(display?.display_ptr, guint(acceleratorKey), guint(keycode), acceleratorMods.value).map({ String(cString: $0) }) else { return nil }
     return rv
@@ -56,10 +55,9 @@ import Gdk
 /// The string may be translated.
 /// 
 /// This function is similar to [func`Gtk.accelerator_get_label`],
-/// but handling keycodes.
-/// 
-/// This is only useful for system-level components, applications
-/// should use `gtk_accelerator_parse()` instead.
+/// but handling keycodes. This is only useful for system-level
+/// components, applications should use [func`Gtk.accelerator_get_label`]
+/// instead.
 @inlinable public func acceleratorGetLabelWithKeycode<DisplayT: Gdk.DisplayProtocol>(display: DisplayT?, acceleratorKey: Int, keycode: Int, acceleratorMods: Gdk.ModifierType) -> String! {
     guard let rv = gtk_accelerator_get_label_with_keycode(display?.display_ptr, guint(acceleratorKey), guint(keycode), acceleratorMods.value).map({ String(cString: $0) }) else { return nil }
     return rv
@@ -89,7 +87,7 @@ import Gdk
 /// 
 /// This is similar to [func`Gtk.accelerator_name`] but handling keycodes.
 /// This is only useful for system-level components, applications
-/// should use `gtk_accelerator_parse()` instead.
+/// should use [func`Gtk.accelerator_name`] instead.
 @inlinable public func acceleratorNameWithKeycode(display: Gdk.DisplayRef? = nil, acceleratorKey: Int, keycode: Int, acceleratorMods: Gdk.ModifierType) -> String! {
     guard let rv = gtk_accelerator_name_with_keycode(display?.display_ptr, guint(acceleratorKey), guint(keycode), acceleratorMods.value).map({ String(cString: $0) }) else { return nil }
     return rv
@@ -99,7 +97,7 @@ import Gdk
 /// 
 /// This is similar to [func`Gtk.accelerator_name`] but handling keycodes.
 /// This is only useful for system-level components, applications
-/// should use `gtk_accelerator_parse()` instead.
+/// should use [func`Gtk.accelerator_name`] instead.
 @inlinable public func acceleratorNameWithKeycode<DisplayT: Gdk.DisplayProtocol>(display: DisplayT?, acceleratorKey: Int, keycode: Int, acceleratorMods: Gdk.ModifierType) -> String! {
     guard let rv = gtk_accelerator_name_with_keycode(display?.display_ptr, guint(acceleratorKey), guint(keycode), acceleratorMods.value).map({ String(cString: $0) }) else { return nil }
     return rv
@@ -110,15 +108,26 @@ import Gdk
 
 /// Parses a string representing an accelerator.
 /// 
-/// The format looks like “&lt;Control&gt;a” or “&lt;Shift&gt;&lt;Alt&gt;F1”.
+/// The format looks like “`&lt;Control&gt;a`” or “`&lt;Shift&gt;&lt;Alt&gt;F1`”.
 /// 
 /// The parser is fairly liberal and allows lower or upper case, and also
-/// abbreviations such as “&lt;Ctl&gt;” and “&lt;Ctrl&gt;”. Key names are parsed using
-/// [func`Gdk.keyval_from_name`]. For character keys the name is not the symbol,
-/// but the lowercase name, e.g. one would use “&lt;Ctrl&gt;minus” instead of
-/// “&lt;Ctrl&gt;-”.
+/// abbreviations such as “`&lt;Ctl&gt;`” and “`&lt;Ctrl&gt;`”.
 /// 
-/// If the parse fails, `accelerator_key` and `accelerator_mods` will
+/// Key names are parsed using [func`Gdk.keyval_from_name`]. For character keys
+/// the name is not the symbol, but the lowercase name, e.g. one would use
+/// “`&lt;Ctrl&gt;minus`” instead of “`&lt;Ctrl&gt;-`”.
+/// 
+/// Modifiers are enclosed in angular brackets `&lt;&gt;`, and match the
+/// [enum`Gdk.ModifierType`] mask:
+/// 
+/// - `&lt;Shift&gt;` for `GDK_SHIFT_MASK`
+/// - `&lt;Ctrl&gt;` for `GDK_CONTROL_MASK`
+/// - `&lt;Alt&gt;` for `GDK_ALT_MASK`
+/// - `&lt;Meta&gt;` for `GDK_META_MASK`
+/// - `&lt;Super&gt;` for `GDK_SUPER_MASK`
+/// - `&lt;Hyper&gt;` for `GDK_HYPER_MASK`
+/// 
+/// If the parse operation fails, `accelerator_key` and `accelerator_mods` will
 /// be set to 0 (zero).
 @inlinable public func acceleratorParse(accelerator: UnsafePointer<CChar>!, acceleratorKey: UnsafeMutablePointer<guint>! = nil, acceleratorMods: UnsafeMutablePointer<GdkModifierType>! = nil) -> Bool {
     let rv = ((gtk_accelerator_parse(accelerator, acceleratorKey, acceleratorMods)) != 0)
@@ -132,7 +141,7 @@ import Gdk
 /// 
 /// This is similar to [func`Gtk.accelerator_parse`] but handles keycodes as
 /// well. This is only useful for system-level components, applications should
-/// use `gtk_accelerator_parse()` instead.
+/// use [func`Gtk.accelerator_parse`] instead.
 /// 
 /// If `accelerator_codes` is given and the result stored in it is non-`nil`,
 /// the result must be freed with `g_free()`.
@@ -150,7 +159,7 @@ import Gdk
 /// 
 /// This is similar to [func`Gtk.accelerator_parse`] but handles keycodes as
 /// well. This is only useful for system-level components, applications should
-/// use `gtk_accelerator_parse()` instead.
+/// use [func`Gtk.accelerator_parse`] instead.
 /// 
 /// If `accelerator_codes` is given and the result stored in it is non-`nil`,
 /// the result must be freed with `g_free()`.
@@ -330,10 +339,14 @@ import Gdk
 
 
 
-/// Installs the `GtkEditable` properties for `class`.
+/// Overrides the `GtkEditable` properties for `class`.
 /// 
 /// This is a helper function that should be called in class_init,
 /// after installing your own properties.
+/// 
+/// Note that your class must have "text", "cursor-position",
+/// "selection-bound", "editable", "width-chars", "max-width-chars",
+/// "xalign" and "enable-undo" properties for this function to work.
 /// 
 /// To handle the properties in your set_property and get_property
 /// functions, you can either use [func`Gtk.Editable.delegate_set_property`]
@@ -392,13 +405,18 @@ import Gdk
 
 
 
-/// Returns the `PangoLanguage` for the default language currently in
-/// effect. (Note that this can change over the life of an
-/// application.) The default language is derived from the current
-/// locale. It determines, for example, whether GTK uses the
-/// right-to-left or left-to-right text direction.
+/// Returns the `PangoLanguage` for the default language
+/// currently in effect.
 /// 
-/// This function is equivalent to `pango_language_get_default()`.
+/// Note that this can change over the life of an
+/// application.
+/// 
+/// The default language is derived from the current
+/// locale. It determines, for example, whether GTK uses
+/// the right-to-left or left-to-right text direction.
+/// 
+/// This function is equivalent to
+/// [func`Pango.Language.get_default`].
 /// See that function for details.
 @inlinable public func getDefaultLanguage() -> Pango.LanguageRef! {
     guard let rv = Pango.LanguageRef(gtk_get_default_language()) else { return nil }
@@ -523,7 +541,7 @@ import Gdk
 /// toolkit and parses some standard command line options.
 /// 
 /// If you are using `GtkApplication`, you don't have to call `gtk_init()`
-/// or `gtk_init_check()`; the `GApplication::startup` handler
+/// or `gtk_init_check()`; the `GApplication`startup`` handler
 /// does it for you.
 /// 
 /// This function will terminate your program if it was unable to
@@ -783,9 +801,8 @@ import Gdk
 
 
 
-/// Renders a handle (as in `GtkPaned` and
-/// `GtkWindow`’s resize grip), in the rectangle
-/// determined by `x`, `y`, `width`, `height`.
+/// Renders a handle (as in `GtkPaned` and `GtkWindow`’s resize grip),
+/// in the rectangle determined by `x`, `y`, `width`, `height`.
 /// 
 /// Handles rendered for the paned and grip classes:
 /// 
@@ -1055,7 +1072,7 @@ import Gdk
 
 /// Lets a set of row reference created by
 /// `gtk_tree_row_reference_new_proxy()` know that the
-/// model emitted the `GtkTreeModel::row-deleted` signal.
+/// model emitted the `row-deleted` signal.
 @inlinable public func treeRowReferenceDeleted<ObjectT: GLibObject.ObjectProtocol, TreePathT: TreePathProtocol>(proxy: ObjectT, path: TreePathT) {
     gtk_tree_row_reference_deleted(proxy.object_ptr, path.tree_path_ptr)
 
@@ -1066,7 +1083,7 @@ import Gdk
 
 /// Lets a set of row reference created by
 /// `gtk_tree_row_reference_new_proxy()` know that the
-/// model emitted the `GtkTreeModel::row-inserted` signal.
+/// model emitted the `row-inserted` signal.
 @inlinable public func treeRowReferenceInserted<ObjectT: GLibObject.ObjectProtocol, TreePathT: TreePathProtocol>(proxy: ObjectT, path: TreePathT) {
     gtk_tree_row_reference_inserted(proxy.object_ptr, path.tree_path_ptr)
 
@@ -1077,7 +1094,7 @@ import Gdk
 
 /// Lets a set of row reference created by
 /// `gtk_tree_row_reference_new_proxy()` know that the
-/// model emitted the `GtkTreeModel::rows-reordered` signal.
+/// model emitted the `rows-reordered` signal.
 @inlinable public func treeRowReferenceReordered<ObjectT: GLibObject.ObjectProtocol, TreeIterT: TreeIterProtocol, TreePathT: TreePathProtocol>(proxy: ObjectT, path: TreePathT, iter: TreeIterT, newOrder: UnsafeMutablePointer<CInt>!) {
     gtk_tree_row_reference_reordered(proxy.object_ptr, path.tree_path_ptr, iter.tree_iter_ptr, newOrder)
 

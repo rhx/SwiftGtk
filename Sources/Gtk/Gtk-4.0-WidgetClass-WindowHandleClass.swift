@@ -30,12 +30,13 @@ public extension WidgetClassRef {
 
 // MARK: - WidgetClass Record
 
+
+///
 /// The `WidgetClassProtocol` protocol exposes the methods and properties of an underlying `GtkWidgetClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WidgetClass`.
 /// Alternatively, use `WidgetClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WidgetClassProtocol {
         /// Untyped pointer to the underlying `GtkWidgetClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol WidgetClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WidgetClassRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetClass` instance.
 /// It exposes methods that can operate on this data type through `WidgetClassProtocol` conformance.
 /// Use `WidgetClassRef` only as an `unowned` reference to an existing `GtkWidgetClass` instance.
 ///
-
 public struct WidgetClassRef: WidgetClassProtocol {
         /// Untyped pointer to the underlying `GtkWidgetClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -175,8 +177,8 @@ public extension WidgetClassProtocol {
     
     }
 
-    /// Automatically assign an object declared in the class template XML to be
-    /// set to a location on a freshly built instance’s private data, or
+    /// Automatically assign an object declared in the class template XML to
+    /// be set to a location on a freshly built instance’s private data, or
     /// alternatively accessible via [method`Gtk.Widget.get_template_child`].
     /// 
     /// The struct can point either into the public instance, then you should
@@ -219,8 +221,10 @@ public extension WidgetClassProtocol {
         return rv
     }
 
-    /// Retrieves the signal id for the activation signal set using
-    /// `gtk_widget_class_set_activate_signal()`.
+    /// Retrieves the signal id for the activation signal.
+    /// 
+    /// the activation signal is set using
+    /// [method`Gtk.WidgetClass.set_activate_signal`].
     @inlinable func getActivateSignal() -> Int {
         let rv = Int(gtk_widget_class_get_activate_signal(_ptr))
         return rv
@@ -228,16 +232,16 @@ public extension WidgetClassProtocol {
 
     /// Gets the name used by this class for matching in CSS code.
     /// 
-    /// See `gtk_widget_class_set_css_name()` for details.
+    /// See [method`Gtk.WidgetClass.set_css_name`] for details.
     @inlinable func getCssName() -> String! {
         let rv = gtk_widget_class_get_css_name(_ptr).map({ String(cString: $0) })
         return rv
     }
 
     /// Retrieves the type of the [class`Gtk.LayoutManager`]
-    /// used by the `GtkWidget` class.
+    /// used by widgets of class `widget_class`.
     /// 
-    /// See also: `gtk_widget_class_set_layout_manager_type()`
+    /// See also: [method`Gtk.WidgetClass.set_layout_manager_type`].
     @inlinable func getLayoutManagerType() -> GType {
         let rv = gtk_widget_class_get_layout_manager_type(_ptr)
         return rv
@@ -273,15 +277,17 @@ public extension WidgetClassProtocol {
     
     }
 
-    /// Queries the actions that have been installed for
-    /// a widget class using [method`Gtk.WidgetClass.install_action`]
-    /// during class initialization.
+    /// Returns details about the `index_-th` action that has been
+    /// installed for `widget_class` during class initialization.
+    /// 
+    /// See [method`Gtk.WidgetClass.install_action`] for details on
+    /// how to install actions.
     /// 
     /// Note that this function will also return actions defined
     /// by parent classes. You can identify those by looking
     /// at `owner`.
-    @inlinable func queryAction(index_: Int, owner: UnsafeMutablePointer<GType>!, actionName: UnsafeMutablePointer<UnsafePointer<CChar>?>!, parameterType: UnsafeMutablePointer<UnsafePointer<GVariantType>?>?, propertyName: UnsafeMutablePointer<UnsafePointer<CChar>?>?) -> Bool {
-        let rv = ((gtk_widget_class_query_action(_ptr, guint(index_), owner, actionName, parameterType, propertyName)) != 0)
+    @inlinable func queryAction(index: Int, owner: UnsafeMutablePointer<GType>!, actionName: UnsafeMutablePointer<UnsafePointer<CChar>?>!, parameterType: UnsafeMutablePointer<UnsafePointer<GVariantType>?>?, propertyName: UnsafeMutablePointer<UnsafePointer<CChar>?>?) -> Bool {
+        let rv = ((gtk_widget_class_query_action(_ptr, guint(index), owner, actionName, parameterType, propertyName)) != 0)
         return rv
     }
 
@@ -294,20 +300,22 @@ public extension WidgetClassProtocol {
     
     }
 
-    /// Sets the GtkWidgetClass.activate_signal field with the
-    /// given `signal_id`; the signal will be emitted when calling
-    /// `gtk_widget_activate()`.
+    /// Sets the `GtkWidgetClass.activate_signal` field with the
+    /// given `signal_id`.
     /// 
-    /// The `signal_id` must have been registered with `g_signal_new()`
+    /// The signal will be emitted when calling [method`Gtk.Widget.activate`].
+    /// 
+    /// The `signal_id` must have been registered with ``g_signal_new()``
     /// or `g_signal_newv()` before calling this function.
     @inlinable func setActivateSignal(signalId: Int) {
         gtk_widget_class_set_activate_signal(_ptr, guint(signalId))
     
     }
 
-    /// Sets the GtkWidgetClass.activate_signal field with the signal id for
-    /// the given `signal_name`; the signal will be emitted when calling
-    /// `gtk_widget_activate()`.
+    /// Sets the `GtkWidgetClass.activate_signal` field with the signal id for
+    /// the given `signal_name`.
+    /// 
+    /// The signal will be emitted when calling [method`Gtk.Widget.activate`].
     /// 
     /// The `signal_name` of `widget_type` must have been registered with
     /// `g_signal_new()` or `g_signal_newv()` before calling this function.
@@ -326,8 +334,8 @@ public extension WidgetClassProtocol {
     
     }
 
-    /// Sets the type to be used for creating layout managers for widgets of
-    /// `widget_class`.
+    /// Sets the type to be used for creating layout managers for
+    /// widgets of `widget_class`.
     /// 
     /// The given `type` must be a subtype of [class`Gtk.LayoutManager`].
     /// 
@@ -367,7 +375,7 @@ public extension WidgetClassProtocol {
     /// this class’s template data.
     /// 
     /// Note that this must be called from a composite widget classes class
-    /// initializer after calling `gtk_widget_class_set_template()`.
+    /// initializer after calling [method`GtkWidgetClass.set_template`].
     @inlinable func setTemplate<BuilderScopeT: BuilderScopeProtocol>(scope: BuilderScopeT) {
         gtk_widget_class_set_template_scope(_ptr, scope.builder_scope_ptr)
     
@@ -398,20 +406,25 @@ public extension WidgetClassProtocol {
         }
     }
 
-    /// Retrieves the signal id for the activation signal set using
-    /// `gtk_widget_class_set_activate_signal()`.
+    /// Retrieves the signal id for the activation signal.
+    /// 
+    /// the activation signal is set using
+    /// [method`Gtk.WidgetClass.set_activate_signal`].
     @inlinable var activateSignal: Int {
-        /// Retrieves the signal id for the activation signal set using
-        /// `gtk_widget_class_set_activate_signal()`.
+        /// Retrieves the signal id for the activation signal.
+        /// 
+        /// the activation signal is set using
+        /// [method`Gtk.WidgetClass.set_activate_signal`].
         get {
             let rv = Int(gtk_widget_class_get_activate_signal(_ptr))
             return rv
         }
-        /// Sets the GtkWidgetClass.activate_signal field with the
-        /// given `signal_id`; the signal will be emitted when calling
-        /// `gtk_widget_activate()`.
+        /// Sets the `GtkWidgetClass.activate_signal` field with the
+        /// given `signal_id`.
         /// 
-        /// The `signal_id` must have been registered with `g_signal_new()`
+        /// The signal will be emitted when calling [method`Gtk.Widget.activate`].
+        /// 
+        /// The `signal_id` must have been registered with ``g_signal_new()``
         /// or `g_signal_newv()` before calling this function.
         nonmutating set {
             gtk_widget_class_set_activate_signal(_ptr, guint(newValue))
@@ -420,11 +433,11 @@ public extension WidgetClassProtocol {
 
     /// Gets the name used by this class for matching in CSS code.
     /// 
-    /// See `gtk_widget_class_set_css_name()` for details.
+    /// See [method`Gtk.WidgetClass.set_css_name`] for details.
     @inlinable var cssName: String! {
         /// Gets the name used by this class for matching in CSS code.
         /// 
-        /// See `gtk_widget_class_set_css_name()` for details.
+        /// See [method`Gtk.WidgetClass.set_css_name`] for details.
         get {
             let rv = gtk_widget_class_get_css_name(_ptr).map({ String(cString: $0) })
             return rv
@@ -440,20 +453,20 @@ public extension WidgetClassProtocol {
     }
 
     /// Retrieves the type of the [class`Gtk.LayoutManager`]
-    /// used by the `GtkWidget` class.
+    /// used by widgets of class `widget_class`.
     /// 
-    /// See also: `gtk_widget_class_set_layout_manager_type()`
+    /// See also: [method`Gtk.WidgetClass.set_layout_manager_type`].
     @inlinable var layoutManagerType: GType {
         /// Retrieves the type of the [class`Gtk.LayoutManager`]
-        /// used by the `GtkWidget` class.
+        /// used by widgets of class `widget_class`.
         /// 
-        /// See also: `gtk_widget_class_set_layout_manager_type()`
+        /// See also: [method`Gtk.WidgetClass.set_layout_manager_type`].
         get {
             let rv = gtk_widget_class_get_layout_manager_type(_ptr)
             return rv
         }
-        /// Sets the type to be used for creating layout managers for widgets of
-        /// `widget_class`.
+        /// Sets the type to be used for creating layout managers for
+        /// widgets of `widget_class`.
         /// 
         /// The given `type` must be a subtype of [class`Gtk.LayoutManager`].
         /// 
@@ -539,12 +552,13 @@ public extension WidgetClassProtocol {
 
 // MARK: - WidgetClassPrivate Record
 
+
+///
 /// The `WidgetClassPrivateProtocol` protocol exposes the methods and properties of an underlying `GtkWidgetClassPrivate` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WidgetClassPrivate`.
 /// Alternatively, use `WidgetClassPrivateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WidgetClassPrivateProtocol {
         /// Untyped pointer to the underlying `GtkWidgetClassPrivate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -556,11 +570,12 @@ public protocol WidgetClassPrivateProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WidgetClassPrivateRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetClassPrivate` instance.
 /// It exposes methods that can operate on this data type through `WidgetClassPrivateProtocol` conformance.
 /// Use `WidgetClassPrivateRef` only as an `unowned` reference to an existing `GtkWidgetClassPrivate` instance.
 ///
-
 public struct WidgetClassPrivateRef: WidgetClassPrivateProtocol {
         /// Untyped pointer to the underlying `GtkWidgetClassPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -639,11 +654,12 @@ public extension WidgetClassPrivateRef {
 
     }
 
+
+///
 /// The `WidgetClassPrivate` type acts as an owner of an underlying `GtkWidgetClassPrivate` instance.
 /// It provides the methods that can operate on this data type through `WidgetClassPrivateProtocol` conformance.
 /// Use `WidgetClassPrivate` as a strong reference or owner of a `GtkWidgetClassPrivate` instance.
 ///
-
 open class WidgetClassPrivate: WidgetClassPrivateProtocol {
         /// Untyped pointer to the underlying `GtkWidgetClassPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -821,12 +837,13 @@ public extension WidgetPaintableClassRef {
 
 // MARK: - WidgetPaintableClass Record
 
+
+///
 /// The `WidgetPaintableClassProtocol` protocol exposes the methods and properties of an underlying `GtkWidgetPaintableClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WidgetPaintableClass`.
 /// Alternatively, use `WidgetPaintableClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WidgetPaintableClassProtocol {
         /// Untyped pointer to the underlying `GtkWidgetPaintableClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -838,11 +855,12 @@ public protocol WidgetPaintableClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WidgetPaintableClassRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetPaintableClass` instance.
 /// It exposes methods that can operate on this data type through `WidgetPaintableClassProtocol` conformance.
 /// Use `WidgetPaintableClassRef` only as an `unowned` reference to an existing `GtkWidgetPaintableClass` instance.
 ///
-
 public struct WidgetPaintableClassRef: WidgetPaintableClassProtocol {
         /// Untyped pointer to the underlying `GtkWidgetPaintableClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -955,12 +973,13 @@ public extension WindowClassRef {
 
 // MARK: - WindowClass Record
 
+
+///
 /// The `WindowClassProtocol` protocol exposes the methods and properties of an underlying `GtkWindowClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WindowClass`.
 /// Alternatively, use `WindowClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WindowClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -972,11 +991,12 @@ public protocol WindowClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WindowClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowClass` instance.
 /// It exposes methods that can operate on this data type through `WindowClassProtocol` conformance.
 /// Use `WindowClassRef` only as an `unowned` reference to an existing `GtkWindowClass` instance.
 ///
-
 public struct WindowClassRef: WindowClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1103,12 +1123,13 @@ public extension WindowControlsClassRef {
 
 // MARK: - WindowControlsClass Record
 
+
+///
 /// The `WindowControlsClassProtocol` protocol exposes the methods and properties of an underlying `GtkWindowControlsClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WindowControlsClass`.
 /// Alternatively, use `WindowControlsClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WindowControlsClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowControlsClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1120,11 +1141,12 @@ public protocol WindowControlsClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WindowControlsClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowControlsClass` instance.
 /// It exposes methods that can operate on this data type through `WindowControlsClassProtocol` conformance.
 /// Use `WindowControlsClassRef` only as an `unowned` reference to an existing `GtkWindowControlsClass` instance.
 ///
-
 public struct WindowControlsClassRef: WindowControlsClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowControlsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1237,12 +1259,13 @@ public extension WindowGroupClassRef {
 
 // MARK: - WindowGroupClass Record
 
+
+///
 /// The `WindowGroupClassProtocol` protocol exposes the methods and properties of an underlying `GtkWindowGroupClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WindowGroupClass`.
 /// Alternatively, use `WindowGroupClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WindowGroupClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowGroupClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1254,11 +1277,12 @@ public protocol WindowGroupClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WindowGroupClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowGroupClass` instance.
 /// It exposes methods that can operate on this data type through `WindowGroupClassProtocol` conformance.
 /// Use `WindowGroupClassRef` only as an `unowned` reference to an existing `GtkWindowGroupClass` instance.
 ///
-
 public struct WindowGroupClassRef: WindowGroupClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowGroupClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1379,12 +1403,13 @@ public extension WindowHandleClassRef {
 
 // MARK: - WindowHandleClass Record
 
+
+///
 /// The `WindowHandleClassProtocol` protocol exposes the methods and properties of an underlying `GtkWindowHandleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WindowHandleClass`.
 /// Alternatively, use `WindowHandleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WindowHandleClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowHandleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1396,11 +1421,12 @@ public protocol WindowHandleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WindowHandleClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowHandleClass` instance.
 /// It exposes methods that can operate on this data type through `WindowHandleClassProtocol` conformance.
 /// Use `WindowHandleClassRef` only as an `unowned` reference to an existing `GtkWindowHandleClass` instance.
 ///
-
 public struct WindowHandleClassRef: WindowHandleClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowHandleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

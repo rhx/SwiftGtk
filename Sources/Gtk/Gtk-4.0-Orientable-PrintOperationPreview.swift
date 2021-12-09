@@ -15,16 +15,17 @@ import Gdk
 
 // MARK: - Orientable Interface
 
-/// The `OrientableProtocol` protocol exposes the methods and properties of an underlying `GtkOrientable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Orientable`.
-/// Alternatively, use `OrientableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkOrientable` interface is implemented by all widgets that can be
 /// oriented horizontally or vertically.
 /// 
 /// `GtkOrientable` is more flexible in that it allows the orientation to be
 /// changed at runtime, allowing the widgets to “flip”.
+///
+/// The `OrientableProtocol` protocol exposes the methods and properties of an underlying `GtkOrientable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Orientable`.
+/// Alternatively, use `OrientableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol OrientableProtocol {
         /// Untyped pointer to the underlying `GtkOrientable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,15 +37,16 @@ public protocol OrientableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `OrientableRef` type acts as a lightweight Swift reference to an underlying `GtkOrientable` instance.
-/// It exposes methods that can operate on this data type through `OrientableProtocol` conformance.
-/// Use `OrientableRef` only as an `unowned` reference to an existing `GtkOrientable` instance.
-///
 /// The `GtkOrientable` interface is implemented by all widgets that can be
 /// oriented horizontally or vertically.
 /// 
 /// `GtkOrientable` is more flexible in that it allows the orientation to be
 /// changed at runtime, allowing the widgets to “flip”.
+///
+/// The `OrientableRef` type acts as a lightweight Swift reference to an underlying `GtkOrientable` instance.
+/// It exposes methods that can operate on this data type through `OrientableProtocol` conformance.
+/// Use `OrientableRef` only as an `unowned` reference to an existing `GtkOrientable` instance.
+///
 public struct OrientableRef: OrientableProtocol {
         /// Untyped pointer to the underlying `GtkOrientable` instance.
     /// For type-safe access, use the generated, typed pointer `orientable_ptr` property instead.
@@ -123,15 +125,16 @@ public extension OrientableRef {
 
     }
 
-/// The `Orientable` type acts as an owner of an underlying `GtkOrientable` instance.
-/// It provides the methods that can operate on this data type through `OrientableProtocol` conformance.
-/// Use `Orientable` as a strong reference or owner of a `GtkOrientable` instance.
-///
 /// The `GtkOrientable` interface is implemented by all widgets that can be
 /// oriented horizontally or vertically.
 /// 
 /// `GtkOrientable` is more flexible in that it allows the orientation to be
 /// changed at runtime, allowing the widgets to “flip”.
+///
+/// The `Orientable` type acts as an owner of an underlying `GtkOrientable` instance.
+/// It provides the methods that can operate on this data type through `OrientableProtocol` conformance.
+/// Use `Orientable` as a strong reference or owner of a `GtkOrientable` instance.
+///
 open class Orientable: OrientableProtocol {
         /// Untyped pointer to the underlying `GtkOrientable` instance.
     /// For type-safe access, use the generated, typed pointer `orientable_ptr` property instead.
@@ -377,17 +380,18 @@ public extension OrientableProtocol {
 
 // MARK: - PrintOperationPreview Interface
 
-/// The `PrintOperationPreviewProtocol` protocol exposes the methods and properties of an underlying `GtkPrintOperationPreview` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PrintOperationPreview`.
-/// Alternatively, use `PrintOperationPreviewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkPrintOperationPreview` is the interface that is used to
 /// implement print preview.
 /// 
 /// A `GtkPrintOperationPreview` object is passed to the
 /// [signal`Gtk.PrintOperation::preview`] signal by
 /// [class`Gtk.PrintOperation`].
+///
+/// The `PrintOperationPreviewProtocol` protocol exposes the methods and properties of an underlying `GtkPrintOperationPreview` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PrintOperationPreview`.
+/// Alternatively, use `PrintOperationPreviewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PrintOperationPreviewProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationPreview` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -399,16 +403,17 @@ public protocol PrintOperationPreviewProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PrintOperationPreviewRef` type acts as a lightweight Swift reference to an underlying `GtkPrintOperationPreview` instance.
-/// It exposes methods that can operate on this data type through `PrintOperationPreviewProtocol` conformance.
-/// Use `PrintOperationPreviewRef` only as an `unowned` reference to an existing `GtkPrintOperationPreview` instance.
-///
 /// `GtkPrintOperationPreview` is the interface that is used to
 /// implement print preview.
 /// 
 /// A `GtkPrintOperationPreview` object is passed to the
 /// [signal`Gtk.PrintOperation::preview`] signal by
 /// [class`Gtk.PrintOperation`].
+///
+/// The `PrintOperationPreviewRef` type acts as a lightweight Swift reference to an underlying `GtkPrintOperationPreview` instance.
+/// It exposes methods that can operate on this data type through `PrintOperationPreviewProtocol` conformance.
+/// Use `PrintOperationPreviewRef` only as an `unowned` reference to an existing `GtkPrintOperationPreview` instance.
+///
 public struct PrintOperationPreviewRef: PrintOperationPreviewProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationPreview` instance.
     /// For type-safe access, use the generated, typed pointer `print_operation_preview_ptr` property instead.
@@ -487,16 +492,17 @@ public extension PrintOperationPreviewRef {
 
     }
 
-/// The `PrintOperationPreview` type acts as an owner of an underlying `GtkPrintOperationPreview` instance.
-/// It provides the methods that can operate on this data type through `PrintOperationPreviewProtocol` conformance.
-/// Use `PrintOperationPreview` as a strong reference or owner of a `GtkPrintOperationPreview` instance.
-///
 /// `GtkPrintOperationPreview` is the interface that is used to
 /// implement print preview.
 /// 
 /// A `GtkPrintOperationPreview` object is passed to the
 /// [signal`Gtk.PrintOperation::preview`] signal by
 /// [class`Gtk.PrintOperation`].
+///
+/// The `PrintOperationPreview` type acts as an owner of an underlying `GtkPrintOperationPreview` instance.
+/// It provides the methods that can operate on this data type through `PrintOperationPreviewProtocol` conformance.
+/// Use `PrintOperationPreview` as a strong reference or owner of a `GtkPrintOperationPreview` instance.
+///
 open class PrintOperationPreview: PrintOperationPreviewProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationPreview` instance.
     /// For type-safe access, use the generated, typed pointer `print_operation_preview_ptr` property instead.

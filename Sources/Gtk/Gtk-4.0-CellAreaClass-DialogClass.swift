@@ -30,12 +30,13 @@ public extension CellAreaClassRef {
 
 // MARK: - CellAreaClass Record
 
+
+///
 /// The `CellAreaClassProtocol` protocol exposes the methods and properties of an underlying `GtkCellAreaClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellAreaClass`.
 /// Alternatively, use `CellAreaClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CellAreaClassProtocol {
         /// Untyped pointer to the underlying `GtkCellAreaClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol CellAreaClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CellAreaClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellAreaClass` instance.
 /// It exposes methods that can operate on this data type through `CellAreaClassProtocol` conformance.
 /// Use `CellAreaClassRef` only as an `unowned` reference to an existing `GtkCellAreaClass` instance.
 ///
-
 public struct CellAreaClassRef: CellAreaClassProtocol {
         /// Untyped pointer to the underlying `GtkCellAreaClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -216,12 +218,13 @@ public extension CellAreaContextClassRef {
 
 // MARK: - CellAreaContextClass Record
 
+
+///
 /// The `CellAreaContextClassProtocol` protocol exposes the methods and properties of an underlying `GtkCellAreaContextClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellAreaContextClass`.
 /// Alternatively, use `CellAreaContextClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CellAreaContextClassProtocol {
         /// Untyped pointer to the underlying `GtkCellAreaContextClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -233,11 +236,12 @@ public protocol CellAreaContextClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CellAreaContextClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellAreaContextClass` instance.
 /// It exposes methods that can operate on this data type through `CellAreaContextClassProtocol` conformance.
 /// Use `CellAreaContextClassRef` only as an `unowned` reference to an existing `GtkCellAreaContextClass` instance.
 ///
-
 public struct CellAreaContextClassRef: CellAreaContextClassProtocol {
         /// Untyped pointer to the underlying `GtkCellAreaContextClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -355,12 +359,13 @@ public extension CellEditableIfaceRef {
 
 // MARK: - CellEditableIface Record
 
+
+///
 /// The `CellEditableIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkCellEditableIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellEditableIface`.
 /// Alternatively, use `CellEditableIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CellEditableIfaceProtocol {
         /// Untyped pointer to the underlying `GtkCellEditableIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -372,11 +377,12 @@ public protocol CellEditableIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CellEditableIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkCellEditableIface` instance.
 /// It exposes methods that can operate on this data type through `CellEditableIfaceProtocol` conformance.
 /// Use `CellEditableIfaceRef` only as an `unowned` reference to an existing `GtkCellEditableIface` instance.
 ///
-
 public struct CellEditableIfaceRef: CellEditableIfaceProtocol {
         /// Untyped pointer to the underlying `GtkCellEditableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -490,12 +496,13 @@ public extension CellLayoutIfaceRef {
 
 // MARK: - CellLayoutIface Record
 
+
+///
 /// The `CellLayoutIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkCellLayoutIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellLayoutIface`.
 /// Alternatively, use `CellLayoutIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CellLayoutIfaceProtocol {
         /// Untyped pointer to the underlying `GtkCellLayoutIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -507,11 +514,12 @@ public protocol CellLayoutIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CellLayoutIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkCellLayoutIface` instance.
 /// It exposes methods that can operate on this data type through `CellLayoutIfaceProtocol` conformance.
 /// Use `CellLayoutIfaceRef` only as an `unowned` reference to an existing `GtkCellLayoutIface` instance.
 ///
-
 public struct CellLayoutIfaceRef: CellLayoutIfaceProtocol {
         /// Untyped pointer to the underlying `GtkCellLayoutIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -637,12 +645,13 @@ public extension CellRendererClassRef {
 
 // MARK: - CellRendererClass Record
 
+
+///
 /// The `CellRendererClassProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellRendererClass`.
 /// Alternatively, use `CellRendererClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CellRendererClassProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -654,11 +663,12 @@ public protocol CellRendererClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CellRendererClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererClass` instance.
 /// It exposes methods that can operate on this data type through `CellRendererClassProtocol` conformance.
 /// Use `CellRendererClassRef` only as an `unowned` reference to an existing `GtkCellRendererClass` instance.
 ///
-
 public struct CellRendererClassRef: CellRendererClassProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -775,12 +785,13 @@ public extension CellRendererClassProtocol {
 
 // MARK: - CellRendererClassPrivate Record
 
+
+///
 /// The `CellRendererClassPrivateProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererClassPrivate` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellRendererClassPrivate`.
 /// Alternatively, use `CellRendererClassPrivateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CellRendererClassPrivateProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererClassPrivate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -792,11 +803,12 @@ public protocol CellRendererClassPrivateProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CellRendererClassPrivateRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererClassPrivate` instance.
 /// It exposes methods that can operate on this data type through `CellRendererClassPrivateProtocol` conformance.
 /// Use `CellRendererClassPrivateRef` only as an `unowned` reference to an existing `GtkCellRendererClassPrivate` instance.
 ///
-
 public struct CellRendererClassPrivateRef: CellRendererClassPrivateProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererClassPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -875,11 +887,12 @@ public extension CellRendererClassPrivateRef {
 
     }
 
+
+///
 /// The `CellRendererClassPrivate` type acts as an owner of an underlying `GtkCellRendererClassPrivate` instance.
 /// It provides the methods that can operate on this data type through `CellRendererClassPrivateProtocol` conformance.
 /// Use `CellRendererClassPrivate` as a strong reference or owner of a `GtkCellRendererClassPrivate` instance.
 ///
-
 open class CellRendererClassPrivate: CellRendererClassPrivateProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererClassPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1057,12 +1070,13 @@ public extension CellRendererTextClassRef {
 
 // MARK: - CellRendererTextClass Record
 
+
+///
 /// The `CellRendererTextClassProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererTextClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellRendererTextClass`.
 /// Alternatively, use `CellRendererTextClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CellRendererTextClassProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererTextClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1074,11 +1088,12 @@ public protocol CellRendererTextClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CellRendererTextClassRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererTextClass` instance.
 /// It exposes methods that can operate on this data type through `CellRendererTextClassProtocol` conformance.
 /// Use `CellRendererTextClassRef` only as an `unowned` reference to an existing `GtkCellRendererTextClass` instance.
 ///
-
 public struct CellRendererTextClassRef: CellRendererTextClassProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererTextClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1195,12 +1210,13 @@ public extension CenterBoxClassRef {
 
 // MARK: - CenterBoxClass Record
 
+
+///
 /// The `CenterBoxClassProtocol` protocol exposes the methods and properties of an underlying `GtkCenterBoxClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CenterBoxClass`.
 /// Alternatively, use `CenterBoxClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CenterBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkCenterBoxClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1212,11 +1228,12 @@ public protocol CenterBoxClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CenterBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkCenterBoxClass` instance.
 /// It exposes methods that can operate on this data type through `CenterBoxClassProtocol` conformance.
 /// Use `CenterBoxClassRef` only as an `unowned` reference to an existing `GtkCenterBoxClass` instance.
 ///
-
 public struct CenterBoxClassRef: CenterBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkCenterBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1323,12 +1340,13 @@ public extension CenterLayoutClassRef {
 
 // MARK: - CenterLayoutClass Record
 
+
+///
 /// The `CenterLayoutClassProtocol` protocol exposes the methods and properties of an underlying `GtkCenterLayoutClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CenterLayoutClass`.
 /// Alternatively, use `CenterLayoutClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CenterLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkCenterLayoutClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1340,11 +1358,12 @@ public protocol CenterLayoutClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CenterLayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkCenterLayoutClass` instance.
 /// It exposes methods that can operate on this data type through `CenterLayoutClassProtocol` conformance.
 /// Use `CenterLayoutClassRef` only as an `unowned` reference to an existing `GtkCenterLayoutClass` instance.
 ///
-
 public struct CenterLayoutClassRef: CenterLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkCenterLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1457,12 +1476,13 @@ public extension CheckButtonClassRef {
 
 // MARK: - CheckButtonClass Record
 
+
+///
 /// The `CheckButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkCheckButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CheckButtonClass`.
 /// Alternatively, use `CheckButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CheckButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkCheckButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1474,11 +1494,12 @@ public protocol CheckButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CheckButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkCheckButtonClass` instance.
 /// It exposes methods that can operate on this data type through `CheckButtonClassProtocol` conformance.
 /// Use `CheckButtonClassRef` only as an `unowned` reference to an existing `GtkCheckButtonClass` instance.
 ///
-
 public struct CheckButtonClassRef: CheckButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkCheckButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1597,12 +1618,13 @@ public extension ColorChooserInterfaceRef {
 
 // MARK: - ColorChooserInterface Record
 
+
+///
 /// The `ColorChooserInterfaceProtocol` protocol exposes the methods and properties of an underlying `GtkColorChooserInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ColorChooserInterface`.
 /// Alternatively, use `ColorChooserInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ColorChooserInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkColorChooserInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1614,11 +1636,12 @@ public protocol ColorChooserInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ColorChooserInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkColorChooserInterface` instance.
 /// It exposes methods that can operate on this data type through `ColorChooserInterfaceProtocol` conformance.
 /// Use `ColorChooserInterfaceRef` only as an `unowned` reference to an existing `GtkColorChooserInterface` instance.
 ///
-
 public struct ColorChooserInterfaceRef: ColorChooserInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkColorChooserInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1741,12 +1764,13 @@ public extension ColumnViewClassRef {
 
 // MARK: - ColumnViewClass Record
 
+
+///
 /// The `ColumnViewClassProtocol` protocol exposes the methods and properties of an underlying `GtkColumnViewClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ColumnViewClass`.
 /// Alternatively, use `ColumnViewClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ColumnViewClassProtocol {
         /// Untyped pointer to the underlying `GtkColumnViewClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1758,11 +1782,12 @@ public protocol ColumnViewClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ColumnViewClassRef` type acts as a lightweight Swift reference to an underlying `GtkColumnViewClass` instance.
 /// It exposes methods that can operate on this data type through `ColumnViewClassProtocol` conformance.
 /// Use `ColumnViewClassRef` only as an `unowned` reference to an existing `GtkColumnViewClass` instance.
 ///
-
 public struct ColumnViewClassRef: ColumnViewClassProtocol {
         /// Untyped pointer to the underlying `GtkColumnViewClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1869,12 +1894,13 @@ public extension ColumnViewColumnClassRef {
 
 // MARK: - ColumnViewColumnClass Record
 
+
+///
 /// The `ColumnViewColumnClassProtocol` protocol exposes the methods and properties of an underlying `GtkColumnViewColumnClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ColumnViewColumnClass`.
 /// Alternatively, use `ColumnViewColumnClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ColumnViewColumnClassProtocol {
         /// Untyped pointer to the underlying `GtkColumnViewColumnClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1886,11 +1912,12 @@ public protocol ColumnViewColumnClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ColumnViewColumnClassRef` type acts as a lightweight Swift reference to an underlying `GtkColumnViewColumnClass` instance.
 /// It exposes methods that can operate on this data type through `ColumnViewColumnClassProtocol` conformance.
 /// Use `ColumnViewColumnClassRef` only as an `unowned` reference to an existing `GtkColumnViewColumnClass` instance.
 ///
-
 public struct ColumnViewColumnClassRef: ColumnViewColumnClassProtocol {
         /// Untyped pointer to the underlying `GtkColumnViewColumnClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1997,12 +2024,13 @@ public extension ComboBoxClassRef {
 
 // MARK: - ComboBoxClass Record
 
+
+///
 /// The `ComboBoxClassProtocol` protocol exposes the methods and properties of an underlying `GtkComboBoxClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ComboBoxClass`.
 /// Alternatively, use `ComboBoxClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ComboBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkComboBoxClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2014,11 +2042,12 @@ public protocol ComboBoxClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ComboBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkComboBoxClass` instance.
 /// It exposes methods that can operate on this data type through `ComboBoxClassProtocol` conformance.
 /// Use `ComboBoxClassRef` only as an `unowned` reference to an existing `GtkComboBoxClass` instance.
 ///
-
 public struct ComboBoxClassRef: ComboBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkComboBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2139,12 +2168,13 @@ public extension ConstraintClassRef {
 
 // MARK: - ConstraintClass Record
 
+
+///
 /// The `ConstraintClassProtocol` protocol exposes the methods and properties of an underlying `GtkConstraintClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ConstraintClass`.
 /// Alternatively, use `ConstraintClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ConstraintClassProtocol {
         /// Untyped pointer to the underlying `GtkConstraintClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2156,11 +2186,12 @@ public protocol ConstraintClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ConstraintClassRef` type acts as a lightweight Swift reference to an underlying `GtkConstraintClass` instance.
 /// It exposes methods that can operate on this data type through `ConstraintClassProtocol` conformance.
 /// Use `ConstraintClassRef` only as an `unowned` reference to an existing `GtkConstraintClass` instance.
 ///
-
 public struct ConstraintClassRef: ConstraintClassProtocol {
         /// Untyped pointer to the underlying `GtkConstraintClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2273,12 +2304,13 @@ public extension ConstraintGuideClassRef {
 
 // MARK: - ConstraintGuideClass Record
 
+
+///
 /// The `ConstraintGuideClassProtocol` protocol exposes the methods and properties of an underlying `GtkConstraintGuideClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ConstraintGuideClass`.
 /// Alternatively, use `ConstraintGuideClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ConstraintGuideClassProtocol {
         /// Untyped pointer to the underlying `GtkConstraintGuideClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2290,11 +2322,12 @@ public protocol ConstraintGuideClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ConstraintGuideClassRef` type acts as a lightweight Swift reference to an underlying `GtkConstraintGuideClass` instance.
 /// It exposes methods that can operate on this data type through `ConstraintGuideClassProtocol` conformance.
 /// Use `ConstraintGuideClassRef` only as an `unowned` reference to an existing `GtkConstraintGuideClass` instance.
 ///
-
 public struct ConstraintGuideClassRef: ConstraintGuideClassProtocol {
         /// Untyped pointer to the underlying `GtkConstraintGuideClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2407,12 +2440,13 @@ public extension ConstraintLayoutChildClassRef {
 
 // MARK: - ConstraintLayoutChildClass Record
 
+
+///
 /// The `ConstraintLayoutChildClassProtocol` protocol exposes the methods and properties of an underlying `GtkConstraintLayoutChildClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ConstraintLayoutChildClass`.
 /// Alternatively, use `ConstraintLayoutChildClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ConstraintLayoutChildClassProtocol {
         /// Untyped pointer to the underlying `GtkConstraintLayoutChildClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2424,11 +2458,12 @@ public protocol ConstraintLayoutChildClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ConstraintLayoutChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkConstraintLayoutChildClass` instance.
 /// It exposes methods that can operate on this data type through `ConstraintLayoutChildClassProtocol` conformance.
 /// Use `ConstraintLayoutChildClassRef` only as an `unowned` reference to an existing `GtkConstraintLayoutChildClass` instance.
 ///
-
 public struct ConstraintLayoutChildClassRef: ConstraintLayoutChildClassProtocol {
         /// Untyped pointer to the underlying `GtkConstraintLayoutChildClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2541,12 +2576,13 @@ public extension ConstraintLayoutClassRef {
 
 // MARK: - ConstraintLayoutClass Record
 
+
+///
 /// The `ConstraintLayoutClassProtocol` protocol exposes the methods and properties of an underlying `GtkConstraintLayoutClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ConstraintLayoutClass`.
 /// Alternatively, use `ConstraintLayoutClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ConstraintLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkConstraintLayoutClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2558,11 +2594,12 @@ public protocol ConstraintLayoutClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ConstraintLayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkConstraintLayoutClass` instance.
 /// It exposes methods that can operate on this data type through `ConstraintLayoutClassProtocol` conformance.
 /// Use `ConstraintLayoutClassRef` only as an `unowned` reference to an existing `GtkConstraintLayoutClass` instance.
 ///
-
 public struct ConstraintLayoutClassRef: ConstraintLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkConstraintLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2675,12 +2712,13 @@ public extension ConstraintTargetInterfaceRef {
 
 // MARK: - ConstraintTargetInterface Record
 
+
+///
 /// The `ConstraintTargetInterfaceProtocol` protocol exposes the methods and properties of an underlying `GtkConstraintTargetInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ConstraintTargetInterface`.
 /// Alternatively, use `ConstraintTargetInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ConstraintTargetInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkConstraintTargetInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2692,11 +2730,12 @@ public protocol ConstraintTargetInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ConstraintTargetInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkConstraintTargetInterface` instance.
 /// It exposes methods that can operate on this data type through `ConstraintTargetInterfaceProtocol` conformance.
 /// Use `ConstraintTargetInterfaceRef` only as an `unowned` reference to an existing `GtkConstraintTargetInterface` instance.
 ///
-
 public struct ConstraintTargetInterfaceRef: ConstraintTargetInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkConstraintTargetInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2788,11 +2827,6 @@ public extension ConstraintTargetInterfaceProtocol {
 
 // MARK: - CssLocation Record
 
-/// The `CssLocationProtocol` protocol exposes the methods and properties of an underlying `GtkCssLocation` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CssLocation`.
-/// Alternatively, use `CssLocationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Represents a location in a file or other source of data parsed
 /// by the CSS engine.
 /// 
@@ -2805,6 +2839,12 @@ public extension ConstraintTargetInterfaceProtocol {
 /// sequences "\r\n", "\r", "\n" and "\f" as newlines.)
 /// If your document uses different rules for line breaking, you might want
 /// run into problems here.
+///
+/// The `CssLocationProtocol` protocol exposes the methods and properties of an underlying `GtkCssLocation` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CssLocation`.
+/// Alternatively, use `CssLocationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CssLocationProtocol {
         /// Untyped pointer to the underlying `GtkCssLocation` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2816,10 +2856,6 @@ public protocol CssLocationProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CssLocationRef` type acts as a lightweight Swift reference to an underlying `GtkCssLocation` instance.
-/// It exposes methods that can operate on this data type through `CssLocationProtocol` conformance.
-/// Use `CssLocationRef` only as an `unowned` reference to an existing `GtkCssLocation` instance.
-///
 /// Represents a location in a file or other source of data parsed
 /// by the CSS engine.
 /// 
@@ -2832,6 +2868,11 @@ public protocol CssLocationProtocol {
 /// sequences "\r\n", "\r", "\n" and "\f" as newlines.)
 /// If your document uses different rules for line breaking, you might want
 /// run into problems here.
+///
+/// The `CssLocationRef` type acts as a lightweight Swift reference to an underlying `GtkCssLocation` instance.
+/// It exposes methods that can operate on this data type through `CssLocationProtocol` conformance.
+/// Use `CssLocationRef` only as an `unowned` reference to an existing `GtkCssLocation` instance.
+///
 public struct CssLocationRef: CssLocationProtocol {
         /// Untyped pointer to the underlying `GtkCssLocation` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2910,10 +2951,6 @@ public extension CssLocationRef {
 
     }
 
-/// The `CssLocation` type acts as an owner of an underlying `GtkCssLocation` instance.
-/// It provides the methods that can operate on this data type through `CssLocationProtocol` conformance.
-/// Use `CssLocation` as a strong reference or owner of a `GtkCssLocation` instance.
-///
 /// Represents a location in a file or other source of data parsed
 /// by the CSS engine.
 /// 
@@ -2926,6 +2963,11 @@ public extension CssLocationRef {
 /// sequences "\r\n", "\r", "\n" and "\f" as newlines.)
 /// If your document uses different rules for line breaking, you might want
 /// run into problems here.
+///
+/// The `CssLocation` type acts as an owner of an underlying `GtkCssLocation` instance.
+/// It provides the methods that can operate on this data type through `CssLocationProtocol` conformance.
+/// Use `CssLocation` as a strong reference or owner of a `GtkCssLocation` instance.
+///
 open class CssLocation: CssLocationProtocol {
         /// Untyped pointer to the underlying `GtkCssLocation` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3107,20 +3149,17 @@ public extension CssLocationProtocol {
         }
     }
 
-    /// number of full lines that have been parsed
-    ///     If you want to display this as a line number, you
-    ///     need to add 1 to this.
+    /// number of full lines that have been parsed. If you want to
+    ///   display this as a line number, you need to add 1 to this.
     @inlinable var lines: gsize {
-        /// number of full lines that have been parsed
-        ///     If you want to display this as a line number, you
-        ///     need to add 1 to this.
+        /// number of full lines that have been parsed. If you want to
+        ///   display this as a line number, you need to add 1 to this.
         get {
             let rv = _ptr.pointee.lines
             return rv
         }
-        /// number of full lines that have been parsed
-        ///     If you want to display this as a line number, you
-        ///     need to add 1 to this.
+        /// number of full lines that have been parsed. If you want to
+        ///   display this as a line number, you need to add 1 to this.
          set {
             _ptr.pointee.lines = newValue
         }
@@ -3139,17 +3178,14 @@ public extension CssLocationProtocol {
         }
     }
 
-    /// Number of characters parsed since the last line
-    ///     break
+    /// Number of characters parsed since the last line break
     @inlinable var lineChars: gsize {
-        /// Number of characters parsed since the last line
-        ///     break
+        /// Number of characters parsed since the last line break
         get {
             let rv = _ptr.pointee.line_chars
             return rv
         }
-        /// Number of characters parsed since the last line
-        ///     break
+        /// Number of characters parsed since the last line break
          set {
             _ptr.pointee.line_chars = newValue
         }
@@ -3176,12 +3212,13 @@ public extension CssProviderClassRef {
 
 // MARK: - CssProviderClass Record
 
+
+///
 /// The `CssProviderClassProtocol` protocol exposes the methods and properties of an underlying `GtkCssProviderClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CssProviderClass`.
 /// Alternatively, use `CssProviderClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CssProviderClassProtocol {
         /// Untyped pointer to the underlying `GtkCssProviderClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3193,11 +3230,12 @@ public protocol CssProviderClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CssProviderClassRef` type acts as a lightweight Swift reference to an underlying `GtkCssProviderClass` instance.
 /// It exposes methods that can operate on this data type through `CssProviderClassProtocol` conformance.
 /// Use `CssProviderClassRef` only as an `unowned` reference to an existing `GtkCssProviderClass` instance.
 ///
-
 public struct CssProviderClassRef: CssProviderClassProtocol {
         /// Untyped pointer to the underlying `GtkCssProviderClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3289,15 +3327,16 @@ public extension CssProviderClassProtocol {
 
 // MARK: - CssSection Record
 
+/// Defines a part of a CSS document.
+/// 
+/// Because sections are nested into one another, you can use
+/// `gtk_css_section_get_parent()` to get the containing region.
+///
 /// The `CssSectionProtocol` protocol exposes the methods and properties of an underlying `GtkCssSection` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CssSection`.
 /// Alternatively, use `CssSectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Defines a part of a CSS document.
-/// 
-/// Because sections are nested into one another, you can use
-/// `gtk_css_section_get_parent()` to get the containing region.
 public protocol CssSectionProtocol {
         /// Untyped pointer to the underlying `GtkCssSection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3309,14 +3348,15 @@ public protocol CssSectionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CssSectionRef` type acts as a lightweight Swift reference to an underlying `GtkCssSection` instance.
-/// It exposes methods that can operate on this data type through `CssSectionProtocol` conformance.
-/// Use `CssSectionRef` only as an `unowned` reference to an existing `GtkCssSection` instance.
-///
 /// Defines a part of a CSS document.
 /// 
 /// Because sections are nested into one another, you can use
 /// `gtk_css_section_get_parent()` to get the containing region.
+///
+/// The `CssSectionRef` type acts as a lightweight Swift reference to an underlying `GtkCssSection` instance.
+/// It exposes methods that can operate on this data type through `CssSectionProtocol` conformance.
+/// Use `CssSectionRef` only as an `unowned` reference to an existing `GtkCssSection` instance.
+///
 public struct CssSectionRef: CssSectionProtocol {
         /// Untyped pointer to the underlying `GtkCssSection` instance.
     /// For type-safe access, use the generated, typed pointer `css_section_ptr` property instead.
@@ -3402,14 +3442,15 @@ public extension CssSectionRef {
     }
 }
 
-/// The `CssSection` type acts as a reference-counted owner of an underlying `GtkCssSection` instance.
-/// It provides the methods that can operate on this data type through `CssSectionProtocol` conformance.
-/// Use `CssSection` as a strong reference or owner of a `GtkCssSection` instance.
-///
 /// Defines a part of a CSS document.
 /// 
 /// Because sections are nested into one another, you can use
 /// `gtk_css_section_get_parent()` to get the containing region.
+///
+/// The `CssSection` type acts as a reference-counted owner of an underlying `GtkCssSection` instance.
+/// It provides the methods that can operate on this data type through `CssSectionProtocol` conformance.
+/// Use `CssSection` as a strong reference or owner of a `GtkCssSection` instance.
+///
 open class CssSection: CssSectionProtocol {
         /// Untyped pointer to the underlying `GtkCssSection` instance.
     /// For type-safe access, use the generated, typed pointer `css_section_ptr` property instead.
@@ -3696,12 +3737,13 @@ public extension CssSectionProtocol {
 
 // MARK: - CssStyleChange Record
 
+
+///
 /// The `CssStyleChangeProtocol` protocol exposes the methods and properties of an underlying `GtkCssStyleChange` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CssStyleChange`.
 /// Alternatively, use `CssStyleChangeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CssStyleChangeProtocol {
         /// Untyped pointer to the underlying `GtkCssStyleChange` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3713,11 +3755,12 @@ public protocol CssStyleChangeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CssStyleChangeRef` type acts as a lightweight Swift reference to an underlying `GtkCssStyleChange` instance.
 /// It exposes methods that can operate on this data type through `CssStyleChangeProtocol` conformance.
 /// Use `CssStyleChangeRef` only as an `unowned` reference to an existing `GtkCssStyleChange` instance.
 ///
-
 public struct CssStyleChangeRef: CssStyleChangeProtocol {
         /// Untyped pointer to the underlying `GtkCssStyleChange` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3796,11 +3839,12 @@ public extension CssStyleChangeRef {
 
     }
 
+
+///
 /// The `CssStyleChange` type acts as an owner of an underlying `GtkCssStyleChange` instance.
 /// It provides the methods that can operate on this data type through `CssStyleChangeProtocol` conformance.
 /// Use `CssStyleChange` as a strong reference or owner of a `GtkCssStyleChange` instance.
 ///
-
 open class CssStyleChange: CssStyleChangeProtocol {
         /// Untyped pointer to the underlying `GtkCssStyleChange` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3978,12 +4022,13 @@ public extension CustomFilterClassRef {
 
 // MARK: - CustomFilterClass Record
 
+
+///
 /// The `CustomFilterClassProtocol` protocol exposes the methods and properties of an underlying `GtkCustomFilterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CustomFilterClass`.
 /// Alternatively, use `CustomFilterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CustomFilterClassProtocol {
         /// Untyped pointer to the underlying `GtkCustomFilterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3995,11 +4040,12 @@ public protocol CustomFilterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CustomFilterClassRef` type acts as a lightweight Swift reference to an underlying `GtkCustomFilterClass` instance.
 /// It exposes methods that can operate on this data type through `CustomFilterClassProtocol` conformance.
 /// Use `CustomFilterClassRef` only as an `unowned` reference to an existing `GtkCustomFilterClass` instance.
 ///
-
 public struct CustomFilterClassRef: CustomFilterClassProtocol {
         /// Untyped pointer to the underlying `GtkCustomFilterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4112,12 +4158,13 @@ public extension CustomLayoutClassRef {
 
 // MARK: - CustomLayoutClass Record
 
+
+///
 /// The `CustomLayoutClassProtocol` protocol exposes the methods and properties of an underlying `GtkCustomLayoutClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CustomLayoutClass`.
 /// Alternatively, use `CustomLayoutClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CustomLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkCustomLayoutClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4129,11 +4176,12 @@ public protocol CustomLayoutClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CustomLayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkCustomLayoutClass` instance.
 /// It exposes methods that can operate on this data type through `CustomLayoutClassProtocol` conformance.
 /// Use `CustomLayoutClassRef` only as an `unowned` reference to an existing `GtkCustomLayoutClass` instance.
 ///
-
 public struct CustomLayoutClassRef: CustomLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkCustomLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4246,12 +4294,13 @@ public extension CustomSorterClassRef {
 
 // MARK: - CustomSorterClass Record
 
+
+///
 /// The `CustomSorterClassProtocol` protocol exposes the methods and properties of an underlying `GtkCustomSorterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CustomSorterClass`.
 /// Alternatively, use `CustomSorterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CustomSorterClassProtocol {
         /// Untyped pointer to the underlying `GtkCustomSorterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4263,11 +4312,12 @@ public protocol CustomSorterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CustomSorterClassRef` type acts as a lightweight Swift reference to an underlying `GtkCustomSorterClass` instance.
 /// It exposes methods that can operate on this data type through `CustomSorterClassProtocol` conformance.
 /// Use `CustomSorterClassRef` only as an `unowned` reference to an existing `GtkCustomSorterClass` instance.
 ///
-
 public struct CustomSorterClassRef: CustomSorterClassProtocol {
         /// Untyped pointer to the underlying `GtkCustomSorterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4380,12 +4430,13 @@ public extension DialogClassRef {
 
 // MARK: - DialogClass Record
 
+
+///
 /// The `DialogClassProtocol` protocol exposes the methods and properties of an underlying `GtkDialogClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DialogClass`.
 /// Alternatively, use `DialogClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DialogClassProtocol {
         /// Untyped pointer to the underlying `GtkDialogClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4397,11 +4448,12 @@ public protocol DialogClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkDialogClass` instance.
 /// It exposes methods that can operate on this data type through `DialogClassProtocol` conformance.
 /// Use `DialogClassRef` only as an `unowned` reference to an existing `GtkDialogClass` instance.
 ///
-
 public struct DialogClassRef: DialogClassProtocol {
         /// Untyped pointer to the underlying `GtkDialogClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - Root Interface
 
-/// The `RootProtocol` protocol exposes the methods and properties of an underlying `GtkRoot` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Root`.
-/// Alternatively, use `RootRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkRoot` is the interface implemented by all widgets that can act as a toplevel
 /// widget.
 /// 
@@ -33,6 +28,12 @@ import Gdk
 /// 
 /// `GtkRoot` also maintains the location of keyboard focus inside its widget
 /// hierarchy, with [method`Gtk.Root.set_focus`] and [method`Gtk.Root.get_focus`].
+///
+/// The `RootProtocol` protocol exposes the methods and properties of an underlying `GtkRoot` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Root`.
+/// Alternatively, use `RootRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RootProtocol: NativeProtocol {
         /// Untyped pointer to the underlying `GtkRoot` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -44,10 +45,6 @@ public protocol RootProtocol: NativeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RootRef` type acts as a lightweight Swift reference to an underlying `GtkRoot` instance.
-/// It exposes methods that can operate on this data type through `RootProtocol` conformance.
-/// Use `RootRef` only as an `unowned` reference to an existing `GtkRoot` instance.
-///
 /// `GtkRoot` is the interface implemented by all widgets that can act as a toplevel
 /// widget.
 /// 
@@ -61,6 +58,11 @@ public protocol RootProtocol: NativeProtocol {
 /// 
 /// `GtkRoot` also maintains the location of keyboard focus inside its widget
 /// hierarchy, with [method`Gtk.Root.set_focus`] and [method`Gtk.Root.get_focus`].
+///
+/// The `RootRef` type acts as a lightweight Swift reference to an underlying `GtkRoot` instance.
+/// It exposes methods that can operate on this data type through `RootProtocol` conformance.
+/// Use `RootRef` only as an `unowned` reference to an existing `GtkRoot` instance.
+///
 public struct RootRef: RootProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRoot` instance.
     /// For type-safe access, use the generated, typed pointer `root_ptr` property instead.
@@ -142,10 +144,6 @@ public extension RootRef {
 
     }
 
-/// The `Root` type acts as a reference-counted owner of an underlying `GtkRoot` instance.
-/// It provides the methods that can operate on this data type through `RootProtocol` conformance.
-/// Use `Root` as a strong reference or owner of a `GtkRoot` instance.
-///
 /// `GtkRoot` is the interface implemented by all widgets that can act as a toplevel
 /// widget.
 /// 
@@ -159,6 +157,11 @@ public extension RootRef {
 /// 
 /// `GtkRoot` also maintains the location of keyboard focus inside its widget
 /// hierarchy, with [method`Gtk.Root.set_focus`] and [method`Gtk.Root.get_focus`].
+///
+/// The `Root` type acts as a reference-counted owner of an underlying `GtkRoot` instance.
+/// It provides the methods that can operate on this data type through `RootProtocol` conformance.
+/// Use `Root` as a strong reference or owner of a `GtkRoot` instance.
+///
 open class Root: Native, RootProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -531,12 +534,14 @@ public enum RootSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -814,11 +819,6 @@ public extension RootProtocol {
 
 // MARK: - Scrollable Interface
 
-/// The `ScrollableProtocol` protocol exposes the methods and properties of an underlying `GtkScrollable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Scrollable`.
-/// Alternatively, use `ScrollableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkScrollable` is an interface for widgets with native scrolling ability.
 /// 
 /// To implement this interface you should override the
@@ -841,13 +841,19 @@ public extension RootProtocol {
 /// - Because its preferred size is the size for a fully expanded widget,
 ///   the scrollable widget must be able to cope with underallocations.
 ///   This means that it must accept any value passed to its
-///   `GtkWidgetClass.size_allocate()` function.
+///   [vfunc`Gtk.Widget.size_allocate`] implementation.
 /// 
 /// - When the parent allocates space to the scrollable child widget,
 ///   the widget should update the adjustments’ properties with new values.
 /// 
 /// - When any of the adjustments emits the [signal`Gtk.Adjustment::value-changed`]
 ///   signal, the scrollable widget should scroll its contents.
+///
+/// The `ScrollableProtocol` protocol exposes the methods and properties of an underlying `GtkScrollable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Scrollable`.
+/// Alternatively, use `ScrollableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkScrollable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -859,10 +865,6 @@ public protocol ScrollableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ScrollableRef` type acts as a lightweight Swift reference to an underlying `GtkScrollable` instance.
-/// It exposes methods that can operate on this data type through `ScrollableProtocol` conformance.
-/// Use `ScrollableRef` only as an `unowned` reference to an existing `GtkScrollable` instance.
-///
 /// `GtkScrollable` is an interface for widgets with native scrolling ability.
 /// 
 /// To implement this interface you should override the
@@ -885,13 +887,18 @@ public protocol ScrollableProtocol {
 /// - Because its preferred size is the size for a fully expanded widget,
 ///   the scrollable widget must be able to cope with underallocations.
 ///   This means that it must accept any value passed to its
-///   `GtkWidgetClass.size_allocate()` function.
+///   [vfunc`Gtk.Widget.size_allocate`] implementation.
 /// 
 /// - When the parent allocates space to the scrollable child widget,
 ///   the widget should update the adjustments’ properties with new values.
 /// 
 /// - When any of the adjustments emits the [signal`Gtk.Adjustment::value-changed`]
 ///   signal, the scrollable widget should scroll its contents.
+///
+/// The `ScrollableRef` type acts as a lightweight Swift reference to an underlying `GtkScrollable` instance.
+/// It exposes methods that can operate on this data type through `ScrollableProtocol` conformance.
+/// Use `ScrollableRef` only as an `unowned` reference to an existing `GtkScrollable` instance.
+///
 public struct ScrollableRef: ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkScrollable` instance.
     /// For type-safe access, use the generated, typed pointer `scrollable_ptr` property instead.
@@ -970,10 +977,6 @@ public extension ScrollableRef {
 
     }
 
-/// The `Scrollable` type acts as an owner of an underlying `GtkScrollable` instance.
-/// It provides the methods that can operate on this data type through `ScrollableProtocol` conformance.
-/// Use `Scrollable` as a strong reference or owner of a `GtkScrollable` instance.
-///
 /// `GtkScrollable` is an interface for widgets with native scrolling ability.
 /// 
 /// To implement this interface you should override the
@@ -996,13 +999,18 @@ public extension ScrollableRef {
 /// - Because its preferred size is the size for a fully expanded widget,
 ///   the scrollable widget must be able to cope with underallocations.
 ///   This means that it must accept any value passed to its
-///   `GtkWidgetClass.size_allocate()` function.
+///   [vfunc`Gtk.Widget.size_allocate`] implementation.
 /// 
 /// - When the parent allocates space to the scrollable child widget,
 ///   the widget should update the adjustments’ properties with new values.
 /// 
 /// - When any of the adjustments emits the [signal`Gtk.Adjustment::value-changed`]
 ///   signal, the scrollable widget should scroll its contents.
+///
+/// The `Scrollable` type acts as an owner of an underlying `GtkScrollable` instance.
+/// It provides the methods that can operate on this data type through `ScrollableProtocol` conformance.
+/// Use `Scrollable` as a strong reference or owner of a `GtkScrollable` instance.
+///
 open class Scrollable: ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkScrollable` instance.
     /// For type-safe access, use the generated, typed pointer `scrollable_ptr` property instead.

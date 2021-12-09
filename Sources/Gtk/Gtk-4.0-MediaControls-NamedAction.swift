@@ -15,16 +15,17 @@ import Gdk
 
 // MARK: - MediaControls Class
 
-/// The `MediaControlsProtocol` protocol exposes the methods and properties of an underlying `GtkMediaControls` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MediaControls`.
-/// Alternatively, use `MediaControlsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkMediaControls` is a widget to show controls for a video.
 /// 
 /// ![An example GtkMediaControls](media-controls.png)
 /// 
 /// Usually, `GtkMediaControls` is used as part of [class`Gtk.Video`].
+///
+/// The `MediaControlsProtocol` protocol exposes the methods and properties of an underlying `GtkMediaControls` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MediaControls`.
+/// Alternatively, use `MediaControlsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MediaControlsProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkMediaControls` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,15 +37,16 @@ public protocol MediaControlsProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MediaControlsRef` type acts as a lightweight Swift reference to an underlying `GtkMediaControls` instance.
-/// It exposes methods that can operate on this data type through `MediaControlsProtocol` conformance.
-/// Use `MediaControlsRef` only as an `unowned` reference to an existing `GtkMediaControls` instance.
-///
 /// `GtkMediaControls` is a widget to show controls for a video.
 /// 
 /// ![An example GtkMediaControls](media-controls.png)
 /// 
 /// Usually, `GtkMediaControls` is used as part of [class`Gtk.Video`].
+///
+/// The `MediaControlsRef` type acts as a lightweight Swift reference to an underlying `GtkMediaControls` instance.
+/// It exposes methods that can operate on this data type through `MediaControlsProtocol` conformance.
+/// Use `MediaControlsRef` only as an `unowned` reference to an existing `GtkMediaControls` instance.
+///
 public struct MediaControlsRef: MediaControlsProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMediaControls` instance.
     /// For type-safe access, use the generated, typed pointer `media_controls_ptr` property instead.
@@ -131,15 +133,16 @@ public extension MediaControlsRef {
     }
 }
 
-/// The `MediaControls` type acts as a reference-counted owner of an underlying `GtkMediaControls` instance.
-/// It provides the methods that can operate on this data type through `MediaControlsProtocol` conformance.
-/// Use `MediaControls` as a strong reference or owner of a `GtkMediaControls` instance.
-///
 /// `GtkMediaControls` is a widget to show controls for a video.
 /// 
 /// ![An example GtkMediaControls](media-controls.png)
 /// 
 /// Usually, `GtkMediaControls` is used as part of [class`Gtk.Video`].
+///
+/// The `MediaControls` type acts as a reference-counted owner of an underlying `GtkMediaControls` instance.
+/// It provides the methods that can operate on this data type through `MediaControlsProtocol` conformance.
+/// Use `MediaControls` as a strong reference or owner of a `GtkMediaControls` instance.
+///
 open class MediaControls: Widget, MediaControlsProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -520,12 +523,14 @@ public enum MediaControlsSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -754,11 +759,6 @@ public extension MediaControlsProtocol {
 
 // MARK: - MediaFile Class
 
-/// The `MediaFileProtocol` protocol exposes the methods and properties of an underlying `GtkMediaFile` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MediaFile`.
-/// Alternatively, use `MediaFileRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkMediaFile` implements `GtkMediaStream` for files.
 /// 
 /// This provides a simple way to play back video files with GTK.
@@ -767,6 +767,12 @@ public extension MediaControlsProtocol {
 /// to allow for external implementations using various media frameworks.
 /// 
 /// GTK itself includes implementations using GStreamer and ffmpeg.
+///
+/// The `MediaFileProtocol` protocol exposes the methods and properties of an underlying `GtkMediaFile` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MediaFile`.
+/// Alternatively, use `MediaFileRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MediaFileProtocol: MediaStreamProtocol {
         /// Untyped pointer to the underlying `GtkMediaFile` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -778,10 +784,6 @@ public protocol MediaFileProtocol: MediaStreamProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MediaFileRef` type acts as a lightweight Swift reference to an underlying `GtkMediaFile` instance.
-/// It exposes methods that can operate on this data type through `MediaFileProtocol` conformance.
-/// Use `MediaFileRef` only as an `unowned` reference to an existing `GtkMediaFile` instance.
-///
 /// `GtkMediaFile` implements `GtkMediaStream` for files.
 /// 
 /// This provides a simple way to play back video files with GTK.
@@ -790,6 +792,11 @@ public protocol MediaFileProtocol: MediaStreamProtocol {
 /// to allow for external implementations using various media frameworks.
 /// 
 /// GTK itself includes implementations using GStreamer and ffmpeg.
+///
+/// The `MediaFileRef` type acts as a lightweight Swift reference to an underlying `GtkMediaFile` instance.
+/// It exposes methods that can operate on this data type through `MediaFileProtocol` conformance.
+/// Use `MediaFileRef` only as an `unowned` reference to an existing `GtkMediaFile` instance.
+///
 public struct MediaFileRef: MediaFileProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMediaFile` instance.
     /// For type-safe access, use the generated, typed pointer `media_file_ptr` property instead.
@@ -871,10 +878,6 @@ public extension MediaFileRef {
 
     }
 
-/// The `MediaFile` type acts as a reference-counted owner of an underlying `GtkMediaFile` instance.
-/// It provides the methods that can operate on this data type through `MediaFileProtocol` conformance.
-/// Use `MediaFile` as a strong reference or owner of a `GtkMediaFile` instance.
-///
 /// `GtkMediaFile` implements `GtkMediaStream` for files.
 /// 
 /// This provides a simple way to play back video files with GTK.
@@ -883,6 +886,11 @@ public extension MediaFileRef {
 /// to allow for external implementations using various media frameworks.
 /// 
 /// GTK itself includes implementations using GStreamer and ffmpeg.
+///
+/// The `MediaFile` type acts as a reference-counted owner of an underlying `GtkMediaFile` instance.
+/// It provides the methods that can operate on this data type through `MediaFileProtocol` conformance.
+/// Use `MediaFile` as a strong reference or owner of a `GtkMediaFile` instance.
+///
 open class MediaFile: MediaStream, MediaFileProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1118,12 +1126,14 @@ public enum MediaFileSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1302,11 +1312,6 @@ public extension MediaFileProtocol {
 
 // MARK: - MediaStream Class
 
-/// The `MediaStreamProtocol` protocol exposes the methods and properties of an underlying `GtkMediaStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MediaStream`.
-/// Alternatively, use `MediaStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkMediaStream` is the integration point for media playback inside GTK.
 /// 
 /// GTK provides an implementation of the `GtkMediaStream` interface that
@@ -1324,6 +1329,12 @@ public extension MediaFileProtocol {
 /// [method`Gtk.MediaStream.gerror`],
 /// [method`Gtk.MediaStream.error`],
 /// [method`Gtk.MediaStream.error_valist`].
+///
+/// The `MediaStreamProtocol` protocol exposes the methods and properties of an underlying `GtkMediaStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MediaStream`.
+/// Alternatively, use `MediaStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MediaStreamProtocol: GLibObject.ObjectProtocol, Gdk.PaintableProtocol {
         /// Untyped pointer to the underlying `GtkMediaStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1335,10 +1346,6 @@ public protocol MediaStreamProtocol: GLibObject.ObjectProtocol, Gdk.PaintablePro
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MediaStreamRef` type acts as a lightweight Swift reference to an underlying `GtkMediaStream` instance.
-/// It exposes methods that can operate on this data type through `MediaStreamProtocol` conformance.
-/// Use `MediaStreamRef` only as an `unowned` reference to an existing `GtkMediaStream` instance.
-///
 /// `GtkMediaStream` is the integration point for media playback inside GTK.
 /// 
 /// GTK provides an implementation of the `GtkMediaStream` interface that
@@ -1356,6 +1363,11 @@ public protocol MediaStreamProtocol: GLibObject.ObjectProtocol, Gdk.PaintablePro
 /// [method`Gtk.MediaStream.gerror`],
 /// [method`Gtk.MediaStream.error`],
 /// [method`Gtk.MediaStream.error_valist`].
+///
+/// The `MediaStreamRef` type acts as a lightweight Swift reference to an underlying `GtkMediaStream` instance.
+/// It exposes methods that can operate on this data type through `MediaStreamProtocol` conformance.
+/// Use `MediaStreamRef` only as an `unowned` reference to an existing `GtkMediaStream` instance.
+///
 public struct MediaStreamRef: MediaStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMediaStream` instance.
     /// For type-safe access, use the generated, typed pointer `media_stream_ptr` property instead.
@@ -1437,10 +1449,6 @@ public extension MediaStreamRef {
 
     }
 
-/// The `MediaStream` type acts as a reference-counted owner of an underlying `GtkMediaStream` instance.
-/// It provides the methods that can operate on this data type through `MediaStreamProtocol` conformance.
-/// Use `MediaStream` as a strong reference or owner of a `GtkMediaStream` instance.
-///
 /// `GtkMediaStream` is the integration point for media playback inside GTK.
 /// 
 /// GTK provides an implementation of the `GtkMediaStream` interface that
@@ -1458,6 +1466,11 @@ public extension MediaStreamRef {
 /// [method`Gtk.MediaStream.gerror`],
 /// [method`Gtk.MediaStream.error`],
 /// [method`Gtk.MediaStream.error_valist`].
+///
+/// The `MediaStream` type acts as a reference-counted owner of an underlying `GtkMediaStream` instance.
+/// It provides the methods that can operate on this data type through `MediaStreamProtocol` conformance.
+/// Use `MediaStream` as a strong reference or owner of a `GtkMediaStream` instance.
+///
 open class MediaStream: GLibObject.Object, MediaStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1687,12 +1700,14 @@ public enum MediaStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1735,11 +1750,14 @@ public extension MediaStreamProtocol {
 
     /// Pauses the media stream and marks it as ended.
     /// 
-    /// This is a hint only, calls to `GtkMediaStream.play()`
+    /// This is a hint only, calls to [method`Gtk.MediaStream.play`]
     /// may still happen.
     /// 
     /// The media stream must be prepared when this function is called.
-    @inlinable func getEnded() {
+    ///
+    /// **ended is deprecated:**
+    /// Use [method@Gtk.MediaStream.stream_ended] instead
+    @available(*, deprecated) @inlinable func getEnded() {
         gtk_media_stream_ended(media_stream_ptr)
     
     }
@@ -1871,17 +1889,11 @@ public extension MediaStreamProtocol {
     
     }
 
-    /// Called by `GtkMediaStream` implementations to advertise the stream
-    /// being ready to play and providing details about the stream.
-    /// 
-    /// Note that the arguments are hints. If the stream implementation
-    /// cannot determine the correct values, it is better to err on the
-    /// side of caution and return `true`. User interfaces will use those
-    /// values to determine what controls to show.
-    /// 
-    /// This function may not be called again until the stream has been
-    /// reset via [method`Gtk.MediaStream.unprepared`].
-    @inlinable func prepared(hasAudio: Bool, hasVideo: Bool, seekable: Bool, duration: gint64) {
+    /// Same as `gtk_media_stream_stream_prepared()`.
+    ///
+    /// **prepared is deprecated:**
+    /// Use [method@Gtk.MediaStream.stream_prepared] instead.
+    @available(*, deprecated) @inlinable func prepared(hasAudio: Bool, hasVideo: Bool, seekable: Bool, duration: gint64) {
         gtk_media_stream_prepared(media_stream_ptr, gboolean((hasAudio) ? 1 : 0), gboolean((hasVideo) ? 1 : 0), gboolean((seekable) ? 1 : 0), duration)
     
     }
@@ -1995,12 +2007,47 @@ public extension MediaStreamProtocol {
     
     }
 
+    /// Pauses the media stream and marks it as ended.
+    /// 
+    /// This is a hint only, calls to [method`Gtk.MediaStream.play`]
+    /// may still happen.
+    /// 
+    /// The media stream must be prepared when this function is called.
+    @inlinable func streamEnded() {
+        gtk_media_stream_stream_ended(media_stream_ptr)
+    
+    }
+
+    /// Called by `GtkMediaStream` implementations to advertise the stream
+    /// being ready to play and providing details about the stream.
+    /// 
+    /// Note that the arguments are hints. If the stream implementation
+    /// cannot determine the correct values, it is better to err on the
+    /// side of caution and return `true`. User interfaces will use those
+    /// values to determine what controls to show.
+    /// 
+    /// This function may not be called again until the stream has been
+    /// reset via [method`Gtk.MediaStream.stream_unprepared`].
+    @inlinable func streamPrepared(hasAudio: Bool, hasVideo: Bool, seekable: Bool, duration: gint64) {
+        gtk_media_stream_stream_prepared(media_stream_ptr, gboolean((hasAudio) ? 1 : 0), gboolean((hasVideo) ? 1 : 0), gboolean((seekable) ? 1 : 0), duration)
+    
+    }
+
     /// Resets a given media stream implementation.
     /// 
-    /// [method`Gtk.MediaStream.prepared`] can then be called again.
+    /// [method`Gtk.MediaStream.stream_prepared`] can then be called again.
     /// 
     /// This function will also reset any error state the stream was in.
-    @inlinable func unprepared() {
+    @inlinable func streamUnprepared() {
+        gtk_media_stream_stream_unprepared(media_stream_ptr)
+    
+    }
+
+    /// Same as `gtk_media_stream_stream_unprepared()`.
+    ///
+    /// **unprepared is deprecated:**
+    /// Use [method@Gtk.MediaStream.stream_unprepared] instead.
+    @available(*, deprecated) @inlinable func unprepared() {
         gtk_media_stream_unprepared(media_stream_ptr)
     
     }
@@ -2219,11 +2266,6 @@ public extension MediaStreamProtocol {
 
 // MARK: - MenuButton Class
 
-/// The `MenuButtonProtocol` protocol exposes the methods and properties of an underlying `GtkMenuButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MenuButton`.
-/// Alternatively, use `MenuButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkMenuButton` widget is used to display a popup when clicked.
 /// 
 /// ![An example GtkMenuButton](menu-button.png)
@@ -2269,6 +2311,10 @@ public extension MediaStreamProtocol {
 /// `GtkMenuButton` has a single CSS node with name `menubutton`
 /// which contains a `button` node with a `.toggle` style class.
 /// 
+/// If the button contains only an icon or an arrow, it will have the
+/// `.image-button` style class, if it contains both, it will have the
+/// `.arrow-button` style class.
+/// 
 /// Inside the toggle button content, there is an `arrow` node for
 /// the indicator, which will carry one of the `.none`, `.up`, `.down`,
 /// `.left` or `.right` style classes to indicate the direction that
@@ -2281,6 +2327,12 @@ public extension MediaStreamProtocol {
 /// # Accessibility
 /// 
 /// `GtkMenuButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+///
+/// The `MenuButtonProtocol` protocol exposes the methods and properties of an underlying `GtkMenuButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MenuButton`.
+/// Alternatively, use `MenuButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MenuButtonProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkMenuButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2292,10 +2344,6 @@ public protocol MenuButtonProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MenuButtonRef` type acts as a lightweight Swift reference to an underlying `GtkMenuButton` instance.
-/// It exposes methods that can operate on this data type through `MenuButtonProtocol` conformance.
-/// Use `MenuButtonRef` only as an `unowned` reference to an existing `GtkMenuButton` instance.
-///
 /// The `GtkMenuButton` widget is used to display a popup when clicked.
 /// 
 /// ![An example GtkMenuButton](menu-button.png)
@@ -2341,6 +2389,10 @@ public protocol MenuButtonProtocol: WidgetProtocol {
 /// `GtkMenuButton` has a single CSS node with name `menubutton`
 /// which contains a `button` node with a `.toggle` style class.
 /// 
+/// If the button contains only an icon or an arrow, it will have the
+/// `.image-button` style class, if it contains both, it will have the
+/// `.arrow-button` style class.
+/// 
 /// Inside the toggle button content, there is an `arrow` node for
 /// the indicator, which will carry one of the `.none`, `.up`, `.down`,
 /// `.left` or `.right` style classes to indicate the direction that
@@ -2353,6 +2405,11 @@ public protocol MenuButtonProtocol: WidgetProtocol {
 /// # Accessibility
 /// 
 /// `GtkMenuButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+///
+/// The `MenuButtonRef` type acts as a lightweight Swift reference to an underlying `GtkMenuButton` instance.
+/// It exposes methods that can operate on this data type through `MenuButtonProtocol` conformance.
+/// Use `MenuButtonRef` only as an `unowned` reference to an existing `GtkMenuButton` instance.
+///
 public struct MenuButtonRef: MenuButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMenuButton` instance.
     /// For type-safe access, use the generated, typed pointer `menu_button_ptr` property instead.
@@ -2443,10 +2500,6 @@ public extension MenuButtonRef {
     }
 }
 
-/// The `MenuButton` type acts as a reference-counted owner of an underlying `GtkMenuButton` instance.
-/// It provides the methods that can operate on this data type through `MenuButtonProtocol` conformance.
-/// Use `MenuButton` as a strong reference or owner of a `GtkMenuButton` instance.
-///
 /// The `GtkMenuButton` widget is used to display a popup when clicked.
 /// 
 /// ![An example GtkMenuButton](menu-button.png)
@@ -2492,6 +2545,10 @@ public extension MenuButtonRef {
 /// `GtkMenuButton` has a single CSS node with name `menubutton`
 /// which contains a `button` node with a `.toggle` style class.
 /// 
+/// If the button contains only an icon or an arrow, it will have the
+/// `.image-button` style class, if it contains both, it will have the
+/// `.arrow-button` style class.
+/// 
 /// Inside the toggle button content, there is an `arrow` node for
 /// the indicator, which will carry one of the `.none`, `.up`, `.down`,
 /// `.left` or `.right` style classes to indicate the direction that
@@ -2504,6 +2561,11 @@ public extension MenuButtonRef {
 /// # Accessibility
 /// 
 /// `GtkMenuButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+///
+/// The `MenuButton` type acts as a reference-counted owner of an underlying `GtkMenuButton` instance.
+/// It provides the methods that can operate on this data type through `MenuButtonProtocol` conformance.
+/// Use `MenuButton` as a strong reference or owner of a `GtkMenuButton` instance.
+///
 open class MenuButton: Widget, MenuButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2644,6 +2706,8 @@ open class MenuButton: Widget, MenuButtonProtocol {
 }
 
 public enum MenuButtonPropertyName: String, PropertyNameProtocol {
+    /// Whether to show a dropdown arrow even when using an icon.
+    case alwaysShowArrow = "always-show-arrow"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
     /// 
@@ -2750,6 +2814,10 @@ public enum MenuButtonPropertyName: String, PropertyNameProtocol {
     case parent = "parent"
     /// The `GtkPopover` that will be popped up when the button is clicked.
     case popover = "popover"
+    /// Whether the menu button acts as a primary menu.
+    /// 
+    /// Primary menus can be opened using the &lt;kbd&gt;F10&lt;/kbd&gt; key
+    case primary = "primary"
     /// Whether the widget will receive the default action when it is focused.
     case receivesDefault = "receives-default"
     /// The `GtkRoot` widget of the widget tree containing this widget.
@@ -2857,6 +2925,11 @@ public extension MenuButtonProtocol {
 }
 
 public enum MenuButtonSignalName: String, SignalNameProtocol {
+    /// Emitted to when the menu button is activated.
+    /// 
+    /// The ``activate`` signal on `GtkMenuButton` is an action signal and
+    /// emitting it causes the button to pop up its menu.
+    case activate = "activate"
     /// Signals that all holders of a reference to the widget should release
     /// the reference that they hold.
     /// 
@@ -2904,12 +2977,14 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2953,6 +3028,8 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// This means that [method`Gtk.Widget.unrealize`] has been called
     /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
+    /// Whether to show a dropdown arrow even when using an icon.
+    case notifyAlwaysShowArrow = "notify::always-show-arrow"
     /// Whether the widget or any of its descendents can accept
     /// the input focus.
     /// 
@@ -3059,6 +3136,10 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     case notifyParent = "notify::parent"
     /// The `GtkPopover` that will be popped up when the button is clicked.
     case notifyPopover = "notify::popover"
+    /// Whether the menu button acts as a primary menu.
+    /// 
+    /// Primary menus can be opened using the &lt;kbd&gt;F10&lt;/kbd&gt; key
+    case notifyPrimary = "notify::primary"
     /// Whether the widget will receive the default action when it is focused.
     case notifyReceivesDefault = "notify::receives-default"
     /// The `GtkRoot` widget of the widget tree containing this widget.
@@ -3112,11 +3193,533 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     case notifyWidthRequest = "notify::width-request"
 }
 
-// MARK: MenuButton has no signals
+// MARK: MenuButton signals
+public extension MenuButtonProtocol {
+    /// Connect a Swift signal handler to the given, typed `MenuButtonSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: MenuButtonSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `MenuButtonSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: MenuButtonSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// Emitted to when the menu button is activated.
+    /// 
+    /// The ``activate`` signal on `GtkMenuButton` is an action signal and
+    /// emitting it causes the button to pop up its menu.
+    /// - Note: This represents the underlying `activate` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `activate` signal is emitted
+    @discardableResult @inlinable func onActivate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: MenuButtonRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<MenuButtonRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(MenuButtonRef(raw: unownedSelf))
+            return output
+        }
+        return connect(
+            signal: .activate,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `activate` signal for using the `connect(signal:)` methods
+    static var activateSignal: MenuButtonSignalName { .activate }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::always-show-arrow` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyAlwaysShowArrow` signal is emitted
+    @discardableResult @inlinable func onNotifyAlwaysShowArrow(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: MenuButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<MenuButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(MenuButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyAlwaysShowArrow,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::always-show-arrow` signal for using the `connect(signal:)` methods
+    static var notifyAlwaysShowArrowSignal: MenuButtonSignalName { .notifyAlwaysShowArrow }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::direction` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyDirection` signal is emitted
+    @discardableResult @inlinable func onNotifyDirection(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: MenuButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<MenuButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(MenuButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyDirection,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::direction` signal for using the `connect(signal:)` methods
+    static var notifyDirectionSignal: MenuButtonSignalName { .notifyDirection }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::has-frame` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHasFrame` signal is emitted
+    @discardableResult @inlinable func onNotifyHasFrame(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: MenuButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<MenuButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(MenuButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyHasFrame,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::has-frame` signal for using the `connect(signal:)` methods
+    static var notifyHasFrameSignal: MenuButtonSignalName { .notifyHasFrame }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::icon-name` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyIconName` signal is emitted
+    @discardableResult @inlinable func onNotifyIconName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: MenuButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<MenuButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(MenuButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyIconName,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::icon-name` signal for using the `connect(signal:)` methods
+    static var notifyIconNameSignal: MenuButtonSignalName { .notifyIconName }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::label` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyLabel` signal is emitted
+    @discardableResult @inlinable func onNotifyLabel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: MenuButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<MenuButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(MenuButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyLabel,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::label` signal for using the `connect(signal:)` methods
+    static var notifyLabelSignal: MenuButtonSignalName { .notifyLabel }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::menu-model` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyMenuModel` signal is emitted
+    @discardableResult @inlinable func onNotifyMenuModel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: MenuButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<MenuButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(MenuButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyMenuModel,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::menu-model` signal for using the `connect(signal:)` methods
+    static var notifyMenuModelSignal: MenuButtonSignalName { .notifyMenuModel }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::popover` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyPopover` signal is emitted
+    @discardableResult @inlinable func onNotifyPopover(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: MenuButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<MenuButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(MenuButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyPopover,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::popover` signal for using the `connect(signal:)` methods
+    static var notifyPopoverSignal: MenuButtonSignalName { .notifyPopover }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::primary` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyPrimary` signal is emitted
+    @discardableResult @inlinable func onNotifyPrimary(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: MenuButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<MenuButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(MenuButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyPrimary,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::primary` signal for using the `connect(signal:)` methods
+    static var notifyPrimarySignal: MenuButtonSignalName { .notifyPrimary }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::use-underline` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyUseUnderline` signal is emitted
+    @discardableResult @inlinable func onNotifyUseUnderline(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: MenuButtonRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<MenuButtonRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(MenuButtonRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyUseUnderline,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::use-underline` signal for using the `connect(signal:)` methods
+    static var notifyUseUnderlineSignal: MenuButtonSignalName { .notifyUseUnderline }
+    
+}
+
 // MARK: MenuButton Class: MenuButtonProtocol extension (methods and fields)
 public extension MenuButtonProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkMenuButton` instance.
     @inlinable var menu_button_ptr: UnsafeMutablePointer<GtkMenuButton>! { return ptr?.assumingMemoryBound(to: GtkMenuButton.self) }
+
+    /// Gets whether to show a dropdown arrow even when using an icon.
+    @inlinable func getAlwaysShowArrow() -> Bool {
+        let rv = ((gtk_menu_button_get_always_show_arrow(menu_button_ptr)) != 0)
+        return rv
+    }
 
     /// Returns the direction the popup will be pointing at when popped up.
     @inlinable func getDirection() -> GtkArrowType {
@@ -3157,6 +3760,12 @@ public extension MenuButtonProtocol {
         return rv
     }
 
+    /// Returns whether the menu button acts as a primary menu.
+    @inlinable func getPrimary() -> Bool {
+        let rv = ((gtk_menu_button_get_primary(menu_button_ptr)) != 0)
+        return rv
+    }
+
     /// Returns whether an embedded underline in the text indicates a
     /// mnemonic.
     @inlinable func getUseUnderline() -> Bool {
@@ -3173,6 +3782,12 @@ public extension MenuButtonProtocol {
     /// Pop up the menu.
     @inlinable func popup() {
         gtk_menu_button_popup(menu_button_ptr)
+    
+    }
+
+    /// Sets whether to show a dropdown arrow even when using an icon.
+    @inlinable func set(alwaysShowArrow: Bool) {
+        gtk_menu_button_set_always_show_arrow(menu_button_ptr, gboolean((alwaysShowArrow) ? 1 : 0))
     
     }
 
@@ -3276,11 +3891,32 @@ public extension MenuButtonProtocol {
     
     }
 
+    /// Sets whether menu button acts as a primary menu.
+    /// 
+    /// Primary menus can be opened with the &lt;kbd&gt;F10&lt;/kbd&gt; key.
+    @inlinable func set(primary: Bool) {
+        gtk_menu_button_set_primary(menu_button_ptr, gboolean((primary) ? 1 : 0))
+    
+    }
+
     /// If true, an underline in the text indicates a mnemonic.
     @inlinable func set(useUnderline: Bool) {
         gtk_menu_button_set_use_underline(menu_button_ptr, gboolean((useUnderline) ? 1 : 0))
     
     }
+    /// Gets whether to show a dropdown arrow even when using an icon.
+    @inlinable var alwaysShowArrow: Bool {
+        /// Gets whether to show a dropdown arrow even when using an icon.
+        get {
+            let rv = ((gtk_menu_button_get_always_show_arrow(menu_button_ptr)) != 0)
+            return rv
+        }
+        /// Sets whether to show a dropdown arrow even when using an icon.
+        nonmutating set {
+            gtk_menu_button_set_always_show_arrow(menu_button_ptr, gboolean((newValue) ? 1 : 0))
+        }
+    }
+
     /// The `GtkArrowType` representing the direction in which the
     /// menu or popover will be popped out.
     @inlinable var direction: GtkArrowType {
@@ -3386,6 +4022,23 @@ public extension MenuButtonProtocol {
         }
     }
 
+    /// Whether the menu button acts as a primary menu.
+    /// 
+    /// Primary menus can be opened using the &lt;kbd&gt;F10&lt;/kbd&gt; key
+    @inlinable var primary: Bool {
+        /// Returns whether the menu button acts as a primary menu.
+        get {
+            let rv = ((gtk_menu_button_get_primary(menu_button_ptr)) != 0)
+            return rv
+        }
+        /// Sets whether menu button acts as a primary menu.
+        /// 
+        /// Primary menus can be opened with the &lt;kbd&gt;F10&lt;/kbd&gt; key.
+        nonmutating set {
+            gtk_menu_button_set_primary(menu_button_ptr, gboolean((newValue) ? 1 : 0))
+        }
+    }
+
     /// Returns whether an embedded underline in the text indicates a
     /// mnemonic.
     @inlinable var useUnderline: Bool {
@@ -3408,11 +4061,6 @@ public extension MenuButtonProtocol {
 
 // MARK: - MessageDialog Class
 
-/// The `MessageDialogProtocol` protocol exposes the methods and properties of an underlying `GtkMessageDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MessageDialog`.
-/// Alternatively, use `MessageDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkMessageDialog` presents a dialog with some message text.
 /// 
 /// ![An example GtkMessageDialog](messagedialog.png)
@@ -3469,6 +4117,12 @@ public extension MenuButtonProtocol {
 /// 
 /// The `GtkMessageDialog` implementation of the `GtkBuildable` interface exposes
 /// the message area as an internal child with the name “message_area”.
+///
+/// The `MessageDialogProtocol` protocol exposes the methods and properties of an underlying `GtkMessageDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MessageDialog`.
+/// Alternatively, use `MessageDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MessageDialogProtocol: DialogProtocol {
         /// Untyped pointer to the underlying `GtkMessageDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3480,10 +4134,6 @@ public protocol MessageDialogProtocol: DialogProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MessageDialogRef` type acts as a lightweight Swift reference to an underlying `GtkMessageDialog` instance.
-/// It exposes methods that can operate on this data type through `MessageDialogProtocol` conformance.
-/// Use `MessageDialogRef` only as an `unowned` reference to an existing `GtkMessageDialog` instance.
-///
 /// `GtkMessageDialog` presents a dialog with some message text.
 /// 
 /// ![An example GtkMessageDialog](messagedialog.png)
@@ -3540,6 +4190,11 @@ public protocol MessageDialogProtocol: DialogProtocol {
 /// 
 /// The `GtkMessageDialog` implementation of the `GtkBuildable` interface exposes
 /// the message area as an internal child with the name “message_area”.
+///
+/// The `MessageDialogRef` type acts as a lightweight Swift reference to an underlying `GtkMessageDialog` instance.
+/// It exposes methods that can operate on this data type through `MessageDialogProtocol` conformance.
+/// Use `MessageDialogRef` only as an `unowned` reference to an existing `GtkMessageDialog` instance.
+///
 public struct MessageDialogRef: MessageDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMessageDialog` instance.
     /// For type-safe access, use the generated, typed pointer `message_dialog_ptr` property instead.
@@ -3631,10 +4286,6 @@ public extension MessageDialogRef {
 
 }
 
-/// The `MessageDialog` type acts as a reference-counted owner of an underlying `GtkMessageDialog` instance.
-/// It provides the methods that can operate on this data type through `MessageDialogProtocol` conformance.
-/// Use `MessageDialog` as a strong reference or owner of a `GtkMessageDialog` instance.
-///
 /// `GtkMessageDialog` presents a dialog with some message text.
 /// 
 /// ![An example GtkMessageDialog](messagedialog.png)
@@ -3691,6 +4342,11 @@ public extension MessageDialogRef {
 /// 
 /// The `GtkMessageDialog` implementation of the `GtkBuildable` interface exposes
 /// the message area as an internal child with the name “message_area”.
+///
+/// The `MessageDialog` type acts as a reference-counted owner of an underlying `GtkMessageDialog` instance.
+/// It provides the methods that can operate on this data type through `MessageDialogProtocol` conformance.
+/// Use `MessageDialog` as a strong reference or owner of a `GtkMessageDialog` instance.
+///
 open class MessageDialog: Dialog, MessageDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4221,12 +4877,14 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4596,12 +5254,13 @@ public extension MessageDialogProtocol {
 
 // MARK: - MnemonicAction Class
 
+/// A `GtkShortcutAction` that calls `gtk_widget_mnemonic_activate()`.
+///
 /// The `MnemonicActionProtocol` protocol exposes the methods and properties of an underlying `GtkMnemonicAction` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MnemonicAction`.
 /// Alternatively, use `MnemonicActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkShortcutAction` that calls `gtk_widget_mnemonic_activate()`.
 public protocol MnemonicActionProtocol: ShortcutActionProtocol {
         /// Untyped pointer to the underlying `GtkMnemonicAction` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4613,11 +5272,12 @@ public protocol MnemonicActionProtocol: ShortcutActionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GtkShortcutAction` that calls `gtk_widget_mnemonic_activate()`.
+///
 /// The `MnemonicActionRef` type acts as a lightweight Swift reference to an underlying `GtkMnemonicAction` instance.
 /// It exposes methods that can operate on this data type through `MnemonicActionProtocol` conformance.
 /// Use `MnemonicActionRef` only as an `unowned` reference to an existing `GtkMnemonicAction` instance.
 ///
-/// A `GtkShortcutAction` that calls `gtk_widget_mnemonic_activate()`.
 public struct MnemonicActionRef: MnemonicActionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMnemonicAction` instance.
     /// For type-safe access, use the generated, typed pointer `mnemonic_action_ptr` property instead.
@@ -4699,11 +5359,12 @@ public extension MnemonicActionRef {
 
     }
 
+/// A `GtkShortcutAction` that calls `gtk_widget_mnemonic_activate()`.
+///
 /// The `MnemonicAction` type acts as a reference-counted owner of an underlying `GtkMnemonicAction` instance.
 /// It provides the methods that can operate on this data type through `MnemonicActionProtocol` conformance.
 /// Use `MnemonicAction` as a strong reference or owner of a `GtkMnemonicAction` instance.
 ///
-/// A `GtkShortcutAction` that calls `gtk_widget_mnemonic_activate()`.
 open class MnemonicAction: ShortcutAction, MnemonicActionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4851,12 +5512,14 @@ public enum MnemonicActionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4878,15 +5541,16 @@ public extension MnemonicActionProtocol {
 
 // MARK: - MnemonicTrigger Class
 
+/// A `GtkShortcutTrigger` that triggers when a specific mnemonic is pressed.
+/// 
+/// Mnemonics require a *mnemonic modifier* (typically &lt;kbd&gt;Alt&lt;/kbd&gt;) to be
+/// pressed together with the mnemonic key.
+///
 /// The `MnemonicTriggerProtocol` protocol exposes the methods and properties of an underlying `GtkMnemonicTrigger` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MnemonicTrigger`.
 /// Alternatively, use `MnemonicTriggerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkShortcutTrigger` that triggers when a specific mnemonic is pressed.
-/// 
-/// Mnemonics require a *mnemonic modifier* (typically &lt;kbd&gt;Alt&lt;/kbd&gt;) to be
-/// pressed together with the mnemonic key.
 public protocol MnemonicTriggerProtocol: ShortcutTriggerProtocol {
         /// Untyped pointer to the underlying `GtkMnemonicTrigger` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4898,14 +5562,15 @@ public protocol MnemonicTriggerProtocol: ShortcutTriggerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MnemonicTriggerRef` type acts as a lightweight Swift reference to an underlying `GtkMnemonicTrigger` instance.
-/// It exposes methods that can operate on this data type through `MnemonicTriggerProtocol` conformance.
-/// Use `MnemonicTriggerRef` only as an `unowned` reference to an existing `GtkMnemonicTrigger` instance.
-///
 /// A `GtkShortcutTrigger` that triggers when a specific mnemonic is pressed.
 /// 
 /// Mnemonics require a *mnemonic modifier* (typically &lt;kbd&gt;Alt&lt;/kbd&gt;) to be
 /// pressed together with the mnemonic key.
+///
+/// The `MnemonicTriggerRef` type acts as a lightweight Swift reference to an underlying `GtkMnemonicTrigger` instance.
+/// It exposes methods that can operate on this data type through `MnemonicTriggerProtocol` conformance.
+/// Use `MnemonicTriggerRef` only as an `unowned` reference to an existing `GtkMnemonicTrigger` instance.
+///
 public struct MnemonicTriggerRef: MnemonicTriggerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMnemonicTrigger` instance.
     /// For type-safe access, use the generated, typed pointer `mnemonic_trigger_ptr` property instead.
@@ -4987,14 +5652,15 @@ public extension MnemonicTriggerRef {
 
     }
 
-/// The `MnemonicTrigger` type acts as a reference-counted owner of an underlying `GtkMnemonicTrigger` instance.
-/// It provides the methods that can operate on this data type through `MnemonicTriggerProtocol` conformance.
-/// Use `MnemonicTrigger` as a strong reference or owner of a `GtkMnemonicTrigger` instance.
-///
 /// A `GtkShortcutTrigger` that triggers when a specific mnemonic is pressed.
 /// 
 /// Mnemonics require a *mnemonic modifier* (typically &lt;kbd&gt;Alt&lt;/kbd&gt;) to be
 /// pressed together with the mnemonic key.
+///
+/// The `MnemonicTrigger` type acts as a reference-counted owner of an underlying `GtkMnemonicTrigger` instance.
+/// It provides the methods that can operate on this data type through `MnemonicTriggerProtocol` conformance.
+/// Use `MnemonicTrigger` as a strong reference or owner of a `GtkMnemonicTrigger` instance.
+///
 open class MnemonicTrigger: ShortcutTrigger, MnemonicTriggerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5198,12 +5864,14 @@ public enum MnemonicTriggerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5239,11 +5907,6 @@ public extension MnemonicTriggerProtocol {
 
 // MARK: - MountOperation Class
 
-/// The `MountOperationProtocol` protocol exposes the methods and properties of an underlying `GtkMountOperation` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MountOperation`.
-/// Alternatively, use `MountOperationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkMountOperation` is an implementation of `GMountOperation`.
 /// 
 /// The functions and objects described here make working with GTK and
@@ -5257,6 +5920,12 @@ public extension MnemonicTriggerProtocol {
 /// 
 /// When necessary, `GtkMountOperation` shows dialogs to let the user
 /// enter passwords, ask questions or show processes blocking unmount.
+///
+/// The `MountOperationProtocol` protocol exposes the methods and properties of an underlying `GtkMountOperation` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MountOperation`.
+/// Alternatively, use `MountOperationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MountOperationProtocol: GIO.MountOperationProtocol {
         /// Untyped pointer to the underlying `GtkMountOperation` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5268,10 +5937,6 @@ public protocol MountOperationProtocol: GIO.MountOperationProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MountOperationRef` type acts as a lightweight Swift reference to an underlying `GtkMountOperation` instance.
-/// It exposes methods that can operate on this data type through `MountOperationProtocol` conformance.
-/// Use `MountOperationRef` only as an `unowned` reference to an existing `GtkMountOperation` instance.
-///
 /// `GtkMountOperation` is an implementation of `GMountOperation`.
 /// 
 /// The functions and objects described here make working with GTK and
@@ -5285,6 +5950,11 @@ public protocol MountOperationProtocol: GIO.MountOperationProtocol {
 /// 
 /// When necessary, `GtkMountOperation` shows dialogs to let the user
 /// enter passwords, ask questions or show processes blocking unmount.
+///
+/// The `MountOperationRef` type acts as a lightweight Swift reference to an underlying `GtkMountOperation` instance.
+/// It exposes methods that can operate on this data type through `MountOperationProtocol` conformance.
+/// Use `MountOperationRef` only as an `unowned` reference to an existing `GtkMountOperation` instance.
+///
 public struct MountOperationRef: MountOperationProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMountOperation` instance.
     /// For type-safe access, use the generated, typed pointer `mount_operation_ptr` property instead.
@@ -5366,10 +6036,6 @@ public extension MountOperationRef {
 
     }
 
-/// The `MountOperation` type acts as a reference-counted owner of an underlying `GtkMountOperation` instance.
-/// It provides the methods that can operate on this data type through `MountOperationProtocol` conformance.
-/// Use `MountOperation` as a strong reference or owner of a `GtkMountOperation` instance.
-///
 /// `GtkMountOperation` is an implementation of `GMountOperation`.
 /// 
 /// The functions and objects described here make working with GTK and
@@ -5383,6 +6049,11 @@ public extension MountOperationRef {
 /// 
 /// When necessary, `GtkMountOperation` shows dialogs to let the user
 /// enter passwords, ask questions or show processes blocking unmount.
+///
+/// The `MountOperation` type acts as a reference-counted owner of an underlying `GtkMountOperation` instance.
+/// It provides the methods that can operate on this data type through `MountOperationProtocol` conformance.
+/// Use `MountOperation` as a strong reference or owner of a `GtkMountOperation` instance.
+///
 open class MountOperation: GIO.MountOperation, MountOperationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5636,12 +6307,14 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5804,12 +6477,13 @@ public extension MountOperationProtocol {
 
 // MARK: - MultiFilter Class
 
+/// `GtkMultiFilter` is the base class for filters that combine multiple filters.
+///
 /// The `MultiFilterProtocol` protocol exposes the methods and properties of an underlying `GtkMultiFilter` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MultiFilter`.
 /// Alternatively, use `MultiFilterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkMultiFilter` is the base class for filters that combine multiple filters.
 public protocol MultiFilterProtocol: FilterProtocol, GIO.ListModelProtocol, BuildableProtocol {
         /// Untyped pointer to the underlying `GtkMultiFilter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5821,11 +6495,12 @@ public protocol MultiFilterProtocol: FilterProtocol, GIO.ListModelProtocol, Buil
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkMultiFilter` is the base class for filters that combine multiple filters.
+///
 /// The `MultiFilterRef` type acts as a lightweight Swift reference to an underlying `GtkMultiFilter` instance.
 /// It exposes methods that can operate on this data type through `MultiFilterProtocol` conformance.
 /// Use `MultiFilterRef` only as an `unowned` reference to an existing `GtkMultiFilter` instance.
 ///
-/// `GtkMultiFilter` is the base class for filters that combine multiple filters.
 public struct MultiFilterRef: MultiFilterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMultiFilter` instance.
     /// For type-safe access, use the generated, typed pointer `multi_filter_ptr` property instead.
@@ -5907,11 +6582,12 @@ public extension MultiFilterRef {
 
     }
 
+/// `GtkMultiFilter` is the base class for filters that combine multiple filters.
+///
 /// The `MultiFilter` type acts as a reference-counted owner of an underlying `GtkMultiFilter` instance.
 /// It provides the methods that can operate on this data type through `MultiFilterProtocol` conformance.
 /// Use `MultiFilter` as a strong reference or owner of a `GtkMultiFilter` instance.
 ///
-/// `GtkMultiFilter` is the base class for filters that combine multiple filters.
 open class MultiFilter: Filter, MultiFilterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6070,12 +6746,14 @@ public enum MultiFilterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6112,13 +6790,14 @@ public extension MultiFilterProtocol {
 
 // MARK: - MultiSelection Class
 
+/// `GtkMultiSelection` is a `GtkSelectionModel` that allows selecting multiple
+/// elements.
+///
 /// The `MultiSelectionProtocol` protocol exposes the methods and properties of an underlying `GtkMultiSelection` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MultiSelection`.
 /// Alternatively, use `MultiSelectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkMultiSelection` is a `GtkSelectionModel` that allows selecting multiple
-/// elements.
 public protocol MultiSelectionProtocol: GLibObject.ObjectProtocol, GIO.ListModelProtocol, SelectionModelProtocol {
         /// Untyped pointer to the underlying `GtkMultiSelection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6130,12 +6809,13 @@ public protocol MultiSelectionProtocol: GLibObject.ObjectProtocol, GIO.ListModel
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkMultiSelection` is a `GtkSelectionModel` that allows selecting multiple
+/// elements.
+///
 /// The `MultiSelectionRef` type acts as a lightweight Swift reference to an underlying `GtkMultiSelection` instance.
 /// It exposes methods that can operate on this data type through `MultiSelectionProtocol` conformance.
 /// Use `MultiSelectionRef` only as an `unowned` reference to an existing `GtkMultiSelection` instance.
 ///
-/// `GtkMultiSelection` is a `GtkSelectionModel` that allows selecting multiple
-/// elements.
 public struct MultiSelectionRef: MultiSelectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMultiSelection` instance.
     /// For type-safe access, use the generated, typed pointer `multi_selection_ptr` property instead.
@@ -6222,12 +6902,13 @@ public extension MultiSelectionRef {
     }
 }
 
+/// `GtkMultiSelection` is a `GtkSelectionModel` that allows selecting multiple
+/// elements.
+///
 /// The `MultiSelection` type acts as a reference-counted owner of an underlying `GtkMultiSelection` instance.
 /// It provides the methods that can operate on this data type through `MultiSelectionProtocol` conformance.
 /// Use `MultiSelection` as a strong reference or owner of a `GtkMultiSelection` instance.
 ///
-/// `GtkMultiSelection` is a `GtkSelectionModel` that allows selecting multiple
-/// elements.
 open class MultiSelection: GLibObject.Object, MultiSelectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6437,12 +7118,14 @@ public enum MultiSelectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6499,16 +7182,17 @@ public extension MultiSelectionProtocol {
 
 // MARK: - MultiSorter Class
 
-/// The `MultiSorterProtocol` protocol exposes the methods and properties of an underlying `GtkMultiSorter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MultiSorter`.
-/// Alternatively, use `MultiSorterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkMultiSorter` combines multiple sorters by trying them
 /// in turn.
 /// 
 /// If the first sorter compares two items as equal,
 /// the second is tried next, and so on.
+///
+/// The `MultiSorterProtocol` protocol exposes the methods and properties of an underlying `GtkMultiSorter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MultiSorter`.
+/// Alternatively, use `MultiSorterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MultiSorterProtocol: SorterProtocol, GIO.ListModelProtocol, BuildableProtocol {
         /// Untyped pointer to the underlying `GtkMultiSorter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6520,15 +7204,16 @@ public protocol MultiSorterProtocol: SorterProtocol, GIO.ListModelProtocol, Buil
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MultiSorterRef` type acts as a lightweight Swift reference to an underlying `GtkMultiSorter` instance.
-/// It exposes methods that can operate on this data type through `MultiSorterProtocol` conformance.
-/// Use `MultiSorterRef` only as an `unowned` reference to an existing `GtkMultiSorter` instance.
-///
 /// `GtkMultiSorter` combines multiple sorters by trying them
 /// in turn.
 /// 
 /// If the first sorter compares two items as equal,
 /// the second is tried next, and so on.
+///
+/// The `MultiSorterRef` type acts as a lightweight Swift reference to an underlying `GtkMultiSorter` instance.
+/// It exposes methods that can operate on this data type through `MultiSorterProtocol` conformance.
+/// Use `MultiSorterRef` only as an `unowned` reference to an existing `GtkMultiSorter` instance.
+///
 public struct MultiSorterRef: MultiSorterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMultiSorter` instance.
     /// For type-safe access, use the generated, typed pointer `multi_sorter_ptr` property instead.
@@ -6620,15 +7305,16 @@ public extension MultiSorterRef {
     }
 }
 
-/// The `MultiSorter` type acts as a reference-counted owner of an underlying `GtkMultiSorter` instance.
-/// It provides the methods that can operate on this data type through `MultiSorterProtocol` conformance.
-/// Use `MultiSorter` as a strong reference or owner of a `GtkMultiSorter` instance.
-///
 /// `GtkMultiSorter` combines multiple sorters by trying them
 /// in turn.
 /// 
 /// If the first sorter compares two items as equal,
 /// the second is tried next, and so on.
+///
+/// The `MultiSorter` type acts as a reference-counted owner of an underlying `GtkMultiSorter` instance.
+/// It provides the methods that can operate on this data type through `MultiSorterProtocol` conformance.
+/// Use `MultiSorter` as a strong reference or owner of a `GtkMultiSorter` instance.
+///
 open class MultiSorter: Sorter, MultiSorterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6798,12 +7484,14 @@ public enum MultiSorterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6842,12 +7530,13 @@ public extension MultiSorterProtocol {
 
 // MARK: - NamedAction Class
 
+/// A `GtkShortcutAction` that activates an action by name.
+///
 /// The `NamedActionProtocol` protocol exposes the methods and properties of an underlying `GtkNamedAction` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NamedAction`.
 /// Alternatively, use `NamedActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkShortcutAction` that activates an action by name.
 public protocol NamedActionProtocol: ShortcutActionProtocol {
         /// Untyped pointer to the underlying `GtkNamedAction` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6859,11 +7548,12 @@ public protocol NamedActionProtocol: ShortcutActionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GtkShortcutAction` that activates an action by name.
+///
 /// The `NamedActionRef` type acts as a lightweight Swift reference to an underlying `GtkNamedAction` instance.
 /// It exposes methods that can operate on this data type through `NamedActionProtocol` conformance.
 /// Use `NamedActionRef` only as an `unowned` reference to an existing `GtkNamedAction` instance.
 ///
-/// A `GtkShortcutAction` that activates an action by name.
 public struct NamedActionRef: NamedActionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNamedAction` instance.
     /// For type-safe access, use the generated, typed pointer `named_action_ptr` property instead.
@@ -6945,11 +7635,12 @@ public extension NamedActionRef {
 
     }
 
+/// A `GtkShortcutAction` that activates an action by name.
+///
 /// The `NamedAction` type acts as a reference-counted owner of an underlying `GtkNamedAction` instance.
 /// It provides the methods that can operate on this data type through `NamedActionProtocol` conformance.
 /// Use `NamedAction` as a strong reference or owner of a `GtkNamedAction` instance.
 ///
-/// A `GtkShortcutAction` that activates an action by name.
 open class NamedAction: ShortcutAction, NamedActionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7153,12 +7844,14 @@ public enum NamedActionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

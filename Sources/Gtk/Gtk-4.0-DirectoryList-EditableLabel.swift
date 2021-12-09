@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - DirectoryList Class
 
-/// The `DirectoryListProtocol` protocol exposes the methods and properties of an underlying `GtkDirectoryList` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DirectoryList`.
-/// Alternatively, use `DirectoryListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkDirectoryList` is a list model that wraps `g_file_enumerate_children_async()`.
 /// 
 /// It presents a `GListModel` and fills it asynchronously with the `GFileInfo`s
@@ -42,6 +37,12 @@ import Gdk
 /// This means you do not need access to the `GtkDirectoryList`, but can access
 /// the `GFile` directly from the `GFileInfo` when operating with a `GtkListView`
 /// or similar.
+///
+/// The `DirectoryListProtocol` protocol exposes the methods and properties of an underlying `GtkDirectoryList` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DirectoryList`.
+/// Alternatively, use `DirectoryListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DirectoryListProtocol: GLibObject.ObjectProtocol, GIO.ListModelProtocol {
         /// Untyped pointer to the underlying `GtkDirectoryList` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -53,10 +54,6 @@ public protocol DirectoryListProtocol: GLibObject.ObjectProtocol, GIO.ListModelP
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DirectoryListRef` type acts as a lightweight Swift reference to an underlying `GtkDirectoryList` instance.
-/// It exposes methods that can operate on this data type through `DirectoryListProtocol` conformance.
-/// Use `DirectoryListRef` only as an `unowned` reference to an existing `GtkDirectoryList` instance.
-///
 /// `GtkDirectoryList` is a list model that wraps `g_file_enumerate_children_async()`.
 /// 
 /// It presents a `GListModel` and fills it asynchronously with the `GFileInfo`s
@@ -79,6 +76,11 @@ public protocol DirectoryListProtocol: GLibObject.ObjectProtocol, GIO.ListModelP
 /// This means you do not need access to the `GtkDirectoryList`, but can access
 /// the `GFile` directly from the `GFileInfo` when operating with a `GtkListView`
 /// or similar.
+///
+/// The `DirectoryListRef` type acts as a lightweight Swift reference to an underlying `GtkDirectoryList` instance.
+/// It exposes methods that can operate on this data type through `DirectoryListProtocol` conformance.
+/// Use `DirectoryListRef` only as an `unowned` reference to an existing `GtkDirectoryList` instance.
+///
 public struct DirectoryListRef: DirectoryListProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDirectoryList` instance.
     /// For type-safe access, use the generated, typed pointer `directory_list_ptr` property instead.
@@ -168,10 +170,6 @@ public extension DirectoryListRef {
     }
 }
 
-/// The `DirectoryList` type acts as a reference-counted owner of an underlying `GtkDirectoryList` instance.
-/// It provides the methods that can operate on this data type through `DirectoryListProtocol` conformance.
-/// Use `DirectoryList` as a strong reference or owner of a `GtkDirectoryList` instance.
-///
 /// `GtkDirectoryList` is a list model that wraps `g_file_enumerate_children_async()`.
 /// 
 /// It presents a `GListModel` and fills it asynchronously with the `GFileInfo`s
@@ -194,6 +192,11 @@ public extension DirectoryListRef {
 /// This means you do not need access to the `GtkDirectoryList`, but can access
 /// the `GFile` directly from the `GFileInfo` when operating with a `GtkListView`
 /// or similar.
+///
+/// The `DirectoryList` type acts as a reference-counted owner of an underlying `GtkDirectoryList` instance.
+/// It provides the methods that can operate on this data type through `DirectoryListProtocol` conformance.
+/// Use `DirectoryList` as a strong reference or owner of a `GtkDirectoryList` instance.
+///
 open class DirectoryList: GLibObject.Object, DirectoryListProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -416,12 +419,14 @@ public enum DirectoryListSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -523,8 +528,11 @@ public extension DirectoryListProtocol {
     }
 
     /// Sets whether the directory list will monitor the directory
-    /// for changes. If monitoring is enabled, the `items-changed`
-    /// signal will be emitted when the directory contents change.
+    /// for changes.
+    /// 
+    /// If monitoring is enabled, the `items-changed` signal will
+    /// be emitted when the directory contents change.
+    /// 
     /// 
     /// When monitoring is turned on after the initial creation
     /// of the directory list, the directory is reloaded to avoid
@@ -630,8 +638,11 @@ public extension DirectoryListProtocol {
             return rv
         }
         /// Sets whether the directory list will monitor the directory
-        /// for changes. If monitoring is enabled, the `items-changed`
-        /// signal will be emitted when the directory contents change.
+        /// for changes.
+        /// 
+        /// If monitoring is enabled, the `items-changed` signal will
+        /// be emitted when the directory contents change.
+        /// 
         /// 
         /// When monitoring is turned on after the initial creation
         /// of the directory list, the directory is reloaded to avoid
@@ -649,11 +660,6 @@ public extension DirectoryListProtocol {
 
 // MARK: - DragIcon Class
 
-/// The `DragIconProtocol` protocol exposes the methods and properties of an underlying `GtkDragIcon` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DragIcon`.
-/// Alternatively, use `DragIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkDragIcon` is a `GtkRoot` implementation for drag icons.
 /// 
 /// A drag icon moves with the pointer during a Drag-and-Drop operation
@@ -665,6 +671,12 @@ public extension DirectoryListProtocol {
 /// to set whatever widget should be used for the drag icon.
 /// 
 /// Keep in mind that drag icons do not allow user input.
+///
+/// The `DragIconProtocol` protocol exposes the methods and properties of an underlying `GtkDragIcon` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DragIcon`.
+/// Alternatively, use `DragIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DragIconProtocol: WidgetProtocol, NativeProtocol, RootProtocol {
         /// Untyped pointer to the underlying `GtkDragIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -676,10 +688,6 @@ public protocol DragIconProtocol: WidgetProtocol, NativeProtocol, RootProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DragIconRef` type acts as a lightweight Swift reference to an underlying `GtkDragIcon` instance.
-/// It exposes methods that can operate on this data type through `DragIconProtocol` conformance.
-/// Use `DragIconRef` only as an `unowned` reference to an existing `GtkDragIcon` instance.
-///
 /// `GtkDragIcon` is a `GtkRoot` implementation for drag icons.
 /// 
 /// A drag icon moves with the pointer during a Drag-and-Drop operation
@@ -691,6 +699,11 @@ public protocol DragIconProtocol: WidgetProtocol, NativeProtocol, RootProtocol {
 /// to set whatever widget should be used for the drag icon.
 /// 
 /// Keep in mind that drag icons do not allow user input.
+///
+/// The `DragIconRef` type acts as a lightweight Swift reference to an underlying `GtkDragIcon` instance.
+/// It exposes methods that can operate on this data type through `DragIconProtocol` conformance.
+/// Use `DragIconRef` only as an `unowned` reference to an existing `GtkDragIcon` instance.
+///
 public struct DragIconRef: DragIconProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDragIcon` instance.
     /// For type-safe access, use the generated, typed pointer `drag_icon_ptr` property instead.
@@ -777,7 +790,7 @@ public extension DragIconRef {
     /// If GTK does not know how to create a widget for a given value,
     /// it will return `nil`.
     /// 
-    /// This method is used to set the default drag icon on drag'n'drop
+    /// This method is used to set the default drag icon on drag-and-drop
     /// operations started by `GtkDragSource`, so you don't need to set
     /// a drag icon using this function there.
     @inlinable static func createWidgetFor<ValueT: GLibObject.ValueProtocol>(value: ValueT) -> WidgetRef! {
@@ -795,10 +808,6 @@ public extension DragIconRef {
     }
 }
 
-/// The `DragIcon` type acts as a reference-counted owner of an underlying `GtkDragIcon` instance.
-/// It provides the methods that can operate on this data type through `DragIconProtocol` conformance.
-/// Use `DragIcon` as a strong reference or owner of a `GtkDragIcon` instance.
-///
 /// `GtkDragIcon` is a `GtkRoot` implementation for drag icons.
 /// 
 /// A drag icon moves with the pointer during a Drag-and-Drop operation
@@ -810,6 +819,11 @@ public extension DragIconRef {
 /// to set whatever widget should be used for the drag icon.
 /// 
 /// Keep in mind that drag icons do not allow user input.
+///
+/// The `DragIcon` type acts as a reference-counted owner of an underlying `GtkDragIcon` instance.
+/// It provides the methods that can operate on this data type through `DragIconProtocol` conformance.
+/// Use `DragIcon` as a strong reference or owner of a `GtkDragIcon` instance.
+///
 open class DragIcon: Widget, DragIconProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -943,7 +957,7 @@ open class DragIcon: Widget, DragIconProtocol {
     /// If GTK does not know how to create a widget for a given value,
     /// it will return `nil`.
     /// 
-    /// This method is used to set the default drag icon on drag'n'drop
+    /// This method is used to set the default drag icon on drag-and-drop
     /// operations started by `GtkDragSource`, so you don't need to set
     /// a drag icon using this function there.
     @inlinable public static func createWidgetFor<ValueT: GLibObject.ValueProtocol>(value: ValueT) -> Widget! {
@@ -1209,12 +1223,14 @@ public enum DragIconSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1443,11 +1459,6 @@ public extension DragIconProtocol {
 
 // MARK: - DragSource Class
 
-/// The `DragSourceProtocol` protocol exposes the methods and properties of an underlying `GtkDragSource` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DragSource`.
-/// Alternatively, use `DragSourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkDragSource` is an event controller to initiate Drag-And-Drop operations.
 /// 
 /// `GtkDragSource` can be set up with the necessary
@@ -1524,6 +1535,12 @@ public extension DragIconProtocol {
 /// `GDK_ACTION_MOVE`, you need to listen for the
 /// [signal`Gtk.DragSource::drag-end`] signal and delete the
 /// data after it has been transferred.
+///
+/// The `DragSourceProtocol` protocol exposes the methods and properties of an underlying `GtkDragSource` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DragSource`.
+/// Alternatively, use `DragSourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DragSourceProtocol: GestureSingleProtocol {
         /// Untyped pointer to the underlying `GtkDragSource` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1535,10 +1552,6 @@ public protocol DragSourceProtocol: GestureSingleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DragSourceRef` type acts as a lightweight Swift reference to an underlying `GtkDragSource` instance.
-/// It exposes methods that can operate on this data type through `DragSourceProtocol` conformance.
-/// Use `DragSourceRef` only as an `unowned` reference to an existing `GtkDragSource` instance.
-///
 /// `GtkDragSource` is an event controller to initiate Drag-And-Drop operations.
 /// 
 /// `GtkDragSource` can be set up with the necessary
@@ -1615,6 +1628,11 @@ public protocol DragSourceProtocol: GestureSingleProtocol {
 /// `GDK_ACTION_MOVE`, you need to listen for the
 /// [signal`Gtk.DragSource::drag-end`] signal and delete the
 /// data after it has been transferred.
+///
+/// The `DragSourceRef` type acts as a lightweight Swift reference to an underlying `GtkDragSource` instance.
+/// It exposes methods that can operate on this data type through `DragSourceProtocol` conformance.
+/// Use `DragSourceRef` only as an `unowned` reference to an existing `GtkDragSource` instance.
+///
 public struct DragSourceRef: DragSourceProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDragSource` instance.
     /// For type-safe access, use the generated, typed pointer `drag_source_ptr` property instead.
@@ -1701,10 +1719,6 @@ public extension DragSourceRef {
     }
 }
 
-/// The `DragSource` type acts as a reference-counted owner of an underlying `GtkDragSource` instance.
-/// It provides the methods that can operate on this data type through `DragSourceProtocol` conformance.
-/// Use `DragSource` as a strong reference or owner of a `GtkDragSource` instance.
-///
 /// `GtkDragSource` is an event controller to initiate Drag-And-Drop operations.
 /// 
 /// `GtkDragSource` can be set up with the necessary
@@ -1781,6 +1795,11 @@ public extension DragSourceRef {
 /// `GDK_ACTION_MOVE`, you need to listen for the
 /// [signal`Gtk.DragSource::drag-end`] signal and delete the
 /// data after it has been transferred.
+///
+/// The `DragSource` type acts as a reference-counted owner of an underlying `GtkDragSource` instance.
+/// It provides the methods that can operate on this data type through `DragSourceProtocol` conformance.
+/// Use `DragSource` as a strong reference or owner of a `GtkDragSource` instance.
+///
 open class DragSource: GestureSingle, DragSourceProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2062,12 +2081,14 @@ public enum DragSourceSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2155,7 +2176,7 @@ public extension DragSourceProtocol {
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter x: the X coordinate of the drag starting point
     /// - Parameter y: the Y coordinate fo the drag starting point
-    /// - Parameter handler: a `GdkContentProvider`, or `nil`
+    /// - Parameter handler: a `GdkContentProvider`
     /// - Warning: a `onPrepare` wrapper for this signal could not be generated because it contains unimplemented features: { (8)  nullable argument or return type is not allowed, (9)  Record return type is not yet supported }
     /// - Note: Instead, you can connect `prepareSignal` using the `connect(signal:)` methods
     static var prepareSignal: DragSourceSignalName { .prepare }
@@ -2265,12 +2286,14 @@ public extension DragSourceProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2314,12 +2337,14 @@ public extension DragSourceProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2512,11 +2537,6 @@ public extension DragSourceProtocol {
 
 // MARK: - DrawingArea Class
 
-/// The `DrawingAreaProtocol` protocol exposes the methods and properties of an underlying `GtkDrawingArea` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DrawingArea`.
-/// Alternatively, use `DrawingAreaRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkDrawingArea` is a widget that allows drawing with cairo.
 /// 
 /// ![An example GtkDrawingArea](drawingarea.png)
@@ -2597,6 +2617,12 @@ public extension DragSourceProtocol {
 /// 
 /// If you need more complex control over your widget, you should consider
 /// creating your own `GtkWidget` subclass.
+///
+/// The `DrawingAreaProtocol` protocol exposes the methods and properties of an underlying `GtkDrawingArea` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DrawingArea`.
+/// Alternatively, use `DrawingAreaRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DrawingAreaProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkDrawingArea` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2608,10 +2634,6 @@ public protocol DrawingAreaProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DrawingAreaRef` type acts as a lightweight Swift reference to an underlying `GtkDrawingArea` instance.
-/// It exposes methods that can operate on this data type through `DrawingAreaProtocol` conformance.
-/// Use `DrawingAreaRef` only as an `unowned` reference to an existing `GtkDrawingArea` instance.
-///
 /// `GtkDrawingArea` is a widget that allows drawing with cairo.
 /// 
 /// ![An example GtkDrawingArea](drawingarea.png)
@@ -2692,6 +2714,11 @@ public protocol DrawingAreaProtocol: WidgetProtocol {
 /// 
 /// If you need more complex control over your widget, you should consider
 /// creating your own `GtkWidget` subclass.
+///
+/// The `DrawingAreaRef` type acts as a lightweight Swift reference to an underlying `GtkDrawingArea` instance.
+/// It exposes methods that can operate on this data type through `DrawingAreaProtocol` conformance.
+/// Use `DrawingAreaRef` only as an `unowned` reference to an existing `GtkDrawingArea` instance.
+///
 public struct DrawingAreaRef: DrawingAreaProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDrawingArea` instance.
     /// For type-safe access, use the generated, typed pointer `drawing_area_ptr` property instead.
@@ -2778,10 +2805,6 @@ public extension DrawingAreaRef {
     }
 }
 
-/// The `DrawingArea` type acts as a reference-counted owner of an underlying `GtkDrawingArea` instance.
-/// It provides the methods that can operate on this data type through `DrawingAreaProtocol` conformance.
-/// Use `DrawingArea` as a strong reference or owner of a `GtkDrawingArea` instance.
-///
 /// `GtkDrawingArea` is a widget that allows drawing with cairo.
 /// 
 /// ![An example GtkDrawingArea](drawingarea.png)
@@ -2862,6 +2885,11 @@ public extension DrawingAreaRef {
 /// 
 /// If you need more complex control over your widget, you should consider
 /// creating your own `GtkWidget` subclass.
+///
+/// The `DrawingArea` type acts as a reference-counted owner of an underlying `GtkDrawingArea` instance.
+/// It provides the methods that can operate on this data type through `DrawingAreaProtocol` conformance.
+/// Use `DrawingArea` as a strong reference or owner of a `GtkDrawingArea` instance.
+///
 open class DrawingArea: Widget, DrawingAreaProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3244,12 +3272,14 @@ public enum DrawingAreaSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3518,12 +3548,14 @@ public extension DrawingAreaProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3567,12 +3599,14 @@ public extension DrawingAreaProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3717,11 +3751,6 @@ public extension DrawingAreaProtocol {
 
 // MARK: - DropControllerMotion Class
 
-/// The `DropControllerMotionProtocol` protocol exposes the methods and properties of an underlying `GtkDropControllerMotion` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DropControllerMotion`.
-/// Alternatively, use `DropControllerMotionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkDropControllerMotion` is an event controller tracking
 /// the pointer during Drag-and-Drop operations.
 /// 
@@ -3730,6 +3759,12 @@ public extension DrawingAreaProtocol {
 /// 
 /// This controller is not able to accept drops, use [class`Gtk.DropTarget`]
 /// for that purpose.
+///
+/// The `DropControllerMotionProtocol` protocol exposes the methods and properties of an underlying `GtkDropControllerMotion` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DropControllerMotion`.
+/// Alternatively, use `DropControllerMotionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DropControllerMotionProtocol: EventControllerProtocol {
         /// Untyped pointer to the underlying `GtkDropControllerMotion` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3741,10 +3776,6 @@ public protocol DropControllerMotionProtocol: EventControllerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DropControllerMotionRef` type acts as a lightweight Swift reference to an underlying `GtkDropControllerMotion` instance.
-/// It exposes methods that can operate on this data type through `DropControllerMotionProtocol` conformance.
-/// Use `DropControllerMotionRef` only as an `unowned` reference to an existing `GtkDropControllerMotion` instance.
-///
 /// `GtkDropControllerMotion` is an event controller tracking
 /// the pointer during Drag-and-Drop operations.
 /// 
@@ -3753,6 +3784,11 @@ public protocol DropControllerMotionProtocol: EventControllerProtocol {
 /// 
 /// This controller is not able to accept drops, use [class`Gtk.DropTarget`]
 /// for that purpose.
+///
+/// The `DropControllerMotionRef` type acts as a lightweight Swift reference to an underlying `GtkDropControllerMotion` instance.
+/// It exposes methods that can operate on this data type through `DropControllerMotionProtocol` conformance.
+/// Use `DropControllerMotionRef` only as an `unowned` reference to an existing `GtkDropControllerMotion` instance.
+///
 public struct DropControllerMotionRef: DropControllerMotionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDropControllerMotion` instance.
     /// For type-safe access, use the generated, typed pointer `drop_controller_motion_ptr` property instead.
@@ -3840,10 +3876,6 @@ public extension DropControllerMotionRef {
     }
 }
 
-/// The `DropControllerMotion` type acts as a reference-counted owner of an underlying `GtkDropControllerMotion` instance.
-/// It provides the methods that can operate on this data type through `DropControllerMotionProtocol` conformance.
-/// Use `DropControllerMotion` as a strong reference or owner of a `GtkDropControllerMotion` instance.
-///
 /// `GtkDropControllerMotion` is an event controller tracking
 /// the pointer during Drag-and-Drop operations.
 /// 
@@ -3852,6 +3884,11 @@ public extension DropControllerMotionRef {
 /// 
 /// This controller is not able to accept drops, use [class`Gtk.DropTarget`]
 /// for that purpose.
+///
+/// The `DropControllerMotion` type acts as a reference-counted owner of an underlying `GtkDropControllerMotion` instance.
+/// It provides the methods that can operate on this data type through `DropControllerMotionProtocol` conformance.
+/// Use `DropControllerMotion` as a strong reference or owner of a `GtkDropControllerMotion` instance.
+///
 open class DropControllerMotion: EventController, DropControllerMotionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4104,12 +4141,14 @@ public enum DropControllerMotionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4276,12 +4315,14 @@ public extension DropControllerMotionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4325,12 +4366,14 @@ public extension DropControllerMotionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4374,12 +4417,14 @@ public extension DropControllerMotionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4466,11 +4511,6 @@ public extension DropControllerMotionProtocol {
 
 // MARK: - DropDown Class
 
-/// The `DropDownProtocol` protocol exposes the methods and properties of an underlying `GtkDropDown` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DropDown`.
-/// Alternatively, use `DropDownRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkDropDown` is a widget that allows the user to choose an item
 /// from a list of options.
 /// 
@@ -4498,6 +4538,12 @@ public extension DropControllerMotionProtocol {
 /// # Accessibility
 /// 
 /// `GtkDropDown` uses the `GTK_ACCESSIBLE_ROLE_COMBO_BOX` role.
+///
+/// The `DropDownProtocol` protocol exposes the methods and properties of an underlying `GtkDropDown` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DropDown`.
+/// Alternatively, use `DropDownRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DropDownProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkDropDown` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4509,10 +4555,6 @@ public protocol DropDownProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DropDownRef` type acts as a lightweight Swift reference to an underlying `GtkDropDown` instance.
-/// It exposes methods that can operate on this data type through `DropDownProtocol` conformance.
-/// Use `DropDownRef` only as an `unowned` reference to an existing `GtkDropDown` instance.
-///
 /// `GtkDropDown` is a widget that allows the user to choose an item
 /// from a list of options.
 /// 
@@ -4540,6 +4582,11 @@ public protocol DropDownProtocol: WidgetProtocol {
 /// # Accessibility
 /// 
 /// `GtkDropDown` uses the `GTK_ACCESSIBLE_ROLE_COMBO_BOX` role.
+///
+/// The `DropDownRef` type acts as a lightweight Swift reference to an underlying `GtkDropDown` instance.
+/// It exposes methods that can operate on this data type through `DropDownProtocol` conformance.
+/// Use `DropDownRef` only as an `unowned` reference to an existing `GtkDropDown` instance.
+///
 public struct DropDownRef: DropDownProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDropDown` instance.
     /// For type-safe access, use the generated, typed pointer `drop_down_ptr` property instead.
@@ -4642,10 +4689,6 @@ public extension DropDownRef {
     }
 }
 
-/// The `DropDown` type acts as a reference-counted owner of an underlying `GtkDropDown` instance.
-/// It provides the methods that can operate on this data type through `DropDownProtocol` conformance.
-/// Use `DropDown` as a strong reference or owner of a `GtkDropDown` instance.
-///
 /// `GtkDropDown` is a widget that allows the user to choose an item
 /// from a list of options.
 /// 
@@ -4673,6 +4716,11 @@ public extension DropDownRef {
 /// # Accessibility
 /// 
 /// `GtkDropDown` uses the `GTK_ACCESSIBLE_ROLE_COMBO_BOX` role.
+///
+/// The `DropDown` type acts as a reference-counted owner of an underlying `GtkDropDown` instance.
+/// It provides the methods that can operate on this data type through `DropDownProtocol` conformance.
+/// Use `DropDown` as a strong reference or owner of a `GtkDropDown` instance.
+///
 open class DropDown: Widget, DropDownProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5096,12 +5144,14 @@ public enum DropDownSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5547,11 +5597,6 @@ public extension DropDownProtocol {
 
 // MARK: - DropTarget Class
 
-/// The `DropTargetProtocol` protocol exposes the methods and properties of an underlying `GtkDropTarget` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DropTarget`.
-/// Alternatively, use `DropTargetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkDropTarget` is an event controller to receive Drag-and-Drop operations.
 /// 
 /// The most basic way to use a `GtkDropTarget` to receive drops on a
@@ -5622,6 +5667,12 @@ public extension DropDownProtocol {
 /// If you are not interested in receiving the drop, but just want to update
 /// UI state during a Drag-and-Drop operation (e.g. switching tabs), you can
 /// use [class`Gtk.DropControllerMotion`].
+///
+/// The `DropTargetProtocol` protocol exposes the methods and properties of an underlying `GtkDropTarget` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DropTarget`.
+/// Alternatively, use `DropTargetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DropTargetProtocol: EventControllerProtocol {
         /// Untyped pointer to the underlying `GtkDropTarget` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5633,10 +5684,6 @@ public protocol DropTargetProtocol: EventControllerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DropTargetRef` type acts as a lightweight Swift reference to an underlying `GtkDropTarget` instance.
-/// It exposes methods that can operate on this data type through `DropTargetProtocol` conformance.
-/// Use `DropTargetRef` only as an `unowned` reference to an existing `GtkDropTarget` instance.
-///
 /// `GtkDropTarget` is an event controller to receive Drag-and-Drop operations.
 /// 
 /// The most basic way to use a `GtkDropTarget` to receive drops on a
@@ -5707,6 +5754,11 @@ public protocol DropTargetProtocol: EventControllerProtocol {
 /// If you are not interested in receiving the drop, but just want to update
 /// UI state during a Drag-and-Drop operation (e.g. switching tabs), you can
 /// use [class`Gtk.DropControllerMotion`].
+///
+/// The `DropTargetRef` type acts as a lightweight Swift reference to an underlying `GtkDropTarget` instance.
+/// It exposes methods that can operate on this data type through `DropTargetProtocol` conformance.
+/// Use `DropTargetRef` only as an `unowned` reference to an existing `GtkDropTarget` instance.
+///
 public struct DropTargetRef: DropTargetProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDropTarget` instance.
     /// For type-safe access, use the generated, typed pointer `drop_target_ptr` property instead.
@@ -5797,10 +5849,6 @@ public extension DropTargetRef {
     }
 }
 
-/// The `DropTarget` type acts as a reference-counted owner of an underlying `GtkDropTarget` instance.
-/// It provides the methods that can operate on this data type through `DropTargetProtocol` conformance.
-/// Use `DropTarget` as a strong reference or owner of a `GtkDropTarget` instance.
-///
 /// `GtkDropTarget` is an event controller to receive Drag-and-Drop operations.
 /// 
 /// The most basic way to use a `GtkDropTarget` to receive drops on a
@@ -5871,6 +5919,11 @@ public extension DropTargetRef {
 /// If you are not interested in receiving the drop, but just want to update
 /// UI state during a Drag-and-Drop operation (e.g. switching tabs), you can
 /// use [class`Gtk.DropControllerMotion`].
+///
+/// The `DropTarget` type acts as a reference-counted owner of an underlying `GtkDropTarget` instance.
+/// It provides the methods that can operate on this data type through `DropTargetProtocol` conformance.
+/// Use `DropTarget` as a strong reference or owner of a `GtkDropTarget` instance.
+///
 open class DropTarget: EventController, DropTargetProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6014,6 +6067,11 @@ public enum DropTargetPropertyName: String, PropertyNameProtocol {
     /// The `GdkDragActions` that this drop target supports.
     case actions = "actions"
     /// The `GdkDrop` that is currently being performed.
+    case currentDrop = "current-drop"
+    /// The `GdkDrop` that is currently being performed.
+    ///
+    /// **drop is deprecated:**
+    /// Use [property@Gtk.DropTarget:current-drop] instead
     case drop = "drop"
     /// The `GdkContentFormats` that determine the supported data formats.
     case formats = "formats"
@@ -6134,7 +6192,7 @@ public enum DropTargetSignalName: String, SignalNameProtocol {
     /// and no further processing is necessary.
     /// 
     /// Otherwise, the handler returns `true`. In this case, this handler will
-    /// accept the drop. The handler is responsible for rading the given `value`
+    /// accept the drop. The handler is responsible for using the given `value`
     /// and performing the drop operation.
     case drop = "drop"
     /// Emitted on the drop site when the pointer enters the widget.
@@ -6163,12 +6221,14 @@ public enum DropTargetSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6176,6 +6236,11 @@ public enum DropTargetSignalName: String, SignalNameProtocol {
     /// The `GdkDragActions` that this drop target supports.
     case notifyActions = "notify::actions"
     /// The `GdkDrop` that is currently being performed.
+    case notifyCurrentDrop = "notify::current-drop"
+    /// The `GdkDrop` that is currently being performed.
+    ///
+    /// **drop is deprecated:**
+    /// Use [property@Gtk.DropTarget:current-drop] instead
     case notifyDrop = "notify::drop"
     /// The `GdkContentFormats` that determine the supported data formats.
     case notifyFormats = "notify::formats"
@@ -6294,7 +6359,7 @@ public extension DropTargetProtocol {
     /// and no further processing is necessary.
     /// 
     /// Otherwise, the handler returns `true`. In this case, this handler will
-    /// accept the drop. The handler is responsible for rading the given `value`
+    /// accept the drop. The handler is responsible for using the given `value`
     /// and performing the drop operation.
     /// - Note: This represents the underlying `drop` signal
     /// - Parameter flags: Flags
@@ -6422,12 +6487,14 @@ public extension DropTargetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6471,12 +6538,65 @@ public extension DropTargetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::current-drop` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyCurrentDrop` signal is emitted
+    @discardableResult @inlinable func onNotifyCurrentDrop(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DropTargetRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<DropTargetRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(DropTargetRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyCurrentDrop,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::current-drop` signal for using the `connect(signal:)` methods
+    static var notifyCurrentDropSignal: DropTargetSignalName { .notifyCurrentDrop }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6520,12 +6640,14 @@ public extension DropTargetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6569,12 +6691,14 @@ public extension DropTargetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6618,12 +6742,14 @@ public extension DropTargetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6668,7 +6794,18 @@ public extension DropTargetProtocol {
     /// Gets the currently handled drop operation.
     /// 
     /// If no drop operation is going on, `nil` is returned.
-    @inlinable func getDrop() -> Gdk.DropRef! {
+    @inlinable func getCurrentDrop() -> Gdk.DropRef! {
+        let rv = Gdk.DropRef(gtk_drop_target_get_current_drop(drop_target_ptr))
+        return rv
+    }
+
+    /// Gets the currently handled drop operation.
+    /// 
+    /// If no drop operation is going on, `nil` is returned.
+    ///
+    /// **get_drop is deprecated:**
+    /// Use [method@Gtk.DropTarget.get_current_drop] instead
+    @available(*, deprecated) @inlinable func getDrop() -> Gdk.DropRef! {
         let rv = Gdk.DropRef(gtk_drop_target_get_drop(drop_target_ptr))
         return rv
     }
@@ -6681,9 +6818,9 @@ public extension DropTargetProtocol {
         return rv
     }
 
-    /// Gets the list of supported `GTypes` for `self`.
+    /// Gets the list of supported `GType`s that can be dropped on the target.
     /// 
-    /// If no type have been set, `nil` will be returned.
+    /// If no types have been set, `NULL` will be returned.
     @inlinable func getGtypes(nTypes: UnsafeMutablePointer<gsize>! = nil) -> UnsafePointer<GType>! {
         let rv = gtk_drop_target_get_gtypes(drop_target_ptr, nTypes)
         return rv
@@ -6703,7 +6840,7 @@ public extension DropTargetProtocol {
 
     /// Rejects the ongoing drop operation.
     /// 
-    /// If no drop operation is ongoing, i.e when [property`Gtk.DropTarget:drop`]
+    /// If no drop operation is ongoing, i.e when [property`Gtk.DropTarget:current-drop`]
     /// is `nil`, this function does nothing.
     /// 
     /// This function should be used when delaying the decision
@@ -6744,12 +6881,31 @@ public extension DropTargetProtocol {
         }
     }
 
-    /// The `GdkDrop` that is currently being performed.
-    @inlinable var drop: Gdk.DropRef! {
+    /// Gets the currently handled drop operation.
+    /// 
+    /// If no drop operation is going on, `nil` is returned.
+    @inlinable var currentDrop: Gdk.DropRef! {
         /// Gets the currently handled drop operation.
         /// 
         /// If no drop operation is going on, `nil` is returned.
         get {
+            let rv = Gdk.DropRef(gtk_drop_target_get_current_drop(drop_target_ptr))
+            return rv
+        }
+    }
+
+    /// The `GdkDrop` that is currently being performed.
+    ///
+    /// **drop is deprecated:**
+    /// Use [property@Gtk.DropTarget:current-drop] instead
+    @inlinable var drop: Gdk.DropRef! {
+        /// Gets the currently handled drop operation.
+        /// 
+        /// If no drop operation is going on, `nil` is returned.
+        ///
+        /// **get_drop is deprecated:**
+        /// Use [method@Gtk.DropTarget.get_current_drop] instead
+        @available(*, deprecated) get {
             let rv = Gdk.DropRef(gtk_drop_target_get_drop(drop_target_ptr))
             return rv
         }
@@ -6820,11 +6976,6 @@ public extension DropTargetProtocol {
 
 // MARK: - DropTargetAsync Class
 
-/// The `DropTargetAsyncProtocol` protocol exposes the methods and properties of an underlying `GtkDropTargetAsync` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DropTargetAsync`.
-/// Alternatively, use `DropTargetAsyncRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkDropTargetAsync` is an event controller to receive Drag-and-Drop
 /// operations, asynchronously.
 /// 
@@ -6859,6 +7010,12 @@ public extension DropTargetProtocol {
 /// Between the `drag-enter` and `drag-leave` signals the widget is a
 /// current drop target, and will receive the `GTK_STATE_FLAG_DROP_ACTIVE`
 /// state, which can be used by themes to style the widget as a drop target.
+///
+/// The `DropTargetAsyncProtocol` protocol exposes the methods and properties of an underlying `GtkDropTargetAsync` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DropTargetAsync`.
+/// Alternatively, use `DropTargetAsyncRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DropTargetAsyncProtocol: EventControllerProtocol {
         /// Untyped pointer to the underlying `GtkDropTargetAsync` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6870,10 +7027,6 @@ public protocol DropTargetAsyncProtocol: EventControllerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DropTargetAsyncRef` type acts as a lightweight Swift reference to an underlying `GtkDropTargetAsync` instance.
-/// It exposes methods that can operate on this data type through `DropTargetAsyncProtocol` conformance.
-/// Use `DropTargetAsyncRef` only as an `unowned` reference to an existing `GtkDropTargetAsync` instance.
-///
 /// `GtkDropTargetAsync` is an event controller to receive Drag-and-Drop
 /// operations, asynchronously.
 /// 
@@ -6908,6 +7061,11 @@ public protocol DropTargetAsyncProtocol: EventControllerProtocol {
 /// Between the `drag-enter` and `drag-leave` signals the widget is a
 /// current drop target, and will receive the `GTK_STATE_FLAG_DROP_ACTIVE`
 /// state, which can be used by themes to style the widget as a drop target.
+///
+/// The `DropTargetAsyncRef` type acts as a lightweight Swift reference to an underlying `GtkDropTargetAsync` instance.
+/// It exposes methods that can operate on this data type through `DropTargetAsyncProtocol` conformance.
+/// Use `DropTargetAsyncRef` only as an `unowned` reference to an existing `GtkDropTargetAsync` instance.
+///
 public struct DropTargetAsyncRef: DropTargetAsyncProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDropTargetAsync` instance.
     /// For type-safe access, use the generated, typed pointer `drop_target_async_ptr` property instead.
@@ -6994,10 +7152,6 @@ public extension DropTargetAsyncRef {
     }
 }
 
-/// The `DropTargetAsync` type acts as a reference-counted owner of an underlying `GtkDropTargetAsync` instance.
-/// It provides the methods that can operate on this data type through `DropTargetAsyncProtocol` conformance.
-/// Use `DropTargetAsync` as a strong reference or owner of a `GtkDropTargetAsync` instance.
-///
 /// `GtkDropTargetAsync` is an event controller to receive Drag-and-Drop
 /// operations, asynchronously.
 /// 
@@ -7032,6 +7186,11 @@ public extension DropTargetAsyncRef {
 /// Between the `drag-enter` and `drag-leave` signals the widget is a
 /// current drop target, and will receive the `GTK_STATE_FLAG_DROP_ACTIVE`
 /// state, which can be used by themes to style the widget as a drop target.
+///
+/// The `DropTargetAsync` type acts as a reference-counted owner of an underlying `GtkDropTargetAsync` instance.
+/// It provides the methods that can operate on this data type through `DropTargetAsyncProtocol` conformance.
+/// Use `DropTargetAsync` as a strong reference or owner of a `GtkDropTargetAsync` instance.
+///
 open class DropTargetAsync: EventController, DropTargetAsyncProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7293,12 +7452,14 @@ public enum DropTargetAsyncSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7528,12 +7689,14 @@ public extension DropTargetAsyncProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7577,12 +7740,14 @@ public extension DropTargetAsyncProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7693,11 +7858,6 @@ public extension DropTargetAsyncProtocol {
 
 // MARK: - EditableLabel Class
 
-/// The `EditableLabelProtocol` protocol exposes the methods and properties of an underlying `GtkEditableLabel` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `EditableLabel`.
-/// Alternatively, use `EditableLabelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkEditableLabel` is a label that allows users to
 /// edit the text by switching to an “edit mode”.
 /// 
@@ -7726,6 +7886,12 @@ public extension DropTargetAsyncProtocol {
 /// 
 /// For all the subnodes added to the text node in various situations,
 /// see [class`Gtk.Text`].
+///
+/// The `EditableLabelProtocol` protocol exposes the methods and properties of an underlying `GtkEditableLabel` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `EditableLabel`.
+/// Alternatively, use `EditableLabelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol EditableLabelProtocol: WidgetProtocol, EditableProtocol {
         /// Untyped pointer to the underlying `GtkEditableLabel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7737,10 +7903,6 @@ public protocol EditableLabelProtocol: WidgetProtocol, EditableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `EditableLabelRef` type acts as a lightweight Swift reference to an underlying `GtkEditableLabel` instance.
-/// It exposes methods that can operate on this data type through `EditableLabelProtocol` conformance.
-/// Use `EditableLabelRef` only as an `unowned` reference to an existing `GtkEditableLabel` instance.
-///
 /// A `GtkEditableLabel` is a label that allows users to
 /// edit the text by switching to an “edit mode”.
 /// 
@@ -7769,6 +7931,11 @@ public protocol EditableLabelProtocol: WidgetProtocol, EditableProtocol {
 /// 
 /// For all the subnodes added to the text node in various situations,
 /// see [class`Gtk.Text`].
+///
+/// The `EditableLabelRef` type acts as a lightweight Swift reference to an underlying `GtkEditableLabel` instance.
+/// It exposes methods that can operate on this data type through `EditableLabelProtocol` conformance.
+/// Use `EditableLabelRef` only as an `unowned` reference to an existing `GtkEditableLabel` instance.
+///
 public struct EditableLabelRef: EditableLabelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEditableLabel` instance.
     /// For type-safe access, use the generated, typed pointer `editable_label_ptr` property instead.
@@ -7855,10 +8022,6 @@ public extension EditableLabelRef {
     }
 }
 
-/// The `EditableLabel` type acts as a reference-counted owner of an underlying `GtkEditableLabel` instance.
-/// It provides the methods that can operate on this data type through `EditableLabelProtocol` conformance.
-/// Use `EditableLabel` as a strong reference or owner of a `GtkEditableLabel` instance.
-///
 /// A `GtkEditableLabel` is a label that allows users to
 /// edit the text by switching to an “edit mode”.
 /// 
@@ -7887,6 +8050,11 @@ public extension EditableLabelRef {
 /// 
 /// For all the subnodes added to the text node in various situations,
 /// see [class`Gtk.Text`].
+///
+/// The `EditableLabel` type acts as a reference-counted owner of an underlying `GtkEditableLabel` instance.
+/// It provides the methods that can operate on this data type through `EditableLabelProtocol` conformance.
+/// Use `EditableLabel` as a strong reference or owner of a `GtkEditableLabel` instance.
+///
 open class EditableLabel: Widget, EditableLabelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8267,12 +8435,14 @@ public enum EditableLabelSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

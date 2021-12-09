@@ -15,18 +15,12 @@ import Gdk
 
 // MARK: - Accessible Interface
 
-/// The `AccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkAccessible` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Accessible`.
-/// Alternatively, use `AccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkAccessible` is an interface for describing UI elements for
 /// Assistive Technologies.
 /// 
 /// Every accessible implementation has:
 /// 
-///  - a “role”, represented by a value of the [enum`Gtk.AccessibleRole`]
-///    enumeration
+///  - a “role”, represented by a value of the [enum`Gtk.AccessibleRole`] enumeration
 ///  - an “attribute”, represented by a set of [enum`Gtk.AccessibleState`],
 ///    [enum`Gtk.AccessibleProperty`] and [enum`Gtk.AccessibleRelation`] values
 /// 
@@ -37,6 +31,12 @@ import Gdk
 /// a way that should be reflected by assistive technologies. For instance,
 /// if a `GtkWidget` visibility changes, the `GTK_ACCESSIBLE_STATE_HIDDEN`
 /// state will also change to reflect the [property`Gtk.Widget:visible`] property.
+///
+/// The `AccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkAccessible` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Accessible`.
+/// Alternatively, use `AccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AccessibleProtocol {
         /// Untyped pointer to the underlying `GtkAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -48,17 +48,12 @@ public protocol AccessibleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkAccessible` instance.
-/// It exposes methods that can operate on this data type through `AccessibleProtocol` conformance.
-/// Use `AccessibleRef` only as an `unowned` reference to an existing `GtkAccessible` instance.
-///
 /// `GtkAccessible` is an interface for describing UI elements for
 /// Assistive Technologies.
 /// 
 /// Every accessible implementation has:
 /// 
-///  - a “role”, represented by a value of the [enum`Gtk.AccessibleRole`]
-///    enumeration
+///  - a “role”, represented by a value of the [enum`Gtk.AccessibleRole`] enumeration
 ///  - an “attribute”, represented by a set of [enum`Gtk.AccessibleState`],
 ///    [enum`Gtk.AccessibleProperty`] and [enum`Gtk.AccessibleRelation`] values
 /// 
@@ -69,6 +64,11 @@ public protocol AccessibleProtocol {
 /// a way that should be reflected by assistive technologies. For instance,
 /// if a `GtkWidget` visibility changes, the `GTK_ACCESSIBLE_STATE_HIDDEN`
 /// state will also change to reflect the [property`Gtk.Widget:visible`] property.
+///
+/// The `AccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkAccessible` instance.
+/// It exposes methods that can operate on this data type through `AccessibleProtocol` conformance.
+/// Use `AccessibleRef` only as an `unowned` reference to an existing `GtkAccessible` instance.
+///
 public struct AccessibleRef: AccessibleProtocol {
         /// Untyped pointer to the underlying `GtkAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `accessible_ptr` property instead.
@@ -147,17 +147,12 @@ public extension AccessibleRef {
 
     }
 
-/// The `Accessible` type acts as an owner of an underlying `GtkAccessible` instance.
-/// It provides the methods that can operate on this data type through `AccessibleProtocol` conformance.
-/// Use `Accessible` as a strong reference or owner of a `GtkAccessible` instance.
-///
 /// `GtkAccessible` is an interface for describing UI elements for
 /// Assistive Technologies.
 /// 
 /// Every accessible implementation has:
 /// 
-///  - a “role”, represented by a value of the [enum`Gtk.AccessibleRole`]
-///    enumeration
+///  - a “role”, represented by a value of the [enum`Gtk.AccessibleRole`] enumeration
 ///  - an “attribute”, represented by a set of [enum`Gtk.AccessibleState`],
 ///    [enum`Gtk.AccessibleProperty`] and [enum`Gtk.AccessibleRelation`] values
 /// 
@@ -168,6 +163,11 @@ public extension AccessibleRef {
 /// a way that should be reflected by assistive technologies. For instance,
 /// if a `GtkWidget` visibility changes, the `GTK_ACCESSIBLE_STATE_HIDDEN`
 /// state will also change to reflect the [property`Gtk.Widget:visible`] property.
+///
+/// The `Accessible` type acts as an owner of an underlying `GtkAccessible` instance.
+/// It provides the methods that can operate on this data type through `AccessibleProtocol` conformance.
+/// Use `Accessible` as a strong reference or owner of a `GtkAccessible` instance.
+///
 open class Accessible: AccessibleProtocol {
         /// Untyped pointer to the underlying `GtkAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `accessible_ptr` property instead.
@@ -512,11 +512,6 @@ public extension AccessibleProtocol {
 
 // MARK: - Actionable Interface
 
-/// The `ActionableProtocol` protocol exposes the methods and properties of an underlying `GtkActionable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Actionable`.
-/// Alternatively, use `ActionableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkActionable` interface provides a convenient way of asscociating
 /// widgets with actions.
 /// 
@@ -530,6 +525,12 @@ public extension AccessibleProtocol {
 /// `GtkApplicationWindow` or `GtkApplication`, but other action groups that
 /// are added with [method`Gtk.Widget.insert_action_group`] will be consulted
 /// as well.
+///
+/// The `ActionableProtocol` protocol exposes the methods and properties of an underlying `GtkActionable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Actionable`.
+/// Alternatively, use `ActionableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ActionableProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkActionable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -541,10 +542,6 @@ public protocol ActionableProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ActionableRef` type acts as a lightweight Swift reference to an underlying `GtkActionable` instance.
-/// It exposes methods that can operate on this data type through `ActionableProtocol` conformance.
-/// Use `ActionableRef` only as an `unowned` reference to an existing `GtkActionable` instance.
-///
 /// The `GtkActionable` interface provides a convenient way of asscociating
 /// widgets with actions.
 /// 
@@ -558,6 +555,11 @@ public protocol ActionableProtocol: WidgetProtocol {
 /// `GtkApplicationWindow` or `GtkApplication`, but other action groups that
 /// are added with [method`Gtk.Widget.insert_action_group`] will be consulted
 /// as well.
+///
+/// The `ActionableRef` type acts as a lightweight Swift reference to an underlying `GtkActionable` instance.
+/// It exposes methods that can operate on this data type through `ActionableProtocol` conformance.
+/// Use `ActionableRef` only as an `unowned` reference to an existing `GtkActionable` instance.
+///
 public struct ActionableRef: ActionableProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkActionable` instance.
     /// For type-safe access, use the generated, typed pointer `actionable_ptr` property instead.
@@ -639,10 +641,6 @@ public extension ActionableRef {
 
     }
 
-/// The `Actionable` type acts as a reference-counted owner of an underlying `GtkActionable` instance.
-/// It provides the methods that can operate on this data type through `ActionableProtocol` conformance.
-/// Use `Actionable` as a strong reference or owner of a `GtkActionable` instance.
-///
 /// The `GtkActionable` interface provides a convenient way of asscociating
 /// widgets with actions.
 /// 
@@ -656,6 +654,11 @@ public extension ActionableRef {
 /// `GtkApplicationWindow` or `GtkApplication`, but other action groups that
 /// are added with [method`Gtk.Widget.insert_action_group`] will be consulted
 /// as well.
+///
+/// The `Actionable` type acts as a reference-counted owner of an underlying `GtkActionable` instance.
+/// It provides the methods that can operate on this data type through `ActionableProtocol` conformance.
+/// Use `Actionable` as a strong reference or owner of a `GtkActionable` instance.
+///
 open class Actionable: Widget, ActionableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1030,12 +1033,14 @@ public enum ActionableSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1378,11 +1383,6 @@ public extension ActionableProtocol {
 
 // MARK: - AppChooser Interface
 
-/// The `AppChooserProtocol` protocol exposes the methods and properties of an underlying `GtkAppChooser` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AppChooser`.
-/// Alternatively, use `AppChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkAppChooser` is an interface for widgets which allow the user to
 /// choose an application.
 /// 
@@ -1402,6 +1402,12 @@ public extension ActionableProtocol {
 /// 
 /// To obtain the application that has been selected in a `GtkAppChooser`,
 /// use [method`Gtk.AppChooser.get_app_info`].
+///
+/// The `AppChooserProtocol` protocol exposes the methods and properties of an underlying `GtkAppChooser` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AppChooser`.
+/// Alternatively, use `AppChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AppChooserProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkAppChooser` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1413,10 +1419,6 @@ public protocol AppChooserProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AppChooserRef` type acts as a lightweight Swift reference to an underlying `GtkAppChooser` instance.
-/// It exposes methods that can operate on this data type through `AppChooserProtocol` conformance.
-/// Use `AppChooserRef` only as an `unowned` reference to an existing `GtkAppChooser` instance.
-///
 /// `GtkAppChooser` is an interface for widgets which allow the user to
 /// choose an application.
 /// 
@@ -1436,6 +1438,11 @@ public protocol AppChooserProtocol: WidgetProtocol {
 /// 
 /// To obtain the application that has been selected in a `GtkAppChooser`,
 /// use [method`Gtk.AppChooser.get_app_info`].
+///
+/// The `AppChooserRef` type acts as a lightweight Swift reference to an underlying `GtkAppChooser` instance.
+/// It exposes methods that can operate on this data type through `AppChooserProtocol` conformance.
+/// Use `AppChooserRef` only as an `unowned` reference to an existing `GtkAppChooser` instance.
+///
 public struct AppChooserRef: AppChooserProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAppChooser` instance.
     /// For type-safe access, use the generated, typed pointer `app_chooser_ptr` property instead.
@@ -1517,10 +1524,6 @@ public extension AppChooserRef {
 
     }
 
-/// The `AppChooser` type acts as a reference-counted owner of an underlying `GtkAppChooser` instance.
-/// It provides the methods that can operate on this data type through `AppChooserProtocol` conformance.
-/// Use `AppChooser` as a strong reference or owner of a `GtkAppChooser` instance.
-///
 /// `GtkAppChooser` is an interface for widgets which allow the user to
 /// choose an application.
 /// 
@@ -1540,6 +1543,11 @@ public extension AppChooserRef {
 /// 
 /// To obtain the application that has been selected in a `GtkAppChooser`,
 /// use [method`Gtk.AppChooser.get_app_info`].
+///
+/// The `AppChooser` type acts as a reference-counted owner of an underlying `GtkAppChooser` instance.
+/// It provides the methods that can operate on this data type through `AppChooserProtocol` conformance.
+/// Use `AppChooser` as a strong reference or owner of a `GtkAppChooser` instance.
+///
 open class AppChooser: Widget, AppChooserProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1916,12 +1924,14 @@ public enum AppChooserSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2161,11 +2171,6 @@ public extension AppChooserProtocol {
 
 // MARK: - Buildable Interface
 
-/// The `BuildableProtocol` protocol exposes the methods and properties of an underlying `GtkBuildable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Buildable`.
-/// Alternatively, use `BuildableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkBuildable` allows objects to extend and customize their deserialization
 /// from ui files.
 /// 
@@ -2179,6 +2184,12 @@ public extension AppChooserProtocol {
 /// 
 /// An object only needs to implement this interface if it needs to extend the
 /// `GtkBuilder` XML format or run any extra routines at deserialization time.
+///
+/// The `BuildableProtocol` protocol exposes the methods and properties of an underlying `GtkBuildable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Buildable`.
+/// Alternatively, use `BuildableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BuildableProtocol {
         /// Untyped pointer to the underlying `GtkBuildable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2190,10 +2201,6 @@ public protocol BuildableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BuildableRef` type acts as a lightweight Swift reference to an underlying `GtkBuildable` instance.
-/// It exposes methods that can operate on this data type through `BuildableProtocol` conformance.
-/// Use `BuildableRef` only as an `unowned` reference to an existing `GtkBuildable` instance.
-///
 /// `GtkBuildable` allows objects to extend and customize their deserialization
 /// from ui files.
 /// 
@@ -2207,6 +2214,11 @@ public protocol BuildableProtocol {
 /// 
 /// An object only needs to implement this interface if it needs to extend the
 /// `GtkBuilder` XML format or run any extra routines at deserialization time.
+///
+/// The `BuildableRef` type acts as a lightweight Swift reference to an underlying `GtkBuildable` instance.
+/// It exposes methods that can operate on this data type through `BuildableProtocol` conformance.
+/// Use `BuildableRef` only as an `unowned` reference to an existing `GtkBuildable` instance.
+///
 public struct BuildableRef: BuildableProtocol {
         /// Untyped pointer to the underlying `GtkBuildable` instance.
     /// For type-safe access, use the generated, typed pointer `buildable_ptr` property instead.
@@ -2285,10 +2297,6 @@ public extension BuildableRef {
 
     }
 
-/// The `Buildable` type acts as an owner of an underlying `GtkBuildable` instance.
-/// It provides the methods that can operate on this data type through `BuildableProtocol` conformance.
-/// Use `Buildable` as a strong reference or owner of a `GtkBuildable` instance.
-///
 /// `GtkBuildable` allows objects to extend and customize their deserialization
 /// from ui files.
 /// 
@@ -2302,6 +2310,11 @@ public extension BuildableRef {
 /// 
 /// An object only needs to implement this interface if it needs to extend the
 /// `GtkBuilder` XML format or run any extra routines at deserialization time.
+///
+/// The `Buildable` type acts as an owner of an underlying `GtkBuildable` instance.
+/// It provides the methods that can operate on this data type through `BuildableProtocol` conformance.
+/// Use `Buildable` as a strong reference or owner of a `GtkBuildable` instance.
+///
 open class Buildable: BuildableProtocol {
         /// Untyped pointer to the underlying `GtkBuildable` instance.
     /// For type-safe access, use the generated, typed pointer `buildable_ptr` property instead.

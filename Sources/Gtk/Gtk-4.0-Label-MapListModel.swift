@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - Label Class
 
-/// The `LabelProtocol` protocol exposes the methods and properties of an underlying `GtkLabel` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Label`.
-/// Alternatively, use `LabelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkLabel` widget displays a small amount of text.
 /// 
 /// As the name implies, most labels are used to label another widget
@@ -199,6 +194,12 @@ import Gdk
 /// It is possible to implement custom handling for links and their tooltips
 /// with the [signal`Gtk.Label::activate-link`] signal and the
 /// [method`Gtk.Label.get_current_uri`] function.
+///
+/// The `LabelProtocol` protocol exposes the methods and properties of an underlying `GtkLabel` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Label`.
+/// Alternatively, use `LabelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol LabelProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkLabel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -210,10 +211,6 @@ public protocol LabelProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `LabelRef` type acts as a lightweight Swift reference to an underlying `GtkLabel` instance.
-/// It exposes methods that can operate on this data type through `LabelProtocol` conformance.
-/// Use `LabelRef` only as an `unowned` reference to an existing `GtkLabel` instance.
-///
 /// The `GtkLabel` widget displays a small amount of text.
 /// 
 /// As the name implies, most labels are used to label another widget
@@ -393,6 +390,11 @@ public protocol LabelProtocol: WidgetProtocol {
 /// It is possible to implement custom handling for links and their tooltips
 /// with the [signal`Gtk.Label::activate-link`] signal and the
 /// [method`Gtk.Label.get_current_uri`] function.
+///
+/// The `LabelRef` type acts as a lightweight Swift reference to an underlying `GtkLabel` instance.
+/// It exposes methods that can operate on this data type through `LabelProtocol` conformance.
+/// Use `LabelRef` only as an `unowned` reference to an existing `GtkLabel` instance.
+///
 public struct LabelRef: LabelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkLabel` instance.
     /// For type-safe access, use the generated, typed pointer `label_ptr` property instead.
@@ -518,10 +520,6 @@ public extension LabelRef {
     }
 }
 
-/// The `Label` type acts as a reference-counted owner of an underlying `GtkLabel` instance.
-/// It provides the methods that can operate on this data type through `LabelProtocol` conformance.
-/// Use `Label` as a strong reference or owner of a `GtkLabel` instance.
-///
 /// The `GtkLabel` widget displays a small amount of text.
 /// 
 /// As the name implies, most labels are used to label another widget
@@ -701,6 +699,11 @@ public extension LabelRef {
 /// It is possible to implement custom handling for links and their tooltips
 /// with the [signal`Gtk.Label::activate-link`] signal and the
 /// [method`Gtk.Label.get_current_uri`] function.
+///
+/// The `Label` type acts as a reference-counted owner of an underlying `GtkLabel` instance.
+/// It provides the methods that can operate on this data type through `LabelProtocol` conformance.
+/// Use `Label` as a strong reference or owner of a `GtkLabel` instance.
+///
 open class Label: Widget, LabelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1250,12 +1253,14 @@ public enum LabelSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1709,12 +1714,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1758,12 +1765,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1807,12 +1816,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1856,12 +1867,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1905,12 +1918,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1954,12 +1969,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2003,12 +2020,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2052,12 +2071,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2101,12 +2122,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2150,12 +2173,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2199,12 +2224,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2248,12 +2275,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2297,12 +2326,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2346,12 +2377,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2395,12 +2428,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2444,12 +2479,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2493,12 +2530,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2542,12 +2581,14 @@ public extension LabelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2660,7 +2701,7 @@ public extension LabelProtocol {
     /// inside the [class`Pango.Layout`], e.g. to take some action if some part
     /// of the label is clicked. Remember when using the [class`Pango.Layout`]
     /// functions you need to convert to and from pixels using `PANGO_PIXELS()`
-    /// or [constant`Pango.SCALE`].
+    /// or [const`Pango.SCALE`].
     @inlinable func getLayoutOffsets(x: UnsafeMutablePointer<gint>! = nil, y: UnsafeMutablePointer<gint>! = nil) {
         gtk_label_get_layout_offsets(label_ptr, x, y)
     
@@ -2916,7 +2957,7 @@ public extension LabelProtocol {
     /// indicating that they represent a keyboard accelerator called a mnemonic.
     /// 
     /// The mnemonic key can be used to activate another widget, chosen
-    /// automatically, or explicitly using method`Gtk.Label.set_mnemonic_widget`].
+    /// automatically, or explicitly using [method`Gtk.Label.set_mnemonic_widget`].
     @inlinable func setMarkupWithMnemonic(str: UnsafePointer<CChar>!) {
         gtk_label_set_markup_with_mnemonic(label_ptr, str)
     
@@ -3547,11 +3588,6 @@ public extension LabelProtocol {
 
 // MARK: - LayoutChild Class
 
-/// The `LayoutChildProtocol` protocol exposes the methods and properties of an underlying `GtkLayoutChild` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `LayoutChild`.
-/// Alternatively, use `LayoutChildRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkLayoutChild` is the base class for objects that are meant to hold
 /// layout properties.
 /// 
@@ -3561,6 +3597,12 @@ public extension LabelProtocol {
 /// 
 /// A `GtkLayoutChild` instance is only ever valid while a widget is part
 /// of a layout.
+///
+/// The `LayoutChildProtocol` protocol exposes the methods and properties of an underlying `GtkLayoutChild` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `LayoutChild`.
+/// Alternatively, use `LayoutChildRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol LayoutChildProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkLayoutChild` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3572,10 +3614,6 @@ public protocol LayoutChildProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `LayoutChildRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutChild` instance.
-/// It exposes methods that can operate on this data type through `LayoutChildProtocol` conformance.
-/// Use `LayoutChildRef` only as an `unowned` reference to an existing `GtkLayoutChild` instance.
-///
 /// `GtkLayoutChild` is the base class for objects that are meant to hold
 /// layout properties.
 /// 
@@ -3585,6 +3623,11 @@ public protocol LayoutChildProtocol: GLibObject.ObjectProtocol {
 /// 
 /// A `GtkLayoutChild` instance is only ever valid while a widget is part
 /// of a layout.
+///
+/// The `LayoutChildRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutChild` instance.
+/// It exposes methods that can operate on this data type through `LayoutChildProtocol` conformance.
+/// Use `LayoutChildRef` only as an `unowned` reference to an existing `GtkLayoutChild` instance.
+///
 public struct LayoutChildRef: LayoutChildProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkLayoutChild` instance.
     /// For type-safe access, use the generated, typed pointer `layout_child_ptr` property instead.
@@ -3666,10 +3709,6 @@ public extension LayoutChildRef {
 
     }
 
-/// The `LayoutChild` type acts as a reference-counted owner of an underlying `GtkLayoutChild` instance.
-/// It provides the methods that can operate on this data type through `LayoutChildProtocol` conformance.
-/// Use `LayoutChild` as a strong reference or owner of a `GtkLayoutChild` instance.
-///
 /// `GtkLayoutChild` is the base class for objects that are meant to hold
 /// layout properties.
 /// 
@@ -3679,6 +3718,11 @@ public extension LayoutChildRef {
 /// 
 /// A `GtkLayoutChild` instance is only ever valid while a widget is part
 /// of a layout.
+///
+/// The `LayoutChild` type acts as a reference-counted owner of an underlying `GtkLayoutChild` instance.
+/// It provides the methods that can operate on this data type through `LayoutChildProtocol` conformance.
+/// Use `LayoutChild` as a strong reference or owner of a `GtkLayoutChild` instance.
+///
 open class LayoutChild: GLibObject.Object, LayoutChildProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3884,12 +3928,14 @@ public enum LayoutChildSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3951,11 +3997,6 @@ public extension LayoutChildProtocol {
 
 // MARK: - LayoutManager Class
 
-/// The `LayoutManagerProtocol` protocol exposes the methods and properties of an underlying `GtkLayoutManager` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `LayoutManager`.
-/// Alternatively, use `LayoutManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Layout managers are delegate classes that handle the preferred size
 /// and the allocation of a widget.
 /// 
@@ -4004,6 +4045,12 @@ public extension LayoutChildProtocol {
 /// the layout properties; each `GtkLayoutChild` instance should call
 /// [method`Gtk.LayoutManager.layout_changed`] every time a property is
 /// updated, in order to queue a new size measuring and allocation.
+///
+/// The `LayoutManagerProtocol` protocol exposes the methods and properties of an underlying `GtkLayoutManager` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `LayoutManager`.
+/// Alternatively, use `LayoutManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol LayoutManagerProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkLayoutManager` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4015,10 +4062,6 @@ public protocol LayoutManagerProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `LayoutManagerRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutManager` instance.
-/// It exposes methods that can operate on this data type through `LayoutManagerProtocol` conformance.
-/// Use `LayoutManagerRef` only as an `unowned` reference to an existing `GtkLayoutManager` instance.
-///
 /// Layout managers are delegate classes that handle the preferred size
 /// and the allocation of a widget.
 /// 
@@ -4067,6 +4110,11 @@ public protocol LayoutManagerProtocol: GLibObject.ObjectProtocol {
 /// the layout properties; each `GtkLayoutChild` instance should call
 /// [method`Gtk.LayoutManager.layout_changed`] every time a property is
 /// updated, in order to queue a new size measuring and allocation.
+///
+/// The `LayoutManagerRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutManager` instance.
+/// It exposes methods that can operate on this data type through `LayoutManagerProtocol` conformance.
+/// Use `LayoutManagerRef` only as an `unowned` reference to an existing `GtkLayoutManager` instance.
+///
 public struct LayoutManagerRef: LayoutManagerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkLayoutManager` instance.
     /// For type-safe access, use the generated, typed pointer `layout_manager_ptr` property instead.
@@ -4148,10 +4196,6 @@ public extension LayoutManagerRef {
 
     }
 
-/// The `LayoutManager` type acts as a reference-counted owner of an underlying `GtkLayoutManager` instance.
-/// It provides the methods that can operate on this data type through `LayoutManagerProtocol` conformance.
-/// Use `LayoutManager` as a strong reference or owner of a `GtkLayoutManager` instance.
-///
 /// Layout managers are delegate classes that handle the preferred size
 /// and the allocation of a widget.
 /// 
@@ -4200,6 +4244,11 @@ public extension LayoutManagerRef {
 /// the layout properties; each `GtkLayoutChild` instance should call
 /// [method`Gtk.LayoutManager.layout_changed`] every time a property is
 /// updated, in order to queue a new size measuring and allocation.
+///
+/// The `LayoutManager` type acts as a reference-counted owner of an underlying `GtkLayoutManager` instance.
+/// It provides the methods that can operate on this data type through `LayoutManagerProtocol` conformance.
+/// Use `LayoutManager` as a strong reference or owner of a `GtkLayoutManager` instance.
+///
 open class LayoutManager: GLibObject.Object, LayoutManagerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4347,12 +4396,14 @@ public enum LayoutManagerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4448,11 +4499,6 @@ public extension LayoutManagerProtocol {
 
 // MARK: - LevelBar Class
 
-/// The `LevelBarProtocol` protocol exposes the methods and properties of an underlying `GtkLevelBar` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `LevelBar`.
-/// Alternatively, use `LevelBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkLevelBar` is a widget that can be used as a level indicator.
 /// 
 /// Typical use cases are displaying the strength of a password, or
@@ -4550,6 +4596,12 @@ public extension LayoutManagerProtocol {
 /// # Accessibility
 /// 
 /// `GtkLevelBar` uses the `GTK_ACCESSIBLE_ROLE_METER` role.
+///
+/// The `LevelBarProtocol` protocol exposes the methods and properties of an underlying `GtkLevelBar` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `LevelBar`.
+/// Alternatively, use `LevelBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol LevelBarProtocol: WidgetProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkLevelBar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4561,10 +4613,6 @@ public protocol LevelBarProtocol: WidgetProtocol, OrientableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `LevelBarRef` type acts as a lightweight Swift reference to an underlying `GtkLevelBar` instance.
-/// It exposes methods that can operate on this data type through `LevelBarProtocol` conformance.
-/// Use `LevelBarRef` only as an `unowned` reference to an existing `GtkLevelBar` instance.
-///
 /// `GtkLevelBar` is a widget that can be used as a level indicator.
 /// 
 /// Typical use cases are displaying the strength of a password, or
@@ -4662,6 +4710,11 @@ public protocol LevelBarProtocol: WidgetProtocol, OrientableProtocol {
 /// # Accessibility
 /// 
 /// `GtkLevelBar` uses the `GTK_ACCESSIBLE_ROLE_METER` role.
+///
+/// The `LevelBarRef` type acts as a lightweight Swift reference to an underlying `GtkLevelBar` instance.
+/// It exposes methods that can operate on this data type through `LevelBarProtocol` conformance.
+/// Use `LevelBarRef` only as an `unowned` reference to an existing `GtkLevelBar` instance.
+///
 public struct LevelBarRef: LevelBarProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkLevelBar` instance.
     /// For type-safe access, use the generated, typed pointer `level_bar_ptr` property instead.
@@ -4759,10 +4812,6 @@ public extension LevelBarRef {
     }
 }
 
-/// The `LevelBar` type acts as a reference-counted owner of an underlying `GtkLevelBar` instance.
-/// It provides the methods that can operate on this data type through `LevelBarProtocol` conformance.
-/// Use `LevelBar` as a strong reference or owner of a `GtkLevelBar` instance.
-///
 /// `GtkLevelBar` is a widget that can be used as a level indicator.
 /// 
 /// Typical use cases are displaying the strength of a password, or
@@ -4860,6 +4909,11 @@ public extension LevelBarRef {
 /// # Accessibility
 /// 
 /// `GtkLevelBar` uses the `GTK_ACCESSIBLE_ROLE_METER` role.
+///
+/// The `LevelBar` type acts as a reference-counted owner of an underlying `GtkLevelBar` instance.
+/// It provides the methods that can operate on this data type through `LevelBarProtocol` conformance.
+/// Use `LevelBar` as a strong reference or owner of a `GtkLevelBar` instance.
+///
 open class LevelBar: Widget, LevelBarProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5273,12 +5327,14 @@ public enum LevelBarSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5570,12 +5626,14 @@ public extension LevelBarProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5619,12 +5677,14 @@ public extension LevelBarProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5668,12 +5728,14 @@ public extension LevelBarProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5717,12 +5779,14 @@ public extension LevelBarProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5766,12 +5830,14 @@ public extension LevelBarProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5991,11 +6057,6 @@ public extension LevelBarProtocol {
 
 // MARK: - LinkButton Class
 
-/// The `LinkButtonProtocol` protocol exposes the methods and properties of an underlying `GtkLinkButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `LinkButton`.
-/// Alternatively, use `LinkButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkLinkButton` is a button with a hyperlink.
 /// 
 /// ![An example GtkLinkButton](link-button.png)
@@ -6022,6 +6083,12 @@ public extension LevelBarProtocol {
 /// # Accessibility
 /// 
 /// `GtkLinkButton` uses the `GTK_ACCESSIBLE_ROLE_LINK` role.
+///
+/// The `LinkButtonProtocol` protocol exposes the methods and properties of an underlying `GtkLinkButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `LinkButton`.
+/// Alternatively, use `LinkButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol LinkButtonProtocol: ButtonProtocol {
         /// Untyped pointer to the underlying `GtkLinkButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6033,10 +6100,6 @@ public protocol LinkButtonProtocol: ButtonProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `LinkButtonRef` type acts as a lightweight Swift reference to an underlying `GtkLinkButton` instance.
-/// It exposes methods that can operate on this data type through `LinkButtonProtocol` conformance.
-/// Use `LinkButtonRef` only as an `unowned` reference to an existing `GtkLinkButton` instance.
-///
 /// A `GtkLinkButton` is a button with a hyperlink.
 /// 
 /// ![An example GtkLinkButton](link-button.png)
@@ -6063,6 +6126,11 @@ public protocol LinkButtonProtocol: ButtonProtocol {
 /// # Accessibility
 /// 
 /// `GtkLinkButton` uses the `GTK_ACCESSIBLE_ROLE_LINK` role.
+///
+/// The `LinkButtonRef` type acts as a lightweight Swift reference to an underlying `GtkLinkButton` instance.
+/// It exposes methods that can operate on this data type through `LinkButtonProtocol` conformance.
+/// Use `LinkButtonRef` only as an `unowned` reference to an existing `GtkLinkButton` instance.
+///
 public struct LinkButtonRef: LinkButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkLinkButton` instance.
     /// For type-safe access, use the generated, typed pointer `link_button_ptr` property instead.
@@ -6160,10 +6228,6 @@ public extension LinkButtonRef {
     }
 }
 
-/// The `LinkButton` type acts as a reference-counted owner of an underlying `GtkLinkButton` instance.
-/// It provides the methods that can operate on this data type through `LinkButtonProtocol` conformance.
-/// Use `LinkButton` as a strong reference or owner of a `GtkLinkButton` instance.
-///
 /// A `GtkLinkButton` is a button with a hyperlink.
 /// 
 /// ![An example GtkLinkButton](link-button.png)
@@ -6190,6 +6254,11 @@ public extension LinkButtonRef {
 /// # Accessibility
 /// 
 /// `GtkLinkButton` uses the `GTK_ACCESSIBLE_ROLE_LINK` role.
+///
+/// The `LinkButton` type acts as a reference-counted owner of an underlying `GtkLinkButton` instance.
+/// It provides the methods that can operate on this data type through `LinkButtonProtocol` conformance.
+/// Use `LinkButton` as a strong reference or owner of a `GtkLinkButton` instance.
+///
 open class LinkButton: Button, LinkButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6614,12 +6683,14 @@ public enum LinkButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6896,12 +6967,14 @@ public extension LinkButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6945,12 +7018,14 @@ public extension LinkButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7062,12 +7137,13 @@ public extension LinkButtonProtocol {
 
 // MARK: - ListBase Class
 
+/// `GtkListBase` is the abstract base class for GTK's list widgets.
+///
 /// The `ListBaseProtocol` protocol exposes the methods and properties of an underlying `GtkListBase` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListBase`.
 /// Alternatively, use `ListBaseRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkListBase` is the abstract base class for GTK's list widgets.
 public protocol ListBaseProtocol: WidgetProtocol, OrientableProtocol, ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkListBase` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7079,11 +7155,12 @@ public protocol ListBaseProtocol: WidgetProtocol, OrientableProtocol, Scrollable
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkListBase` is the abstract base class for GTK's list widgets.
+///
 /// The `ListBaseRef` type acts as a lightweight Swift reference to an underlying `GtkListBase` instance.
 /// It exposes methods that can operate on this data type through `ListBaseProtocol` conformance.
 /// Use `ListBaseRef` only as an `unowned` reference to an existing `GtkListBase` instance.
 ///
-/// `GtkListBase` is the abstract base class for GTK's list widgets.
 public struct ListBaseRef: ListBaseProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkListBase` instance.
     /// For type-safe access, use the generated, typed pointer `list_base_ptr` property instead.
@@ -7165,11 +7242,12 @@ public extension ListBaseRef {
 
     }
 
+/// `GtkListBase` is the abstract base class for GTK's list widgets.
+///
 /// The `ListBase` type acts as a reference-counted owner of an underlying `GtkListBase` instance.
 /// It provides the methods that can operate on this data type through `ListBaseProtocol` conformance.
 /// Use `ListBase` as a strong reference or owner of a `GtkListBase` instance.
 ///
-/// `GtkListBase` is the abstract base class for GTK's list widgets.
 open class ListBase: Widget, ListBaseProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7545,12 +7623,14 @@ public enum ListBaseSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7752,11 +7832,6 @@ public extension ListBaseProtocol {
 
 // MARK: - ListBox Class
 
-/// The `ListBoxProtocol` protocol exposes the methods and properties of an underlying `GtkListBox` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ListBox`.
-/// Alternatively, use `ListBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkListBox` is a vertical list.
 /// 
 /// A `GtkListBox` only contains `GtkListBoxRow` children. These rows can
@@ -7808,6 +7883,12 @@ public extension ListBaseProtocol {
 /// 
 /// `GtkListBox` uses the `GTK_ACCESSIBLE_ROLE_LIST` role and `GtkListBoxRow` uses
 /// the `GTK_ACCESSIBLE_ROLE_LIST_ITEM` role.
+///
+/// The `ListBoxProtocol` protocol exposes the methods and properties of an underlying `GtkListBox` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ListBox`.
+/// Alternatively, use `ListBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ListBoxProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkListBox` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7819,10 +7900,6 @@ public protocol ListBoxProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ListBoxRef` type acts as a lightweight Swift reference to an underlying `GtkListBox` instance.
-/// It exposes methods that can operate on this data type through `ListBoxProtocol` conformance.
-/// Use `ListBoxRef` only as an `unowned` reference to an existing `GtkListBox` instance.
-///
 /// `GtkListBox` is a vertical list.
 /// 
 /// A `GtkListBox` only contains `GtkListBoxRow` children. These rows can
@@ -7874,6 +7951,11 @@ public protocol ListBoxProtocol: WidgetProtocol {
 /// 
 /// `GtkListBox` uses the `GTK_ACCESSIBLE_ROLE_LIST` role and `GtkListBoxRow` uses
 /// the `GTK_ACCESSIBLE_ROLE_LIST_ITEM` role.
+///
+/// The `ListBoxRef` type acts as a lightweight Swift reference to an underlying `GtkListBox` instance.
+/// It exposes methods that can operate on this data type through `ListBoxProtocol` conformance.
+/// Use `ListBoxRef` only as an `unowned` reference to an existing `GtkListBox` instance.
+///
 public struct ListBoxRef: ListBoxProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkListBox` instance.
     /// For type-safe access, use the generated, typed pointer `list_box_ptr` property instead.
@@ -7960,10 +8042,6 @@ public extension ListBoxRef {
     }
 }
 
-/// The `ListBox` type acts as a reference-counted owner of an underlying `GtkListBox` instance.
-/// It provides the methods that can operate on this data type through `ListBoxProtocol` conformance.
-/// Use `ListBox` as a strong reference or owner of a `GtkListBox` instance.
-///
 /// `GtkListBox` is a vertical list.
 /// 
 /// A `GtkListBox` only contains `GtkListBoxRow` children. These rows can
@@ -8015,6 +8093,11 @@ public extension ListBoxRef {
 /// 
 /// `GtkListBox` uses the `GTK_ACCESSIBLE_ROLE_LIST` role and `GtkListBoxRow` uses
 /// the `GTK_ACCESSIBLE_ROLE_LIST_ITEM` role.
+///
+/// The `ListBox` type acts as a reference-counted owner of an underlying `GtkListBox` instance.
+/// It provides the methods that can operate on this data type through `ListBoxProtocol` conformance.
+/// Use `ListBox` as a strong reference or owner of a `GtkListBox` instance.
+///
 open class ListBox: Widget, ListBoxProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8404,12 +8487,14 @@ public enum ListBoxSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8892,12 +8977,14 @@ public extension ListBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8941,12 +9028,14 @@ public extension ListBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8990,12 +9079,14 @@ public extension ListBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9039,12 +9130,14 @@ public extension ListBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9166,8 +9259,8 @@ public extension ListBoxProtocol {
     /// 
     /// If `index_` is negative or larger than the number of items in the
     /// list, `nil` is returned.
-    @inlinable func getRowAtIndex(index_: Int) -> ListBoxRowRef! {
-        let rv = ListBoxRowRef(gconstpointer: gconstpointer(gtk_list_box_get_row_at_index(list_box_ptr, gint(index_))))
+    @inlinable func getRowAt(index: Int) -> ListBoxRowRef! {
+        let rv = ListBoxRowRef(gconstpointer: gconstpointer(gtk_list_box_get_row_at_index(list_box_ptr, gint(index))))
         return rv
     }
 
@@ -9528,12 +9621,13 @@ public extension ListBoxProtocol {
 
 // MARK: - ListBoxRow Class
 
+/// `GtkListBoxRow` is the kind of widget that can be added to a `GtkListBox`.
+///
 /// The `ListBoxRowProtocol` protocol exposes the methods and properties of an underlying `GtkListBoxRow` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListBoxRow`.
 /// Alternatively, use `ListBoxRowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkListBoxRow` is the kind of widget that can be added to a `GtkListBox`.
 public protocol ListBoxRowProtocol: WidgetProtocol, ActionableProtocol {
         /// Untyped pointer to the underlying `GtkListBoxRow` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9545,11 +9639,12 @@ public protocol ListBoxRowProtocol: WidgetProtocol, ActionableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkListBoxRow` is the kind of widget that can be added to a `GtkListBox`.
+///
 /// The `ListBoxRowRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxRow` instance.
 /// It exposes methods that can operate on this data type through `ListBoxRowProtocol` conformance.
 /// Use `ListBoxRowRef` only as an `unowned` reference to an existing `GtkListBoxRow` instance.
 ///
-/// `GtkListBoxRow` is the kind of widget that can be added to a `GtkListBox`.
 public struct ListBoxRowRef: ListBoxRowProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkListBoxRow` instance.
     /// For type-safe access, use the generated, typed pointer `list_box_row_ptr` property instead.
@@ -9636,11 +9731,12 @@ public extension ListBoxRowRef {
     }
 }
 
+/// `GtkListBoxRow` is the kind of widget that can be added to a `GtkListBox`.
+///
 /// The `ListBoxRow` type acts as a reference-counted owner of an underlying `GtkListBoxRow` instance.
 /// It provides the methods that can operate on this data type through `ListBoxRowProtocol` conformance.
 /// Use `ListBoxRow` as a strong reference or owner of a `GtkListBoxRow` instance.
 ///
-/// `GtkListBoxRow` is the kind of widget that can be added to a `GtkListBox`.
 open class ListBoxRow: Widget, ListBoxRowProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10032,12 +10128,14 @@ public enum ListBoxRowSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10301,12 +10399,14 @@ public extension ListBoxRowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10350,12 +10450,14 @@ public extension ListBoxRowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10399,12 +10501,14 @@ public extension ListBoxRowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10642,11 +10746,6 @@ public extension ListBoxRowProtocol {
 
 // MARK: - ListItem Class
 
-/// The `ListItemProtocol` protocol exposes the methods and properties of an underlying `GtkListItem` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ListItem`.
-/// Alternatively, use `ListItemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkListItem` is used by list widgets to represent items in a `GListModel`.
 /// 
 /// The `GtkListItem`s are managed by the list widget (with its factory)
@@ -10661,6 +10760,12 @@ public extension ListBoxRowProtocol {
 /// 
 /// 2. The bound stage where the listitem references an item from the list.
 ///    The [property`Gtk.ListItem:item`] property is not `nil`.
+///
+/// The `ListItemProtocol` protocol exposes the methods and properties of an underlying `GtkListItem` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ListItem`.
+/// Alternatively, use `ListItemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ListItemProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkListItem` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -10672,10 +10777,6 @@ public protocol ListItemProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ListItemRef` type acts as a lightweight Swift reference to an underlying `GtkListItem` instance.
-/// It exposes methods that can operate on this data type through `ListItemProtocol` conformance.
-/// Use `ListItemRef` only as an `unowned` reference to an existing `GtkListItem` instance.
-///
 /// `GtkListItem` is used by list widgets to represent items in a `GListModel`.
 /// 
 /// The `GtkListItem`s are managed by the list widget (with its factory)
@@ -10690,6 +10791,11 @@ public protocol ListItemProtocol: GLibObject.ObjectProtocol {
 /// 
 /// 2. The bound stage where the listitem references an item from the list.
 ///    The [property`Gtk.ListItem:item`] property is not `nil`.
+///
+/// The `ListItemRef` type acts as a lightweight Swift reference to an underlying `GtkListItem` instance.
+/// It exposes methods that can operate on this data type through `ListItemProtocol` conformance.
+/// Use `ListItemRef` only as an `unowned` reference to an existing `GtkListItem` instance.
+///
 public struct ListItemRef: ListItemProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkListItem` instance.
     /// For type-safe access, use the generated, typed pointer `list_item_ptr` property instead.
@@ -10771,10 +10877,6 @@ public extension ListItemRef {
 
     }
 
-/// The `ListItem` type acts as a reference-counted owner of an underlying `GtkListItem` instance.
-/// It provides the methods that can operate on this data type through `ListItemProtocol` conformance.
-/// Use `ListItem` as a strong reference or owner of a `GtkListItem` instance.
-///
 /// `GtkListItem` is used by list widgets to represent items in a `GListModel`.
 /// 
 /// The `GtkListItem`s are managed by the list widget (with its factory)
@@ -10789,6 +10891,11 @@ public extension ListItemRef {
 /// 
 /// 2. The bound stage where the listitem references an item from the list.
 ///    The [property`Gtk.ListItem:item`] property is not `nil`.
+///
+/// The `ListItem` type acts as a reference-counted owner of an underlying `GtkListItem` instance.
+/// It provides the methods that can operate on this data type through `ListItemProtocol` conformance.
+/// Use `ListItem` as a strong reference or owner of a `GtkListItem` instance.
+///
 open class ListItem: GLibObject.Object, ListItemProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -11002,12 +11109,14 @@ public enum ListItemSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11237,11 +11346,6 @@ public extension ListItemProtocol {
 
 // MARK: - ListItemFactory Class
 
-/// The `ListItemFactoryProtocol` protocol exposes the methods and properties of an underlying `GtkListItemFactory` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ListItemFactory`.
-/// Alternatively, use `ListItemFactoryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkListItemFactory` creates widgets for the items taken from a `GListModel`.
 /// 
 /// This is one of the core concepts of handling list widgets such
@@ -11290,6 +11394,12 @@ public extension ListItemProtocol {
 /// on the view widget you want to use it with, such as via
 /// [method`Gtk.ListView.set_factory`]. Reusing factories across different
 /// views is allowed, but very uncommon.
+///
+/// The `ListItemFactoryProtocol` protocol exposes the methods and properties of an underlying `GtkListItemFactory` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ListItemFactory`.
+/// Alternatively, use `ListItemFactoryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ListItemFactoryProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkListItemFactory` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -11301,10 +11411,6 @@ public protocol ListItemFactoryProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ListItemFactoryRef` type acts as a lightweight Swift reference to an underlying `GtkListItemFactory` instance.
-/// It exposes methods that can operate on this data type through `ListItemFactoryProtocol` conformance.
-/// Use `ListItemFactoryRef` only as an `unowned` reference to an existing `GtkListItemFactory` instance.
-///
 /// A `GtkListItemFactory` creates widgets for the items taken from a `GListModel`.
 /// 
 /// This is one of the core concepts of handling list widgets such
@@ -11353,6 +11459,11 @@ public protocol ListItemFactoryProtocol: GLibObject.ObjectProtocol {
 /// on the view widget you want to use it with, such as via
 /// [method`Gtk.ListView.set_factory`]. Reusing factories across different
 /// views is allowed, but very uncommon.
+///
+/// The `ListItemFactoryRef` type acts as a lightweight Swift reference to an underlying `GtkListItemFactory` instance.
+/// It exposes methods that can operate on this data type through `ListItemFactoryProtocol` conformance.
+/// Use `ListItemFactoryRef` only as an `unowned` reference to an existing `GtkListItemFactory` instance.
+///
 public struct ListItemFactoryRef: ListItemFactoryProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkListItemFactory` instance.
     /// For type-safe access, use the generated, typed pointer `list_item_factory_ptr` property instead.
@@ -11434,10 +11545,6 @@ public extension ListItemFactoryRef {
 
     }
 
-/// The `ListItemFactory` type acts as a reference-counted owner of an underlying `GtkListItemFactory` instance.
-/// It provides the methods that can operate on this data type through `ListItemFactoryProtocol` conformance.
-/// Use `ListItemFactory` as a strong reference or owner of a `GtkListItemFactory` instance.
-///
 /// A `GtkListItemFactory` creates widgets for the items taken from a `GListModel`.
 /// 
 /// This is one of the core concepts of handling list widgets such
@@ -11486,6 +11593,11 @@ public extension ListItemFactoryRef {
 /// on the view widget you want to use it with, such as via
 /// [method`Gtk.ListView.set_factory`]. Reusing factories across different
 /// views is allowed, but very uncommon.
+///
+/// The `ListItemFactory` type acts as a reference-counted owner of an underlying `GtkListItemFactory` instance.
+/// It provides the methods that can operate on this data type through `ListItemFactoryProtocol` conformance.
+/// Use `ListItemFactory` as a strong reference or owner of a `GtkListItemFactory` instance.
+///
 open class ListItemFactory: GLibObject.Object, ListItemFactoryProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -11633,12 +11745,14 @@ public enum ListItemFactorySignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11660,11 +11774,6 @@ public extension ListItemFactoryProtocol {
 
 // MARK: - ListStore Class
 
-/// The `ListStoreProtocol` protocol exposes the methods and properties of an underlying `GtkListStore` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ListStore`.
-/// Alternatively, use `ListStoreRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A list-like data structure that can be used with the GtkTreeView
 /// 
 /// The `GtkListStore` object is a list model for use with a `GtkTreeView`
@@ -11678,12 +11787,12 @@ public extension ListItemFactoryProtocol {
 /// The `GtkListStore` can accept most GObject types as a column type, though
 /// it can’t accept all custom types.  Internally, it will keep a copy of
 /// data passed in (such as a string or a boxed pointer).  Columns that
-/// accept `GObjects` are handled a little differently.  The
+/// accept `GObject`s are handled a little differently.  The
 /// `GtkListStore` will keep a reference to the object instead of copying the
 /// value.  As a result, if the object is modified, it is up to the
 /// application writer to call `gtk_tree_model_row_changed()` to emit the
-/// `GtkTreeModel::row_changed` signal.  This most commonly affects lists with
-/// `GdkTextures` stored.
+/// `GtkTreeModel``row_changed` signal.  This most commonly affects lists with
+/// `GdkTexture`s stored.
 /// 
 /// An example for creating a simple list store:
 /// (C Language Example):
@@ -11742,7 +11851,7 @@ public extension ListItemFactoryProtocol {
 /// Internally, the `GtkListStore` was originally implemented with a linked list
 /// with a tail pointer.  As a result, it was fast at data insertion and deletion,
 /// and not fast at random data access.  The `GtkListStore` sets the
-/// `GTK_TREE_MODEL_ITERS_PERSIST` flag, which means that `GtkTreeIters` can be
+/// `GTK_TREE_MODEL_ITERS_PERSIST` flag, which means that `GtkTreeIter`s can be
 /// cached while the row exists.  Thus, if access to a particular row is needed
 /// often and your code is expected to run on older versions of GTK, it is worth
 /// keeping the iter around.
@@ -11754,14 +11863,14 @@ public extension ListItemFactoryProtocol {
 /// are atomic, in the sense that the row is being appended to the store and the
 /// values filled in in a single operation with regard to `GtkTreeModel` signaling.
 /// In contrast, using e.g. `gtk_list_store_append()` and then `gtk_list_store_set()`
-/// will first create a row, which triggers the `GtkTreeModel::row-inserted` signal
+/// will first create a row, which triggers the `GtkTreeModel``row-inserted` signal
 /// on `GtkListStore`. The row, however, is still empty, and any signal handler
-/// connecting to `GtkTreeModel::row-inserted` on this particular store should be prepared
+/// connecting to `GtkTreeModel``row-inserted` on this particular store should be prepared
 /// for the situation that the row might be empty. This is especially important
-/// if you are wrapping the `GtkListStore` inside a `GtkTreeModelFilter` and are
-/// using a `GtkTreeModelFilterVisibleFunc`. Using any of the non-atomic operations
+/// if you are wrapping the `GtkListStore` inside a `GtkTreeModel`Filter and are
+/// using a `GtkTreeModel`FilterVisibleFunc. Using any of the non-atomic operations
 /// to append rows to the `GtkListStore` will cause the
-/// `GtkTreeModelFilterVisibleFunc` to be visited with an empty row first; the
+/// `GtkTreeModel`FilterVisibleFunc to be visited with an empty row first; the
 /// function must be prepared for that.
 /// 
 /// # GtkListStore as GtkBuildable
@@ -11805,6 +11914,12 @@ public extension ListItemFactoryProtocol {
 /// </object>
 /// ```
 /// 
+///
+/// The `ListStoreProtocol` protocol exposes the methods and properties of an underlying `GtkListStore` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ListStore`.
+/// Alternatively, use `ListStoreRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ListStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol, TreeDragDestProtocol, TreeDragSourceProtocol, TreeModelProtocol, TreeSortableProtocol {
         /// Untyped pointer to the underlying `GtkListStore` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -11816,10 +11931,6 @@ public protocol ListStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ListStoreRef` type acts as a lightweight Swift reference to an underlying `GtkListStore` instance.
-/// It exposes methods that can operate on this data type through `ListStoreProtocol` conformance.
-/// Use `ListStoreRef` only as an `unowned` reference to an existing `GtkListStore` instance.
-///
 /// A list-like data structure that can be used with the GtkTreeView
 /// 
 /// The `GtkListStore` object is a list model for use with a `GtkTreeView`
@@ -11833,12 +11944,12 @@ public protocol ListStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
 /// The `GtkListStore` can accept most GObject types as a column type, though
 /// it can’t accept all custom types.  Internally, it will keep a copy of
 /// data passed in (such as a string or a boxed pointer).  Columns that
-/// accept `GObjects` are handled a little differently.  The
+/// accept `GObject`s are handled a little differently.  The
 /// `GtkListStore` will keep a reference to the object instead of copying the
 /// value.  As a result, if the object is modified, it is up to the
 /// application writer to call `gtk_tree_model_row_changed()` to emit the
-/// `GtkTreeModel::row_changed` signal.  This most commonly affects lists with
-/// `GdkTextures` stored.
+/// `GtkTreeModel``row_changed` signal.  This most commonly affects lists with
+/// `GdkTexture`s stored.
 /// 
 /// An example for creating a simple list store:
 /// (C Language Example):
@@ -11897,7 +12008,7 @@ public protocol ListStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
 /// Internally, the `GtkListStore` was originally implemented with a linked list
 /// with a tail pointer.  As a result, it was fast at data insertion and deletion,
 /// and not fast at random data access.  The `GtkListStore` sets the
-/// `GTK_TREE_MODEL_ITERS_PERSIST` flag, which means that `GtkTreeIters` can be
+/// `GTK_TREE_MODEL_ITERS_PERSIST` flag, which means that `GtkTreeIter`s can be
 /// cached while the row exists.  Thus, if access to a particular row is needed
 /// often and your code is expected to run on older versions of GTK, it is worth
 /// keeping the iter around.
@@ -11909,14 +12020,14 @@ public protocol ListStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
 /// are atomic, in the sense that the row is being appended to the store and the
 /// values filled in in a single operation with regard to `GtkTreeModel` signaling.
 /// In contrast, using e.g. `gtk_list_store_append()` and then `gtk_list_store_set()`
-/// will first create a row, which triggers the `GtkTreeModel::row-inserted` signal
+/// will first create a row, which triggers the `GtkTreeModel``row-inserted` signal
 /// on `GtkListStore`. The row, however, is still empty, and any signal handler
-/// connecting to `GtkTreeModel::row-inserted` on this particular store should be prepared
+/// connecting to `GtkTreeModel``row-inserted` on this particular store should be prepared
 /// for the situation that the row might be empty. This is especially important
-/// if you are wrapping the `GtkListStore` inside a `GtkTreeModelFilter` and are
-/// using a `GtkTreeModelFilterVisibleFunc`. Using any of the non-atomic operations
+/// if you are wrapping the `GtkListStore` inside a `GtkTreeModel`Filter and are
+/// using a `GtkTreeModel`FilterVisibleFunc. Using any of the non-atomic operations
 /// to append rows to the `GtkListStore` will cause the
-/// `GtkTreeModelFilterVisibleFunc` to be visited with an empty row first; the
+/// `GtkTreeModel`FilterVisibleFunc to be visited with an empty row first; the
 /// function must be prepared for that.
 /// 
 /// # GtkListStore as GtkBuildable
@@ -11960,6 +12071,11 @@ public protocol ListStoreProtocol: GLibObject.ObjectProtocol, BuildableProtocol,
 /// </object>
 /// ```
 /// 
+///
+/// The `ListStoreRef` type acts as a lightweight Swift reference to an underlying `GtkListStore` instance.
+/// It exposes methods that can operate on this data type through `ListStoreProtocol` conformance.
+/// Use `ListStoreRef` only as an `unowned` reference to an existing `GtkListStore` instance.
+///
 public struct ListStoreRef: ListStoreProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkListStore` instance.
     /// For type-safe access, use the generated, typed pointer `list_store_ptr` property instead.
@@ -12055,10 +12171,6 @@ public extension ListStoreRef {
     }
 }
 
-/// The `ListStore` type acts as a reference-counted owner of an underlying `GtkListStore` instance.
-/// It provides the methods that can operate on this data type through `ListStoreProtocol` conformance.
-/// Use `ListStore` as a strong reference or owner of a `GtkListStore` instance.
-///
 /// A list-like data structure that can be used with the GtkTreeView
 /// 
 /// The `GtkListStore` object is a list model for use with a `GtkTreeView`
@@ -12072,12 +12184,12 @@ public extension ListStoreRef {
 /// The `GtkListStore` can accept most GObject types as a column type, though
 /// it can’t accept all custom types.  Internally, it will keep a copy of
 /// data passed in (such as a string or a boxed pointer).  Columns that
-/// accept `GObjects` are handled a little differently.  The
+/// accept `GObject`s are handled a little differently.  The
 /// `GtkListStore` will keep a reference to the object instead of copying the
 /// value.  As a result, if the object is modified, it is up to the
 /// application writer to call `gtk_tree_model_row_changed()` to emit the
-/// `GtkTreeModel::row_changed` signal.  This most commonly affects lists with
-/// `GdkTextures` stored.
+/// `GtkTreeModel``row_changed` signal.  This most commonly affects lists with
+/// `GdkTexture`s stored.
 /// 
 /// An example for creating a simple list store:
 /// (C Language Example):
@@ -12136,7 +12248,7 @@ public extension ListStoreRef {
 /// Internally, the `GtkListStore` was originally implemented with a linked list
 /// with a tail pointer.  As a result, it was fast at data insertion and deletion,
 /// and not fast at random data access.  The `GtkListStore` sets the
-/// `GTK_TREE_MODEL_ITERS_PERSIST` flag, which means that `GtkTreeIters` can be
+/// `GTK_TREE_MODEL_ITERS_PERSIST` flag, which means that `GtkTreeIter`s can be
 /// cached while the row exists.  Thus, if access to a particular row is needed
 /// often and your code is expected to run on older versions of GTK, it is worth
 /// keeping the iter around.
@@ -12148,14 +12260,14 @@ public extension ListStoreRef {
 /// are atomic, in the sense that the row is being appended to the store and the
 /// values filled in in a single operation with regard to `GtkTreeModel` signaling.
 /// In contrast, using e.g. `gtk_list_store_append()` and then `gtk_list_store_set()`
-/// will first create a row, which triggers the `GtkTreeModel::row-inserted` signal
+/// will first create a row, which triggers the `GtkTreeModel``row-inserted` signal
 /// on `GtkListStore`. The row, however, is still empty, and any signal handler
-/// connecting to `GtkTreeModel::row-inserted` on this particular store should be prepared
+/// connecting to `GtkTreeModel``row-inserted` on this particular store should be prepared
 /// for the situation that the row might be empty. This is especially important
-/// if you are wrapping the `GtkListStore` inside a `GtkTreeModelFilter` and are
-/// using a `GtkTreeModelFilterVisibleFunc`. Using any of the non-atomic operations
+/// if you are wrapping the `GtkListStore` inside a `GtkTreeModel`Filter and are
+/// using a `GtkTreeModel`FilterVisibleFunc. Using any of the non-atomic operations
 /// to append rows to the `GtkListStore` will cause the
-/// `GtkTreeModelFilterVisibleFunc` to be visited with an empty row first; the
+/// `GtkTreeModel`FilterVisibleFunc to be visited with an empty row first; the
 /// function must be prepared for that.
 /// 
 /// # GtkListStore as GtkBuildable
@@ -12199,6 +12311,11 @@ public extension ListStoreRef {
 /// </object>
 /// ```
 /// 
+///
+/// The `ListStore` type acts as a reference-counted owner of an underlying `GtkListStore` instance.
+/// It provides the methods that can operate on this data type through `ListStoreProtocol` conformance.
+/// Use `ListStore` as a strong reference or owner of a `GtkListStore` instance.
+///
 open class ListStore: GLibObject.Object, ListStoreProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -12362,12 +12479,14 @@ public enum ListStoreSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12446,10 +12565,10 @@ public extension ListStoreProtocol {
     
     }
 
-    /// >&gt; This function is slow. Only use it for debugging and/or testing
-    /// &gt; purposes.
-    /// 
     /// Checks if the given iter is a valid iter for this `GtkListStore`.
+    /// 
+    /// This function is slow. Only use it for debugging and/or testing
+    /// purposes.
     @inlinable func iterIsValid<TreeIterT: TreeIterProtocol>(iter: TreeIterT) -> Bool {
         let rv = ((gtk_list_store_iter_is_valid(list_store_ptr, iter.tree_iter_ptr)) != 0)
         return rv
@@ -12498,7 +12617,7 @@ public extension ListStoreProtocol {
     // *** set() is not available because it has a varargs (...) parameter!
 
 
-    /// This function is meant primarily for `GObjects` that inherit from `GtkListStore`,
+    /// This function is meant primarily for `GObject`s that inherit from `GtkListStore`,
     /// and should only be used when constructing a new `GtkListStore`.  It will not
     /// function after a row has been added, or a method on the `GtkTreeModel`
     /// interface is called.
@@ -12554,11 +12673,6 @@ public extension ListStoreProtocol {
 
 // MARK: - ListView Class
 
-/// The `ListViewProtocol` protocol exposes the methods and properties of an underlying `GtkListView` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ListView`.
-/// Alternatively, use `ListViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkListView` presents a large dynamic list of items.
 /// 
 /// `GtkListView` uses its factory to generate one row widget for each visible
@@ -12633,18 +12747,20 @@ public extension ListStoreProtocol {
 /// 
 /// ```
 /// listview[.separators][.rich-list][.navigation-sidebar][.data-table]
-/// ├── row
+/// ├── row[.activatable]
 /// │
-/// ├── row
+/// ├── row[.activatable]
 /// │
 /// ┊
 /// ╰── [rubberband]
 /// ```
 /// 
-/// `GtkListView` uses a single CSS node named listview. It may carry the
-/// .separators style class, when `GtkListView`:show-separators property
-/// is set. Each child widget uses a single CSS node named row. For
-/// rubberband selection, a node with name rubberband is used.
+/// `GtkListView` uses a single CSS node named `listview`. It may carry the
+/// `.separators` style class, when [property`Gtk.ListView:show-separators`]
+/// property is set. Each child widget uses a single CSS node named `row`.
+/// If the [property`Gtk.ListItem:activatable`] property is set, the
+/// corresponding row will have the `.activatable` style class. For
+/// rubberband selection, a node with name `rubberband` is used.
 /// 
 /// The main listview node may also carry style classes to select
 /// the style of [list presentation](ListContainers.html`list-styles`):
@@ -12654,6 +12770,12 @@ public extension ListStoreProtocol {
 /// 
 /// `GtkListView` uses the `GTK_ACCESSIBLE_ROLE_LIST` role, and the list
 /// items use the `GTK_ACCESSIBLE_ROLE_LIST_ITEM` role.
+///
+/// The `ListViewProtocol` protocol exposes the methods and properties of an underlying `GtkListView` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ListView`.
+/// Alternatively, use `ListViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ListViewProtocol: ListBaseProtocol {
         /// Untyped pointer to the underlying `GtkListView` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12665,10 +12787,6 @@ public protocol ListViewProtocol: ListBaseProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ListViewRef` type acts as a lightweight Swift reference to an underlying `GtkListView` instance.
-/// It exposes methods that can operate on this data type through `ListViewProtocol` conformance.
-/// Use `ListViewRef` only as an `unowned` reference to an existing `GtkListView` instance.
-///
 /// `GtkListView` presents a large dynamic list of items.
 /// 
 /// `GtkListView` uses its factory to generate one row widget for each visible
@@ -12743,18 +12861,20 @@ public protocol ListViewProtocol: ListBaseProtocol {
 /// 
 /// ```
 /// listview[.separators][.rich-list][.navigation-sidebar][.data-table]
-/// ├── row
+/// ├── row[.activatable]
 /// │
-/// ├── row
+/// ├── row[.activatable]
 /// │
 /// ┊
 /// ╰── [rubberband]
 /// ```
 /// 
-/// `GtkListView` uses a single CSS node named listview. It may carry the
-/// .separators style class, when `GtkListView`:show-separators property
-/// is set. Each child widget uses a single CSS node named row. For
-/// rubberband selection, a node with name rubberband is used.
+/// `GtkListView` uses a single CSS node named `listview`. It may carry the
+/// `.separators` style class, when [property`Gtk.ListView:show-separators`]
+/// property is set. Each child widget uses a single CSS node named `row`.
+/// If the [property`Gtk.ListItem:activatable`] property is set, the
+/// corresponding row will have the `.activatable` style class. For
+/// rubberband selection, a node with name `rubberband` is used.
 /// 
 /// The main listview node may also carry style classes to select
 /// the style of [list presentation](ListContainers.html`list-styles`):
@@ -12764,6 +12884,11 @@ public protocol ListViewProtocol: ListBaseProtocol {
 /// 
 /// `GtkListView` uses the `GTK_ACCESSIBLE_ROLE_LIST` role, and the list
 /// items use the `GTK_ACCESSIBLE_ROLE_LIST_ITEM` role.
+///
+/// The `ListViewRef` type acts as a lightweight Swift reference to an underlying `GtkListView` instance.
+/// It exposes methods that can operate on this data type through `ListViewProtocol` conformance.
+/// Use `ListViewRef` only as an `unowned` reference to an existing `GtkListView` instance.
+///
 public struct ListViewRef: ListViewProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkListView` instance.
     /// For type-safe access, use the generated, typed pointer `list_view_ptr` property instead.
@@ -12858,10 +12983,6 @@ public extension ListViewRef {
     }
 }
 
-/// The `ListView` type acts as a reference-counted owner of an underlying `GtkListView` instance.
-/// It provides the methods that can operate on this data type through `ListViewProtocol` conformance.
-/// Use `ListView` as a strong reference or owner of a `GtkListView` instance.
-///
 /// `GtkListView` presents a large dynamic list of items.
 /// 
 /// `GtkListView` uses its factory to generate one row widget for each visible
@@ -12936,18 +13057,20 @@ public extension ListViewRef {
 /// 
 /// ```
 /// listview[.separators][.rich-list][.navigation-sidebar][.data-table]
-/// ├── row
+/// ├── row[.activatable]
 /// │
-/// ├── row
+/// ├── row[.activatable]
 /// │
 /// ┊
 /// ╰── [rubberband]
 /// ```
 /// 
-/// `GtkListView` uses a single CSS node named listview. It may carry the
-/// .separators style class, when `GtkListView`:show-separators property
-/// is set. Each child widget uses a single CSS node named row. For
-/// rubberband selection, a node with name rubberband is used.
+/// `GtkListView` uses a single CSS node named `listview`. It may carry the
+/// `.separators` style class, when [property`Gtk.ListView:show-separators`]
+/// property is set. Each child widget uses a single CSS node named `row`.
+/// If the [property`Gtk.ListItem:activatable`] property is set, the
+/// corresponding row will have the `.activatable` style class. For
+/// rubberband selection, a node with name `rubberband` is used.
 /// 
 /// The main listview node may also carry style classes to select
 /// the style of [list presentation](ListContainers.html`list-styles`):
@@ -12957,6 +13080,11 @@ public extension ListViewRef {
 /// 
 /// `GtkListView` uses the `GTK_ACCESSIBLE_ROLE_LIST` role, and the list
 /// items use the `GTK_ACCESSIBLE_ROLE_LIST_ITEM` role.
+///
+/// The `ListView` type acts as a reference-counted owner of an underlying `GtkListView` instance.
+/// It provides the methods that can operate on this data type through `ListViewProtocol` conformance.
+/// Use `ListView` as a strong reference or owner of a `GtkListView` instance.
+///
 open class ListView: ListBase, ListViewProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -13363,12 +13491,14 @@ public enum ListViewSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13640,12 +13770,14 @@ public extension ListViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13689,12 +13821,14 @@ public extension ListViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13738,12 +13872,14 @@ public extension ListViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13787,12 +13923,14 @@ public extension ListViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13836,12 +13974,14 @@ public extension ListViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14034,11 +14174,6 @@ public extension ListViewProtocol {
 
 // MARK: - LockButton Class
 
-/// The `LockButtonProtocol` protocol exposes the methods and properties of an underlying `GtkLockButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `LockButton`.
-/// Alternatively, use `LockButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkLockButton` is a widget to obtain and revoke authorizations
 /// needed to operate the controls.
 /// 
@@ -14076,6 +14211,12 @@ public extension ListViewProtocol {
 /// [property`Gtk.LockButton:tooltip-lock`],
 /// [property`Gtk.LockButton:tooltip-unlock`] and
 /// [property`Gtk.LockButton:tooltip-not-authorized`] properties.
+///
+/// The `LockButtonProtocol` protocol exposes the methods and properties of an underlying `GtkLockButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `LockButton`.
+/// Alternatively, use `LockButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol LockButtonProtocol: ButtonProtocol {
         /// Untyped pointer to the underlying `GtkLockButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -14087,10 +14228,6 @@ public protocol LockButtonProtocol: ButtonProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `LockButtonRef` type acts as a lightweight Swift reference to an underlying `GtkLockButton` instance.
-/// It exposes methods that can operate on this data type through `LockButtonProtocol` conformance.
-/// Use `LockButtonRef` only as an `unowned` reference to an existing `GtkLockButton` instance.
-///
 /// `GtkLockButton` is a widget to obtain and revoke authorizations
 /// needed to operate the controls.
 /// 
@@ -14128,6 +14265,11 @@ public protocol LockButtonProtocol: ButtonProtocol {
 /// [property`Gtk.LockButton:tooltip-lock`],
 /// [property`Gtk.LockButton:tooltip-unlock`] and
 /// [property`Gtk.LockButton:tooltip-not-authorized`] properties.
+///
+/// The `LockButtonRef` type acts as a lightweight Swift reference to an underlying `GtkLockButton` instance.
+/// It exposes methods that can operate on this data type through `LockButtonProtocol` conformance.
+/// Use `LockButtonRef` only as an `unowned` reference to an existing `GtkLockButton` instance.
+///
 public struct LockButtonRef: LockButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkLockButton` instance.
     /// For type-safe access, use the generated, typed pointer `lock_button_ptr` property instead.
@@ -14214,10 +14356,6 @@ public extension LockButtonRef {
     }
 }
 
-/// The `LockButton` type acts as a reference-counted owner of an underlying `GtkLockButton` instance.
-/// It provides the methods that can operate on this data type through `LockButtonProtocol` conformance.
-/// Use `LockButton` as a strong reference or owner of a `GtkLockButton` instance.
-///
 /// `GtkLockButton` is a widget to obtain and revoke authorizations
 /// needed to operate the controls.
 /// 
@@ -14255,6 +14393,11 @@ public extension LockButtonRef {
 /// [property`Gtk.LockButton:tooltip-lock`],
 /// [property`Gtk.LockButton:tooltip-unlock`] and
 /// [property`Gtk.LockButton:tooltip-not-authorized`] properties.
+///
+/// The `LockButton` type acts as a reference-counted owner of an underlying `GtkLockButton` instance.
+/// It provides the methods that can operate on this data type through `LockButtonProtocol` conformance.
+/// Use `LockButton` as a strong reference or owner of a `GtkLockButton` instance.
+///
 open class LockButton: Button, LockButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -14663,12 +14806,14 @@ public enum LockButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14918,11 +15063,6 @@ public extension LockButtonProtocol {
 
 // MARK: - MapListModel Class
 
-/// The `MapListModelProtocol` protocol exposes the methods and properties of an underlying `GtkMapListModel` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MapListModel`.
-/// Alternatively, use `MapListModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkMapListModel` maps the items in a list model to different items.
 /// 
 /// `GtkMapListModel` uses a [callback`Gtk.MapListModelMapFunc`].
@@ -14951,6 +15091,12 @@ public extension LockButtonProtocol {
 /// 
 /// `GtkMapListModel` will attempt to discard the mapped objects as soon as
 /// they are no longer needed and recreate them if necessary.
+///
+/// The `MapListModelProtocol` protocol exposes the methods and properties of an underlying `GtkMapListModel` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MapListModel`.
+/// Alternatively, use `MapListModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MapListModelProtocol: GLibObject.ObjectProtocol, GIO.ListModelProtocol {
         /// Untyped pointer to the underlying `GtkMapListModel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -14962,10 +15108,6 @@ public protocol MapListModelProtocol: GLibObject.ObjectProtocol, GIO.ListModelPr
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MapListModelRef` type acts as a lightweight Swift reference to an underlying `GtkMapListModel` instance.
-/// It exposes methods that can operate on this data type through `MapListModelProtocol` conformance.
-/// Use `MapListModelRef` only as an `unowned` reference to an existing `GtkMapListModel` instance.
-///
 /// A `GtkMapListModel` maps the items in a list model to different items.
 /// 
 /// `GtkMapListModel` uses a [callback`Gtk.MapListModelMapFunc`].
@@ -14994,6 +15136,11 @@ public protocol MapListModelProtocol: GLibObject.ObjectProtocol, GIO.ListModelPr
 /// 
 /// `GtkMapListModel` will attempt to discard the mapped objects as soon as
 /// they are no longer needed and recreate them if necessary.
+///
+/// The `MapListModelRef` type acts as a lightweight Swift reference to an underlying `GtkMapListModel` instance.
+/// It exposes methods that can operate on this data type through `MapListModelProtocol` conformance.
+/// Use `MapListModelRef` only as an `unowned` reference to an existing `GtkMapListModel` instance.
+///
 public struct MapListModelRef: MapListModelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMapListModel` instance.
     /// For type-safe access, use the generated, typed pointer `map_list_model_ptr` property instead.
@@ -15080,10 +15227,6 @@ public extension MapListModelRef {
     }
 }
 
-/// The `MapListModel` type acts as a reference-counted owner of an underlying `GtkMapListModel` instance.
-/// It provides the methods that can operate on this data type through `MapListModelProtocol` conformance.
-/// Use `MapListModel` as a strong reference or owner of a `GtkMapListModel` instance.
-///
 /// A `GtkMapListModel` maps the items in a list model to different items.
 /// 
 /// `GtkMapListModel` uses a [callback`Gtk.MapListModelMapFunc`].
@@ -15112,6 +15255,11 @@ public extension MapListModelRef {
 /// 
 /// `GtkMapListModel` will attempt to discard the mapped objects as soon as
 /// they are no longer needed and recreate them if necessary.
+///
+/// The `MapListModel` type acts as a reference-counted owner of an underlying `GtkMapListModel` instance.
+/// It provides the methods that can operate on this data type through `MapListModelProtocol` conformance.
+/// Use `MapListModel` as a strong reference or owner of a `GtkMapListModel` instance.
+///
 open class MapListModel: GLibObject.Object, MapListModelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -15323,12 +15471,14 @@ public enum MapListModelSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

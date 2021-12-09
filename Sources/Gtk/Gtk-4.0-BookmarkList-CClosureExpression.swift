@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - BookmarkList Class
 
-/// The `BookmarkListProtocol` protocol exposes the methods and properties of an underlying `GtkBookmarkList` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `BookmarkList`.
-/// Alternatively, use `BookmarkListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkBookmarkList` is a list model that wraps `GBookmarkFile`.
 /// 
 /// It presents a `GListModel` and fills it asynchronously with the
@@ -28,6 +23,12 @@ import Gdk
 /// The `GFileInfo`s in the list have some attributes in the recent
 /// namespace added: `recent`private`` (boolean) and `recent:applications`
 /// (stringv).
+///
+/// The `BookmarkListProtocol` protocol exposes the methods and properties of an underlying `GtkBookmarkList` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `BookmarkList`.
+/// Alternatively, use `BookmarkListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BookmarkListProtocol: GLibObject.ObjectProtocol, GIO.ListModelProtocol {
         /// Untyped pointer to the underlying `GtkBookmarkList` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -39,10 +40,6 @@ public protocol BookmarkListProtocol: GLibObject.ObjectProtocol, GIO.ListModelPr
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BookmarkListRef` type acts as a lightweight Swift reference to an underlying `GtkBookmarkList` instance.
-/// It exposes methods that can operate on this data type through `BookmarkListProtocol` conformance.
-/// Use `BookmarkListRef` only as an `unowned` reference to an existing `GtkBookmarkList` instance.
-///
 /// `GtkBookmarkList` is a list model that wraps `GBookmarkFile`.
 /// 
 /// It presents a `GListModel` and fills it asynchronously with the
@@ -51,6 +48,11 @@ public protocol BookmarkListProtocol: GLibObject.ObjectProtocol, GIO.ListModelPr
 /// The `GFileInfo`s in the list have some attributes in the recent
 /// namespace added: `recent`private`` (boolean) and `recent:applications`
 /// (stringv).
+///
+/// The `BookmarkListRef` type acts as a lightweight Swift reference to an underlying `GtkBookmarkList` instance.
+/// It exposes methods that can operate on this data type through `BookmarkListProtocol` conformance.
+/// Use `BookmarkListRef` only as an `unowned` reference to an existing `GtkBookmarkList` instance.
+///
 public struct BookmarkListRef: BookmarkListProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBookmarkList` instance.
     /// For type-safe access, use the generated, typed pointer `bookmark_list_ptr` property instead.
@@ -137,10 +139,6 @@ public extension BookmarkListRef {
     }
 }
 
-/// The `BookmarkList` type acts as a reference-counted owner of an underlying `GtkBookmarkList` instance.
-/// It provides the methods that can operate on this data type through `BookmarkListProtocol` conformance.
-/// Use `BookmarkList` as a strong reference or owner of a `GtkBookmarkList` instance.
-///
 /// `GtkBookmarkList` is a list model that wraps `GBookmarkFile`.
 /// 
 /// It presents a `GListModel` and fills it asynchronously with the
@@ -149,6 +147,11 @@ public extension BookmarkListRef {
 /// The `GFileInfo`s in the list have some attributes in the recent
 /// namespace added: `recent`private`` (boolean) and `recent:applications`
 /// (stringv).
+///
+/// The `BookmarkList` type acts as a reference-counted owner of an underlying `GtkBookmarkList` instance.
+/// It provides the methods that can operate on this data type through `BookmarkListProtocol` conformance.
+/// Use `BookmarkList` as a strong reference or owner of a `GtkBookmarkList` instance.
+///
 open class BookmarkList: GLibObject.Object, BookmarkListProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -364,12 +367,14 @@ public enum BookmarkListSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -412,7 +417,7 @@ public extension BookmarkListProtocol {
     /// Sets the `attributes` to be enumerated and starts the enumeration.
     /// 
     /// If `attributes` is `nil`, no attributes will be queried, but a list
-    /// of `GFileInfos` will still be created.
+    /// of `GFileInfo`s will still be created.
     @inlinable func set(attributes: UnsafePointer<CChar>? = nil) {
         gtk_bookmark_list_set_attributes(bookmark_list_ptr, attributes)
     
@@ -435,7 +440,7 @@ public extension BookmarkListProtocol {
         /// Sets the `attributes` to be enumerated and starts the enumeration.
         /// 
         /// If `attributes` is `nil`, no attributes will be queried, but a list
-        /// of `GFileInfos` will still be created.
+        /// of `GFileInfo`s will still be created.
         nonmutating set {
             gtk_bookmark_list_set_attributes(bookmark_list_ptr, newValue)
         }
@@ -490,13 +495,14 @@ public extension BookmarkListProtocol {
 
 // MARK: - BoolFilter Class
 
+/// `GtkBoolFilter` evaluates a boolean `GtkExpression`
+/// to determine whether to include items.
+///
 /// The `BoolFilterProtocol` protocol exposes the methods and properties of an underlying `GtkBoolFilter` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BoolFilter`.
 /// Alternatively, use `BoolFilterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkBoolFilter` evaluates a boolean `GtkExpression`
-/// to determine whether to include items.
 public protocol BoolFilterProtocol: FilterProtocol {
         /// Untyped pointer to the underlying `GtkBoolFilter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -508,12 +514,13 @@ public protocol BoolFilterProtocol: FilterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkBoolFilter` evaluates a boolean `GtkExpression`
+/// to determine whether to include items.
+///
 /// The `BoolFilterRef` type acts as a lightweight Swift reference to an underlying `GtkBoolFilter` instance.
 /// It exposes methods that can operate on this data type through `BoolFilterProtocol` conformance.
 /// Use `BoolFilterRef` only as an `unowned` reference to an existing `GtkBoolFilter` instance.
 ///
-/// `GtkBoolFilter` evaluates a boolean `GtkExpression`
-/// to determine whether to include items.
 public struct BoolFilterRef: BoolFilterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBoolFilter` instance.
     /// For type-safe access, use the generated, typed pointer `bool_filter_ptr` property instead.
@@ -600,12 +607,13 @@ public extension BoolFilterRef {
     }
 }
 
+/// `GtkBoolFilter` evaluates a boolean `GtkExpression`
+/// to determine whether to include items.
+///
 /// The `BoolFilter` type acts as a reference-counted owner of an underlying `GtkBoolFilter` instance.
 /// It provides the methods that can operate on this data type through `BoolFilterProtocol` conformance.
 /// Use `BoolFilter` as a strong reference or owner of a `GtkBoolFilter` instance.
 ///
-/// `GtkBoolFilter` evaluates a boolean `GtkExpression`
-/// to determine whether to include items.
 open class BoolFilter: Filter, BoolFilterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -828,12 +836,14 @@ public enum BoolFilterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -922,11 +932,6 @@ public extension BoolFilterProtocol {
 
 // MARK: - Box Class
 
-/// The `BoxProtocol` protocol exposes the methods and properties of an underlying `GtkBox` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Box`.
-/// Alternatively, use `BoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkBox` widget arranges child widgets into a single row or column.
 /// 
 /// ![An example GtkBox](box.png)
@@ -959,6 +964,12 @@ public extension BoolFilterProtocol {
 /// # Accessibility
 /// 
 /// `GtkBox` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `BoxProtocol` protocol exposes the methods and properties of an underlying `GtkBox` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Box`.
+/// Alternatively, use `BoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BoxProtocol: WidgetProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkBox` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -970,10 +981,6 @@ public protocol BoxProtocol: WidgetProtocol, OrientableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BoxRef` type acts as a lightweight Swift reference to an underlying `GtkBox` instance.
-/// It exposes methods that can operate on this data type through `BoxProtocol` conformance.
-/// Use `BoxRef` only as an `unowned` reference to an existing `GtkBox` instance.
-///
 /// The `GtkBox` widget arranges child widgets into a single row or column.
 /// 
 /// ![An example GtkBox](box.png)
@@ -1006,6 +1013,11 @@ public protocol BoxProtocol: WidgetProtocol, OrientableProtocol {
 /// # Accessibility
 /// 
 /// `GtkBox` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `BoxRef` type acts as a lightweight Swift reference to an underlying `GtkBox` instance.
+/// It exposes methods that can operate on this data type through `BoxProtocol` conformance.
+/// Use `BoxRef` only as an `unowned` reference to an existing `GtkBox` instance.
+///
 public struct BoxRef: BoxProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBox` instance.
     /// For type-safe access, use the generated, typed pointer `box_ptr` property instead.
@@ -1092,10 +1104,6 @@ public extension BoxRef {
     }
 }
 
-/// The `Box` type acts as a reference-counted owner of an underlying `GtkBox` instance.
-/// It provides the methods that can operate on this data type through `BoxProtocol` conformance.
-/// Use `Box` as a strong reference or owner of a `GtkBox` instance.
-///
 /// The `GtkBox` widget arranges child widgets into a single row or column.
 /// 
 /// ![An example GtkBox](box.png)
@@ -1128,6 +1136,11 @@ public extension BoxRef {
 /// # Accessibility
 /// 
 /// `GtkBox` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `Box` type acts as a reference-counted owner of an underlying `GtkBox` instance.
+/// It provides the methods that can operate on this data type through `BoxProtocol` conformance.
+/// Use `Box` as a strong reference or owner of a `GtkBox` instance.
+///
 open class Box: Widget, BoxProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1512,12 +1525,14 @@ public enum BoxSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1857,11 +1872,6 @@ public extension BoxProtocol {
 
 // MARK: - BoxLayout Class
 
-/// The `BoxLayoutProtocol` protocol exposes the methods and properties of an underlying `GtkBoxLayout` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `BoxLayout`.
-/// Alternatively, use `BoxLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkBoxLayout` is a layout manager that arranges children in a single
 /// row or column.
 /// 
@@ -1876,6 +1886,12 @@ public extension BoxProtocol {
 /// 
 /// If you want to specify the amount of space placed between each child,
 /// you can use the [property`Gtk.BoxLayout:spacing`] property.
+///
+/// The `BoxLayoutProtocol` protocol exposes the methods and properties of an underlying `GtkBoxLayout` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `BoxLayout`.
+/// Alternatively, use `BoxLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BoxLayoutProtocol: LayoutManagerProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkBoxLayout` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1887,10 +1903,6 @@ public protocol BoxLayoutProtocol: LayoutManagerProtocol, OrientableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BoxLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkBoxLayout` instance.
-/// It exposes methods that can operate on this data type through `BoxLayoutProtocol` conformance.
-/// Use `BoxLayoutRef` only as an `unowned` reference to an existing `GtkBoxLayout` instance.
-///
 /// `GtkBoxLayout` is a layout manager that arranges children in a single
 /// row or column.
 /// 
@@ -1905,6 +1917,11 @@ public protocol BoxLayoutProtocol: LayoutManagerProtocol, OrientableProtocol {
 /// 
 /// If you want to specify the amount of space placed between each child,
 /// you can use the [property`Gtk.BoxLayout:spacing`] property.
+///
+/// The `BoxLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkBoxLayout` instance.
+/// It exposes methods that can operate on this data type through `BoxLayoutProtocol` conformance.
+/// Use `BoxLayoutRef` only as an `unowned` reference to an existing `GtkBoxLayout` instance.
+///
 public struct BoxLayoutRef: BoxLayoutProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBoxLayout` instance.
     /// For type-safe access, use the generated, typed pointer `box_layout_ptr` property instead.
@@ -1991,10 +2008,6 @@ public extension BoxLayoutRef {
     }
 }
 
-/// The `BoxLayout` type acts as a reference-counted owner of an underlying `GtkBoxLayout` instance.
-/// It provides the methods that can operate on this data type through `BoxLayoutProtocol` conformance.
-/// Use `BoxLayout` as a strong reference or owner of a `GtkBoxLayout` instance.
-///
 /// `GtkBoxLayout` is a layout manager that arranges children in a single
 /// row or column.
 /// 
@@ -2009,6 +2022,11 @@ public extension BoxLayoutRef {
 /// 
 /// If you want to specify the amount of space placed between each child,
 /// you can use the [property`Gtk.BoxLayout:spacing`] property.
+///
+/// The `BoxLayout` type acts as a reference-counted owner of an underlying `GtkBoxLayout` instance.
+/// It provides the methods that can operate on this data type through `BoxLayoutProtocol` conformance.
+/// Use `BoxLayout` as a strong reference or owner of a `GtkBoxLayout` instance.
+///
 open class BoxLayout: LayoutManager, BoxLayoutProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2227,12 +2245,14 @@ public enum BoxLayoutSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2352,11 +2372,6 @@ public extension BoxLayoutProtocol {
 
 // MARK: - Builder Class
 
-/// The `BuilderProtocol` protocol exposes the methods and properties of an underlying `GtkBuilder` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Builder`.
-/// Alternatively, use `BuilderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkBuilder` reads XML descriptions of a user interface and
 /// instantiates the described objects.
 /// 
@@ -2507,13 +2522,14 @@ public extension BoxLayoutProtocol {
 /// ```xml
 /// &lt;interface&gt;
 ///   &lt;object class="GtkDialog" id="dialog1"&gt;
-///     &lt;child internal-child="vbox"&gt;
+///     &lt;child internal-child="content_area"&gt;
 ///       &lt;object class="GtkBox" id="vbox1"&gt;
 ///         &lt;child internal-child="action_area"&gt;
 ///           &lt;object class="GtkBox" id="hbuttonbox1"&gt;
 ///             &lt;child&gt;
 ///               &lt;object class="GtkButton" id="ok_button"&gt;
-///                 &lt;property name="label"&gt;gtk-ok&lt;/property&gt;
+///                 &lt;property name="label" translatable="yes"&gt;_Ok&lt;/property&gt;
+///                 &lt;property name="use-underline"&gt;True&lt;/property&gt;
 ///                 &lt;signal name="clicked" handler="ok_button_clicked"/&gt;
 ///               &lt;/object&gt;
 ///             &lt;/child&gt;
@@ -2536,6 +2552,12 @@ public extension BoxLayoutProtocol {
 /// 
 /// A `&lt;template&gt;` tag can be used to define a widget class’s components.
 /// See the [GtkWidget documentation](class.Widget.html`building-composite-widgets-from-template-xml`) for details.
+///
+/// The `BuilderProtocol` protocol exposes the methods and properties of an underlying `GtkBuilder` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Builder`.
+/// Alternatively, use `BuilderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BuilderProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkBuilder` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2547,10 +2569,6 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BuilderRef` type acts as a lightweight Swift reference to an underlying `GtkBuilder` instance.
-/// It exposes methods that can operate on this data type through `BuilderProtocol` conformance.
-/// Use `BuilderRef` only as an `unowned` reference to an existing `GtkBuilder` instance.
-///
 /// A `GtkBuilder` reads XML descriptions of a user interface and
 /// instantiates the described objects.
 /// 
@@ -2701,13 +2719,14 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// ```xml
 /// &lt;interface&gt;
 ///   &lt;object class="GtkDialog" id="dialog1"&gt;
-///     &lt;child internal-child="vbox"&gt;
+///     &lt;child internal-child="content_area"&gt;
 ///       &lt;object class="GtkBox" id="vbox1"&gt;
 ///         &lt;child internal-child="action_area"&gt;
 ///           &lt;object class="GtkBox" id="hbuttonbox1"&gt;
 ///             &lt;child&gt;
 ///               &lt;object class="GtkButton" id="ok_button"&gt;
-///                 &lt;property name="label"&gt;gtk-ok&lt;/property&gt;
+///                 &lt;property name="label" translatable="yes"&gt;_Ok&lt;/property&gt;
+///                 &lt;property name="use-underline"&gt;True&lt;/property&gt;
 ///                 &lt;signal name="clicked" handler="ok_button_clicked"/&gt;
 ///               &lt;/object&gt;
 ///             &lt;/child&gt;
@@ -2730,6 +2749,11 @@ public protocol BuilderProtocol: GLibObject.ObjectProtocol {
 /// 
 /// A `&lt;template&gt;` tag can be used to define a widget class’s components.
 /// See the [GtkWidget documentation](class.Widget.html`building-composite-widgets-from-template-xml`) for details.
+///
+/// The `BuilderRef` type acts as a lightweight Swift reference to an underlying `GtkBuilder` instance.
+/// It exposes methods that can operate on this data type through `BuilderProtocol` conformance.
+/// Use `BuilderRef` only as an `unowned` reference to an existing `GtkBuilder` instance.
+///
 public struct BuilderRef: BuilderProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBuilder` instance.
     /// For type-safe access, use the generated, typed pointer `builder_ptr` property instead.
@@ -2884,10 +2908,6 @@ public extension BuilderRef {
     }
 }
 
-/// The `Builder` type acts as a reference-counted owner of an underlying `GtkBuilder` instance.
-/// It provides the methods that can operate on this data type through `BuilderProtocol` conformance.
-/// Use `Builder` as a strong reference or owner of a `GtkBuilder` instance.
-///
 /// A `GtkBuilder` reads XML descriptions of a user interface and
 /// instantiates the described objects.
 /// 
@@ -3038,13 +3058,14 @@ public extension BuilderRef {
 /// ```xml
 /// &lt;interface&gt;
 ///   &lt;object class="GtkDialog" id="dialog1"&gt;
-///     &lt;child internal-child="vbox"&gt;
+///     &lt;child internal-child="content_area"&gt;
 ///       &lt;object class="GtkBox" id="vbox1"&gt;
 ///         &lt;child internal-child="action_area"&gt;
 ///           &lt;object class="GtkBox" id="hbuttonbox1"&gt;
 ///             &lt;child&gt;
 ///               &lt;object class="GtkButton" id="ok_button"&gt;
-///                 &lt;property name="label"&gt;gtk-ok&lt;/property&gt;
+///                 &lt;property name="label" translatable="yes"&gt;_Ok&lt;/property&gt;
+///                 &lt;property name="use-underline"&gt;True&lt;/property&gt;
 ///                 &lt;signal name="clicked" handler="ok_button_clicked"/&gt;
 ///               &lt;/object&gt;
 ///             &lt;/child&gt;
@@ -3067,6 +3088,11 @@ public extension BuilderRef {
 /// 
 /// A `&lt;template&gt;` tag can be used to define a widget class’s components.
 /// See the [GtkWidget documentation](class.Widget.html`building-composite-widgets-from-template-xml`) for details.
+///
+/// The `Builder` type acts as a reference-counted owner of an underlying `GtkBuilder` instance.
+/// It provides the methods that can operate on this data type through `BuilderProtocol` conformance.
+/// Use `Builder` as a strong reference or owner of a `GtkBuilder` instance.
+///
 open class Builder: GLibObject.Object, BuilderProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3358,12 +3384,14 @@ public enum BuilderSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3629,14 +3657,14 @@ public extension BuilderProtocol {
 
     /// Sets the scope the builder should operate in.
     /// 
-    /// If `scope` is `nil` a new [class`Gtk.BuilderCScope`] will be created.
+    /// If `scope` is `nil`, a new [class`Gtk.BuilderCScope`] will be created.
     @inlinable func set(scope: BuilderScopeRef? = nil) {
         gtk_builder_set_scope(builder_ptr, scope?.builder_scope_ptr)
     
     }
     /// Sets the scope the builder should operate in.
     /// 
-    /// If `scope` is `nil` a new [class`Gtk.BuilderCScope`] will be created.
+    /// If `scope` is `nil`, a new [class`Gtk.BuilderCScope`] will be created.
     @inlinable func set<BuilderScopeT: BuilderScopeProtocol>(scope: BuilderScopeT?) {
         gtk_builder_set_scope(builder_ptr, scope?.builder_scope_ptr)
     
@@ -3727,7 +3755,7 @@ public extension BuilderProtocol {
         }
         /// Sets the scope the builder should operate in.
         /// 
-        /// If `scope` is `nil` a new [class`Gtk.BuilderCScope`] will be created.
+        /// If `scope` is `nil`, a new [class`Gtk.BuilderCScope`] will be created.
         nonmutating set {
             gtk_builder_set_scope(builder_ptr, UnsafeMutablePointer<GtkBuilderScope>(newValue?.builder_scope_ptr))
         }
@@ -3753,11 +3781,6 @@ public extension BuilderProtocol {
 
 // MARK: - BuilderCScope Class
 
-/// The `BuilderCScopeProtocol` protocol exposes the methods and properties of an underlying `GtkBuilderCScope` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `BuilderCScope`.
-/// Alternatively, use `BuilderCScopeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkBuilderScope` implementation for the C language.
 /// 
 /// `GtkBuilderCScope` instances use symbols explicitly added to `builder`
@@ -3774,6 +3797,12 @@ public extension BuilderProtocol {
 /// Note that unless [method`Gtk.BuilderCScope.add_callback_symbol`] is
 /// called for all signal callbacks which are referenced by the loaded XML,
 /// this functionality will require that `GModule` be supported on the platform.
+///
+/// The `BuilderCScopeProtocol` protocol exposes the methods and properties of an underlying `GtkBuilderCScope` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `BuilderCScope`.
+/// Alternatively, use `BuilderCScopeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BuilderCScopeProtocol: GLibObject.ObjectProtocol, BuilderScopeProtocol {
         /// Untyped pointer to the underlying `GtkBuilderCScope` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3785,10 +3814,6 @@ public protocol BuilderCScopeProtocol: GLibObject.ObjectProtocol, BuilderScopePr
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BuilderCScopeRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderCScope` instance.
-/// It exposes methods that can operate on this data type through `BuilderCScopeProtocol` conformance.
-/// Use `BuilderCScopeRef` only as an `unowned` reference to an existing `GtkBuilderCScope` instance.
-///
 /// A `GtkBuilderScope` implementation for the C language.
 /// 
 /// `GtkBuilderCScope` instances use symbols explicitly added to `builder`
@@ -3805,6 +3830,11 @@ public protocol BuilderCScopeProtocol: GLibObject.ObjectProtocol, BuilderScopePr
 /// Note that unless [method`Gtk.BuilderCScope.add_callback_symbol`] is
 /// called for all signal callbacks which are referenced by the loaded XML,
 /// this functionality will require that `GModule` be supported on the platform.
+///
+/// The `BuilderCScopeRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderCScope` instance.
+/// It exposes methods that can operate on this data type through `BuilderCScopeProtocol` conformance.
+/// Use `BuilderCScopeRef` only as an `unowned` reference to an existing `GtkBuilderCScope` instance.
+///
 public struct BuilderCScopeRef: BuilderCScopeProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBuilderCScope` instance.
     /// For type-safe access, use the generated, typed pointer `builder_cscope_ptr` property instead.
@@ -3886,10 +3916,6 @@ public extension BuilderCScopeRef {
 
     }
 
-/// The `BuilderCScope` type acts as a reference-counted owner of an underlying `GtkBuilderCScope` instance.
-/// It provides the methods that can operate on this data type through `BuilderCScopeProtocol` conformance.
-/// Use `BuilderCScope` as a strong reference or owner of a `GtkBuilderCScope` instance.
-///
 /// A `GtkBuilderScope` implementation for the C language.
 /// 
 /// `GtkBuilderCScope` instances use symbols explicitly added to `builder`
@@ -3906,6 +3932,11 @@ public extension BuilderCScopeRef {
 /// Note that unless [method`Gtk.BuilderCScope.add_callback_symbol`] is
 /// called for all signal callbacks which are referenced by the loaded XML,
 /// this functionality will require that `GModule` be supported on the platform.
+///
+/// The `BuilderCScope` type acts as a reference-counted owner of an underlying `GtkBuilderCScope` instance.
+/// It provides the methods that can operate on this data type through `BuilderCScopeProtocol` conformance.
+/// Use `BuilderCScope` as a strong reference or owner of a `GtkBuilderCScope` instance.
+///
 open class BuilderCScope: GLibObject.Object, BuilderCScopeProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4053,12 +4084,14 @@ public enum BuilderCScopeSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4109,11 +4142,6 @@ public extension BuilderCScopeProtocol {
 
 // MARK: - BuilderListItemFactory Class
 
-/// The `BuilderListItemFactoryProtocol` protocol exposes the methods and properties of an underlying `GtkBuilderListItemFactory` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `BuilderListItemFactory`.
-/// Alternatively, use `BuilderListItemFactoryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkBuilderListItemFactory` is a `GtkListItemFactory` that creates
 /// widgets by instantiating `GtkBuilder` UI templates.
 /// 
@@ -4137,6 +4165,12 @@ public extension BuilderCScopeProtocol {
 ///     &lt;/template&gt;
 ///   &lt;/interface&gt;
 /// ```
+///
+/// The `BuilderListItemFactoryProtocol` protocol exposes the methods and properties of an underlying `GtkBuilderListItemFactory` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `BuilderListItemFactory`.
+/// Alternatively, use `BuilderListItemFactoryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BuilderListItemFactoryProtocol: ListItemFactoryProtocol {
         /// Untyped pointer to the underlying `GtkBuilderListItemFactory` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4148,10 +4182,6 @@ public protocol BuilderListItemFactoryProtocol: ListItemFactoryProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BuilderListItemFactoryRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderListItemFactory` instance.
-/// It exposes methods that can operate on this data type through `BuilderListItemFactoryProtocol` conformance.
-/// Use `BuilderListItemFactoryRef` only as an `unowned` reference to an existing `GtkBuilderListItemFactory` instance.
-///
 /// `GtkBuilderListItemFactory` is a `GtkListItemFactory` that creates
 /// widgets by instantiating `GtkBuilder` UI templates.
 /// 
@@ -4175,6 +4205,11 @@ public protocol BuilderListItemFactoryProtocol: ListItemFactoryProtocol {
 ///     &lt;/template&gt;
 ///   &lt;/interface&gt;
 /// ```
+///
+/// The `BuilderListItemFactoryRef` type acts as a lightweight Swift reference to an underlying `GtkBuilderListItemFactory` instance.
+/// It exposes methods that can operate on this data type through `BuilderListItemFactoryProtocol` conformance.
+/// Use `BuilderListItemFactoryRef` only as an `unowned` reference to an existing `GtkBuilderListItemFactory` instance.
+///
 public struct BuilderListItemFactoryRef: BuilderListItemFactoryProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBuilderListItemFactory` instance.
     /// For type-safe access, use the generated, typed pointer `builder_list_item_factory_ptr` property instead.
@@ -4282,10 +4317,6 @@ public extension BuilderListItemFactoryRef {
     }
 }
 
-/// The `BuilderListItemFactory` type acts as a reference-counted owner of an underlying `GtkBuilderListItemFactory` instance.
-/// It provides the methods that can operate on this data type through `BuilderListItemFactoryProtocol` conformance.
-/// Use `BuilderListItemFactory` as a strong reference or owner of a `GtkBuilderListItemFactory` instance.
-///
 /// `GtkBuilderListItemFactory` is a `GtkListItemFactory` that creates
 /// widgets by instantiating `GtkBuilder` UI templates.
 /// 
@@ -4309,6 +4340,11 @@ public extension BuilderListItemFactoryRef {
 ///     &lt;/template&gt;
 ///   &lt;/interface&gt;
 /// ```
+///
+/// The `BuilderListItemFactory` type acts as a reference-counted owner of an underlying `GtkBuilderListItemFactory` instance.
+/// It provides the methods that can operate on this data type through `BuilderListItemFactoryProtocol` conformance.
+/// Use `BuilderListItemFactory` as a strong reference or owner of a `GtkBuilderListItemFactory` instance.
+///
 open class BuilderListItemFactory: ListItemFactory, BuilderListItemFactoryProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4546,12 +4582,14 @@ public enum BuilderListItemFactorySignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4623,11 +4661,6 @@ public extension BuilderListItemFactoryProtocol {
 
 // MARK: - Button Class
 
-/// The `ButtonProtocol` protocol exposes the methods and properties of an underlying `GtkButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Button`.
-/// Alternatively, use `ButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkButton` widget is generally used to trigger a callback function that is
 /// called when the button is pressed.
 /// 
@@ -4658,6 +4691,12 @@ public extension BuilderListItemFactoryProtocol {
 /// # Accessibility
 /// 
 /// `GtkButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+///
+/// The `ButtonProtocol` protocol exposes the methods and properties of an underlying `GtkButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Button`.
+/// Alternatively, use `ButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ButtonProtocol: WidgetProtocol, ActionableProtocol {
         /// Untyped pointer to the underlying `GtkButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4669,10 +4708,6 @@ public protocol ButtonProtocol: WidgetProtocol, ActionableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ButtonRef` type acts as a lightweight Swift reference to an underlying `GtkButton` instance.
-/// It exposes methods that can operate on this data type through `ButtonProtocol` conformance.
-/// Use `ButtonRef` only as an `unowned` reference to an existing `GtkButton` instance.
-///
 /// The `GtkButton` widget is generally used to trigger a callback function that is
 /// called when the button is pressed.
 /// 
@@ -4703,6 +4738,11 @@ public protocol ButtonProtocol: WidgetProtocol, ActionableProtocol {
 /// # Accessibility
 /// 
 /// `GtkButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+///
+/// The `ButtonRef` type acts as a lightweight Swift reference to an underlying `GtkButton` instance.
+/// It exposes methods that can operate on this data type through `ButtonProtocol` conformance.
+/// Use `ButtonRef` only as an `unowned` reference to an existing `GtkButton` instance.
+///
 public struct ButtonRef: ButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkButton` instance.
     /// For type-safe access, use the generated, typed pointer `button_ptr` property instead.
@@ -4844,10 +4884,6 @@ public extension ButtonRef {
     }
 }
 
-/// The `Button` type acts as a reference-counted owner of an underlying `GtkButton` instance.
-/// It provides the methods that can operate on this data type through `ButtonProtocol` conformance.
-/// Use `Button` as a strong reference or owner of a `GtkButton` instance.
-///
 /// The `GtkButton` widget is generally used to trigger a callback function that is
 /// called when the button is pressed.
 /// 
@@ -4878,6 +4914,11 @@ public extension ButtonRef {
 /// # Accessibility
 /// 
 /// `GtkButton` uses the `GTK_ACCESSIBLE_ROLE_BUTTON` role.
+///
+/// The `Button` type acts as a reference-counted owner of an underlying `GtkButton` instance.
+/// It provides the methods that can operate on this data type through `ButtonProtocol` conformance.
+/// Use `Button` as a strong reference or owner of a `GtkButton` instance.
+///
 open class Button: Widget, ButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5335,12 +5376,14 @@ public enum ButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5632,12 +5675,14 @@ public extension ButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5681,12 +5726,14 @@ public extension ButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5730,12 +5777,14 @@ public extension ButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5779,12 +5828,14 @@ public extension ButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5828,12 +5879,14 @@ public extension ButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5910,11 +5963,23 @@ public extension ButtonProtocol {
     }
 
     /// Sets the child widget of `button`.
+    /// 
+    /// Note that by using this API, you take full responsibility for setting
+    /// up the proper accessibility label and description information for `button`.
+    /// Most likely, you'll either set the accessibility label or description
+    /// for `button` explicitly, or you'll set a labelled-by or described-by
+    /// relations from `child` to `button`.
     @inlinable func set(child: WidgetRef? = nil) {
         gtk_button_set_child(button_ptr, child?.widget_ptr)
     
     }
     /// Sets the child widget of `button`.
+    /// 
+    /// Note that by using this API, you take full responsibility for setting
+    /// up the proper accessibility label and description information for `button`.
+    /// Most likely, you'll either set the accessibility label or description
+    /// for `button` explicitly, or you'll set a labelled-by or described-by
+    /// relations from `child` to `button`.
     @inlinable func set<WidgetT: WidgetProtocol>(child: WidgetT?) {
         gtk_button_set_child(button_ptr, child?.widget_ptr)
     
@@ -5961,6 +6026,12 @@ public extension ButtonProtocol {
             return rv
         }
         /// Sets the child widget of `button`.
+        /// 
+        /// Note that by using this API, you take full responsibility for setting
+        /// up the proper accessibility label and description information for `button`.
+        /// Most likely, you'll either set the accessibility label or description
+        /// for `button` explicitly, or you'll set a labelled-by or described-by
+        /// relations from `child` to `button`.
         nonmutating set {
             gtk_button_set_child(button_ptr, UnsafeMutablePointer<GtkWidget>(newValue?.widget_ptr))
         }
@@ -6052,12 +6123,13 @@ public extension ButtonProtocol {
 
 // MARK: - CClosureExpression Class
 
+/// A variant of `GtkClosureExpression` using a C closure.
+///
 /// The `CClosureExpressionProtocol` protocol exposes the methods and properties of an underlying `GtkCClosureExpression` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CClosureExpression`.
 /// Alternatively, use `CClosureExpressionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A variant of `GtkClosureExpression` using a C closure.
 public protocol CClosureExpressionProtocol: ExpressionProtocol {
         /// Untyped pointer to the underlying `GtkCClosureExpression` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6069,11 +6141,12 @@ public protocol CClosureExpressionProtocol: ExpressionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A variant of `GtkClosureExpression` using a C closure.
+///
 /// The `CClosureExpressionRef` type acts as a lightweight Swift reference to an underlying `GtkCClosureExpression` instance.
 /// It exposes methods that can operate on this data type through `CClosureExpressionProtocol` conformance.
 /// Use `CClosureExpressionRef` only as an `unowned` reference to an existing `GtkCClosureExpression` instance.
 ///
-/// A variant of `GtkClosureExpression` using a C closure.
 public struct CClosureExpressionRef: CClosureExpressionProtocol {
         /// Untyped pointer to the underlying `GtkCClosureExpression` instance.
     /// For type-safe access, use the generated, typed pointer `cclosure_expression_ptr` property instead.
@@ -6152,11 +6225,12 @@ public extension CClosureExpressionRef {
 
     }
 
+/// A variant of `GtkClosureExpression` using a C closure.
+///
 /// The `CClosureExpression` type acts as a reference-counted owner of an underlying `GtkCClosureExpression` instance.
 /// It provides the methods that can operate on this data type through `CClosureExpressionProtocol` conformance.
 /// Use `CClosureExpression` as a strong reference or owner of a `GtkCClosureExpression` instance.
 ///
-/// A variant of `GtkClosureExpression` using a C closure.
 open class CClosureExpression: Expression, CClosureExpressionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain

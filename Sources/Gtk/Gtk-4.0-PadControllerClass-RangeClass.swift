@@ -30,12 +30,13 @@ public extension PadControllerClassRef {
 
 // MARK: - PadControllerClass Record
 
+
+///
 /// The `PadControllerClassProtocol` protocol exposes the methods and properties of an underlying `GtkPadControllerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PadControllerClass`.
 /// Alternatively, use `PadControllerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol PadControllerClassProtocol {
         /// Untyped pointer to the underlying `GtkPadControllerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol PadControllerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `PadControllerClassRef` type acts as a lightweight Swift reference to an underlying `GtkPadControllerClass` instance.
 /// It exposes methods that can operate on this data type through `PadControllerClassProtocol` conformance.
 /// Use `PadControllerClassRef` only as an `unowned` reference to an existing `GtkPadControllerClass` instance.
 ///
-
 public struct PadControllerClassRef: PadControllerClassProtocol {
         /// Untyped pointer to the underlying `GtkPadControllerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -143,14 +145,15 @@ public extension PadControllerClassProtocol {
 
 // MARK: - PageRange Record
 
+/// A range of pages to print.
+/// 
+/// See also [method`Gtk.PrintSettings.set_page_ranges`].
+///
 /// The `PageRangeProtocol` protocol exposes the methods and properties of an underlying `GtkPageRange` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PageRange`.
 /// Alternatively, use `PageRangeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A range of pages to print.
-/// 
-/// See also [method`Gtk.PrintSettings.set_page_ranges`].
 public protocol PageRangeProtocol {
         /// Untyped pointer to the underlying `GtkPageRange` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -162,13 +165,14 @@ public protocol PageRangeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A range of pages to print.
+/// 
+/// See also [method`Gtk.PrintSettings.set_page_ranges`].
+///
 /// The `PageRangeRef` type acts as a lightweight Swift reference to an underlying `GtkPageRange` instance.
 /// It exposes methods that can operate on this data type through `PageRangeProtocol` conformance.
 /// Use `PageRangeRef` only as an `unowned` reference to an existing `GtkPageRange` instance.
 ///
-/// A range of pages to print.
-/// 
-/// See also [method`Gtk.PrintSettings.set_page_ranges`].
 public struct PageRangeRef: PageRangeProtocol {
         /// Untyped pointer to the underlying `GtkPageRange` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -247,13 +251,14 @@ public extension PageRangeRef {
 
     }
 
+/// A range of pages to print.
+/// 
+/// See also [method`Gtk.PrintSettings.set_page_ranges`].
+///
 /// The `PageRange` type acts as an owner of an underlying `GtkPageRange` instance.
 /// It provides the methods that can operate on this data type through `PageRangeProtocol` conformance.
 /// Use `PageRange` as a strong reference or owner of a `GtkPageRange` instance.
 ///
-/// A range of pages to print.
-/// 
-/// See also [method`Gtk.PrintSettings.set_page_ranges`].
 open class PageRange: PageRangeProtocol {
         /// Untyped pointer to the underlying `GtkPageRange` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -441,11 +446,6 @@ public extension PageRangeProtocol {
 
 // MARK: - PaperSize Record
 
-/// The `PaperSizeProtocol` protocol exposes the methods and properties of an underlying `GtkPaperSize` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PaperSize`.
-/// Alternatively, use `PaperSizeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkPaperSize` handles paper sizes.
 /// 
 /// It uses the standard called
@@ -457,6 +457,12 @@ public extension PageRangeProtocol {
 /// The `GtkPaperSize` object stores not only the dimensions (width
 /// and height) of a paper size and its name, it also provides
 /// default print margins.
+///
+/// The `PaperSizeProtocol` protocol exposes the methods and properties of an underlying `GtkPaperSize` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PaperSize`.
+/// Alternatively, use `PaperSizeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PaperSizeProtocol {
         /// Untyped pointer to the underlying `GtkPaperSize` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -468,10 +474,6 @@ public protocol PaperSizeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PaperSizeRef` type acts as a lightweight Swift reference to an underlying `GtkPaperSize` instance.
-/// It exposes methods that can operate on this data type through `PaperSizeProtocol` conformance.
-/// Use `PaperSizeRef` only as an `unowned` reference to an existing `GtkPaperSize` instance.
-///
 /// `GtkPaperSize` handles paper sizes.
 /// 
 /// It uses the standard called
@@ -483,6 +485,11 @@ public protocol PaperSizeProtocol {
 /// The `GtkPaperSize` object stores not only the dimensions (width
 /// and height) of a paper size and its name, it also provides
 /// default print margins.
+///
+/// The `PaperSizeRef` type acts as a lightweight Swift reference to an underlying `GtkPaperSize` instance.
+/// It exposes methods that can operate on this data type through `PaperSizeProtocol` conformance.
+/// Use `PaperSizeRef` only as an `unowned` reference to an existing `GtkPaperSize` instance.
+///
 public struct PaperSizeRef: PaperSizeProtocol {
         /// Untyped pointer to the underlying `GtkPaperSize` instance.
     /// For type-safe access, use the generated, typed pointer `paper_size_ptr` property instead.
@@ -665,10 +672,6 @@ public extension PaperSizeRef {
     }
 }
 
-/// The `PaperSize` type acts as an owner of an underlying `GtkPaperSize` instance.
-/// It provides the methods that can operate on this data type through `PaperSizeProtocol` conformance.
-/// Use `PaperSize` as a strong reference or owner of a `GtkPaperSize` instance.
-///
 /// `GtkPaperSize` handles paper sizes.
 /// 
 /// It uses the standard called
@@ -680,6 +683,11 @@ public extension PaperSizeRef {
 /// The `GtkPaperSize` object stores not only the dimensions (width
 /// and height) of a paper size and its name, it also provides
 /// default print margins.
+///
+/// The `PaperSize` type acts as an owner of an underlying `GtkPaperSize` instance.
+/// It provides the methods that can operate on this data type through `PaperSizeProtocol` conformance.
+/// Use `PaperSize` as a strong reference or owner of a `GtkPaperSize` instance.
+///
 open class PaperSize: PaperSizeProtocol {
         /// Untyped pointer to the underlying `GtkPaperSize` instance.
     /// For type-safe access, use the generated, typed pointer `paper_size_ptr` property instead.
@@ -1082,6 +1090,142 @@ public extension PaperSizeProtocol {
 
 
 
+/// Metatype/GType declaration for PasswordEntryBuffer
+public extension PasswordEntryBufferClassRef {
+    
+    /// This getter returns the GLib type identifier registered for `PasswordEntryBuffer`
+    static var metatypeReference: GType { gtk_password_entry_buffer_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkPasswordEntryBufferClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkPasswordEntryBufferClass.self) }
+    
+    static var metatype: GtkPasswordEntryBufferClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: PasswordEntryBufferClassRef? { PasswordEntryBufferClassRef(metatypePointer) }
+    
+    
+}
+
+// MARK: - PasswordEntryBufferClass Record
+
+
+///
+/// The `PasswordEntryBufferClassProtocol` protocol exposes the methods and properties of an underlying `GtkPasswordEntryBufferClass` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PasswordEntryBufferClass`.
+/// Alternatively, use `PasswordEntryBufferClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol PasswordEntryBufferClassProtocol {
+        /// Untyped pointer to the underlying `GtkPasswordEntryBufferClass` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GtkPasswordEntryBufferClass` instance.
+    var _ptr: UnsafeMutablePointer<GtkPasswordEntryBufferClass>! { get }
+
+    /// Required Initialiser for types conforming to `PasswordEntryBufferClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+
+///
+/// The `PasswordEntryBufferClassRef` type acts as a lightweight Swift reference to an underlying `GtkPasswordEntryBufferClass` instance.
+/// It exposes methods that can operate on this data type through `PasswordEntryBufferClassProtocol` conformance.
+/// Use `PasswordEntryBufferClassRef` only as an `unowned` reference to an existing `GtkPasswordEntryBufferClass` instance.
+///
+public struct PasswordEntryBufferClassRef: PasswordEntryBufferClassProtocol {
+        /// Untyped pointer to the underlying `GtkPasswordEntryBufferClass` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension PasswordEntryBufferClassRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GtkPasswordEntryBufferClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GtkPasswordEntryBufferClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GtkPasswordEntryBufferClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GtkPasswordEntryBufferClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `PasswordEntryBufferClassProtocol`
+    @inlinable init<T: PasswordEntryBufferClassProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferClassProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferClassProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferClassProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferClassProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferClassProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+// MARK: PasswordEntryBufferClass Record: PasswordEntryBufferClassProtocol extension (methods and fields)
+public extension PasswordEntryBufferClassProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GtkPasswordEntryBufferClass` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GtkPasswordEntryBufferClass>! { return ptr?.assumingMemoryBound(to: GtkPasswordEntryBufferClass.self) }
+
+
+    @inlinable var parentClass: GtkEntryBufferClass {
+        get {
+            let rv = _ptr.pointee.parent_class
+            return rv
+        }
+    }
+
+}
+
+
+
 /// Metatype/GType declaration for PasswordEntry
 public extension PasswordEntryClassRef {
     
@@ -1099,12 +1243,13 @@ public extension PasswordEntryClassRef {
 
 // MARK: - PasswordEntryClass Record
 
+
+///
 /// The `PasswordEntryClassProtocol` protocol exposes the methods and properties of an underlying `GtkPasswordEntryClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PasswordEntryClass`.
 /// Alternatively, use `PasswordEntryClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol PasswordEntryClassProtocol {
         /// Untyped pointer to the underlying `GtkPasswordEntryClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1116,11 +1261,12 @@ public protocol PasswordEntryClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `PasswordEntryClassRef` type acts as a lightweight Swift reference to an underlying `GtkPasswordEntryClass` instance.
 /// It exposes methods that can operate on this data type through `PasswordEntryClassProtocol` conformance.
 /// Use `PasswordEntryClassRef` only as an `unowned` reference to an existing `GtkPasswordEntryClass` instance.
 ///
-
 public struct PasswordEntryClassRef: PasswordEntryClassProtocol {
         /// Untyped pointer to the underlying `GtkPasswordEntryClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1227,12 +1373,13 @@ public extension PictureClassRef {
 
 // MARK: - PictureClass Record
 
+
+///
 /// The `PictureClassProtocol` protocol exposes the methods and properties of an underlying `GtkPictureClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PictureClass`.
 /// Alternatively, use `PictureClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol PictureClassProtocol {
         /// Untyped pointer to the underlying `GtkPictureClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1244,11 +1391,12 @@ public protocol PictureClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `PictureClassRef` type acts as a lightweight Swift reference to an underlying `GtkPictureClass` instance.
 /// It exposes methods that can operate on this data type through `PictureClassProtocol` conformance.
 /// Use `PictureClassRef` only as an `unowned` reference to an existing `GtkPictureClass` instance.
 ///
-
 public struct PictureClassRef: PictureClassProtocol {
         /// Untyped pointer to the underlying `GtkPictureClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1361,12 +1509,13 @@ public extension PopoverClassRef {
 
 // MARK: - PopoverClass Record
 
+
+///
 /// The `PopoverClassProtocol` protocol exposes the methods and properties of an underlying `GtkPopoverClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PopoverClass`.
 /// Alternatively, use `PopoverClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol PopoverClassProtocol {
         /// Untyped pointer to the underlying `GtkPopoverClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1378,11 +1527,12 @@ public protocol PopoverClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `PopoverClassRef` type acts as a lightweight Swift reference to an underlying `GtkPopoverClass` instance.
 /// It exposes methods that can operate on this data type through `PopoverClassProtocol` conformance.
 /// Use `PopoverClassRef` only as an `unowned` reference to an existing `GtkPopoverClass` instance.
 ///
-
 public struct PopoverClassRef: PopoverClassProtocol {
         /// Untyped pointer to the underlying `GtkPopoverClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1486,12 +1636,13 @@ public extension PopoverClassProtocol {
 
 // MARK: - PrintBackend Record
 
+
+///
 /// The `PrintBackendProtocol` protocol exposes the methods and properties of an underlying `GtkPrintBackend` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PrintBackend`.
 /// Alternatively, use `PrintBackendRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol PrintBackendProtocol {
         /// Untyped pointer to the underlying `GtkPrintBackend` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1503,11 +1654,12 @@ public protocol PrintBackendProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `PrintBackendRef` type acts as a lightweight Swift reference to an underlying `GtkPrintBackend` instance.
 /// It exposes methods that can operate on this data type through `PrintBackendProtocol` conformance.
 /// Use `PrintBackendRef` only as an `unowned` reference to an existing `GtkPrintBackend` instance.
 ///
-
 public struct PrintBackendRef: PrintBackendProtocol {
         /// Untyped pointer to the underlying `GtkPrintBackend` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1586,11 +1738,12 @@ public extension PrintBackendRef {
 
     }
 
+
+///
 /// The `PrintBackend` type acts as an owner of an underlying `GtkPrintBackend` instance.
 /// It provides the methods that can operate on this data type through `PrintBackendProtocol` conformance.
 /// Use `PrintBackend` as a strong reference or owner of a `GtkPrintBackend` instance.
 ///
-
 open class PrintBackend: PrintBackendProtocol {
         /// Untyped pointer to the underlying `GtkPrintBackend` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1768,12 +1921,13 @@ public extension PrintOperationClassRef {
 
 // MARK: - PrintOperationClass Record
 
+
+///
 /// The `PrintOperationClassProtocol` protocol exposes the methods and properties of an underlying `GtkPrintOperationClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PrintOperationClass`.
 /// Alternatively, use `PrintOperationClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol PrintOperationClassProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1785,11 +1939,12 @@ public protocol PrintOperationClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `PrintOperationClassRef` type acts as a lightweight Swift reference to an underlying `GtkPrintOperationClass` instance.
 /// It exposes methods that can operate on this data type through `PrintOperationClassProtocol` conformance.
 /// Use `PrintOperationClassRef` only as an `unowned` reference to an existing `GtkPrintOperationClass` instance.
 ///
-
 public struct PrintOperationClassRef: PrintOperationClassProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1928,12 +2083,13 @@ public extension PrintOperationPreviewIfaceRef {
 
 // MARK: - PrintOperationPreviewIface Record
 
+
+///
 /// The `PrintOperationPreviewIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkPrintOperationPreviewIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PrintOperationPreviewIface`.
 /// Alternatively, use `PrintOperationPreviewIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol PrintOperationPreviewIfaceProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationPreviewIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1945,11 +2101,12 @@ public protocol PrintOperationPreviewIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `PrintOperationPreviewIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkPrintOperationPreviewIface` instance.
 /// It exposes methods that can operate on this data type through `PrintOperationPreviewIfaceProtocol` conformance.
 /// Use `PrintOperationPreviewIfaceRef` only as an `unowned` reference to an existing `GtkPrintOperationPreviewIface` instance.
 ///
-
 public struct PrintOperationPreviewIfaceRef: PrintOperationPreviewIfaceProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationPreviewIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2088,12 +2245,13 @@ public extension RangeClassRef {
 
 // MARK: - RangeClass Record
 
+
+///
 /// The `RangeClassProtocol` protocol exposes the methods and properties of an underlying `GtkRangeClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RangeClass`.
 /// Alternatively, use `RangeClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RangeClassProtocol {
         /// Untyped pointer to the underlying `GtkRangeClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2105,11 +2263,12 @@ public protocol RangeClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RangeClassRef` type acts as a lightweight Swift reference to an underlying `GtkRangeClass` instance.
 /// It exposes methods that can operate on this data type through `RangeClassProtocol` conformance.
 /// Use `RangeClassRef` only as an `unowned` reference to an existing `GtkRangeClass` instance.
 ///
-
 public struct RangeClassRef: RangeClassProtocol {
         /// Untyped pointer to the underlying `GtkRangeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

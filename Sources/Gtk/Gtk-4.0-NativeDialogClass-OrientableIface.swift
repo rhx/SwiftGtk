@@ -30,12 +30,13 @@ public extension NativeDialogClassRef {
 
 // MARK: - NativeDialogClass Record
 
+/// Class structure for `GtkNativeDialog`.
+///
 /// The `NativeDialogClassProtocol` protocol exposes the methods and properties of an underlying `GtkNativeDialogClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NativeDialogClass`.
 /// Alternatively, use `NativeDialogClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GtkNativeDialog`.
 public protocol NativeDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkNativeDialogClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol NativeDialogClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GtkNativeDialog`.
+///
 /// The `NativeDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkNativeDialogClass` instance.
 /// It exposes methods that can operate on this data type through `NativeDialogClassProtocol` conformance.
 /// Use `NativeDialogClassRef` only as an `unowned` reference to an existing `GtkNativeDialogClass` instance.
 ///
-/// Class structure for `GtkNativeDialog`.
 public struct NativeDialogClassRef: NativeDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkNativeDialogClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -173,12 +175,13 @@ public extension NativeInterfaceRef {
 
 // MARK: - NativeInterface Record
 
+
+///
 /// The `NativeInterfaceProtocol` protocol exposes the methods and properties of an underlying `GtkNativeInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NativeInterface`.
 /// Alternatively, use `NativeInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NativeInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkNativeInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -190,11 +193,12 @@ public protocol NativeInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NativeInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkNativeInterface` instance.
 /// It exposes methods that can operate on this data type through `NativeInterfaceProtocol` conformance.
 /// Use `NativeInterfaceRef` only as an `unowned` reference to an existing `GtkNativeInterface` instance.
 ///
-
 public struct NativeInterfaceRef: NativeInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkNativeInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -301,12 +305,13 @@ public extension NeverTriggerClassRef {
 
 // MARK: - NeverTriggerClass Record
 
+
+///
 /// The `NeverTriggerClassProtocol` protocol exposes the methods and properties of an underlying `GtkNeverTriggerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NeverTriggerClass`.
 /// Alternatively, use `NeverTriggerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NeverTriggerClassProtocol {
         /// Untyped pointer to the underlying `GtkNeverTriggerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -318,11 +323,12 @@ public protocol NeverTriggerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NeverTriggerClassRef` type acts as a lightweight Swift reference to an underlying `GtkNeverTriggerClass` instance.
 /// It exposes methods that can operate on this data type through `NeverTriggerClassProtocol` conformance.
 /// Use `NeverTriggerClassRef` only as an `unowned` reference to an existing `GtkNeverTriggerClass` instance.
 ///
-
 public struct NeverTriggerClassRef: NeverTriggerClassProtocol {
         /// Untyped pointer to the underlying `GtkNeverTriggerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -429,12 +435,13 @@ public extension NoSelectionClassRef {
 
 // MARK: - NoSelectionClass Record
 
+
+///
 /// The `NoSelectionClassProtocol` protocol exposes the methods and properties of an underlying `GtkNoSelectionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NoSelectionClass`.
 /// Alternatively, use `NoSelectionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NoSelectionClassProtocol {
         /// Untyped pointer to the underlying `GtkNoSelectionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -446,11 +453,12 @@ public protocol NoSelectionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NoSelectionClassRef` type acts as a lightweight Swift reference to an underlying `GtkNoSelectionClass` instance.
 /// It exposes methods that can operate on this data type through `NoSelectionClassProtocol` conformance.
 /// Use `NoSelectionClassRef` only as an `unowned` reference to an existing `GtkNoSelectionClass` instance.
 ///
-
 public struct NoSelectionClassRef: NoSelectionClassProtocol {
         /// Untyped pointer to the underlying `GtkNoSelectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -563,12 +571,13 @@ public extension NothingActionClassRef {
 
 // MARK: - NothingActionClass Record
 
+
+///
 /// The `NothingActionClassProtocol` protocol exposes the methods and properties of an underlying `GtkNothingActionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NothingActionClass`.
 /// Alternatively, use `NothingActionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NothingActionClassProtocol {
         /// Untyped pointer to the underlying `GtkNothingActionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -580,11 +589,12 @@ public protocol NothingActionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NothingActionClassRef` type acts as a lightweight Swift reference to an underlying `GtkNothingActionClass` instance.
 /// It exposes methods that can operate on this data type through `NothingActionClassProtocol` conformance.
 /// Use `NothingActionClassRef` only as an `unowned` reference to an existing `GtkNothingActionClass` instance.
 ///
-
 public struct NothingActionClassRef: NothingActionClassProtocol {
         /// Untyped pointer to the underlying `GtkNothingActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -691,12 +701,13 @@ public extension NumericSorterClassRef {
 
 // MARK: - NumericSorterClass Record
 
+
+///
 /// The `NumericSorterClassProtocol` protocol exposes the methods and properties of an underlying `GtkNumericSorterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NumericSorterClass`.
 /// Alternatively, use `NumericSorterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NumericSorterClassProtocol {
         /// Untyped pointer to the underlying `GtkNumericSorterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -708,11 +719,12 @@ public protocol NumericSorterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NumericSorterClassRef` type acts as a lightweight Swift reference to an underlying `GtkNumericSorterClass` instance.
 /// It exposes methods that can operate on this data type through `NumericSorterClassProtocol` conformance.
 /// Use `NumericSorterClassRef` only as an `unowned` reference to an existing `GtkNumericSorterClass` instance.
 ///
-
 public struct NumericSorterClassRef: NumericSorterClassProtocol {
         /// Untyped pointer to the underlying `GtkNumericSorterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -825,12 +837,13 @@ public extension OrientableIfaceRef {
 
 // MARK: - OrientableIface Record
 
+
+///
 /// The `OrientableIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkOrientableIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OrientableIface`.
 /// Alternatively, use `OrientableIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol OrientableIfaceProtocol {
         /// Untyped pointer to the underlying `GtkOrientableIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -842,11 +855,12 @@ public protocol OrientableIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `OrientableIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkOrientableIface` instance.
 /// It exposes methods that can operate on this data type through `OrientableIfaceProtocol` conformance.
 /// Use `OrientableIfaceRef` only as an `unowned` reference to an existing `GtkOrientableIface` instance.
 ///
-
 public struct OrientableIfaceRef: OrientableIfaceProtocol {
         /// Untyped pointer to the underlying `GtkOrientableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

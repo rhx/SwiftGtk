@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - PageSetup Class
 
-/// The `PageSetupProtocol` protocol exposes the methods and properties of an underlying `GtkPageSetup` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PageSetup`.
-/// Alternatively, use `PageSetupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkPageSetup` object stores the page size, orientation and margins.
 /// 
 /// The idea is that you can get one of these from the page setup dialog
@@ -62,6 +57,12 @@ import Gdk
 ///   page_setup = new_page_setup;
 /// }
 /// ```
+///
+/// The `PageSetupProtocol` protocol exposes the methods and properties of an underlying `GtkPageSetup` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PageSetup`.
+/// Alternatively, use `PageSetupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PageSetupProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkPageSetup` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -73,10 +74,6 @@ public protocol PageSetupProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PageSetupRef` type acts as a lightweight Swift reference to an underlying `GtkPageSetup` instance.
-/// It exposes methods that can operate on this data type through `PageSetupProtocol` conformance.
-/// Use `PageSetupRef` only as an `unowned` reference to an existing `GtkPageSetup` instance.
-///
 /// A `GtkPageSetup` object stores the page size, orientation and margins.
 /// 
 /// The idea is that you can get one of these from the page setup dialog
@@ -119,6 +116,11 @@ public protocol PageSetupProtocol: GLibObject.ObjectProtocol {
 ///   page_setup = new_page_setup;
 /// }
 /// ```
+///
+/// The `PageSetupRef` type acts as a lightweight Swift reference to an underlying `GtkPageSetup` instance.
+/// It exposes methods that can operate on this data type through `PageSetupProtocol` conformance.
+/// Use `PageSetupRef` only as an `unowned` reference to an existing `GtkPageSetup` instance.
+///
 public struct PageSetupRef: PageSetupProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPageSetup` instance.
     /// For type-safe access, use the generated, typed pointer `page_setup_ptr` property instead.
@@ -272,10 +274,6 @@ public extension PageSetupRef {
     }
 }
 
-/// The `PageSetup` type acts as a reference-counted owner of an underlying `GtkPageSetup` instance.
-/// It provides the methods that can operate on this data type through `PageSetupProtocol` conformance.
-/// Use `PageSetup` as a strong reference or owner of a `GtkPageSetup` instance.
-///
 /// A `GtkPageSetup` object stores the page size, orientation and margins.
 /// 
 /// The idea is that you can get one of these from the page setup dialog
@@ -318,6 +316,11 @@ public extension PageSetupRef {
 ///   page_setup = new_page_setup;
 /// }
 /// ```
+///
+/// The `PageSetup` type acts as a reference-counted owner of an underlying `GtkPageSetup` instance.
+/// It provides the methods that can operate on this data type through `PageSetupProtocol` conformance.
+/// Use `PageSetup` as a strong reference or owner of a `GtkPageSetup` instance.
+///
 open class PageSetup: GLibObject.Object, PageSetupProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -544,12 +547,14 @@ public enum PageSetupSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -809,11 +814,6 @@ public extension PageSetupProtocol {
 
 // MARK: - PageSetupUnixDialog Class
 
-/// The `PageSetupUnixDialogProtocol` protocol exposes the methods and properties of an underlying `GtkPageSetupUnixDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PageSetupUnixDialog`.
-/// Alternatively, use `PageSetupUnixDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkPageSetupUnixDialog` implements a page setup dialog for platforms
 /// which don’t provide a native page setup dialog, like Unix.
 /// 
@@ -822,6 +822,12 @@ public extension PageSetupProtocol {
 /// It can be used very much like any other GTK dialog, at the
 /// cost of the portability offered by the high-level printing
 /// API in [class`Gtk.PrintOperation`].
+///
+/// The `PageSetupUnixDialogProtocol` protocol exposes the methods and properties of an underlying `GtkPageSetupUnixDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PageSetupUnixDialog`.
+/// Alternatively, use `PageSetupUnixDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PageSetupUnixDialogProtocol: DialogProtocol {
         /// Untyped pointer to the underlying `GtkPageSetupUnixDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -833,10 +839,6 @@ public protocol PageSetupUnixDialogProtocol: DialogProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PageSetupUnixDialogRef` type acts as a lightweight Swift reference to an underlying `GtkPageSetupUnixDialog` instance.
-/// It exposes methods that can operate on this data type through `PageSetupUnixDialogProtocol` conformance.
-/// Use `PageSetupUnixDialogRef` only as an `unowned` reference to an existing `GtkPageSetupUnixDialog` instance.
-///
 /// `GtkPageSetupUnixDialog` implements a page setup dialog for platforms
 /// which don’t provide a native page setup dialog, like Unix.
 /// 
@@ -845,6 +847,11 @@ public protocol PageSetupUnixDialogProtocol: DialogProtocol {
 /// It can be used very much like any other GTK dialog, at the
 /// cost of the portability offered by the high-level printing
 /// API in [class`Gtk.PrintOperation`].
+///
+/// The `PageSetupUnixDialogRef` type acts as a lightweight Swift reference to an underlying `GtkPageSetupUnixDialog` instance.
+/// It exposes methods that can operate on this data type through `PageSetupUnixDialogProtocol` conformance.
+/// Use `PageSetupUnixDialogRef` only as an `unowned` reference to an existing `GtkPageSetupUnixDialog` instance.
+///
 public struct PageSetupUnixDialogRef: PageSetupUnixDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPageSetupUnixDialog` instance.
     /// For type-safe access, use the generated, typed pointer `page_setup_unix_dialog_ptr` property instead.
@@ -931,10 +938,6 @@ public extension PageSetupUnixDialogRef {
     }
 }
 
-/// The `PageSetupUnixDialog` type acts as a reference-counted owner of an underlying `GtkPageSetupUnixDialog` instance.
-/// It provides the methods that can operate on this data type through `PageSetupUnixDialogProtocol` conformance.
-/// Use `PageSetupUnixDialog` as a strong reference or owner of a `GtkPageSetupUnixDialog` instance.
-///
 /// `GtkPageSetupUnixDialog` implements a page setup dialog for platforms
 /// which don’t provide a native page setup dialog, like Unix.
 /// 
@@ -943,6 +946,11 @@ public extension PageSetupUnixDialogRef {
 /// It can be used very much like any other GTK dialog, at the
 /// cost of the portability offered by the high-level printing
 /// API in [class`Gtk.PrintOperation`].
+///
+/// The `PageSetupUnixDialog` type acts as a reference-counted owner of an underlying `GtkPageSetupUnixDialog` instance.
+/// It provides the methods that can operate on this data type through `PageSetupUnixDialogProtocol` conformance.
+/// Use `PageSetupUnixDialog` as a strong reference or owner of a `GtkPageSetupUnixDialog` instance.
+///
 open class PageSetupUnixDialog: Dialog, PageSetupUnixDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1447,12 +1455,14 @@ public enum PageSetupUnixDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1804,11 +1814,6 @@ public extension PageSetupUnixDialogProtocol {
 
 // MARK: - Paned Class
 
-/// The `PanedProtocol` protocol exposes the methods and properties of an underlying `GtkPaned` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Paned`.
-/// Alternatively, use `PanedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkPaned` has two panes, arranged either horizontally or vertically.
 /// 
 /// ![An example GtkPaned](panes.png)
@@ -1876,6 +1881,12 @@ public extension PageSetupUnixDialogProtocol {
 /// gtk_paned_set_end_child_shrink (GTK_PANED (hpaned), FALSE);
 /// gtk_widget_set_size_request (frame2, 50, -1);
 /// ```
+///
+/// The `PanedProtocol` protocol exposes the methods and properties of an underlying `GtkPaned` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Paned`.
+/// Alternatively, use `PanedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PanedProtocol: WidgetProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkPaned` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1887,10 +1898,6 @@ public protocol PanedProtocol: WidgetProtocol, OrientableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PanedRef` type acts as a lightweight Swift reference to an underlying `GtkPaned` instance.
-/// It exposes methods that can operate on this data type through `PanedProtocol` conformance.
-/// Use `PanedRef` only as an `unowned` reference to an existing `GtkPaned` instance.
-///
 /// `GtkPaned` has two panes, arranged either horizontally or vertically.
 /// 
 /// ![An example GtkPaned](panes.png)
@@ -1958,6 +1965,11 @@ public protocol PanedProtocol: WidgetProtocol, OrientableProtocol {
 /// gtk_paned_set_end_child_shrink (GTK_PANED (hpaned), FALSE);
 /// gtk_widget_set_size_request (frame2, 50, -1);
 /// ```
+///
+/// The `PanedRef` type acts as a lightweight Swift reference to an underlying `GtkPaned` instance.
+/// It exposes methods that can operate on this data type through `PanedProtocol` conformance.
+/// Use `PanedRef` only as an `unowned` reference to an existing `GtkPaned` instance.
+///
 public struct PanedRef: PanedProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPaned` instance.
     /// For type-safe access, use the generated, typed pointer `paned_ptr` property instead.
@@ -2044,10 +2056,6 @@ public extension PanedRef {
     }
 }
 
-/// The `Paned` type acts as a reference-counted owner of an underlying `GtkPaned` instance.
-/// It provides the methods that can operate on this data type through `PanedProtocol` conformance.
-/// Use `Paned` as a strong reference or owner of a `GtkPaned` instance.
-///
 /// `GtkPaned` has two panes, arranged either horizontally or vertically.
 /// 
 /// ![An example GtkPaned](panes.png)
@@ -2115,6 +2123,11 @@ public extension PanedRef {
 /// gtk_paned_set_end_child_shrink (GTK_PANED (hpaned), FALSE);
 /// gtk_widget_set_size_request (frame2, 50, -1);
 /// ```
+///
+/// The `Paned` type acts as a reference-counted owner of an underlying `GtkPaned` instance.
+/// It provides the methods that can operate on this data type through `PanedProtocol` conformance.
+/// Use `Paned` as a strong reference or owner of a `GtkPaned` instance.
+///
 open class Paned: Widget, PanedProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2562,12 +2575,14 @@ public enum PanedSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3019,12 +3034,14 @@ public extension PanedProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3068,12 +3085,14 @@ public extension PanedProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3117,12 +3136,14 @@ public extension PanedProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3166,12 +3187,14 @@ public extension PanedProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3215,12 +3238,14 @@ public extension PanedProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3264,12 +3289,14 @@ public extension PanedProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3313,12 +3340,14 @@ public extension PanedProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3362,12 +3391,14 @@ public extension PanedProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3411,12 +3442,14 @@ public extension PanedProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3460,12 +3493,14 @@ public extension PanedProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3509,12 +3544,14 @@ public extension PanedProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3768,12 +3805,13 @@ public extension PanedProtocol {
 
 // MARK: - ParamSpecExpression Class
 
+/// A `GParamSpec` for properties holding a `GtkExpression`.
+///
 /// The `ParamSpecExpressionProtocol` protocol exposes the methods and properties of an underlying `GtkParamSpecExpression` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecExpression`.
 /// Alternatively, use `ParamSpecExpressionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` for properties holding a `GtkExpression`.
 public protocol ParamSpecExpressionProtocol: GLibObject.ParamSpecProtocol {
         /// Untyped pointer to the underlying `GtkParamSpecExpression` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3785,11 +3823,12 @@ public protocol ParamSpecExpressionProtocol: GLibObject.ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` for properties holding a `GtkExpression`.
+///
 /// The `ParamSpecExpressionRef` type acts as a lightweight Swift reference to an underlying `GtkParamSpecExpression` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecExpressionProtocol` conformance.
 /// Use `ParamSpecExpressionRef` only as an `unowned` reference to an existing `GtkParamSpecExpression` instance.
 ///
-/// A `GParamSpec` for properties holding a `GtkExpression`.
 public struct ParamSpecExpressionRef: ParamSpecExpressionProtocol {
         /// Untyped pointer to the underlying `GtkParamSpecExpression` instance.
     /// For type-safe access, use the generated, typed pointer `param_expression_ptr` property instead.
@@ -3868,11 +3907,12 @@ public extension ParamSpecExpressionRef {
 
     }
 
+/// A `GParamSpec` for properties holding a `GtkExpression`.
+///
 /// The `ParamSpecExpression` type acts as a reference-counted owner of an underlying `GtkParamSpecExpression` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecExpressionProtocol` conformance.
 /// Use `ParamSpecExpression` as a strong reference or owner of a `GtkParamSpecExpression` instance.
 ///
-/// A `GParamSpec` for properties holding a `GtkExpression`.
 open class ParamSpecExpression: GLibObject.ParamSpec, ParamSpecExpressionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4021,11 +4061,6 @@ public extension ParamSpecExpressionProtocol {
 
 // MARK: - PasswordEntry Class
 
-/// The `PasswordEntryProtocol` protocol exposes the methods and properties of an underlying `GtkPasswordEntry` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PasswordEntry`.
-/// Alternatively, use `PasswordEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkPasswordEntry` is an entry that has been tailored for entering secrets.
 /// 
 /// ![An example GtkPasswordEntry](password-entry.png)
@@ -4058,6 +4093,12 @@ public extension ParamSpecExpressionProtocol {
 /// # Accessibility
 /// 
 /// `GtkPasswordEntry` uses the `GTK_ACCESSIBLE_ROLE_TEXT_BOX` role.
+///
+/// The `PasswordEntryProtocol` protocol exposes the methods and properties of an underlying `GtkPasswordEntry` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PasswordEntry`.
+/// Alternatively, use `PasswordEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PasswordEntryProtocol: WidgetProtocol, EditableProtocol {
         /// Untyped pointer to the underlying `GtkPasswordEntry` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4069,10 +4110,6 @@ public protocol PasswordEntryProtocol: WidgetProtocol, EditableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PasswordEntryRef` type acts as a lightweight Swift reference to an underlying `GtkPasswordEntry` instance.
-/// It exposes methods that can operate on this data type through `PasswordEntryProtocol` conformance.
-/// Use `PasswordEntryRef` only as an `unowned` reference to an existing `GtkPasswordEntry` instance.
-///
 /// `GtkPasswordEntry` is an entry that has been tailored for entering secrets.
 /// 
 /// ![An example GtkPasswordEntry](password-entry.png)
@@ -4105,6 +4142,11 @@ public protocol PasswordEntryProtocol: WidgetProtocol, EditableProtocol {
 /// # Accessibility
 /// 
 /// `GtkPasswordEntry` uses the `GTK_ACCESSIBLE_ROLE_TEXT_BOX` role.
+///
+/// The `PasswordEntryRef` type acts as a lightweight Swift reference to an underlying `GtkPasswordEntry` instance.
+/// It exposes methods that can operate on this data type through `PasswordEntryProtocol` conformance.
+/// Use `PasswordEntryRef` only as an `unowned` reference to an existing `GtkPasswordEntry` instance.
+///
 public struct PasswordEntryRef: PasswordEntryProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPasswordEntry` instance.
     /// For type-safe access, use the generated, typed pointer `password_entry_ptr` property instead.
@@ -4191,10 +4233,6 @@ public extension PasswordEntryRef {
     }
 }
 
-/// The `PasswordEntry` type acts as a reference-counted owner of an underlying `GtkPasswordEntry` instance.
-/// It provides the methods that can operate on this data type through `PasswordEntryProtocol` conformance.
-/// Use `PasswordEntry` as a strong reference or owner of a `GtkPasswordEntry` instance.
-///
 /// `GtkPasswordEntry` is an entry that has been tailored for entering secrets.
 /// 
 /// ![An example GtkPasswordEntry](password-entry.png)
@@ -4227,6 +4265,11 @@ public extension PasswordEntryRef {
 /// # Accessibility
 /// 
 /// `GtkPasswordEntry` uses the `GTK_ACCESSIBLE_ROLE_TEXT_BOX` role.
+///
+/// The `PasswordEntry` type acts as a reference-counted owner of an underlying `GtkPasswordEntry` instance.
+/// It provides the methods that can operate on this data type through `PasswordEntryProtocol` conformance.
+/// Use `PasswordEntry` as a strong reference or owner of a `GtkPasswordEntry` instance.
+///
 open class PasswordEntry: Widget, PasswordEntryProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4619,12 +4662,14 @@ public enum PasswordEntrySignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4889,12 +4934,14 @@ public extension PasswordEntryProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4938,12 +4985,14 @@ public extension PasswordEntryProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4987,12 +5036,14 @@ public extension PasswordEntryProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5036,12 +5087,14 @@ public extension PasswordEntryProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5148,13 +5201,387 @@ public extension PasswordEntryProtocol {
 
 
 
+// MARK: - PasswordEntryBuffer Class
+
+/// A `GtkEntryBuffer` that locks the underlying memory to prevent it
+/// from being swapped to disk.
+/// 
+/// `GtkPasswordEntry` uses a `GtkPasswordEntryBuffer`.
+///
+/// The `PasswordEntryBufferProtocol` protocol exposes the methods and properties of an underlying `GtkPasswordEntryBuffer` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PasswordEntryBuffer`.
+/// Alternatively, use `PasswordEntryBufferRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol PasswordEntryBufferProtocol: EntryBufferProtocol {
+        /// Untyped pointer to the underlying `GtkPasswordEntryBuffer` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GtkPasswordEntryBuffer` instance.
+    var password_entry_buffer_ptr: UnsafeMutablePointer<GtkPasswordEntryBuffer>! { get }
+
+    /// Required Initialiser for types conforming to `PasswordEntryBufferProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// A `GtkEntryBuffer` that locks the underlying memory to prevent it
+/// from being swapped to disk.
+/// 
+/// `GtkPasswordEntry` uses a `GtkPasswordEntryBuffer`.
+///
+/// The `PasswordEntryBufferRef` type acts as a lightweight Swift reference to an underlying `GtkPasswordEntryBuffer` instance.
+/// It exposes methods that can operate on this data type through `PasswordEntryBufferProtocol` conformance.
+/// Use `PasswordEntryBufferRef` only as an `unowned` reference to an existing `GtkPasswordEntryBuffer` instance.
+///
+public struct PasswordEntryBufferRef: PasswordEntryBufferProtocol, GWeakCapturing {
+        /// Untyped pointer to the underlying `GtkPasswordEntryBuffer` instance.
+    /// For type-safe access, use the generated, typed pointer `password_entry_buffer_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension PasswordEntryBufferRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GtkPasswordEntryBuffer>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GtkPasswordEntryBuffer>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GtkPasswordEntryBuffer>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GtkPasswordEntryBuffer>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `PasswordEntryBufferProtocol`
+    @inlinable init<T: PasswordEntryBufferProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: PasswordEntryBufferProtocol>(_ other: T) -> PasswordEntryBufferRef { PasswordEntryBufferRef(other) }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+        /// Creates a new `GtkEntryBuffer` using secure memory allocations.
+    @inlinable init() {
+        let rv = gtk_password_entry_buffer_new()
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+}
+
+/// A `GtkEntryBuffer` that locks the underlying memory to prevent it
+/// from being swapped to disk.
+/// 
+/// `GtkPasswordEntry` uses a `GtkPasswordEntryBuffer`.
+///
+/// The `PasswordEntryBuffer` type acts as a reference-counted owner of an underlying `GtkPasswordEntryBuffer` instance.
+/// It provides the methods that can operate on this data type through `PasswordEntryBufferProtocol` conformance.
+/// Use `PasswordEntryBuffer` as a strong reference or owner of a `GtkPasswordEntryBuffer` instance.
+///
+open class PasswordEntryBuffer: EntryBuffer, PasswordEntryBufferProtocol {
+        /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PasswordEntryBuffer` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GtkPasswordEntryBuffer>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PasswordEntryBuffer` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GtkPasswordEntryBuffer>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PasswordEntryBuffer` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PasswordEntryBuffer` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PasswordEntryBuffer` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GtkPasswordEntryBuffer>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PasswordEntryBuffer` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GtkPasswordEntryBuffer>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// Will retain `GtkPasswordEntryBuffer`.
+    /// i.e., ownership is transferred to the `PasswordEntryBuffer` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GtkPasswordEntryBuffer>) {
+        super.init(retainingCPointer: op)
+    }
+
+    /// Reference intialiser for a related type that implements `PasswordEntryBufferProtocol`
+    /// Will retain `GtkPasswordEntryBuffer`.
+    /// - Parameter other: an instance of a related type that implements `PasswordEntryBufferProtocol`
+    @inlinable public init<T: PasswordEntryBufferProtocol>(passwordEntryBuffer other: T) {
+        super.init(retainingRaw: other.ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PasswordEntryBufferProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
+    }
+
+    /// Creates a new `GtkEntryBuffer` using secure memory allocations.
+    @inlinable public init() {
+        let rv = gtk_password_entry_buffer_new()
+        super.init(gpointer: gpointer(rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
+    }
+
+
+}
+
+public enum PasswordEntryBufferPropertyName: String, PropertyNameProtocol {
+    /// The length (in characters) of the text in buffer.
+    case length = "length"
+    /// The maximum length (in characters) of the text in the buffer.
+    case maxLength = "max-length"
+    /// The contents of the buffer.
+    case text = "text"
+}
+
+public extension PasswordEntryBufferProtocol {
+    /// Bind a `PasswordEntryBufferPropertyName` source property to a given target object.
+    /// - Parameter source_property: the source property to bind
+    /// - Parameter target: the target object to bind to
+    /// - Parameter target_property: the target property to bind to
+    /// - Parameter flags: the flags to pass to the `Binding`
+    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Returns: binding reference or `nil` in case of an error
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: PasswordEntryBufferPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
+            let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
+            let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+                if let swift = UnsafeRawPointer($0) {
+                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
+                    holder.release()
+                }
+            }
+            return rv.map { BindingRef($0) }
+        }
+
+        let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
+            let ptr = UnsafeRawPointer($3)
+            let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
+            return holder.transform_from(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
+        }) {
+            let ptr = UnsafeRawPointer($3)
+            let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
+            return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
+        }
+        return rv
+    }
+
+    /// Get the value of a PasswordEntryBuffer property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    @inlinable func get(property: PasswordEntryBufferPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a PasswordEntryBuffer property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    @inlinable func set(property: PasswordEntryBufferPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+    }
+}
+
+public enum PasswordEntryBufferSignalName: String, SignalNameProtocol {
+    /// The text is altered in the default handler for this signal.
+    /// 
+    /// If you want access to the text after the text has been modified,
+    /// use `G_CONNECT_AFTER`.
+    case deletedText = "deleted-text"
+    /// This signal is emitted after text is inserted into the buffer.
+    case insertedText = "inserted-text"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The length (in characters) of the text in buffer.
+    case notifyLength = "notify::length"
+    /// The maximum length (in characters) of the text in the buffer.
+    case notifyMaxLength = "notify::max-length"
+    /// The contents of the buffer.
+    case notifyText = "notify::text"
+}
+
+// MARK: PasswordEntryBuffer has no signals
+// MARK: PasswordEntryBuffer Class: PasswordEntryBufferProtocol extension (methods and fields)
+public extension PasswordEntryBufferProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GtkPasswordEntryBuffer` instance.
+    @inlinable var password_entry_buffer_ptr: UnsafeMutablePointer<GtkPasswordEntryBuffer>! { return ptr?.assumingMemoryBound(to: GtkPasswordEntryBuffer.self) }
+
+
+
+}
+
+
+
 // MARK: - Picture Class
 
-/// The `PictureProtocol` protocol exposes the methods and properties of an underlying `GtkPicture` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Picture`.
-/// Alternatively, use `PictureRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkPicture` widget displays a `GdkPaintable`.
 /// 
 /// ![An example GtkPicture](picture.png)
@@ -5201,6 +5628,12 @@ public extension PasswordEntryProtocol {
 /// ## Accessibility
 /// 
 /// `GtkPicture` uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
+///
+/// The `PictureProtocol` protocol exposes the methods and properties of an underlying `GtkPicture` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Picture`.
+/// Alternatively, use `PictureRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PictureProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkPicture` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5212,10 +5645,6 @@ public protocol PictureProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PictureRef` type acts as a lightweight Swift reference to an underlying `GtkPicture` instance.
-/// It exposes methods that can operate on this data type through `PictureProtocol` conformance.
-/// Use `PictureRef` only as an `unowned` reference to an existing `GtkPicture` instance.
-///
 /// The `GtkPicture` widget displays a `GdkPaintable`.
 /// 
 /// ![An example GtkPicture](picture.png)
@@ -5262,6 +5691,11 @@ public protocol PictureProtocol: WidgetProtocol {
 /// ## Accessibility
 /// 
 /// `GtkPicture` uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
+///
+/// The `PictureRef` type acts as a lightweight Swift reference to an underlying `GtkPicture` instance.
+/// It exposes methods that can operate on this data type through `PictureProtocol` conformance.
+/// Use `PictureRef` only as an `unowned` reference to an existing `GtkPicture` instance.
+///
 public struct PictureRef: PictureProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPicture` instance.
     /// For type-safe access, use the generated, typed pointer `picture_ptr` property instead.
@@ -5449,10 +5883,6 @@ public extension PictureRef {
     }
 }
 
-/// The `Picture` type acts as a reference-counted owner of an underlying `GtkPicture` instance.
-/// It provides the methods that can operate on this data type through `PictureProtocol` conformance.
-/// Use `Picture` as a strong reference or owner of a `GtkPicture` instance.
-///
 /// The `GtkPicture` widget displays a `GdkPaintable`.
 /// 
 /// ![An example GtkPicture](picture.png)
@@ -5499,6 +5929,11 @@ public extension PictureRef {
 /// ## Accessibility
 /// 
 /// `GtkPicture` uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
+///
+/// The `Picture` type acts as a reference-counted owner of an underlying `GtkPicture` instance.
+/// It provides the methods that can operate on this data type through `PictureProtocol` conformance.
+/// Use `Picture` as a strong reference or owner of a `GtkPicture` instance.
+///
 open class Picture: Widget, PictureProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5999,12 +6434,14 @@ public enum PictureSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6457,11 +6894,6 @@ public extension PictureProtocol {
 
 // MARK: - Popover Class
 
-/// The `PopoverProtocol` protocol exposes the methods and properties of an underlying `GtkPopover` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Popover`.
-/// Alternatively, use `PopoverRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkPopover` is a bubble-like context popup.
 /// 
 /// ![An example GtkPopover](popover.png)
@@ -6538,6 +6970,12 @@ public extension PictureProtocol {
 /// be the same. The arrow also does not support any border shape other than
 /// solid, no border-radius, only one border width (border-bottom-width is
 /// used) and no box-shadow.
+///
+/// The `PopoverProtocol` protocol exposes the methods and properties of an underlying `GtkPopover` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Popover`.
+/// Alternatively, use `PopoverRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PopoverProtocol: WidgetProtocol, NativeProtocol, ShortcutManagerProtocol {
         /// Untyped pointer to the underlying `GtkPopover` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6549,10 +6987,6 @@ public protocol PopoverProtocol: WidgetProtocol, NativeProtocol, ShortcutManager
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PopoverRef` type acts as a lightweight Swift reference to an underlying `GtkPopover` instance.
-/// It exposes methods that can operate on this data type through `PopoverProtocol` conformance.
-/// Use `PopoverRef` only as an `unowned` reference to an existing `GtkPopover` instance.
-///
 /// `GtkPopover` is a bubble-like context popup.
 /// 
 /// ![An example GtkPopover](popover.png)
@@ -6629,6 +7063,11 @@ public protocol PopoverProtocol: WidgetProtocol, NativeProtocol, ShortcutManager
 /// be the same. The arrow also does not support any border shape other than
 /// solid, no border-radius, only one border width (border-bottom-width is
 /// used) and no box-shadow.
+///
+/// The `PopoverRef` type acts as a lightweight Swift reference to an underlying `GtkPopover` instance.
+/// It exposes methods that can operate on this data type through `PopoverProtocol` conformance.
+/// Use `PopoverRef` only as an `unowned` reference to an existing `GtkPopover` instance.
+///
 public struct PopoverRef: PopoverProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPopover` instance.
     /// For type-safe access, use the generated, typed pointer `popover_ptr` property instead.
@@ -6715,10 +7154,6 @@ public extension PopoverRef {
     }
 }
 
-/// The `Popover` type acts as a reference-counted owner of an underlying `GtkPopover` instance.
-/// It provides the methods that can operate on this data type through `PopoverProtocol` conformance.
-/// Use `Popover` as a strong reference or owner of a `GtkPopover` instance.
-///
 /// `GtkPopover` is a bubble-like context popup.
 /// 
 /// ![An example GtkPopover](popover.png)
@@ -6795,6 +7230,11 @@ public extension PopoverRef {
 /// be the same. The arrow also does not support any border shape other than
 /// solid, no border-radius, only one border width (border-bottom-width is
 /// used) and no box-shadow.
+///
+/// The `Popover` type acts as a reference-counted owner of an underlying `GtkPopover` instance.
+/// It provides the methods that can operate on this data type through `PopoverProtocol` conformance.
+/// Use `Popover` as a strong reference or owner of a `GtkPopover` instance.
+///
 open class Popover: Widget, PopoverProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7197,12 +7637,14 @@ public enum PopoverSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7500,12 +7942,14 @@ public extension PopoverProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7549,12 +7993,14 @@ public extension PopoverProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7598,12 +8044,14 @@ public extension PopoverProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7647,12 +8095,14 @@ public extension PopoverProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7696,12 +8146,14 @@ public extension PopoverProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7745,12 +8197,14 @@ public extension PopoverProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7794,12 +8248,14 @@ public extension PopoverProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7843,12 +8299,14 @@ public extension PopoverProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7943,21 +8401,14 @@ public extension PopoverProtocol {
 
     /// Pops `popover` down.
     /// 
-    /// This is different from a [method`Gtk.Widget.hide`] call
-    /// in that it may show the popover with a transition. If
-    /// you want to hide the popover without a transition, just
-    /// use [method`Gtk.Widget.hide`].
+    /// This may have the side-effect of closing a parent popover
+    /// as well. See [property`Gtk.Popover:cascade-popdown`].
     @inlinable func popdown() {
         gtk_popover_popdown(popover_ptr)
     
     }
 
     /// Pops `popover` up.
-    /// 
-    /// This is different from a [method`Gtk.Widget.show``()` call
-    /// in that it may show the popover with a transition. If
-    /// you want to show the popover without a transition, just
-    /// use [method`Gtk.Widget.show`].
     @inlinable func popup() {
         gtk_popover_popup(popover_ptr)
     
@@ -7972,8 +8423,8 @@ public extension PopoverProtocol {
     /// Sets whether `popover` is modal.
     /// 
     /// A modal popover will grab the keyboard focus on it when being
-    /// displayed. Clicking outside the popover area or pressing Esc
-    /// will dismiss the popover.
+    /// displayed. Focus will wrap around within the popover. Clicking
+    /// outside the popover area or pressing Esc will dismiss the popover.
     /// 
     /// Called this function on an already showing popup with a new
     /// autohide value different from the current one, will cause the
@@ -8078,8 +8529,8 @@ public extension PopoverProtocol {
         /// Sets whether `popover` is modal.
         /// 
         /// A modal popover will grab the keyboard focus on it when being
-        /// displayed. Clicking outside the popover area or pressing Esc
-        /// will dismiss the popover.
+        /// displayed. Focus will wrap around within the popover. Clicking
+        /// outside the popover area or pressing Esc will dismiss the popover.
         /// 
         /// Called this function on an already showing popup with a new
         /// autohide value different from the current one, will cause the
@@ -8180,11 +8631,6 @@ public extension PopoverProtocol {
 
 // MARK: - PopoverMenu Class
 
-/// The `PopoverMenuProtocol` protocol exposes the methods and properties of an underlying `GtkPopoverMenu` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PopoverMenu`.
-/// Alternatively, use `PopoverMenuRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkPopoverMenu` is a subclass of `GtkPopover` that implements menu
 /// behavior.
 /// 
@@ -8207,8 +8653,8 @@ public extension PopoverProtocol {
 /// of a toplevel `&lt;menu&gt;` element, which contains one or more `&lt;item&gt;`
 /// elements. Each `&lt;item&gt;` element contains `&lt;attribute&gt;` and `&lt;link&gt;`
 /// elements with a mandatory name attribute. `&lt;link&gt;` elements have the
-/// same content model as `&lt;menu&gt;`. Instead of `&lt;link name="submenu&gt;` or
-/// `&lt;link name="section"&gt;`, you can use `&lt;submenu&gt;` or `&lt;section&gt;`
+/// same content model as `&lt;menu&gt;`. Instead of `&lt;link name="submenu"&gt;`
+/// or `&lt;link name="section"&gt;`, you can use `&lt;submenu&gt;` or `&lt;section&gt;`
 /// elements.
 /// 
 /// ```xml
@@ -8243,8 +8689,8 @@ public extension PopoverProtocol {
 /// - "action": the prefixed name of the action to trigger
 /// - "target": the parameter to use when activating the action
 /// - "icon" and "verb-icon": names of icons that may be displayed
-/// - "submenu-action": name of an action that may be used to determine
-///      if a submenu can be opened
+/// - "submenu-action": name of an action that may be used to track
+///      whether a submenu is open
 /// - "hidden-when": a string used to determine when the item will be hidden.
 ///      Possible values include "action-disabled", "action-missing", "macos-menubar".
 ///      This is mainly useful for exported menus, see [method`Gtk.Application.set_menubar`].
@@ -8286,6 +8732,12 @@ public extension PopoverProtocol {
 /// `GTK_ACCESSIBLE_ROLE_MENU_ITEM_CHECKBOX` or
 /// `GTK_ACCESSIBLE_ROLE_MENU_ITEM_RADIO` roles, depending on the
 /// action they are connected to.
+///
+/// The `PopoverMenuProtocol` protocol exposes the methods and properties of an underlying `GtkPopoverMenu` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PopoverMenu`.
+/// Alternatively, use `PopoverMenuRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PopoverMenuProtocol: PopoverProtocol {
         /// Untyped pointer to the underlying `GtkPopoverMenu` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8297,10 +8749,6 @@ public protocol PopoverMenuProtocol: PopoverProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PopoverMenuRef` type acts as a lightweight Swift reference to an underlying `GtkPopoverMenu` instance.
-/// It exposes methods that can operate on this data type through `PopoverMenuProtocol` conformance.
-/// Use `PopoverMenuRef` only as an `unowned` reference to an existing `GtkPopoverMenu` instance.
-///
 /// `GtkPopoverMenu` is a subclass of `GtkPopover` that implements menu
 /// behavior.
 /// 
@@ -8323,8 +8771,8 @@ public protocol PopoverMenuProtocol: PopoverProtocol {
 /// of a toplevel `&lt;menu&gt;` element, which contains one or more `&lt;item&gt;`
 /// elements. Each `&lt;item&gt;` element contains `&lt;attribute&gt;` and `&lt;link&gt;`
 /// elements with a mandatory name attribute. `&lt;link&gt;` elements have the
-/// same content model as `&lt;menu&gt;`. Instead of `&lt;link name="submenu&gt;` or
-/// `&lt;link name="section"&gt;`, you can use `&lt;submenu&gt;` or `&lt;section&gt;`
+/// same content model as `&lt;menu&gt;`. Instead of `&lt;link name="submenu"&gt;`
+/// or `&lt;link name="section"&gt;`, you can use `&lt;submenu&gt;` or `&lt;section&gt;`
 /// elements.
 /// 
 /// ```xml
@@ -8359,8 +8807,8 @@ public protocol PopoverMenuProtocol: PopoverProtocol {
 /// - "action": the prefixed name of the action to trigger
 /// - "target": the parameter to use when activating the action
 /// - "icon" and "verb-icon": names of icons that may be displayed
-/// - "submenu-action": name of an action that may be used to determine
-///      if a submenu can be opened
+/// - "submenu-action": name of an action that may be used to track
+///      whether a submenu is open
 /// - "hidden-when": a string used to determine when the item will be hidden.
 ///      Possible values include "action-disabled", "action-missing", "macos-menubar".
 ///      This is mainly useful for exported menus, see [method`Gtk.Application.set_menubar`].
@@ -8402,6 +8850,11 @@ public protocol PopoverMenuProtocol: PopoverProtocol {
 /// `GTK_ACCESSIBLE_ROLE_MENU_ITEM_CHECKBOX` or
 /// `GTK_ACCESSIBLE_ROLE_MENU_ITEM_RADIO` roles, depending on the
 /// action they are connected to.
+///
+/// The `PopoverMenuRef` type acts as a lightweight Swift reference to an underlying `GtkPopoverMenu` instance.
+/// It exposes methods that can operate on this data type through `PopoverMenuProtocol` conformance.
+/// Use `PopoverMenuRef` only as an `unowned` reference to an existing `GtkPopoverMenu` instance.
+///
 public struct PopoverMenuRef: PopoverMenuProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPopoverMenu` instance.
     /// For type-safe access, use the generated, typed pointer `popover_menu_ptr` property instead.
@@ -8549,10 +9002,6 @@ public extension PopoverMenuRef {
     }
 }
 
-/// The `PopoverMenu` type acts as a reference-counted owner of an underlying `GtkPopoverMenu` instance.
-/// It provides the methods that can operate on this data type through `PopoverMenuProtocol` conformance.
-/// Use `PopoverMenu` as a strong reference or owner of a `GtkPopoverMenu` instance.
-///
 /// `GtkPopoverMenu` is a subclass of `GtkPopover` that implements menu
 /// behavior.
 /// 
@@ -8575,8 +9024,8 @@ public extension PopoverMenuRef {
 /// of a toplevel `&lt;menu&gt;` element, which contains one or more `&lt;item&gt;`
 /// elements. Each `&lt;item&gt;` element contains `&lt;attribute&gt;` and `&lt;link&gt;`
 /// elements with a mandatory name attribute. `&lt;link&gt;` elements have the
-/// same content model as `&lt;menu&gt;`. Instead of `&lt;link name="submenu&gt;` or
-/// `&lt;link name="section"&gt;`, you can use `&lt;submenu&gt;` or `&lt;section&gt;`
+/// same content model as `&lt;menu&gt;`. Instead of `&lt;link name="submenu"&gt;`
+/// or `&lt;link name="section"&gt;`, you can use `&lt;submenu&gt;` or `&lt;section&gt;`
 /// elements.
 /// 
 /// ```xml
@@ -8611,8 +9060,8 @@ public extension PopoverMenuRef {
 /// - "action": the prefixed name of the action to trigger
 /// - "target": the parameter to use when activating the action
 /// - "icon" and "verb-icon": names of icons that may be displayed
-/// - "submenu-action": name of an action that may be used to determine
-///      if a submenu can be opened
+/// - "submenu-action": name of an action that may be used to track
+///      whether a submenu is open
 /// - "hidden-when": a string used to determine when the item will be hidden.
 ///      Possible values include "action-disabled", "action-missing", "macos-menubar".
 ///      This is mainly useful for exported menus, see [method`Gtk.Application.set_menubar`].
@@ -8654,6 +9103,11 @@ public extension PopoverMenuRef {
 /// `GTK_ACCESSIBLE_ROLE_MENU_ITEM_CHECKBOX` or
 /// `GTK_ACCESSIBLE_ROLE_MENU_ITEM_RADIO` roles, depending on the
 /// action they are connected to.
+///
+/// The `PopoverMenu` type acts as a reference-counted owner of an underlying `GtkPopoverMenu` instance.
+/// It provides the methods that can operate on this data type through `PopoverMenuProtocol` conformance.
+/// Use `PopoverMenu` as a strong reference or owner of a `GtkPopoverMenu` instance.
+///
 open class PopoverMenu: Popover, PopoverMenuProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9124,12 +9578,14 @@ public enum PopoverMenuSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9406,11 +9862,6 @@ public extension PopoverMenuProtocol {
 
 // MARK: - PopoverMenuBar Class
 
-/// The `PopoverMenuBarProtocol` protocol exposes the methods and properties of an underlying `GtkPopoverMenuBar` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PopoverMenuBar`.
-/// Alternatively, use `PopoverMenuBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkPopoverMenuBar` presents a horizontal bar of items that pop
 /// up popover menus when clicked.
 /// 
@@ -9440,6 +9891,12 @@ public extension PopoverMenuProtocol {
 /// `GtkPopoverMenuBar` uses the `GTK_ACCESSIBLE_ROLE_MENU_BAR` role,
 /// the menu items use the `GTK_ACCESSIBLE_ROLE_MENU_ITEM` role and
 /// the menus use the `GTK_ACCESSIBLE_ROLE_MENU` role.
+///
+/// The `PopoverMenuBarProtocol` protocol exposes the methods and properties of an underlying `GtkPopoverMenuBar` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PopoverMenuBar`.
+/// Alternatively, use `PopoverMenuBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PopoverMenuBarProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkPopoverMenuBar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9451,10 +9908,6 @@ public protocol PopoverMenuBarProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PopoverMenuBarRef` type acts as a lightweight Swift reference to an underlying `GtkPopoverMenuBar` instance.
-/// It exposes methods that can operate on this data type through `PopoverMenuBarProtocol` conformance.
-/// Use `PopoverMenuBarRef` only as an `unowned` reference to an existing `GtkPopoverMenuBar` instance.
-///
 /// `GtkPopoverMenuBar` presents a horizontal bar of items that pop
 /// up popover menus when clicked.
 /// 
@@ -9484,6 +9937,11 @@ public protocol PopoverMenuBarProtocol: WidgetProtocol {
 /// `GtkPopoverMenuBar` uses the `GTK_ACCESSIBLE_ROLE_MENU_BAR` role,
 /// the menu items use the `GTK_ACCESSIBLE_ROLE_MENU_ITEM` role and
 /// the menus use the `GTK_ACCESSIBLE_ROLE_MENU` role.
+///
+/// The `PopoverMenuBarRef` type acts as a lightweight Swift reference to an underlying `GtkPopoverMenuBar` instance.
+/// It exposes methods that can operate on this data type through `PopoverMenuBarProtocol` conformance.
+/// Use `PopoverMenuBarRef` only as an `unowned` reference to an existing `GtkPopoverMenuBar` instance.
+///
 public struct PopoverMenuBarRef: PopoverMenuBarProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPopoverMenuBar` instance.
     /// For type-safe access, use the generated, typed pointer `popover_menu_bar_ptr` property instead.
@@ -9575,10 +10033,6 @@ public extension PopoverMenuBarRef {
     }
 }
 
-/// The `PopoverMenuBar` type acts as a reference-counted owner of an underlying `GtkPopoverMenuBar` instance.
-/// It provides the methods that can operate on this data type through `PopoverMenuBarProtocol` conformance.
-/// Use `PopoverMenuBar` as a strong reference or owner of a `GtkPopoverMenuBar` instance.
-///
 /// `GtkPopoverMenuBar` presents a horizontal bar of items that pop
 /// up popover menus when clicked.
 /// 
@@ -9608,6 +10062,11 @@ public extension PopoverMenuBarRef {
 /// `GtkPopoverMenuBar` uses the `GTK_ACCESSIBLE_ROLE_MENU_BAR` role,
 /// the menu items use the `GTK_ACCESSIBLE_ROLE_MENU_ITEM` role and
 /// the menus use the `GTK_ACCESSIBLE_ROLE_MENU` role.
+///
+/// The `PopoverMenuBar` type acts as a reference-counted owner of an underlying `GtkPopoverMenuBar` instance.
+/// It provides the methods that can operate on this data type through `PopoverMenuBarProtocol` conformance.
+/// Use `PopoverMenuBar` as a strong reference or owner of a `GtkPopoverMenuBar` instance.
+///
 open class PopoverMenuBar: Widget, PopoverMenuBarProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9996,12 +10455,14 @@ public enum PopoverMenuBarSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10251,11 +10712,6 @@ public extension PopoverMenuBarProtocol {
 
 // MARK: - PrintContext Class
 
-/// The `PrintContextProtocol` protocol exposes the methods and properties of an underlying `GtkPrintContext` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PrintContext`.
-/// Alternatively, use `PrintContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkPrintContext` encapsulates context information that is required when
 /// drawing pages for printing.
 /// 
@@ -10325,6 +10781,12 @@ public extension PopoverMenuBarProtocol {
 ///   g_object_unref (layout);
 /// }
 /// ```
+///
+/// The `PrintContextProtocol` protocol exposes the methods and properties of an underlying `GtkPrintContext` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PrintContext`.
+/// Alternatively, use `PrintContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PrintContextProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkPrintContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -10336,10 +10798,6 @@ public protocol PrintContextProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PrintContextRef` type acts as a lightweight Swift reference to an underlying `GtkPrintContext` instance.
-/// It exposes methods that can operate on this data type through `PrintContextProtocol` conformance.
-/// Use `PrintContextRef` only as an `unowned` reference to an existing `GtkPrintContext` instance.
-///
 /// A `GtkPrintContext` encapsulates context information that is required when
 /// drawing pages for printing.
 /// 
@@ -10409,6 +10867,11 @@ public protocol PrintContextProtocol: GLibObject.ObjectProtocol {
 ///   g_object_unref (layout);
 /// }
 /// ```
+///
+/// The `PrintContextRef` type acts as a lightweight Swift reference to an underlying `GtkPrintContext` instance.
+/// It exposes methods that can operate on this data type through `PrintContextProtocol` conformance.
+/// Use `PrintContextRef` only as an `unowned` reference to an existing `GtkPrintContext` instance.
+///
 public struct PrintContextRef: PrintContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPrintContext` instance.
     /// For type-safe access, use the generated, typed pointer `print_context_ptr` property instead.
@@ -10490,10 +10953,6 @@ public extension PrintContextRef {
 
     }
 
-/// The `PrintContext` type acts as a reference-counted owner of an underlying `GtkPrintContext` instance.
-/// It provides the methods that can operate on this data type through `PrintContextProtocol` conformance.
-/// Use `PrintContext` as a strong reference or owner of a `GtkPrintContext` instance.
-///
 /// A `GtkPrintContext` encapsulates context information that is required when
 /// drawing pages for printing.
 /// 
@@ -10563,6 +11022,11 @@ public extension PrintContextRef {
 ///   g_object_unref (layout);
 /// }
 /// ```
+///
+/// The `PrintContext` type acts as a reference-counted owner of an underlying `GtkPrintContext` instance.
+/// It provides the methods that can operate on this data type through `PrintContextProtocol` conformance.
+/// Use `PrintContext` as a strong reference or owner of a `GtkPrintContext` instance.
+///
 open class PrintContext: GLibObject.Object, PrintContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10710,12 +11174,14 @@ public enum PrintContextSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10887,11 +11353,6 @@ public extension PrintContextProtocol {
 
 // MARK: - PrintJob Class
 
-/// The `PrintJobProtocol` protocol exposes the methods and properties of an underlying `GtkPrintJob` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PrintJob`.
-/// Alternatively, use `PrintJobRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkPrintJob` object represents a job that is sent to a printer.
 /// 
 /// You only need to deal directly with print jobs if you use the
@@ -10902,6 +11363,12 @@ public extension PrintContextProtocol {
 /// to send the finished job to the printer. If you don’t use cairo
 /// `GtkPrintJob` also supports printing of manually generated PostScript,
 /// via [method`Gtk.PrintJob.set_source_file`].
+///
+/// The `PrintJobProtocol` protocol exposes the methods and properties of an underlying `GtkPrintJob` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PrintJob`.
+/// Alternatively, use `PrintJobRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PrintJobProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkPrintJob` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -10913,10 +11380,6 @@ public protocol PrintJobProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PrintJobRef` type acts as a lightweight Swift reference to an underlying `GtkPrintJob` instance.
-/// It exposes methods that can operate on this data type through `PrintJobProtocol` conformance.
-/// Use `PrintJobRef` only as an `unowned` reference to an existing `GtkPrintJob` instance.
-///
 /// A `GtkPrintJob` object represents a job that is sent to a printer.
 /// 
 /// You only need to deal directly with print jobs if you use the
@@ -10927,6 +11390,11 @@ public protocol PrintJobProtocol: GLibObject.ObjectProtocol {
 /// to send the finished job to the printer. If you don’t use cairo
 /// `GtkPrintJob` also supports printing of manually generated PostScript,
 /// via [method`Gtk.PrintJob.set_source_file`].
+///
+/// The `PrintJobRef` type acts as a lightweight Swift reference to an underlying `GtkPrintJob` instance.
+/// It exposes methods that can operate on this data type through `PrintJobProtocol` conformance.
+/// Use `PrintJobRef` only as an `unowned` reference to an existing `GtkPrintJob` instance.
+///
 public struct PrintJobRef: PrintJobProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPrintJob` instance.
     /// For type-safe access, use the generated, typed pointer `print_job_ptr` property instead.
@@ -11013,10 +11481,6 @@ public extension PrintJobRef {
     }
 }
 
-/// The `PrintJob` type acts as a reference-counted owner of an underlying `GtkPrintJob` instance.
-/// It provides the methods that can operate on this data type through `PrintJobProtocol` conformance.
-/// Use `PrintJob` as a strong reference or owner of a `GtkPrintJob` instance.
-///
 /// A `GtkPrintJob` object represents a job that is sent to a printer.
 /// 
 /// You only need to deal directly with print jobs if you use the
@@ -11027,6 +11491,11 @@ public extension PrintJobRef {
 /// to send the finished job to the printer. If you don’t use cairo
 /// `GtkPrintJob` also supports printing of manually generated PostScript,
 /// via [method`Gtk.PrintJob.set_source_file`].
+///
+/// The `PrintJob` type acts as a reference-counted owner of an underlying `GtkPrintJob` instance.
+/// It provides the methods that can operate on this data type through `PrintJobProtocol` conformance.
+/// Use `PrintJob` as a strong reference or owner of a `GtkPrintJob` instance.
+///
 open class PrintJob: GLibObject.Object, PrintJobProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -11245,12 +11714,14 @@ public enum PrintJobSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11344,12 +11815,14 @@ public extension PrintJobProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11393,12 +11866,14 @@ public extension PrintJobProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11442,12 +11917,14 @@ public extension PrintJobProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11491,12 +11968,14 @@ public extension PrintJobProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11540,12 +12019,14 @@ public extension PrintJobProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11993,11 +12474,6 @@ public extension PrintJobProtocol {
 
 // MARK: - PrintOperation Class
 
-/// The `PrintOperationProtocol` protocol exposes the methods and properties of an underlying `GtkPrintOperation` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PrintOperation`.
-/// Alternatively, use `PrintOperationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkPrintOperation` is the high-level, portable printing API.
 /// 
 /// It looks a bit different than other GTK dialogs such as the
@@ -12060,6 +12536,12 @@ public extension PrintJobProtocol {
 /// [method`Gtk.PrintOperationPreview.end_preview`] and
 /// [method`Gtk.PrintOperationPreview.is_selected`]
 /// are useful when implementing a print preview.
+///
+/// The `PrintOperationProtocol` protocol exposes the methods and properties of an underlying `GtkPrintOperation` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PrintOperation`.
+/// Alternatively, use `PrintOperationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PrintOperationProtocol: GLibObject.ObjectProtocol, PrintOperationPreviewProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperation` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12071,10 +12553,6 @@ public protocol PrintOperationProtocol: GLibObject.ObjectProtocol, PrintOperatio
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PrintOperationRef` type acts as a lightweight Swift reference to an underlying `GtkPrintOperation` instance.
-/// It exposes methods that can operate on this data type through `PrintOperationProtocol` conformance.
-/// Use `PrintOperationRef` only as an `unowned` reference to an existing `GtkPrintOperation` instance.
-///
 /// `GtkPrintOperation` is the high-level, portable printing API.
 /// 
 /// It looks a bit different than other GTK dialogs such as the
@@ -12137,6 +12615,11 @@ public protocol PrintOperationProtocol: GLibObject.ObjectProtocol, PrintOperatio
 /// [method`Gtk.PrintOperationPreview.end_preview`] and
 /// [method`Gtk.PrintOperationPreview.is_selected`]
 /// are useful when implementing a print preview.
+///
+/// The `PrintOperationRef` type acts as a lightweight Swift reference to an underlying `GtkPrintOperation` instance.
+/// It exposes methods that can operate on this data type through `PrintOperationProtocol` conformance.
+/// Use `PrintOperationRef` only as an `unowned` reference to an existing `GtkPrintOperation` instance.
+///
 public struct PrintOperationRef: PrintOperationProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPrintOperation` instance.
     /// For type-safe access, use the generated, typed pointer `print_operation_ptr` property instead.
@@ -12223,10 +12706,6 @@ public extension PrintOperationRef {
     }
 }
 
-/// The `PrintOperation` type acts as a reference-counted owner of an underlying `GtkPrintOperation` instance.
-/// It provides the methods that can operate on this data type through `PrintOperationProtocol` conformance.
-/// Use `PrintOperation` as a strong reference or owner of a `GtkPrintOperation` instance.
-///
 /// `GtkPrintOperation` is the high-level, portable printing API.
 /// 
 /// It looks a bit different than other GTK dialogs such as the
@@ -12289,6 +12768,11 @@ public extension PrintOperationRef {
 /// [method`Gtk.PrintOperationPreview.end_preview`] and
 /// [method`Gtk.PrintOperationPreview.is_selected`]
 /// are useful when implementing a print preview.
+///
+/// The `PrintOperation` type acts as a reference-counted owner of an underlying `GtkPrintOperation` instance.
+/// It provides the methods that can operate on this data type through `PrintOperationProtocol` conformance.
+/// Use `PrintOperation` as a strong reference or owner of a `GtkPrintOperation` instance.
+///
 open class PrintOperation: GLibObject.Object, PrintOperationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -12713,12 +13197,14 @@ public enum PrintOperationSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12939,8 +13425,8 @@ public extension PrintOperationProtocol {
     /// - Note: This represents the underlying `create-custom-widget` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter handler: A custom widget that gets embedded in   the print dialog, or `nil`
-    /// - Warning: a `onCreateCustomWidget` wrapper for this signal could not be generated because it contains unimplemented features: { (9)  Record return type is not yet supported }
+    /// - Parameter handler: A custom widget that gets embedded in   the print dialog
+    /// - Warning: a `onCreateCustomWidget` wrapper for this signal could not be generated because it contains unimplemented features: { (8)  nullable argument or return type is not allowed, (9)  Record return type is not yet supported }
     /// - Note: Instead, you can connect `createCustomWidgetSignal` using the `connect(signal:)` methods
     static var createCustomWidgetSignal: PrintOperationSignalName { .createCustomWidget }
     /// Emitted after the user has finished changing print settings
@@ -13208,7 +13694,7 @@ public extension PrintOperationProtocol {
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter preview: the `GtkPrintOperationPreview` for the current operation
     /// - Parameter context: the `GtkPrintContext` that will be used
-    /// - Parameter parent: the `GtkWindow` to use as window parent, or `nil`
+    /// - Parameter parent: the `GtkWindow` to use as window parent
     /// - Parameter handler: `true` if the listener wants to take over control of the preview
     /// Run the given callback whenever the `preview` signal is emitted
     @discardableResult @inlinable func onPreview(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PrintOperationRef, _ preview: PrintOperationPreviewRef, _ context: PrintContextRef, _ parent: WindowRef?) -> Bool ) -> Int {
@@ -13337,12 +13823,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13386,12 +13874,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13435,12 +13925,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13484,12 +13976,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13533,12 +14027,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13582,12 +14078,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13631,12 +14129,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13680,12 +14180,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13729,12 +14231,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13778,12 +14282,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13827,12 +14333,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13876,12 +14384,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13925,12 +14435,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13974,12 +14486,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14023,12 +14537,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14072,12 +14588,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14121,12 +14639,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14170,12 +14690,14 @@ public extension PrintOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14810,11 +15332,6 @@ public extension PrintOperationProtocol {
 
 // MARK: - PrintSettings Class
 
-/// The `PrintSettingsProtocol` protocol exposes the methods and properties of an underlying `GtkPrintSettings` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PrintSettings`.
-/// Alternatively, use `PrintSettingsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkPrintSettings` object represents the settings of a print dialog in
 /// a system-independent way.
 /// 
@@ -14827,6 +15344,12 @@ public extension PrintOperationProtocol {
 /// the settings for the next time your app runs, or even store them in a
 /// document. The predefined keys try to use shared values as much as possible
 /// so that moving such a document between systems still works.
+///
+/// The `PrintSettingsProtocol` protocol exposes the methods and properties of an underlying `GtkPrintSettings` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PrintSettings`.
+/// Alternatively, use `PrintSettingsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PrintSettingsProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkPrintSettings` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -14838,10 +15361,6 @@ public protocol PrintSettingsProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PrintSettingsRef` type acts as a lightweight Swift reference to an underlying `GtkPrintSettings` instance.
-/// It exposes methods that can operate on this data type through `PrintSettingsProtocol` conformance.
-/// Use `PrintSettingsRef` only as an `unowned` reference to an existing `GtkPrintSettings` instance.
-///
 /// A `GtkPrintSettings` object represents the settings of a print dialog in
 /// a system-independent way.
 /// 
@@ -14854,6 +15373,11 @@ public protocol PrintSettingsProtocol: GLibObject.ObjectProtocol {
 /// the settings for the next time your app runs, or even store them in a
 /// document. The predefined keys try to use shared values as much as possible
 /// so that moving such a document between systems still works.
+///
+/// The `PrintSettingsRef` type acts as a lightweight Swift reference to an underlying `GtkPrintSettings` instance.
+/// It exposes methods that can operate on this data type through `PrintSettingsProtocol` conformance.
+/// Use `PrintSettingsRef` only as an `unowned` reference to an existing `GtkPrintSettings` instance.
+///
 public struct PrintSettingsRef: PrintSettingsProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPrintSettings` instance.
     /// For type-safe access, use the generated, typed pointer `print_settings_ptr` property instead.
@@ -15011,10 +15535,6 @@ public extension PrintSettingsRef {
     }
 }
 
-/// The `PrintSettings` type acts as a reference-counted owner of an underlying `GtkPrintSettings` instance.
-/// It provides the methods that can operate on this data type through `PrintSettingsProtocol` conformance.
-/// Use `PrintSettings` as a strong reference or owner of a `GtkPrintSettings` instance.
-///
 /// A `GtkPrintSettings` object represents the settings of a print dialog in
 /// a system-independent way.
 /// 
@@ -15027,6 +15547,11 @@ public extension PrintSettingsRef {
 /// the settings for the next time your app runs, or even store them in a
 /// document. The predefined keys try to use shared values as much as possible
 /// so that moving such a document between systems still works.
+///
+/// The `PrintSettings` type acts as a reference-counted owner of an underlying `GtkPrintSettings` instance.
+/// It provides the methods that can operate on this data type through `PrintSettingsProtocol` conformance.
+/// Use `PrintSettings` as a strong reference or owner of a `GtkPrintSettings` instance.
+///
 open class PrintSettings: GLibObject.Object, PrintSettingsProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -15257,12 +15782,14 @@ public enum PrintSettingsSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16113,11 +16640,6 @@ public extension PrintSettingsProtocol {
 
 // MARK: - PrintUnixDialog Class
 
-/// The `PrintUnixDialogProtocol` protocol exposes the methods and properties of an underlying `GtkPrintUnixDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PrintUnixDialog`.
-/// Alternatively, use `PrintUnixDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkPrintUnixDialog` implements a print dialog for platforms
 /// which don’t provide a native print dialog, like Unix.
 /// 
@@ -16174,6 +16696,12 @@ public extension PrintSettingsProtocol {
 /// 
 /// `GtkPrintUnixDialog` has a single CSS node with name window. The style classes
 /// dialog and print are added.
+///
+/// The `PrintUnixDialogProtocol` protocol exposes the methods and properties of an underlying `GtkPrintUnixDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PrintUnixDialog`.
+/// Alternatively, use `PrintUnixDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PrintUnixDialogProtocol: DialogProtocol {
         /// Untyped pointer to the underlying `GtkPrintUnixDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -16185,10 +16713,6 @@ public protocol PrintUnixDialogProtocol: DialogProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PrintUnixDialogRef` type acts as a lightweight Swift reference to an underlying `GtkPrintUnixDialog` instance.
-/// It exposes methods that can operate on this data type through `PrintUnixDialogProtocol` conformance.
-/// Use `PrintUnixDialogRef` only as an `unowned` reference to an existing `GtkPrintUnixDialog` instance.
-///
 /// `GtkPrintUnixDialog` implements a print dialog for platforms
 /// which don’t provide a native print dialog, like Unix.
 /// 
@@ -16245,6 +16769,11 @@ public protocol PrintUnixDialogProtocol: DialogProtocol {
 /// 
 /// `GtkPrintUnixDialog` has a single CSS node with name window. The style classes
 /// dialog and print are added.
+///
+/// The `PrintUnixDialogRef` type acts as a lightweight Swift reference to an underlying `GtkPrintUnixDialog` instance.
+/// It exposes methods that can operate on this data type through `PrintUnixDialogProtocol` conformance.
+/// Use `PrintUnixDialogRef` only as an `unowned` reference to an existing `GtkPrintUnixDialog` instance.
+///
 public struct PrintUnixDialogRef: PrintUnixDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPrintUnixDialog` instance.
     /// For type-safe access, use the generated, typed pointer `print_unix_dialog_ptr` property instead.
@@ -16331,10 +16860,6 @@ public extension PrintUnixDialogRef {
     }
 }
 
-/// The `PrintUnixDialog` type acts as a reference-counted owner of an underlying `GtkPrintUnixDialog` instance.
-/// It provides the methods that can operate on this data type through `PrintUnixDialogProtocol` conformance.
-/// Use `PrintUnixDialog` as a strong reference or owner of a `GtkPrintUnixDialog` instance.
-///
 /// `GtkPrintUnixDialog` implements a print dialog for platforms
 /// which don’t provide a native print dialog, like Unix.
 /// 
@@ -16391,6 +16916,11 @@ public extension PrintUnixDialogRef {
 /// 
 /// `GtkPrintUnixDialog` has a single CSS node with name window. The style classes
 /// dialog and print are added.
+///
+/// The `PrintUnixDialog` type acts as a reference-counted owner of an underlying `GtkPrintUnixDialog` instance.
+/// It provides the methods that can operate on this data type through `PrintUnixDialogProtocol` conformance.
+/// Use `PrintUnixDialog` as a strong reference or owner of a `GtkPrintUnixDialog` instance.
+///
 open class PrintUnixDialog: Dialog, PrintUnixDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -16911,12 +17441,14 @@ public enum PrintUnixDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17488,11 +18020,6 @@ public extension PrintUnixDialogProtocol {
 
 // MARK: - Printer Class
 
-/// The `PrinterProtocol` protocol exposes the methods and properties of an underlying `GtkPrinter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Printer`.
-/// Alternatively, use `PrinterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkPrinter` object represents a printer.
 /// 
 /// You only need to deal directly with printers if you use the
@@ -17502,6 +18029,12 @@ public extension PrintUnixDialogProtocol {
 /// such as its description, its location, the number of queued jobs,
 /// etc. Most importantly, a `GtkPrinter` object can be used to create
 /// a [class`Gtk.PrintJob`] object, which lets you print to the printer.
+///
+/// The `PrinterProtocol` protocol exposes the methods and properties of an underlying `GtkPrinter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Printer`.
+/// Alternatively, use `PrinterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PrinterProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkPrinter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -17513,10 +18046,6 @@ public protocol PrinterProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PrinterRef` type acts as a lightweight Swift reference to an underlying `GtkPrinter` instance.
-/// It exposes methods that can operate on this data type through `PrinterProtocol` conformance.
-/// Use `PrinterRef` only as an `unowned` reference to an existing `GtkPrinter` instance.
-///
 /// A `GtkPrinter` object represents a printer.
 /// 
 /// You only need to deal directly with printers if you use the
@@ -17526,6 +18055,11 @@ public protocol PrinterProtocol: GLibObject.ObjectProtocol {
 /// such as its description, its location, the number of queued jobs,
 /// etc. Most importantly, a `GtkPrinter` object can be used to create
 /// a [class`Gtk.PrintJob`] object, which lets you print to the printer.
+///
+/// The `PrinterRef` type acts as a lightweight Swift reference to an underlying `GtkPrinter` instance.
+/// It exposes methods that can operate on this data type through `PrinterProtocol` conformance.
+/// Use `PrinterRef` only as an `unowned` reference to an existing `GtkPrinter` instance.
+///
 public struct PrinterRef: PrinterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPrinter` instance.
     /// For type-safe access, use the generated, typed pointer `printer_ptr` property instead.
@@ -17606,16 +18140,12 @@ public extension PrinterRef {
     }
 
         /// Creates a new `GtkPrinter`.
-    @inlinable init<PrintBackendT: PrintBackendProtocol>( name: UnsafePointer<CChar>!, backend: PrintBackendT, virtual_: Bool) {
-        let rv = gtk_printer_new(name, backend._ptr, gboolean((virtual_) ? 1 : 0))
+    @inlinable init<PrintBackendT: PrintBackendProtocol>( name: UnsafePointer<CChar>!, backend: PrintBackendT, virtual: Bool) {
+        let rv = gtk_printer_new(name, backend._ptr, gboolean((virtual) ? 1 : 0))
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
-/// The `Printer` type acts as a reference-counted owner of an underlying `GtkPrinter` instance.
-/// It provides the methods that can operate on this data type through `PrinterProtocol` conformance.
-/// Use `Printer` as a strong reference or owner of a `GtkPrinter` instance.
-///
 /// A `GtkPrinter` object represents a printer.
 /// 
 /// You only need to deal directly with printers if you use the
@@ -17625,6 +18155,11 @@ public extension PrinterRef {
 /// such as its description, its location, the number of queued jobs,
 /// etc. Most importantly, a `GtkPrinter` object can be used to create
 /// a [class`Gtk.PrintJob`] object, which lets you print to the printer.
+///
+/// The `Printer` type acts as a reference-counted owner of an underlying `GtkPrinter` instance.
+/// It provides the methods that can operate on this data type through `PrinterProtocol` conformance.
+/// Use `Printer` as a strong reference or owner of a `GtkPrinter` instance.
+///
 open class Printer: GLibObject.Object, PrinterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -17751,8 +18286,8 @@ open class Printer: GLibObject.Object, PrinterProtocol {
     }
 
     /// Creates a new `GtkPrinter`.
-    @inlinable public init<PrintBackendT: PrintBackendProtocol>( name: UnsafePointer<CChar>!, backend: PrintBackendT, virtual_: Bool) {
-        let rv = gtk_printer_new(name, backend._ptr, gboolean((virtual_) ? 1 : 0))
+    @inlinable public init<PrintBackendT: PrintBackendProtocol>( name: UnsafePointer<CChar>!, backend: PrintBackendT, virtual: Bool) {
+        let rv = gtk_printer_new(name, backend._ptr, gboolean((virtual) ? 1 : 0))
         super.init(gpointer: gpointer(rv))
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
@@ -17863,12 +18398,14 @@ public enum PrinterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17973,12 +18510,14 @@ public extension PrinterProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18022,12 +18561,14 @@ public extension PrinterProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18071,12 +18612,14 @@ public extension PrinterProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18120,12 +18663,14 @@ public extension PrinterProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18169,12 +18714,14 @@ public extension PrinterProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18218,12 +18765,14 @@ public extension PrinterProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18267,12 +18816,14 @@ public extension PrinterProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18316,12 +18867,14 @@ public extension PrinterProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18365,12 +18918,14 @@ public extension PrinterProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18414,12 +18969,14 @@ public extension PrinterProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18463,12 +19020,14 @@ public extension PrinterProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18801,11 +19360,6 @@ public extension PrinterProtocol {
 
 // MARK: - ProgressBar Class
 
-/// The `ProgressBarProtocol` protocol exposes the methods and properties of an underlying `GtkProgressBar` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ProgressBar`.
-/// Alternatively, use `ProgressBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkProgressBar` is typically used to display the progress of a long
 /// running operation.
 /// 
@@ -18852,6 +19406,12 @@ public extension PrinterProtocol {
 /// # Accessibility
 /// 
 /// `GtkProgressBar` uses the `GTK_ACCESSIBLE_ROLE_PROGRESS_BAR` role.
+///
+/// The `ProgressBarProtocol` protocol exposes the methods and properties of an underlying `GtkProgressBar` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ProgressBar`.
+/// Alternatively, use `ProgressBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ProgressBarProtocol: WidgetProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkProgressBar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -18863,10 +19423,6 @@ public protocol ProgressBarProtocol: WidgetProtocol, OrientableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ProgressBarRef` type acts as a lightweight Swift reference to an underlying `GtkProgressBar` instance.
-/// It exposes methods that can operate on this data type through `ProgressBarProtocol` conformance.
-/// Use `ProgressBarRef` only as an `unowned` reference to an existing `GtkProgressBar` instance.
-///
 /// `GtkProgressBar` is typically used to display the progress of a long
 /// running operation.
 /// 
@@ -18913,6 +19469,11 @@ public protocol ProgressBarProtocol: WidgetProtocol, OrientableProtocol {
 /// # Accessibility
 /// 
 /// `GtkProgressBar` uses the `GTK_ACCESSIBLE_ROLE_PROGRESS_BAR` role.
+///
+/// The `ProgressBarRef` type acts as a lightweight Swift reference to an underlying `GtkProgressBar` instance.
+/// It exposes methods that can operate on this data type through `ProgressBarProtocol` conformance.
+/// Use `ProgressBarRef` only as an `unowned` reference to an existing `GtkProgressBar` instance.
+///
 public struct ProgressBarRef: ProgressBarProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkProgressBar` instance.
     /// For type-safe access, use the generated, typed pointer `progress_bar_ptr` property instead.
@@ -18999,10 +19560,6 @@ public extension ProgressBarRef {
     }
 }
 
-/// The `ProgressBar` type acts as a reference-counted owner of an underlying `GtkProgressBar` instance.
-/// It provides the methods that can operate on this data type through `ProgressBarProtocol` conformance.
-/// Use `ProgressBar` as a strong reference or owner of a `GtkProgressBar` instance.
-///
 /// `GtkProgressBar` is typically used to display the progress of a long
 /// running operation.
 /// 
@@ -19049,6 +19606,11 @@ public extension ProgressBarRef {
 /// # Accessibility
 /// 
 /// `GtkProgressBar` uses the `GTK_ACCESSIBLE_ROLE_PROGRESS_BAR` role.
+///
+/// The `ProgressBar` type acts as a reference-counted owner of an underlying `GtkProgressBar` instance.
+/// It provides the methods that can operate on this data type through `ProgressBarProtocol` conformance.
+/// Use `ProgressBar` as a strong reference or owner of a `GtkProgressBar` instance.
+///
 open class ProgressBar: Widget, ProgressBarProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -19456,12 +20018,14 @@ public enum ProgressBarSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19940,12 +20504,13 @@ public extension ProgressBarProtocol {
 
 // MARK: - PropertyExpression Class
 
+/// A `GObject` property value in a `GtkExpression`.
+///
 /// The `PropertyExpressionProtocol` protocol exposes the methods and properties of an underlying `GtkPropertyExpression` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PropertyExpression`.
 /// Alternatively, use `PropertyExpressionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GObject` property value in a `GtkExpression`.
 public protocol PropertyExpressionProtocol: ExpressionProtocol {
         /// Untyped pointer to the underlying `GtkPropertyExpression` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -19957,11 +20522,12 @@ public protocol PropertyExpressionProtocol: ExpressionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GObject` property value in a `GtkExpression`.
+///
 /// The `PropertyExpressionRef` type acts as a lightweight Swift reference to an underlying `GtkPropertyExpression` instance.
 /// It exposes methods that can operate on this data type through `PropertyExpressionProtocol` conformance.
 /// Use `PropertyExpressionRef` only as an `unowned` reference to an existing `GtkPropertyExpression` instance.
 ///
-/// A `GObject` property value in a `GtkExpression`.
 public struct PropertyExpressionRef: PropertyExpressionProtocol {
         /// Untyped pointer to the underlying `GtkPropertyExpression` instance.
     /// For type-safe access, use the generated, typed pointer `property_expression_ptr` property instead.
@@ -20046,11 +20612,12 @@ public extension PropertyExpressionRef {
     }
 }
 
+/// A `GObject` property value in a `GtkExpression`.
+///
 /// The `PropertyExpression` type acts as a reference-counted owner of an underlying `GtkPropertyExpression` instance.
 /// It provides the methods that can operate on this data type through `PropertyExpressionProtocol` conformance.
 /// Use `PropertyExpression` as a strong reference or owner of a `GtkPropertyExpression` instance.
 ///
-/// A `GObject` property value in a `GtkExpression`.
 open class PropertyExpression: Expression, PropertyExpressionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -20238,11 +20805,6 @@ public extension PropertyExpressionProtocol {
 
 // MARK: - Range Class
 
-/// The `RangeProtocol` protocol exposes the methods and properties of an underlying `GtkRange` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Range`.
-/// Alternatively, use `RangeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkRange` is the common base class for widgets which visualize an
 /// adjustment.
 /// 
@@ -20252,6 +20814,12 @@ public extension PropertyExpressionProtocol {
 /// Apart from signals for monitoring the parameters of the adjustment,
 /// `GtkRange` provides properties and methods for setting a
 /// “fill level” on range widgets. See [method`Gtk.Range.set_fill_level`].
+///
+/// The `RangeProtocol` protocol exposes the methods and properties of an underlying `GtkRange` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Range`.
+/// Alternatively, use `RangeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RangeProtocol: WidgetProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkRange` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -20263,10 +20831,6 @@ public protocol RangeProtocol: WidgetProtocol, OrientableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RangeRef` type acts as a lightweight Swift reference to an underlying `GtkRange` instance.
-/// It exposes methods that can operate on this data type through `RangeProtocol` conformance.
-/// Use `RangeRef` only as an `unowned` reference to an existing `GtkRange` instance.
-///
 /// `GtkRange` is the common base class for widgets which visualize an
 /// adjustment.
 /// 
@@ -20276,6 +20840,11 @@ public protocol RangeProtocol: WidgetProtocol, OrientableProtocol {
 /// Apart from signals for monitoring the parameters of the adjustment,
 /// `GtkRange` provides properties and methods for setting a
 /// “fill level” on range widgets. See [method`Gtk.Range.set_fill_level`].
+///
+/// The `RangeRef` type acts as a lightweight Swift reference to an underlying `GtkRange` instance.
+/// It exposes methods that can operate on this data type through `RangeProtocol` conformance.
+/// Use `RangeRef` only as an `unowned` reference to an existing `GtkRange` instance.
+///
 public struct RangeRef: RangeProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRange` instance.
     /// For type-safe access, use the generated, typed pointer `range_ptr` property instead.
@@ -20357,10 +20926,6 @@ public extension RangeRef {
 
     }
 
-/// The `Range` type acts as a reference-counted owner of an underlying `GtkRange` instance.
-/// It provides the methods that can operate on this data type through `RangeProtocol` conformance.
-/// Use `Range` as a strong reference or owner of a `GtkRange` instance.
-///
 /// `GtkRange` is the common base class for widgets which visualize an
 /// adjustment.
 /// 
@@ -20370,6 +20935,11 @@ public extension RangeRef {
 /// Apart from signals for monitoring the parameters of the adjustment,
 /// `GtkRange` provides properties and methods for setting a
 /// “fill level” on range widgets. See [method`Gtk.Range.set_fill_level`].
+///
+/// The `Range` type acts as a reference-counted owner of an underlying `GtkRange` instance.
+/// It provides the methods that can operate on this data type through `RangeProtocol` conformance.
+/// Use `Range` as a strong reference or owner of a `GtkRange` instance.
+///
 open class Range: Widget, RangeProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -20779,12 +21349,14 @@ public enum RangeSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -21149,12 +21721,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -21198,12 +21772,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -21247,12 +21823,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -21296,12 +21874,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -21345,12 +21925,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -21394,12 +21976,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

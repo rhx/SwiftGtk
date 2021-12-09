@@ -30,12 +30,13 @@ public extension OverlayLayoutChildClassRef {
 
 // MARK: - OverlayLayoutChildClass Record
 
+
+///
 /// The `OverlayLayoutChildClassProtocol` protocol exposes the methods and properties of an underlying `GtkOverlayLayoutChildClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OverlayLayoutChildClass`.
 /// Alternatively, use `OverlayLayoutChildClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol OverlayLayoutChildClassProtocol {
         /// Untyped pointer to the underlying `GtkOverlayLayoutChildClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol OverlayLayoutChildClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `OverlayLayoutChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkOverlayLayoutChildClass` instance.
 /// It exposes methods that can operate on this data type through `OverlayLayoutChildClassProtocol` conformance.
 /// Use `OverlayLayoutChildClassRef` only as an `unowned` reference to an existing `GtkOverlayLayoutChildClass` instance.
 ///
-
 public struct OverlayLayoutChildClassRef: OverlayLayoutChildClassProtocol {
         /// Untyped pointer to the underlying `GtkOverlayLayoutChildClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -164,12 +166,13 @@ public extension OverlayLayoutClassRef {
 
 // MARK: - OverlayLayoutClass Record
 
+
+///
 /// The `OverlayLayoutClassProtocol` protocol exposes the methods and properties of an underlying `GtkOverlayLayoutClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OverlayLayoutClass`.
 /// Alternatively, use `OverlayLayoutClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol OverlayLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkOverlayLayoutClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -181,11 +184,12 @@ public protocol OverlayLayoutClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `OverlayLayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkOverlayLayoutClass` instance.
 /// It exposes methods that can operate on this data type through `OverlayLayoutClassProtocol` conformance.
 /// Use `OverlayLayoutClassRef` only as an `unowned` reference to an existing `GtkOverlayLayoutClass` instance.
 ///
-
 public struct OverlayLayoutClassRef: OverlayLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkOverlayLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -283,12 +287,13 @@ public extension OverlayLayoutClassProtocol {
 
 // MARK: - PadActionEntry Record
 
+/// Struct defining a pad action entry.
+///
 /// The `PadActionEntryProtocol` protocol exposes the methods and properties of an underlying `GtkPadActionEntry` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PadActionEntry`.
 /// Alternatively, use `PadActionEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Struct defining a pad action entry.
 public protocol PadActionEntryProtocol {
         /// Untyped pointer to the underlying `GtkPadActionEntry` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -300,11 +305,12 @@ public protocol PadActionEntryProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Struct defining a pad action entry.
+///
 /// The `PadActionEntryRef` type acts as a lightweight Swift reference to an underlying `GtkPadActionEntry` instance.
 /// It exposes methods that can operate on this data type through `PadActionEntryProtocol` conformance.
 /// Use `PadActionEntryRef` only as an `unowned` reference to an existing `GtkPadActionEntry` instance.
 ///
-/// Struct defining a pad action entry.
 public struct PadActionEntryRef: PadActionEntryProtocol {
         /// Untyped pointer to the underlying `GtkPadActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -383,11 +389,12 @@ public extension PadActionEntryRef {
 
     }
 
+/// Struct defining a pad action entry.
+///
 /// The `PadActionEntry` type acts as an owner of an underlying `GtkPadActionEntry` instance.
 /// It provides the methods that can operate on this data type through `PadActionEntryProtocol` conformance.
 /// Use `PadActionEntry` as a strong reference or owner of a `GtkPadActionEntry` instance.
 ///
-/// Struct defining a pad action entry.
 open class PadActionEntry: PadActionEntryProtocol {
         /// Untyped pointer to the underlying `GtkPadActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

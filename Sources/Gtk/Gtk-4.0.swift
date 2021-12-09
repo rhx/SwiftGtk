@@ -13,6 +13,21 @@ import PangoCairo
 import GdkPixbuf
 import Gdk
 
+import CGLib
+import CCairo
+import CPango
+import CGdkPixbuf
+import CGdk
+import CGtk
+import GLib
+import GLibObject
+import GIO
+import Pango
+import Cairo
+import PangoCairo
+import GdkPixbuf
+import Gdk
+
 
 extension gboolean {
     private init(_ b: Bool) { self = b ? gboolean(1) : gboolean(0) }

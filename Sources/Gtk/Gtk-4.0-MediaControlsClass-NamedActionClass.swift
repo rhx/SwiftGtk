@@ -30,12 +30,13 @@ public extension MediaControlsClassRef {
 
 // MARK: - MediaControlsClass Record
 
+
+///
 /// The `MediaControlsClassProtocol` protocol exposes the methods and properties of an underlying `GtkMediaControlsClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MediaControlsClass`.
 /// Alternatively, use `MediaControlsClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MediaControlsClassProtocol {
         /// Untyped pointer to the underlying `GtkMediaControlsClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol MediaControlsClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MediaControlsClassRef` type acts as a lightweight Swift reference to an underlying `GtkMediaControlsClass` instance.
 /// It exposes methods that can operate on this data type through `MediaControlsClassProtocol` conformance.
 /// Use `MediaControlsClassRef` only as an `unowned` reference to an existing `GtkMediaControlsClass` instance.
 ///
-
 public struct MediaControlsClassRef: MediaControlsClassProtocol {
         /// Untyped pointer to the underlying `GtkMediaControlsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -164,12 +166,13 @@ public extension MediaFileClassRef {
 
 // MARK: - MediaFileClass Record
 
+
+///
 /// The `MediaFileClassProtocol` protocol exposes the methods and properties of an underlying `GtkMediaFileClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MediaFileClass`.
 /// Alternatively, use `MediaFileClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MediaFileClassProtocol {
         /// Untyped pointer to the underlying `GtkMediaFileClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -181,11 +184,12 @@ public protocol MediaFileClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MediaFileClassRef` type acts as a lightweight Swift reference to an underlying `GtkMediaFileClass` instance.
 /// It exposes methods that can operate on this data type through `MediaFileClassProtocol` conformance.
 /// Use `MediaFileClassRef` only as an `unowned` reference to an existing `GtkMediaFileClass` instance.
 ///
-
 public struct MediaFileClassRef: MediaFileClassProtocol {
         /// Untyped pointer to the underlying `GtkMediaFileClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -310,12 +314,13 @@ public extension MediaStreamClassRef {
 
 // MARK: - MediaStreamClass Record
 
+
+///
 /// The `MediaStreamClassProtocol` protocol exposes the methods and properties of an underlying `GtkMediaStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MediaStreamClass`.
 /// Alternatively, use `MediaStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MediaStreamClassProtocol {
         /// Untyped pointer to the underlying `GtkMediaStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -327,11 +332,12 @@ public protocol MediaStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MediaStreamClassRef` type acts as a lightweight Swift reference to an underlying `GtkMediaStreamClass` instance.
 /// It exposes methods that can operate on this data type through `MediaStreamClassProtocol` conformance.
 /// Use `MediaStreamClassRef` only as an `unowned` reference to an existing `GtkMediaStreamClass` instance.
 ///
-
 public struct MediaStreamClassRef: MediaStreamClassProtocol {
         /// Untyped pointer to the underlying `GtkMediaStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -472,12 +478,13 @@ public extension MessageDialogClassRef {
 
 // MARK: - MessageDialogClass Record
 
+
+///
 /// The `MessageDialogClassProtocol` protocol exposes the methods and properties of an underlying `GtkMessageDialogClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MessageDialogClass`.
 /// Alternatively, use `MessageDialogClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MessageDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkMessageDialogClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -489,11 +496,12 @@ public protocol MessageDialogClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MessageDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkMessageDialogClass` instance.
 /// It exposes methods that can operate on this data type through `MessageDialogClassProtocol` conformance.
 /// Use `MessageDialogClassRef` only as an `unowned` reference to an existing `GtkMessageDialogClass` instance.
 ///
-
 public struct MessageDialogClassRef: MessageDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkMessageDialogClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -600,12 +608,13 @@ public extension MnemonicActionClassRef {
 
 // MARK: - MnemonicActionClass Record
 
+
+///
 /// The `MnemonicActionClassProtocol` protocol exposes the methods and properties of an underlying `GtkMnemonicActionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MnemonicActionClass`.
 /// Alternatively, use `MnemonicActionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MnemonicActionClassProtocol {
         /// Untyped pointer to the underlying `GtkMnemonicActionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -617,11 +626,12 @@ public protocol MnemonicActionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MnemonicActionClassRef` type acts as a lightweight Swift reference to an underlying `GtkMnemonicActionClass` instance.
 /// It exposes methods that can operate on this data type through `MnemonicActionClassProtocol` conformance.
 /// Use `MnemonicActionClassRef` only as an `unowned` reference to an existing `GtkMnemonicActionClass` instance.
 ///
-
 public struct MnemonicActionClassRef: MnemonicActionClassProtocol {
         /// Untyped pointer to the underlying `GtkMnemonicActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -728,12 +738,13 @@ public extension MnemonicTriggerClassRef {
 
 // MARK: - MnemonicTriggerClass Record
 
+
+///
 /// The `MnemonicTriggerClassProtocol` protocol exposes the methods and properties of an underlying `GtkMnemonicTriggerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MnemonicTriggerClass`.
 /// Alternatively, use `MnemonicTriggerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MnemonicTriggerClassProtocol {
         /// Untyped pointer to the underlying `GtkMnemonicTriggerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -745,11 +756,12 @@ public protocol MnemonicTriggerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MnemonicTriggerClassRef` type acts as a lightweight Swift reference to an underlying `GtkMnemonicTriggerClass` instance.
 /// It exposes methods that can operate on this data type through `MnemonicTriggerClassProtocol` conformance.
 /// Use `MnemonicTriggerClassRef` only as an `unowned` reference to an existing `GtkMnemonicTriggerClass` instance.
 ///
-
 public struct MnemonicTriggerClassRef: MnemonicTriggerClassProtocol {
         /// Untyped pointer to the underlying `GtkMnemonicTriggerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -856,12 +868,13 @@ public extension MountOperationClassRef {
 
 // MARK: - MountOperationClass Record
 
+
+///
 /// The `MountOperationClassProtocol` protocol exposes the methods and properties of an underlying `GtkMountOperationClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MountOperationClass`.
 /// Alternatively, use `MountOperationClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MountOperationClassProtocol {
         /// Untyped pointer to the underlying `GtkMountOperationClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -873,11 +886,12 @@ public protocol MountOperationClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MountOperationClassRef` type acts as a lightweight Swift reference to an underlying `GtkMountOperationClass` instance.
 /// It exposes methods that can operate on this data type through `MountOperationClassProtocol` conformance.
 /// Use `MountOperationClassRef` only as an `unowned` reference to an existing `GtkMountOperationClass` instance.
 ///
-
 public struct MountOperationClassRef: MountOperationClassProtocol {
         /// Untyped pointer to the underlying `GtkMountOperationClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1000,12 +1014,13 @@ public extension MultiFilterClassRef {
 
 // MARK: - MultiFilterClass Record
 
+
+///
 /// The `MultiFilterClassProtocol` protocol exposes the methods and properties of an underlying `GtkMultiFilterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MultiFilterClass`.
 /// Alternatively, use `MultiFilterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MultiFilterClassProtocol {
         /// Untyped pointer to the underlying `GtkMultiFilterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1017,11 +1032,12 @@ public protocol MultiFilterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MultiFilterClassRef` type acts as a lightweight Swift reference to an underlying `GtkMultiFilterClass` instance.
 /// It exposes methods that can operate on this data type through `MultiFilterClassProtocol` conformance.
 /// Use `MultiFilterClassRef` only as an `unowned` reference to an existing `GtkMultiFilterClass` instance.
 ///
-
 public struct MultiFilterClassRef: MultiFilterClassProtocol {
         /// Untyped pointer to the underlying `GtkMultiFilterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1128,12 +1144,13 @@ public extension MultiSelectionClassRef {
 
 // MARK: - MultiSelectionClass Record
 
+
+///
 /// The `MultiSelectionClassProtocol` protocol exposes the methods and properties of an underlying `GtkMultiSelectionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MultiSelectionClass`.
 /// Alternatively, use `MultiSelectionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MultiSelectionClassProtocol {
         /// Untyped pointer to the underlying `GtkMultiSelectionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1145,11 +1162,12 @@ public protocol MultiSelectionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MultiSelectionClassRef` type acts as a lightweight Swift reference to an underlying `GtkMultiSelectionClass` instance.
 /// It exposes methods that can operate on this data type through `MultiSelectionClassProtocol` conformance.
 /// Use `MultiSelectionClassRef` only as an `unowned` reference to an existing `GtkMultiSelectionClass` instance.
 ///
-
 public struct MultiSelectionClassRef: MultiSelectionClassProtocol {
         /// Untyped pointer to the underlying `GtkMultiSelectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1262,12 +1280,13 @@ public extension MultiSorterClassRef {
 
 // MARK: - MultiSorterClass Record
 
+
+///
 /// The `MultiSorterClassProtocol` protocol exposes the methods and properties of an underlying `GtkMultiSorterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MultiSorterClass`.
 /// Alternatively, use `MultiSorterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MultiSorterClassProtocol {
         /// Untyped pointer to the underlying `GtkMultiSorterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1279,11 +1298,12 @@ public protocol MultiSorterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MultiSorterClassRef` type acts as a lightweight Swift reference to an underlying `GtkMultiSorterClass` instance.
 /// It exposes methods that can operate on this data type through `MultiSorterClassProtocol` conformance.
 /// Use `MultiSorterClassRef` only as an `unowned` reference to an existing `GtkMultiSorterClass` instance.
 ///
-
 public struct MultiSorterClassRef: MultiSorterClassProtocol {
         /// Untyped pointer to the underlying `GtkMultiSorterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1396,12 +1416,13 @@ public extension NamedActionClassRef {
 
 // MARK: - NamedActionClass Record
 
+
+///
 /// The `NamedActionClassProtocol` protocol exposes the methods and properties of an underlying `GtkNamedActionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NamedActionClass`.
 /// Alternatively, use `NamedActionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NamedActionClassProtocol {
         /// Untyped pointer to the underlying `GtkNamedActionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1413,11 +1434,12 @@ public protocol NamedActionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NamedActionClassRef` type acts as a lightweight Swift reference to an underlying `GtkNamedActionClass` instance.
 /// It exposes methods that can operate on this data type through `NamedActionClassProtocol` conformance.
 /// Use `NamedActionClassRef` only as an `unowned` reference to an existing `GtkNamedActionClass` instance.
 ///
-
 public struct NamedActionClassRef: NamedActionClassProtocol {
         /// Untyped pointer to the underlying `GtkNamedActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

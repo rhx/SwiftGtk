@@ -15,37 +15,21 @@ import Gdk
 
 // MARK: - IMContext Class
 
-/// The `IMContextProtocol` protocol exposes the methods and properties of an underlying `GtkIMContext` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `IMContext`.
-/// Alternatively, use `IMContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkIMContext` defines the interface for GTK input methods.
 /// 
 /// `GtkIMContext` is used by GTK text input widgets like `GtkText`
 /// to map from key events to Unicode character strings.
 /// 
-/// By default, GTK uses a platform-dependent default input method.
-/// On Windows, the default implementation is IME-based and on Wayland,
-/// it is using the Wayland text protocol. The choice can be overridden
-/// programmatically via the [property`Gtk.Settings:gtk-im-module`] setting.
-/// Users may set the `GTK_IM_MODULE` environment variable to override the
-/// default.
-/// 
-/// Text widgets have a :im-module property (e.g. [property`Gtk.TextView:im-module`])
-/// that may also be used to set input methods for specific widget instances.
-/// For instance, a certain entry widget might be expected to contain
-/// certain characters which would be easier to input with a specific
-/// input method.
-/// 
 /// An input method may consume multiple key events in sequence before finally
 /// outputting the composed result. This is called *preediting*, and an input
 /// method may provide feedback about this process by displaying the intermediate
-/// composition states as preedit text.
+/// composition states as preedit text. To do so, the `GtkIMContext` will emit
+/// [signal`Gtk.IMContext::preedit-start`], [signal`Gtk.IMContext::preedit-changed`]
+/// and [signal`Gtk.IMContext::preedit-end`] signals.
 /// 
-/// For instance, the built-in GTK input method `GtkIMContextSimple` implements
-/// the input of arbitrary Unicode code points by holding down the
-/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys and then typing &lt;kbd&gt;U&lt;/kbd&gt;
+/// For instance, the built-in GTK input method [class`Gtk.IMContextSimple`]
+/// implements the input of arbitrary Unicode code points by holding down the
+/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys and then typing &lt;kbd&gt;u&lt;/kbd&gt;
 /// followed by the hexadecimal digits of the code point. When releasing the
 /// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys, preediting ends and the
 /// character is inserted as text. For example,
@@ -57,6 +41,15 @@ import Gdk
 /// Additional input methods can be made available for use by GTK widgets as
 /// loadable modules. An input method module is a small shared library which
 /// provides a `GIOExtension` for the extension point named "gtk-im-module".
+/// 
+/// To connect a widget to the users preferred input method, you should use
+/// [class`Gtk.IMMulticontext`].
+///
+/// The `IMContextProtocol` protocol exposes the methods and properties of an underlying `GtkIMContext` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `IMContext`.
+/// Alternatively, use `IMContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol IMContextProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkIMContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -68,36 +61,21 @@ public protocol IMContextProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `IMContextRef` type acts as a lightweight Swift reference to an underlying `GtkIMContext` instance.
-/// It exposes methods that can operate on this data type through `IMContextProtocol` conformance.
-/// Use `IMContextRef` only as an `unowned` reference to an existing `GtkIMContext` instance.
-///
 /// `GtkIMContext` defines the interface for GTK input methods.
 /// 
 /// `GtkIMContext` is used by GTK text input widgets like `GtkText`
 /// to map from key events to Unicode character strings.
 /// 
-/// By default, GTK uses a platform-dependent default input method.
-/// On Windows, the default implementation is IME-based and on Wayland,
-/// it is using the Wayland text protocol. The choice can be overridden
-/// programmatically via the [property`Gtk.Settings:gtk-im-module`] setting.
-/// Users may set the `GTK_IM_MODULE` environment variable to override the
-/// default.
-/// 
-/// Text widgets have a :im-module property (e.g. [property`Gtk.TextView:im-module`])
-/// that may also be used to set input methods for specific widget instances.
-/// For instance, a certain entry widget might be expected to contain
-/// certain characters which would be easier to input with a specific
-/// input method.
-/// 
 /// An input method may consume multiple key events in sequence before finally
 /// outputting the composed result. This is called *preediting*, and an input
 /// method may provide feedback about this process by displaying the intermediate
-/// composition states as preedit text.
+/// composition states as preedit text. To do so, the `GtkIMContext` will emit
+/// [signal`Gtk.IMContext::preedit-start`], [signal`Gtk.IMContext::preedit-changed`]
+/// and [signal`Gtk.IMContext::preedit-end`] signals.
 /// 
-/// For instance, the built-in GTK input method `GtkIMContextSimple` implements
-/// the input of arbitrary Unicode code points by holding down the
-/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys and then typing &lt;kbd&gt;U&lt;/kbd&gt;
+/// For instance, the built-in GTK input method [class`Gtk.IMContextSimple`]
+/// implements the input of arbitrary Unicode code points by holding down the
+/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys and then typing &lt;kbd&gt;u&lt;/kbd&gt;
 /// followed by the hexadecimal digits of the code point. When releasing the
 /// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys, preediting ends and the
 /// character is inserted as text. For example,
@@ -109,6 +87,14 @@ public protocol IMContextProtocol: GLibObject.ObjectProtocol {
 /// Additional input methods can be made available for use by GTK widgets as
 /// loadable modules. An input method module is a small shared library which
 /// provides a `GIOExtension` for the extension point named "gtk-im-module".
+/// 
+/// To connect a widget to the users preferred input method, you should use
+/// [class`Gtk.IMMulticontext`].
+///
+/// The `IMContextRef` type acts as a lightweight Swift reference to an underlying `GtkIMContext` instance.
+/// It exposes methods that can operate on this data type through `IMContextProtocol` conformance.
+/// Use `IMContextRef` only as an `unowned` reference to an existing `GtkIMContext` instance.
+///
 public struct IMContextRef: IMContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIMContext` instance.
     /// For type-safe access, use the generated, typed pointer `im_context_ptr` property instead.
@@ -190,36 +176,21 @@ public extension IMContextRef {
 
     }
 
-/// The `IMContext` type acts as a reference-counted owner of an underlying `GtkIMContext` instance.
-/// It provides the methods that can operate on this data type through `IMContextProtocol` conformance.
-/// Use `IMContext` as a strong reference or owner of a `GtkIMContext` instance.
-///
 /// `GtkIMContext` defines the interface for GTK input methods.
 /// 
 /// `GtkIMContext` is used by GTK text input widgets like `GtkText`
 /// to map from key events to Unicode character strings.
 /// 
-/// By default, GTK uses a platform-dependent default input method.
-/// On Windows, the default implementation is IME-based and on Wayland,
-/// it is using the Wayland text protocol. The choice can be overridden
-/// programmatically via the [property`Gtk.Settings:gtk-im-module`] setting.
-/// Users may set the `GTK_IM_MODULE` environment variable to override the
-/// default.
-/// 
-/// Text widgets have a :im-module property (e.g. [property`Gtk.TextView:im-module`])
-/// that may also be used to set input methods for specific widget instances.
-/// For instance, a certain entry widget might be expected to contain
-/// certain characters which would be easier to input with a specific
-/// input method.
-/// 
 /// An input method may consume multiple key events in sequence before finally
 /// outputting the composed result. This is called *preediting*, and an input
 /// method may provide feedback about this process by displaying the intermediate
-/// composition states as preedit text.
+/// composition states as preedit text. To do so, the `GtkIMContext` will emit
+/// [signal`Gtk.IMContext::preedit-start`], [signal`Gtk.IMContext::preedit-changed`]
+/// and [signal`Gtk.IMContext::preedit-end`] signals.
 /// 
-/// For instance, the built-in GTK input method `GtkIMContextSimple` implements
-/// the input of arbitrary Unicode code points by holding down the
-/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys and then typing &lt;kbd&gt;U&lt;/kbd&gt;
+/// For instance, the built-in GTK input method [class`Gtk.IMContextSimple`]
+/// implements the input of arbitrary Unicode code points by holding down the
+/// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys and then typing &lt;kbd&gt;u&lt;/kbd&gt;
 /// followed by the hexadecimal digits of the code point. When releasing the
 /// &lt;kbd&gt;Control&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt; keys, preediting ends and the
 /// character is inserted as text. For example,
@@ -231,6 +202,14 @@ public extension IMContextRef {
 /// Additional input methods can be made available for use by GTK widgets as
 /// loadable modules. An input method module is a small shared library which
 /// provides a `GIOExtension` for the extension point named "gtk-im-module".
+/// 
+/// To connect a widget to the users preferred input method, you should use
+/// [class`Gtk.IMMulticontext`].
+///
+/// The `IMContext` type acts as a reference-counted owner of an underlying `GtkIMContext` instance.
+/// It provides the methods that can operate on this data type through `IMContextProtocol` conformance.
+/// Use `IMContext` as a strong reference or owner of a `GtkIMContext` instance.
+///
 open class IMContext: GLibObject.Object, IMContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -361,7 +340,13 @@ open class IMContext: GLibObject.Object, IMContextProtocol {
 }
 
 public enum IMContextPropertyName: String, PropertyNameProtocol {
+    /// Additional hints that allow input methods to fine-tune
+    /// their behaviour.
     case inputHints = "input-hints"
+    /// The purpose of the text field that the `GtkIMContext is connected to.
+    /// 
+    /// This property can be used by on-screen keyboards and other input
+    /// methods to adjust their behaviour.
     case inputPurpose = "input-purpose"
 }
 
@@ -420,8 +405,13 @@ public extension IMContextProtocol {
 
 public enum IMContextSignalName: String, SignalNameProtocol {
     /// The `commit` signal is emitted when a complete input sequence
-    /// has been entered by the user. This can be a single character
-    /// immediately after a key press or the final result of preediting.
+    /// has been entered by the user.
+    /// 
+    /// If the commit comes after a preediting sequence, the
+    /// `commit` signal is emitted after `preedit-end`.
+    /// 
+    /// This can be a single character immediately after a key press or
+    /// the final result of preediting.
     case commit = "commit"
     /// The `delete-surrounding` signal is emitted when the input method
     /// needs to delete all or part of the context surrounding the cursor.
@@ -441,20 +431,23 @@ public enum IMContextSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The `preedit-changed` signal is emitted whenever the preedit sequence
-    /// currently being entered has changed.  It is also emitted at the end of
-    /// a preedit sequence, in which case
-    /// `gtk_im_context_get_preedit_string()` returns the empty string.
+    /// currently being entered has changed.
+    /// 
+    /// It is also emitted at the end of a preedit sequence, in which case
+    /// [method`Gtk.IMContext.get_preedit_string`] returns the empty string.
     case preeditChanged = "preedit-changed"
     /// The `preedit-end` signal is emitted when a preediting sequence
     /// has been completed or canceled.
@@ -463,11 +456,18 @@ public enum IMContextSignalName: String, SignalNameProtocol {
     /// starts.
     case preeditStart = "preedit-start"
     /// The `retrieve-surrounding` signal is emitted when the input method
-    /// requires the context surrounding the cursor.  The callback should set
-    /// the input method surrounding context by calling the
-    /// `gtk_im_context_set_surrounding()` method.
+    /// requires the context surrounding the cursor.
+    /// 
+    /// The callback should set the input method surrounding context by
+    /// calling the [method`Gtk.IMContext.set_surrounding`] method.
     case retrieveSurrounding = "retrieve-surrounding"
+    /// Additional hints that allow input methods to fine-tune
+    /// their behaviour.
     case notifyInputHints = "notify::input-hints"
+    /// The purpose of the text field that the `GtkIMContext is connected to.
+    /// 
+    /// This property can be used by on-screen keyboards and other input
+    /// methods to adjust their behaviour.
     case notifyInputPurpose = "notify::input-purpose"
 }
 
@@ -500,8 +500,13 @@ public extension IMContextProtocol {
     
     
     /// The `commit` signal is emitted when a complete input sequence
-    /// has been entered by the user. This can be a single character
-    /// immediately after a key press or the final result of preediting.
+    /// has been entered by the user.
+    /// 
+    /// If the commit comes after a preediting sequence, the
+    /// `commit` signal is emitted after `preedit-end`.
+    /// 
+    /// This can be a single character immediately after a key press or
+    /// the final result of preediting.
     /// - Note: This represents the underlying `commit` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -532,7 +537,7 @@ public extension IMContextProtocol {
     /// - Note: This represents the underlying `delete-surrounding` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter offset: the character offset from the cursor position of the text           to be deleted. A negative value indicates a position before           the cursor.
+    /// - Parameter offset: the character offset from the cursor position of the text   to be deleted. A negative value indicates a position before   the cursor.
     /// - Parameter nChars: the number of characters to be deleted
     /// - Parameter handler: `true` if the signal was handled.
     /// Run the given callback whenever the `deleteSurrounding` signal is emitted
@@ -556,9 +561,10 @@ public extension IMContextProtocol {
     static var deleteSurroundingSignal: IMContextSignalName { .deleteSurrounding }
     
     /// The `preedit-changed` signal is emitted whenever the preedit sequence
-    /// currently being entered has changed.  It is also emitted at the end of
-    /// a preedit sequence, in which case
-    /// `gtk_im_context_get_preedit_string()` returns the empty string.
+    /// currently being entered has changed.
+    /// 
+    /// It is also emitted at the end of a preedit sequence, in which case
+    /// [method`Gtk.IMContext.get_preedit_string`] returns the empty string.
     /// - Note: This represents the underlying `preedit-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -636,9 +642,10 @@ public extension IMContextProtocol {
     static var preeditStartSignal: IMContextSignalName { .preeditStart }
     
     /// The `retrieve-surrounding` signal is emitted when the input method
-    /// requires the context surrounding the cursor.  The callback should set
-    /// the input method surrounding context by calling the
-    /// `gtk_im_context_set_surrounding()` method.
+    /// requires the context surrounding the cursor.
+    /// 
+    /// The callback should set the input method surrounding context by
+    /// calling the [method`Gtk.IMContext.set_surrounding`] method.
     /// - Note: This represents the underlying `retrieve-surrounding` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -678,12 +685,14 @@ public extension IMContextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -727,12 +736,14 @@ public extension IMContextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -770,28 +781,28 @@ public extension IMContextProtocol {
 
     /// Asks the widget that the input context is attached to delete
     /// characters around the cursor position by emitting the
-    /// GtkIMContext`delete_surrounding` signal.
+    /// ``delete_surrounding`` signal.
     /// 
     /// Note that `offset` and `n_chars` are in characters not in bytes
     /// which differs from the usage other places in `GtkIMContext`.
     /// 
     /// In order to use this function, you should first call
-    /// `gtk_im_context_get_surrounding()` to get the current context, and
-    /// call this function immediately afterwards to make sure that you
+    /// [method`Gtk.IMContext.get_surrounding`] to get the current context,
+    /// and call this function immediately afterwards to make sure that you
     /// know what you are deleting. You should also account for the fact
     /// that even if the signal was handled, the input context might not
     /// have deleted all the characters that were requested to be deleted.
     /// 
     /// This function is used by an input method that wants to make
-    /// subsitutions in the existing text in response to new input. It is
-    /// not useful for applications.
+    /// subsitutions in the existing text in response to new input.
+    /// It is not useful for applications.
     @inlinable func deleteSurrounding(offset: Int, nChars: Int) -> Bool {
         let rv = ((gtk_im_context_delete_surrounding(im_context_ptr, gint(offset), gint(nChars))) != 0)
         return rv
     }
 
     /// Allow an input method to forward key press and release events
-    /// to another input methodm without necessarily having a `GdkEvent`
+    /// to another input method without necessarily having a `GdkEvent`
     /// available.
     @inlinable func filterKey<DeviceT: Gdk.DeviceProtocol, SurfaceT: Gdk.SurfaceProtocol>(press: Bool, surface: SurfaceT, device: DeviceT, time: guint32, keycode: Int, state: Gdk.ModifierType, group: Int) -> Bool {
         let rv = ((gtk_im_context_filter_key(im_context_ptr, gboolean((press) ? 1 : 0), surface.surface_ptr, device.device_ptr, time, guint(keycode), state.value, gint(group))) != 0)
@@ -911,7 +922,7 @@ public extension IMContextProtocol {
     /// Notify the input method that a change in cursor
     /// position has been made.
     /// 
-    /// The location is relative to the client window.
+    /// The location is relative to the client widget.
     @inlinable func setCursorLocation<RectangleT: Gdk.RectangleProtocol>(area: RectangleT) {
         gtk_im_context_set_cursor_location(im_context_ptr, area.rectangle_ptr)
     
@@ -933,8 +944,8 @@ public extension IMContextProtocol {
 
     /// Sets surrounding context around the insertion point and preedit
     /// string. This function is expected to be called in response to the
-    /// GtkIMContext`retrieve_surrounding` signal, and will likely have no
-    /// effect if called at other times.
+    /// [signal`Gtk.IMContext::retrieve_surrounding`] signal, and will likely
+    /// have no effect if called at other times.
     @inlinable func setSurroundingWithSelection(text: UnsafePointer<CChar>!, len: Int, cursorIndex: Int, anchorIndex: Int) {
         gtk_im_context_set_surrounding_with_selection(im_context_ptr, text, gint(len), gint(cursorIndex), gint(anchorIndex))
     
@@ -964,21 +975,22 @@ public extension IMContextProtocol {
 
 // MARK: - IMContextSimple Class
 
-/// The `IMContextSimpleProtocol` protocol exposes the methods and properties of an underlying `GtkIMContextSimple` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `IMContextSimple`.
-/// Alternatively, use `IMContextSimpleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkIMContextSimple` is an input method supporting table-based input methods.
 /// 
-/// `GtkIMContextSimple` has a built-in table of compose sequences that is
-/// derived from the X11 Compose files.
+/// ## Compose sequences
 /// 
-/// `GtkIMContextSimple` reads additional compose sequences from the first of the
+/// `GtkIMContextSimple` reads compose sequences from the first of the
 /// following files that is found: ~/.config/gtk-4.0/Compose, ~/.XCompose,
 /// /usr/share/X11/locale/$locale/Compose (for locales that have a nontrivial
 /// Compose file). The syntax of these files is described in the `Compose(5)`
 /// manual page.
+/// 
+/// If none of these files is found, `GtkIMContextSimple` uses a built-in table
+/// of compose sequences that is derived from the X11 Compose files.
+/// 
+/// Note that compose sequences typically start with the Compose_key, which is
+/// often not available as a dedicated key on keyboards. Keyboard layouts may
+/// map this keysym to other keys, such as the right Control key.
 /// 
 /// ## Unicode characters
 /// 
@@ -991,6 +1003,21 @@ public extension IMContextProtocol {
 ///     Ctrl-Shift-u 1 2 3 Enter
 /// 
 /// yields U+0123 LATIN SMALL LETTER G WITH CEDILLA, i.e. ģ.
+/// 
+/// ## Dead keys
+/// 
+/// `GtkIMContextSimple` supports dead keys. For example, typing
+/// 
+///     dead_acute a
+/// 
+///  yields U+00E! LATIN SMALL LETTER_A WITH ACUTE, i.e. á. Note that this
+///  depends on the keyboard layout including dead keys.
+///
+/// The `IMContextSimpleProtocol` protocol exposes the methods and properties of an underlying `GtkIMContextSimple` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `IMContextSimple`.
+/// Alternatively, use `IMContextSimpleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol IMContextSimpleProtocol: IMContextProtocol {
         /// Untyped pointer to the underlying `GtkIMContextSimple` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1002,20 +1029,22 @@ public protocol IMContextSimpleProtocol: IMContextProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `IMContextSimpleRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextSimple` instance.
-/// It exposes methods that can operate on this data type through `IMContextSimpleProtocol` conformance.
-/// Use `IMContextSimpleRef` only as an `unowned` reference to an existing `GtkIMContextSimple` instance.
-///
 /// `GtkIMContextSimple` is an input method supporting table-based input methods.
 /// 
-/// `GtkIMContextSimple` has a built-in table of compose sequences that is
-/// derived from the X11 Compose files.
+/// ## Compose sequences
 /// 
-/// `GtkIMContextSimple` reads additional compose sequences from the first of the
+/// `GtkIMContextSimple` reads compose sequences from the first of the
 /// following files that is found: ~/.config/gtk-4.0/Compose, ~/.XCompose,
 /// /usr/share/X11/locale/$locale/Compose (for locales that have a nontrivial
 /// Compose file). The syntax of these files is described in the `Compose(5)`
 /// manual page.
+/// 
+/// If none of these files is found, `GtkIMContextSimple` uses a built-in table
+/// of compose sequences that is derived from the X11 Compose files.
+/// 
+/// Note that compose sequences typically start with the Compose_key, which is
+/// often not available as a dedicated key on keyboards. Keyboard layouts may
+/// map this keysym to other keys, such as the right Control key.
 /// 
 /// ## Unicode characters
 /// 
@@ -1028,6 +1057,20 @@ public protocol IMContextSimpleProtocol: IMContextProtocol {
 ///     Ctrl-Shift-u 1 2 3 Enter
 /// 
 /// yields U+0123 LATIN SMALL LETTER G WITH CEDILLA, i.e. ģ.
+/// 
+/// ## Dead keys
+/// 
+/// `GtkIMContextSimple` supports dead keys. For example, typing
+/// 
+///     dead_acute a
+/// 
+///  yields U+00E! LATIN SMALL LETTER_A WITH ACUTE, i.e. á. Note that this
+///  depends on the keyboard layout including dead keys.
+///
+/// The `IMContextSimpleRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextSimple` instance.
+/// It exposes methods that can operate on this data type through `IMContextSimpleProtocol` conformance.
+/// Use `IMContextSimpleRef` only as an `unowned` reference to an existing `GtkIMContextSimple` instance.
+///
 public struct IMContextSimpleRef: IMContextSimpleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIMContextSimple` instance.
     /// For type-safe access, use the generated, typed pointer `im_context_simple_ptr` property instead.
@@ -1114,20 +1157,22 @@ public extension IMContextSimpleRef {
     }
 }
 
-/// The `IMContextSimple` type acts as a reference-counted owner of an underlying `GtkIMContextSimple` instance.
-/// It provides the methods that can operate on this data type through `IMContextSimpleProtocol` conformance.
-/// Use `IMContextSimple` as a strong reference or owner of a `GtkIMContextSimple` instance.
-///
 /// `GtkIMContextSimple` is an input method supporting table-based input methods.
 /// 
-/// `GtkIMContextSimple` has a built-in table of compose sequences that is
-/// derived from the X11 Compose files.
+/// ## Compose sequences
 /// 
-/// `GtkIMContextSimple` reads additional compose sequences from the first of the
+/// `GtkIMContextSimple` reads compose sequences from the first of the
 /// following files that is found: ~/.config/gtk-4.0/Compose, ~/.XCompose,
 /// /usr/share/X11/locale/$locale/Compose (for locales that have a nontrivial
 /// Compose file). The syntax of these files is described in the `Compose(5)`
 /// manual page.
+/// 
+/// If none of these files is found, `GtkIMContextSimple` uses a built-in table
+/// of compose sequences that is derived from the X11 Compose files.
+/// 
+/// Note that compose sequences typically start with the Compose_key, which is
+/// often not available as a dedicated key on keyboards. Keyboard layouts may
+/// map this keysym to other keys, such as the right Control key.
 /// 
 /// ## Unicode characters
 /// 
@@ -1140,6 +1185,20 @@ public extension IMContextSimpleRef {
 ///     Ctrl-Shift-u 1 2 3 Enter
 /// 
 /// yields U+0123 LATIN SMALL LETTER G WITH CEDILLA, i.e. ģ.
+/// 
+/// ## Dead keys
+/// 
+/// `GtkIMContextSimple` supports dead keys. For example, typing
+/// 
+///     dead_acute a
+/// 
+///  yields U+00E! LATIN SMALL LETTER_A WITH ACUTE, i.e. á. Note that this
+///  depends on the keyboard layout including dead keys.
+///
+/// The `IMContextSimple` type acts as a reference-counted owner of an underlying `GtkIMContextSimple` instance.
+/// It provides the methods that can operate on this data type through `IMContextSimpleProtocol` conformance.
+/// Use `IMContextSimple` as a strong reference or owner of a `GtkIMContextSimple` instance.
+///
 open class IMContextSimple: IMContext, IMContextSimpleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1276,7 +1335,13 @@ open class IMContextSimple: IMContext, IMContextSimpleProtocol {
 }
 
 public enum IMContextSimplePropertyName: String, PropertyNameProtocol {
+    /// Additional hints that allow input methods to fine-tune
+    /// their behaviour.
     case inputHints = "input-hints"
+    /// The purpose of the text field that the `GtkIMContext is connected to.
+    /// 
+    /// This property can be used by on-screen keyboards and other input
+    /// methods to adjust their behaviour.
     case inputPurpose = "input-purpose"
 }
 
@@ -1335,8 +1400,13 @@ public extension IMContextSimpleProtocol {
 
 public enum IMContextSimpleSignalName: String, SignalNameProtocol {
     /// The `commit` signal is emitted when a complete input sequence
-    /// has been entered by the user. This can be a single character
-    /// immediately after a key press or the final result of preediting.
+    /// has been entered by the user.
+    /// 
+    /// If the commit comes after a preediting sequence, the
+    /// `commit` signal is emitted after `preedit-end`.
+    /// 
+    /// This can be a single character immediately after a key press or
+    /// the final result of preediting.
     case commit = "commit"
     /// The `delete-surrounding` signal is emitted when the input method
     /// needs to delete all or part of the context surrounding the cursor.
@@ -1356,20 +1426,23 @@ public enum IMContextSimpleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The `preedit-changed` signal is emitted whenever the preedit sequence
-    /// currently being entered has changed.  It is also emitted at the end of
-    /// a preedit sequence, in which case
-    /// `gtk_im_context_get_preedit_string()` returns the empty string.
+    /// currently being entered has changed.
+    /// 
+    /// It is also emitted at the end of a preedit sequence, in which case
+    /// [method`Gtk.IMContext.get_preedit_string`] returns the empty string.
     case preeditChanged = "preedit-changed"
     /// The `preedit-end` signal is emitted when a preediting sequence
     /// has been completed or canceled.
@@ -1378,11 +1451,18 @@ public enum IMContextSimpleSignalName: String, SignalNameProtocol {
     /// starts.
     case preeditStart = "preedit-start"
     /// The `retrieve-surrounding` signal is emitted when the input method
-    /// requires the context surrounding the cursor.  The callback should set
-    /// the input method surrounding context by calling the
-    /// `gtk_im_context_set_surrounding()` method.
+    /// requires the context surrounding the cursor.
+    /// 
+    /// The callback should set the input method surrounding context by
+    /// calling the [method`Gtk.IMContext.set_surrounding`] method.
     case retrieveSurrounding = "retrieve-surrounding"
+    /// Additional hints that allow input methods to fine-tune
+    /// their behaviour.
     case notifyInputHints = "notify::input-hints"
+    /// The purpose of the text field that the `GtkIMContext is connected to.
+    /// 
+    /// This property can be used by on-screen keyboards and other input
+    /// methods to adjust their behaviour.
     case notifyInputPurpose = "notify::input-purpose"
 }
 
@@ -1407,7 +1487,10 @@ public extension IMContextSimpleProtocol {
     /// The table must be sorted in dictionary order on the
     /// numeric value of the key symbol fields. (Values beyond
     /// the length of the sequence should be zero.)
-    @inlinable func addTable(data: UnsafeMutablePointer<guint16>!, maxSeqLen: Int, nSeqs: Int) {
+    ///
+    /// **add_table is deprecated:**
+    /// Use gtk_im_context_simple_add_compose_file()
+    @available(*, deprecated) @inlinable func addTable(data: UnsafeMutablePointer<guint16>!, maxSeqLen: Int, nSeqs: Int) {
         gtk_im_context_simple_add_table(im_context_simple_ptr, data, gint(maxSeqLen), gint(nSeqs))
     
     }
@@ -1427,17 +1510,18 @@ public extension IMContextSimpleProtocol {
 
 // MARK: - IMMulticontext Class
 
+/// `GtkIMMulticontext` is an input method context supporting multiple,
+/// switchable input methods.
+/// 
+/// Text widgets such as `GtkText` or `GtkTextView` use a `GtkIMMultiContext`
+/// to implement their `im-module` property for switching between different
+/// input methods.
+///
 /// The `IMMulticontextProtocol` protocol exposes the methods and properties of an underlying `GtkIMMulticontext` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IMMulticontext`.
 /// Alternatively, use `IMMulticontextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkIMMulticontext` is input method supporting multiple, switchable input
-/// methods.
-/// 
-/// Text widgets such as `GtkText` or `GtkTextView` use a `GtkIMMultiContext`
-/// to implement their `im-module` property for switching between different
-/// input methods.
 public protocol IMMulticontextProtocol: IMContextProtocol {
         /// Untyped pointer to the underlying `GtkIMMulticontext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1449,16 +1533,17 @@ public protocol IMMulticontextProtocol: IMContextProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `IMMulticontextRef` type acts as a lightweight Swift reference to an underlying `GtkIMMulticontext` instance.
-/// It exposes methods that can operate on this data type through `IMMulticontextProtocol` conformance.
-/// Use `IMMulticontextRef` only as an `unowned` reference to an existing `GtkIMMulticontext` instance.
-///
-/// `GtkIMMulticontext` is input method supporting multiple, switchable input
-/// methods.
+/// `GtkIMMulticontext` is an input method context supporting multiple,
+/// switchable input methods.
 /// 
 /// Text widgets such as `GtkText` or `GtkTextView` use a `GtkIMMultiContext`
 /// to implement their `im-module` property for switching between different
 /// input methods.
+///
+/// The `IMMulticontextRef` type acts as a lightweight Swift reference to an underlying `GtkIMMulticontext` instance.
+/// It exposes methods that can operate on this data type through `IMMulticontextProtocol` conformance.
+/// Use `IMMulticontextRef` only as an `unowned` reference to an existing `GtkIMMulticontext` instance.
+///
 public struct IMMulticontextRef: IMMulticontextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIMMulticontext` instance.
     /// For type-safe access, use the generated, typed pointer `im_multicontext_ptr` property instead.
@@ -1545,16 +1630,17 @@ public extension IMMulticontextRef {
     }
 }
 
-/// The `IMMulticontext` type acts as a reference-counted owner of an underlying `GtkIMMulticontext` instance.
-/// It provides the methods that can operate on this data type through `IMMulticontextProtocol` conformance.
-/// Use `IMMulticontext` as a strong reference or owner of a `GtkIMMulticontext` instance.
-///
-/// `GtkIMMulticontext` is input method supporting multiple, switchable input
-/// methods.
+/// `GtkIMMulticontext` is an input method context supporting multiple,
+/// switchable input methods.
 /// 
 /// Text widgets such as `GtkText` or `GtkTextView` use a `GtkIMMultiContext`
 /// to implement their `im-module` property for switching between different
 /// input methods.
+///
+/// The `IMMulticontext` type acts as a reference-counted owner of an underlying `GtkIMMulticontext` instance.
+/// It provides the methods that can operate on this data type through `IMMulticontextProtocol` conformance.
+/// Use `IMMulticontext` as a strong reference or owner of a `GtkIMMulticontext` instance.
+///
 open class IMMulticontext: IMContext, IMMulticontextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1691,7 +1777,13 @@ open class IMMulticontext: IMContext, IMMulticontextProtocol {
 }
 
 public enum IMMulticontextPropertyName: String, PropertyNameProtocol {
+    /// Additional hints that allow input methods to fine-tune
+    /// their behaviour.
     case inputHints = "input-hints"
+    /// The purpose of the text field that the `GtkIMContext is connected to.
+    /// 
+    /// This property can be used by on-screen keyboards and other input
+    /// methods to adjust their behaviour.
     case inputPurpose = "input-purpose"
 }
 
@@ -1750,8 +1842,13 @@ public extension IMMulticontextProtocol {
 
 public enum IMMulticontextSignalName: String, SignalNameProtocol {
     /// The `commit` signal is emitted when a complete input sequence
-    /// has been entered by the user. This can be a single character
-    /// immediately after a key press or the final result of preediting.
+    /// has been entered by the user.
+    /// 
+    /// If the commit comes after a preediting sequence, the
+    /// `commit` signal is emitted after `preedit-end`.
+    /// 
+    /// This can be a single character immediately after a key press or
+    /// the final result of preediting.
     case commit = "commit"
     /// The `delete-surrounding` signal is emitted when the input method
     /// needs to delete all or part of the context surrounding the cursor.
@@ -1771,20 +1868,23 @@ public enum IMMulticontextSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The `preedit-changed` signal is emitted whenever the preedit sequence
-    /// currently being entered has changed.  It is also emitted at the end of
-    /// a preedit sequence, in which case
-    /// `gtk_im_context_get_preedit_string()` returns the empty string.
+    /// currently being entered has changed.
+    /// 
+    /// It is also emitted at the end of a preedit sequence, in which case
+    /// [method`Gtk.IMContext.get_preedit_string`] returns the empty string.
     case preeditChanged = "preedit-changed"
     /// The `preedit-end` signal is emitted when a preediting sequence
     /// has been completed or canceled.
@@ -1793,11 +1893,18 @@ public enum IMMulticontextSignalName: String, SignalNameProtocol {
     /// starts.
     case preeditStart = "preedit-start"
     /// The `retrieve-surrounding` signal is emitted when the input method
-    /// requires the context surrounding the cursor.  The callback should set
-    /// the input method surrounding context by calling the
-    /// `gtk_im_context_set_surrounding()` method.
+    /// requires the context surrounding the cursor.
+    /// 
+    /// The callback should set the input method surrounding context by
+    /// calling the [method`Gtk.IMContext.set_surrounding`] method.
     case retrieveSurrounding = "retrieve-surrounding"
+    /// Additional hints that allow input methods to fine-tune
+    /// their behaviour.
     case notifyInputHints = "notify::input-hints"
+    /// The purpose of the text field that the `GtkIMContext is connected to.
+    /// 
+    /// This property can be used by on-screen keyboards and other input
+    /// methods to adjust their behaviour.
     case notifyInputPurpose = "notify::input-purpose"
 }
 
@@ -1817,7 +1924,11 @@ public extension IMMulticontextProtocol {
     /// 
     /// This causes the currently active delegate of `context` to be
     /// replaced by the delegate corresponding to the new context id.
-    @inlinable func set(contextId: UnsafePointer<CChar>!) {
+    /// 
+    /// Setting this to a non-`nil` value overrides the system-wide
+    /// IM module setting. See the [property`Gtk.Settings:gtk-im-module`]
+    /// property.
+    @inlinable func set(contextId: UnsafePointer<CChar>? = nil) {
         gtk_im_multicontext_set_context_id(im_multicontext_ptr, contextId)
     
     }
@@ -1832,6 +1943,10 @@ public extension IMMulticontextProtocol {
         /// 
         /// This causes the currently active delegate of `context` to be
         /// replaced by the delegate corresponding to the new context id.
+        /// 
+        /// Setting this to a non-`nil` value overrides the system-wide
+        /// IM module setting. See the [property`Gtk.Settings:gtk-im-module`]
+        /// property.
         nonmutating set {
             gtk_im_multicontext_set_context_id(im_multicontext_ptr, newValue)
         }
@@ -1852,14 +1967,15 @@ public extension IMMulticontextProtocol {
 
 // MARK: - IconPaintable Class
 
+/// Contains information found when looking up an icon in `GtkIconTheme`.
+/// 
+/// `GtkIconPaintable` implements `GdkPaintable`.
+///
 /// The `IconPaintableProtocol` protocol exposes the methods and properties of an underlying `GtkIconPaintable` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IconPaintable`.
 /// Alternatively, use `IconPaintableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Contains information found when looking up an icon in `GtkIconTheme`.
-/// 
-/// `GtkIconPaintable` implements `GdkPaintable`.
 public protocol IconPaintableProtocol: GLibObject.ObjectProtocol, Gdk.PaintableProtocol {
         /// Untyped pointer to the underlying `GtkIconPaintable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1871,13 +1987,14 @@ public protocol IconPaintableProtocol: GLibObject.ObjectProtocol, Gdk.PaintableP
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Contains information found when looking up an icon in `GtkIconTheme`.
+/// 
+/// `GtkIconPaintable` implements `GdkPaintable`.
+///
 /// The `IconPaintableRef` type acts as a lightweight Swift reference to an underlying `GtkIconPaintable` instance.
 /// It exposes methods that can operate on this data type through `IconPaintableProtocol` conformance.
 /// Use `IconPaintableRef` only as an `unowned` reference to an existing `GtkIconPaintable` instance.
 ///
-/// Contains information found when looking up an icon in `GtkIconTheme`.
-/// 
-/// `GtkIconPaintable` implements `GdkPaintable`.
 public struct IconPaintableRef: IconPaintableProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIconPaintable` instance.
     /// For type-safe access, use the generated, typed pointer `icon_paintable_ptr` property instead.
@@ -1973,13 +2090,14 @@ public extension IconPaintableRef {
     }
 }
 
+/// Contains information found when looking up an icon in `GtkIconTheme`.
+/// 
+/// `GtkIconPaintable` implements `GdkPaintable`.
+///
 /// The `IconPaintable` type acts as a reference-counted owner of an underlying `GtkIconPaintable` instance.
 /// It provides the methods that can operate on this data type through `IconPaintableProtocol` conformance.
 /// Use `IconPaintable` as a strong reference or owner of a `GtkIconPaintable` instance.
 ///
-/// Contains information found when looking up an icon in `GtkIconTheme`.
-/// 
-/// `GtkIconPaintable` implements `GdkPaintable`.
 open class IconPaintable: GLibObject.Object, IconPaintableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2203,12 +2321,14 @@ public enum IconPaintableSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2312,11 +2432,6 @@ public extension IconPaintableProtocol {
 
 // MARK: - IconTheme Class
 
-/// The `IconThemeProtocol` protocol exposes the methods and properties of an underlying `GtkIconTheme` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `IconTheme`.
-/// Alternatively, use `IconThemeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkIconTheme` provides a facility for loading themed icons.
 /// 
 /// The main reason for using a name rather than simply providing a filename
@@ -2349,6 +2464,12 @@ public extension IconPaintableProtocol {
 /// // Use the paintable
 /// g_object_unref (icon);
 /// ```
+///
+/// The `IconThemeProtocol` protocol exposes the methods and properties of an underlying `GtkIconTheme` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `IconTheme`.
+/// Alternatively, use `IconThemeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol IconThemeProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkIconTheme` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2360,10 +2481,6 @@ public protocol IconThemeProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `IconThemeRef` type acts as a lightweight Swift reference to an underlying `GtkIconTheme` instance.
-/// It exposes methods that can operate on this data type through `IconThemeProtocol` conformance.
-/// Use `IconThemeRef` only as an `unowned` reference to an existing `GtkIconTheme` instance.
-///
 /// `GtkIconTheme` provides a facility for loading themed icons.
 /// 
 /// The main reason for using a name rather than simply providing a filename
@@ -2396,6 +2513,11 @@ public protocol IconThemeProtocol: GLibObject.ObjectProtocol {
 /// // Use the paintable
 /// g_object_unref (icon);
 /// ```
+///
+/// The `IconThemeRef` type acts as a lightweight Swift reference to an underlying `GtkIconTheme` instance.
+/// It exposes methods that can operate on this data type through `IconThemeProtocol` conformance.
+/// Use `IconThemeRef` only as an `unowned` reference to an existing `GtkIconTheme` instance.
+///
 public struct IconThemeRef: IconThemeProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIconTheme` instance.
     /// For type-safe access, use the generated, typed pointer `icon_theme_ptr` property instead.
@@ -2499,10 +2621,6 @@ public extension IconThemeRef {
     }
 }
 
-/// The `IconTheme` type acts as a reference-counted owner of an underlying `GtkIconTheme` instance.
-/// It provides the methods that can operate on this data type through `IconThemeProtocol` conformance.
-/// Use `IconTheme` as a strong reference or owner of a `GtkIconTheme` instance.
-///
 /// `GtkIconTheme` provides a facility for loading themed icons.
 /// 
 /// The main reason for using a name rather than simply providing a filename
@@ -2535,6 +2653,11 @@ public extension IconThemeRef {
 /// // Use the paintable
 /// g_object_unref (icon);
 /// ```
+///
+/// The `IconTheme` type acts as a reference-counted owner of an underlying `GtkIconTheme` instance.
+/// It provides the methods that can operate on this data type through `IconThemeProtocol` conformance.
+/// Use `IconTheme` as a strong reference or owner of a `GtkIconTheme` instance.
+///
 open class IconTheme: GLibObject.Object, IconThemeProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2793,12 +2916,14 @@ public enum IconThemeSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2904,12 +3029,14 @@ public extension IconThemeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2953,12 +3080,14 @@ public extension IconThemeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3002,12 +3131,14 @@ public extension IconThemeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3051,12 +3182,14 @@ public extension IconThemeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3100,12 +3233,14 @@ public extension IconThemeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3263,7 +3398,7 @@ public extension IconThemeProtocol {
     /// Icons that are directly placed in the resource path instead
     /// of a subdirectory are also considered as ultimate fallback,
     /// but they are treated like unthemed icons.
-    @inlinable func setResource(path: UnsafePointer<UnsafePointer<CChar>?>!) {
+    @inlinable func setResource(path: UnsafePointer<UnsafePointer<CChar>?>! = nil) {
         gtk_icon_theme_set_resource_path(icon_theme_ptr, path)
     
     }
@@ -3292,7 +3427,7 @@ public extension IconThemeProtocol {
     /// overriding system configuration.
     /// 
     /// This function cannot be called on the icon theme objects returned
-    /// from [type_func`Gtk.IconTheme.get_for_display`].
+    /// from [func`Gtk.IconTheme.get_for_display`].
     @inlinable func set(themeName: UnsafePointer<CChar>? = nil) {
         gtk_icon_theme_set_theme_name(icon_theme_ptr, themeName)
     
@@ -3389,7 +3524,7 @@ public extension IconThemeProtocol {
         /// overriding system configuration.
         /// 
         /// This function cannot be called on the icon theme objects returned
-        /// from [type_func`Gtk.IconTheme.get_for_display`].
+        /// from [func`Gtk.IconTheme.get_for_display`].
         nonmutating set {
             gtk_icon_theme_set_theme_name(icon_theme_ptr, newValue)
         }
@@ -3402,11 +3537,6 @@ public extension IconThemeProtocol {
 
 // MARK: - IconView Class
 
-/// The `IconViewProtocol` protocol exposes the methods and properties of an underlying `GtkIconView` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `IconView`.
-/// Alternatively, use `IconViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkIconView` is a widget which displays data in a grid of icons.
 /// 
 /// `GtkIconView` provides an alternative view on a `GtkTreeModel`.
@@ -3430,6 +3560,12 @@ public extension IconThemeProtocol {
 /// 
 /// `GtkIconView` has a single CSS node with name iconview and style class .view.
 /// For rubberband selection, a subnode with name rubberband is used.
+///
+/// The `IconViewProtocol` protocol exposes the methods and properties of an underlying `GtkIconView` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `IconView`.
+/// Alternatively, use `IconViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol IconViewProtocol: WidgetProtocol, CellLayoutProtocol, ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkIconView` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3441,10 +3577,6 @@ public protocol IconViewProtocol: WidgetProtocol, CellLayoutProtocol, Scrollable
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `IconViewRef` type acts as a lightweight Swift reference to an underlying `GtkIconView` instance.
-/// It exposes methods that can operate on this data type through `IconViewProtocol` conformance.
-/// Use `IconViewRef` only as an `unowned` reference to an existing `GtkIconView` instance.
-///
 /// `GtkIconView` is a widget which displays data in a grid of icons.
 /// 
 /// `GtkIconView` provides an alternative view on a `GtkTreeModel`.
@@ -3468,6 +3600,11 @@ public protocol IconViewProtocol: WidgetProtocol, CellLayoutProtocol, Scrollable
 /// 
 /// `GtkIconView` has a single CSS node with name iconview and style class .view.
 /// For rubberband selection, a subnode with name rubberband is used.
+///
+/// The `IconViewRef` type acts as a lightweight Swift reference to an underlying `GtkIconView` instance.
+/// It exposes methods that can operate on this data type through `IconViewProtocol` conformance.
+/// Use `IconViewRef` only as an `unowned` reference to an existing `GtkIconView` instance.
+///
 public struct IconViewRef: IconViewProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIconView` instance.
     /// For type-safe access, use the generated, typed pointer `icon_view_ptr` property instead.
@@ -3579,10 +3716,6 @@ public extension IconViewRef {
     }
 }
 
-/// The `IconView` type acts as a reference-counted owner of an underlying `GtkIconView` instance.
-/// It provides the methods that can operate on this data type through `IconViewProtocol` conformance.
-/// Use `IconView` as a strong reference or owner of a `GtkIconView` instance.
-///
 /// `GtkIconView` is a widget which displays data in a grid of icons.
 /// 
 /// `GtkIconView` provides an alternative view on a `GtkTreeModel`.
@@ -3606,6 +3739,11 @@ public extension IconViewRef {
 /// 
 /// `GtkIconView` has a single CSS node with name iconview and style class .view.
 /// For rubberband selection, a subnode with name rubberband is used.
+///
+/// The `IconView` type acts as a reference-counted owner of an underlying `GtkIconView` instance.
+/// It provides the methods that can operate on this data type through `IconViewProtocol` conformance.
+/// Use `IconView` as a strong reference or owner of a `GtkIconView` instance.
+///
 open class IconView: Widget, IconViewProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4025,7 +4163,7 @@ public extension IconViewProtocol {
 }
 
 public enum IconViewSignalName: String, SignalNameProtocol {
-    /// A [keybinding signal](#GtkSignalAction)
+    /// A [keybinding signal](#class@Gtk.SignalAction)
     /// which gets emitted when the user activates the currently
     /// focused item.
     /// 
@@ -4074,7 +4212,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// is `false`, or just makes `widget` grab focus if `group_cycling` is `true`.
     case mnemonicActivate = "mnemonic-activate"
     /// The `move-cursor` signal is a
-    /// [keybinding signal](#GtkSignalAction)
+    /// [keybinding signal](#class@Gtk.SignalAction)
     /// which gets emitted when the user initiates a cursor movement.
     /// 
     /// Applications should not connect to it, but may emit it with
@@ -4105,12 +4243,14 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4135,7 +4275,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// This means that [method`Gtk.Widget.realize`] has been called
     /// or the widget has been mapped (that is, it is going to be drawn).
     case realize = "realize"
-    /// A [keybinding signal](#GtkSignalAction)
+    /// A [keybinding signal](#class.Gtk.SignalAction)
     /// which gets emitted when the user selects all items.
     /// 
     /// Applications should not connect to it, but may emit it with
@@ -4144,7 +4284,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// 
     /// The default binding for this signal is Ctrl-a.
     case selectAll = "select-all"
-    /// A [keybinding signal](#GtkSignalAction)
+    /// A [keybinding signal](#class@Gtk.SignalAction)
     /// which gets emitted when the user selects the item that is currently
     /// focused.
     /// 
@@ -4163,7 +4303,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// 
     /// See [method`Gtk.Widget.get_state_flags`].
     case stateFlagsChanged = "state-flags-changed"
-    /// A [keybinding signal](#GtkSignalAction)
+    /// A [keybinding signal](#class@Gtk.SignalAction)
     /// which gets emitted when the user toggles whether the currently
     /// focused item is selected or not. The exact effect of this
     /// depend on the selection mode.
@@ -4187,7 +4327,7 @@ public enum IconViewSignalName: String, SignalNameProtocol {
     /// This means that [method`Gtk.Widget.unrealize`] has been called
     /// or the widget has been unmapped (that is, it is going to be hidden).
     case unrealize = "unrealize"
-    /// A [keybinding signal](#GtkSignalAction)
+    /// A [keybinding signal](#class@Gtk.SignalAction)
     /// which gets emitted when the user unselects all items.
     /// 
     /// Applications should not connect to it, but may emit it with
@@ -4424,7 +4564,7 @@ public extension IconViewProtocol {
     }
     
     
-    /// A [keybinding signal](#GtkSignalAction)
+    /// A [keybinding signal](#class@Gtk.SignalAction)
     /// which gets emitted when the user activates the currently
     /// focused item.
     /// 
@@ -4490,7 +4630,7 @@ public extension IconViewProtocol {
     static var itemActivatedSignal: IconViewSignalName { .itemActivated }
     
     /// The `move-cursor` signal is a
-    /// [keybinding signal](#GtkSignalAction)
+    /// [keybinding signal](#class@Gtk.SignalAction)
     /// which gets emitted when the user initiates a cursor movement.
     /// 
     /// Applications should not connect to it, but may emit it with
@@ -4531,7 +4671,7 @@ public extension IconViewProtocol {
     /// Typed `move-cursor` signal for using the `connect(signal:)` methods
     static var moveCursorSignal: IconViewSignalName { .moveCursor }
     
-    /// A [keybinding signal](#GtkSignalAction)
+    /// A [keybinding signal](#class.Gtk.SignalAction)
     /// which gets emitted when the user selects all items.
     /// 
     /// Applications should not connect to it, but may emit it with
@@ -4563,7 +4703,7 @@ public extension IconViewProtocol {
     /// Typed `select-all` signal for using the `connect(signal:)` methods
     static var selectAllSignal: IconViewSignalName { .selectAll }
     
-    /// A [keybinding signal](#GtkSignalAction)
+    /// A [keybinding signal](#class@Gtk.SignalAction)
     /// which gets emitted when the user selects the item that is currently
     /// focused.
     /// 
@@ -4622,7 +4762,7 @@ public extension IconViewProtocol {
     /// Typed `selection-changed` signal for using the `connect(signal:)` methods
     static var selectionChangedSignal: IconViewSignalName { .selectionChanged }
     
-    /// A [keybinding signal](#GtkSignalAction)
+    /// A [keybinding signal](#class@Gtk.SignalAction)
     /// which gets emitted when the user toggles whether the currently
     /// focused item is selected or not. The exact effect of this
     /// depend on the selection mode.
@@ -4656,7 +4796,7 @@ public extension IconViewProtocol {
     /// Typed `toggle-cursor-item` signal for using the `connect(signal:)` methods
     static var toggleCursorItemSignal: IconViewSignalName { .toggleCursorItem }
     
-    /// A [keybinding signal](#GtkSignalAction)
+    /// A [keybinding signal](#class@Gtk.SignalAction)
     /// which gets emitted when the user unselects all items.
     /// 
     /// Applications should not connect to it, but may emit it with
@@ -4703,12 +4843,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4752,12 +4894,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4801,12 +4945,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4850,12 +4996,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4899,12 +5047,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4948,12 +5098,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4997,12 +5149,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5046,12 +5200,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5095,12 +5251,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5144,12 +5302,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5193,12 +5353,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5242,12 +5404,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5291,12 +5455,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5340,12 +5506,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5389,12 +5557,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5438,12 +5608,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5487,12 +5659,14 @@ public extension IconViewProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5528,7 +5702,7 @@ public extension IconViewProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GtkIconView` instance.
     @inlinable var icon_view_ptr: UnsafeMutablePointer<GtkIconView>! { return ptr?.assumingMemoryBound(to: GtkIconView.self) }
 
-    /// Creates a `cairo_surface_t` representation of the item at `path`.
+    /// Creates a `GdkPaintable` representation of the item at `path`.
     /// This image is used for a drag icon.
     @inlinable func createDragIcon<TreePathT: TreePathProtocol>(path: TreePathT) -> Gdk.PaintableRef! {
         let rv = Gdk.PaintableRef(gtk_icon_view_create_drag_icon(icon_view_ptr, path.tree_path_ptr))
@@ -5536,14 +5710,14 @@ public extension IconViewProtocol {
     }
 
     /// Turns `icon_view` into a drop destination for automatic DND. Calling this
-    /// method sets `GtkIconView:reorderable` to `false`.
+    /// method sets `GtkIconView`:reorderable to `false`.
     @inlinable func enableModelDragDest<ContentFormatsT: Gdk.ContentFormatsProtocol>(formats: ContentFormatsT, actions: Gdk.DragAction) {
         gtk_icon_view_enable_model_drag_dest(icon_view_ptr, formats.content_formats_ptr, actions.value)
     
     }
 
     /// Turns `icon_view` into a drag source for automatic DND. Calling this
-    /// method sets `GtkIconView:reorderable` to `false`.
+    /// method sets `GtkIconView`:reorderable to `false`.
     @inlinable func enableModelDragSource<ContentFormatsT: Gdk.ContentFormatsProtocol>(startButtonMask: Gdk.ModifierType, formats: ContentFormatsT, actions: Gdk.DragAction) {
         gtk_icon_view_enable_model_drag_source(icon_view_ptr, startButtonMask.value, formats.content_formats_ptr, actions.value)
     
@@ -5730,8 +5904,8 @@ public extension IconViewProtocol {
         return rv
     }
 
-    /// This function is supposed to be used in a `GtkWidget::query-tooltip`
-    /// signal handler for `GtkIconView`.  The `x`, `y` and `keyboard_tip` values
+    /// This function is supposed to be used in a `GtkWidget`query-tooltip``
+    /// signal handler for `GtkIconView`. The `x`, `y` and `keyboard_tip` values
     /// which are received in the signal handler, should be passed to this
     /// function without modification.
     /// 
@@ -5744,8 +5918,8 @@ public extension IconViewProtocol {
         let rv = ((gtk_icon_view_get_tooltip_context(icon_view_ptr, gint(x), gint(y), gboolean((keyboardTip) ? 1 : 0), model, path, iter?.tree_iter_ptr)) != 0)
         return rv
     }
-    /// This function is supposed to be used in a `GtkWidget::query-tooltip`
-    /// signal handler for `GtkIconView`.  The `x`, `y` and `keyboard_tip` values
+    /// This function is supposed to be used in a `GtkWidget`query-tooltip``
+    /// signal handler for `GtkIconView`. The `x`, `y` and `keyboard_tip` values
     /// which are received in the signal handler, should be passed to this
     /// function without modification.
     /// 
@@ -5820,7 +5994,7 @@ public extension IconViewProtocol {
     
     }
 
-    /// Causes the `GtkIconView::item-activated` signal to be emitted on
+    /// Causes the `GtkIconView``item-activated` signal to be emitted on
     /// a single click instead of a double click.
     @inlinable func setActivateOnSingleClick(single: Bool) {
         gtk_icon_view_set_activate_on_single_click(icon_view_ptr, gboolean((single) ? 1 : 0))
@@ -5888,7 +6062,7 @@ public extension IconViewProtocol {
     
     }
 
-    /// Sets the `GtkIconView:item-padding` property which specifies the padding
+    /// Sets the `GtkIconView`:item-padding property which specifies the padding
     /// around each of the icon view’s items.
     @inlinable func set(itemPadding: Int) {
         gtk_icon_view_set_item_padding(icon_view_ptr, gint(itemPadding))
@@ -5945,8 +6119,8 @@ public extension IconViewProtocol {
     }
 
     /// This function is a convenience function to allow you to reorder models that
-    /// support the `GtkTreeDragSourceIface` and the `GtkTreeDragDestIface`.  Both
-    /// `GtkTreeStore` and `GtkListStore` support these.  If `reorderable` is `true`, then
+    /// support the `GtkTreeDragSourceIface` and the `GtkTreeDragDestIface`. Both
+    /// `GtkTreeStore` and `GtkListStore` support these. If `reorderable` is `true`, then
     /// the user can reorder the model by dragging and dropping rows.  The
     /// developer can listen to these changes by connecting to the model's
     /// row_inserted and row_deleted signals. The reordering is implemented by setting up
@@ -6012,7 +6186,7 @@ public extension IconViewProtocol {
     /// containing the tooltip texts, or -1 to disable this feature.
     /// 
     /// When enabled, `GtkWidget:has-tooltip` will be set to `true` and
-    /// `icon_view` will connect a `GtkWidget::query-tooltip` signal handler.
+    /// `icon_view` will connect a `GtkWidget`query-tooltip`` signal handler.
     /// 
     /// Note that the signal handler sets the text with `gtk_tooltip_set_markup()`,
     /// so &, &lt;, etc have to be escaped in the text.
@@ -6042,14 +6216,14 @@ public extension IconViewProtocol {
     }
 
     /// Undoes the effect of `gtk_icon_view_enable_model_drag_dest()`. Calling this
-    /// method sets `GtkIconView:reorderable` to `false`.
+    /// method sets `GtkIconView`:reorderable to `false`.
     @inlinable func unsetModelDragDest() {
         gtk_icon_view_unset_model_drag_dest(icon_view_ptr)
     
     }
 
     /// Undoes the effect of `gtk_icon_view_enable_model_drag_source()`. Calling this
-    /// method sets `GtkIconView:reorderable` to `false`.
+    /// method sets `GtkIconView`:reorderable to `false`.
     @inlinable func unsetModelDragSource() {
         gtk_icon_view_unset_model_drag_source(icon_view_ptr)
     
@@ -6061,7 +6235,7 @@ public extension IconViewProtocol {
             let rv = ((gtk_icon_view_get_activate_on_single_click(icon_view_ptr)) != 0)
             return rv
         }
-        /// Causes the `GtkIconView::item-activated` signal to be emitted on
+        /// Causes the `GtkIconView``item-activated` signal to be emitted on
         /// a single click instead of a double click.
         nonmutating set {
             gtk_icon_view_set_activate_on_single_click(icon_view_ptr, gboolean((newValue) ? 1 : 0))
@@ -6123,7 +6297,7 @@ public extension IconViewProtocol {
             let rv = Int(gtk_icon_view_get_item_padding(icon_view_ptr))
             return rv
         }
-        /// Sets the `GtkIconView:item-padding` property which specifies the padding
+        /// Sets the `GtkIconView`:item-padding property which specifies the padding
         /// around each of the icon view’s items.
         nonmutating set {
             gtk_icon_view_set_item_padding(icon_view_ptr, gint(newValue))
@@ -6217,8 +6391,8 @@ public extension IconViewProtocol {
             return rv
         }
         /// This function is a convenience function to allow you to reorder models that
-        /// support the `GtkTreeDragSourceIface` and the `GtkTreeDragDestIface`.  Both
-        /// `GtkTreeStore` and `GtkListStore` support these.  If `reorderable` is `true`, then
+        /// support the `GtkTreeDragSourceIface` and the `GtkTreeDragDestIface`. Both
+        /// `GtkTreeStore` and `GtkListStore` support these. If `reorderable` is `true`, then
         /// the user can reorder the model by dragging and dropping rows.  The
         /// developer can listen to these changes by connecting to the model's
         /// row_inserted and row_deleted signals. The reordering is implemented by setting up
@@ -6334,7 +6508,7 @@ public extension IconViewProtocol {
         /// containing the tooltip texts, or -1 to disable this feature.
         /// 
         /// When enabled, `GtkWidget:has-tooltip` will be set to `true` and
-        /// `icon_view` will connect a `GtkWidget::query-tooltip` signal handler.
+        /// `icon_view` will connect a `GtkWidget`query-tooltip`` signal handler.
         /// 
         /// Note that the signal handler sets the text with `gtk_tooltip_set_markup()`,
         /// so &, &lt;, etc have to be escaped in the text.
@@ -6350,11 +6524,6 @@ public extension IconViewProtocol {
 
 // MARK: - Image Class
 
-/// The `ImageProtocol` protocol exposes the methods and properties of an underlying `GtkImage` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Image`.
-/// Alternatively, use `ImageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkImage` widget displays an image.
 /// 
 /// ![An example GtkImage](image.png)
@@ -6394,6 +6563,12 @@ public extension IconViewProtocol {
 /// ## Accessibility
 /// 
 /// `GtkImage` uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
+///
+/// The `ImageProtocol` protocol exposes the methods and properties of an underlying `GtkImage` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Image`.
+/// Alternatively, use `ImageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ImageProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkImage` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6405,10 +6580,6 @@ public protocol ImageProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ImageRef` type acts as a lightweight Swift reference to an underlying `GtkImage` instance.
-/// It exposes methods that can operate on this data type through `ImageProtocol` conformance.
-/// Use `ImageRef` only as an `unowned` reference to an existing `GtkImage` instance.
-///
 /// The `GtkImage` widget displays an image.
 /// 
 /// ![An example GtkImage](image.png)
@@ -6448,6 +6619,11 @@ public protocol ImageProtocol: WidgetProtocol {
 /// ## Accessibility
 /// 
 /// `GtkImage` uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
+///
+/// The `ImageRef` type acts as a lightweight Swift reference to an underlying `GtkImage` instance.
+/// It exposes methods that can operate on this data type through `ImageProtocol` conformance.
+/// Use `ImageRef` only as an `unowned` reference to an existing `GtkImage` instance.
+///
 public struct ImageRef: ImageProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkImage` instance.
     /// For type-safe access, use the generated, typed pointer `image_ptr` property instead.
@@ -6705,10 +6881,6 @@ public extension ImageRef {
     }
 }
 
-/// The `Image` type acts as a reference-counted owner of an underlying `GtkImage` instance.
-/// It provides the methods that can operate on this data type through `ImageProtocol` conformance.
-/// Use `Image` as a strong reference or owner of a `GtkImage` instance.
-///
 /// The `GtkImage` widget displays an image.
 /// 
 /// ![An example GtkImage](image.png)
@@ -6748,6 +6920,11 @@ public extension ImageRef {
 /// ## Accessibility
 /// 
 /// `GtkImage` uses the `GTK_ACCESSIBLE_ROLE_IMG` role.
+///
+/// The `Image` type acts as a reference-counted owner of an underlying `GtkImage` instance.
+/// It provides the methods that can operate on this data type through `ImageProtocol` conformance.
+/// Use `Image` as a strong reference or owner of a `GtkImage` instance.
+///
 open class Image: Widget, ImageProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7340,12 +7517,14 @@ public enum ImageSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7815,11 +7994,6 @@ public extension ImageProtocol {
 
 // MARK: - InfoBar Class
 
-/// The `InfoBarProtocol` protocol exposes the methods and properties of an underlying `GtkInfoBar` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `InfoBar`.
-/// Alternatively, use `InfoBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkInfoBar` can be show messages to the user without a dialog.
 /// 
 /// ![An example GtkInfoBar](info-bar.png)
@@ -7876,14 +8050,15 @@ public extension ImageProtocol {
 /// 
 /// # GtkInfoBar as GtkBuildable
 /// 
-/// The `GtkInfoBar` implementation of the `GtkBuildable` interface exposes
-/// the content area and action area as internal children with the names
-/// “content_area” and “action_area”.
-/// 
 /// `GtkInfoBar` supports a custom &lt;action-widgets&gt; element, which can contain
 /// multiple &lt;action-widget&gt; elements. The “response” attribute specifies a
 /// numeric response, and the content of the element is the id of widget
 /// (which should be a child of the dialogs `action_area`).
+/// 
+/// `GtkInfoBar` supports adding action widgets by specifying “action” as
+/// the “type” attribute of a `&lt;child&gt;` element. The widget will be added
+/// either to the action area. The response id has to be associated
+/// with the action widget using the `&lt;action-widgets&gt;` element.
 /// 
 /// # CSS nodes
 /// 
@@ -7892,6 +8067,12 @@ public extension ImageProtocol {
 /// on the message type.
 /// If the info bar shows a close button, that button will have the .close
 /// style class applied.
+///
+/// The `InfoBarProtocol` protocol exposes the methods and properties of an underlying `GtkInfoBar` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `InfoBar`.
+/// Alternatively, use `InfoBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol InfoBarProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkInfoBar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7903,10 +8084,6 @@ public protocol InfoBarProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `InfoBarRef` type acts as a lightweight Swift reference to an underlying `GtkInfoBar` instance.
-/// It exposes methods that can operate on this data type through `InfoBarProtocol` conformance.
-/// Use `InfoBarRef` only as an `unowned` reference to an existing `GtkInfoBar` instance.
-///
 /// `GtkInfoBar` can be show messages to the user without a dialog.
 /// 
 /// ![An example GtkInfoBar](info-bar.png)
@@ -7963,14 +8140,15 @@ public protocol InfoBarProtocol: WidgetProtocol {
 /// 
 /// # GtkInfoBar as GtkBuildable
 /// 
-/// The `GtkInfoBar` implementation of the `GtkBuildable` interface exposes
-/// the content area and action area as internal children with the names
-/// “content_area” and “action_area”.
-/// 
 /// `GtkInfoBar` supports a custom &lt;action-widgets&gt; element, which can contain
 /// multiple &lt;action-widget&gt; elements. The “response” attribute specifies a
 /// numeric response, and the content of the element is the id of widget
 /// (which should be a child of the dialogs `action_area`).
+/// 
+/// `GtkInfoBar` supports adding action widgets by specifying “action” as
+/// the “type” attribute of a `&lt;child&gt;` element. The widget will be added
+/// either to the action area. The response id has to be associated
+/// with the action widget using the `&lt;action-widgets&gt;` element.
 /// 
 /// # CSS nodes
 /// 
@@ -7979,6 +8157,11 @@ public protocol InfoBarProtocol: WidgetProtocol {
 /// on the message type.
 /// If the info bar shows a close button, that button will have the .close
 /// style class applied.
+///
+/// The `InfoBarRef` type acts as a lightweight Swift reference to an underlying `GtkInfoBar` instance.
+/// It exposes methods that can operate on this data type through `InfoBarProtocol` conformance.
+/// Use `InfoBarRef` only as an `unowned` reference to an existing `GtkInfoBar` instance.
+///
 public struct InfoBarRef: InfoBarProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkInfoBar` instance.
     /// For type-safe access, use the generated, typed pointer `info_bar_ptr` property instead.
@@ -8072,10 +8255,6 @@ public extension InfoBarRef {
 
 }
 
-/// The `InfoBar` type acts as a reference-counted owner of an underlying `GtkInfoBar` instance.
-/// It provides the methods that can operate on this data type through `InfoBarProtocol` conformance.
-/// Use `InfoBar` as a strong reference or owner of a `GtkInfoBar` instance.
-///
 /// `GtkInfoBar` can be show messages to the user without a dialog.
 /// 
 /// ![An example GtkInfoBar](info-bar.png)
@@ -8132,14 +8311,15 @@ public extension InfoBarRef {
 /// 
 /// # GtkInfoBar as GtkBuildable
 /// 
-/// The `GtkInfoBar` implementation of the `GtkBuildable` interface exposes
-/// the content area and action area as internal children with the names
-/// “content_area” and “action_area”.
-/// 
 /// `GtkInfoBar` supports a custom &lt;action-widgets&gt; element, which can contain
 /// multiple &lt;action-widget&gt; elements. The “response” attribute specifies a
 /// numeric response, and the content of the element is the id of widget
 /// (which should be a child of the dialogs `action_area`).
+/// 
+/// `GtkInfoBar` supports adding action widgets by specifying “action” as
+/// the “type” attribute of a `&lt;child&gt;` element. The widget will be added
+/// either to the action area. The response id has to be associated
+/// with the action widget using the `&lt;action-widgets&gt;` element.
 /// 
 /// # CSS nodes
 /// 
@@ -8148,6 +8328,11 @@ public extension InfoBarRef {
 /// on the message type.
 /// If the info bar shows a close button, that button will have the .close
 /// style class applied.
+///
+/// The `InfoBar` type acts as a reference-counted owner of an underlying `GtkInfoBar` instance.
+/// It provides the methods that can operate on this data type through `InfoBarProtocol` conformance.
+/// Use `InfoBar` as a strong reference or owner of a `GtkInfoBar` instance.
+///
 open class InfoBar: Widget, InfoBarProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8547,12 +8732,14 @@ public enum InfoBarSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8853,12 +9040,14 @@ public extension InfoBarProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8902,12 +9091,14 @@ public extension InfoBarProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8951,12 +9142,14 @@ public extension InfoBarProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9170,12 +9363,13 @@ public extension InfoBarProtocol {
 
 // MARK: - KeyvalTrigger Class
 
+/// A `GtkShortcutTrigger` that triggers when a specific keyval and modifiers are pressed.
+///
 /// The `KeyvalTriggerProtocol` protocol exposes the methods and properties of an underlying `GtkKeyvalTrigger` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `KeyvalTrigger`.
 /// Alternatively, use `KeyvalTriggerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkShortcutTrigger` that triggers when a specific keyval and modifiers are pressed.
 public protocol KeyvalTriggerProtocol: ShortcutTriggerProtocol {
         /// Untyped pointer to the underlying `GtkKeyvalTrigger` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9187,11 +9381,12 @@ public protocol KeyvalTriggerProtocol: ShortcutTriggerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GtkShortcutTrigger` that triggers when a specific keyval and modifiers are pressed.
+///
 /// The `KeyvalTriggerRef` type acts as a lightweight Swift reference to an underlying `GtkKeyvalTrigger` instance.
 /// It exposes methods that can operate on this data type through `KeyvalTriggerProtocol` conformance.
 /// Use `KeyvalTriggerRef` only as an `unowned` reference to an existing `GtkKeyvalTrigger` instance.
 ///
-/// A `GtkShortcutTrigger` that triggers when a specific keyval and modifiers are pressed.
 public struct KeyvalTriggerRef: KeyvalTriggerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkKeyvalTrigger` instance.
     /// For type-safe access, use the generated, typed pointer `keyval_trigger_ptr` property instead.
@@ -9279,11 +9474,12 @@ public extension KeyvalTriggerRef {
     }
 }
 
+/// A `GtkShortcutTrigger` that triggers when a specific keyval and modifiers are pressed.
+///
 /// The `KeyvalTrigger` type acts as a reference-counted owner of an underlying `GtkKeyvalTrigger` instance.
 /// It provides the methods that can operate on this data type through `KeyvalTriggerProtocol` conformance.
 /// Use `KeyvalTrigger` as a strong reference or owner of a `GtkKeyvalTrigger` instance.
 ///
-/// A `GtkShortcutTrigger` that triggers when a specific keyval and modifiers are pressed.
 open class KeyvalTrigger: ShortcutTrigger, KeyvalTriggerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9496,12 +9692,14 @@ public enum KeyvalTriggerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

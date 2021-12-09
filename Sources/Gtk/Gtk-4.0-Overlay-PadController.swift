@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - Overlay Class
 
-/// The `OverlayProtocol` protocol exposes the methods and properties of an underlying `GtkOverlay` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Overlay`.
-/// Alternatively, use `OverlayRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkOverlay` is a container which contains a single main child, on top
 /// of which it can place “overlay” widgets.
 /// 
@@ -52,6 +47,12 @@ import Gdk
 /// `GtkOverlay` has a single CSS node with the name “overlay”. Overlay children
 /// whose alignments cause them to be positioned at an edge get the style classes
 /// “.left”, “.right”, “.top”, and/or “.bottom” according to their position.
+///
+/// The `OverlayProtocol` protocol exposes the methods and properties of an underlying `GtkOverlay` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Overlay`.
+/// Alternatively, use `OverlayRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol OverlayProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkOverlay` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -63,10 +64,6 @@ public protocol OverlayProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `OverlayRef` type acts as a lightweight Swift reference to an underlying `GtkOverlay` instance.
-/// It exposes methods that can operate on this data type through `OverlayProtocol` conformance.
-/// Use `OverlayRef` only as an `unowned` reference to an existing `GtkOverlay` instance.
-///
 /// `GtkOverlay` is a container which contains a single main child, on top
 /// of which it can place “overlay” widgets.
 /// 
@@ -99,6 +96,11 @@ public protocol OverlayProtocol: WidgetProtocol {
 /// `GtkOverlay` has a single CSS node with the name “overlay”. Overlay children
 /// whose alignments cause them to be positioned at an edge get the style classes
 /// “.left”, “.right”, “.top”, and/or “.bottom” according to their position.
+///
+/// The `OverlayRef` type acts as a lightweight Swift reference to an underlying `GtkOverlay` instance.
+/// It exposes methods that can operate on this data type through `OverlayProtocol` conformance.
+/// Use `OverlayRef` only as an `unowned` reference to an existing `GtkOverlay` instance.
+///
 public struct OverlayRef: OverlayProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkOverlay` instance.
     /// For type-safe access, use the generated, typed pointer `overlay_ptr` property instead.
@@ -185,10 +187,6 @@ public extension OverlayRef {
     }
 }
 
-/// The `Overlay` type acts as a reference-counted owner of an underlying `GtkOverlay` instance.
-/// It provides the methods that can operate on this data type through `OverlayProtocol` conformance.
-/// Use `Overlay` as a strong reference or owner of a `GtkOverlay` instance.
-///
 /// `GtkOverlay` is a container which contains a single main child, on top
 /// of which it can place “overlay” widgets.
 /// 
@@ -221,6 +219,11 @@ public extension OverlayRef {
 /// `GtkOverlay` has a single CSS node with the name “overlay”. Overlay children
 /// whose alignments cause them to be positioned at an edge get the style classes
 /// “.left”, “.right”, “.top”, and/or “.bottom” according to their position.
+///
+/// The `Overlay` type acts as a reference-counted owner of an underlying `GtkOverlay` instance.
+/// It provides the methods that can operate on this data type through `OverlayProtocol` conformance.
+/// Use `Overlay` as a strong reference or owner of a `GtkOverlay` instance.
+///
 open class Overlay: Widget, OverlayProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -615,12 +618,14 @@ public enum OverlaySignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -872,12 +877,14 @@ public extension OverlayProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -996,11 +1003,6 @@ public extension OverlayProtocol {
 
 // MARK: - OverlayLayout Class
 
-/// The `OverlayLayoutProtocol` protocol exposes the methods and properties of an underlying `GtkOverlayLayout` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `OverlayLayout`.
-/// Alternatively, use `OverlayLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkOverlayLayout` is the layout manager used by `GtkOverlay`.
 /// 
 /// It places widgets as overlays on top of the main child.
@@ -1008,6 +1010,12 @@ public extension OverlayProtocol {
 /// This is not a reusable layout manager, since it expects its widget
 /// to be a `GtkOverlay`. It only listed here so that its layout
 /// properties get documented.
+///
+/// The `OverlayLayoutProtocol` protocol exposes the methods and properties of an underlying `GtkOverlayLayout` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `OverlayLayout`.
+/// Alternatively, use `OverlayLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol OverlayLayoutProtocol: LayoutManagerProtocol {
         /// Untyped pointer to the underlying `GtkOverlayLayout` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1019,10 +1027,6 @@ public protocol OverlayLayoutProtocol: LayoutManagerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `OverlayLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkOverlayLayout` instance.
-/// It exposes methods that can operate on this data type through `OverlayLayoutProtocol` conformance.
-/// Use `OverlayLayoutRef` only as an `unowned` reference to an existing `GtkOverlayLayout` instance.
-///
 /// `GtkOverlayLayout` is the layout manager used by `GtkOverlay`.
 /// 
 /// It places widgets as overlays on top of the main child.
@@ -1030,6 +1034,11 @@ public protocol OverlayLayoutProtocol: LayoutManagerProtocol {
 /// This is not a reusable layout manager, since it expects its widget
 /// to be a `GtkOverlay`. It only listed here so that its layout
 /// properties get documented.
+///
+/// The `OverlayLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkOverlayLayout` instance.
+/// It exposes methods that can operate on this data type through `OverlayLayoutProtocol` conformance.
+/// Use `OverlayLayoutRef` only as an `unowned` reference to an existing `GtkOverlayLayout` instance.
+///
 public struct OverlayLayoutRef: OverlayLayoutProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkOverlayLayout` instance.
     /// For type-safe access, use the generated, typed pointer `overlay_layout_ptr` property instead.
@@ -1116,10 +1125,6 @@ public extension OverlayLayoutRef {
     }
 }
 
-/// The `OverlayLayout` type acts as a reference-counted owner of an underlying `GtkOverlayLayout` instance.
-/// It provides the methods that can operate on this data type through `OverlayLayoutProtocol` conformance.
-/// Use `OverlayLayout` as a strong reference or owner of a `GtkOverlayLayout` instance.
-///
 /// `GtkOverlayLayout` is the layout manager used by `GtkOverlay`.
 /// 
 /// It places widgets as overlays on top of the main child.
@@ -1127,6 +1132,11 @@ public extension OverlayLayoutRef {
 /// This is not a reusable layout manager, since it expects its widget
 /// to be a `GtkOverlay`. It only listed here so that its layout
 /// properties get documented.
+///
+/// The `OverlayLayout` type acts as a reference-counted owner of an underlying `GtkOverlayLayout` instance.
+/// It provides the methods that can operate on this data type through `OverlayLayoutProtocol` conformance.
+/// Use `OverlayLayout` as a strong reference or owner of a `GtkOverlayLayout` instance.
+///
 open class OverlayLayout: LayoutManager, OverlayLayoutProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1280,12 +1290,14 @@ public enum OverlayLayoutSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1307,12 +1319,13 @@ public extension OverlayLayoutProtocol {
 
 // MARK: - OverlayLayoutChild Class
 
+/// `GtkLayoutChild` subclass for children in a `GtkOverlayLayout`.
+///
 /// The `OverlayLayoutChildProtocol` protocol exposes the methods and properties of an underlying `GtkOverlayLayoutChild` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OverlayLayoutChild`.
 /// Alternatively, use `OverlayLayoutChildRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkLayoutChild` subclass for children in a `GtkOverlayLayout`.
 public protocol OverlayLayoutChildProtocol: LayoutChildProtocol {
         /// Untyped pointer to the underlying `GtkOverlayLayoutChild` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1324,11 +1337,12 @@ public protocol OverlayLayoutChildProtocol: LayoutChildProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkLayoutChild` subclass for children in a `GtkOverlayLayout`.
+///
 /// The `OverlayLayoutChildRef` type acts as a lightweight Swift reference to an underlying `GtkOverlayLayoutChild` instance.
 /// It exposes methods that can operate on this data type through `OverlayLayoutChildProtocol` conformance.
 /// Use `OverlayLayoutChildRef` only as an `unowned` reference to an existing `GtkOverlayLayoutChild` instance.
 ///
-/// `GtkLayoutChild` subclass for children in a `GtkOverlayLayout`.
 public struct OverlayLayoutChildRef: OverlayLayoutChildProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkOverlayLayoutChild` instance.
     /// For type-safe access, use the generated, typed pointer `overlay_layout_child_ptr` property instead.
@@ -1410,11 +1424,12 @@ public extension OverlayLayoutChildRef {
 
     }
 
+/// `GtkLayoutChild` subclass for children in a `GtkOverlayLayout`.
+///
 /// The `OverlayLayoutChild` type acts as a reference-counted owner of an underlying `GtkOverlayLayoutChild` instance.
 /// It provides the methods that can operate on this data type through `OverlayLayoutChildProtocol` conformance.
 /// Use `OverlayLayoutChild` as a strong reference or owner of a `GtkOverlayLayoutChild` instance.
 ///
-/// `GtkLayoutChild` subclass for children in a `GtkOverlayLayout`.
 open class OverlayLayoutChild: LayoutChild, OverlayLayoutChildProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1625,12 +1640,14 @@ public enum OverlayLayoutChildSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1709,11 +1726,6 @@ public extension OverlayLayoutChildProtocol {
 
 // MARK: - PadController Class
 
-/// The `PadControllerProtocol` protocol exposes the methods and properties of an underlying `GtkPadController` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PadController`.
-/// Alternatively, use `PadControllerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkPadController` is an event controller for the pads found in drawing
 /// tablets.
 /// 
@@ -1761,6 +1773,12 @@ public extension OverlayLayoutChildProtocol {
 /// The actions belonging to rings/strips will be activated with a parameter
 /// of type `G_VARIANT_TYPE_DOUBLE` bearing the value of the given axis, it
 /// is required that those are made stateful and accepting this `GVariantType`.
+///
+/// The `PadControllerProtocol` protocol exposes the methods and properties of an underlying `GtkPadController` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PadController`.
+/// Alternatively, use `PadControllerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PadControllerProtocol: EventControllerProtocol {
         /// Untyped pointer to the underlying `GtkPadController` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1772,10 +1790,6 @@ public protocol PadControllerProtocol: EventControllerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PadControllerRef` type acts as a lightweight Swift reference to an underlying `GtkPadController` instance.
-/// It exposes methods that can operate on this data type through `PadControllerProtocol` conformance.
-/// Use `PadControllerRef` only as an `unowned` reference to an existing `GtkPadController` instance.
-///
 /// `GtkPadController` is an event controller for the pads found in drawing
 /// tablets.
 /// 
@@ -1823,6 +1837,11 @@ public protocol PadControllerProtocol: EventControllerProtocol {
 /// The actions belonging to rings/strips will be activated with a parameter
 /// of type `G_VARIANT_TYPE_DOUBLE` bearing the value of the given axis, it
 /// is required that those are made stateful and accepting this `GVariantType`.
+///
+/// The `PadControllerRef` type acts as a lightweight Swift reference to an underlying `GtkPadController` instance.
+/// It exposes methods that can operate on this data type through `PadControllerProtocol` conformance.
+/// Use `PadControllerRef` only as an `unowned` reference to an existing `GtkPadController` instance.
+///
 public struct PadControllerRef: PadControllerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkPadController` instance.
     /// For type-safe access, use the generated, typed pointer `pad_controller_ptr` property instead.
@@ -1922,10 +1941,6 @@ public extension PadControllerRef {
     }
 }
 
-/// The `PadController` type acts as a reference-counted owner of an underlying `GtkPadController` instance.
-/// It provides the methods that can operate on this data type through `PadControllerProtocol` conformance.
-/// Use `PadController` as a strong reference or owner of a `GtkPadController` instance.
-///
 /// `GtkPadController` is an event controller for the pads found in drawing
 /// tablets.
 /// 
@@ -1973,6 +1988,11 @@ public extension PadControllerRef {
 /// The actions belonging to rings/strips will be activated with a parameter
 /// of type `G_VARIANT_TYPE_DOUBLE` bearing the value of the given axis, it
 /// is required that those are made stateful and accepting this `GVariantType`.
+///
+/// The `PadController` type acts as a reference-counted owner of an underlying `GtkPadController` instance.
+/// It provides the methods that can operate on this data type through `PadControllerProtocol` conformance.
+/// Use `PadController` as a strong reference or owner of a `GtkPadController` instance.
+///
 open class PadController: EventController, PadControllerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2203,12 +2223,14 @@ public enum PadControllerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

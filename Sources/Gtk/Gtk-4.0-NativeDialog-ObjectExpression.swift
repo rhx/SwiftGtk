@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - NativeDialog Class
 
-/// The `NativeDialogProtocol` protocol exposes the methods and properties of an underlying `GtkNativeDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `NativeDialog`.
-/// Alternatively, use `NativeDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Native dialogs are platform dialogs that don't use `GtkDialog`.
 /// 
 /// They are used in order to integrate better with a platform, by
@@ -37,6 +32,12 @@ import Gdk
 /// toplevel widgets, and GTK does not keep them alive. It is your
 /// responsibility to keep a reference until you are done with the
 /// object.
+///
+/// The `NativeDialogProtocol` protocol exposes the methods and properties of an underlying `GtkNativeDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `NativeDialog`.
+/// Alternatively, use `NativeDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol NativeDialogProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkNativeDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -48,10 +49,6 @@ public protocol NativeDialogProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NativeDialogRef` type acts as a lightweight Swift reference to an underlying `GtkNativeDialog` instance.
-/// It exposes methods that can operate on this data type through `NativeDialogProtocol` conformance.
-/// Use `NativeDialogRef` only as an `unowned` reference to an existing `GtkNativeDialog` instance.
-///
 /// Native dialogs are platform dialogs that don't use `GtkDialog`.
 /// 
 /// They are used in order to integrate better with a platform, by
@@ -69,6 +66,11 @@ public protocol NativeDialogProtocol: GLibObject.ObjectProtocol {
 /// toplevel widgets, and GTK does not keep them alive. It is your
 /// responsibility to keep a reference until you are done with the
 /// object.
+///
+/// The `NativeDialogRef` type acts as a lightweight Swift reference to an underlying `GtkNativeDialog` instance.
+/// It exposes methods that can operate on this data type through `NativeDialogProtocol` conformance.
+/// Use `NativeDialogRef` only as an `unowned` reference to an existing `GtkNativeDialog` instance.
+///
 public struct NativeDialogRef: NativeDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNativeDialog` instance.
     /// For type-safe access, use the generated, typed pointer `native_dialog_ptr` property instead.
@@ -150,10 +152,6 @@ public extension NativeDialogRef {
 
     }
 
-/// The `NativeDialog` type acts as a reference-counted owner of an underlying `GtkNativeDialog` instance.
-/// It provides the methods that can operate on this data type through `NativeDialogProtocol` conformance.
-/// Use `NativeDialog` as a strong reference or owner of a `GtkNativeDialog` instance.
-///
 /// Native dialogs are platform dialogs that don't use `GtkDialog`.
 /// 
 /// They are used in order to integrate better with a platform, by
@@ -171,6 +169,11 @@ public extension NativeDialogRef {
 /// toplevel widgets, and GTK does not keep them alive. It is your
 /// responsibility to keep a reference until you are done with the
 /// object.
+///
+/// The `NativeDialog` type acts as a reference-counted owner of an underlying `GtkNativeDialog` instance.
+/// It provides the methods that can operate on this data type through `NativeDialogProtocol` conformance.
+/// Use `NativeDialog` as a strong reference or owner of a `GtkNativeDialog` instance.
+///
 open class NativeDialog: GLibObject.Object, NativeDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -380,12 +383,14 @@ public enum NativeDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -481,12 +486,14 @@ public extension NativeDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -530,12 +537,14 @@ public extension NativeDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -579,12 +588,14 @@ public extension NativeDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -628,12 +639,14 @@ public extension NativeDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -846,12 +859,13 @@ public extension NativeDialogProtocol {
 
 // MARK: - NeverTrigger Class
 
+/// A `GtkShortcutTrigger` that never triggers.
+///
 /// The `NeverTriggerProtocol` protocol exposes the methods and properties of an underlying `GtkNeverTrigger` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NeverTrigger`.
 /// Alternatively, use `NeverTriggerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkShortcutTrigger` that never triggers.
 public protocol NeverTriggerProtocol: ShortcutTriggerProtocol {
         /// Untyped pointer to the underlying `GtkNeverTrigger` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -863,11 +877,12 @@ public protocol NeverTriggerProtocol: ShortcutTriggerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GtkShortcutTrigger` that never triggers.
+///
 /// The `NeverTriggerRef` type acts as a lightweight Swift reference to an underlying `GtkNeverTrigger` instance.
 /// It exposes methods that can operate on this data type through `NeverTriggerProtocol` conformance.
 /// Use `NeverTriggerRef` only as an `unowned` reference to an existing `GtkNeverTrigger` instance.
 ///
-/// A `GtkShortcutTrigger` that never triggers.
 public struct NeverTriggerRef: NeverTriggerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNeverTrigger` instance.
     /// For type-safe access, use the generated, typed pointer `never_trigger_ptr` property instead.
@@ -949,11 +964,12 @@ public extension NeverTriggerRef {
 
     }
 
+/// A `GtkShortcutTrigger` that never triggers.
+///
 /// The `NeverTrigger` type acts as a reference-counted owner of an underlying `GtkNeverTrigger` instance.
 /// It provides the methods that can operate on this data type through `NeverTriggerProtocol` conformance.
 /// Use `NeverTrigger` as a strong reference or owner of a `GtkNeverTrigger` instance.
 ///
-/// A `GtkShortcutTrigger` that never triggers.
 open class NeverTrigger: ShortcutTrigger, NeverTriggerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1101,12 +1117,14 @@ public enum NeverTriggerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1128,16 +1146,17 @@ public extension NeverTriggerProtocol {
 
 // MARK: - NoSelection Class
 
-/// The `NoSelectionProtocol` protocol exposes the methods and properties of an underlying `GtkNoSelection` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `NoSelection`.
-/// Alternatively, use `NoSelectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkNoSelection` is a `GtkSelectionModel` that does not allow selecting
 /// anything.
 /// 
 /// This model is meant to be used as a simple wrapper around a `GListModel`
 /// when a `GtkSelectionModel` is required.
+///
+/// The `NoSelectionProtocol` protocol exposes the methods and properties of an underlying `GtkNoSelection` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `NoSelection`.
+/// Alternatively, use `NoSelectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol NoSelectionProtocol: GLibObject.ObjectProtocol, GIO.ListModelProtocol, SelectionModelProtocol {
         /// Untyped pointer to the underlying `GtkNoSelection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1149,15 +1168,16 @@ public protocol NoSelectionProtocol: GLibObject.ObjectProtocol, GIO.ListModelPro
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NoSelectionRef` type acts as a lightweight Swift reference to an underlying `GtkNoSelection` instance.
-/// It exposes methods that can operate on this data type through `NoSelectionProtocol` conformance.
-/// Use `NoSelectionRef` only as an `unowned` reference to an existing `GtkNoSelection` instance.
-///
 /// `GtkNoSelection` is a `GtkSelectionModel` that does not allow selecting
 /// anything.
 /// 
 /// This model is meant to be used as a simple wrapper around a `GListModel`
 /// when a `GtkSelectionModel` is required.
+///
+/// The `NoSelectionRef` type acts as a lightweight Swift reference to an underlying `GtkNoSelection` instance.
+/// It exposes methods that can operate on this data type through `NoSelectionProtocol` conformance.
+/// Use `NoSelectionRef` only as an `unowned` reference to an existing `GtkNoSelection` instance.
+///
 public struct NoSelectionRef: NoSelectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNoSelection` instance.
     /// For type-safe access, use the generated, typed pointer `no_selection_ptr` property instead.
@@ -1244,15 +1264,16 @@ public extension NoSelectionRef {
     }
 }
 
-/// The `NoSelection` type acts as a reference-counted owner of an underlying `GtkNoSelection` instance.
-/// It provides the methods that can operate on this data type through `NoSelectionProtocol` conformance.
-/// Use `NoSelection` as a strong reference or owner of a `GtkNoSelection` instance.
-///
 /// `GtkNoSelection` is a `GtkSelectionModel` that does not allow selecting
 /// anything.
 /// 
 /// This model is meant to be used as a simple wrapper around a `GListModel`
 /// when a `GtkSelectionModel` is required.
+///
+/// The `NoSelection` type acts as a reference-counted owner of an underlying `GtkNoSelection` instance.
+/// It provides the methods that can operate on this data type through `NoSelectionProtocol` conformance.
+/// Use `NoSelection` as a strong reference or owner of a `GtkNoSelection` instance.
+///
 open class NoSelection: GLibObject.Object, NoSelectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1462,12 +1483,14 @@ public enum NoSelectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1524,11 +1547,6 @@ public extension NoSelectionProtocol {
 
 // MARK: - Notebook Class
 
-/// The `NotebookProtocol` protocol exposes the methods and properties of an underlying `GtkNotebook` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Notebook`.
-/// Alternatively, use `NotebookRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkNotebook` is a container whose children are pages switched
 /// between using tabs.
 /// 
@@ -1621,6 +1639,12 @@ public extension NoSelectionProtocol {
 ///  - `GTK_ACCESSIBLE_ROLE_TAB_LIST` for the list of tabs
 ///  - `GTK_ACCESSIBLE_ROLE_TAB` role for each tab
 ///  - `GTK_ACCESSIBLE_ROLE_TAB_PANEL` for each page
+///
+/// The `NotebookProtocol` protocol exposes the methods and properties of an underlying `GtkNotebook` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Notebook`.
+/// Alternatively, use `NotebookRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol NotebookProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkNotebook` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1632,10 +1656,6 @@ public protocol NotebookProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NotebookRef` type acts as a lightweight Swift reference to an underlying `GtkNotebook` instance.
-/// It exposes methods that can operate on this data type through `NotebookProtocol` conformance.
-/// Use `NotebookRef` only as an `unowned` reference to an existing `GtkNotebook` instance.
-///
 /// `GtkNotebook` is a container whose children are pages switched
 /// between using tabs.
 /// 
@@ -1728,6 +1748,11 @@ public protocol NotebookProtocol: WidgetProtocol {
 ///  - `GTK_ACCESSIBLE_ROLE_TAB_LIST` for the list of tabs
 ///  - `GTK_ACCESSIBLE_ROLE_TAB` role for each tab
 ///  - `GTK_ACCESSIBLE_ROLE_TAB_PANEL` for each page
+///
+/// The `NotebookRef` type acts as a lightweight Swift reference to an underlying `GtkNotebook` instance.
+/// It exposes methods that can operate on this data type through `NotebookProtocol` conformance.
+/// Use `NotebookRef` only as an `unowned` reference to an existing `GtkNotebook` instance.
+///
 public struct NotebookRef: NotebookProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNotebook` instance.
     /// For type-safe access, use the generated, typed pointer `notebook_ptr` property instead.
@@ -1814,10 +1839,6 @@ public extension NotebookRef {
     }
 }
 
-/// The `Notebook` type acts as a reference-counted owner of an underlying `GtkNotebook` instance.
-/// It provides the methods that can operate on this data type through `NotebookProtocol` conformance.
-/// Use `Notebook` as a strong reference or owner of a `GtkNotebook` instance.
-///
 /// `GtkNotebook` is a container whose children are pages switched
 /// between using tabs.
 /// 
@@ -1910,6 +1931,11 @@ public extension NotebookRef {
 ///  - `GTK_ACCESSIBLE_ROLE_TAB_LIST` for the list of tabs
 ///  - `GTK_ACCESSIBLE_ROLE_TAB` role for each tab
 ///  - `GTK_ACCESSIBLE_ROLE_TAB_PANEL` for each page
+///
+/// The `Notebook` type acts as a reference-counted owner of an underlying `GtkNotebook` instance.
+/// It provides the methods that can operate on this data type through `NotebookProtocol` conformance.
+/// Use `Notebook` as a strong reference or owner of a `GtkNotebook` instance.
+///
 open class Notebook: Widget, NotebookProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2316,12 +2342,14 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2575,8 +2603,8 @@ public extension NotebookProtocol {
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter page: the tab of `notebook` that is being detached
-    /// - Parameter handler: a `GtkNotebook` that `page` should be     added to, or `nil`.
-    /// - Warning: a `onCreateWindow` wrapper for this signal could not be generated because it contains unimplemented features: { (9)  Record return type is not yet supported }
+    /// - Parameter handler: a `GtkNotebook` that   `page` should be added to
+    /// - Warning: a `onCreateWindow` wrapper for this signal could not be generated because it contains unimplemented features: { (8)  nullable argument or return type is not allowed, (9)  Record return type is not yet supported }
     /// - Note: Instead, you can connect `createWindowSignal` using the `connect(signal:)` methods
     static var createWindowSignal: NotebookSignalName { .createWindow }
     /// - Note: This represents the underlying `change-current-page` signal
@@ -2831,12 +2859,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2880,12 +2910,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2929,12 +2961,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2978,12 +3012,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3027,12 +3063,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3076,12 +3114,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3125,12 +3165,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3174,12 +3216,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3693,12 +3737,13 @@ public extension NotebookProtocol {
 
 // MARK: - NotebookPage Class
 
+/// `GtkNotebookPage` is an auxiliary object used by `GtkNotebook`.
+///
 /// The `NotebookPageProtocol` protocol exposes the methods and properties of an underlying `GtkNotebookPage` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NotebookPage`.
 /// Alternatively, use `NotebookPageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkNotebookPage` is an auxiliary object used by `GtkNotebook`.
 public protocol NotebookPageProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkNotebookPage` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3710,11 +3755,12 @@ public protocol NotebookPageProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkNotebookPage` is an auxiliary object used by `GtkNotebook`.
+///
 /// The `NotebookPageRef` type acts as a lightweight Swift reference to an underlying `GtkNotebookPage` instance.
 /// It exposes methods that can operate on this data type through `NotebookPageProtocol` conformance.
 /// Use `NotebookPageRef` only as an `unowned` reference to an existing `GtkNotebookPage` instance.
 ///
-/// `GtkNotebookPage` is an auxiliary object used by `GtkNotebook`.
 public struct NotebookPageRef: NotebookPageProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNotebookPage` instance.
     /// For type-safe access, use the generated, typed pointer `notebook_page_ptr` property instead.
@@ -3796,11 +3842,12 @@ public extension NotebookPageRef {
 
     }
 
+/// `GtkNotebookPage` is an auxiliary object used by `GtkNotebook`.
+///
 /// The `NotebookPage` type acts as a reference-counted owner of an underlying `GtkNotebookPage` instance.
 /// It provides the methods that can operate on this data type through `NotebookPageProtocol` conformance.
 /// Use `NotebookPage` as a strong reference or owner of a `GtkNotebookPage` instance.
 ///
-/// `GtkNotebookPage` is an auxiliary object used by `GtkNotebook`.
 open class NotebookPage: GLibObject.Object, NotebookPageProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4022,12 +4069,14 @@ public enum NotebookPageSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4081,12 +4130,13 @@ public extension NotebookPageProtocol {
 
 // MARK: - NothingAction Class
 
+/// A `GtkShortcutAction` that does nothing.
+///
 /// The `NothingActionProtocol` protocol exposes the methods and properties of an underlying `GtkNothingAction` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NothingAction`.
 /// Alternatively, use `NothingActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkShortcutAction` that does nothing.
 public protocol NothingActionProtocol: ShortcutActionProtocol {
         /// Untyped pointer to the underlying `GtkNothingAction` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4098,11 +4148,12 @@ public protocol NothingActionProtocol: ShortcutActionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GtkShortcutAction` that does nothing.
+///
 /// The `NothingActionRef` type acts as a lightweight Swift reference to an underlying `GtkNothingAction` instance.
 /// It exposes methods that can operate on this data type through `NothingActionProtocol` conformance.
 /// Use `NothingActionRef` only as an `unowned` reference to an existing `GtkNothingAction` instance.
 ///
-/// A `GtkShortcutAction` that does nothing.
 public struct NothingActionRef: NothingActionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNothingAction` instance.
     /// For type-safe access, use the generated, typed pointer `nothing_action_ptr` property instead.
@@ -4184,11 +4235,12 @@ public extension NothingActionRef {
 
     }
 
+/// A `GtkShortcutAction` that does nothing.
+///
 /// The `NothingAction` type acts as a reference-counted owner of an underlying `GtkNothingAction` instance.
 /// It provides the methods that can operate on this data type through `NothingActionProtocol` conformance.
 /// Use `NothingAction` as a strong reference or owner of a `GtkNothingAction` instance.
 ///
-/// A `GtkShortcutAction` that does nothing.
 open class NothingAction: ShortcutAction, NothingActionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4336,12 +4388,14 @@ public enum NothingActionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4363,15 +4417,16 @@ public extension NothingActionProtocol {
 
 // MARK: - NumericSorter Class
 
+/// `GtkNumericSorter` is a `GtkSorter` that compares numbers.
+/// 
+/// To obtain the numbers to compare, this sorter evaluates a
+/// [class`Gtk.Expression`].
+///
 /// The `NumericSorterProtocol` protocol exposes the methods and properties of an underlying `GtkNumericSorter` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NumericSorter`.
 /// Alternatively, use `NumericSorterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkNumericSorter` is a `GtkSorter` that compares numbers.
-/// 
-/// To obtain the numbers to compare, this sorter evaluates a
-/// [class`Gtk.Expression`].
 public protocol NumericSorterProtocol: SorterProtocol {
         /// Untyped pointer to the underlying `GtkNumericSorter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4383,14 +4438,15 @@ public protocol NumericSorterProtocol: SorterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NumericSorterRef` type acts as a lightweight Swift reference to an underlying `GtkNumericSorter` instance.
-/// It exposes methods that can operate on this data type through `NumericSorterProtocol` conformance.
-/// Use `NumericSorterRef` only as an `unowned` reference to an existing `GtkNumericSorter` instance.
-///
 /// `GtkNumericSorter` is a `GtkSorter` that compares numbers.
 /// 
 /// To obtain the numbers to compare, this sorter evaluates a
 /// [class`Gtk.Expression`].
+///
+/// The `NumericSorterRef` type acts as a lightweight Swift reference to an underlying `GtkNumericSorter` instance.
+/// It exposes methods that can operate on this data type through `NumericSorterProtocol` conformance.
+/// Use `NumericSorterRef` only as an `unowned` reference to an existing `GtkNumericSorter` instance.
+///
 public struct NumericSorterRef: NumericSorterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNumericSorter` instance.
     /// For type-safe access, use the generated, typed pointer `numeric_sorter_ptr` property instead.
@@ -4480,14 +4536,15 @@ public extension NumericSorterRef {
     }
 }
 
-/// The `NumericSorter` type acts as a reference-counted owner of an underlying `GtkNumericSorter` instance.
-/// It provides the methods that can operate on this data type through `NumericSorterProtocol` conformance.
-/// Use `NumericSorter` as a strong reference or owner of a `GtkNumericSorter` instance.
-///
 /// `GtkNumericSorter` is a `GtkSorter` that compares numbers.
 /// 
 /// To obtain the numbers to compare, this sorter evaluates a
 /// [class`Gtk.Expression`].
+///
+/// The `NumericSorter` type acts as a reference-counted owner of an underlying `GtkNumericSorter` instance.
+/// It provides the methods that can operate on this data type through `NumericSorterProtocol` conformance.
+/// Use `NumericSorter` as a strong reference or owner of a `GtkNumericSorter` instance.
+///
 open class NumericSorter: Sorter, NumericSorterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4713,12 +4770,14 @@ public enum NumericSorterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4814,12 +4873,13 @@ public extension NumericSorterProtocol {
 
 // MARK: - ObjectExpression Class
 
+/// A `GObject` value in a `GtkExpression`.
+///
 /// The `ObjectExpressionProtocol` protocol exposes the methods and properties of an underlying `GtkObjectExpression` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ObjectExpression`.
 /// Alternatively, use `ObjectExpressionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GObject` value in a `GtkExpression`.
 public protocol ObjectExpressionProtocol: ExpressionProtocol {
         /// Untyped pointer to the underlying `GtkObjectExpression` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4831,11 +4891,12 @@ public protocol ObjectExpressionProtocol: ExpressionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GObject` value in a `GtkExpression`.
+///
 /// The `ObjectExpressionRef` type acts as a lightweight Swift reference to an underlying `GtkObjectExpression` instance.
 /// It exposes methods that can operate on this data type through `ObjectExpressionProtocol` conformance.
 /// Use `ObjectExpressionRef` only as an `unowned` reference to an existing `GtkObjectExpression` instance.
 ///
-/// A `GObject` value in a `GtkExpression`.
 public struct ObjectExpressionRef: ObjectExpressionProtocol {
         /// Untyped pointer to the underlying `GtkObjectExpression` instance.
     /// For type-safe access, use the generated, typed pointer `object_expression_ptr` property instead.
@@ -4914,11 +4975,12 @@ public extension ObjectExpressionRef {
 
     }
 
+/// A `GObject` value in a `GtkExpression`.
+///
 /// The `ObjectExpression` type acts as a reference-counted owner of an underlying `GtkObjectExpression` instance.
 /// It provides the methods that can operate on this data type through `ObjectExpressionProtocol` conformance.
 /// Use `ObjectExpression` as a strong reference or owner of a `GtkObjectExpression` instance.
 ///
-/// A `GObject` value in a `GtkExpression`.
 open class ObjectExpression: Expression, ObjectExpressionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain

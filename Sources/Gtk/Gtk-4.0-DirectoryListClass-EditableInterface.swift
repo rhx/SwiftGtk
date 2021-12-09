@@ -30,12 +30,13 @@ public extension DirectoryListClassRef {
 
 // MARK: - DirectoryListClass Record
 
+
+///
 /// The `DirectoryListClassProtocol` protocol exposes the methods and properties of an underlying `GtkDirectoryListClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DirectoryListClass`.
 /// Alternatively, use `DirectoryListClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DirectoryListClassProtocol {
         /// Untyped pointer to the underlying `GtkDirectoryListClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol DirectoryListClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DirectoryListClassRef` type acts as a lightweight Swift reference to an underlying `GtkDirectoryListClass` instance.
 /// It exposes methods that can operate on this data type through `DirectoryListClassProtocol` conformance.
 /// Use `DirectoryListClassRef` only as an `unowned` reference to an existing `GtkDirectoryListClass` instance.
 ///
-
 public struct DirectoryListClassRef: DirectoryListClassProtocol {
         /// Untyped pointer to the underlying `GtkDirectoryListClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -164,12 +166,13 @@ public extension DragIconClassRef {
 
 // MARK: - DragIconClass Record
 
+
+///
 /// The `DragIconClassProtocol` protocol exposes the methods and properties of an underlying `GtkDragIconClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DragIconClass`.
 /// Alternatively, use `DragIconClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DragIconClassProtocol {
         /// Untyped pointer to the underlying `GtkDragIconClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -181,11 +184,12 @@ public protocol DragIconClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DragIconClassRef` type acts as a lightweight Swift reference to an underlying `GtkDragIconClass` instance.
 /// It exposes methods that can operate on this data type through `DragIconClassProtocol` conformance.
 /// Use `DragIconClassRef` only as an `unowned` reference to an existing `GtkDragIconClass` instance.
 ///
-
 public struct DragIconClassRef: DragIconClassProtocol {
         /// Untyped pointer to the underlying `GtkDragIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -298,12 +302,13 @@ public extension DragSourceClassRef {
 
 // MARK: - DragSourceClass Record
 
+
+///
 /// The `DragSourceClassProtocol` protocol exposes the methods and properties of an underlying `GtkDragSourceClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DragSourceClass`.
 /// Alternatively, use `DragSourceClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DragSourceClassProtocol {
         /// Untyped pointer to the underlying `GtkDragSourceClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -315,11 +320,12 @@ public protocol DragSourceClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DragSourceClassRef` type acts as a lightweight Swift reference to an underlying `GtkDragSourceClass` instance.
 /// It exposes methods that can operate on this data type through `DragSourceClassProtocol` conformance.
 /// Use `DragSourceClassRef` only as an `unowned` reference to an existing `GtkDragSourceClass` instance.
 ///
-
 public struct DragSourceClassRef: DragSourceClassProtocol {
         /// Untyped pointer to the underlying `GtkDragSourceClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -426,12 +432,13 @@ public extension DrawingAreaClassRef {
 
 // MARK: - DrawingAreaClass Record
 
+
+///
 /// The `DrawingAreaClassProtocol` protocol exposes the methods and properties of an underlying `GtkDrawingAreaClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DrawingAreaClass`.
 /// Alternatively, use `DrawingAreaClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DrawingAreaClassProtocol {
         /// Untyped pointer to the underlying `GtkDrawingAreaClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -443,11 +450,12 @@ public protocol DrawingAreaClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DrawingAreaClassRef` type acts as a lightweight Swift reference to an underlying `GtkDrawingAreaClass` instance.
 /// It exposes methods that can operate on this data type through `DrawingAreaClassProtocol` conformance.
 /// Use `DrawingAreaClassRef` only as an `unowned` reference to an existing `GtkDrawingAreaClass` instance.
 ///
-
 public struct DrawingAreaClassRef: DrawingAreaClassProtocol {
         /// Untyped pointer to the underlying `GtkDrawingAreaClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -564,12 +572,13 @@ public extension DropControllerMotionClassRef {
 
 // MARK: - DropControllerMotionClass Record
 
+
+///
 /// The `DropControllerMotionClassProtocol` protocol exposes the methods and properties of an underlying `GtkDropControllerMotionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DropControllerMotionClass`.
 /// Alternatively, use `DropControllerMotionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DropControllerMotionClassProtocol {
         /// Untyped pointer to the underlying `GtkDropControllerMotionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -581,11 +590,12 @@ public protocol DropControllerMotionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DropControllerMotionClassRef` type acts as a lightweight Swift reference to an underlying `GtkDropControllerMotionClass` instance.
 /// It exposes methods that can operate on this data type through `DropControllerMotionClassProtocol` conformance.
 /// Use `DropControllerMotionClassRef` only as an `unowned` reference to an existing `GtkDropControllerMotionClass` instance.
 ///
-
 public struct DropControllerMotionClassRef: DropControllerMotionClassProtocol {
         /// Untyped pointer to the underlying `GtkDropControllerMotionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -692,12 +702,13 @@ public extension DropDownClassRef {
 
 // MARK: - DropDownClass Record
 
+
+///
 /// The `DropDownClassProtocol` protocol exposes the methods and properties of an underlying `GtkDropDownClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DropDownClass`.
 /// Alternatively, use `DropDownClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DropDownClassProtocol {
         /// Untyped pointer to the underlying `GtkDropDownClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -709,11 +720,12 @@ public protocol DropDownClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DropDownClassRef` type acts as a lightweight Swift reference to an underlying `GtkDropDownClass` instance.
 /// It exposes methods that can operate on this data type through `DropDownClassProtocol` conformance.
 /// Use `DropDownClassRef` only as an `unowned` reference to an existing `GtkDropDownClass` instance.
 ///
-
 public struct DropDownClassRef: DropDownClassProtocol {
         /// Untyped pointer to the underlying `GtkDropDownClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -826,12 +838,13 @@ public extension DropTargetAsyncClassRef {
 
 // MARK: - DropTargetAsyncClass Record
 
+
+///
 /// The `DropTargetAsyncClassProtocol` protocol exposes the methods and properties of an underlying `GtkDropTargetAsyncClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DropTargetAsyncClass`.
 /// Alternatively, use `DropTargetAsyncClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DropTargetAsyncClassProtocol {
         /// Untyped pointer to the underlying `GtkDropTargetAsyncClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -843,11 +856,12 @@ public protocol DropTargetAsyncClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DropTargetAsyncClassRef` type acts as a lightweight Swift reference to an underlying `GtkDropTargetAsyncClass` instance.
 /// It exposes methods that can operate on this data type through `DropTargetAsyncClassProtocol` conformance.
 /// Use `DropTargetAsyncClassRef` only as an `unowned` reference to an existing `GtkDropTargetAsyncClass` instance.
 ///
-
 public struct DropTargetAsyncClassRef: DropTargetAsyncClassProtocol {
         /// Untyped pointer to the underlying `GtkDropTargetAsyncClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -954,12 +968,13 @@ public extension DropTargetClassRef {
 
 // MARK: - DropTargetClass Record
 
+
+///
 /// The `DropTargetClassProtocol` protocol exposes the methods and properties of an underlying `GtkDropTargetClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DropTargetClass`.
 /// Alternatively, use `DropTargetClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DropTargetClassProtocol {
         /// Untyped pointer to the underlying `GtkDropTargetClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -971,11 +986,12 @@ public protocol DropTargetClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DropTargetClassRef` type acts as a lightweight Swift reference to an underlying `GtkDropTargetClass` instance.
 /// It exposes methods that can operate on this data type through `DropTargetClassProtocol` conformance.
 /// Use `DropTargetClassRef` only as an `unowned` reference to an existing `GtkDropTargetClass` instance.
 ///
-
 public struct DropTargetClassRef: DropTargetClassProtocol {
         /// Untyped pointer to the underlying `GtkDropTargetClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1082,12 +1098,13 @@ public extension EditableInterfaceRef {
 
 // MARK: - EditableInterface Record
 
+
+///
 /// The `EditableInterfaceProtocol` protocol exposes the methods and properties of an underlying `GtkEditableInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EditableInterface`.
 /// Alternatively, use `EditableInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EditableInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkEditableInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1099,11 +1116,12 @@ public protocol EditableInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EditableInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkEditableInterface` instance.
 /// It exposes methods that can operate on this data type through `EditableInterfaceProtocol` conformance.
 /// Use `EditableInterfaceRef` only as an `unowned` reference to an existing `GtkEditableInterface` instance.
 ///
-
 public struct EditableInterfaceRef: EditableInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkEditableInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

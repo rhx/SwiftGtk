@@ -15,12 +15,13 @@ import Gdk
 
 // MARK: - TreeDragSource Interface
 
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
+///
 /// The `TreeDragSourceProtocol` protocol exposes the methods and properties of an underlying `GtkTreeDragSource` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeDragSource`.
 /// Alternatively, use `TreeDragSourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 public protocol TreeDragSourceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragSource` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -32,11 +33,12 @@ public protocol TreeDragSourceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
+///
 /// The `TreeDragSourceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeDragSource` instance.
 /// It exposes methods that can operate on this data type through `TreeDragSourceProtocol` conformance.
 /// Use `TreeDragSourceRef` only as an `unowned` reference to an existing `GtkTreeDragSource` instance.
 ///
-/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 public struct TreeDragSourceRef: TreeDragSourceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragSource` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_source_ptr` property instead.
@@ -115,11 +117,12 @@ public extension TreeDragSourceRef {
 
     }
 
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
+///
 /// The `TreeDragSource` type acts as an owner of an underlying `GtkTreeDragSource` instance.
 /// It provides the methods that can operate on this data type through `TreeDragSourceProtocol` conformance.
 /// Use `TreeDragSource` as a strong reference or owner of a `GtkTreeDragSource` instance.
 ///
-/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 open class TreeDragSource: TreeDragSourceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragSource` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_source_ptr` property instead.
@@ -307,11 +310,6 @@ public extension TreeDragSourceProtocol {
 
 // MARK: - TreeModel Interface
 
-/// The `TreeModelProtocol` protocol exposes the methods and properties of an underlying `GtkTreeModel` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeModel`.
-/// Alternatively, use `TreeModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The tree interface used by GtkTreeView
 /// 
 /// The `GtkTreeModel` interface defines a generic tree interface for
@@ -368,7 +366,7 @@ public extension TreeDragSourceProtocol {
 /// It is expected that models fill in the iterator with private data.
 /// For example, the `GtkListStore` model, which is internally a simple
 /// linked list, stores a list node in one of the pointers. The
-/// `GtkTreeModelSort` stores an array and an offset in two of the
+/// `GtkTreeModel`Sort stores an array and an offset in two of the
 /// pointers. Additionally, there is an integer field. This field is
 /// generally filled with a unique stamp per model. This stamp is for
 /// catching errors resulting from using invalid iterators with a model.
@@ -508,6 +506,12 @@ public extension TreeDragSourceProtocol {
 ///   required for levels in which nodes are referenced. For the root level
 ///   however, signals must be emitted at all times (however the root level
 ///   is always referenced when any view is attached).
+///
+/// The `TreeModelProtocol` protocol exposes the methods and properties of an underlying `GtkTreeModel` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeModel`.
+/// Alternatively, use `TreeModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeModelProtocol {
         /// Untyped pointer to the underlying `GtkTreeModel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -519,10 +523,6 @@ public protocol TreeModelProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeModelRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModel` instance.
-/// It exposes methods that can operate on this data type through `TreeModelProtocol` conformance.
-/// Use `TreeModelRef` only as an `unowned` reference to an existing `GtkTreeModel` instance.
-///
 /// The tree interface used by GtkTreeView
 /// 
 /// The `GtkTreeModel` interface defines a generic tree interface for
@@ -579,7 +579,7 @@ public protocol TreeModelProtocol {
 /// It is expected that models fill in the iterator with private data.
 /// For example, the `GtkListStore` model, which is internally a simple
 /// linked list, stores a list node in one of the pointers. The
-/// `GtkTreeModelSort` stores an array and an offset in two of the
+/// `GtkTreeModel`Sort stores an array and an offset in two of the
 /// pointers. Additionally, there is an integer field. This field is
 /// generally filled with a unique stamp per model. This stamp is for
 /// catching errors resulting from using invalid iterators with a model.
@@ -719,6 +719,11 @@ public protocol TreeModelProtocol {
 ///   required for levels in which nodes are referenced. For the root level
 ///   however, signals must be emitted at all times (however the root level
 ///   is always referenced when any view is attached).
+///
+/// The `TreeModelRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModel` instance.
+/// It exposes methods that can operate on this data type through `TreeModelProtocol` conformance.
+/// Use `TreeModelRef` only as an `unowned` reference to an existing `GtkTreeModel` instance.
+///
 public struct TreeModelRef: TreeModelProtocol {
         /// Untyped pointer to the underlying `GtkTreeModel` instance.
     /// For type-safe access, use the generated, typed pointer `tree_model_ptr` property instead.
@@ -797,10 +802,6 @@ public extension TreeModelRef {
 
     }
 
-/// The `TreeModel` type acts as an owner of an underlying `GtkTreeModel` instance.
-/// It provides the methods that can operate on this data type through `TreeModelProtocol` conformance.
-/// Use `TreeModel` as a strong reference or owner of a `GtkTreeModel` instance.
-///
 /// The tree interface used by GtkTreeView
 /// 
 /// The `GtkTreeModel` interface defines a generic tree interface for
@@ -857,7 +858,7 @@ public extension TreeModelRef {
 /// It is expected that models fill in the iterator with private data.
 /// For example, the `GtkListStore` model, which is internally a simple
 /// linked list, stores a list node in one of the pointers. The
-/// `GtkTreeModelSort` stores an array and an offset in two of the
+/// `GtkTreeModel`Sort stores an array and an offset in two of the
 /// pointers. Additionally, there is an integer field. This field is
 /// generally filled with a unique stamp per model. This stamp is for
 /// catching errors resulting from using invalid iterators with a model.
@@ -997,6 +998,11 @@ public extension TreeModelRef {
 ///   required for levels in which nodes are referenced. For the root level
 ///   however, signals must be emitted at all times (however the root level
 ///   is always referenced when any view is attached).
+///
+/// The `TreeModel` type acts as an owner of an underlying `GtkTreeModel` instance.
+/// It provides the methods that can operate on this data type through `TreeModelProtocol` conformance.
+/// Use `TreeModel` as a strong reference or owner of a `GtkTreeModel` instance.
+///
 open class TreeModel: TreeModelProtocol {
         /// Untyped pointer to the underlying `GtkTreeModel` instance.
     /// For type-safe access, use the generated, typed pointer `tree_model_ptr` property instead.
@@ -1212,8 +1218,8 @@ public extension TreeModelProtocol {
     /// - Note: This represents the underlying `rows-reordered` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter path: a `GtkTreePath-struct` identifying the tree node whose children     have been reordered
-    /// - Parameter iter: a valid `GtkTreeIter-struct` pointing to the node whose children     have been reordered, or `nil` if the depth of `path` is 0
+    /// - Parameter path: a `GtkTreePath` identifying the tree node whose children     have been reordered
+    /// - Parameter iter: a valid `GtkTreeIter` pointing to the node whose children     have been reordered, or `nil` if the depth of `path` is 0
     /// - Parameter newOrder: an array of integers mapping the current position     of each child to its old position before the re-ordering,     i.e. `new_order``[newpos] = oldpos`
     /// - Parameter handler: The signal handler to call
     /// - Warning: a `onRowsReordered` wrapper for this signal could not be generated because it contains unimplemented features: { (4)  gpointer argument is not yet supported }
@@ -1223,8 +1229,8 @@ public extension TreeModelProtocol {
     /// - Note: This represents the underlying `row-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter path: a `GtkTreePath-struct` identifying the changed row
-    /// - Parameter iter: a valid `GtkTreeIter-struct` pointing to the changed row
+    /// - Parameter path: a `GtkTreePath` identifying the changed row
+    /// - Parameter iter: a valid `GtkTreeIter` pointing to the changed row
     /// - Parameter handler: The signal handler to call
     /// Run the given callback whenever the `rowChanged` signal is emitted
     @discardableResult @inlinable func onRowChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef, _ iter: TreeIterRef) -> Void ) -> Int {
@@ -1257,7 +1263,7 @@ public extension TreeModelProtocol {
     /// - Note: This represents the underlying `row-deleted` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter path: a `GtkTreePath-struct` identifying the row
+    /// - Parameter path: a `GtkTreePath` identifying the row
     /// - Parameter handler: The signal handler to call
     /// Run the given callback whenever the `rowDeleted` signal is emitted
     @discardableResult @inlinable func onRowDeleted(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef) -> Void ) -> Int {
@@ -1284,8 +1290,8 @@ public extension TreeModelProtocol {
     /// - Note: This represents the underlying `row-has-child-toggled` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter path: a `GtkTreePath-struct` identifying the row
-    /// - Parameter iter: a valid `GtkTreeIter-struct` pointing to the row
+    /// - Parameter path: a `GtkTreePath` identifying the row
+    /// - Parameter iter: a valid `GtkTreeIter` pointing to the row
     /// - Parameter handler: The signal handler to call
     /// Run the given callback whenever the `rowHasChildToggled` signal is emitted
     @discardableResult @inlinable func onRowHasChildToggled(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef, _ iter: TreeIterRef) -> Void ) -> Int {
@@ -1316,8 +1322,8 @@ public extension TreeModelProtocol {
     /// - Note: This represents the underlying `row-inserted` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter path: a `GtkTreePath-struct` identifying the new row
-    /// - Parameter iter: a valid `GtkTreeIter-struct` pointing to the new row
+    /// - Parameter path: a `GtkTreePath` identifying the new row
+    /// - Parameter iter: a valid `GtkTreeIter` pointing to the new row
     /// - Parameter handler: The signal handler to call
     /// Run the given callback whenever the `rowInserted` signal is emitted
     @discardableResult @inlinable func onRowInserted(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TreeModelRef, _ path: TreePathRef, _ iter: TreeIterRef) -> Void ) -> Int {
@@ -1360,7 +1366,7 @@ public extension TreeModelProtocol {
         return rv
     }
 
-    /// Calls func on each node in model in a depth-first fashion.
+    /// Calls `func` on each node in model in a depth-first fashion.
     /// 
     /// If `func` returns `true`, then the tree ceases to be walked,
     /// and `gtk_tree_model_foreach()` returns.
@@ -1374,14 +1380,14 @@ public extension TreeModelProtocol {
 
 
     /// Returns the type of the column.
-    @inlinable func getColumnType(index_: Int) -> GType {
-        let rv = gtk_tree_model_get_column_type(tree_model_ptr, gint(index_))
+    @inlinable func getColumnType(index: Int) -> GType {
+        let rv = gtk_tree_model_get_column_type(tree_model_ptr, gint(index))
         return rv
     }
 
     /// Returns a set of flags supported by this interface.
     /// 
-    /// The flags are a bitwise combination of `GtkTreeModelFlags`.
+    /// The flags are a bitwise combination of `GtkTreeModel`Flags.
     /// The flags supported should not change during the lifetime
     /// of the `tree_model`.
     @inlinable func getFlags() -> TreeModelFlags {
@@ -1389,23 +1395,28 @@ public extension TreeModelProtocol {
         return rv
     }
 
-    /// Sets `iter` to a valid iterator pointing to `path`.  If `path` does
-    /// not exist, `iter` is set to an invalid iterator and `false` is returned.
+    /// Sets `iter` to a valid iterator pointing to `path`.
+    /// 
+    /// If `path` does not exist, `iter` is set to an invalid
+    /// iterator and `false` is returned.
     @inlinable func get<TreeIterT: TreeIterProtocol, TreePathT: TreePathProtocol>(iter: TreeIterT, path: TreePathT) -> Bool {
         let rv = ((gtk_tree_model_get_iter(tree_model_ptr, iter.tree_iter_ptr, path.tree_path_ptr)) != 0)
         return rv
     }
 
     /// Initializes `iter` with the first iterator in the tree
-    /// (the one at the path "0") and returns `true`. Returns
-    /// `false` if the tree is empty.
+    /// (the one at the path "0").
+    /// 
+    /// Returns `false` if the tree is empty, `true` otherwise.
     @inlinable func getIterFirst<TreeIterT: TreeIterProtocol>(iter: TreeIterT) -> Bool {
         let rv = ((gtk_tree_model_get_iter_first(tree_model_ptr, iter.tree_iter_ptr)) != 0)
         return rv
     }
 
     /// Sets `iter` to a valid iterator pointing to `path_string`, if it
-    /// exists. Otherwise, `iter` is left invalid and `false` is returned.
+    /// exists.
+    /// 
+    /// Otherwise, `iter` is left invalid and `false` is returned.
     @inlinable func getIterFromString<TreeIterT: TreeIterProtocol>(iter: TreeIterT, pathString: UnsafePointer<CChar>!) -> Bool {
         let rv = ((gtk_tree_model_get_iter_from_string(tree_model_ptr, iter.tree_iter_ptr, pathString)) != 0)
         return rv
@@ -1417,7 +1428,7 @@ public extension TreeModelProtocol {
         return rv
     }
 
-    /// Returns a newly-created `GtkTreePath-struct` referenced by `iter`.
+    /// Returns a newly-created `GtkTreePath` referenced by `iter`.
     /// 
     /// This path should be freed with `gtk_tree_path_free()`.
     @inlinable func getPath<TreeIterT: TreeIterProtocol>(iter: TreeIterT) -> TreePathRef! {
@@ -1435,7 +1446,9 @@ public extension TreeModelProtocol {
         return rv
     }
 
-    /// See `gtk_tree_model_get()`, this version takes a va_list
+    /// Gets the value of one or more cells in the row referenced by `iter`.
+    /// 
+    /// See [method`Gtk.TreeModel.get`], this version takes a va_list
     /// for language bindings to use.
     @inlinable func getValist<TreeIterT: TreeIterProtocol>(iter: TreeIterT, varArgs: CVaListPointer) {
         gtk_tree_model_get_valist(tree_model_ptr, iter.tree_iter_ptr, varArgs)
@@ -1553,13 +1566,17 @@ public extension TreeModelProtocol {
     
     }
 
-    /// Emits the `GtkTreeModel::row-changed` signal on `tree_model`.
+    /// Emits the `row-changed` signal on `tree_model`.
+    /// 
+    /// See [signal`Gtk.TreeModel::row-changed`].
     @inlinable func rowChanged<TreeIterT: TreeIterProtocol, TreePathT: TreePathProtocol>(path: TreePathT, iter: TreeIterT) {
         gtk_tree_model_row_changed(tree_model_ptr, path.tree_path_ptr, iter.tree_iter_ptr)
     
     }
 
-    /// Emits the `GtkTreeModel::row-deleted` signal on `tree_model`.
+    /// Emits the `row-deleted` signal on `tree_model`.
+    /// 
+    /// See [signal`Gtk.TreeModel::row-deleted`].
     /// 
     /// This should be called by models after a row has been removed.
     /// The location pointed to by `path` should be the location that
@@ -1572,21 +1589,28 @@ public extension TreeModelProtocol {
     
     }
 
-    /// Emits the `GtkTreeModel::row-has-child-toggled` signal on
-    /// `tree_model`. This should be called by models after the child
+    /// Emits the `row-has-child-toggled` signal on `tree_model`.
+    /// 
+    /// See [signal`Gtk.TreeModel::row-has-child-toggled`].
+    /// 
+    /// This should be called by models after the child
     /// state of a node changes.
     @inlinable func rowHasChildToggled<TreeIterT: TreeIterProtocol, TreePathT: TreePathProtocol>(path: TreePathT, iter: TreeIterT) {
         gtk_tree_model_row_has_child_toggled(tree_model_ptr, path.tree_path_ptr, iter.tree_iter_ptr)
     
     }
 
-    /// Emits the `GtkTreeModel::row-inserted` signal on `tree_model`.
+    /// Emits the `row-inserted` signal on `tree_model`.
+    /// 
+    /// See [signal`Gtk.TreeModel::row-inserted`].
     @inlinable func rowInserted<TreeIterT: TreeIterProtocol, TreePathT: TreePathProtocol>(path: TreePathT, iter: TreeIterT) {
         gtk_tree_model_row_inserted(tree_model_ptr, path.tree_path_ptr, iter.tree_iter_ptr)
     
     }
 
-    /// Emits the `GtkTreeModel::rows-reordered` signal on `tree_model`.
+    /// Emits the `rows-reordered` signal on `tree_model`.
+    /// 
+    /// See [signal`Gtk.TreeModel::rows-reordered`].
     /// 
     /// This should be called by models when their rows have been
     /// reordered.
@@ -1595,7 +1619,9 @@ public extension TreeModelProtocol {
     
     }
 
-    /// Emits the `GtkTreeModel::rows-reordered` signal on `tree_model`.
+    /// Emits the `rows-reordered` signal on `tree_model`.
+    /// 
+    /// See [signal`Gtk.TreeModel::rows-reordered`].
     /// 
     /// This should be called by models when their rows have been
     /// reordered.
@@ -1603,7 +1629,9 @@ public extension TreeModelProtocol {
         gtk_tree_model_rows_reordered_with_length(tree_model_ptr, path.tree_path_ptr, iter?.tree_iter_ptr, newOrder, gint(length))
     
     }
-    /// Emits the `GtkTreeModel::rows-reordered` signal on `tree_model`.
+    /// Emits the `rows-reordered` signal on `tree_model`.
+    /// 
+    /// See [signal`Gtk.TreeModel::rows-reordered`].
     /// 
     /// This should be called by models when their rows have been
     /// reordered.
@@ -1632,13 +1660,13 @@ public extension TreeModelProtocol {
     }
     /// Returns a set of flags supported by this interface.
     /// 
-    /// The flags are a bitwise combination of `GtkTreeModelFlags`.
+    /// The flags are a bitwise combination of `GtkTreeModel`Flags.
     /// The flags supported should not change during the lifetime
     /// of the `tree_model`.
     @inlinable var flags: TreeModelFlags {
         /// Returns a set of flags supported by this interface.
         /// 
-        /// The flags are a bitwise combination of `GtkTreeModelFlags`.
+        /// The flags are a bitwise combination of `GtkTreeModel`Flags.
         /// The flags supported should not change during the lifetime
         /// of the `tree_model`.
         get {
@@ -1663,16 +1691,17 @@ public extension TreeModelProtocol {
 
 // MARK: - TreeSortable Interface
 
-/// The `TreeSortableProtocol` protocol exposes the methods and properties of an underlying `GtkTreeSortable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeSortable`.
-/// Alternatively, use `TreeSortableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The interface for sortable models used by GtkTreeView
 /// 
 /// `GtkTreeSortable` is an interface to be implemented by tree models which
 /// support sorting. The `GtkTreeView` uses the methods provided by this interface
 /// to sort the model.
+///
+/// The `TreeSortableProtocol` protocol exposes the methods and properties of an underlying `GtkTreeSortable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeSortable`.
+/// Alternatively, use `TreeSortableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeSortableProtocol: TreeModelProtocol {
         /// Untyped pointer to the underlying `GtkTreeSortable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1684,15 +1713,16 @@ public protocol TreeSortableProtocol: TreeModelProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeSortableRef` type acts as a lightweight Swift reference to an underlying `GtkTreeSortable` instance.
-/// It exposes methods that can operate on this data type through `TreeSortableProtocol` conformance.
-/// Use `TreeSortableRef` only as an `unowned` reference to an existing `GtkTreeSortable` instance.
-///
 /// The interface for sortable models used by GtkTreeView
 /// 
 /// `GtkTreeSortable` is an interface to be implemented by tree models which
 /// support sorting. The `GtkTreeView` uses the methods provided by this interface
 /// to sort the model.
+///
+/// The `TreeSortableRef` type acts as a lightweight Swift reference to an underlying `GtkTreeSortable` instance.
+/// It exposes methods that can operate on this data type through `TreeSortableProtocol` conformance.
+/// Use `TreeSortableRef` only as an `unowned` reference to an existing `GtkTreeSortable` instance.
+///
 public struct TreeSortableRef: TreeSortableProtocol {
         /// Untyped pointer to the underlying `GtkTreeSortable` instance.
     /// For type-safe access, use the generated, typed pointer `tree_sortable_ptr` property instead.
@@ -1771,15 +1801,16 @@ public extension TreeSortableRef {
 
     }
 
-/// The `TreeSortable` type acts as an owner of an underlying `GtkTreeSortable` instance.
-/// It provides the methods that can operate on this data type through `TreeSortableProtocol` conformance.
-/// Use `TreeSortable` as a strong reference or owner of a `GtkTreeSortable` instance.
-///
 /// The interface for sortable models used by GtkTreeView
 /// 
 /// `GtkTreeSortable` is an interface to be implemented by tree models which
 /// support sorting. The `GtkTreeView` uses the methods provided by this interface
 /// to sort the model.
+///
+/// The `TreeSortable` type acts as an owner of an underlying `GtkTreeSortable` instance.
+/// It provides the methods that can operate on this data type through `TreeSortableProtocol` conformance.
+/// Use `TreeSortable` as a strong reference or owner of a `GtkTreeSortable` instance.
+///
 open class TreeSortable: TreeModel, TreeSortableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2043,7 +2074,7 @@ public extension TreeSortableProtocol {
 
     /// Sets the current sort column to be `sort_column_id`. The `sortable` will
     /// resort itself to reflect this change, after emitting a
-    /// `GtkTreeSortable::sort-column-changed` signal. `sort_column_id` may either be
+    /// `GtkTreeSortable`sort-column-changed`` signal. `sort_column_id` may either be
     /// a regular column id, or one of the following special values:
     /// 
     /// - `GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID:` the default sort function
@@ -2063,7 +2094,7 @@ public extension TreeSortableProtocol {
     
     }
 
-    /// Emits a `GtkTreeSortable::sort-column-changed` signal on `sortable`.
+    /// Emits a `GtkTreeSortable`sort-column-changed`` signal on `sortable`.
     @inlinable func sortColumnChanged() {
         gtk_tree_sortable_sort_column_changed(tree_sortable_ptr)
     

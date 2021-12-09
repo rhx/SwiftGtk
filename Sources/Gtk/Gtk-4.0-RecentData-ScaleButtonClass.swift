@@ -15,13 +15,14 @@ import Gdk
 
 // MARK: - RecentData Record
 
+/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
+/// registering a recently used resource.
+///
 /// The `RecentDataProtocol` protocol exposes the methods and properties of an underlying `GtkRecentData` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RecentData`.
 /// Alternatively, use `RecentDataRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
-/// registering a recently used resource.
 public protocol RecentDataProtocol {
         /// Untyped pointer to the underlying `GtkRecentData` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -33,12 +34,13 @@ public protocol RecentDataProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
+/// registering a recently used resource.
+///
 /// The `RecentDataRef` type acts as a lightweight Swift reference to an underlying `GtkRecentData` instance.
 /// It exposes methods that can operate on this data type through `RecentDataProtocol` conformance.
 /// Use `RecentDataRef` only as an `unowned` reference to an existing `GtkRecentData` instance.
 ///
-/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
-/// registering a recently used resource.
 public struct RecentDataRef: RecentDataProtocol {
         /// Untyped pointer to the underlying `GtkRecentData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -117,12 +119,13 @@ public extension RecentDataRef {
 
     }
 
+/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
+/// registering a recently used resource.
+///
 /// The `RecentData` type acts as an owner of an underlying `GtkRecentData` instance.
 /// It provides the methods that can operate on this data type through `RecentDataProtocol` conformance.
 /// Use `RecentData` as a strong reference or owner of a `GtkRecentData` instance.
 ///
-/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
-/// registering a recently used resource.
 open class RecentData: RecentDataProtocol {
         /// Untyped pointer to the underlying `GtkRecentData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -399,13 +402,14 @@ public extension RecentDataProtocol {
 
 // MARK: - RecentInfo Record
 
+/// `GtkRecentInfo` contains the metadata associated with an item in the
+/// recently used files list.
+///
 /// The `RecentInfoProtocol` protocol exposes the methods and properties of an underlying `GtkRecentInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RecentInfo`.
 /// Alternatively, use `RecentInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkRecentInfo` contains the metadata associated with an item in the
-/// recently used files list.
 public protocol RecentInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -417,12 +421,13 @@ public protocol RecentInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkRecentInfo` contains the metadata associated with an item in the
+/// recently used files list.
+///
 /// The `RecentInfoRef` type acts as a lightweight Swift reference to an underlying `GtkRecentInfo` instance.
 /// It exposes methods that can operate on this data type through `RecentInfoProtocol` conformance.
 /// Use `RecentInfoRef` only as an `unowned` reference to an existing `GtkRecentInfo` instance.
 ///
-/// `GtkRecentInfo` contains the metadata associated with an item in the
-/// recently used files list.
 public struct RecentInfoRef: RecentInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentInfo` instance.
     /// For type-safe access, use the generated, typed pointer `recent_info_ptr` property instead.
@@ -501,12 +506,13 @@ public extension RecentInfoRef {
 
     }
 
+/// `GtkRecentInfo` contains the metadata associated with an item in the
+/// recently used files list.
+///
 /// The `RecentInfo` type acts as a reference-counted owner of an underlying `GtkRecentInfo` instance.
 /// It provides the methods that can operate on this data type through `RecentInfoProtocol` conformance.
 /// Use `RecentInfo` as a strong reference or owner of a `GtkRecentInfo` instance.
 ///
-/// `GtkRecentInfo` contains the metadata associated with an item in the
-/// recently used files list.
 open class RecentInfo: RecentInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentInfo` instance.
     /// For type-safe access, use the generated, typed pointer `recent_info_ptr` property instead.
@@ -662,6 +668,9 @@ public extension RecentInfoProtocol {
     @inlinable var recent_info_ptr: UnsafeMutablePointer<GtkRecentInfo>! { return ptr?.assumingMemoryBound(to: GtkRecentInfo.self) }
 
     /// Creates a `GAppInfo` for the specified `GtkRecentInfo`
+    /// 
+    /// In case of error, `error` will be set either with a
+    /// `GTK_RECENT_MANAGER_ERROR` or a `G_IO_ERROR`
     @inlinable func createAppInfo(appName: UnsafePointer<CChar>? = nil) throws -> GIO.AppInfoRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = GIO.AppInfoRef(gtk_recent_info_create_app_info(recent_info_ptr, appName, &error))
@@ -1012,12 +1021,13 @@ public extension RecentManagerClassRef {
 
 // MARK: - RecentManagerClass Record
 
+/// `GtkRecentManagerClass` contains only private data.
+///
 /// The `RecentManagerClassProtocol` protocol exposes the methods and properties of an underlying `GtkRecentManagerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RecentManagerClass`.
 /// Alternatively, use `RecentManagerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkRecentManagerClass` contains only private data.
 public protocol RecentManagerClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentManagerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1029,11 +1039,12 @@ public protocol RecentManagerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkRecentManagerClass` contains only private data.
+///
 /// The `RecentManagerClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentManagerClass` instance.
 /// It exposes methods that can operate on this data type through `RecentManagerClassProtocol` conformance.
 /// Use `RecentManagerClassRef` only as an `unowned` reference to an existing `GtkRecentManagerClass` instance.
 ///
-/// `GtkRecentManagerClass` contains only private data.
 public struct RecentManagerClassRef: RecentManagerClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentManagerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1136,14 +1147,15 @@ public extension RecentManagerClassProtocol {
 
 // MARK: - RequestedSize Record
 
+/// Represents a request of a screen object in a given orientation. These
+/// are primarily used in container implementations when allocating a natural
+/// size for children calling. See `gtk_distribute_natural_allocation()`.
+///
 /// The `RequestedSizeProtocol` protocol exposes the methods and properties of an underlying `GtkRequestedSize` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RequestedSize`.
 /// Alternatively, use `RequestedSizeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Represents a request of a screen object in a given orientation. These
-/// are primarily used in container implementations when allocating a natural
-/// size for children calling. See `gtk_distribute_natural_allocation()`.
 public protocol RequestedSizeProtocol {
         /// Untyped pointer to the underlying `GtkRequestedSize` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1155,13 +1167,14 @@ public protocol RequestedSizeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Represents a request of a screen object in a given orientation. These
+/// are primarily used in container implementations when allocating a natural
+/// size for children calling. See `gtk_distribute_natural_allocation()`.
+///
 /// The `RequestedSizeRef` type acts as a lightweight Swift reference to an underlying `GtkRequestedSize` instance.
 /// It exposes methods that can operate on this data type through `RequestedSizeProtocol` conformance.
 /// Use `RequestedSizeRef` only as an `unowned` reference to an existing `GtkRequestedSize` instance.
 ///
-/// Represents a request of a screen object in a given orientation. These
-/// are primarily used in container implementations when allocating a natural
-/// size for children calling. See `gtk_distribute_natural_allocation()`.
 public struct RequestedSizeRef: RequestedSizeProtocol {
         /// Untyped pointer to the underlying `GtkRequestedSize` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1240,13 +1253,14 @@ public extension RequestedSizeRef {
 
     }
 
+/// Represents a request of a screen object in a given orientation. These
+/// are primarily used in container implementations when allocating a natural
+/// size for children calling. See `gtk_distribute_natural_allocation()`.
+///
 /// The `RequestedSize` type acts as an owner of an underlying `GtkRequestedSize` instance.
 /// It provides the methods that can operate on this data type through `RequestedSizeProtocol` conformance.
 /// Use `RequestedSize` as a strong reference or owner of a `GtkRequestedSize` instance.
 ///
-/// Represents a request of a screen object in a given orientation. These
-/// are primarily used in container implementations when allocating a natural
-/// size for children calling. See `gtk_distribute_natural_allocation()`.
 open class RequestedSize: RequestedSizeProtocol {
         /// Untyped pointer to the underlying `GtkRequestedSize` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1447,14 +1461,15 @@ public extension RequestedSizeProtocol {
 
 // MARK: - Requisition Record
 
+/// A `GtkRequisition` represents the desired size of a widget. See
+/// [GtkWidget’s geometry management section](#geometry-management) for
+/// more information.
+///
 /// The `RequisitionProtocol` protocol exposes the methods and properties of an underlying `GtkRequisition` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Requisition`.
 /// Alternatively, use `RequisitionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkRequisition-struct` represents the desired size of a widget. See
-/// [GtkWidget’s geometry management section](#geometry-management) for
-/// more information.
 public protocol RequisitionProtocol {
         /// Untyped pointer to the underlying `GtkRequisition` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1466,13 +1481,14 @@ public protocol RequisitionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GtkRequisition` represents the desired size of a widget. See
+/// [GtkWidget’s geometry management section](#geometry-management) for
+/// more information.
+///
 /// The `RequisitionRef` type acts as a lightweight Swift reference to an underlying `GtkRequisition` instance.
 /// It exposes methods that can operate on this data type through `RequisitionProtocol` conformance.
 /// Use `RequisitionRef` only as an `unowned` reference to an existing `GtkRequisition` instance.
 ///
-/// A `GtkRequisition-struct` represents the desired size of a widget. See
-/// [GtkWidget’s geometry management section](#geometry-management) for
-/// more information.
 public struct RequisitionRef: RequisitionProtocol {
         /// Untyped pointer to the underlying `GtkRequisition` instance.
     /// For type-safe access, use the generated, typed pointer `requisition_ptr` property instead.
@@ -1558,13 +1574,14 @@ public extension RequisitionRef {
     }
 }
 
+/// A `GtkRequisition` represents the desired size of a widget. See
+/// [GtkWidget’s geometry management section](#geometry-management) for
+/// more information.
+///
 /// The `Requisition` type acts as an owner of an underlying `GtkRequisition` instance.
 /// It provides the methods that can operate on this data type through `RequisitionProtocol` conformance.
 /// Use `Requisition` as a strong reference or owner of a `GtkRequisition` instance.
 ///
-/// A `GtkRequisition-struct` represents the desired size of a widget. See
-/// [GtkWidget’s geometry management section](#geometry-management) for
-/// more information.
 open class Requisition: RequisitionProtocol {
         /// Untyped pointer to the underlying `GtkRequisition` instance.
     /// For type-safe access, use the generated, typed pointer `requisition_ptr` property instead.
@@ -1785,12 +1802,13 @@ public extension RootInterfaceRef {
 
 // MARK: - RootInterface Record
 
+
+///
 /// The `RootInterfaceProtocol` protocol exposes the methods and properties of an underlying `GtkRootInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RootInterface`.
 /// Alternatively, use `RootInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RootInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkRootInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1802,11 +1820,12 @@ public protocol RootInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RootInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkRootInterface` instance.
 /// It exposes methods that can operate on this data type through `RootInterfaceProtocol` conformance.
 /// Use `RootInterfaceRef` only as an `unowned` reference to an existing `GtkRootInterface` instance.
 ///
-
 public struct RootInterfaceRef: RootInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkRootInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1913,12 +1932,13 @@ public extension ScaleButtonClassRef {
 
 // MARK: - ScaleButtonClass Record
 
+
+///
 /// The `ScaleButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkScaleButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ScaleButtonClass`.
 /// Alternatively, use `ScaleButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ScaleButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkScaleButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1930,11 +1950,12 @@ public protocol ScaleButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ScaleButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkScaleButtonClass` instance.
 /// It exposes methods that can operate on this data type through `ScaleButtonClassProtocol` conformance.
 /// Use `ScaleButtonClassRef` only as an `unowned` reference to an existing `GtkScaleButtonClass` instance.
 ///
-
 public struct ScaleButtonClassRef: ScaleButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkScaleButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

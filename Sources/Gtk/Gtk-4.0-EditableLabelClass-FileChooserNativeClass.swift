@@ -30,12 +30,13 @@ public extension EditableLabelClassRef {
 
 // MARK: - EditableLabelClass Record
 
+
+///
 /// The `EditableLabelClassProtocol` protocol exposes the methods and properties of an underlying `GtkEditableLabelClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EditableLabelClass`.
 /// Alternatively, use `EditableLabelClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EditableLabelClassProtocol {
         /// Untyped pointer to the underlying `GtkEditableLabelClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol EditableLabelClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EditableLabelClassRef` type acts as a lightweight Swift reference to an underlying `GtkEditableLabelClass` instance.
 /// It exposes methods that can operate on this data type through `EditableLabelClassProtocol` conformance.
 /// Use `EditableLabelClassRef` only as an `unowned` reference to an existing `GtkEditableLabelClass` instance.
 ///
-
 public struct EditableLabelClassRef: EditableLabelClassProtocol {
         /// Untyped pointer to the underlying `GtkEditableLabelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -164,12 +166,13 @@ public extension EmojiChooserClassRef {
 
 // MARK: - EmojiChooserClass Record
 
+
+///
 /// The `EmojiChooserClassProtocol` protocol exposes the methods and properties of an underlying `GtkEmojiChooserClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EmojiChooserClass`.
 /// Alternatively, use `EmojiChooserClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EmojiChooserClassProtocol {
         /// Untyped pointer to the underlying `GtkEmojiChooserClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -181,11 +184,12 @@ public protocol EmojiChooserClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EmojiChooserClassRef` type acts as a lightweight Swift reference to an underlying `GtkEmojiChooserClass` instance.
 /// It exposes methods that can operate on this data type through `EmojiChooserClassProtocol` conformance.
 /// Use `EmojiChooserClassRef` only as an `unowned` reference to an existing `GtkEmojiChooserClass` instance.
 ///
-
 public struct EmojiChooserClassRef: EmojiChooserClassProtocol {
         /// Untyped pointer to the underlying `GtkEmojiChooserClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -292,12 +296,13 @@ public extension EntryBufferClassRef {
 
 // MARK: - EntryBufferClass Record
 
+
+///
 /// The `EntryBufferClassProtocol` protocol exposes the methods and properties of an underlying `GtkEntryBufferClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EntryBufferClass`.
 /// Alternatively, use `EntryBufferClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EntryBufferClassProtocol {
         /// Untyped pointer to the underlying `GtkEntryBufferClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -309,11 +314,12 @@ public protocol EntryBufferClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EntryBufferClassRef` type acts as a lightweight Swift reference to an underlying `GtkEntryBufferClass` instance.
 /// It exposes methods that can operate on this data type through `EntryBufferClassProtocol` conformance.
 /// Use `EntryBufferClassRef` only as an `unowned` reference to an existing `GtkEntryBufferClass` instance.
 ///
-
 public struct EntryBufferClassRef: EntryBufferClassProtocol {
         /// Untyped pointer to the underlying `GtkEntryBufferClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -454,16 +460,17 @@ public extension EntryClassRef {
 
 // MARK: - EntryClass Record
 
-/// The `EntryClassProtocol` protocol exposes the methods and properties of an underlying `GtkEntryClass` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `EntryClass`.
-/// Alternatively, use `EntryClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Class structure for `GtkEntry`. All virtual functions have a default
 /// implementation. Derived classes may set the virtual function pointers for the
 /// signal handlers to `nil`, but must keep `get_text_area_size` and
 /// `get_frame_size` non-`nil`; either use the default implementation, or provide
 /// a custom one.
+///
+/// The `EntryClassProtocol` protocol exposes the methods and properties of an underlying `GtkEntryClass` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `EntryClass`.
+/// Alternatively, use `EntryClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol EntryClassProtocol {
         /// Untyped pointer to the underlying `GtkEntryClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -475,15 +482,16 @@ public protocol EntryClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `EntryClassRef` type acts as a lightweight Swift reference to an underlying `GtkEntryClass` instance.
-/// It exposes methods that can operate on this data type through `EntryClassProtocol` conformance.
-/// Use `EntryClassRef` only as an `unowned` reference to an existing `GtkEntryClass` instance.
-///
 /// Class structure for `GtkEntry`. All virtual functions have a default
 /// implementation. Derived classes may set the virtual function pointers for the
 /// signal handlers to `nil`, but must keep `get_text_area_size` and
 /// `get_frame_size` non-`nil`; either use the default implementation, or provide
 /// a custom one.
+///
+/// The `EntryClassRef` type acts as a lightweight Swift reference to an underlying `GtkEntryClass` instance.
+/// It exposes methods that can operate on this data type through `EntryClassProtocol` conformance.
+/// Use `EntryClassRef` only as an `unowned` reference to an existing `GtkEntryClass` instance.
+///
 public struct EntryClassRef: EntryClassProtocol {
         /// Untyped pointer to the underlying `GtkEntryClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -602,12 +610,13 @@ public extension EventControllerClassRef {
 
 // MARK: - EventControllerClass Record
 
+
+///
 /// The `EventControllerClassProtocol` protocol exposes the methods and properties of an underlying `GtkEventControllerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EventControllerClass`.
 /// Alternatively, use `EventControllerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EventControllerClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -619,11 +628,12 @@ public protocol EventControllerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EventControllerClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerClass` instance.
 /// It exposes methods that can operate on this data type through `EventControllerClassProtocol` conformance.
 /// Use `EventControllerClassRef` only as an `unowned` reference to an existing `GtkEventControllerClass` instance.
 ///
-
 public struct EventControllerClassRef: EventControllerClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -730,12 +740,13 @@ public extension EventControllerFocusClassRef {
 
 // MARK: - EventControllerFocusClass Record
 
+
+///
 /// The `EventControllerFocusClassProtocol` protocol exposes the methods and properties of an underlying `GtkEventControllerFocusClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EventControllerFocusClass`.
 /// Alternatively, use `EventControllerFocusClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EventControllerFocusClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerFocusClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -747,11 +758,12 @@ public protocol EventControllerFocusClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EventControllerFocusClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerFocusClass` instance.
 /// It exposes methods that can operate on this data type through `EventControllerFocusClassProtocol` conformance.
 /// Use `EventControllerFocusClassRef` only as an `unowned` reference to an existing `GtkEventControllerFocusClass` instance.
 ///
-
 public struct EventControllerFocusClassRef: EventControllerFocusClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerFocusClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -858,12 +870,13 @@ public extension EventControllerKeyClassRef {
 
 // MARK: - EventControllerKeyClass Record
 
+
+///
 /// The `EventControllerKeyClassProtocol` protocol exposes the methods and properties of an underlying `GtkEventControllerKeyClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EventControllerKeyClass`.
 /// Alternatively, use `EventControllerKeyClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EventControllerKeyClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerKeyClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -875,11 +888,12 @@ public protocol EventControllerKeyClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EventControllerKeyClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerKeyClass` instance.
 /// It exposes methods that can operate on this data type through `EventControllerKeyClassProtocol` conformance.
 /// Use `EventControllerKeyClassRef` only as an `unowned` reference to an existing `GtkEventControllerKeyClass` instance.
 ///
-
 public struct EventControllerKeyClassRef: EventControllerKeyClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerKeyClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -986,12 +1000,13 @@ public extension EventControllerLegacyClassRef {
 
 // MARK: - EventControllerLegacyClass Record
 
+
+///
 /// The `EventControllerLegacyClassProtocol` protocol exposes the methods and properties of an underlying `GtkEventControllerLegacyClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EventControllerLegacyClass`.
 /// Alternatively, use `EventControllerLegacyClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EventControllerLegacyClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerLegacyClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1003,11 +1018,12 @@ public protocol EventControllerLegacyClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EventControllerLegacyClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerLegacyClass` instance.
 /// It exposes methods that can operate on this data type through `EventControllerLegacyClassProtocol` conformance.
 /// Use `EventControllerLegacyClassRef` only as an `unowned` reference to an existing `GtkEventControllerLegacyClass` instance.
 ///
-
 public struct EventControllerLegacyClassRef: EventControllerLegacyClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerLegacyClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1114,12 +1130,13 @@ public extension EventControllerMotionClassRef {
 
 // MARK: - EventControllerMotionClass Record
 
+
+///
 /// The `EventControllerMotionClassProtocol` protocol exposes the methods and properties of an underlying `GtkEventControllerMotionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EventControllerMotionClass`.
 /// Alternatively, use `EventControllerMotionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EventControllerMotionClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerMotionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1131,11 +1148,12 @@ public protocol EventControllerMotionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EventControllerMotionClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerMotionClass` instance.
 /// It exposes methods that can operate on this data type through `EventControllerMotionClassProtocol` conformance.
 /// Use `EventControllerMotionClassRef` only as an `unowned` reference to an existing `GtkEventControllerMotionClass` instance.
 ///
-
 public struct EventControllerMotionClassRef: EventControllerMotionClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerMotionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1242,12 +1260,13 @@ public extension EventControllerScrollClassRef {
 
 // MARK: - EventControllerScrollClass Record
 
+
+///
 /// The `EventControllerScrollClassProtocol` protocol exposes the methods and properties of an underlying `GtkEventControllerScrollClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EventControllerScrollClass`.
 /// Alternatively, use `EventControllerScrollClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EventControllerScrollClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerScrollClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1259,11 +1278,12 @@ public protocol EventControllerScrollClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EventControllerScrollClassRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerScrollClass` instance.
 /// It exposes methods that can operate on this data type through `EventControllerScrollClassProtocol` conformance.
 /// Use `EventControllerScrollClassRef` only as an `unowned` reference to an existing `GtkEventControllerScrollClass` instance.
 ///
-
 public struct EventControllerScrollClassRef: EventControllerScrollClassProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerScrollClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1370,12 +1390,13 @@ public extension EveryFilterClassRef {
 
 // MARK: - EveryFilterClass Record
 
+
+///
 /// The `EveryFilterClassProtocol` protocol exposes the methods and properties of an underlying `GtkEveryFilterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EveryFilterClass`.
 /// Alternatively, use `EveryFilterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EveryFilterClassProtocol {
         /// Untyped pointer to the underlying `GtkEveryFilterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1387,11 +1408,12 @@ public protocol EveryFilterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EveryFilterClassRef` type acts as a lightweight Swift reference to an underlying `GtkEveryFilterClass` instance.
 /// It exposes methods that can operate on this data type through `EveryFilterClassProtocol` conformance.
 /// Use `EveryFilterClassRef` only as an `unowned` reference to an existing `GtkEveryFilterClass` instance.
 ///
-
 public struct EveryFilterClassRef: EveryFilterClassProtocol {
         /// Untyped pointer to the underlying `GtkEveryFilterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1483,15 +1505,16 @@ public extension EveryFilterClassProtocol {
 
 // MARK: - ExpressionWatch Record
 
+/// An opaque structure representing a watched `GtkExpression`.
+/// 
+/// The contents of `GtkExpressionWatch` should only be accessed through the
+/// provided API.
+///
 /// The `ExpressionWatchProtocol` protocol exposes the methods and properties of an underlying `GtkExpressionWatch` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ExpressionWatch`.
 /// Alternatively, use `ExpressionWatchRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque structure representing a watched `GtkExpression`.
-/// 
-/// The contents of `GtkExpressionWatch` should only be accessed through the
-/// provided API.
 public protocol ExpressionWatchProtocol {
         /// Untyped pointer to the underlying `GtkExpressionWatch` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1503,14 +1526,15 @@ public protocol ExpressionWatchProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ExpressionWatchRef` type acts as a lightweight Swift reference to an underlying `GtkExpressionWatch` instance.
-/// It exposes methods that can operate on this data type through `ExpressionWatchProtocol` conformance.
-/// Use `ExpressionWatchRef` only as an `unowned` reference to an existing `GtkExpressionWatch` instance.
-///
 /// An opaque structure representing a watched `GtkExpression`.
 /// 
 /// The contents of `GtkExpressionWatch` should only be accessed through the
 /// provided API.
+///
+/// The `ExpressionWatchRef` type acts as a lightweight Swift reference to an underlying `GtkExpressionWatch` instance.
+/// It exposes methods that can operate on this data type through `ExpressionWatchProtocol` conformance.
+/// Use `ExpressionWatchRef` only as an `unowned` reference to an existing `GtkExpressionWatch` instance.
+///
 public struct ExpressionWatchRef: ExpressionWatchProtocol {
         /// Untyped pointer to the underlying `GtkExpressionWatch` instance.
     /// For type-safe access, use the generated, typed pointer `expression_watch_ptr` property instead.
@@ -1589,14 +1613,15 @@ public extension ExpressionWatchRef {
 
     }
 
-/// The `ExpressionWatch` type acts as a reference-counted owner of an underlying `GtkExpressionWatch` instance.
-/// It provides the methods that can operate on this data type through `ExpressionWatchProtocol` conformance.
-/// Use `ExpressionWatch` as a strong reference or owner of a `GtkExpressionWatch` instance.
-///
 /// An opaque structure representing a watched `GtkExpression`.
 /// 
 /// The contents of `GtkExpressionWatch` should only be accessed through the
 /// provided API.
+///
+/// The `ExpressionWatch` type acts as a reference-counted owner of an underlying `GtkExpressionWatch` instance.
+/// It provides the methods that can operate on this data type through `ExpressionWatchProtocol` conformance.
+/// Use `ExpressionWatch` as a strong reference or owner of a `GtkExpressionWatch` instance.
+///
 open class ExpressionWatch: ExpressionWatchProtocol {
         /// Untyped pointer to the underlying `GtkExpressionWatch` instance.
     /// For type-safe access, use the generated, typed pointer `expression_watch_ptr` property instead.
@@ -1807,12 +1832,13 @@ public extension FileChooserNativeClassRef {
 
 // MARK: - FileChooserNativeClass Record
 
+
+///
 /// The `FileChooserNativeClassProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserNativeClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileChooserNativeClass`.
 /// Alternatively, use `FileChooserNativeClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FileChooserNativeClassProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserNativeClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1824,11 +1850,12 @@ public protocol FileChooserNativeClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FileChooserNativeClassRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserNativeClass` instance.
 /// It exposes methods that can operate on this data type through `FileChooserNativeClassProtocol` conformance.
 /// Use `FileChooserNativeClassRef` only as an `unowned` reference to an existing `GtkFileChooserNativeClass` instance.
 ///
-
 public struct FileChooserNativeClassRef: FileChooserNativeClassProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserNativeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - Viewport Class
 
-/// The `ViewportProtocol` protocol exposes the methods and properties of an underlying `GtkViewport` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Viewport`.
-/// Alternatively, use `ViewportRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkViewport` implements scrollability for widgets that lack their
 /// own scrolling capabilities.
 /// 
@@ -36,6 +31,12 @@ import Gdk
 /// # Accessibility
 /// 
 /// `GtkViewport` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `ViewportProtocol` protocol exposes the methods and properties of an underlying `GtkViewport` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Viewport`.
+/// Alternatively, use `ViewportRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ViewportProtocol: WidgetProtocol, ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkViewport` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,10 +48,6 @@ public protocol ViewportProtocol: WidgetProtocol, ScrollableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ViewportRef` type acts as a lightweight Swift reference to an underlying `GtkViewport` instance.
-/// It exposes methods that can operate on this data type through `ViewportProtocol` conformance.
-/// Use `ViewportRef` only as an `unowned` reference to an existing `GtkViewport` instance.
-///
 /// `GtkViewport` implements scrollability for widgets that lack their
 /// own scrolling capabilities.
 /// 
@@ -67,6 +64,11 @@ public protocol ViewportProtocol: WidgetProtocol, ScrollableProtocol {
 /// # Accessibility
 /// 
 /// `GtkViewport` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `ViewportRef` type acts as a lightweight Swift reference to an underlying `GtkViewport` instance.
+/// It exposes methods that can operate on this data type through `ViewportProtocol` conformance.
+/// Use `ViewportRef` only as an `unowned` reference to an existing `GtkViewport` instance.
+///
 public struct ViewportRef: ViewportProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkViewport` instance.
     /// For type-safe access, use the generated, typed pointer `viewport_ptr` property instead.
@@ -156,10 +158,6 @@ public extension ViewportRef {
     }
 }
 
-/// The `Viewport` type acts as a reference-counted owner of an underlying `GtkViewport` instance.
-/// It provides the methods that can operate on this data type through `ViewportProtocol` conformance.
-/// Use `Viewport` as a strong reference or owner of a `GtkViewport` instance.
-///
 /// `GtkViewport` implements scrollability for widgets that lack their
 /// own scrolling capabilities.
 /// 
@@ -176,6 +174,11 @@ public extension ViewportRef {
 /// # Accessibility
 /// 
 /// `GtkViewport` uses the `GTK_ACCESSIBLE_ROLE_GROUP` role.
+///
+/// The `Viewport` type acts as a reference-counted owner of an underlying `GtkViewport` instance.
+/// It provides the methods that can operate on this data type through `ViewportProtocol` conformance.
+/// Use `Viewport` as a strong reference or owner of a `GtkViewport` instance.
+///
 open class Viewport: Widget, ViewportProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -561,12 +564,14 @@ public enum ViewportSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -827,15 +832,16 @@ public extension ViewportProtocol {
 
 // MARK: - VolumeButton Class
 
+/// `GtkVolumeButton` is a `GtkScaleButton` subclass tailored for
+/// volume control.
+/// 
+/// ![An example GtkVolumeButton](volumebutton.png)
+///
 /// The `VolumeButtonProtocol` protocol exposes the methods and properties of an underlying `GtkVolumeButton` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VolumeButton`.
 /// Alternatively, use `VolumeButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkVolumeButton` is a `GtkScaleButton` subclass tailored for
-/// volume control.
-/// 
-/// ![An example GtkVolumeButton](volumebutton.png)
 public protocol VolumeButtonProtocol: ScaleButtonProtocol {
         /// Untyped pointer to the underlying `GtkVolumeButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -847,14 +853,15 @@ public protocol VolumeButtonProtocol: ScaleButtonProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `VolumeButtonRef` type acts as a lightweight Swift reference to an underlying `GtkVolumeButton` instance.
-/// It exposes methods that can operate on this data type through `VolumeButtonProtocol` conformance.
-/// Use `VolumeButtonRef` only as an `unowned` reference to an existing `GtkVolumeButton` instance.
-///
 /// `GtkVolumeButton` is a `GtkScaleButton` subclass tailored for
 /// volume control.
 /// 
 /// ![An example GtkVolumeButton](volumebutton.png)
+///
+/// The `VolumeButtonRef` type acts as a lightweight Swift reference to an underlying `GtkVolumeButton` instance.
+/// It exposes methods that can operate on this data type through `VolumeButtonProtocol` conformance.
+/// Use `VolumeButtonRef` only as an `unowned` reference to an existing `GtkVolumeButton` instance.
+///
 public struct VolumeButtonRef: VolumeButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkVolumeButton` instance.
     /// For type-safe access, use the generated, typed pointer `volume_button_ptr` property instead.
@@ -945,14 +952,15 @@ public extension VolumeButtonRef {
     }
 }
 
-/// The `VolumeButton` type acts as a reference-counted owner of an underlying `GtkVolumeButton` instance.
-/// It provides the methods that can operate on this data type through `VolumeButtonProtocol` conformance.
-/// Use `VolumeButton` as a strong reference or owner of a `GtkVolumeButton` instance.
-///
 /// `GtkVolumeButton` is a `GtkScaleButton` subclass tailored for
 /// volume control.
 /// 
 /// ![An example GtkVolumeButton](volumebutton.png)
+///
+/// The `VolumeButton` type acts as a reference-counted owner of an underlying `GtkVolumeButton` instance.
+/// It provides the methods that can operate on this data type through `VolumeButtonProtocol` conformance.
+/// Use `VolumeButton` as a strong reference or owner of a `GtkVolumeButton` instance.
+///
 open class VolumeButton: ScaleButton, VolumeButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1361,12 +1369,14 @@ public enum VolumeButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1612,11 +1622,6 @@ public extension VolumeButtonProtocol {
 
 // MARK: - Widget Class
 
-/// The `WidgetProtocol` protocol exposes the methods and properties of an underlying `GtkWidget` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Widget`.
-/// Alternatively, use `WidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The base class for all widgets.
 /// 
 /// `GtkWidget` is the base class all widgets in GTK derive from. It manages the
@@ -1975,6 +1980,12 @@ public extension VolumeButtonProtocol {
 ///   gtk_widget_class_bind_template_callback (GTK_WIDGET_CLASS (klass), hello_button_clicked);
 /// }
 /// ```
+///
+/// The `WidgetProtocol` protocol exposes the methods and properties of an underlying `GtkWidget` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Widget`.
+/// Alternatively, use `WidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleProtocol, BuildableProtocol, ConstraintTargetProtocol {
         /// Untyped pointer to the underlying `GtkWidget` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1986,10 +1997,6 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `WidgetRef` type acts as a lightweight Swift reference to an underlying `GtkWidget` instance.
-/// It exposes methods that can operate on this data type through `WidgetProtocol` conformance.
-/// Use `WidgetRef` only as an `unowned` reference to an existing `GtkWidget` instance.
-///
 /// The base class for all widgets.
 /// 
 /// `GtkWidget` is the base class all widgets in GTK derive from. It manages the
@@ -2348,6 +2355,11 @@ public protocol WidgetProtocol: GLibObject.InitiallyUnownedProtocol, AccessibleP
 ///   gtk_widget_class_bind_template_callback (GTK_WIDGET_CLASS (klass), hello_button_clicked);
 /// }
 /// ```
+///
+/// The `WidgetRef` type acts as a lightweight Swift reference to an underlying `GtkWidget` instance.
+/// It exposes methods that can operate on this data type through `WidgetProtocol` conformance.
+/// Use `WidgetRef` only as an `unowned` reference to an existing `GtkWidget` instance.
+///
 public struct WidgetRef: WidgetProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkWidget` instance.
     /// For type-safe access, use the generated, typed pointer `widget_ptr` property instead.
@@ -2429,10 +2441,6 @@ public extension WidgetRef {
 
     }
 
-/// The `Widget` type acts as a reference-counted owner of an underlying `GtkWidget` instance.
-/// It provides the methods that can operate on this data type through `WidgetProtocol` conformance.
-/// Use `Widget` as a strong reference or owner of a `GtkWidget` instance.
-///
 /// The base class for all widgets.
 /// 
 /// `GtkWidget` is the base class all widgets in GTK derive from. It manages the
@@ -2791,6 +2799,11 @@ public extension WidgetRef {
 ///   gtk_widget_class_bind_template_callback (GTK_WIDGET_CLASS (klass), hello_button_clicked);
 /// }
 /// ```
+///
+/// The `Widget` type acts as a reference-counted owner of an underlying `GtkWidget` instance.
+/// It provides the methods that can operate on this data type through `WidgetProtocol` conformance.
+/// Use `Widget` as a strong reference or owner of a `GtkWidget` instance.
+///
 open class Widget: GLibObject.InitiallyUnowned, WidgetProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3163,12 +3176,14 @@ public enum WidgetSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3595,8 +3610,8 @@ public extension WidgetProtocol {
     /// - Note: This represents the underlying `query-tooltip` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter x: the x coordinate of the cursor position where the request has     been emitted, relative to `widget`'s left side
-    /// - Parameter y: the y coordinate of the cursor position where the request has     been emitted, relative to `widget`'s top
+    /// - Parameter x: the x coordinate of the cursor position where the request has   been emitted, relative to `widget`'s left side
+    /// - Parameter y: the y coordinate of the cursor position where the request has   been emitted, relative to `widget`'s top
     /// - Parameter keyboardMode: `true` if the tooltip was triggered using the keyboard
     /// - Parameter tooltip: a `GtkTooltip`
     /// - Parameter handler: `true` if `tooltip` should be shown right now, `false` otherwise.
@@ -3775,12 +3790,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3824,12 +3841,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3873,12 +3892,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3922,12 +3943,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3971,12 +3994,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4020,12 +4045,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4069,12 +4096,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4118,12 +4147,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4167,12 +4198,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4216,12 +4249,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4265,12 +4300,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4314,12 +4351,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4363,12 +4402,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4412,12 +4453,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4461,12 +4504,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4510,12 +4555,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4559,12 +4606,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4608,12 +4657,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4657,12 +4708,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4706,12 +4759,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4755,12 +4810,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4804,12 +4861,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4853,12 +4912,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4902,12 +4963,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4951,12 +5014,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5000,12 +5065,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5049,12 +5116,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5098,12 +5167,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5147,12 +5218,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5196,12 +5269,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5245,12 +5320,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5294,12 +5371,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5343,12 +5422,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5392,12 +5473,14 @@ public extension WidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5440,18 +5523,18 @@ public extension WidgetProtocol {
     
     }
 
-    /// For widgets that can be “activated” (buttons, menu items, etc.)
+    /// For widgets that can be “activated” (buttons, menu items, etc.),
     /// this function activates them.
     /// 
     /// The activation will emit the signal set using
-    /// `gtk_widget_class_set_activate_signal()` during class initialization.
+    /// [method`Gtk.WidgetClass.set_activate_signal`] during class initialization.
     /// 
-    /// Activation is what happens when you press Enter on a widget during
-    /// key navigation.
+    /// Activation is what happens when you press &lt;kbd&gt;Enter&lt;/kbd&gt;
+    /// on a widget during key navigation.
     /// 
     /// If you wish to handle the activation keybinding yourself, it is
-    /// recommended to use `gtk_widget_class_add_shortcut()` with an action
-    /// created with `gtk_signal_action_new()`.
+    /// recommended to use [method`Gtk.WidgetClass.add_shortcut`] with an action
+    /// created with [ctor`Gtk.SignalAction.new`].
     /// 
     /// If `widget` isn't activatable, the function returns `false`.
     @inlinable func activate() -> Bool {
@@ -5524,8 +5607,7 @@ public extension WidgetProtocol {
     /// See [method`Gtk.Widget.list_mnemonic_labels`]. Note the
     /// list of mnemonic labels for the widget is cleared when the
     /// widget is destroyed, so the caller must make sure to update
-    /// its internal state at this point as well, by using a connection
-    /// to the [signal`Gtk.Widget::destroy`] signal or a weak notifier.
+    /// its internal state at this point as well.
     @inlinable func addMnemonic<WidgetT: WidgetProtocol>(label: WidgetT) {
         gtk_widget_add_mnemonic_label(widget_ptr, label.widget_ptr)
     
@@ -5643,6 +5725,10 @@ public extension WidgetProtocol {
 
     /// Computes a matrix suitable to describe a transformation from
     /// `widget`'s coordinate system into `target`'s coordinate system.
+    /// 
+    /// The transform can not be computed in certain cases, for example
+    /// when `widget` and `target` do not share a common ancestor. In that
+    /// case `out_transform` gets set to the identity matrix.
     @inlinable func computeTransform<WidgetT: WidgetProtocol>(target: WidgetT, outTransform: UnsafeMutablePointer<graphene_matrix_t>!) -> Bool {
         let rv = ((gtk_widget_compute_transform(widget_ptr, target.widget_ptr, outTransform)) != 0)
         return rv
@@ -5875,10 +5961,9 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Returns the `cairo_font_options_t` used for Pango rendering.
+    /// Returns the `cairo_font_options_t` of widget.
     /// 
-    /// When not set, the defaults font options for the `GdkDisplay`
-    /// will be used.
+    /// Seee [method`Gtk.Widget.set_font_options`].
     @inlinable func getFontOptions() -> Cairo.FontOptionsRef! {
         let rv = Cairo.FontOptionsRef(gtk_widget_get_font_options(widget_ptr))
         return rv
@@ -5930,9 +6015,9 @@ public extension WidgetProtocol {
 
     /// Returns the content height of the widget.
     /// 
-    /// This function returns the size passed to its
-    /// size-allocate implementation, which is the size you
-    /// should be using in `GtkWidgetClass.snapshot()`.
+    /// This function returns the height passed to its
+    /// size-allocate implementation, which is the height you
+    /// should be using in [vfunc`Gtk.Widget.snapshot`].
     /// 
     /// For pointer events, see [method`Gtk.Widget.contains`].
     @inlinable func getHeight() -> Int {
@@ -5984,7 +6069,7 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Retrieves the layout manager used by `widget`
+    /// Retrieves the layout manager used by `widget`.
     /// 
     /// See [method`Gtk.Widget.set_layout_manager`].
     @inlinable func getLayoutManager() -> LayoutManagerRef! {
@@ -6030,7 +6115,7 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Returns the `GtkNative` widget that contains `widget`.
+    /// Returns the nearest `GtkNative` ancestor of `widget`.
     /// 
     /// This function will return `nil` if the widget is not
     /// contained inside a widget tree with a native ancestor.
@@ -6209,7 +6294,7 @@ public extension WidgetProtocol {
     /// Note that this function can only be called when the `GtkWidget`
     /// is attached to a toplevel, since the settings object is specific
     /// to a particular `GdkDisplay`. If you want to monitor the widget for
-    /// changes in its settings, connect to notify`display`.
+    /// changes in its settings, connect to the `notify`display`` signal.
     @inlinable func getSettings() -> SettingsRef! {
         let rv = SettingsRef(gconstpointer: gconstpointer(gtk_widget_get_settings(widget_ptr)))
         return rv
@@ -6342,9 +6427,9 @@ public extension WidgetProtocol {
 
     /// Returns the content width of the widget.
     /// 
-    /// This function returns the size passed to its
-    /// size-allocate implementation, which is the size you
-    /// should be using in `GtkWidgetClass.snapshot()`.
+    /// This function returns the width passed to its
+    /// size-allocate implementation, which is the width you
+    /// should be using in [vfunc`Gtk.Widget.snapshot`].
     /// 
     /// For pointer events, see [method`Gtk.Widget.contains`].
     @inlinable func getWidth() -> Int {
@@ -6354,9 +6439,9 @@ public extension WidgetProtocol {
 
     /// Causes `widget` to have the keyboard focus for the `GtkWindow` it's inside.
     /// 
-    /// If `widget` is not focusable, or its `grab_focus` implementation cannot
-    /// transfer the focus to a descendant of `widget` that is focusable, it will
-    /// not take focus and `false` will be returned.
+    /// If `widget` is not focusable, or its [vfunc`Gtk.Widget.grab_focus`]
+    /// implementation cannot transfer the focus to a descendant of `widget`
+    /// that is focusable, it will not take focus and `false` will be returned.
     /// 
     /// Calling [method`Gtk.Widget.grab_focus`] on an already focused widget
     /// is allowed, should not have an effect, and return `true`.
@@ -6587,13 +6672,15 @@ public extension WidgetProtocol {
     /// if it is allocated at a height of 300 pixels.
     /// 
     /// See [GtkWidget’s geometry management section](class.Widget.html`height-for-width-geometry-management`) for
-    /// a more details on implementing `GtkWidgetClass.measure``()`.
+    /// a more details on implementing ``GtkWidgetClass.measure()``.
     @inlinable func measure(orientation: GtkOrientation, `for` size: Int, minimum: UnsafeMutablePointer<gint>! = nil, natural: UnsafeMutablePointer<gint>! = nil, minimumBaseline: UnsafeMutablePointer<gint>! = nil, naturalBaseline: UnsafeMutablePointer<gint>! = nil) {
         gtk_widget_measure(widget_ptr, orientation, gint(size), minimum, natural, minimumBaseline, naturalBaseline)
     
     }
 
-    /// Emits the `GtkWidget``mnemonic-activate` signal.
+    /// Emits the `mnemonic-activate` signal.
+    /// 
+    /// See [signal`Gtk.Widget::mnemonic-activate`].
     @inlinable func mnemonicActivate(groupCycling: Bool) -> Bool {
         let rv = ((gtk_widget_mnemonic_activate(widget_ptr, gboolean((groupCycling) ? 1 : 0))) != 0)
         return rv
@@ -6626,8 +6713,7 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Finds the descendant of `widget` closest
-    /// to the screen at the point (`x`, `y`).
+    /// Finds the descendant of `widget` closest to the point (`x`, `y`).
     /// 
     /// The point must be given in widget coordinates, so (0, 0) is assumed
     /// to be the top left of `widget`'s content area.
@@ -6646,7 +6732,7 @@ public extension WidgetProtocol {
         return rv
     }
 
-    /// Flags the widget for a rerun of the GtkWidgetClass`size_allocate`
+    /// Flags the widget for a rerun of the [vfunc`Gtk.Widget.size_allocate`]
     /// function.
     /// 
     /// Use this function instead of [method`Gtk.Widget.queue_resize`]
@@ -6661,10 +6747,10 @@ public extension WidgetProtocol {
     
     }
 
-    /// Schedules this widget to be redrawn in paint phase of the
-    /// current or the next frame.
+    /// Schedules this widget to be redrawn in the paint phase
+    /// of the current or the next frame.
     /// 
-    /// This means `widget`'s `GtkWidgetClass.snapshot()`
+    /// This means `widget`'s [vfunc`Gtk.Widget.snapshot`]
     /// implementation will be called.
     @inlinable func queueDraw() {
         gtk_widget_queue_draw(widget_ptr)
@@ -6679,9 +6765,9 @@ public extension WidgetProtocol {
     /// enough space for the new text.
     /// 
     /// Note that you cannot call `gtk_widget_queue_resize()` on a widget
-    /// from inside its implementation of the GtkWidgetClass`size_allocate`
+    /// from inside its implementation of the [vfunc`Gtk.Widget.size_allocate`]
     /// virtual method. Calls to `gtk_widget_queue_resize()` from inside
-    /// GtkWidgetClass`size_allocate` will be silently ignored.
+    /// [vfunc`Gtk.Widget.size_allocate`] will be silently ignored.
     /// 
     /// This function is only for use in widget implementations.
     @inlinable func queueResize() {
@@ -6793,7 +6879,7 @@ public extension WidgetProtocol {
     
     }
 
-    /// Will clear all style classes applied to `widget`
+    /// Clear all style classes applied to `widget`
     /// and replace them with `classes`.
     @inlinable func setCss(classes: UnsafeMutablePointer<UnsafePointer<CChar>?>!) {
         gtk_widget_set_css_classes(widget_ptr, classes)
@@ -6855,8 +6941,6 @@ public extension WidgetProtocol {
 
     /// Set `child` as the current focus child of `widget`.
     /// 
-    /// The previous focus child will be unset.
-    /// 
     /// This function is only suitable for widget implementations.
     /// If you want a certain widget to get the input focus, call
     /// [method`Gtk.Widget.grab_focus`] on it.
@@ -6865,8 +6949,6 @@ public extension WidgetProtocol {
     
     }
     /// Set `child` as the current focus child of `widget`.
-    /// 
-    /// The previous focus child will be unset.
     /// 
     /// This function is only suitable for widget implementations.
     /// If you want a certain widget to get the input focus, call
@@ -7012,16 +7094,14 @@ public extension WidgetProtocol {
     
     }
 
-    /// Sets the layout manager delegate instance that
-    /// provides an implementation for measuring and
-    /// allocating the children of `widget`.
+    /// Sets the layout manager delegate instance that provides an
+    /// implementation for measuring and allocating the children of `widget`.
     @inlinable func set(layoutManager: LayoutManagerRef? = nil) {
         gtk_widget_set_layout_manager(widget_ptr, layoutManager?.layout_manager_ptr)
     
     }
-    /// Sets the layout manager delegate instance that
-    /// provides an implementation for measuring and
-    /// allocating the children of `widget`.
+    /// Sets the layout manager delegate instance that provides an
+    /// implementation for measuring and allocating the children of `widget`.
     @inlinable func set<LayoutManagerT: LayoutManagerProtocol>(layoutManager: LayoutManagerT?) {
         gtk_widget_set_layout_manager(widget_ptr, layoutManager?.layout_manager_ptr)
     
@@ -7295,10 +7375,10 @@ public extension WidgetProtocol {
     /// Snapshot the a child of `widget`.
     /// 
     /// When a widget receives a call to the snapshot function,
-    /// it must send synthetic ``GtkWidget`Class.snapshot()` calls
+    /// it must send synthetic [vfunc`Gtk.Widget.snapshot`] calls
     /// to all children. This function provides a convenient way
     /// of doing this. A widget, when it receives a call to its
-    /// ``GtkWidget`Class.snapshot()` function, calls
+    /// [vfunc`Gtk.Widget.snapshot`] function, calls
     /// `gtk_widget_snapshot_child()` once for each child, passing in
     /// the `snapshot` the widget received.
     /// 
@@ -7524,7 +7604,7 @@ public extension WidgetProtocol {
             let rv = gtk_widget_get_css_classes(widget_ptr)
             return rv
         }
-        /// Will clear all style classes applied to `widget`
+        /// Clear all style classes applied to `widget`
         /// and replace them with `classes`.
         nonmutating set {
             gtk_widget_set_css_classes(widget_ptr, unsafeBitCast(newValue, to: UnsafeMutablePointer<UnsafePointer<CChar>?>.self))
@@ -7635,8 +7715,6 @@ public extension WidgetProtocol {
         }
         /// Set `child` as the current focus child of `widget`.
         /// 
-        /// The previous focus child will be unset.
-        /// 
         /// This function is only suitable for widget implementations.
         /// If you want a certain widget to get the input focus, call
         /// [method`Gtk.Widget.grab_focus`] on it.
@@ -7720,15 +7798,13 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Returns the `cairo_font_options_t` used for Pango rendering.
+    /// Returns the `cairo_font_options_t` of widget.
     /// 
-    /// When not set, the defaults font options for the `GdkDisplay`
-    /// will be used.
+    /// Seee [method`Gtk.Widget.set_font_options`].
     @inlinable var fontOptions: Cairo.FontOptionsRef! {
-        /// Returns the `cairo_font_options_t` used for Pango rendering.
+        /// Returns the `cairo_font_options_t` of widget.
         /// 
-        /// When not set, the defaults font options for the `GdkDisplay`
-        /// will be used.
+        /// Seee [method`Gtk.Widget.set_font_options`].
         get {
             let rv = Cairo.FontOptionsRef(gtk_widget_get_font_options(widget_ptr))
             return rv
@@ -7827,17 +7903,17 @@ public extension WidgetProtocol {
 
     /// Returns the content height of the widget.
     /// 
-    /// This function returns the size passed to its
-    /// size-allocate implementation, which is the size you
-    /// should be using in `GtkWidgetClass.snapshot()`.
+    /// This function returns the height passed to its
+    /// size-allocate implementation, which is the height you
+    /// should be using in [vfunc`Gtk.Widget.snapshot`].
     /// 
     /// For pointer events, see [method`Gtk.Widget.contains`].
     @inlinable var height: Int {
         /// Returns the content height of the widget.
         /// 
-        /// This function returns the size passed to its
-        /// size-allocate implementation, which is the size you
-        /// should be using in `GtkWidgetClass.snapshot()`.
+        /// This function returns the height passed to its
+        /// size-allocate implementation, which is the height you
+        /// should be using in [vfunc`Gtk.Widget.snapshot`].
         /// 
         /// For pointer events, see [method`Gtk.Widget.contains`].
         get {
@@ -7961,17 +8037,17 @@ public extension WidgetProtocol {
     /// toplevel.
     /// 
     /// This does not mean that the [property`Gtk.Widget:has-focus`]
-    /// property is necessarily set; [property`Gtk`,Widget:has-focus]
+    /// property is necessarily set; [property`Gtk.Widget:has-focus`]
     /// will only be set if the toplevel widget additionally has the
-    /// global input focus.)
+    /// global input focus.
     @inlinable var isFocus: Bool {
         /// Determines if the widget is the focus widget within its
         /// toplevel.
         /// 
         /// This does not mean that the [property`Gtk.Widget:has-focus`]
-        /// property is necessarily set; [property`Gtk`,Widget:has-focus]
+        /// property is necessarily set; [property`Gtk.Widget:has-focus`]
         /// will only be set if the toplevel widget additionally has the
-        /// global input focus.)
+        /// global input focus.
         get {
             let rv = ((gtk_widget_is_focus(widget_ptr)) != 0)
             return rv
@@ -8027,20 +8103,19 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Retrieves the layout manager used by `widget`
+    /// Retrieves the layout manager used by `widget`.
     /// 
     /// See [method`Gtk.Widget.set_layout_manager`].
     @inlinable var layoutManager: LayoutManagerRef! {
-        /// Retrieves the layout manager used by `widget`
+        /// Retrieves the layout manager used by `widget`.
         /// 
         /// See [method`Gtk.Widget.set_layout_manager`].
         get {
             let rv = LayoutManagerRef(gconstpointer: gconstpointer(gtk_widget_get_layout_manager(widget_ptr)))
             return rv
         }
-        /// Sets the layout manager delegate instance that
-        /// provides an implementation for measuring and
-        /// allocating the children of `widget`.
+        /// Sets the layout manager delegate instance that provides an
+        /// implementation for measuring and allocating the children of `widget`.
         nonmutating set {
             gtk_widget_set_layout_manager(widget_ptr, UnsafeMutablePointer<GtkLayoutManager>(newValue?.layout_manager_ptr))
         }
@@ -8132,14 +8207,14 @@ public extension WidgetProtocol {
         }
     }
 
-    /// Returns the `GtkNative` widget that contains `widget`.
+    /// Returns the nearest `GtkNative` ancestor of `widget`.
     /// 
     /// This function will return `nil` if the widget is not
     /// contained inside a widget tree with a native ancestor.
     /// 
     /// `GtkNative` widgets will return themselves here.
     @inlinable var native: NativeRef! {
-        /// Returns the `GtkNative` widget that contains `widget`.
+        /// Returns the nearest `GtkNative` ancestor of `widget`.
         /// 
         /// This function will return `nil` if the widget is not
         /// contained inside a widget tree with a native ancestor.
@@ -8423,14 +8498,14 @@ public extension WidgetProtocol {
     /// Note that this function can only be called when the `GtkWidget`
     /// is attached to a toplevel, since the settings object is specific
     /// to a particular `GdkDisplay`. If you want to monitor the widget for
-    /// changes in its settings, connect to notify`display`.
+    /// changes in its settings, connect to the `notify`display`` signal.
     @inlinable var settings: SettingsRef! {
         /// Gets the settings object holding the settings used for this widget.
         /// 
         /// Note that this function can only be called when the `GtkWidget`
         /// is attached to a toplevel, since the settings object is specific
         /// to a particular `GdkDisplay`. If you want to monitor the widget for
-        /// changes in its settings, connect to notify`display`.
+        /// changes in its settings, connect to the `notify`display`` signal.
         get {
             let rv = SettingsRef(gconstpointer: gconstpointer(gtk_widget_get_settings(widget_ptr)))
             return rv
@@ -8619,17 +8694,17 @@ public extension WidgetProtocol {
 
     /// Returns the content width of the widget.
     /// 
-    /// This function returns the size passed to its
-    /// size-allocate implementation, which is the size you
-    /// should be using in `GtkWidgetClass.snapshot()`.
+    /// This function returns the width passed to its
+    /// size-allocate implementation, which is the width you
+    /// should be using in [vfunc`Gtk.Widget.snapshot`].
     /// 
     /// For pointer events, see [method`Gtk.Widget.contains`].
     @inlinable var width: Int {
         /// Returns the content width of the widget.
         /// 
-        /// This function returns the size passed to its
-        /// size-allocate implementation, which is the size you
-        /// should be using in `GtkWidgetClass.snapshot()`.
+        /// This function returns the width passed to its
+        /// size-allocate implementation, which is the width you
+        /// should be using in [vfunc`Gtk.Widget.snapshot`].
         /// 
         /// For pointer events, see [method`Gtk.Widget.contains`].
         get {

@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - SelectionModel Interface
 
-/// The `SelectionModelProtocol` protocol exposes the methods and properties of an underlying `GtkSelectionModel` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SelectionModel`.
-/// Alternatively, use `SelectionModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkSelectionModel` is an interface that add support for selection to list models.
 /// 
 /// This support is then used by widgets using list models to add the ability
@@ -55,6 +50,12 @@ import Gdk
 /// 
 /// Selections may happen asynchronously, so the only reliable way to find out
 /// when an item was selected is to listen to the signals that indicate selection.
+///
+/// The `SelectionModelProtocol` protocol exposes the methods and properties of an underlying `GtkSelectionModel` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SelectionModel`.
+/// Alternatively, use `SelectionModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SelectionModelProtocol: GIO.ListModelProtocol {
         /// Untyped pointer to the underlying `GtkSelectionModel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -66,10 +67,6 @@ public protocol SelectionModelProtocol: GIO.ListModelProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SelectionModelRef` type acts as a lightweight Swift reference to an underlying `GtkSelectionModel` instance.
-/// It exposes methods that can operate on this data type through `SelectionModelProtocol` conformance.
-/// Use `SelectionModelRef` only as an `unowned` reference to an existing `GtkSelectionModel` instance.
-///
 /// `GtkSelectionModel` is an interface that add support for selection to list models.
 /// 
 /// This support is then used by widgets using list models to add the ability
@@ -105,6 +102,11 @@ public protocol SelectionModelProtocol: GIO.ListModelProtocol {
 /// 
 /// Selections may happen asynchronously, so the only reliable way to find out
 /// when an item was selected is to listen to the signals that indicate selection.
+///
+/// The `SelectionModelRef` type acts as a lightweight Swift reference to an underlying `GtkSelectionModel` instance.
+/// It exposes methods that can operate on this data type through `SelectionModelProtocol` conformance.
+/// Use `SelectionModelRef` only as an `unowned` reference to an existing `GtkSelectionModel` instance.
+///
 public struct SelectionModelRef: SelectionModelProtocol {
         /// Untyped pointer to the underlying `GtkSelectionModel` instance.
     /// For type-safe access, use the generated, typed pointer `selection_model_ptr` property instead.
@@ -183,10 +185,6 @@ public extension SelectionModelRef {
 
     }
 
-/// The `SelectionModel` type acts as an owner of an underlying `GtkSelectionModel` instance.
-/// It provides the methods that can operate on this data type through `SelectionModelProtocol` conformance.
-/// Use `SelectionModel` as a strong reference or owner of a `GtkSelectionModel` instance.
-///
 /// `GtkSelectionModel` is an interface that add support for selection to list models.
 /// 
 /// This support is then used by widgets using list models to add the ability
@@ -222,6 +220,11 @@ public extension SelectionModelRef {
 /// 
 /// Selections may happen asynchronously, so the only reliable way to find out
 /// when an item was selected is to listen to the signals that indicate selection.
+///
+/// The `SelectionModel` type acts as an owner of an underlying `GtkSelectionModel` instance.
+/// It provides the methods that can operate on this data type through `SelectionModelProtocol` conformance.
+/// Use `SelectionModel` as a strong reference or owner of a `GtkSelectionModel` instance.
+///
 open class SelectionModel: GIO.ListModel, SelectionModelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -573,11 +576,6 @@ public extension SelectionModelProtocol {
 
 // MARK: - ShortcutManager Interface
 
-/// The `ShortcutManagerProtocol` protocol exposes the methods and properties of an underlying `GtkShortcutManager` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ShortcutManager`.
-/// Alternatively, use `ShortcutManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkShortcutManager` interface is used to implement
 /// shortcut scopes.
 /// 
@@ -590,6 +588,12 @@ public extension SelectionModelProtocol {
 /// 
 /// Every widget that implements `GtkShortcutManager` will be used as a
 /// `GTK_SHORTCUT_SCOPE_MANAGED`.
+///
+/// The `ShortcutManagerProtocol` protocol exposes the methods and properties of an underlying `GtkShortcutManager` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ShortcutManager`.
+/// Alternatively, use `ShortcutManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ShortcutManagerProtocol {
         /// Untyped pointer to the underlying `GtkShortcutManager` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -601,10 +605,6 @@ public protocol ShortcutManagerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ShortcutManagerRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutManager` instance.
-/// It exposes methods that can operate on this data type through `ShortcutManagerProtocol` conformance.
-/// Use `ShortcutManagerRef` only as an `unowned` reference to an existing `GtkShortcutManager` instance.
-///
 /// The `GtkShortcutManager` interface is used to implement
 /// shortcut scopes.
 /// 
@@ -617,6 +617,11 @@ public protocol ShortcutManagerProtocol {
 /// 
 /// Every widget that implements `GtkShortcutManager` will be used as a
 /// `GTK_SHORTCUT_SCOPE_MANAGED`.
+///
+/// The `ShortcutManagerRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutManager` instance.
+/// It exposes methods that can operate on this data type through `ShortcutManagerProtocol` conformance.
+/// Use `ShortcutManagerRef` only as an `unowned` reference to an existing `GtkShortcutManager` instance.
+///
 public struct ShortcutManagerRef: ShortcutManagerProtocol {
         /// Untyped pointer to the underlying `GtkShortcutManager` instance.
     /// For type-safe access, use the generated, typed pointer `shortcut_manager_ptr` property instead.
@@ -695,10 +700,6 @@ public extension ShortcutManagerRef {
 
     }
 
-/// The `ShortcutManager` type acts as an owner of an underlying `GtkShortcutManager` instance.
-/// It provides the methods that can operate on this data type through `ShortcutManagerProtocol` conformance.
-/// Use `ShortcutManager` as a strong reference or owner of a `GtkShortcutManager` instance.
-///
 /// The `GtkShortcutManager` interface is used to implement
 /// shortcut scopes.
 /// 
@@ -711,6 +712,11 @@ public extension ShortcutManagerRef {
 /// 
 /// Every widget that implements `GtkShortcutManager` will be used as a
 /// `GTK_SHORTCUT_SCOPE_MANAGED`.
+///
+/// The `ShortcutManager` type acts as an owner of an underlying `GtkShortcutManager` instance.
+/// It provides the methods that can operate on this data type through `ShortcutManagerProtocol` conformance.
+/// Use `ShortcutManager` as a strong reference or owner of a `GtkShortcutManager` instance.
+///
 open class ShortcutManager: ShortcutManagerProtocol {
         /// Untyped pointer to the underlying `GtkShortcutManager` instance.
     /// For type-safe access, use the generated, typed pointer `shortcut_manager_ptr` property instead.
@@ -873,11 +879,6 @@ public extension ShortcutManagerProtocol {
 
 // MARK: - StyleProvider Interface
 
-/// The `StyleProviderProtocol` protocol exposes the methods and properties of an underlying `GtkStyleProvider` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `StyleProvider`.
-/// Alternatively, use `StyleProviderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkStyleProvider` is an interface for style information used by
 /// `GtkStyleContext`.
 /// 
@@ -887,6 +888,12 @@ public extension ShortcutManagerProtocol {
 /// 
 /// GTK uses the `GtkStyleProvider` implementation for CSS in
 /// [iface`Gtk.CssProvider`].
+///
+/// The `StyleProviderProtocol` protocol exposes the methods and properties of an underlying `GtkStyleProvider` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `StyleProvider`.
+/// Alternatively, use `StyleProviderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol StyleProviderProtocol {
         /// Untyped pointer to the underlying `GtkStyleProvider` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -898,10 +905,6 @@ public protocol StyleProviderProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `StyleProviderRef` type acts as a lightweight Swift reference to an underlying `GtkStyleProvider` instance.
-/// It exposes methods that can operate on this data type through `StyleProviderProtocol` conformance.
-/// Use `StyleProviderRef` only as an `unowned` reference to an existing `GtkStyleProvider` instance.
-///
 /// `GtkStyleProvider` is an interface for style information used by
 /// `GtkStyleContext`.
 /// 
@@ -911,6 +914,11 @@ public protocol StyleProviderProtocol {
 /// 
 /// GTK uses the `GtkStyleProvider` implementation for CSS in
 /// [iface`Gtk.CssProvider`].
+///
+/// The `StyleProviderRef` type acts as a lightweight Swift reference to an underlying `GtkStyleProvider` instance.
+/// It exposes methods that can operate on this data type through `StyleProviderProtocol` conformance.
+/// Use `StyleProviderRef` only as an `unowned` reference to an existing `GtkStyleProvider` instance.
+///
 public struct StyleProviderRef: StyleProviderProtocol {
         /// Untyped pointer to the underlying `GtkStyleProvider` instance.
     /// For type-safe access, use the generated, typed pointer `style_provider_ptr` property instead.
@@ -989,10 +997,6 @@ public extension StyleProviderRef {
 
     }
 
-/// The `StyleProvider` type acts as an owner of an underlying `GtkStyleProvider` instance.
-/// It provides the methods that can operate on this data type through `StyleProviderProtocol` conformance.
-/// Use `StyleProvider` as a strong reference or owner of a `GtkStyleProvider` instance.
-///
 /// `GtkStyleProvider` is an interface for style information used by
 /// `GtkStyleContext`.
 /// 
@@ -1002,6 +1006,11 @@ public extension StyleProviderRef {
 /// 
 /// GTK uses the `GtkStyleProvider` implementation for CSS in
 /// [iface`Gtk.CssProvider`].
+///
+/// The `StyleProvider` type acts as an owner of an underlying `GtkStyleProvider` instance.
+/// It provides the methods that can operate on this data type through `StyleProviderProtocol` conformance.
+/// Use `StyleProvider` as a strong reference or owner of a `GtkStyleProvider` instance.
+///
 open class StyleProvider: StyleProviderProtocol {
         /// Untyped pointer to the underlying `GtkStyleProvider` instance.
     /// For type-safe access, use the generated, typed pointer `style_provider_ptr` property instead.
@@ -1221,12 +1230,13 @@ public extension StyleProviderProtocol {
 
 // MARK: - TreeDragDest Interface
 
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
+///
 /// The `TreeDragDestProtocol` protocol exposes the methods and properties of an underlying `GtkTreeDragDest` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeDragDest`.
 /// Alternatively, use `TreeDragDestRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 public protocol TreeDragDestProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragDest` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1238,11 +1248,12 @@ public protocol TreeDragDestProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
+///
 /// The `TreeDragDestRef` type acts as a lightweight Swift reference to an underlying `GtkTreeDragDest` instance.
 /// It exposes methods that can operate on this data type through `TreeDragDestProtocol` conformance.
 /// Use `TreeDragDestRef` only as an `unowned` reference to an existing `GtkTreeDragDest` instance.
 ///
-/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 public struct TreeDragDestRef: TreeDragDestProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragDest` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_dest_ptr` property instead.
@@ -1321,11 +1332,12 @@ public extension TreeDragDestRef {
 
     }
 
+/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
+///
 /// The `TreeDragDest` type acts as an owner of an underlying `GtkTreeDragDest` instance.
 /// It provides the methods that can operate on this data type through `TreeDragDestProtocol` conformance.
 /// Use `TreeDragDest` as a strong reference or owner of a `GtkTreeDragDest` instance.
 ///
-/// Interface for Drag-and-Drop destinations in `GtkTreeView`.
 open class TreeDragDest: TreeDragDestProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragDest` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_dest_ptr` property instead.

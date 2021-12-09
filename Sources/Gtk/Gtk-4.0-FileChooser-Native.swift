@@ -15,11 +15,6 @@ import Gdk
 
 // MARK: - FileChooser Interface
 
-/// The `FileChooserProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooser` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileChooser`.
-/// Alternatively, use `FileChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkFileChooser` is an interface that can be implemented by file
 /// selection widgets.
 /// 
@@ -60,6 +55,12 @@ import Gdk
 /// options. If a choice has no option, it will be rendered as a
 /// check button with the given label; if a choice has options, it will
 /// be rendered as a combo box.
+///
+/// The `FileChooserProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooser` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileChooser`.
+/// Alternatively, use `FileChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileChooserProtocol {
         /// Untyped pointer to the underlying `GtkFileChooser` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -71,10 +72,6 @@ public protocol FileChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileChooserRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooser` instance.
-/// It exposes methods that can operate on this data type through `FileChooserProtocol` conformance.
-/// Use `FileChooserRef` only as an `unowned` reference to an existing `GtkFileChooser` instance.
-///
 /// `GtkFileChooser` is an interface that can be implemented by file
 /// selection widgets.
 /// 
@@ -115,6 +112,11 @@ public protocol FileChooserProtocol {
 /// options. If a choice has no option, it will be rendered as a
 /// check button with the given label; if a choice has options, it will
 /// be rendered as a combo box.
+///
+/// The `FileChooserRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooser` instance.
+/// It exposes methods that can operate on this data type through `FileChooserProtocol` conformance.
+/// Use `FileChooserRef` only as an `unowned` reference to an existing `GtkFileChooser` instance.
+///
 public struct FileChooserRef: FileChooserProtocol {
         /// Untyped pointer to the underlying `GtkFileChooser` instance.
     /// For type-safe access, use the generated, typed pointer `file_chooser_ptr` property instead.
@@ -193,10 +195,6 @@ public extension FileChooserRef {
 
     }
 
-/// The `FileChooser` type acts as an owner of an underlying `GtkFileChooser` instance.
-/// It provides the methods that can operate on this data type through `FileChooserProtocol` conformance.
-/// Use `FileChooser` as a strong reference or owner of a `GtkFileChooser` instance.
-///
 /// `GtkFileChooser` is an interface that can be implemented by file
 /// selection widgets.
 /// 
@@ -237,6 +235,11 @@ public extension FileChooserRef {
 /// options. If a choice has no option, it will be rendered as a
 /// check button with the given label; if a choice has options, it will
 /// be rendered as a combo box.
+///
+/// The `FileChooser` type acts as an owner of an underlying `GtkFileChooser` instance.
+/// It provides the methods that can operate on this data type through `FileChooserProtocol` conformance.
+/// Use `FileChooser` as a strong reference or owner of a `GtkFileChooser` instance.
+///
 open class FileChooser: FileChooserProtocol {
         /// Untyped pointer to the underlying `GtkFileChooser` instance.
     /// For type-safe access, use the generated, typed pointer `file_chooser_ptr` property instead.
@@ -693,7 +696,7 @@ public extension FileChooserProtocol {
     /// the file’s base name will also appear in the dialog’s file name entry.
     /// 
     /// If the file name isn’t in the current folder of `chooser`, then the current
-    /// folder of `chooser` will be changed to the folder containing `filename`.
+    /// folder of `chooser` will be changed to the folder containing `file`.
     /// 
     /// Note that the file must exist, or nothing will be done except
     /// for the directory change.
@@ -867,7 +870,7 @@ public extension FileChooserProtocol {
         /// the file’s base name will also appear in the dialog’s file name entry.
         /// 
         /// If the file name isn’t in the current folder of `chooser`, then the current
-        /// folder of `chooser` will be changed to the folder containing `filename`.
+        /// folder of `chooser` will be changed to the folder containing `file`.
         /// 
         /// Note that the file must exist, or nothing will be done except
         /// for the directory change.
@@ -1001,17 +1004,18 @@ public extension FileChooserProtocol {
 
 // MARK: - FontChooser Interface
 
-/// The `FontChooserProtocol` protocol exposes the methods and properties of an underlying `GtkFontChooser` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FontChooser`.
-/// Alternatively, use `FontChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkFontChooser` is an interface that can be implemented by widgets
 /// for choosing fonts.
 /// 
 /// In GTK, the main objects that implement this interface are
 /// [class`Gtk.FontChooserWidget`], [class`Gtk.FontChooserDialog`] and
 /// [class`Gtk.FontButton`].
+///
+/// The `FontChooserProtocol` protocol exposes the methods and properties of an underlying `GtkFontChooser` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FontChooser`.
+/// Alternatively, use `FontChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FontChooserProtocol {
         /// Untyped pointer to the underlying `GtkFontChooser` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1023,16 +1027,17 @@ public protocol FontChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FontChooserRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooser` instance.
-/// It exposes methods that can operate on this data type through `FontChooserProtocol` conformance.
-/// Use `FontChooserRef` only as an `unowned` reference to an existing `GtkFontChooser` instance.
-///
 /// `GtkFontChooser` is an interface that can be implemented by widgets
 /// for choosing fonts.
 /// 
 /// In GTK, the main objects that implement this interface are
 /// [class`Gtk.FontChooserWidget`], [class`Gtk.FontChooserDialog`] and
 /// [class`Gtk.FontButton`].
+///
+/// The `FontChooserRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooser` instance.
+/// It exposes methods that can operate on this data type through `FontChooserProtocol` conformance.
+/// Use `FontChooserRef` only as an `unowned` reference to an existing `GtkFontChooser` instance.
+///
 public struct FontChooserRef: FontChooserProtocol {
         /// Untyped pointer to the underlying `GtkFontChooser` instance.
     /// For type-safe access, use the generated, typed pointer `font_chooser_ptr` property instead.
@@ -1111,16 +1116,17 @@ public extension FontChooserRef {
 
     }
 
-/// The `FontChooser` type acts as an owner of an underlying `GtkFontChooser` instance.
-/// It provides the methods that can operate on this data type through `FontChooserProtocol` conformance.
-/// Use `FontChooser` as a strong reference or owner of a `GtkFontChooser` instance.
-///
 /// `GtkFontChooser` is an interface that can be implemented by widgets
 /// for choosing fonts.
 /// 
 /// In GTK, the main objects that implement this interface are
 /// [class`Gtk.FontChooserWidget`], [class`Gtk.FontChooserDialog`] and
 /// [class`Gtk.FontButton`].
+///
+/// The `FontChooser` type acts as an owner of an underlying `GtkFontChooser` instance.
+/// It provides the methods that can operate on this data type through `FontChooserProtocol` conformance.
+/// Use `FontChooser` as a strong reference or owner of a `GtkFontChooser` instance.
+///
 open class FontChooser: FontChooserProtocol {
         /// Untyped pointer to the underlying `GtkFontChooser` instance.
     /// For type-safe access, use the generated, typed pointer `font_chooser_ptr` property instead.
@@ -1437,12 +1443,14 @@ public extension FontChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1486,12 +1494,14 @@ public extension FontChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1535,12 +1545,14 @@ public extension FontChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1584,12 +1596,14 @@ public extension FontChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1633,12 +1647,14 @@ public extension FontChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1682,12 +1698,14 @@ public extension FontChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1731,12 +1749,14 @@ public extension FontChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2170,11 +2190,6 @@ public extension FontChooserProtocol {
 
 // MARK: - Native Interface
 
-/// The `NativeProtocol` protocol exposes the methods and properties of an underlying `GtkNative` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Native`.
-/// Alternatively, use `NativeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkNative` is the interface implemented by all widgets that have
 /// their own `GdkSurface`.
 /// 
@@ -2190,6 +2205,12 @@ public extension FontChooserProtocol {
 /// In addition to a [class`Gdk.Surface`], a `GtkNative` also provides
 /// a [class`Gsk.Renderer`] for rendering on that surface. To get the
 /// renderer, use [method`Gtk.Native.get_renderer`].
+///
+/// The `NativeProtocol` protocol exposes the methods and properties of an underlying `GtkNative` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Native`.
+/// Alternatively, use `NativeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol NativeProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkNative` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2201,10 +2222,6 @@ public protocol NativeProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NativeRef` type acts as a lightweight Swift reference to an underlying `GtkNative` instance.
-/// It exposes methods that can operate on this data type through `NativeProtocol` conformance.
-/// Use `NativeRef` only as an `unowned` reference to an existing `GtkNative` instance.
-///
 /// `GtkNative` is the interface implemented by all widgets that have
 /// their own `GdkSurface`.
 /// 
@@ -2220,6 +2237,11 @@ public protocol NativeProtocol: WidgetProtocol {
 /// In addition to a [class`Gdk.Surface`], a `GtkNative` also provides
 /// a [class`Gsk.Renderer`] for rendering on that surface. To get the
 /// renderer, use [method`Gtk.Native.get_renderer`].
+///
+/// The `NativeRef` type acts as a lightweight Swift reference to an underlying `GtkNative` instance.
+/// It exposes methods that can operate on this data type through `NativeProtocol` conformance.
+/// Use `NativeRef` only as an `unowned` reference to an existing `GtkNative` instance.
+///
 public struct NativeRef: NativeProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNative` instance.
     /// For type-safe access, use the generated, typed pointer `native_ptr` property instead.
@@ -2306,10 +2328,6 @@ public extension NativeRef {
     }
 }
 
-/// The `Native` type acts as a reference-counted owner of an underlying `GtkNative` instance.
-/// It provides the methods that can operate on this data type through `NativeProtocol` conformance.
-/// Use `Native` as a strong reference or owner of a `GtkNative` instance.
-///
 /// `GtkNative` is the interface implemented by all widgets that have
 /// their own `GdkSurface`.
 /// 
@@ -2325,6 +2343,11 @@ public extension NativeRef {
 /// In addition to a [class`Gdk.Surface`], a `GtkNative` also provides
 /// a [class`Gsk.Renderer`] for rendering on that surface. To get the
 /// renderer, use [method`Gtk.Native.get_renderer`].
+///
+/// The `Native` type acts as a reference-counted owner of an underlying `GtkNative` instance.
+/// It provides the methods that can operate on this data type through `NativeProtocol` conformance.
+/// Use `Native` as a strong reference or owner of a `GtkNative` instance.
+///
 open class Native: Widget, NativeProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2703,12 +2726,14 @@ public enum NativeSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

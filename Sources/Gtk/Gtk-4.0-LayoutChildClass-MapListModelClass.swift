@@ -30,12 +30,13 @@ public extension LayoutChildClassRef {
 
 // MARK: - LayoutChildClass Record
 
+
+///
 /// The `LayoutChildClassProtocol` protocol exposes the methods and properties of an underlying `GtkLayoutChildClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LayoutChildClass`.
 /// Alternatively, use `LayoutChildClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol LayoutChildClassProtocol {
         /// Untyped pointer to the underlying `GtkLayoutChildClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol LayoutChildClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `LayoutChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutChildClass` instance.
 /// It exposes methods that can operate on this data type through `LayoutChildClassProtocol` conformance.
 /// Use `LayoutChildClassRef` only as an `unowned` reference to an existing `GtkLayoutChildClass` instance.
 ///
-
 public struct LayoutChildClassRef: LayoutChildClassProtocol {
         /// Untyped pointer to the underlying `GtkLayoutChildClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -159,14 +161,15 @@ public extension LayoutManagerClassRef {
 
 // MARK: - LayoutManagerClass Record
 
+/// The `GtkLayoutManagerClass` structure contains only private data, and
+/// should only be accessed through the provided API, or when subclassing
+/// `GtkLayoutManager`.
+///
 /// The `LayoutManagerClassProtocol` protocol exposes the methods and properties of an underlying `GtkLayoutManagerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LayoutManagerClass`.
 /// Alternatively, use `LayoutManagerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkLayoutManagerClass` structure contains only private data, and
-/// should only be accessed through the provided API, or when subclassing
-/// `GtkLayoutManager`.
 public protocol LayoutManagerClassProtocol {
         /// Untyped pointer to the underlying `GtkLayoutManagerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -178,13 +181,14 @@ public protocol LayoutManagerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GtkLayoutManagerClass` structure contains only private data, and
+/// should only be accessed through the provided API, or when subclassing
+/// `GtkLayoutManager`.
+///
 /// The `LayoutManagerClassRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutManagerClass` instance.
 /// It exposes methods that can operate on this data type through `LayoutManagerClassProtocol` conformance.
 /// Use `LayoutManagerClassRef` only as an `unowned` reference to an existing `GtkLayoutManagerClass` instance.
 ///
-/// The `GtkLayoutManagerClass` structure contains only private data, and
-/// should only be accessed through the provided API, or when subclassing
-/// `GtkLayoutManager`.
 public struct LayoutManagerClassRef: LayoutManagerClassProtocol {
         /// Untyped pointer to the underlying `GtkLayoutManagerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -315,12 +319,13 @@ public extension ListBaseClassRef {
 
 // MARK: - ListBaseClass Record
 
+
+///
 /// The `ListBaseClassProtocol` protocol exposes the methods and properties of an underlying `GtkListBaseClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListBaseClass`.
 /// Alternatively, use `ListBaseClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListBaseClassProtocol {
         /// Untyped pointer to the underlying `GtkListBaseClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -332,11 +337,12 @@ public protocol ListBaseClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListBaseClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBaseClass` instance.
 /// It exposes methods that can operate on this data type through `ListBaseClassProtocol` conformance.
 /// Use `ListBaseClassRef` only as an `unowned` reference to an existing `GtkListBaseClass` instance.
 ///
-
 public struct ListBaseClassRef: ListBaseClassProtocol {
         /// Untyped pointer to the underlying `GtkListBaseClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -443,12 +449,13 @@ public extension ListBoxRowClassRef {
 
 // MARK: - ListBoxRowClass Record
 
+
+///
 /// The `ListBoxRowClassProtocol` protocol exposes the methods and properties of an underlying `GtkListBoxRowClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListBoxRowClass`.
 /// Alternatively, use `ListBoxRowClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListBoxRowClassProtocol {
         /// Untyped pointer to the underlying `GtkListBoxRowClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -460,11 +467,12 @@ public protocol ListBoxRowClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListBoxRowClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxRowClass` instance.
 /// It exposes methods that can operate on this data type through `ListBoxRowClassProtocol` conformance.
 /// Use `ListBoxRowClassRef` only as an `unowned` reference to an existing `GtkListBoxRowClass` instance.
 ///
-
 public struct ListBoxRowClassRef: ListBoxRowClassProtocol {
         /// Untyped pointer to the underlying `GtkListBoxRowClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -583,12 +591,13 @@ public extension ListItemClassRef {
 
 // MARK: - ListItemClass Record
 
+
+///
 /// The `ListItemClassProtocol` protocol exposes the methods and properties of an underlying `GtkListItemClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListItemClass`.
 /// Alternatively, use `ListItemClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListItemClassProtocol {
         /// Untyped pointer to the underlying `GtkListItemClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -600,11 +609,12 @@ public protocol ListItemClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkListItemClass` instance.
 /// It exposes methods that can operate on this data type through `ListItemClassProtocol` conformance.
 /// Use `ListItemClassRef` only as an `unowned` reference to an existing `GtkListItemClass` instance.
 ///
-
 public struct ListItemClassRef: ListItemClassProtocol {
         /// Untyped pointer to the underlying `GtkListItemClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -711,12 +721,13 @@ public extension ListItemFactoryClassRef {
 
 // MARK: - ListItemFactoryClass Record
 
+
+///
 /// The `ListItemFactoryClassProtocol` protocol exposes the methods and properties of an underlying `GtkListItemFactoryClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListItemFactoryClass`.
 /// Alternatively, use `ListItemFactoryClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListItemFactoryClassProtocol {
         /// Untyped pointer to the underlying `GtkListItemFactoryClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -728,11 +739,12 @@ public protocol ListItemFactoryClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListItemFactoryClassRef` type acts as a lightweight Swift reference to an underlying `GtkListItemFactoryClass` instance.
 /// It exposes methods that can operate on this data type through `ListItemFactoryClassProtocol` conformance.
 /// Use `ListItemFactoryClassRef` only as an `unowned` reference to an existing `GtkListItemFactoryClass` instance.
 ///
-
 public struct ListItemFactoryClassRef: ListItemFactoryClassProtocol {
         /// Untyped pointer to the underlying `GtkListItemFactoryClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -839,12 +851,13 @@ public extension ListStoreClassRef {
 
 // MARK: - ListStoreClass Record
 
+
+///
 /// The `ListStoreClassProtocol` protocol exposes the methods and properties of an underlying `GtkListStoreClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListStoreClass`.
 /// Alternatively, use `ListStoreClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListStoreClassProtocol {
         /// Untyped pointer to the underlying `GtkListStoreClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -856,11 +869,12 @@ public protocol ListStoreClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListStoreClassRef` type acts as a lightweight Swift reference to an underlying `GtkListStoreClass` instance.
 /// It exposes methods that can operate on this data type through `ListStoreClassProtocol` conformance.
 /// Use `ListStoreClassRef` only as an `unowned` reference to an existing `GtkListStoreClass` instance.
 ///
-
 public struct ListStoreClassRef: ListStoreClassProtocol {
         /// Untyped pointer to the underlying `GtkListStoreClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -975,12 +989,13 @@ public extension ListViewClassRef {
 
 // MARK: - ListViewClass Record
 
+
+///
 /// The `ListViewClassProtocol` protocol exposes the methods and properties of an underlying `GtkListViewClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListViewClass`.
 /// Alternatively, use `ListViewClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListViewClassProtocol {
         /// Untyped pointer to the underlying `GtkListViewClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -992,11 +1007,12 @@ public protocol ListViewClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListViewClassRef` type acts as a lightweight Swift reference to an underlying `GtkListViewClass` instance.
 /// It exposes methods that can operate on this data type through `ListViewClassProtocol` conformance.
 /// Use `ListViewClassRef` only as an `unowned` reference to an existing `GtkListViewClass` instance.
 ///
-
 public struct ListViewClassRef: ListViewClassProtocol {
         /// Untyped pointer to the underlying `GtkListViewClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1103,12 +1119,13 @@ public extension MapListModelClassRef {
 
 // MARK: - MapListModelClass Record
 
+
+///
 /// The `MapListModelClassProtocol` protocol exposes the methods and properties of an underlying `GtkMapListModelClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MapListModelClass`.
 /// Alternatively, use `MapListModelClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MapListModelClassProtocol {
         /// Untyped pointer to the underlying `GtkMapListModelClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1120,11 +1137,12 @@ public protocol MapListModelClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MapListModelClassRef` type acts as a lightweight Swift reference to an underlying `GtkMapListModelClass` instance.
 /// It exposes methods that can operate on this data type through `MapListModelClassProtocol` conformance.
 /// Use `MapListModelClassRef` only as an `unowned` reference to an existing `GtkMapListModelClass` instance.
 ///
-
 public struct MapListModelClassRef: MapListModelClassProtocol {
         /// Untyped pointer to the underlying `GtkMapListModelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

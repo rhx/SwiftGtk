@@ -30,12 +30,13 @@ public extension TextChildAnchorClassRef {
 
 // MARK: - TextChildAnchorClass Record
 
+
+///
 /// The `TextChildAnchorClassProtocol` protocol exposes the methods and properties of an underlying `GtkTextChildAnchorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TextChildAnchorClass`.
 /// Alternatively, use `TextChildAnchorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TextChildAnchorClassProtocol {
         /// Untyped pointer to the underlying `GtkTextChildAnchorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol TextChildAnchorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TextChildAnchorClassRef` type acts as a lightweight Swift reference to an underlying `GtkTextChildAnchorClass` instance.
 /// It exposes methods that can operate on this data type through `TextChildAnchorClassProtocol` conformance.
 /// Use `TextChildAnchorClassRef` only as an `unowned` reference to an existing `GtkTextChildAnchorClass` instance.
 ///
-
 public struct TextChildAnchorClassRef: TextChildAnchorClassProtocol {
         /// Untyped pointer to the underlying `GtkTextChildAnchorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -157,17 +159,18 @@ public extension TextChildAnchorClassProtocol {
 
 // MARK: - TextIter Record
 
-/// The `TextIterProtocol` protocol exposes the methods and properties of an underlying `GtkTextIter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TextIter`.
-/// Alternatively, use `TextIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// An iterator for the contents of a `GtkTextBuffer`.
 /// 
 /// You may wish to begin by reading the
 /// [text widget conceptual overview](section-text-widget.html),
 /// which gives an overview of all the objects and data types
 /// related to the text widget and how they work together.
+///
+/// The `TextIterProtocol` protocol exposes the methods and properties of an underlying `GtkTextIter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TextIter`.
+/// Alternatively, use `TextIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TextIterProtocol {
         /// Untyped pointer to the underlying `GtkTextIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -179,16 +182,17 @@ public protocol TextIterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TextIterRef` type acts as a lightweight Swift reference to an underlying `GtkTextIter` instance.
-/// It exposes methods that can operate on this data type through `TextIterProtocol` conformance.
-/// Use `TextIterRef` only as an `unowned` reference to an existing `GtkTextIter` instance.
-///
 /// An iterator for the contents of a `GtkTextBuffer`.
 /// 
 /// You may wish to begin by reading the
 /// [text widget conceptual overview](section-text-widget.html),
 /// which gives an overview of all the objects and data types
 /// related to the text widget and how they work together.
+///
+/// The `TextIterRef` type acts as a lightweight Swift reference to an underlying `GtkTextIter` instance.
+/// It exposes methods that can operate on this data type through `TextIterProtocol` conformance.
+/// Use `TextIterRef` only as an `unowned` reference to an existing `GtkTextIter` instance.
+///
 public struct TextIterRef: TextIterProtocol {
         /// Untyped pointer to the underlying `GtkTextIter` instance.
     /// For type-safe access, use the generated, typed pointer `text_iter_ptr` property instead.
@@ -267,16 +271,17 @@ public extension TextIterRef {
 
     }
 
-/// The `TextIter` type acts as an owner of an underlying `GtkTextIter` instance.
-/// It provides the methods that can operate on this data type through `TextIterProtocol` conformance.
-/// Use `TextIter` as a strong reference or owner of a `GtkTextIter` instance.
-///
 /// An iterator for the contents of a `GtkTextBuffer`.
 /// 
 /// You may wish to begin by reading the
 /// [text widget conceptual overview](section-text-widget.html),
 /// which gives an overview of all the objects and data types
 /// related to the text widget and how they work together.
+///
+/// The `TextIter` type acts as an owner of an underlying `GtkTextIter` instance.
+/// It provides the methods that can operate on this data type through `TextIterProtocol` conformance.
+/// Use `TextIter` as a strong reference or owner of a `GtkTextIter` instance.
+///
 open class TextIter: TextIterProtocol {
         /// Untyped pointer to the underlying `GtkTextIter` instance.
     /// For type-safe access, use the generated, typed pointer `text_iter_ptr` property instead.
@@ -1849,12 +1854,13 @@ public extension TextMarkClassRef {
 
 // MARK: - TextMarkClass Record
 
+
+///
 /// The `TextMarkClassProtocol` protocol exposes the methods and properties of an underlying `GtkTextMarkClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TextMarkClass`.
 /// Alternatively, use `TextMarkClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TextMarkClassProtocol {
         /// Untyped pointer to the underlying `GtkTextMarkClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1866,11 +1872,12 @@ public protocol TextMarkClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TextMarkClassRef` type acts as a lightweight Swift reference to an underlying `GtkTextMarkClass` instance.
 /// It exposes methods that can operate on this data type through `TextMarkClassProtocol` conformance.
 /// Use `TextMarkClassRef` only as an `unowned` reference to an existing `GtkTextMarkClass` instance.
 ///
-
 public struct TextMarkClassRef: TextMarkClassProtocol {
         /// Untyped pointer to the underlying `GtkTextMarkClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1985,12 +1992,13 @@ public extension TextTagClassRef {
 
 // MARK: - TextTagClass Record
 
+
+///
 /// The `TextTagClassProtocol` protocol exposes the methods and properties of an underlying `GtkTextTagClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TextTagClass`.
 /// Alternatively, use `TextTagClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TextTagClassProtocol {
         /// Untyped pointer to the underlying `GtkTextTagClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2002,11 +2010,12 @@ public protocol TextTagClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TextTagClassRef` type acts as a lightweight Swift reference to an underlying `GtkTextTagClass` instance.
 /// It exposes methods that can operate on this data type through `TextTagClassProtocol` conformance.
 /// Use `TextTagClassRef` only as an `unowned` reference to an existing `GtkTextTagClass` instance.
 ///
-
 public struct TextTagClassRef: TextTagClassProtocol {
         /// Untyped pointer to the underlying `GtkTextTagClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2121,12 +2130,13 @@ public extension TextViewClassRef {
 
 // MARK: - TextViewClass Record
 
+
+///
 /// The `TextViewClassProtocol` protocol exposes the methods and properties of an underlying `GtkTextViewClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TextViewClass`.
 /// Alternatively, use `TextViewClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TextViewClassProtocol {
         /// Untyped pointer to the underlying `GtkTextViewClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2138,11 +2148,12 @@ public protocol TextViewClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TextViewClassRef` type acts as a lightweight Swift reference to an underlying `GtkTextViewClass` instance.
 /// It exposes methods that can operate on this data type through `TextViewClassProtocol` conformance.
 /// Use `TextViewClassRef` only as an `unowned` reference to an existing `GtkTextViewClass` instance.
 ///
-
 public struct TextViewClassRef: TextViewClassProtocol {
         /// Untyped pointer to the underlying `GtkTextViewClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2285,12 +2296,13 @@ public extension ToggleButtonClassRef {
 
 // MARK: - ToggleButtonClass Record
 
+
+///
 /// The `ToggleButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkToggleButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ToggleButtonClass`.
 /// Alternatively, use `ToggleButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ToggleButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkToggleButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2302,11 +2314,12 @@ public protocol ToggleButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ToggleButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkToggleButtonClass` instance.
 /// It exposes methods that can operate on this data type through `ToggleButtonClassProtocol` conformance.
 /// Use `ToggleButtonClassRef` only as an `unowned` reference to an existing `GtkToggleButtonClass` instance.
 ///
-
 public struct ToggleButtonClassRef: ToggleButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkToggleButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2423,12 +2436,13 @@ public extension TreeDragDestIfaceRef {
 
 // MARK: - TreeDragDestIface Record
 
+
+///
 /// The `TreeDragDestIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkTreeDragDestIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeDragDestIface`.
 /// Alternatively, use `TreeDragDestIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeDragDestIfaceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragDestIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2440,11 +2454,12 @@ public protocol TreeDragDestIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeDragDestIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeDragDestIface` instance.
 /// It exposes methods that can operate on this data type through `TreeDragDestIfaceProtocol` conformance.
 /// Use `TreeDragDestIfaceRef` only as an `unowned` reference to an existing `GtkTreeDragDestIface` instance.
 ///
-
 public struct TreeDragDestIfaceRef: TreeDragDestIfaceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragDestIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2556,12 +2571,13 @@ public extension TreeDragSourceIfaceRef {
 
 // MARK: - TreeDragSourceIface Record
 
+
+///
 /// The `TreeDragSourceIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkTreeDragSourceIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeDragSourceIface`.
 /// Alternatively, use `TreeDragSourceIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeDragSourceIfaceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragSourceIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2573,11 +2589,12 @@ public protocol TreeDragSourceIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeDragSourceIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeDragSourceIface` instance.
 /// It exposes methods that can operate on this data type through `TreeDragSourceIfaceProtocol` conformance.
 /// Use `TreeDragSourceIfaceRef` only as an `unowned` reference to an existing `GtkTreeDragSourceIface` instance.
 ///
-
 public struct TreeDragSourceIfaceRef: TreeDragSourceIfaceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragSourceIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2691,12 +2708,13 @@ public extension TreeExpanderClassRef {
 
 // MARK: - TreeExpanderClass Record
 
+
+///
 /// The `TreeExpanderClassProtocol` protocol exposes the methods and properties of an underlying `GtkTreeExpanderClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeExpanderClass`.
 /// Alternatively, use `TreeExpanderClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeExpanderClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeExpanderClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2708,11 +2726,12 @@ public protocol TreeExpanderClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeExpanderClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeExpanderClass` instance.
 /// It exposes methods that can operate on this data type through `TreeExpanderClassProtocol` conformance.
 /// Use `TreeExpanderClassRef` only as an `unowned` reference to an existing `GtkTreeExpanderClass` instance.
 ///
-
 public struct TreeExpanderClassRef: TreeExpanderClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeExpanderClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2810,16 +2829,17 @@ public extension TreeExpanderClassProtocol {
 
 // MARK: - TreeIter Record
 
-/// The `TreeIterProtocol` protocol exposes the methods and properties of an underlying `GtkTreeIter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeIter`.
-/// Alternatively, use `TreeIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkTreeIter` is the primary structure
 /// for accessing a `GtkTreeModel`. Models are expected to put a unique
 /// integer in the `stamp` member, and put
 /// model-specific data in the three `user_data`
 /// members.
+///
+/// The `TreeIterProtocol` protocol exposes the methods and properties of an underlying `GtkTreeIter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeIter`.
+/// Alternatively, use `TreeIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeIterProtocol {
         /// Untyped pointer to the underlying `GtkTreeIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2831,15 +2851,16 @@ public protocol TreeIterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeIterRef` type acts as a lightweight Swift reference to an underlying `GtkTreeIter` instance.
-/// It exposes methods that can operate on this data type through `TreeIterProtocol` conformance.
-/// Use `TreeIterRef` only as an `unowned` reference to an existing `GtkTreeIter` instance.
-///
 /// The `GtkTreeIter` is the primary structure
 /// for accessing a `GtkTreeModel`. Models are expected to put a unique
 /// integer in the `stamp` member, and put
 /// model-specific data in the three `user_data`
 /// members.
+///
+/// The `TreeIterRef` type acts as a lightweight Swift reference to an underlying `GtkTreeIter` instance.
+/// It exposes methods that can operate on this data type through `TreeIterProtocol` conformance.
+/// Use `TreeIterRef` only as an `unowned` reference to an existing `GtkTreeIter` instance.
+///
 public struct TreeIterRef: TreeIterProtocol {
         /// Untyped pointer to the underlying `GtkTreeIter` instance.
     /// For type-safe access, use the generated, typed pointer `tree_iter_ptr` property instead.
@@ -2918,15 +2939,16 @@ public extension TreeIterRef {
 
     }
 
-/// The `TreeIter` type acts as an owner of an underlying `GtkTreeIter` instance.
-/// It provides the methods that can operate on this data type through `TreeIterProtocol` conformance.
-/// Use `TreeIter` as a strong reference or owner of a `GtkTreeIter` instance.
-///
 /// The `GtkTreeIter` is the primary structure
 /// for accessing a `GtkTreeModel`. Models are expected to put a unique
 /// integer in the `stamp` member, and put
 /// model-specific data in the three `user_data`
 /// members.
+///
+/// The `TreeIter` type acts as an owner of an underlying `GtkTreeIter` instance.
+/// It provides the methods that can operate on this data type through `TreeIterProtocol` conformance.
+/// Use `TreeIter` as a strong reference or owner of a `GtkTreeIter` instance.
+///
 open class TreeIterBase: TreeIterProtocol {
         /// Untyped pointer to the underlying `GtkTreeIter` instance.
     /// For type-safe access, use the generated, typed pointer `tree_iter_ptr` property instead.
@@ -3102,7 +3124,7 @@ public extension TreeIterProtocol {
 
     /// Lets a set of row reference created by
     /// `gtk_tree_row_reference_new_proxy()` know that the
-    /// model emitted the `GtkTreeModel::rows-reordered` signal.
+    /// model emitted the `rows-reordered` signal.
     @inlinable func treeRowReferenceReordered<ObjectT: GLibObject.ObjectProtocol, TreePathT: TreePathProtocol>(proxy: ObjectT, path: TreePathT, newOrder: UnsafeMutablePointer<CInt>!) {
         gtk_tree_row_reference_reordered(proxy.object_ptr, path.tree_path_ptr, tree_iter_ptr, newOrder)
     
@@ -3181,12 +3203,13 @@ public extension TreeListModelClassRef {
 
 // MARK: - TreeListModelClass Record
 
+
+///
 /// The `TreeListModelClassProtocol` protocol exposes the methods and properties of an underlying `GtkTreeListModelClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeListModelClass`.
 /// Alternatively, use `TreeListModelClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeListModelClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeListModelClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3198,11 +3221,12 @@ public protocol TreeListModelClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeListModelClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListModelClass` instance.
 /// It exposes methods that can operate on this data type through `TreeListModelClassProtocol` conformance.
 /// Use `TreeListModelClassRef` only as an `unowned` reference to an existing `GtkTreeListModelClass` instance.
 ///
-
 public struct TreeListModelClassRef: TreeListModelClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeListModelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3315,12 +3339,13 @@ public extension TreeListRowClassRef {
 
 // MARK: - TreeListRowClass Record
 
+
+///
 /// The `TreeListRowClassProtocol` protocol exposes the methods and properties of an underlying `GtkTreeListRowClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeListRowClass`.
 /// Alternatively, use `TreeListRowClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeListRowClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeListRowClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3332,11 +3357,12 @@ public protocol TreeListRowClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeListRowClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListRowClass` instance.
 /// It exposes methods that can operate on this data type through `TreeListRowClassProtocol` conformance.
 /// Use `TreeListRowClassRef` only as an `unowned` reference to an existing `GtkTreeListRowClass` instance.
 ///
-
 public struct TreeListRowClassRef: TreeListRowClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeListRowClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3449,12 +3475,13 @@ public extension TreeListRowSorterClassRef {
 
 // MARK: - TreeListRowSorterClass Record
 
+
+///
 /// The `TreeListRowSorterClassProtocol` protocol exposes the methods and properties of an underlying `GtkTreeListRowSorterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeListRowSorterClass`.
 /// Alternatively, use `TreeListRowSorterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeListRowSorterClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeListRowSorterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3466,11 +3493,12 @@ public protocol TreeListRowSorterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeListRowSorterClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeListRowSorterClass` instance.
 /// It exposes methods that can operate on this data type through `TreeListRowSorterClassProtocol` conformance.
 /// Use `TreeListRowSorterClassRef` only as an `unowned` reference to an existing `GtkTreeListRowSorterClass` instance.
 ///
-
 public struct TreeListRowSorterClassRef: TreeListRowSorterClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeListRowSorterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3583,12 +3611,13 @@ public extension TreeModelFilterClassRef {
 
 // MARK: - TreeModelFilterClass Record
 
+
+///
 /// The `TreeModelFilterClassProtocol` protocol exposes the methods and properties of an underlying `GtkTreeModelFilterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeModelFilterClass`.
 /// Alternatively, use `TreeModelFilterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeModelFilterClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeModelFilterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3600,11 +3629,12 @@ public protocol TreeModelFilterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeModelFilterClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelFilterClass` instance.
 /// It exposes methods that can operate on this data type through `TreeModelFilterClassProtocol` conformance.
 /// Use `TreeModelFilterClassRef` only as an `unowned` reference to an existing `GtkTreeModelFilterClass` instance.
 ///
-
 public struct TreeModelFilterClassRef: TreeModelFilterClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeModelFilterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3723,12 +3753,13 @@ public extension TreeModelIfaceRef {
 
 // MARK: - TreeModelIface Record
 
+
+///
 /// The `TreeModelIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkTreeModelIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeModelIface`.
 /// Alternatively, use `TreeModelIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeModelIfaceProtocol {
         /// Untyped pointer to the underlying `GtkTreeModelIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3740,11 +3771,12 @@ public protocol TreeModelIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeModelIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelIface` instance.
 /// It exposes methods that can operate on this data type through `TreeModelIfaceProtocol` conformance.
 /// Use `TreeModelIfaceRef` only as an `unowned` reference to an existing `GtkTreeModelIface` instance.
 ///
-
 public struct TreeModelIfaceRef: TreeModelIfaceProtocol {
         /// Untyped pointer to the underlying `GtkTreeModelIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3892,12 +3924,13 @@ public extension TreeModelSortClassRef {
 
 // MARK: - TreeModelSortClass Record
 
+
+///
 /// The `TreeModelSortClassProtocol` protocol exposes the methods and properties of an underlying `GtkTreeModelSortClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeModelSortClass`.
 /// Alternatively, use `TreeModelSortClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeModelSortClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeModelSortClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3909,11 +3942,12 @@ public protocol TreeModelSortClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeModelSortClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModelSortClass` instance.
 /// It exposes methods that can operate on this data type through `TreeModelSortClassProtocol` conformance.
 /// Use `TreeModelSortClassRef` only as an `unowned` reference to an existing `GtkTreeModelSortClass` instance.
 ///
-
 public struct TreeModelSortClassRef: TreeModelSortClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeModelSortClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4013,12 +4047,13 @@ public extension TreeModelSortClassProtocol {
 
 // MARK: - TreePath Record
 
+/// An opaque structure representing a path to a row in a model.
+///
 /// The `TreePathProtocol` protocol exposes the methods and properties of an underlying `GtkTreePath` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreePath`.
 /// Alternatively, use `TreePathRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque structure representing a path to a row in a model.
 public protocol TreePathProtocol {
         /// Untyped pointer to the underlying `GtkTreePath` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4030,11 +4065,12 @@ public protocol TreePathProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque structure representing a path to a row in a model.
+///
 /// The `TreePathRef` type acts as a lightweight Swift reference to an underlying `GtkTreePath` instance.
 /// It exposes methods that can operate on this data type through `TreePathProtocol` conformance.
 /// Use `TreePathRef` only as an `unowned` reference to an existing `GtkTreePath` instance.
 ///
-/// An opaque structure representing a path to a row in a model.
 public struct TreePathRef: TreePathProtocol {
         /// Untyped pointer to the underlying `GtkTreePath` instance.
     /// For type-safe access, use the generated, typed pointer `tree_path_ptr` property instead.
@@ -4111,7 +4147,7 @@ public extension TreePathRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new `GtkTreePath-struct`.
+        /// Creates a new `GtkTreePath`
     /// This refers to a row.
     @inlinable init() {
         let rv = gtk_tree_path_new()
@@ -4128,7 +4164,7 @@ public extension TreePathRef {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates a new `GtkTreePath-struct` initialized to `path`.
+    /// Creates a new `GtkTreePath` initialized to `path`.
     /// 
     /// `path` is expected to be a colon separated list of numbers.
     /// For example, the string “10:4:0” would create a path of depth
@@ -4139,7 +4175,7 @@ public extension TreePathRef {
         let rv = gtk_tree_path_new_from_string(path)
         ptr = UnsafeMutableRawPointer(rv)
     }
-    /// Creates a new `GtkTreePath-struct`.
+    /// Creates a new `GtkTreePath`.
     /// 
     /// The string representation of this path is “0”.
     @inlinable static func newFirst() -> TreePathRef! {
@@ -4157,7 +4193,7 @@ public extension TreePathRef {
         return rv
     }
 
-    /// Creates a new `GtkTreePath-struct` initialized to `path`.
+    /// Creates a new `GtkTreePath` initialized to `path`.
     /// 
     /// `path` is expected to be a colon separated list of numbers.
     /// For example, the string “10:4:0” would create a path of depth
@@ -4170,11 +4206,12 @@ public extension TreePathRef {
     }
 }
 
+/// An opaque structure representing a path to a row in a model.
+///
 /// The `TreePath` type acts as an owner of an underlying `GtkTreePath` instance.
 /// It provides the methods that can operate on this data type through `TreePathProtocol` conformance.
 /// Use `TreePath` as a strong reference or owner of a `GtkTreePath` instance.
 ///
-/// An opaque structure representing a path to a row in a model.
 open class TreePath: TreePathProtocol {
         /// Untyped pointer to the underlying `GtkTreePath` instance.
     /// For type-safe access, use the generated, typed pointer `tree_path_ptr` property instead.
@@ -4315,7 +4352,7 @@ open class TreePath: TreePathProtocol {
         // no reference counting for GtkTreePath, cannot ref(tree_path_ptr)
     }
 
-    /// Creates a new `GtkTreePath-struct`.
+    /// Creates a new `GtkTreePath`
     /// This refers to a row.
     @inlinable public init() {
         let rv = gtk_tree_path_new()
@@ -4332,7 +4369,7 @@ open class TreePath: TreePathProtocol {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates a new `GtkTreePath-struct` initialized to `path`.
+    /// Creates a new `GtkTreePath` initialized to `path`.
     /// 
     /// `path` is expected to be a colon separated list of numbers.
     /// For example, the string “10:4:0” would create a path of depth
@@ -4344,7 +4381,7 @@ open class TreePath: TreePathProtocol {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates a new `GtkTreePath-struct`.
+    /// Creates a new `GtkTreePath`.
     /// 
     /// The string representation of this path is “0”.
     @inlinable public static func newFirst() -> TreePath! {
@@ -4362,7 +4399,7 @@ open class TreePath: TreePathProtocol {
         return rv
     }
 
-    /// Creates a new `GtkTreePath-struct` initialized to `path`.
+    /// Creates a new `GtkTreePath` initialized to `path`.
     /// 
     /// `path` is expected to be a colon separated list of numbers.
     /// For example, the string “10:4:0” would create a path of depth
@@ -4389,8 +4426,8 @@ public extension TreePathProtocol {
     /// Appends a new index to a path.
     /// 
     /// As a result, the depth of the path is increased.
-    @inlinable func appendIndex(index_: Int) {
-        gtk_tree_path_append_index(tree_path_ptr, gint(index_))
+    @inlinable func append(index: Int) {
+        gtk_tree_path_append_index(tree_path_ptr, gint(index))
     
     }
 
@@ -4404,7 +4441,7 @@ public extension TreePathProtocol {
         return rv
     }
 
-    /// Creates a new `GtkTreePath-struct` as a copy of `path`.
+    /// Creates a new `GtkTreePath` as a copy of `path`.
     @inlinable func copy() -> TreePathRef! {
         guard let rv = TreePathRef(gconstpointer: gconstpointer(gtk_tree_path_copy(tree_path_ptr))) else { return nil }
         return rv
@@ -4470,8 +4507,8 @@ public extension TreePathProtocol {
     /// Prepends a new index to a path.
     /// 
     /// As a result, the depth of the path is increased.
-    @inlinable func prependIndex(index_: Int) {
-        gtk_tree_path_prepend_index(tree_path_ptr, gint(index_))
+    @inlinable func prepend(index: Int) {
+        gtk_tree_path_prepend_index(tree_path_ptr, gint(index))
     
     }
 
@@ -4507,7 +4544,7 @@ public extension TreePathProtocol {
 
     /// Lets a set of row reference created by
     /// `gtk_tree_row_reference_new_proxy()` know that the
-    /// model emitted the `GtkTreeModel::row-deleted` signal.
+    /// model emitted the `row-deleted` signal.
     @inlinable func treeRowReferenceDeleted<ObjectT: GLibObject.ObjectProtocol>(proxy: ObjectT) {
         gtk_tree_row_reference_deleted(proxy.object_ptr, tree_path_ptr)
     
@@ -4515,7 +4552,7 @@ public extension TreePathProtocol {
 
     /// Lets a set of row reference created by
     /// `gtk_tree_row_reference_new_proxy()` know that the
-    /// model emitted the `GtkTreeModel::row-inserted` signal.
+    /// model emitted the `row-inserted` signal.
     @inlinable func treeRowReferenceInserted<ObjectT: GLibObject.ObjectProtocol>(proxy: ObjectT) {
         gtk_tree_row_reference_inserted(proxy.object_ptr, tree_path_ptr)
     
@@ -4523,7 +4560,7 @@ public extension TreePathProtocol {
 
     /// Lets a set of row reference created by
     /// `gtk_tree_row_reference_new_proxy()` know that the
-    /// model emitted the `GtkTreeModel::rows-reordered` signal.
+    /// model emitted the `rows-reordered` signal.
     @inlinable func treeRowReferenceReordered<ObjectT: GLibObject.ObjectProtocol, TreeIterT: TreeIterProtocol>(proxy: ObjectT, iter: TreeIterT, newOrder: UnsafeMutablePointer<CInt>!) {
         gtk_tree_row_reference_reordered(proxy.object_ptr, tree_path_ptr, iter.tree_iter_ptr, newOrder)
     
@@ -4563,14 +4600,15 @@ public extension TreePathProtocol {
 
 // MARK: - TreeRowReference Record
 
+/// A GtkTreeRowReference tracks model changes so that it always refers to the
+/// same row (a `GtkTreePath` refers to a position, not a fixed row). Create a
+/// new GtkTreeRowReference with `gtk_tree_row_reference_new()`.
+///
 /// The `TreeRowReferenceProtocol` protocol exposes the methods and properties of an underlying `GtkTreeRowReference` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeRowReference`.
 /// Alternatively, use `TreeRowReferenceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A GtkTreeRowReference tracks model changes so that it always refers to the
-/// same row (a `GtkTreePath` refers to a position, not a fixed row). Create a
-/// new GtkTreeRowReference with `gtk_tree_row_reference_new()`.
 public protocol TreeRowReferenceProtocol {
         /// Untyped pointer to the underlying `GtkTreeRowReference` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4582,13 +4620,14 @@ public protocol TreeRowReferenceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A GtkTreeRowReference tracks model changes so that it always refers to the
+/// same row (a `GtkTreePath` refers to a position, not a fixed row). Create a
+/// new GtkTreeRowReference with `gtk_tree_row_reference_new()`.
+///
 /// The `TreeRowReferenceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeRowReference` instance.
 /// It exposes methods that can operate on this data type through `TreeRowReferenceProtocol` conformance.
 /// Use `TreeRowReferenceRef` only as an `unowned` reference to an existing `GtkTreeRowReference` instance.
 ///
-/// A GtkTreeRowReference tracks model changes so that it always refers to the
-/// same row (a `GtkTreePath` refers to a position, not a fixed row). Create a
-/// new GtkTreeRowReference with `gtk_tree_row_reference_new()`.
 public struct TreeRowReferenceRef: TreeRowReferenceProtocol {
         /// Untyped pointer to the underlying `GtkTreeRowReference` instance.
     /// For type-safe access, use the generated, typed pointer `tree_row_reference_ptr` property instead.
@@ -4734,13 +4773,14 @@ public extension TreeRowReferenceRef {
     }
 }
 
+/// A GtkTreeRowReference tracks model changes so that it always refers to the
+/// same row (a `GtkTreePath` refers to a position, not a fixed row). Create a
+/// new GtkTreeRowReference with `gtk_tree_row_reference_new()`.
+///
 /// The `TreeRowReference` type acts as an owner of an underlying `GtkTreeRowReference` instance.
 /// It provides the methods that can operate on this data type through `TreeRowReferenceProtocol` conformance.
 /// Use `TreeRowReference` as a strong reference or owner of a `GtkTreeRowReference` instance.
 ///
-/// A GtkTreeRowReference tracks model changes so that it always refers to the
-/// same row (a `GtkTreePath` refers to a position, not a fixed row). Create a
-/// new GtkTreeRowReference with `gtk_tree_row_reference_new()`.
 open class TreeRowReference: TreeRowReferenceProtocol {
         /// Untyped pointer to the underlying `GtkTreeRowReference` instance.
     /// For type-safe access, use the generated, typed pointer `tree_row_reference_ptr` property instead.
@@ -5035,12 +5075,13 @@ public extension TreeSortableIfaceRef {
 
 // MARK: - TreeSortableIface Record
 
+
+///
 /// The `TreeSortableIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkTreeSortableIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeSortableIface`.
 /// Alternatively, use `TreeSortableIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeSortableIfaceProtocol {
         /// Untyped pointer to the underlying `GtkTreeSortableIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5052,11 +5093,12 @@ public protocol TreeSortableIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeSortableIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeSortableIface` instance.
 /// It exposes methods that can operate on this data type through `TreeSortableIfaceProtocol` conformance.
 /// Use `TreeSortableIfaceRef` only as an `unowned` reference to an existing `GtkTreeSortableIface` instance.
 ///
-
 public struct TreeSortableIfaceRef: TreeSortableIfaceProtocol {
         /// Untyped pointer to the underlying `GtkTreeSortableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5176,12 +5218,13 @@ public extension TreeStoreClassRef {
 
 // MARK: - TreeStoreClass Record
 
+
+///
 /// The `TreeStoreClassProtocol` protocol exposes the methods and properties of an underlying `GtkTreeStoreClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeStoreClass`.
 /// Alternatively, use `TreeStoreClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeStoreClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeStoreClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5193,11 +5236,12 @@ public protocol TreeStoreClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeStoreClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeStoreClass` instance.
 /// It exposes methods that can operate on this data type through `TreeStoreClassProtocol` conformance.
 /// Use `TreeStoreClassRef` only as an `unowned` reference to an existing `GtkTreeStoreClass` instance.
 ///
-
 public struct TreeStoreClassRef: TreeStoreClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeStoreClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5312,12 +5356,13 @@ public extension TreeViewClassRef {
 
 // MARK: - TreeViewClass Record
 
+
+///
 /// The `TreeViewClassProtocol` protocol exposes the methods and properties of an underlying `GtkTreeViewClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeViewClass`.
 /// Alternatively, use `TreeViewClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeViewClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeViewClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5329,11 +5374,12 @@ public protocol TreeViewClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeViewClassRef` type acts as a lightweight Swift reference to an underlying `GtkTreeViewClass` instance.
 /// It exposes methods that can operate on this data type through `TreeViewClassProtocol` conformance.
 /// Use `TreeViewClassRef` only as an `unowned` reference to an existing `GtkTreeViewClass` instance.
 ///
-
 public struct TreeViewClassRef: TreeViewClassProtocol {
         /// Untyped pointer to the underlying `GtkTreeViewClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5478,12 +5524,13 @@ public extension VideoClassRef {
 
 // MARK: - VideoClass Record
 
+
+///
 /// The `VideoClassProtocol` protocol exposes the methods and properties of an underlying `GtkVideoClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VideoClass`.
 /// Alternatively, use `VideoClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol VideoClassProtocol {
         /// Untyped pointer to the underlying `GtkVideoClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5495,11 +5542,12 @@ public protocol VideoClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `VideoClassRef` type acts as a lightweight Swift reference to an underlying `GtkVideoClass` instance.
 /// It exposes methods that can operate on this data type through `VideoClassProtocol` conformance.
 /// Use `VideoClassRef` only as an `unowned` reference to an existing `GtkVideoClass` instance.
 ///
-
 public struct VideoClassRef: VideoClassProtocol {
         /// Untyped pointer to the underlying `GtkVideoClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

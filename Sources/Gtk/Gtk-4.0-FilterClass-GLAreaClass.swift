@@ -30,12 +30,13 @@ public extension FilterClassRef {
 
 // MARK: - FilterClass Record
 
+
+///
 /// The `FilterClassProtocol` protocol exposes the methods and properties of an underlying `GtkFilterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FilterClass`.
 /// Alternatively, use `FilterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FilterClassProtocol {
         /// Untyped pointer to the underlying `GtkFilterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol FilterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FilterClassRef` type acts as a lightweight Swift reference to an underlying `GtkFilterClass` instance.
 /// It exposes methods that can operate on this data type through `FilterClassProtocol` conformance.
 /// Use `FilterClassRef` only as an `unowned` reference to an existing `GtkFilterClass` instance.
 ///
-
 public struct FilterClassRef: FilterClassProtocol {
         /// Untyped pointer to the underlying `GtkFilterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -184,12 +186,13 @@ public extension FilterListModelClassRef {
 
 // MARK: - FilterListModelClass Record
 
+
+///
 /// The `FilterListModelClassProtocol` protocol exposes the methods and properties of an underlying `GtkFilterListModelClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FilterListModelClass`.
 /// Alternatively, use `FilterListModelClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FilterListModelClassProtocol {
         /// Untyped pointer to the underlying `GtkFilterListModelClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -201,11 +204,12 @@ public protocol FilterListModelClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FilterListModelClassRef` type acts as a lightweight Swift reference to an underlying `GtkFilterListModelClass` instance.
 /// It exposes methods that can operate on this data type through `FilterListModelClassProtocol` conformance.
 /// Use `FilterListModelClassRef` only as an `unowned` reference to an existing `GtkFilterListModelClass` instance.
 ///
-
 public struct FilterListModelClassRef: FilterListModelClassProtocol {
         /// Untyped pointer to the underlying `GtkFilterListModelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -318,12 +322,13 @@ public extension FixedClassRef {
 
 // MARK: - FixedClass Record
 
+
+///
 /// The `FixedClassProtocol` protocol exposes the methods and properties of an underlying `GtkFixedClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FixedClass`.
 /// Alternatively, use `FixedClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FixedClassProtocol {
         /// Untyped pointer to the underlying `GtkFixedClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -335,11 +340,12 @@ public protocol FixedClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FixedClassRef` type acts as a lightweight Swift reference to an underlying `GtkFixedClass` instance.
 /// It exposes methods that can operate on this data type through `FixedClassProtocol` conformance.
 /// Use `FixedClassRef` only as an `unowned` reference to an existing `GtkFixedClass` instance.
 ///
-
 public struct FixedClassRef: FixedClassProtocol {
         /// Untyped pointer to the underlying `GtkFixedClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -454,12 +460,13 @@ public extension FixedLayoutChildClassRef {
 
 // MARK: - FixedLayoutChildClass Record
 
+
+///
 /// The `FixedLayoutChildClassProtocol` protocol exposes the methods and properties of an underlying `GtkFixedLayoutChildClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FixedLayoutChildClass`.
 /// Alternatively, use `FixedLayoutChildClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FixedLayoutChildClassProtocol {
         /// Untyped pointer to the underlying `GtkFixedLayoutChildClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -471,11 +478,12 @@ public protocol FixedLayoutChildClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FixedLayoutChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkFixedLayoutChildClass` instance.
 /// It exposes methods that can operate on this data type through `FixedLayoutChildClassProtocol` conformance.
 /// Use `FixedLayoutChildClassRef` only as an `unowned` reference to an existing `GtkFixedLayoutChildClass` instance.
 ///
-
 public struct FixedLayoutChildClassRef: FixedLayoutChildClassProtocol {
         /// Untyped pointer to the underlying `GtkFixedLayoutChildClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -588,12 +596,13 @@ public extension FixedLayoutClassRef {
 
 // MARK: - FixedLayoutClass Record
 
+
+///
 /// The `FixedLayoutClassProtocol` protocol exposes the methods and properties of an underlying `GtkFixedLayoutClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FixedLayoutClass`.
 /// Alternatively, use `FixedLayoutClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FixedLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkFixedLayoutClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -605,11 +614,12 @@ public protocol FixedLayoutClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FixedLayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkFixedLayoutClass` instance.
 /// It exposes methods that can operate on this data type through `FixedLayoutClassProtocol` conformance.
 /// Use `FixedLayoutClassRef` only as an `unowned` reference to an existing `GtkFixedLayoutClass` instance.
 ///
-
 public struct FixedLayoutClassRef: FixedLayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkFixedLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -722,12 +732,13 @@ public extension FlattenListModelClassRef {
 
 // MARK: - FlattenListModelClass Record
 
+
+///
 /// The `FlattenListModelClassProtocol` protocol exposes the methods and properties of an underlying `GtkFlattenListModelClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FlattenListModelClass`.
 /// Alternatively, use `FlattenListModelClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FlattenListModelClassProtocol {
         /// Untyped pointer to the underlying `GtkFlattenListModelClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -739,11 +750,12 @@ public protocol FlattenListModelClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FlattenListModelClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlattenListModelClass` instance.
 /// It exposes methods that can operate on this data type through `FlattenListModelClassProtocol` conformance.
 /// Use `FlattenListModelClassRef` only as an `unowned` reference to an existing `GtkFlattenListModelClass` instance.
 ///
-
 public struct FlattenListModelClassRef: FlattenListModelClassProtocol {
         /// Untyped pointer to the underlying `GtkFlattenListModelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -856,12 +868,13 @@ public extension FlowBoxChildClassRef {
 
 // MARK: - FlowBoxChildClass Record
 
+
+///
 /// The `FlowBoxChildClassProtocol` protocol exposes the methods and properties of an underlying `GtkFlowBoxChildClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FlowBoxChildClass`.
 /// Alternatively, use `FlowBoxChildClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FlowBoxChildClassProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxChildClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -873,11 +886,12 @@ public protocol FlowBoxChildClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FlowBoxChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxChildClass` instance.
 /// It exposes methods that can operate on this data type through `FlowBoxChildClassProtocol` conformance.
 /// Use `FlowBoxChildClassRef` only as an `unowned` reference to an existing `GtkFlowBoxChildClass` instance.
 ///
-
 public struct FlowBoxChildClassRef: FlowBoxChildClassProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxChildClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -989,12 +1003,13 @@ public extension FontChooserIfaceRef {
 
 // MARK: - FontChooserIface Record
 
+
+///
 /// The `FontChooserIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkFontChooserIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FontChooserIface`.
 /// Alternatively, use `FontChooserIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FontChooserIfaceProtocol {
         /// Untyped pointer to the underlying `GtkFontChooserIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1006,11 +1021,12 @@ public protocol FontChooserIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FontChooserIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserIface` instance.
 /// It exposes methods that can operate on this data type through `FontChooserIfaceProtocol` conformance.
 /// Use `FontChooserIfaceRef` only as an `unowned` reference to an existing `GtkFontChooserIface` instance.
 ///
-
 public struct FontChooserIfaceRef: FontChooserIfaceProtocol {
         /// Untyped pointer to the underlying `GtkFontChooserIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1139,12 +1155,13 @@ public extension FrameClassRef {
 
 // MARK: - FrameClass Record
 
+
+///
 /// The `FrameClassProtocol` protocol exposes the methods and properties of an underlying `GtkFrameClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FrameClass`.
 /// Alternatively, use `FrameClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FrameClassProtocol {
         /// Untyped pointer to the underlying `GtkFrameClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1156,11 +1173,12 @@ public protocol FrameClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FrameClassRef` type acts as a lightweight Swift reference to an underlying `GtkFrameClass` instance.
 /// It exposes methods that can operate on this data type through `FrameClassProtocol` conformance.
 /// Use `FrameClassRef` only as an `unowned` reference to an existing `GtkFrameClass` instance.
 ///
-
 public struct FrameClassRef: FrameClassProtocol {
         /// Untyped pointer to the underlying `GtkFrameClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1279,12 +1297,13 @@ public extension GLAreaClassRef {
 
 // MARK: - GLAreaClass Record
 
+/// The `GtkGLAreaClass` structure contains only private data.
+///
 /// The `GLAreaClassProtocol` protocol exposes the methods and properties of an underlying `GtkGLAreaClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GLAreaClass`.
 /// Alternatively, use `GLAreaClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkGLAreaClass` structure contains only private data.
 public protocol GLAreaClassProtocol {
         /// Untyped pointer to the underlying `GtkGLAreaClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1296,11 +1315,12 @@ public protocol GLAreaClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GtkGLAreaClass` structure contains only private data.
+///
 /// The `GLAreaClassRef` type acts as a lightweight Swift reference to an underlying `GtkGLAreaClass` instance.
 /// It exposes methods that can operate on this data type through `GLAreaClassProtocol` conformance.
 /// Use `GLAreaClassRef` only as an `unowned` reference to an existing `GtkGLAreaClass` instance.
 ///
-/// The `GtkGLAreaClass` structure contains only private data.
 public struct GLAreaClassRef: GLAreaClassProtocol {
         /// Untyped pointer to the underlying `GtkGLAreaClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

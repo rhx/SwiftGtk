@@ -30,12 +30,13 @@ public extension IMContextSimpleClassRef {
 
 // MARK: - IMContextSimpleClass Record
 
+
+///
 /// The `IMContextSimpleClassProtocol` protocol exposes the methods and properties of an underlying `GtkIMContextSimpleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IMContextSimpleClass`.
 /// Alternatively, use `IMContextSimpleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IMContextSimpleClassProtocol {
         /// Untyped pointer to the underlying `GtkIMContextSimpleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -47,11 +48,12 @@ public protocol IMContextSimpleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IMContextSimpleClassRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextSimpleClass` instance.
 /// It exposes methods that can operate on this data type through `IMContextSimpleClassProtocol` conformance.
 /// Use `IMContextSimpleClassRef` only as an `unowned` reference to an existing `GtkIMContextSimpleClass` instance.
 ///
-
 public struct IMContextSimpleClassRef: IMContextSimpleClassProtocol {
         /// Untyped pointer to the underlying `GtkIMContextSimpleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -164,12 +166,13 @@ public extension IMMulticontextClassRef {
 
 // MARK: - IMMulticontextClass Record
 
+
+///
 /// The `IMMulticontextClassProtocol` protocol exposes the methods and properties of an underlying `GtkIMMulticontextClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IMMulticontextClass`.
 /// Alternatively, use `IMMulticontextClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IMMulticontextClassProtocol {
         /// Untyped pointer to the underlying `GtkIMMulticontextClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -181,11 +184,12 @@ public protocol IMMulticontextClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IMMulticontextClassRef` type acts as a lightweight Swift reference to an underlying `GtkIMMulticontextClass` instance.
 /// It exposes methods that can operate on this data type through `IMMulticontextClassProtocol` conformance.
 /// Use `IMMulticontextClassRef` only as an `unowned` reference to an existing `GtkIMMulticontextClass` instance.
 ///
-
 public struct IMMulticontextClassRef: IMMulticontextClassProtocol {
         /// Untyped pointer to the underlying `GtkIMMulticontextClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -306,12 +310,13 @@ public extension KeyvalTriggerClassRef {
 
 // MARK: - KeyvalTriggerClass Record
 
+
+///
 /// The `KeyvalTriggerClassProtocol` protocol exposes the methods and properties of an underlying `GtkKeyvalTriggerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `KeyvalTriggerClass`.
 /// Alternatively, use `KeyvalTriggerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol KeyvalTriggerClassProtocol {
         /// Untyped pointer to the underlying `GtkKeyvalTriggerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -323,11 +328,12 @@ public protocol KeyvalTriggerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `KeyvalTriggerClassRef` type acts as a lightweight Swift reference to an underlying `GtkKeyvalTriggerClass` instance.
 /// It exposes methods that can operate on this data type through `KeyvalTriggerClassProtocol` conformance.
 /// Use `KeyvalTriggerClassRef` only as an `unowned` reference to an existing `GtkKeyvalTriggerClass` instance.
 ///
-
 public struct KeyvalTriggerClassRef: KeyvalTriggerClassProtocol {
         /// Untyped pointer to the underlying `GtkKeyvalTriggerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
