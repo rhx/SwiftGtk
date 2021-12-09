@@ -1,4 +1,4 @@
-name: macOS 10.15
+name: macOS-catalina 10.15
 
 # Dependencies of this package
 env:
