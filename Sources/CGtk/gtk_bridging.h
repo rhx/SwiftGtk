@@ -176,6 +176,7 @@ struct _GtkPageSetupUnixDialog {};
 struct _GtkPanedAccessiblePrivate {};
 struct _GtkPanedPrivate {};
 struct _GtkPaperSize {};
+struct _GtkPasswordEntryBuffer {};
 struct _GtkPlacesSidebar {};
 struct _GtkPlacesSidebarClass {};
 struct _GtkPlugAccessiblePrivate {};
