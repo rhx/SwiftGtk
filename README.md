@@ -121,12 +121,12 @@ To build, you need at least Swift 5.2 (Swift 5.3 is required for `gtk4`), downlo
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.3.2 (swift-5.3.2-RELEASE)
+	Swift version 5.5 (swift-5.5-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, and 2.64, and gdk/gtk 3.22, 3.24, and 4.0 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68 and 2.70, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2 and 4.4 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
