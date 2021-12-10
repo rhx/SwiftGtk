@@ -17,13 +17,14 @@ import Atk
 
 // MARK: - RadioActionEntry Record
 
+/// `GtkRadioActionEntry` structs are used with
+/// `gtk_action_group_add_radio_actions()` to construct groups of radio actions.
+///
 /// The `RadioActionEntryProtocol` protocol exposes the methods and properties of an underlying `GtkRadioActionEntry` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RadioActionEntry`.
 /// Alternatively, use `RadioActionEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkRadioActionEntry` structs are used with
-/// `gtk_action_group_add_radio_actions()` to construct groups of radio actions.
 public protocol RadioActionEntryProtocol {
         /// Untyped pointer to the underlying `GtkRadioActionEntry` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -35,12 +36,13 @@ public protocol RadioActionEntryProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkRadioActionEntry` structs are used with
+/// `gtk_action_group_add_radio_actions()` to construct groups of radio actions.
+///
 /// The `RadioActionEntryRef` type acts as a lightweight Swift reference to an underlying `GtkRadioActionEntry` instance.
 /// It exposes methods that can operate on this data type through `RadioActionEntryProtocol` conformance.
 /// Use `RadioActionEntryRef` only as an `unowned` reference to an existing `GtkRadioActionEntry` instance.
 ///
-/// `GtkRadioActionEntry` structs are used with
-/// `gtk_action_group_add_radio_actions()` to construct groups of radio actions.
 public struct RadioActionEntryRef: RadioActionEntryProtocol {
         /// Untyped pointer to the underlying `GtkRadioActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -119,12 +121,13 @@ public extension RadioActionEntryRef {
 
     }
 
+/// `GtkRadioActionEntry` structs are used with
+/// `gtk_action_group_add_radio_actions()` to construct groups of radio actions.
+///
 /// The `RadioActionEntry` type acts as an owner of an underlying `GtkRadioActionEntry` instance.
 /// It provides the methods that can operate on this data type through `RadioActionEntryProtocol` conformance.
 /// Use `RadioActionEntry` as a strong reference or owner of a `GtkRadioActionEntry` instance.
 ///
-/// `GtkRadioActionEntry` structs are used with
-/// `gtk_action_group_add_radio_actions()` to construct groups of radio actions.
 open class RadioActionEntry: RadioActionEntryProtocol {
         /// Untyped pointer to the underlying `GtkRadioActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -394,12 +397,13 @@ public extension RadioButtonAccessibleClassRef {
 
 // MARK: - RadioButtonAccessibleClass Record
 
+
+///
 /// The `RadioButtonAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkRadioButtonAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RadioButtonAccessibleClass`.
 /// Alternatively, use `RadioButtonAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RadioButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkRadioButtonAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -411,11 +415,12 @@ public protocol RadioButtonAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RadioButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkRadioButtonAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `RadioButtonAccessibleClassProtocol` conformance.
 /// Use `RadioButtonAccessibleClassRef` only as an `unowned` reference to an existing `GtkRadioButtonAccessibleClass` instance.
 ///
-
 public struct RadioButtonAccessibleClassRef: RadioButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkRadioButtonAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -528,12 +533,13 @@ public extension RadioButtonClassRef {
 
 // MARK: - RadioButtonClass Record
 
+
+///
 /// The `RadioButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkRadioButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RadioButtonClass`.
 /// Alternatively, use `RadioButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RadioButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkRadioButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -545,11 +551,12 @@ public protocol RadioButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RadioButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkRadioButtonClass` instance.
 /// It exposes methods that can operate on this data type through `RadioButtonClassProtocol` conformance.
 /// Use `RadioButtonClassRef` only as an `unowned` reference to an existing `GtkRadioButtonClass` instance.
 ///
-
 public struct RadioButtonClassRef: RadioButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkRadioButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -672,12 +679,13 @@ public extension RadioMenuItemAccessibleClassRef {
 
 // MARK: - RadioMenuItemAccessibleClass Record
 
+
+///
 /// The `RadioMenuItemAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkRadioMenuItemAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RadioMenuItemAccessibleClass`.
 /// Alternatively, use `RadioMenuItemAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RadioMenuItemAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkRadioMenuItemAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -689,11 +697,12 @@ public protocol RadioMenuItemAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RadioMenuItemAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkRadioMenuItemAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `RadioMenuItemAccessibleClassProtocol` conformance.
 /// Use `RadioMenuItemAccessibleClassRef` only as an `unowned` reference to an existing `GtkRadioMenuItemAccessibleClass` instance.
 ///
-
 public struct RadioMenuItemAccessibleClassRef: RadioMenuItemAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkRadioMenuItemAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -806,12 +815,13 @@ public extension RadioMenuItemClassRef {
 
 // MARK: - RadioMenuItemClass Record
 
+
+///
 /// The `RadioMenuItemClassProtocol` protocol exposes the methods and properties of an underlying `GtkRadioMenuItemClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RadioMenuItemClass`.
 /// Alternatively, use `RadioMenuItemClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RadioMenuItemClassProtocol {
         /// Untyped pointer to the underlying `GtkRadioMenuItemClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -823,11 +833,12 @@ public protocol RadioMenuItemClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RadioMenuItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkRadioMenuItemClass` instance.
 /// It exposes methods that can operate on this data type through `RadioMenuItemClassProtocol` conformance.
 /// Use `RadioMenuItemClassRef` only as an `unowned` reference to an existing `GtkRadioMenuItemClass` instance.
 ///
-
 public struct RadioMenuItemClassRef: RadioMenuItemClassProtocol {
         /// Untyped pointer to the underlying `GtkRadioMenuItemClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -950,12 +961,13 @@ public extension RadioToolButtonClassRef {
 
 // MARK: - RadioToolButtonClass Record
 
+
+///
 /// The `RadioToolButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkRadioToolButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RadioToolButtonClass`.
 /// Alternatively, use `RadioToolButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RadioToolButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkRadioToolButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -967,11 +979,12 @@ public protocol RadioToolButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RadioToolButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkRadioToolButtonClass` instance.
 /// It exposes methods that can operate on this data type through `RadioToolButtonClassProtocol` conformance.
 /// Use `RadioToolButtonClassRef` only as an `unowned` reference to an existing `GtkRadioToolButtonClass` instance.
 ///
-
 public struct RadioToolButtonClassRef: RadioToolButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkRadioToolButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1092,12 +1105,13 @@ public extension RangeAccessibleClassRef {
 
 // MARK: - RangeAccessibleClass Record
 
+
+///
 /// The `RangeAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkRangeAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RangeAccessibleClass`.
 /// Alternatively, use `RangeAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RangeAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkRangeAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1109,11 +1123,12 @@ public protocol RangeAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RangeAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkRangeAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `RangeAccessibleClassProtocol` conformance.
 /// Use `RangeAccessibleClassRef` only as an `unowned` reference to an existing `GtkRangeAccessibleClass` instance.
 ///
-
 public struct RangeAccessibleClassRef: RangeAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkRangeAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1226,12 +1241,13 @@ public extension RangeClassRef {
 
 // MARK: - RangeClass Record
 
+
+///
 /// The `RangeClassProtocol` protocol exposes the methods and properties of an underlying `GtkRangeClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RangeClass`.
 /// Alternatively, use `RangeClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RangeClassProtocol {
         /// Untyped pointer to the underlying `GtkRangeClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1243,11 +1259,12 @@ public protocol RangeClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RangeClassRef` type acts as a lightweight Swift reference to an underlying `GtkRangeClass` instance.
 /// It exposes methods that can operate on this data type through `RangeClassProtocol` conformance.
 /// Use `RangeClassRef` only as an `unowned` reference to an existing `GtkRangeClass` instance.
 ///
-
 public struct RangeClassRef: RangeClassProtocol {
         /// Untyped pointer to the underlying `GtkRangeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1377,12 +1394,13 @@ public extension RangeClassProtocol {
 
 // MARK: - RcContext Record
 
+
+///
 /// The `RcContextProtocol` protocol exposes the methods and properties of an underlying `GtkRcContext` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RcContext`.
 /// Alternatively, use `RcContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RcContextProtocol {
         /// Untyped pointer to the underlying `GtkRcContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1394,11 +1412,12 @@ public protocol RcContextProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RcContextRef` type acts as a lightweight Swift reference to an underlying `GtkRcContext` instance.
 /// It exposes methods that can operate on this data type through `RcContextProtocol` conformance.
 /// Use `RcContextRef` only as an `unowned` reference to an existing `GtkRcContext` instance.
 ///
-
 public struct RcContextRef: RcContextProtocol {
         /// Untyped pointer to the underlying `GtkRcContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1477,11 +1496,12 @@ public extension RcContextRef {
 
     }
 
+
+///
 /// The `RcContext` type acts as an owner of an underlying `GtkRcContext` instance.
 /// It provides the methods that can operate on this data type through `RcContextProtocol` conformance.
 /// Use `RcContext` as a strong reference or owner of a `GtkRcContext` instance.
 ///
-
 open class RcContext: RcContextProtocol {
         /// Untyped pointer to the underlying `GtkRcContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1644,12 +1664,13 @@ public extension RcContextProtocol {
 
 // MARK: - RcProperty Record
 
+/// Deprecated
+///
 /// The `RcPropertyProtocol` protocol exposes the methods and properties of an underlying `GtkRcProperty` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RcProperty`.
 /// Alternatively, use `RcPropertyRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Deprecated
 public protocol RcPropertyProtocol {
         /// Untyped pointer to the underlying `GtkRcProperty` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1661,11 +1682,12 @@ public protocol RcPropertyProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Deprecated
+///
 /// The `RcPropertyRef` type acts as a lightweight Swift reference to an underlying `GtkRcProperty` instance.
 /// It exposes methods that can operate on this data type through `RcPropertyProtocol` conformance.
 /// Use `RcPropertyRef` only as an `unowned` reference to an existing `GtkRcProperty` instance.
 ///
-/// Deprecated
 public struct RcPropertyRef: RcPropertyProtocol {
         /// Untyped pointer to the underlying `GtkRcProperty` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1744,11 +1766,12 @@ public extension RcPropertyRef {
 
     }
 
+/// Deprecated
+///
 /// The `RcProperty` type acts as an owner of an underlying `GtkRcProperty` instance.
 /// It provides the methods that can operate on this data type through `RcPropertyProtocol` conformance.
 /// Use `RcProperty` as a strong reference or owner of a `GtkRcProperty` instance.
 ///
-/// Deprecated
 open class RcProperty: RcPropertyProtocol {
         /// Untyped pointer to the underlying `GtkRcProperty` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1980,12 +2003,13 @@ public extension RcStyleClassRef {
 
 // MARK: - RcStyleClass Record
 
+
+///
 /// The `RcStyleClassProtocol` protocol exposes the methods and properties of an underlying `GtkRcStyleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RcStyleClass`.
 /// Alternatively, use `RcStyleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RcStyleClassProtocol {
         /// Untyped pointer to the underlying `GtkRcStyleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1997,11 +2021,12 @@ public protocol RcStyleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RcStyleClassRef` type acts as a lightweight Swift reference to an underlying `GtkRcStyleClass` instance.
 /// It exposes methods that can operate on this data type through `RcStyleClassProtocol` conformance.
 /// Use `RcStyleClassRef` only as an `unowned` reference to an existing `GtkRcStyleClass` instance.
 ///
-
 public struct RcStyleClassRef: RcStyleClassProtocol {
         /// Untyped pointer to the underlying `GtkRcStyleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2132,12 +2157,13 @@ public extension RecentActionClassRef {
 
 // MARK: - RecentActionClass Record
 
+
+///
 /// The `RecentActionClassProtocol` protocol exposes the methods and properties of an underlying `GtkRecentActionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RecentActionClass`.
 /// Alternatively, use `RecentActionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RecentActionClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentActionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2149,11 +2175,12 @@ public protocol RecentActionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RecentActionClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentActionClass` instance.
 /// It exposes methods that can operate on this data type through `RecentActionClassProtocol` conformance.
 /// Use `RecentActionClassRef` only as an `unowned` reference to an existing `GtkRecentActionClass` instance.
 ///
-
 public struct RecentActionClassRef: RecentActionClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2274,12 +2301,13 @@ public extension RecentChooserDialogClassRef {
 
 // MARK: - RecentChooserDialogClass Record
 
+
+///
 /// The `RecentChooserDialogClassProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooserDialogClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RecentChooserDialogClass`.
 /// Alternatively, use `RecentChooserDialogClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RecentChooserDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooserDialogClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2291,11 +2319,12 @@ public protocol RecentChooserDialogClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RecentChooserDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserDialogClass` instance.
 /// It exposes methods that can operate on this data type through `RecentChooserDialogClassProtocol` conformance.
 /// Use `RecentChooserDialogClassRef` only as an `unowned` reference to an existing `GtkRecentChooserDialogClass` instance.
 ///
-
 public struct RecentChooserDialogClassRef: RecentChooserDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooserDialogClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2416,12 +2445,13 @@ public extension RecentChooserIfaceRef {
 
 // MARK: - RecentChooserIface Record
 
+
+///
 /// The `RecentChooserIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooserIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RecentChooserIface`.
 /// Alternatively, use `RecentChooserIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RecentChooserIfaceProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooserIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2433,11 +2463,12 @@ public protocol RecentChooserIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RecentChooserIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserIface` instance.
 /// It exposes methods that can operate on this data type through `RecentChooserIfaceProtocol` conformance.
 /// Use `RecentChooserIfaceRef` only as an `unowned` reference to an existing `GtkRecentChooserIface` instance.
 ///
-
 public struct RecentChooserIfaceRef: RecentChooserIfaceProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooserIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2573,12 +2604,13 @@ public extension RecentChooserMenuClassRef {
 
 // MARK: - RecentChooserMenuClass Record
 
+
+///
 /// The `RecentChooserMenuClassProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooserMenuClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RecentChooserMenuClass`.
 /// Alternatively, use `RecentChooserMenuClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RecentChooserMenuClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooserMenuClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2590,11 +2622,12 @@ public protocol RecentChooserMenuClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RecentChooserMenuClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserMenuClass` instance.
 /// It exposes methods that can operate on this data type through `RecentChooserMenuClassProtocol` conformance.
 /// Use `RecentChooserMenuClassRef` only as an `unowned` reference to an existing `GtkRecentChooserMenuClass` instance.
 ///
-
 public struct RecentChooserMenuClassRef: RecentChooserMenuClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooserMenuClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2715,12 +2748,13 @@ public extension RecentChooserWidgetClassRef {
 
 // MARK: - RecentChooserWidgetClass Record
 
+
+///
 /// The `RecentChooserWidgetClassProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooserWidgetClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RecentChooserWidgetClass`.
 /// Alternatively, use `RecentChooserWidgetClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RecentChooserWidgetClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooserWidgetClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2732,11 +2766,12 @@ public protocol RecentChooserWidgetClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RecentChooserWidgetClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserWidgetClass` instance.
 /// It exposes methods that can operate on this data type through `RecentChooserWidgetClassProtocol` conformance.
 /// Use `RecentChooserWidgetClassRef` only as an `unowned` reference to an existing `GtkRecentChooserWidgetClass` instance.
 ///
-
 public struct RecentChooserWidgetClassRef: RecentChooserWidgetClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooserWidgetClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2842,13 +2877,14 @@ public extension RecentChooserWidgetClassProtocol {
 
 // MARK: - RecentData Record
 
+/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
+/// registering a recently used resource.
+///
 /// The `RecentDataProtocol` protocol exposes the methods and properties of an underlying `GtkRecentData` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RecentData`.
 /// Alternatively, use `RecentDataRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
-/// registering a recently used resource.
 public protocol RecentDataProtocol {
         /// Untyped pointer to the underlying `GtkRecentData` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2860,12 +2896,13 @@ public protocol RecentDataProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
+/// registering a recently used resource.
+///
 /// The `RecentDataRef` type acts as a lightweight Swift reference to an underlying `GtkRecentData` instance.
 /// It exposes methods that can operate on this data type through `RecentDataProtocol` conformance.
 /// Use `RecentDataRef` only as an `unowned` reference to an existing `GtkRecentData` instance.
 ///
-/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
-/// registering a recently used resource.
 public struct RecentDataRef: RecentDataProtocol {
         /// Untyped pointer to the underlying `GtkRecentData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2944,12 +2981,13 @@ public extension RecentDataRef {
 
     }
 
+/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
+/// registering a recently used resource.
+///
 /// The `RecentData` type acts as an owner of an underlying `GtkRecentData` instance.
 /// It provides the methods that can operate on this data type through `RecentDataProtocol` conformance.
 /// Use `RecentData` as a strong reference or owner of a `GtkRecentData` instance.
 ///
-/// Meta-data to be passed to `gtk_recent_manager_add_full()` when
-/// registering a recently used resource.
 open class RecentData: RecentDataProtocol {
         /// Untyped pointer to the underlying `GtkRecentData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3226,13 +3264,14 @@ public extension RecentDataProtocol {
 
 // MARK: - RecentFilterInfo Record
 
+/// A GtkRecentFilterInfo struct is used
+/// to pass information about the tested file to `gtk_recent_filter_filter()`.
+///
 /// The `RecentFilterInfoProtocol` protocol exposes the methods and properties of an underlying `GtkRecentFilterInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RecentFilterInfo`.
 /// Alternatively, use `RecentFilterInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A GtkRecentFilterInfo struct is used
-/// to pass information about the tested file to `gtk_recent_filter_filter()`.
 public protocol RecentFilterInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentFilterInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3244,12 +3283,13 @@ public protocol RecentFilterInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A GtkRecentFilterInfo struct is used
+/// to pass information about the tested file to `gtk_recent_filter_filter()`.
+///
 /// The `RecentFilterInfoRef` type acts as a lightweight Swift reference to an underlying `GtkRecentFilterInfo` instance.
 /// It exposes methods that can operate on this data type through `RecentFilterInfoProtocol` conformance.
 /// Use `RecentFilterInfoRef` only as an `unowned` reference to an existing `GtkRecentFilterInfo` instance.
 ///
-/// A GtkRecentFilterInfo struct is used
-/// to pass information about the tested file to `gtk_recent_filter_filter()`.
 public struct RecentFilterInfoRef: RecentFilterInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentFilterInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3328,12 +3368,13 @@ public extension RecentFilterInfoRef {
 
     }
 
+/// A GtkRecentFilterInfo struct is used
+/// to pass information about the tested file to `gtk_recent_filter_filter()`.
+///
 /// The `RecentFilterInfo` type acts as an owner of an underlying `GtkRecentFilterInfo` instance.
 /// It provides the methods that can operate on this data type through `RecentFilterInfoProtocol` conformance.
 /// Use `RecentFilterInfo` as a strong reference or owner of a `GtkRecentFilterInfo` instance.
 ///
-/// A GtkRecentFilterInfo struct is used
-/// to pass information about the tested file to `gtk_recent_filter_filter()`.
 open class RecentFilterInfo: RecentFilterInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentFilterInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3598,16 +3639,17 @@ public extension RecentFilterInfoProtocol {
 
 // MARK: - RecentInfo Record
 
-/// The `RecentInfoProtocol` protocol exposes the methods and properties of an underlying `GtkRecentInfo` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RecentInfo`.
-/// Alternatively, use `RecentInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkRecentInfo-struct` contains private data only, and should
 /// be accessed using the provided API.
 /// 
 /// `GtkRecentInfo` constains all the meta-data
 /// associated with an entry in the recently used files list.
+///
+/// The `RecentInfoProtocol` protocol exposes the methods and properties of an underlying `GtkRecentInfo` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RecentInfo`.
+/// Alternatively, use `RecentInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RecentInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3619,15 +3661,16 @@ public protocol RecentInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RecentInfoRef` type acts as a lightweight Swift reference to an underlying `GtkRecentInfo` instance.
-/// It exposes methods that can operate on this data type through `RecentInfoProtocol` conformance.
-/// Use `RecentInfoRef` only as an `unowned` reference to an existing `GtkRecentInfo` instance.
-///
 /// `GtkRecentInfo-struct` contains private data only, and should
 /// be accessed using the provided API.
 /// 
 /// `GtkRecentInfo` constains all the meta-data
 /// associated with an entry in the recently used files list.
+///
+/// The `RecentInfoRef` type acts as a lightweight Swift reference to an underlying `GtkRecentInfo` instance.
+/// It exposes methods that can operate on this data type through `RecentInfoProtocol` conformance.
+/// Use `RecentInfoRef` only as an `unowned` reference to an existing `GtkRecentInfo` instance.
+///
 public struct RecentInfoRef: RecentInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentInfo` instance.
     /// For type-safe access, use the generated, typed pointer `recent_info_ptr` property instead.
@@ -3706,15 +3749,16 @@ public extension RecentInfoRef {
 
     }
 
-/// The `RecentInfo` type acts as a reference-counted owner of an underlying `GtkRecentInfo` instance.
-/// It provides the methods that can operate on this data type through `RecentInfoProtocol` conformance.
-/// Use `RecentInfo` as a strong reference or owner of a `GtkRecentInfo` instance.
-///
 /// `GtkRecentInfo-struct` contains private data only, and should
 /// be accessed using the provided API.
 /// 
 /// `GtkRecentInfo` constains all the meta-data
 /// associated with an entry in the recently used files list.
+///
+/// The `RecentInfo` type acts as a reference-counted owner of an underlying `GtkRecentInfo` instance.
+/// It provides the methods that can operate on this data type through `RecentInfoProtocol` conformance.
+/// Use `RecentInfo` as a strong reference or owner of a `GtkRecentInfo` instance.
+///
 open class RecentInfo: RecentInfoProtocol {
         /// Untyped pointer to the underlying `GtkRecentInfo` instance.
     /// For type-safe access, use the generated, typed pointer `recent_info_ptr` property instead.
@@ -3904,8 +3948,8 @@ public extension RecentInfoProtocol {
     /// 
     /// If the command line contains any escape characters defined inside the
     /// storage specification, they will be expanded.
-    @inlinable func getApplicationInfo(appName: UnsafePointer<gchar>!, appExec: UnsafeMutablePointer<UnsafePointer<gchar>?>!, count: UnsafeMutablePointer<guint>!, time_: UnsafeMutablePointer<time_t>!) -> Bool {
-        let rv = ((gtk_recent_info_get_application_info(recent_info_ptr, appName, appExec, count, time_)) != 0)
+    @inlinable func getApplicationInfo(appName: UnsafePointer<gchar>!, appExec: UnsafeMutablePointer<UnsafePointer<gchar>?>!, count: UnsafeMutablePointer<guint>!, time: UnsafeMutablePointer<time_t>!) -> Bool {
+        let rv = ((gtk_recent_info_get_application_info(recent_info_ptr, appName, appExec, count, time)) != 0)
         return rv
     }
 
@@ -4203,12 +4247,13 @@ public extension RecentManagerClassRef {
 
 // MARK: - RecentManagerClass Record
 
+/// `GtkRecentManagerClass` contains only private data.
+///
 /// The `RecentManagerClassProtocol` protocol exposes the methods and properties of an underlying `GtkRecentManagerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RecentManagerClass`.
 /// Alternatively, use `RecentManagerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkRecentManagerClass` contains only private data.
 public protocol RecentManagerClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentManagerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4220,11 +4265,12 @@ public protocol RecentManagerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkRecentManagerClass` contains only private data.
+///
 /// The `RecentManagerClassRef` type acts as a lightweight Swift reference to an underlying `GtkRecentManagerClass` instance.
 /// It exposes methods that can operate on this data type through `RecentManagerClassProtocol` conformance.
 /// Use `RecentManagerClassRef` only as an `unowned` reference to an existing `GtkRecentManagerClass` instance.
 ///
-/// `GtkRecentManagerClass` contains only private data.
 public struct RecentManagerClassRef: RecentManagerClassProtocol {
         /// Untyped pointer to the underlying `GtkRecentManagerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4342,12 +4388,13 @@ public extension RendererCellAccessibleClassRef {
 
 // MARK: - RendererCellAccessibleClass Record
 
+
+///
 /// The `RendererCellAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkRendererCellAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RendererCellAccessibleClass`.
 /// Alternatively, use `RendererCellAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RendererCellAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkRendererCellAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4359,11 +4406,12 @@ public protocol RendererCellAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RendererCellAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkRendererCellAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `RendererCellAccessibleClassProtocol` conformance.
 /// Use `RendererCellAccessibleClassRef` only as an `unowned` reference to an existing `GtkRendererCellAccessibleClass` instance.
 ///
-
 public struct RendererCellAccessibleClassRef: RendererCellAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkRendererCellAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4461,14 +4509,15 @@ public extension RendererCellAccessibleClassProtocol {
 
 // MARK: - RequestedSize Record
 
+/// Represents a request of a screen object in a given orientation. These
+/// are primarily used in container implementations when allocating a natural
+/// size for children calling. See `gtk_distribute_natural_allocation()`.
+///
 /// The `RequestedSizeProtocol` protocol exposes the methods and properties of an underlying `GtkRequestedSize` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RequestedSize`.
 /// Alternatively, use `RequestedSizeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Represents a request of a screen object in a given orientation. These
-/// are primarily used in container implementations when allocating a natural
-/// size for children calling. See `gtk_distribute_natural_allocation()`.
 public protocol RequestedSizeProtocol {
         /// Untyped pointer to the underlying `GtkRequestedSize` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4480,13 +4529,14 @@ public protocol RequestedSizeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Represents a request of a screen object in a given orientation. These
+/// are primarily used in container implementations when allocating a natural
+/// size for children calling. See `gtk_distribute_natural_allocation()`.
+///
 /// The `RequestedSizeRef` type acts as a lightweight Swift reference to an underlying `GtkRequestedSize` instance.
 /// It exposes methods that can operate on this data type through `RequestedSizeProtocol` conformance.
 /// Use `RequestedSizeRef` only as an `unowned` reference to an existing `GtkRequestedSize` instance.
 ///
-/// Represents a request of a screen object in a given orientation. These
-/// are primarily used in container implementations when allocating a natural
-/// size for children calling. See `gtk_distribute_natural_allocation()`.
 public struct RequestedSizeRef: RequestedSizeProtocol {
         /// Untyped pointer to the underlying `GtkRequestedSize` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4565,13 +4615,14 @@ public extension RequestedSizeRef {
 
     }
 
+/// Represents a request of a screen object in a given orientation. These
+/// are primarily used in container implementations when allocating a natural
+/// size for children calling. See `gtk_distribute_natural_allocation()`.
+///
 /// The `RequestedSize` type acts as an owner of an underlying `GtkRequestedSize` instance.
 /// It provides the methods that can operate on this data type through `RequestedSizeProtocol` conformance.
 /// Use `RequestedSize` as a strong reference or owner of a `GtkRequestedSize` instance.
 ///
-/// Represents a request of a screen object in a given orientation. These
-/// are primarily used in container implementations when allocating a natural
-/// size for children calling. See `gtk_distribute_natural_allocation()`.
 open class RequestedSize: RequestedSizeProtocol {
         /// Untyped pointer to the underlying `GtkRequestedSize` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4782,14 +4833,15 @@ public extension RequestedSizeProtocol {
 
 // MARK: - Requisition Record
 
+/// A `GtkRequisition-struct` represents the desired size of a widget. See
+/// [GtkWidget’s geometry management section](#geometry-management) for
+/// more information.
+///
 /// The `RequisitionProtocol` protocol exposes the methods and properties of an underlying `GtkRequisition` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Requisition`.
 /// Alternatively, use `RequisitionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkRequisition-struct` represents the desired size of a widget. See
-/// [GtkWidget’s geometry management section](#geometry-management) for
-/// more information.
 public protocol RequisitionProtocol {
         /// Untyped pointer to the underlying `GtkRequisition` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4801,13 +4853,14 @@ public protocol RequisitionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GtkRequisition-struct` represents the desired size of a widget. See
+/// [GtkWidget’s geometry management section](#geometry-management) for
+/// more information.
+///
 /// The `RequisitionRef` type acts as a lightweight Swift reference to an underlying `GtkRequisition` instance.
 /// It exposes methods that can operate on this data type through `RequisitionProtocol` conformance.
 /// Use `RequisitionRef` only as an `unowned` reference to an existing `GtkRequisition` instance.
 ///
-/// A `GtkRequisition-struct` represents the desired size of a widget. See
-/// [GtkWidget’s geometry management section](#geometry-management) for
-/// more information.
 public struct RequisitionRef: RequisitionProtocol {
         /// Untyped pointer to the underlying `GtkRequisition` instance.
     /// For type-safe access, use the generated, typed pointer `requisition_ptr` property instead.
@@ -4891,13 +4944,14 @@ public extension RequisitionRef {
     }
 }
 
+/// A `GtkRequisition-struct` represents the desired size of a widget. See
+/// [GtkWidget’s geometry management section](#geometry-management) for
+/// more information.
+///
 /// The `Requisition` type acts as an owner of an underlying `GtkRequisition` instance.
 /// It provides the methods that can operate on this data type through `RequisitionProtocol` conformance.
 /// Use `Requisition` as a strong reference or owner of a `GtkRequisition` instance.
 ///
-/// A `GtkRequisition-struct` represents the desired size of a widget. See
-/// [GtkWidget’s geometry management section](#geometry-management) for
-/// more information.
 open class Requisition: RequisitionProtocol {
         /// Untyped pointer to the underlying `GtkRequisition` instance.
     /// For type-safe access, use the generated, typed pointer `requisition_ptr` property instead.
@@ -5116,12 +5170,13 @@ public extension RevealerClassRef {
 
 // MARK: - RevealerClass Record
 
+
+///
 /// The `RevealerClassProtocol` protocol exposes the methods and properties of an underlying `GtkRevealerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RevealerClass`.
 /// Alternatively, use `RevealerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RevealerClassProtocol {
         /// Untyped pointer to the underlying `GtkRevealerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5133,11 +5188,12 @@ public protocol RevealerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RevealerClassRef` type acts as a lightweight Swift reference to an underlying `GtkRevealerClass` instance.
 /// It exposes methods that can operate on this data type through `RevealerClassProtocol` conformance.
 /// Use `RevealerClassRef` only as an `unowned` reference to an existing `GtkRevealerClass` instance.
 ///
-
 public struct RevealerClassRef: RevealerClassProtocol {
         /// Untyped pointer to the underlying `GtkRevealerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5252,12 +5308,13 @@ public extension ScaleAccessibleClassRef {
 
 // MARK: - ScaleAccessibleClass Record
 
+
+///
 /// The `ScaleAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkScaleAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ScaleAccessibleClass`.
 /// Alternatively, use `ScaleAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ScaleAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkScaleAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5269,11 +5326,12 @@ public protocol ScaleAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ScaleAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkScaleAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `ScaleAccessibleClassProtocol` conformance.
 /// Use `ScaleAccessibleClassRef` only as an `unowned` reference to an existing `GtkScaleAccessibleClass` instance.
 ///
-
 public struct ScaleAccessibleClassRef: ScaleAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkScaleAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

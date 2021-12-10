@@ -32,12 +32,13 @@ public extension DrawingAreaClassRef {
 
 // MARK: - DrawingAreaClass Record
 
+
+///
 /// The `DrawingAreaClassProtocol` protocol exposes the methods and properties of an underlying `GtkDrawingAreaClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DrawingAreaClass`.
 /// Alternatively, use `DrawingAreaClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DrawingAreaClassProtocol {
         /// Untyped pointer to the underlying `GtkDrawingAreaClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,11 +50,12 @@ public protocol DrawingAreaClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DrawingAreaClassRef` type acts as a lightweight Swift reference to an underlying `GtkDrawingAreaClass` instance.
 /// It exposes methods that can operate on this data type through `DrawingAreaClassProtocol` conformance.
 /// Use `DrawingAreaClassRef` only as an `unowned` reference to an existing `GtkDrawingAreaClass` instance.
 ///
-
 public struct DrawingAreaClassRef: DrawingAreaClassProtocol {
         /// Untyped pointer to the underlying `GtkDrawingAreaClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -174,12 +176,13 @@ public extension EditableInterfaceRef {
 
 // MARK: - EditableInterface Record
 
+
+///
 /// The `EditableInterfaceProtocol` protocol exposes the methods and properties of an underlying `GtkEditableInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EditableInterface`.
 /// Alternatively, use `EditableInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EditableInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkEditableInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -191,11 +194,12 @@ public protocol EditableInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EditableInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkEditableInterface` instance.
 /// It exposes methods that can operate on this data type through `EditableInterfaceProtocol` conformance.
 /// Use `EditableInterfaceRef` only as an `unowned` reference to an existing `GtkEditableInterface` instance.
 ///
-
 public struct EditableInterfaceRef: EditableInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkEditableInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

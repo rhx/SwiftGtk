@@ -17,12 +17,13 @@ import Atk
 
 // MARK: - _MountOperationHandlerIface Record
 
+/// Virtual table for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
+///
 /// The `_MountOperationHandlerIfaceProtocol` protocol exposes the methods and properties of an underlying `_GtkMountOperationHandlerIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `_MountOperationHandlerIface`.
 /// Alternatively, use `_MountOperationHandlerIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Virtual table for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 public protocol _MountOperationHandlerIfaceProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,11 +35,12 @@ public protocol _MountOperationHandlerIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Virtual table for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
+///
 /// The `_MountOperationHandlerIfaceRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerIface` instance.
 /// It exposes methods that can operate on this data type through `_MountOperationHandlerIfaceProtocol` conformance.
 /// Use `_MountOperationHandlerIfaceRef` only as an `unowned` reference to an existing `_GtkMountOperationHandlerIface` instance.
 ///
-/// Virtual table for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 public struct _MountOperationHandlerIfaceRef: _MountOperationHandlerIfaceProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -117,11 +119,12 @@ public extension _MountOperationHandlerIfaceRef {
 
     }
 
+/// Virtual table for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
+///
 /// The `_MountOperationHandlerIface` type acts as an owner of an underlying `_GtkMountOperationHandlerIface` instance.
 /// It provides the methods that can operate on this data type through `_MountOperationHandlerIfaceProtocol` conformance.
 /// Use `_MountOperationHandlerIface` as a strong reference or owner of a `_GtkMountOperationHandlerIface` instance.
 ///
-/// Virtual table for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 open class _MountOperationHandlerIface: _MountOperationHandlerIfaceProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -306,12 +309,13 @@ public extension _MountOperationHandlerIfaceProtocol {
 
 // MARK: - _MountOperationHandlerProxy Record
 
+/// The `_GtkMountOperationHandlerProxy` structure contains only private data and should only be accessed using the provided API.
+///
 /// The `_MountOperationHandlerProxyProtocol` protocol exposes the methods and properties of an underlying `_GtkMountOperationHandlerProxy` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `_MountOperationHandlerProxy`.
 /// Alternatively, use `_MountOperationHandlerProxyRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `_GtkMountOperationHandlerProxy` structure contains only private data and should only be accessed using the provided API.
 public protocol _MountOperationHandlerProxyProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerProxy` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -323,11 +327,12 @@ public protocol _MountOperationHandlerProxyProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `_GtkMountOperationHandlerProxy` structure contains only private data and should only be accessed using the provided API.
+///
 /// The `_MountOperationHandlerProxyRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerProxy` instance.
 /// It exposes methods that can operate on this data type through `_MountOperationHandlerProxyProtocol` conformance.
 /// Use `_MountOperationHandlerProxyRef` only as an `unowned` reference to an existing `_GtkMountOperationHandlerProxy` instance.
 ///
-/// The `_GtkMountOperationHandlerProxy` structure contains only private data and should only be accessed using the provided API.
 public struct _MountOperationHandlerProxyRef: _MountOperationHandlerProxyProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerProxy` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -406,11 +411,12 @@ public extension _MountOperationHandlerProxyRef {
 
     }
 
+/// The `_GtkMountOperationHandlerProxy` structure contains only private data and should only be accessed using the provided API.
+///
 /// The `_MountOperationHandlerProxy` type acts as an owner of an underlying `_GtkMountOperationHandlerProxy` instance.
 /// It provides the methods that can operate on this data type through `_MountOperationHandlerProxyProtocol` conformance.
 /// Use `_MountOperationHandlerProxy` as a strong reference or owner of a `_GtkMountOperationHandlerProxy` instance.
 ///
-/// The `_GtkMountOperationHandlerProxy` structure contains only private data and should only be accessed using the provided API.
 open class _MountOperationHandlerProxy: _MountOperationHandlerProxyProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerProxy` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -576,12 +582,13 @@ public extension _MountOperationHandlerProxyProtocol {
 
 // MARK: - _MountOperationHandlerProxyClass Record
 
+/// Class structure for `_GtkMountOperationHandlerProxy`.
+///
 /// The `_MountOperationHandlerProxyClassProtocol` protocol exposes the methods and properties of an underlying `_GtkMountOperationHandlerProxyClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `_MountOperationHandlerProxyClass`.
 /// Alternatively, use `_MountOperationHandlerProxyClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `_GtkMountOperationHandlerProxy`.
 public protocol _MountOperationHandlerProxyClassProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerProxyClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -593,11 +600,12 @@ public protocol _MountOperationHandlerProxyClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `_GtkMountOperationHandlerProxy`.
+///
 /// The `_MountOperationHandlerProxyClassRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerProxyClass` instance.
 /// It exposes methods that can operate on this data type through `_MountOperationHandlerProxyClassProtocol` conformance.
 /// Use `_MountOperationHandlerProxyClassRef` only as an `unowned` reference to an existing `_GtkMountOperationHandlerProxyClass` instance.
 ///
-/// Class structure for `_GtkMountOperationHandlerProxy`.
 public struct _MountOperationHandlerProxyClassRef: _MountOperationHandlerProxyClassProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerProxyClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -676,11 +684,12 @@ public extension _MountOperationHandlerProxyClassRef {
 
     }
 
+/// Class structure for `_GtkMountOperationHandlerProxy`.
+///
 /// The `_MountOperationHandlerProxyClass` type acts as an owner of an underlying `_GtkMountOperationHandlerProxyClass` instance.
 /// It provides the methods that can operate on this data type through `_MountOperationHandlerProxyClassProtocol` conformance.
 /// Use `_MountOperationHandlerProxyClass` as a strong reference or owner of a `_GtkMountOperationHandlerProxyClass` instance.
 ///
-/// Class structure for `_GtkMountOperationHandlerProxy`.
 open class _MountOperationHandlerProxyClass: _MountOperationHandlerProxyClassProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerProxyClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -857,12 +866,13 @@ public extension _MountOperationHandlerProxyClassProtocol {
 
 // MARK: - _MountOperationHandlerProxyPrivate Record
 
+
+///
 /// The `_MountOperationHandlerProxyPrivateProtocol` protocol exposes the methods and properties of an underlying `_GtkMountOperationHandlerProxyPrivate` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `_MountOperationHandlerProxyPrivate`.
 /// Alternatively, use `_MountOperationHandlerProxyPrivateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol _MountOperationHandlerProxyPrivateProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerProxyPrivate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -874,11 +884,12 @@ public protocol _MountOperationHandlerProxyPrivateProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `_MountOperationHandlerProxyPrivateRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerProxyPrivate` instance.
 /// It exposes methods that can operate on this data type through `_MountOperationHandlerProxyPrivateProtocol` conformance.
 /// Use `_MountOperationHandlerProxyPrivateRef` only as an `unowned` reference to an existing `_GtkMountOperationHandlerProxyPrivate` instance.
 ///
-
 public struct _MountOperationHandlerProxyPrivateRef: _MountOperationHandlerProxyPrivateProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerProxyPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -957,11 +968,12 @@ public extension _MountOperationHandlerProxyPrivateRef {
 
     }
 
+
+///
 /// The `_MountOperationHandlerProxyPrivate` type acts as an owner of an underlying `_GtkMountOperationHandlerProxyPrivate` instance.
 /// It provides the methods that can operate on this data type through `_MountOperationHandlerProxyPrivateProtocol` conformance.
 /// Use `_MountOperationHandlerProxyPrivate` as a strong reference or owner of a `_GtkMountOperationHandlerProxyPrivate` instance.
 ///
-
 open class _MountOperationHandlerProxyPrivate: _MountOperationHandlerProxyPrivateProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerProxyPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1124,12 +1136,13 @@ public extension _MountOperationHandlerProxyPrivateProtocol {
 
 // MARK: - _MountOperationHandlerSkeleton Record
 
+/// The `_GtkMountOperationHandlerSkeleton` structure contains only private data and should only be accessed using the provided API.
+///
 /// The `_MountOperationHandlerSkeletonProtocol` protocol exposes the methods and properties of an underlying `_GtkMountOperationHandlerSkeleton` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `_MountOperationHandlerSkeleton`.
 /// Alternatively, use `_MountOperationHandlerSkeletonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `_GtkMountOperationHandlerSkeleton` structure contains only private data and should only be accessed using the provided API.
 public protocol _MountOperationHandlerSkeletonProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerSkeleton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1141,11 +1154,12 @@ public protocol _MountOperationHandlerSkeletonProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `_GtkMountOperationHandlerSkeleton` structure contains only private data and should only be accessed using the provided API.
+///
 /// The `_MountOperationHandlerSkeletonRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerSkeleton` instance.
 /// It exposes methods that can operate on this data type through `_MountOperationHandlerSkeletonProtocol` conformance.
 /// Use `_MountOperationHandlerSkeletonRef` only as an `unowned` reference to an existing `_GtkMountOperationHandlerSkeleton` instance.
 ///
-/// The `_GtkMountOperationHandlerSkeleton` structure contains only private data and should only be accessed using the provided API.
 public struct _MountOperationHandlerSkeletonRef: _MountOperationHandlerSkeletonProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerSkeleton` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1224,11 +1238,12 @@ public extension _MountOperationHandlerSkeletonRef {
 
     }
 
+/// The `_GtkMountOperationHandlerSkeleton` structure contains only private data and should only be accessed using the provided API.
+///
 /// The `_MountOperationHandlerSkeleton` type acts as an owner of an underlying `_GtkMountOperationHandlerSkeleton` instance.
 /// It provides the methods that can operate on this data type through `_MountOperationHandlerSkeletonProtocol` conformance.
 /// Use `_MountOperationHandlerSkeleton` as a strong reference or owner of a `_GtkMountOperationHandlerSkeleton` instance.
 ///
-/// The `_GtkMountOperationHandlerSkeleton` structure contains only private data and should only be accessed using the provided API.
 open class _MountOperationHandlerSkeleton: _MountOperationHandlerSkeletonProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerSkeleton` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1394,12 +1409,13 @@ public extension _MountOperationHandlerSkeletonProtocol {
 
 // MARK: - _MountOperationHandlerSkeletonClass Record
 
+/// Class structure for `_GtkMountOperationHandlerSkeleton`.
+///
 /// The `_MountOperationHandlerSkeletonClassProtocol` protocol exposes the methods and properties of an underlying `_GtkMountOperationHandlerSkeletonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `_MountOperationHandlerSkeletonClass`.
 /// Alternatively, use `_MountOperationHandlerSkeletonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `_GtkMountOperationHandlerSkeleton`.
 public protocol _MountOperationHandlerSkeletonClassProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerSkeletonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1411,11 +1427,12 @@ public protocol _MountOperationHandlerSkeletonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `_GtkMountOperationHandlerSkeleton`.
+///
 /// The `_MountOperationHandlerSkeletonClassRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerSkeletonClass` instance.
 /// It exposes methods that can operate on this data type through `_MountOperationHandlerSkeletonClassProtocol` conformance.
 /// Use `_MountOperationHandlerSkeletonClassRef` only as an `unowned` reference to an existing `_GtkMountOperationHandlerSkeletonClass` instance.
 ///
-/// Class structure for `_GtkMountOperationHandlerSkeleton`.
 public struct _MountOperationHandlerSkeletonClassRef: _MountOperationHandlerSkeletonClassProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerSkeletonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1494,11 +1511,12 @@ public extension _MountOperationHandlerSkeletonClassRef {
 
     }
 
+/// Class structure for `_GtkMountOperationHandlerSkeleton`.
+///
 /// The `_MountOperationHandlerSkeletonClass` type acts as an owner of an underlying `_GtkMountOperationHandlerSkeletonClass` instance.
 /// It provides the methods that can operate on this data type through `_MountOperationHandlerSkeletonClassProtocol` conformance.
 /// Use `_MountOperationHandlerSkeletonClass` as a strong reference or owner of a `_GtkMountOperationHandlerSkeletonClass` instance.
 ///
-/// Class structure for `_GtkMountOperationHandlerSkeleton`.
 open class _MountOperationHandlerSkeletonClass: _MountOperationHandlerSkeletonClassProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerSkeletonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1675,12 +1693,13 @@ public extension _MountOperationHandlerSkeletonClassProtocol {
 
 // MARK: - _MountOperationHandlerSkeletonPrivate Record
 
+
+///
 /// The `_MountOperationHandlerSkeletonPrivateProtocol` protocol exposes the methods and properties of an underlying `_GtkMountOperationHandlerSkeletonPrivate` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `_MountOperationHandlerSkeletonPrivate`.
 /// Alternatively, use `_MountOperationHandlerSkeletonPrivateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol _MountOperationHandlerSkeletonPrivateProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerSkeletonPrivate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1692,11 +1711,12 @@ public protocol _MountOperationHandlerSkeletonPrivateProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `_MountOperationHandlerSkeletonPrivateRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandlerSkeletonPrivate` instance.
 /// It exposes methods that can operate on this data type through `_MountOperationHandlerSkeletonPrivateProtocol` conformance.
 /// Use `_MountOperationHandlerSkeletonPrivateRef` only as an `unowned` reference to an existing `_GtkMountOperationHandlerSkeletonPrivate` instance.
 ///
-
 public struct _MountOperationHandlerSkeletonPrivateRef: _MountOperationHandlerSkeletonPrivateProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerSkeletonPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1775,11 +1795,12 @@ public extension _MountOperationHandlerSkeletonPrivateRef {
 
     }
 
+
+///
 /// The `_MountOperationHandlerSkeletonPrivate` type acts as an owner of an underlying `_GtkMountOperationHandlerSkeletonPrivate` instance.
 /// It provides the methods that can operate on this data type through `_MountOperationHandlerSkeletonPrivateProtocol` conformance.
 /// Use `_MountOperationHandlerSkeletonPrivate` as a strong reference or owner of a `_GtkMountOperationHandlerSkeletonPrivate` instance.
 ///
-
 open class _MountOperationHandlerSkeletonPrivate: _MountOperationHandlerSkeletonPrivateProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandlerSkeletonPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

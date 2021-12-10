@@ -17,12 +17,13 @@ import Atk
 
 // MARK: - CellAccessible Class
 
+
+///
 /// The `CellAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkCellAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellAccessible`.
 /// Alternatively, use `CellAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CellAccessibleProtocol: AccessibleProtocol, Atk.ActionProtocol, Atk.ComponentProtocol, Atk.TableCellProtocol {
         /// Untyped pointer to the underlying `GtkCellAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,11 +35,12 @@ public protocol CellAccessibleProtocol: AccessibleProtocol, Atk.ActionProtocol, 
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CellAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkCellAccessible` instance.
 /// It exposes methods that can operate on this data type through `CellAccessibleProtocol` conformance.
 /// Use `CellAccessibleRef` only as an `unowned` reference to an existing `GtkCellAccessible` instance.
 ///
-
 public struct CellAccessibleRef: CellAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `cell_accessible_ptr` property instead.
@@ -120,11 +122,12 @@ public extension CellAccessibleRef {
 
     }
 
+
+///
 /// The `CellAccessible` type acts as a reference-counted owner of an underlying `GtkCellAccessible` instance.
 /// It provides the methods that can operate on this data type through `CellAccessibleProtocol` conformance.
 /// Use `CellAccessible` as a strong reference or owner of a `GtkCellAccessible` instance.
 ///
-
 open class CellAccessible: Accessible, CellAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -387,12 +390,14 @@ public enum CellAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -488,11 +493,6 @@ public extension CellAccessibleProtocol {
 
 // MARK: - CellArea Class
 
-/// The `CellAreaProtocol` protocol exposes the methods and properties of an underlying `GtkCellArea` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellArea`.
-/// Alternatively, use `CellAreaRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkCellArea` is an abstract class for `GtkCellLayout` widgets
 /// (also referred to as "layouting widgets") to interface with an
 /// arbitrary number of `GtkCellRenderers` and interact with the user
@@ -811,6 +811,12 @@ public extension CellAccessibleProtocol {
 /// `gtk_cell_area_cell_set()` or `gtk_cell_area_cell_set_valist()`. To obtain
 /// the value of a cell property, use `gtk_cell_area_cell_get_property()`,
 /// `gtk_cell_area_cell_get()` or `gtk_cell_area_cell_get_valist()`.
+///
+/// The `CellAreaProtocol` protocol exposes the methods and properties of an underlying `GtkCellArea` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellArea`.
+/// Alternatively, use `CellAreaRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellAreaProtocol: GLibObject.InitiallyUnownedProtocol, BuildableProtocol, CellLayoutProtocol {
         /// Untyped pointer to the underlying `GtkCellArea` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -822,10 +828,6 @@ public protocol CellAreaProtocol: GLibObject.InitiallyUnownedProtocol, Buildable
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellAreaRef` type acts as a lightweight Swift reference to an underlying `GtkCellArea` instance.
-/// It exposes methods that can operate on this data type through `CellAreaProtocol` conformance.
-/// Use `CellAreaRef` only as an `unowned` reference to an existing `GtkCellArea` instance.
-///
 /// The `GtkCellArea` is an abstract class for `GtkCellLayout` widgets
 /// (also referred to as "layouting widgets") to interface with an
 /// arbitrary number of `GtkCellRenderers` and interact with the user
@@ -1144,6 +1146,11 @@ public protocol CellAreaProtocol: GLibObject.InitiallyUnownedProtocol, Buildable
 /// `gtk_cell_area_cell_set()` or `gtk_cell_area_cell_set_valist()`. To obtain
 /// the value of a cell property, use `gtk_cell_area_cell_get_property()`,
 /// `gtk_cell_area_cell_get()` or `gtk_cell_area_cell_get_valist()`.
+///
+/// The `CellAreaRef` type acts as a lightweight Swift reference to an underlying `GtkCellArea` instance.
+/// It exposes methods that can operate on this data type through `CellAreaProtocol` conformance.
+/// Use `CellAreaRef` only as an `unowned` reference to an existing `GtkCellArea` instance.
+///
 public struct CellAreaRef: CellAreaProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellArea` instance.
     /// For type-safe access, use the generated, typed pointer `cell_area_ptr` property instead.
@@ -1225,10 +1232,6 @@ public extension CellAreaRef {
 
     }
 
-/// The `CellArea` type acts as a reference-counted owner of an underlying `GtkCellArea` instance.
-/// It provides the methods that can operate on this data type through `CellAreaProtocol` conformance.
-/// Use `CellArea` as a strong reference or owner of a `GtkCellArea` instance.
-///
 /// The `GtkCellArea` is an abstract class for `GtkCellLayout` widgets
 /// (also referred to as "layouting widgets") to interface with an
 /// arbitrary number of `GtkCellRenderers` and interact with the user
@@ -1547,6 +1550,11 @@ public extension CellAreaRef {
 /// `gtk_cell_area_cell_set()` or `gtk_cell_area_cell_set_valist()`. To obtain
 /// the value of a cell property, use `gtk_cell_area_cell_get_property()`,
 /// `gtk_cell_area_cell_get()` or `gtk_cell_area_cell_get_valist()`.
+///
+/// The `CellArea` type acts as a reference-counted owner of an underlying `GtkCellArea` instance.
+/// It provides the methods that can operate on this data type through `CellAreaProtocol` conformance.
+/// Use `CellArea` as a strong reference or owner of a `GtkCellArea` instance.
+///
 open class CellArea: GLibObject.InitiallyUnowned, CellAreaProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1774,12 +1782,14 @@ public enum CellAreaSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1965,12 +1975,14 @@ public extension CellAreaProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2014,12 +2026,14 @@ public extension CellAreaProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2063,12 +2077,14 @@ public extension CellAreaProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2555,11 +2571,6 @@ public extension CellAreaProtocol {
 
 // MARK: - CellAreaBox Class
 
-/// The `CellAreaBoxProtocol` protocol exposes the methods and properties of an underlying `GtkCellAreaBox` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellAreaBox`.
-/// Alternatively, use `CellAreaBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkCellAreaBox` renders cell renderers into a row or a column
 /// depending on its `GtkOrientation`.
 /// 
@@ -2577,6 +2588,12 @@ public extension CellAreaProtocol {
 /// configured by configuring the `GtkCellAreaBox` align child cell property
 /// with `gtk_cell_area_cell_set_property()` or by specifying the "align"
 /// argument to `gtk_cell_area_box_pack_start()` and `gtk_cell_area_box_pack_end()`.
+///
+/// The `CellAreaBoxProtocol` protocol exposes the methods and properties of an underlying `GtkCellAreaBox` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellAreaBox`.
+/// Alternatively, use `CellAreaBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellAreaBoxProtocol: CellAreaProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkCellAreaBox` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2588,10 +2605,6 @@ public protocol CellAreaBoxProtocol: CellAreaProtocol, OrientableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellAreaBoxRef` type acts as a lightweight Swift reference to an underlying `GtkCellAreaBox` instance.
-/// It exposes methods that can operate on this data type through `CellAreaBoxProtocol` conformance.
-/// Use `CellAreaBoxRef` only as an `unowned` reference to an existing `GtkCellAreaBox` instance.
-///
 /// The `GtkCellAreaBox` renders cell renderers into a row or a column
 /// depending on its `GtkOrientation`.
 /// 
@@ -2609,6 +2622,11 @@ public protocol CellAreaBoxProtocol: CellAreaProtocol, OrientableProtocol {
 /// configured by configuring the `GtkCellAreaBox` align child cell property
 /// with `gtk_cell_area_cell_set_property()` or by specifying the "align"
 /// argument to `gtk_cell_area_box_pack_start()` and `gtk_cell_area_box_pack_end()`.
+///
+/// The `CellAreaBoxRef` type acts as a lightweight Swift reference to an underlying `GtkCellAreaBox` instance.
+/// It exposes methods that can operate on this data type through `CellAreaBoxProtocol` conformance.
+/// Use `CellAreaBoxRef` only as an `unowned` reference to an existing `GtkCellAreaBox` instance.
+///
 public struct CellAreaBoxRef: CellAreaBoxProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellAreaBox` instance.
     /// For type-safe access, use the generated, typed pointer `cell_area_box_ptr` property instead.
@@ -2695,10 +2713,6 @@ public extension CellAreaBoxRef {
     }
 }
 
-/// The `CellAreaBox` type acts as a reference-counted owner of an underlying `GtkCellAreaBox` instance.
-/// It provides the methods that can operate on this data type through `CellAreaBoxProtocol` conformance.
-/// Use `CellAreaBox` as a strong reference or owner of a `GtkCellAreaBox` instance.
-///
 /// The `GtkCellAreaBox` renders cell renderers into a row or a column
 /// depending on its `GtkOrientation`.
 /// 
@@ -2716,6 +2730,11 @@ public extension CellAreaBoxRef {
 /// configured by configuring the `GtkCellAreaBox` align child cell property
 /// with `gtk_cell_area_cell_set_property()` or by specifying the "align"
 /// argument to `gtk_cell_area_box_pack_start()` and `gtk_cell_area_box_pack_end()`.
+///
+/// The `CellAreaBox` type acts as a reference-counted owner of an underlying `GtkCellAreaBox` instance.
+/// It provides the methods that can operate on this data type through `CellAreaBoxProtocol` conformance.
+/// Use `CellAreaBox` as a strong reference or owner of a `GtkCellAreaBox` instance.
+///
 open class CellAreaBox: CellArea, CellAreaBoxProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2951,12 +2970,14 @@ public enum CellAreaBoxSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3038,11 +3059,6 @@ public extension CellAreaBoxProtocol {
 
 // MARK: - CellAreaContext Class
 
-/// The `CellAreaContextProtocol` protocol exposes the methods and properties of an underlying `GtkCellAreaContext` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellAreaContext`.
-/// Alternatively, use `CellAreaContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkCellAreaContext` object is created by a given `GtkCellArea`
 /// implementation via its `GtkCellAreaClass.create_context``()` virtual
 /// method and is used to store cell sizes and alignments for a series of
@@ -3053,6 +3069,12 @@ public extension CellAreaBoxProtocol {
 /// same context which was used to request sizes for a given `GtkTreeModel`
 /// row also be used for the same row when calling other `GtkCellArea` APIs
 /// such as `gtk_cell_area_render()` and `gtk_cell_area_event()`.
+///
+/// The `CellAreaContextProtocol` protocol exposes the methods and properties of an underlying `GtkCellAreaContext` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellAreaContext`.
+/// Alternatively, use `CellAreaContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellAreaContextProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkCellAreaContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3064,10 +3086,6 @@ public protocol CellAreaContextProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellAreaContextRef` type acts as a lightweight Swift reference to an underlying `GtkCellAreaContext` instance.
-/// It exposes methods that can operate on this data type through `CellAreaContextProtocol` conformance.
-/// Use `CellAreaContextRef` only as an `unowned` reference to an existing `GtkCellAreaContext` instance.
-///
 /// The `GtkCellAreaContext` object is created by a given `GtkCellArea`
 /// implementation via its `GtkCellAreaClass.create_context``()` virtual
 /// method and is used to store cell sizes and alignments for a series of
@@ -3078,6 +3096,11 @@ public protocol CellAreaContextProtocol: GLibObject.ObjectProtocol {
 /// same context which was used to request sizes for a given `GtkTreeModel`
 /// row also be used for the same row when calling other `GtkCellArea` APIs
 /// such as `gtk_cell_area_render()` and `gtk_cell_area_event()`.
+///
+/// The `CellAreaContextRef` type acts as a lightweight Swift reference to an underlying `GtkCellAreaContext` instance.
+/// It exposes methods that can operate on this data type through `CellAreaContextProtocol` conformance.
+/// Use `CellAreaContextRef` only as an `unowned` reference to an existing `GtkCellAreaContext` instance.
+///
 public struct CellAreaContextRef: CellAreaContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellAreaContext` instance.
     /// For type-safe access, use the generated, typed pointer `cell_area_context_ptr` property instead.
@@ -3159,10 +3182,6 @@ public extension CellAreaContextRef {
 
     }
 
-/// The `CellAreaContext` type acts as a reference-counted owner of an underlying `GtkCellAreaContext` instance.
-/// It provides the methods that can operate on this data type through `CellAreaContextProtocol` conformance.
-/// Use `CellAreaContext` as a strong reference or owner of a `GtkCellAreaContext` instance.
-///
 /// The `GtkCellAreaContext` object is created by a given `GtkCellArea`
 /// implementation via its `GtkCellAreaClass.create_context``()` virtual
 /// method and is used to store cell sizes and alignments for a series of
@@ -3173,6 +3192,11 @@ public extension CellAreaContextRef {
 /// same context which was used to request sizes for a given `GtkTreeModel`
 /// row also be used for the same row when calling other `GtkCellArea` APIs
 /// such as `gtk_cell_area_render()` and `gtk_cell_area_event()`.
+///
+/// The `CellAreaContext` type acts as a reference-counted owner of an underlying `GtkCellAreaContext` instance.
+/// It provides the methods that can operate on this data type through `CellAreaContextProtocol` conformance.
+/// Use `CellAreaContext` as a strong reference or owner of a `GtkCellAreaContext` instance.
+///
 open class CellAreaContext: GLibObject.Object, CellAreaContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3392,12 +3416,14 @@ public enum CellAreaContextSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3590,11 +3616,6 @@ public extension CellAreaContextProtocol {
 
 // MARK: - CellRenderer Class
 
-/// The `CellRendererProtocol` protocol exposes the methods and properties of an underlying `GtkCellRenderer` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellRenderer`.
-/// Alternatively, use `CellRendererRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkCellRenderer` is a base class of a set of objects used for
 /// rendering a cell to a `cairo_t`.  These objects are used primarily by
 /// the `GtkTreeView` widget, though they aren’t tied to them in any
@@ -3630,6 +3651,12 @@ public extension CellAreaContextProtocol {
 /// corresponding “set” property, e.g. “cell-background-set” corresponds
 /// to “cell-background”. These “set” properties reflect whether a property
 /// has been set or not. You should not set them independently.
+///
+/// The `CellRendererProtocol` protocol exposes the methods and properties of an underlying `GtkCellRenderer` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellRenderer`.
+/// Alternatively, use `CellRendererRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellRendererProtocol: GLibObject.InitiallyUnownedProtocol {
         /// Untyped pointer to the underlying `GtkCellRenderer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3641,10 +3668,6 @@ public protocol CellRendererProtocol: GLibObject.InitiallyUnownedProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellRendererRef` type acts as a lightweight Swift reference to an underlying `GtkCellRenderer` instance.
-/// It exposes methods that can operate on this data type through `CellRendererProtocol` conformance.
-/// Use `CellRendererRef` only as an `unowned` reference to an existing `GtkCellRenderer` instance.
-///
 /// The `GtkCellRenderer` is a base class of a set of objects used for
 /// rendering a cell to a `cairo_t`.  These objects are used primarily by
 /// the `GtkTreeView` widget, though they aren’t tied to them in any
@@ -3680,6 +3703,11 @@ public protocol CellRendererProtocol: GLibObject.InitiallyUnownedProtocol {
 /// corresponding “set” property, e.g. “cell-background-set” corresponds
 /// to “cell-background”. These “set” properties reflect whether a property
 /// has been set or not. You should not set them independently.
+///
+/// The `CellRendererRef` type acts as a lightweight Swift reference to an underlying `GtkCellRenderer` instance.
+/// It exposes methods that can operate on this data type through `CellRendererProtocol` conformance.
+/// Use `CellRendererRef` only as an `unowned` reference to an existing `GtkCellRenderer` instance.
+///
 public struct CellRendererRef: CellRendererProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellRenderer` instance.
     /// For type-safe access, use the generated, typed pointer `cell_renderer_ptr` property instead.
@@ -3761,10 +3789,6 @@ public extension CellRendererRef {
 
     }
 
-/// The `CellRenderer` type acts as a reference-counted owner of an underlying `GtkCellRenderer` instance.
-/// It provides the methods that can operate on this data type through `CellRendererProtocol` conformance.
-/// Use `CellRenderer` as a strong reference or owner of a `GtkCellRenderer` instance.
-///
 /// The `GtkCellRenderer` is a base class of a set of objects used for
 /// rendering a cell to a `cairo_t`.  These objects are used primarily by
 /// the `GtkTreeView` widget, though they aren’t tied to them in any
@@ -3800,6 +3824,11 @@ public extension CellRendererRef {
 /// corresponding “set” property, e.g. “cell-background-set” corresponds
 /// to “cell-background”. These “set” properties reflect whether a property
 /// has been set or not. You should not set them independently.
+///
+/// The `CellRenderer` type acts as a reference-counted owner of an underlying `GtkCellRenderer` instance.
+/// It provides the methods that can operate on this data type through `CellRendererProtocol` conformance.
+/// Use `CellRenderer` as a strong reference or owner of a `GtkCellRenderer` instance.
+///
 open class CellRenderer: GLibObject.InitiallyUnowned, CellRendererProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4060,12 +4089,14 @@ public enum CellRendererSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4222,12 +4253,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4271,12 +4304,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4320,12 +4355,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4369,12 +4406,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4418,12 +4457,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4467,12 +4508,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4516,12 +4559,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4565,12 +4610,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4614,12 +4661,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4663,12 +4712,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4712,12 +4763,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4761,12 +4814,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4810,12 +4865,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4859,12 +4916,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4908,12 +4967,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4957,12 +5018,14 @@ public extension CellRendererProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5260,16 +5323,17 @@ public extension CellRendererProtocol {
 
 // MARK: - CellRendererAccel Class
 
-/// The `CellRendererAccelProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererAccel` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellRendererAccel`.
-/// Alternatively, use `CellRendererAccelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkCellRendererAccel` displays a keyboard accelerator (i.e. a key
 /// combination like `Control + a`). If the cell renderer is editable,
 /// the accelerator can be changed by simply typing the new combination.
 /// 
 /// The `GtkCellRendererAccel` cell renderer was added in GTK+ 2.10.
+///
+/// The `CellRendererAccelProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererAccel` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellRendererAccel`.
+/// Alternatively, use `CellRendererAccelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellRendererAccelProtocol: CellRendererTextProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererAccel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5281,15 +5345,16 @@ public protocol CellRendererAccelProtocol: CellRendererTextProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellRendererAccelRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererAccel` instance.
-/// It exposes methods that can operate on this data type through `CellRendererAccelProtocol` conformance.
-/// Use `CellRendererAccelRef` only as an `unowned` reference to an existing `GtkCellRendererAccel` instance.
-///
 /// `GtkCellRendererAccel` displays a keyboard accelerator (i.e. a key
 /// combination like `Control + a`). If the cell renderer is editable,
 /// the accelerator can be changed by simply typing the new combination.
 /// 
 /// The `GtkCellRendererAccel` cell renderer was added in GTK+ 2.10.
+///
+/// The `CellRendererAccelRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererAccel` instance.
+/// It exposes methods that can operate on this data type through `CellRendererAccelProtocol` conformance.
+/// Use `CellRendererAccelRef` only as an `unowned` reference to an existing `GtkCellRendererAccel` instance.
+///
 public struct CellRendererAccelRef: CellRendererAccelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellRendererAccel` instance.
     /// For type-safe access, use the generated, typed pointer `cell_renderer_accel_ptr` property instead.
@@ -5376,15 +5441,16 @@ public extension CellRendererAccelRef {
     }
 }
 
-/// The `CellRendererAccel` type acts as a reference-counted owner of an underlying `GtkCellRendererAccel` instance.
-/// It provides the methods that can operate on this data type through `CellRendererAccelProtocol` conformance.
-/// Use `CellRendererAccel` as a strong reference or owner of a `GtkCellRendererAccel` instance.
-///
 /// `GtkCellRendererAccel` displays a keyboard accelerator (i.e. a key
 /// combination like `Control + a`). If the cell renderer is editable,
 /// the accelerator can be changed by simply typing the new combination.
 /// 
 /// The `GtkCellRendererAccel` cell renderer was added in GTK+ 2.10.
+///
+/// The `CellRendererAccel` type acts as a reference-counted owner of an underlying `GtkCellRendererAccel` instance.
+/// It provides the methods that can operate on this data type through `CellRendererAccelProtocol` conformance.
+/// Use `CellRendererAccel` as a strong reference or owner of a `GtkCellRendererAccel` instance.
+///
 open class CellRendererAccel: CellRendererText, CellRendererAccelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5761,12 +5827,14 @@ public enum CellRendererAccelSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5993,12 +6061,14 @@ public extension CellRendererAccelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6042,12 +6112,14 @@ public extension CellRendererAccelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6091,12 +6163,14 @@ public extension CellRendererAccelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6140,12 +6214,14 @@ public extension CellRendererAccelProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6197,11 +6273,6 @@ public extension CellRendererAccelProtocol {
 
 // MARK: - CellRendererCombo Class
 
-/// The `CellRendererComboProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererCombo` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellRendererCombo`.
-/// Alternatively, use `CellRendererComboRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkCellRendererCombo` renders text in a cell like `GtkCellRendererText` from
 /// which it is derived. But while `GtkCellRendererText` offers a simple entry to
 /// edit the text, `GtkCellRendererCombo` offers a `GtkComboBox`
@@ -6214,6 +6285,12 @@ public extension CellRendererAccelProtocol {
 /// can be set in a handler for the `GtkCellRenderer::editing-started` signal.
 /// 
 /// The `GtkCellRendererCombo` cell renderer was added in GTK+ 2.6.
+///
+/// The `CellRendererComboProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererCombo` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellRendererCombo`.
+/// Alternatively, use `CellRendererComboRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellRendererComboProtocol: CellRendererTextProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererCombo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6225,10 +6302,6 @@ public protocol CellRendererComboProtocol: CellRendererTextProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellRendererComboRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererCombo` instance.
-/// It exposes methods that can operate on this data type through `CellRendererComboProtocol` conformance.
-/// Use `CellRendererComboRef` only as an `unowned` reference to an existing `GtkCellRendererCombo` instance.
-///
 /// `GtkCellRendererCombo` renders text in a cell like `GtkCellRendererText` from
 /// which it is derived. But while `GtkCellRendererText` offers a simple entry to
 /// edit the text, `GtkCellRendererCombo` offers a `GtkComboBox`
@@ -6241,6 +6314,11 @@ public protocol CellRendererComboProtocol: CellRendererTextProtocol {
 /// can be set in a handler for the `GtkCellRenderer::editing-started` signal.
 /// 
 /// The `GtkCellRendererCombo` cell renderer was added in GTK+ 2.6.
+///
+/// The `CellRendererComboRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererCombo` instance.
+/// It exposes methods that can operate on this data type through `CellRendererComboProtocol` conformance.
+/// Use `CellRendererComboRef` only as an `unowned` reference to an existing `GtkCellRendererCombo` instance.
+///
 public struct CellRendererComboRef: CellRendererComboProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellRendererCombo` instance.
     /// For type-safe access, use the generated, typed pointer `cell_renderer_combo_ptr` property instead.
@@ -6333,10 +6411,6 @@ public extension CellRendererComboRef {
     }
 }
 
-/// The `CellRendererCombo` type acts as a reference-counted owner of an underlying `GtkCellRendererCombo` instance.
-/// It provides the methods that can operate on this data type through `CellRendererComboProtocol` conformance.
-/// Use `CellRendererCombo` as a strong reference or owner of a `GtkCellRendererCombo` instance.
-///
 /// `GtkCellRendererCombo` renders text in a cell like `GtkCellRendererText` from
 /// which it is derived. But while `GtkCellRendererText` offers a simple entry to
 /// edit the text, `GtkCellRendererCombo` offers a `GtkComboBox`
@@ -6349,6 +6423,11 @@ public extension CellRendererComboRef {
 /// can be set in a handler for the `GtkCellRenderer::editing-started` signal.
 /// 
 /// The `GtkCellRendererCombo` cell renderer was added in GTK+ 2.6.
+///
+/// The `CellRendererCombo` type acts as a reference-counted owner of an underlying `GtkCellRendererCombo` instance.
+/// It provides the methods that can operate on this data type through `CellRendererComboProtocol` conformance.
+/// Use `CellRendererCombo` as a strong reference or owner of a `GtkCellRendererCombo` instance.
+///
 open class CellRendererCombo: CellRendererText, CellRendererComboProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6742,12 +6821,14 @@ public enum CellRendererComboSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6959,12 +7040,14 @@ public extension CellRendererComboProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7008,12 +7091,14 @@ public extension CellRendererComboProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7057,12 +7142,14 @@ public extension CellRendererComboProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7114,11 +7201,6 @@ public extension CellRendererComboProtocol {
 
 // MARK: - CellRendererPixbuf Class
 
-/// The `CellRendererPixbufProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererPixbuf` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellRendererPixbuf`.
-/// Alternatively, use `CellRendererPixbufRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkCellRendererPixbuf` can be used to render an image in a cell. It allows
 /// to render either a given `GdkPixbuf` (set via the
 /// `GtkCellRendererPixbuf:pixbuf` property) or a named icon (set via the
@@ -7131,6 +7213,12 @@ public extension CellRendererComboProtocol {
 /// renders that pixbuf, if the `GtkCellRenderer:is-expanded` property is `false`
 /// and the `GtkCellRendererPixbuf:pixbuf-expander-closed` property is set to a
 /// pixbuf, it renders that one.
+///
+/// The `CellRendererPixbufProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererPixbuf` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellRendererPixbuf`.
+/// Alternatively, use `CellRendererPixbufRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellRendererPixbufProtocol: CellRendererProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererPixbuf` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7142,10 +7230,6 @@ public protocol CellRendererPixbufProtocol: CellRendererProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellRendererPixbufRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererPixbuf` instance.
-/// It exposes methods that can operate on this data type through `CellRendererPixbufProtocol` conformance.
-/// Use `CellRendererPixbufRef` only as an `unowned` reference to an existing `GtkCellRendererPixbuf` instance.
-///
 /// A `GtkCellRendererPixbuf` can be used to render an image in a cell. It allows
 /// to render either a given `GdkPixbuf` (set via the
 /// `GtkCellRendererPixbuf:pixbuf` property) or a named icon (set via the
@@ -7158,6 +7242,11 @@ public protocol CellRendererPixbufProtocol: CellRendererProtocol {
 /// renders that pixbuf, if the `GtkCellRenderer:is-expanded` property is `false`
 /// and the `GtkCellRendererPixbuf:pixbuf-expander-closed` property is set to a
 /// pixbuf, it renders that one.
+///
+/// The `CellRendererPixbufRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererPixbuf` instance.
+/// It exposes methods that can operate on this data type through `CellRendererPixbufProtocol` conformance.
+/// Use `CellRendererPixbufRef` only as an `unowned` reference to an existing `GtkCellRendererPixbuf` instance.
+///
 public struct CellRendererPixbufRef: CellRendererPixbufProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellRendererPixbuf` instance.
     /// For type-safe access, use the generated, typed pointer `cell_renderer_pixbuf_ptr` property instead.
@@ -7250,10 +7339,6 @@ public extension CellRendererPixbufRef {
     }
 }
 
-/// The `CellRendererPixbuf` type acts as a reference-counted owner of an underlying `GtkCellRendererPixbuf` instance.
-/// It provides the methods that can operate on this data type through `CellRendererPixbufProtocol` conformance.
-/// Use `CellRendererPixbuf` as a strong reference or owner of a `GtkCellRendererPixbuf` instance.
-///
 /// A `GtkCellRendererPixbuf` can be used to render an image in a cell. It allows
 /// to render either a given `GdkPixbuf` (set via the
 /// `GtkCellRendererPixbuf:pixbuf` property) or a named icon (set via the
@@ -7266,6 +7351,11 @@ public extension CellRendererPixbufRef {
 /// renders that pixbuf, if the `GtkCellRenderer:is-expanded` property is `false`
 /// and the `GtkCellRendererPixbuf:pixbuf-expander-closed` property is set to a
 /// pixbuf, it renders that one.
+///
+/// The `CellRendererPixbuf` type acts as a reference-counted owner of an underlying `GtkCellRendererPixbuf` instance.
+/// It provides the methods that can operate on this data type through `CellRendererPixbufProtocol` conformance.
+/// Use `CellRendererPixbuf` as a strong reference or owner of a `GtkCellRendererPixbuf` instance.
+///
 open class CellRendererPixbuf: CellRenderer, CellRendererPixbufProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7564,12 +7654,14 @@ public enum CellRendererPixbufSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7645,15 +7737,16 @@ public extension CellRendererPixbufProtocol {
 
 // MARK: - CellRendererProgress Class
 
+/// `GtkCellRendererProgress` renders a numeric value as a progress par in a cell.
+/// Additionally, it can display a text on top of the progress bar.
+/// 
+/// The `GtkCellRendererProgress` cell renderer was added in GTK+ 2.6.
+///
 /// The `CellRendererProgressProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererProgress` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellRendererProgress`.
 /// Alternatively, use `CellRendererProgressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkCellRendererProgress` renders a numeric value as a progress par in a cell.
-/// Additionally, it can display a text on top of the progress bar.
-/// 
-/// The `GtkCellRendererProgress` cell renderer was added in GTK+ 2.6.
 public protocol CellRendererProgressProtocol: CellRendererProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererProgress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7665,14 +7758,15 @@ public protocol CellRendererProgressProtocol: CellRendererProtocol, OrientablePr
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellRendererProgressRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererProgress` instance.
-/// It exposes methods that can operate on this data type through `CellRendererProgressProtocol` conformance.
-/// Use `CellRendererProgressRef` only as an `unowned` reference to an existing `GtkCellRendererProgress` instance.
-///
 /// `GtkCellRendererProgress` renders a numeric value as a progress par in a cell.
 /// Additionally, it can display a text on top of the progress bar.
 /// 
 /// The `GtkCellRendererProgress` cell renderer was added in GTK+ 2.6.
+///
+/// The `CellRendererProgressRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererProgress` instance.
+/// It exposes methods that can operate on this data type through `CellRendererProgressProtocol` conformance.
+/// Use `CellRendererProgressRef` only as an `unowned` reference to an existing `GtkCellRendererProgress` instance.
+///
 public struct CellRendererProgressRef: CellRendererProgressProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellRendererProgress` instance.
     /// For type-safe access, use the generated, typed pointer `cell_renderer_progress_ptr` property instead.
@@ -7759,14 +7853,15 @@ public extension CellRendererProgressRef {
     }
 }
 
-/// The `CellRendererProgress` type acts as a reference-counted owner of an underlying `GtkCellRendererProgress` instance.
-/// It provides the methods that can operate on this data type through `CellRendererProgressProtocol` conformance.
-/// Use `CellRendererProgress` as a strong reference or owner of a `GtkCellRendererProgress` instance.
-///
 /// `GtkCellRendererProgress` renders a numeric value as a progress par in a cell.
 /// Additionally, it can display a text on top of the progress bar.
 /// 
 /// The `GtkCellRendererProgress` cell renderer was added in GTK+ 2.6.
+///
+/// The `CellRendererProgress` type acts as a reference-counted owner of an underlying `GtkCellRendererProgress` instance.
+/// It provides the methods that can operate on this data type through `CellRendererProgressProtocol` conformance.
+/// Use `CellRendererProgress` as a strong reference or owner of a `GtkCellRendererProgress` instance.
+///
 open class CellRendererProgress: CellRenderer, CellRendererProgressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8061,12 +8156,14 @@ public enum CellRendererProgressSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8144,11 +8241,6 @@ public extension CellRendererProgressProtocol {
 
 // MARK: - CellRendererSpin Class
 
-/// The `CellRendererSpinProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererSpin` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellRendererSpin`.
-/// Alternatively, use `CellRendererSpinRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkCellRendererSpin` renders text in a cell like `GtkCellRendererText` from
 /// which it is derived. But while `GtkCellRendererText` offers a simple entry to
 /// edit the text, `GtkCellRendererSpin` offers a `GtkSpinButton` widget. Of course,
@@ -8162,6 +8254,12 @@ public extension CellRendererProgressProtocol {
 /// can be set in a handler for the `GtkCellRenderer::editing-started` signal.
 /// 
 /// The `GtkCellRendererSpin` cell renderer was added in GTK+ 2.10.
+///
+/// The `CellRendererSpinProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererSpin` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellRendererSpin`.
+/// Alternatively, use `CellRendererSpinRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellRendererSpinProtocol: CellRendererTextProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererSpin` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8173,10 +8271,6 @@ public protocol CellRendererSpinProtocol: CellRendererTextProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellRendererSpinRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererSpin` instance.
-/// It exposes methods that can operate on this data type through `CellRendererSpinProtocol` conformance.
-/// Use `CellRendererSpinRef` only as an `unowned` reference to an existing `GtkCellRendererSpin` instance.
-///
 /// `GtkCellRendererSpin` renders text in a cell like `GtkCellRendererText` from
 /// which it is derived. But while `GtkCellRendererText` offers a simple entry to
 /// edit the text, `GtkCellRendererSpin` offers a `GtkSpinButton` widget. Of course,
@@ -8190,6 +8284,11 @@ public protocol CellRendererSpinProtocol: CellRendererTextProtocol {
 /// can be set in a handler for the `GtkCellRenderer::editing-started` signal.
 /// 
 /// The `GtkCellRendererSpin` cell renderer was added in GTK+ 2.10.
+///
+/// The `CellRendererSpinRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererSpin` instance.
+/// It exposes methods that can operate on this data type through `CellRendererSpinProtocol` conformance.
+/// Use `CellRendererSpinRef` only as an `unowned` reference to an existing `GtkCellRendererSpin` instance.
+///
 public struct CellRendererSpinRef: CellRendererSpinProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellRendererSpin` instance.
     /// For type-safe access, use the generated, typed pointer `cell_renderer_spin_ptr` property instead.
@@ -8276,10 +8375,6 @@ public extension CellRendererSpinRef {
     }
 }
 
-/// The `CellRendererSpin` type acts as a reference-counted owner of an underlying `GtkCellRendererSpin` instance.
-/// It provides the methods that can operate on this data type through `CellRendererSpinProtocol` conformance.
-/// Use `CellRendererSpin` as a strong reference or owner of a `GtkCellRendererSpin` instance.
-///
 /// `GtkCellRendererSpin` renders text in a cell like `GtkCellRendererText` from
 /// which it is derived. But while `GtkCellRendererText` offers a simple entry to
 /// edit the text, `GtkCellRendererSpin` offers a `GtkSpinButton` widget. Of course,
@@ -8293,6 +8388,11 @@ public extension CellRendererSpinRef {
 /// can be set in a handler for the `GtkCellRenderer::editing-started` signal.
 /// 
 /// The `GtkCellRendererSpin` cell renderer was added in GTK+ 2.10.
+///
+/// The `CellRendererSpin` type acts as a reference-counted owner of an underlying `GtkCellRendererSpin` instance.
+/// It provides the methods that can operate on this data type through `CellRendererSpinProtocol` conformance.
+/// Use `CellRendererSpin` as a strong reference or owner of a `GtkCellRendererSpin` instance.
+///
 open class CellRendererSpin: CellRendererText, CellRendererSpinProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8659,12 +8759,14 @@ public enum CellRendererSpinSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8809,11 +8911,6 @@ public extension CellRendererSpinProtocol {
 
 // MARK: - CellRendererSpinner Class
 
-/// The `CellRendererSpinnerProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererSpinner` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellRendererSpinner`.
-/// Alternatively, use `CellRendererSpinnerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GtkCellRendererSpinner renders a spinning animation in a cell, very
 /// similar to `GtkSpinner`. It can often be used as an alternative
 /// to a `GtkCellRendererProgress` for displaying indefinite activity,
@@ -8824,6 +8921,12 @@ public extension CellRendererSpinProtocol {
 /// at regular intervals. The usual way to set the cell renderer properties
 /// for each cell is to bind them to columns in your tree model using e.g.
 /// `gtk_tree_view_column_add_attribute()`.
+///
+/// The `CellRendererSpinnerProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererSpinner` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellRendererSpinner`.
+/// Alternatively, use `CellRendererSpinnerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellRendererSpinnerProtocol: CellRendererProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererSpinner` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8835,10 +8938,6 @@ public protocol CellRendererSpinnerProtocol: CellRendererProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellRendererSpinnerRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererSpinner` instance.
-/// It exposes methods that can operate on this data type through `CellRendererSpinnerProtocol` conformance.
-/// Use `CellRendererSpinnerRef` only as an `unowned` reference to an existing `GtkCellRendererSpinner` instance.
-///
 /// GtkCellRendererSpinner renders a spinning animation in a cell, very
 /// similar to `GtkSpinner`. It can often be used as an alternative
 /// to a `GtkCellRendererProgress` for displaying indefinite activity,
@@ -8849,6 +8948,11 @@ public protocol CellRendererSpinnerProtocol: CellRendererProtocol {
 /// at regular intervals. The usual way to set the cell renderer properties
 /// for each cell is to bind them to columns in your tree model using e.g.
 /// `gtk_tree_view_column_add_attribute()`.
+///
+/// The `CellRendererSpinnerRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererSpinner` instance.
+/// It exposes methods that can operate on this data type through `CellRendererSpinnerProtocol` conformance.
+/// Use `CellRendererSpinnerRef` only as an `unowned` reference to an existing `GtkCellRendererSpinner` instance.
+///
 public struct CellRendererSpinnerRef: CellRendererSpinnerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellRendererSpinner` instance.
     /// For type-safe access, use the generated, typed pointer `cell_renderer_spinner_ptr` property instead.
@@ -8936,10 +9040,6 @@ public extension CellRendererSpinnerRef {
     }
 }
 
-/// The `CellRendererSpinner` type acts as a reference-counted owner of an underlying `GtkCellRendererSpinner` instance.
-/// It provides the methods that can operate on this data type through `CellRendererSpinnerProtocol` conformance.
-/// Use `CellRendererSpinner` as a strong reference or owner of a `GtkCellRendererSpinner` instance.
-///
 /// GtkCellRendererSpinner renders a spinning animation in a cell, very
 /// similar to `GtkSpinner`. It can often be used as an alternative
 /// to a `GtkCellRendererProgress` for displaying indefinite activity,
@@ -8950,6 +9050,11 @@ public extension CellRendererSpinnerRef {
 /// at regular intervals. The usual way to set the cell renderer properties
 /// for each cell is to bind them to columns in your tree model using e.g.
 /// `gtk_tree_view_column_add_attribute()`.
+///
+/// The `CellRendererSpinner` type acts as a reference-counted owner of an underlying `GtkCellRendererSpinner` instance.
+/// It provides the methods that can operate on this data type through `CellRendererSpinnerProtocol` conformance.
+/// Use `CellRendererSpinner` as a strong reference or owner of a `GtkCellRendererSpinner` instance.
+///
 open class CellRendererSpinner: CellRenderer, CellRendererSpinnerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9226,12 +9331,14 @@ public enum CellRendererSpinnerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9290,17 +9397,18 @@ public extension CellRendererSpinnerProtocol {
 
 // MARK: - CellRendererText Class
 
-/// The `CellRendererTextProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererText` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellRendererText`.
-/// Alternatively, use `CellRendererTextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkCellRendererText` renders a given text in its cell, using the font, color and
 /// style information provided by its properties. The text will be ellipsized if it is
 /// too long and the `GtkCellRendererText:ellipsize` property allows it.
 /// 
 /// If the `GtkCellRenderer:mode` is `GTK_CELL_RENDERER_MODE_EDITABLE`,
 /// the `GtkCellRendererText` allows to edit its text using an entry.
+///
+/// The `CellRendererTextProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererText` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellRendererText`.
+/// Alternatively, use `CellRendererTextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellRendererTextProtocol: CellRendererProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererText` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9312,16 +9420,17 @@ public protocol CellRendererTextProtocol: CellRendererProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellRendererTextRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererText` instance.
-/// It exposes methods that can operate on this data type through `CellRendererTextProtocol` conformance.
-/// Use `CellRendererTextRef` only as an `unowned` reference to an existing `GtkCellRendererText` instance.
-///
 /// A `GtkCellRendererText` renders a given text in its cell, using the font, color and
 /// style information provided by its properties. The text will be ellipsized if it is
 /// too long and the `GtkCellRendererText:ellipsize` property allows it.
 /// 
 /// If the `GtkCellRenderer:mode` is `GTK_CELL_RENDERER_MODE_EDITABLE`,
 /// the `GtkCellRendererText` allows to edit its text using an entry.
+///
+/// The `CellRendererTextRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererText` instance.
+/// It exposes methods that can operate on this data type through `CellRendererTextProtocol` conformance.
+/// Use `CellRendererTextRef` only as an `unowned` reference to an existing `GtkCellRendererText` instance.
+///
 public struct CellRendererTextRef: CellRendererTextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellRendererText` instance.
     /// For type-safe access, use the generated, typed pointer `cell_renderer_text_ptr` property instead.
@@ -9414,16 +9523,17 @@ public extension CellRendererTextRef {
     }
 }
 
-/// The `CellRendererText` type acts as a reference-counted owner of an underlying `GtkCellRendererText` instance.
-/// It provides the methods that can operate on this data type through `CellRendererTextProtocol` conformance.
-/// Use `CellRendererText` as a strong reference or owner of a `GtkCellRendererText` instance.
-///
 /// A `GtkCellRendererText` renders a given text in its cell, using the font, color and
 /// style information provided by its properties. The text will be ellipsized if it is
 /// too long and the `GtkCellRendererText:ellipsize` property allows it.
 /// 
 /// If the `GtkCellRenderer:mode` is `GTK_CELL_RENDERER_MODE_EDITABLE`,
 /// the `GtkCellRendererText` allows to edit its text using an entry.
+///
+/// The `CellRendererText` type acts as a reference-counted owner of an underlying `GtkCellRendererText` instance.
+/// It provides the methods that can operate on this data type through `CellRendererTextProtocol` conformance.
+/// Use `CellRendererText` as a strong reference or owner of a `GtkCellRendererText` instance.
+///
 open class CellRendererText: CellRenderer, CellRendererTextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9789,12 +9899,14 @@ public enum CellRendererTextSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9983,12 +10095,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10032,12 +10146,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10081,12 +10197,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10130,12 +10248,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10179,12 +10299,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10228,12 +10350,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10277,12 +10401,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10326,12 +10452,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10375,12 +10503,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10424,12 +10554,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10473,12 +10605,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10522,12 +10656,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10571,12 +10707,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10620,12 +10758,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10669,12 +10809,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10718,12 +10860,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10767,12 +10911,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10816,12 +10962,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10865,12 +11013,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10914,12 +11064,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10963,12 +11115,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11012,12 +11166,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11061,12 +11217,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11110,12 +11268,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11159,12 +11319,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11208,12 +11370,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11257,12 +11421,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11306,12 +11472,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11355,12 +11523,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11404,12 +11574,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11453,12 +11625,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11502,12 +11676,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11551,12 +11727,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11600,12 +11778,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11649,12 +11829,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11698,12 +11880,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11747,12 +11931,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11796,12 +11982,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11845,12 +12033,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11894,12 +12084,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11943,12 +12135,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11992,12 +12186,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12041,12 +12237,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12090,12 +12288,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12139,12 +12339,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12188,12 +12390,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12237,12 +12441,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12286,12 +12492,14 @@ public extension CellRendererTextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12354,15 +12562,16 @@ public extension CellRendererTextProtocol {
 
 // MARK: - CellRendererToggle Class
 
+/// `GtkCellRendererToggle` renders a toggle button in a cell. The
+/// button is drawn as a radio or a checkbutton, depending on the
+/// `GtkCellRendererToggle:radio` property.
+/// When activated, it emits the `GtkCellRendererToggle::toggled` signal.
+///
 /// The `CellRendererToggleProtocol` protocol exposes the methods and properties of an underlying `GtkCellRendererToggle` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellRendererToggle`.
 /// Alternatively, use `CellRendererToggleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkCellRendererToggle` renders a toggle button in a cell. The
-/// button is drawn as a radio or a checkbutton, depending on the
-/// `GtkCellRendererToggle:radio` property.
-/// When activated, it emits the `GtkCellRendererToggle::toggled` signal.
 public protocol CellRendererToggleProtocol: CellRendererProtocol {
         /// Untyped pointer to the underlying `GtkCellRendererToggle` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12374,14 +12583,15 @@ public protocol CellRendererToggleProtocol: CellRendererProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellRendererToggleRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererToggle` instance.
-/// It exposes methods that can operate on this data type through `CellRendererToggleProtocol` conformance.
-/// Use `CellRendererToggleRef` only as an `unowned` reference to an existing `GtkCellRendererToggle` instance.
-///
 /// `GtkCellRendererToggle` renders a toggle button in a cell. The
 /// button is drawn as a radio or a checkbutton, depending on the
 /// `GtkCellRendererToggle:radio` property.
 /// When activated, it emits the `GtkCellRendererToggle::toggled` signal.
+///
+/// The `CellRendererToggleRef` type acts as a lightweight Swift reference to an underlying `GtkCellRendererToggle` instance.
+/// It exposes methods that can operate on this data type through `CellRendererToggleProtocol` conformance.
+/// Use `CellRendererToggleRef` only as an `unowned` reference to an existing `GtkCellRendererToggle` instance.
+///
 public struct CellRendererToggleRef: CellRendererToggleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellRendererToggle` instance.
     /// For type-safe access, use the generated, typed pointer `cell_renderer_toggle_ptr` property instead.
@@ -12474,14 +12684,15 @@ public extension CellRendererToggleRef {
     }
 }
 
-/// The `CellRendererToggle` type acts as a reference-counted owner of an underlying `GtkCellRendererToggle` instance.
-/// It provides the methods that can operate on this data type through `CellRendererToggleProtocol` conformance.
-/// Use `CellRendererToggle` as a strong reference or owner of a `GtkCellRendererToggle` instance.
-///
 /// `GtkCellRendererToggle` renders a toggle button in a cell. The
 /// button is drawn as a radio or a checkbutton, depending on the
 /// `GtkCellRendererToggle:radio` property.
 /// When activated, it emits the `GtkCellRendererToggle::toggled` signal.
+///
+/// The `CellRendererToggle` type acts as a reference-counted owner of an underlying `GtkCellRendererToggle` instance.
+/// It provides the methods that can operate on this data type through `CellRendererToggleProtocol` conformance.
+/// Use `CellRendererToggle` as a strong reference or owner of a `GtkCellRendererToggle` instance.
+///
 open class CellRendererToggle: CellRenderer, CellRendererToggleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -12759,12 +12970,14 @@ public enum CellRendererToggleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12876,12 +13089,14 @@ public extension CellRendererToggleProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12925,12 +13140,14 @@ public extension CellRendererToggleProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12974,12 +13191,14 @@ public extension CellRendererToggleProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13023,12 +13242,14 @@ public extension CellRendererToggleProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13072,12 +13293,14 @@ public extension CellRendererToggleProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13215,11 +13438,6 @@ public extension CellRendererToggleProtocol {
 
 // MARK: - CellView Class
 
-/// The `CellViewProtocol` protocol exposes the methods and properties of an underlying `GtkCellView` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellView`.
-/// Alternatively, use `CellViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkCellView` displays a single row of a `GtkTreeModel` using a `GtkCellArea`
 /// and `GtkCellAreaContext`. A `GtkCellAreaContext` can be provided to the
 /// `GtkCellView` at construction time in order to keep the cellview in context
@@ -13237,6 +13455,12 @@ public extension CellRendererToggleProtocol {
 /// # CSS nodes
 /// 
 /// GtkCellView has a single CSS node with name cellview.
+///
+/// The `CellViewProtocol` protocol exposes the methods and properties of an underlying `GtkCellView` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellView`.
+/// Alternatively, use `CellViewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellViewProtocol: WidgetProtocol, CellLayoutProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkCellView` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -13248,10 +13472,6 @@ public protocol CellViewProtocol: WidgetProtocol, CellLayoutProtocol, Orientable
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellViewRef` type acts as a lightweight Swift reference to an underlying `GtkCellView` instance.
-/// It exposes methods that can operate on this data type through `CellViewProtocol` conformance.
-/// Use `CellViewRef` only as an `unowned` reference to an existing `GtkCellView` instance.
-///
 /// A `GtkCellView` displays a single row of a `GtkTreeModel` using a `GtkCellArea`
 /// and `GtkCellAreaContext`. A `GtkCellAreaContext` can be provided to the
 /// `GtkCellView` at construction time in order to keep the cellview in context
@@ -13269,6 +13489,11 @@ public protocol CellViewProtocol: WidgetProtocol, CellLayoutProtocol, Orientable
 /// # CSS nodes
 /// 
 /// GtkCellView has a single CSS node with name cellview.
+///
+/// The `CellViewRef` type acts as a lightweight Swift reference to an underlying `GtkCellView` instance.
+/// It exposes methods that can operate on this data type through `CellViewProtocol` conformance.
+/// Use `CellViewRef` only as an `unowned` reference to an existing `GtkCellView` instance.
+///
 public struct CellViewRef: CellViewProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellView` instance.
     /// For type-safe access, use the generated, typed pointer `cell_view_ptr` property instead.
@@ -13422,10 +13647,6 @@ public extension CellViewRef {
     }
 }
 
-/// The `CellView` type acts as a reference-counted owner of an underlying `GtkCellView` instance.
-/// It provides the methods that can operate on this data type through `CellViewProtocol` conformance.
-/// Use `CellView` as a strong reference or owner of a `GtkCellView` instance.
-///
 /// A `GtkCellView` displays a single row of a `GtkTreeModel` using a `GtkCellArea`
 /// and `GtkCellAreaContext`. A `GtkCellAreaContext` can be provided to the
 /// `GtkCellView` at construction time in order to keep the cellview in context
@@ -13443,6 +13664,11 @@ public extension CellViewRef {
 /// # CSS nodes
 /// 
 /// GtkCellView has a single CSS node with name cellview.
+///
+/// The `CellView` type acts as a reference-counted owner of an underlying `GtkCellView` instance.
+/// It provides the methods that can operate on this data type through `CellViewProtocol` conformance.
+/// Use `CellView` as a strong reference or owner of a `GtkCellView` instance.
+///
 open class CellView: Widget, CellViewProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -14310,12 +14536,14 @@ public enum CellViewSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14854,11 +15082,6 @@ public extension CellViewProtocol {
 
 // MARK: - CheckButton Class
 
-/// The `CheckButtonProtocol` protocol exposes the methods and properties of an underlying `GtkCheckButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CheckButton`.
-/// Alternatively, use `CheckButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkCheckButton` places a discrete `GtkToggleButton` next to a widget,
 /// (usually a `GtkLabel`). See the section on `GtkToggleButton` widgets for
 /// more information about toggle/check buttons.
@@ -14888,6 +15111,12 @@ public extension CellViewProtocol {
 /// A GtkCheckButton without indicator changes the name of its main node
 /// to button and adds a .check style class to it. The subnode is invisible
 /// in this case.
+///
+/// The `CheckButtonProtocol` protocol exposes the methods and properties of an underlying `GtkCheckButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CheckButton`.
+/// Alternatively, use `CheckButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CheckButtonProtocol: ToggleButtonProtocol {
         /// Untyped pointer to the underlying `GtkCheckButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -14899,10 +15128,6 @@ public protocol CheckButtonProtocol: ToggleButtonProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CheckButtonRef` type acts as a lightweight Swift reference to an underlying `GtkCheckButton` instance.
-/// It exposes methods that can operate on this data type through `CheckButtonProtocol` conformance.
-/// Use `CheckButtonRef` only as an `unowned` reference to an existing `GtkCheckButton` instance.
-///
 /// A `GtkCheckButton` places a discrete `GtkToggleButton` next to a widget,
 /// (usually a `GtkLabel`). See the section on `GtkToggleButton` widgets for
 /// more information about toggle/check buttons.
@@ -14932,6 +15157,11 @@ public protocol CheckButtonProtocol: ToggleButtonProtocol {
 /// A GtkCheckButton without indicator changes the name of its main node
 /// to button and adds a .check style class to it. The subnode is invisible
 /// in this case.
+///
+/// The `CheckButtonRef` type acts as a lightweight Swift reference to an underlying `GtkCheckButton` instance.
+/// It exposes methods that can operate on this data type through `CheckButtonProtocol` conformance.
+/// Use `CheckButtonRef` only as an `unowned` reference to an existing `GtkCheckButton` instance.
+///
 public struct CheckButtonRef: CheckButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCheckButton` instance.
     /// For type-safe access, use the generated, typed pointer `check_button_ptr` property instead.
@@ -15045,10 +15275,6 @@ public extension CheckButtonRef {
     }
 }
 
-/// The `CheckButton` type acts as a reference-counted owner of an underlying `GtkCheckButton` instance.
-/// It provides the methods that can operate on this data type through `CheckButtonProtocol` conformance.
-/// Use `CheckButton` as a strong reference or owner of a `GtkCheckButton` instance.
-///
 /// A `GtkCheckButton` places a discrete `GtkToggleButton` next to a widget,
 /// (usually a `GtkLabel`). See the section on `GtkToggleButton` widgets for
 /// more information about toggle/check buttons.
@@ -15078,6 +15304,11 @@ public extension CheckButtonRef {
 /// A GtkCheckButton without indicator changes the name of its main node
 /// to button and adds a .check style class to it. The subnode is invisible
 /// in this case.
+///
+/// The `CheckButton` type acts as a reference-counted owner of an underlying `GtkCheckButton` instance.
+/// It provides the methods that can operate on this data type through `CheckButtonProtocol` conformance.
+/// Use `CheckButton` as a strong reference or owner of a `GtkCheckButton` instance.
+///
 open class CheckButton: ToggleButton, CheckButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -15914,12 +16145,14 @@ public enum CheckButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16276,11 +16509,6 @@ public extension CheckButtonProtocol {
 
 // MARK: - CheckMenuItem Class
 
-/// The `CheckMenuItemProtocol` protocol exposes the methods and properties of an underlying `GtkCheckMenuItem` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CheckMenuItem`.
-/// Alternatively, use `CheckMenuItemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkCheckMenuItem` is a menu item that maintains the state of a boolean
 /// value in addition to a `GtkMenuItem` usual role in activating application
 /// code.
@@ -16300,6 +16528,12 @@ public extension CheckButtonProtocol {
 /// 
 /// GtkCheckMenuItem has a main CSS node with name menuitem, and a subnode
 /// with name check, which gets the .left or .right style class.
+///
+/// The `CheckMenuItemProtocol` protocol exposes the methods and properties of an underlying `GtkCheckMenuItem` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CheckMenuItem`.
+/// Alternatively, use `CheckMenuItemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CheckMenuItemProtocol: MenuItemProtocol {
         /// Untyped pointer to the underlying `GtkCheckMenuItem` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -16311,10 +16545,6 @@ public protocol CheckMenuItemProtocol: MenuItemProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CheckMenuItemRef` type acts as a lightweight Swift reference to an underlying `GtkCheckMenuItem` instance.
-/// It exposes methods that can operate on this data type through `CheckMenuItemProtocol` conformance.
-/// Use `CheckMenuItemRef` only as an `unowned` reference to an existing `GtkCheckMenuItem` instance.
-///
 /// A `GtkCheckMenuItem` is a menu item that maintains the state of a boolean
 /// value in addition to a `GtkMenuItem` usual role in activating application
 /// code.
@@ -16334,6 +16564,11 @@ public protocol CheckMenuItemProtocol: MenuItemProtocol {
 /// 
 /// GtkCheckMenuItem has a main CSS node with name menuitem, and a subnode
 /// with name check, which gets the .left or .right style class.
+///
+/// The `CheckMenuItemRef` type acts as a lightweight Swift reference to an underlying `GtkCheckMenuItem` instance.
+/// It exposes methods that can operate on this data type through `CheckMenuItemProtocol` conformance.
+/// Use `CheckMenuItemRef` only as an `unowned` reference to an existing `GtkCheckMenuItem` instance.
+///
 public struct CheckMenuItemRef: CheckMenuItemProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCheckMenuItem` instance.
     /// For type-safe access, use the generated, typed pointer `check_menu_item_ptr` property instead.
@@ -16447,10 +16682,6 @@ public extension CheckMenuItemRef {
     }
 }
 
-/// The `CheckMenuItem` type acts as a reference-counted owner of an underlying `GtkCheckMenuItem` instance.
-/// It provides the methods that can operate on this data type through `CheckMenuItemProtocol` conformance.
-/// Use `CheckMenuItem` as a strong reference or owner of a `GtkCheckMenuItem` instance.
-///
 /// A `GtkCheckMenuItem` is a menu item that maintains the state of a boolean
 /// value in addition to a `GtkMenuItem` usual role in activating application
 /// code.
@@ -16470,6 +16701,11 @@ public extension CheckMenuItemRef {
 /// 
 /// GtkCheckMenuItem has a main CSS node with name menuitem, and a subnode
 /// with name check, which gets the .left or .right style class.
+///
+/// The `CheckMenuItem` type acts as a reference-counted owner of an underlying `GtkCheckMenuItem` instance.
+/// It provides the methods that can operate on this data type through `CheckMenuItemProtocol` conformance.
+/// Use `CheckMenuItem` as a strong reference or owner of a `GtkCheckMenuItem` instance.
+///
 open class CheckMenuItem: MenuItem, CheckMenuItemProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -17275,12 +17511,14 @@ public enum CheckMenuItemSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17662,12 +17900,14 @@ public extension CheckMenuItemProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17711,12 +17951,14 @@ public extension CheckMenuItemProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17760,12 +18002,14 @@ public extension CheckMenuItemProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17910,12 +18154,13 @@ public extension CheckMenuItemProtocol {
 
 // MARK: - CheckMenuItemAccessible Class
 
+
+///
 /// The `CheckMenuItemAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkCheckMenuItemAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CheckMenuItemAccessible`.
 /// Alternatively, use `CheckMenuItemAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CheckMenuItemAccessibleProtocol: MenuItemAccessibleProtocol {
         /// Untyped pointer to the underlying `GtkCheckMenuItemAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -17927,11 +18172,12 @@ public protocol CheckMenuItemAccessibleProtocol: MenuItemAccessibleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CheckMenuItemAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkCheckMenuItemAccessible` instance.
 /// It exposes methods that can operate on this data type through `CheckMenuItemAccessibleProtocol` conformance.
 /// Use `CheckMenuItemAccessibleRef` only as an `unowned` reference to an existing `GtkCheckMenuItemAccessible` instance.
 ///
-
 public struct CheckMenuItemAccessibleRef: CheckMenuItemAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCheckMenuItemAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `check_menu_item_accessible_ptr` property instead.
@@ -18013,11 +18259,12 @@ public extension CheckMenuItemAccessibleRef {
 
     }
 
+
+///
 /// The `CheckMenuItemAccessible` type acts as a reference-counted owner of an underlying `GtkCheckMenuItemAccessible` instance.
 /// It provides the methods that can operate on this data type through `CheckMenuItemAccessibleProtocol` conformance.
 /// Use `CheckMenuItemAccessible` as a strong reference or owner of a `GtkCheckMenuItemAccessible` instance.
 ///
-
 open class CheckMenuItemAccessible: MenuItemAccessible, CheckMenuItemAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -18280,12 +18527,14 @@ public enum CheckMenuItemAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18381,12 +18630,13 @@ public extension CheckMenuItemAccessibleProtocol {
 
 // MARK: - Clipboard Class
 
+
+///
 /// The `ClipboardProtocol` protocol exposes the methods and properties of an underlying `GtkClipboard` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Clipboard`.
 /// Alternatively, use `ClipboardRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ClipboardProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkClipboard` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -18398,11 +18648,12 @@ public protocol ClipboardProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ClipboardRef` type acts as a lightweight Swift reference to an underlying `GtkClipboard` instance.
 /// It exposes methods that can operate on this data type through `ClipboardProtocol` conformance.
 /// Use `ClipboardRef` only as an `unowned` reference to an existing `GtkClipboard` instance.
 ///
-
 public struct ClipboardRef: ClipboardProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkClipboard` instance.
     /// For type-safe access, use the generated, typed pointer `clipboard_ptr` property instead.
@@ -18500,11 +18751,12 @@ public extension ClipboardRef {
     }
 }
 
+
+///
 /// The `Clipboard` type acts as a reference-counted owner of an underlying `GtkClipboard` instance.
 /// It provides the methods that can operate on this data type through `ClipboardProtocol` conformance.
 /// Use `Clipboard` as a strong reference or owner of a `GtkClipboard` instance.
 ///
-
 open class Clipboard: GLibObject.Object, ClipboardProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -18671,12 +18923,14 @@ public enum ClipboardSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18913,11 +19167,6 @@ public extension ClipboardProtocol {
 
 // MARK: - ColorButton Class
 
-/// The `ColorButtonProtocol` protocol exposes the methods and properties of an underlying `GtkColorButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ColorButton`.
-/// Alternatively, use `ColorButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkColorButton` is a button which displays the currently selected
 /// color and allows to open a color selection dialog to change the color.
 /// It is suitable widget for selecting a color in a preference dialog.
@@ -18926,6 +19175,12 @@ public extension ClipboardProtocol {
 /// 
 /// GtkColorButton has a single CSS node with name button. To differentiate
 /// it from a plain `GtkButton`, it gets the .color style class.
+///
+/// The `ColorButtonProtocol` protocol exposes the methods and properties of an underlying `GtkColorButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ColorButton`.
+/// Alternatively, use `ColorButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ColorButtonProtocol: ButtonProtocol, ColorChooserProtocol {
         /// Untyped pointer to the underlying `GtkColorButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -18937,10 +19192,6 @@ public protocol ColorButtonProtocol: ButtonProtocol, ColorChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ColorButtonRef` type acts as a lightweight Swift reference to an underlying `GtkColorButton` instance.
-/// It exposes methods that can operate on this data type through `ColorButtonProtocol` conformance.
-/// Use `ColorButtonRef` only as an `unowned` reference to an existing `GtkColorButton` instance.
-///
 /// The `GtkColorButton` is a button which displays the currently selected
 /// color and allows to open a color selection dialog to change the color.
 /// It is suitable widget for selecting a color in a preference dialog.
@@ -18949,6 +19200,11 @@ public protocol ColorButtonProtocol: ButtonProtocol, ColorChooserProtocol {
 /// 
 /// GtkColorButton has a single CSS node with name button. To differentiate
 /// it from a plain `GtkButton`, it gets the .color style class.
+///
+/// The `ColorButtonRef` type acts as a lightweight Swift reference to an underlying `GtkColorButton` instance.
+/// It exposes methods that can operate on this data type through `ColorButtonProtocol` conformance.
+/// Use `ColorButtonRef` only as an `unowned` reference to an existing `GtkColorButton` instance.
+///
 public struct ColorButtonRef: ColorButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkColorButton` instance.
     /// For type-safe access, use the generated, typed pointer `color_button_ptr` property instead.
@@ -19072,10 +19328,6 @@ public extension ColorButtonRef {
     }
 }
 
-/// The `ColorButton` type acts as a reference-counted owner of an underlying `GtkColorButton` instance.
-/// It provides the methods that can operate on this data type through `ColorButtonProtocol` conformance.
-/// Use `ColorButton` as a strong reference or owner of a `GtkColorButton` instance.
-///
 /// The `GtkColorButton` is a button which displays the currently selected
 /// color and allows to open a color selection dialog to change the color.
 /// It is suitable widget for selecting a color in a preference dialog.
@@ -19084,6 +19336,11 @@ public extension ColorButtonRef {
 /// 
 /// GtkColorButton has a single CSS node with name button. To differentiate
 /// it from a plain `GtkButton`, it gets the .color style class.
+///
+/// The `ColorButton` type acts as a reference-counted owner of an underlying `GtkColorButton` instance.
+/// It provides the methods that can operate on this data type through `ColorButtonProtocol` conformance.
+/// Use `ColorButton` as a strong reference or owner of a `GtkColorButton` instance.
+///
 open class ColorButton: Button, ColorButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -19957,12 +20214,14 @@ public enum ColorButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20389,12 +20648,14 @@ public extension ColorButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20438,12 +20699,14 @@ public extension ColorButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20487,12 +20750,14 @@ public extension ColorButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20536,12 +20801,14 @@ public extension ColorButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20585,12 +20852,14 @@ public extension ColorButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20634,12 +20903,14 @@ public extension ColorButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20839,13 +21110,14 @@ public extension ColorButtonProtocol {
 
 // MARK: - ColorChooserDialog Class
 
+/// The `GtkColorChooserDialog` widget is a dialog for choosing
+/// a color. It implements the `GtkColorChooser` interface.
+///
 /// The `ColorChooserDialogProtocol` protocol exposes the methods and properties of an underlying `GtkColorChooserDialog` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ColorChooserDialog`.
 /// Alternatively, use `ColorChooserDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkColorChooserDialog` widget is a dialog for choosing
-/// a color. It implements the `GtkColorChooser` interface.
 public protocol ColorChooserDialogProtocol: DialogProtocol, ColorChooserProtocol {
         /// Untyped pointer to the underlying `GtkColorChooserDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -20857,12 +21129,13 @@ public protocol ColorChooserDialogProtocol: DialogProtocol, ColorChooserProtocol
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GtkColorChooserDialog` widget is a dialog for choosing
+/// a color. It implements the `GtkColorChooser` interface.
+///
 /// The `ColorChooserDialogRef` type acts as a lightweight Swift reference to an underlying `GtkColorChooserDialog` instance.
 /// It exposes methods that can operate on this data type through `ColorChooserDialogProtocol` conformance.
 /// Use `ColorChooserDialogRef` only as an `unowned` reference to an existing `GtkColorChooserDialog` instance.
 ///
-/// The `GtkColorChooserDialog` widget is a dialog for choosing
-/// a color. It implements the `GtkColorChooser` interface.
 public struct ColorChooserDialogRef: ColorChooserDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkColorChooserDialog` instance.
     /// For type-safe access, use the generated, typed pointer `color_chooser_dialog_ptr` property instead.
@@ -20949,12 +21222,13 @@ public extension ColorChooserDialogRef {
     }
 }
 
+/// The `GtkColorChooserDialog` widget is a dialog for choosing
+/// a color. It implements the `GtkColorChooser` interface.
+///
 /// The `ColorChooserDialog` type acts as a reference-counted owner of an underlying `GtkColorChooserDialog` instance.
 /// It provides the methods that can operate on this data type through `ColorChooserDialogProtocol` conformance.
 /// Use `ColorChooserDialog` as a strong reference or owner of a `GtkColorChooserDialog` instance.
 ///
-/// The `GtkColorChooserDialog` widget is a dialog for choosing
-/// a color. It implements the `GtkColorChooser` interface.
 open class ColorChooserDialog: Dialog, ColorChooserDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -21826,12 +22100,14 @@ public enum ColorChooserDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -22239,11 +22515,6 @@ public extension ColorChooserDialogProtocol {
 
 // MARK: - ColorChooserWidget Class
 
-/// The `ColorChooserWidgetProtocol` protocol exposes the methods and properties of an underlying `GtkColorChooserWidget` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ColorChooserWidget`.
-/// Alternatively, use `ColorChooserWidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkColorChooserWidget` widget lets the user select a
 /// color. By default, the chooser presents a predefined palette
 /// of colors, plus a small number of settable custom colors.
@@ -22264,6 +22535,12 @@ public extension ColorChooserDialogProtocol {
 /// # CSS names
 /// 
 /// GtkColorChooserWidget has a single CSS node with name colorchooser.
+///
+/// The `ColorChooserWidgetProtocol` protocol exposes the methods and properties of an underlying `GtkColorChooserWidget` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ColorChooserWidget`.
+/// Alternatively, use `ColorChooserWidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ColorChooserWidgetProtocol: BoxProtocol, ColorChooserProtocol {
         /// Untyped pointer to the underlying `GtkColorChooserWidget` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22275,10 +22552,6 @@ public protocol ColorChooserWidgetProtocol: BoxProtocol, ColorChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ColorChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkColorChooserWidget` instance.
-/// It exposes methods that can operate on this data type through `ColorChooserWidgetProtocol` conformance.
-/// Use `ColorChooserWidgetRef` only as an `unowned` reference to an existing `GtkColorChooserWidget` instance.
-///
 /// The `GtkColorChooserWidget` widget lets the user select a
 /// color. By default, the chooser presents a predefined palette
 /// of colors, plus a small number of settable custom colors.
@@ -22299,6 +22572,11 @@ public protocol ColorChooserWidgetProtocol: BoxProtocol, ColorChooserProtocol {
 /// # CSS names
 /// 
 /// GtkColorChooserWidget has a single CSS node with name colorchooser.
+///
+/// The `ColorChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkColorChooserWidget` instance.
+/// It exposes methods that can operate on this data type through `ColorChooserWidgetProtocol` conformance.
+/// Use `ColorChooserWidgetRef` only as an `unowned` reference to an existing `GtkColorChooserWidget` instance.
+///
 public struct ColorChooserWidgetRef: ColorChooserWidgetProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkColorChooserWidget` instance.
     /// For type-safe access, use the generated, typed pointer `color_chooser_widget_ptr` property instead.
@@ -22385,10 +22663,6 @@ public extension ColorChooserWidgetRef {
     }
 }
 
-/// The `ColorChooserWidget` type acts as a reference-counted owner of an underlying `GtkColorChooserWidget` instance.
-/// It provides the methods that can operate on this data type through `ColorChooserWidgetProtocol` conformance.
-/// Use `ColorChooserWidget` as a strong reference or owner of a `GtkColorChooserWidget` instance.
-///
 /// The `GtkColorChooserWidget` widget lets the user select a
 /// color. By default, the chooser presents a predefined palette
 /// of colors, plus a small number of settable custom colors.
@@ -22409,6 +22683,11 @@ public extension ColorChooserWidgetRef {
 /// # CSS names
 /// 
 /// GtkColorChooserWidget has a single CSS node with name colorchooser.
+///
+/// The `ColorChooserWidget` type acts as a reference-counted owner of an underlying `GtkColorChooserWidget` instance.
+/// It provides the methods that can operate on this data type through `ColorChooserWidgetProtocol` conformance.
+/// Use `ColorChooserWidget` as a strong reference or owner of a `GtkColorChooserWidget` instance.
+///
 open class ColorChooserWidget: Box, ColorChooserWidgetProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -23167,12 +23446,14 @@ public enum ColorChooserWidgetSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -23488,12 +23769,13 @@ public extension ColorChooserWidgetProtocol {
 
 // MARK: - ColorSelection Class
 
+
+///
 /// The `ColorSelectionProtocol` protocol exposes the methods and properties of an underlying `GtkColorSelection` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ColorSelection`.
 /// Alternatively, use `ColorSelectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ColorSelectionProtocol: BoxProtocol {
         /// Untyped pointer to the underlying `GtkColorSelection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -23505,11 +23787,12 @@ public protocol ColorSelectionProtocol: BoxProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ColorSelectionRef` type acts as a lightweight Swift reference to an underlying `GtkColorSelection` instance.
 /// It exposes methods that can operate on this data type through `ColorSelectionProtocol` conformance.
 /// Use `ColorSelectionRef` only as an `unowned` reference to an existing `GtkColorSelection` instance.
 ///
-
 public struct ColorSelectionRef: ColorSelectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkColorSelection` instance.
     /// For type-safe access, use the generated, typed pointer `color_selection_ptr` property instead.
@@ -23597,11 +23880,12 @@ public extension ColorSelectionRef {
     }
 }
 
+
+///
 /// The `ColorSelection` type acts as a reference-counted owner of an underlying `GtkColorSelection` instance.
 /// It provides the methods that can operate on this data type through `ColorSelectionProtocol` conformance.
 /// Use `ColorSelection` as a strong reference or owner of a `GtkColorSelection` instance.
 ///
-
 open class ColorSelection: Box, ColorSelectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -24370,12 +24654,14 @@ public enum ColorSelectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -24744,12 +25030,14 @@ public extension ColorSelectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -24793,12 +25081,14 @@ public extension ColorSelectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -24842,12 +25132,14 @@ public extension ColorSelectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -24891,12 +25183,14 @@ public extension ColorSelectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -24940,12 +25234,14 @@ public extension ColorSelectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -25202,12 +25498,13 @@ public extension ColorSelectionProtocol {
 
 // MARK: - ColorSelectionDialog Class
 
+
+///
 /// The `ColorSelectionDialogProtocol` protocol exposes the methods and properties of an underlying `GtkColorSelectionDialog` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ColorSelectionDialog`.
 /// Alternatively, use `ColorSelectionDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ColorSelectionDialogProtocol: DialogProtocol {
         /// Untyped pointer to the underlying `GtkColorSelectionDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -25219,11 +25516,12 @@ public protocol ColorSelectionDialogProtocol: DialogProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ColorSelectionDialogRef` type acts as a lightweight Swift reference to an underlying `GtkColorSelectionDialog` instance.
 /// It exposes methods that can operate on this data type through `ColorSelectionDialogProtocol` conformance.
 /// Use `ColorSelectionDialogRef` only as an `unowned` reference to an existing `GtkColorSelectionDialog` instance.
 ///
-
 public struct ColorSelectionDialogRef: ColorSelectionDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkColorSelectionDialog` instance.
     /// For type-safe access, use the generated, typed pointer `color_selection_dialog_ptr` property instead.
@@ -25311,11 +25609,12 @@ public extension ColorSelectionDialogRef {
     }
 }
 
+
+///
 /// The `ColorSelectionDialog` type acts as a reference-counted owner of an underlying `GtkColorSelectionDialog` instance.
 /// It provides the methods that can operate on this data type through `ColorSelectionDialogProtocol` conformance.
 /// Use `ColorSelectionDialog` as a strong reference or owner of a `GtkColorSelectionDialog` instance.
 ///
-
 open class ColorSelectionDialog: Dialog, ColorSelectionDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -26191,12 +26490,14 @@ public enum ColorSelectionDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -26622,11 +26923,6 @@ public extension ColorSelectionDialogProtocol {
 
 // MARK: - ComboBox Class
 
-/// The `ComboBoxProtocol` protocol exposes the methods and properties of an underlying `GtkComboBox` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ComboBox`.
-/// Alternatively, use `ComboBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A GtkComboBox is a widget that allows the user to choose from a list of
 /// valid choices. The GtkComboBox displays the selected choice. When
 /// activated, the GtkComboBox displays a popup which allows the user to
@@ -26683,6 +26979,12 @@ public extension ColorSelectionDialogProtocol {
 /// contains a box with the .linked class. That box contains an entry and a
 /// button, both with the .combo class added.
 /// The button also contains another node with name arrow.
+///
+/// The `ComboBoxProtocol` protocol exposes the methods and properties of an underlying `GtkComboBox` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ComboBox`.
+/// Alternatively, use `ComboBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ComboBoxProtocol: BinProtocol, CellEditableProtocol, CellLayoutProtocol {
         /// Untyped pointer to the underlying `GtkComboBox` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -26694,10 +26996,6 @@ public protocol ComboBoxProtocol: BinProtocol, CellEditableProtocol, CellLayoutP
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ComboBoxRef` type acts as a lightweight Swift reference to an underlying `GtkComboBox` instance.
-/// It exposes methods that can operate on this data type through `ComboBoxProtocol` conformance.
-/// Use `ComboBoxRef` only as an `unowned` reference to an existing `GtkComboBox` instance.
-///
 /// A GtkComboBox is a widget that allows the user to choose from a list of
 /// valid choices. The GtkComboBox displays the selected choice. When
 /// activated, the GtkComboBox displays a popup which allows the user to
@@ -26754,6 +27052,11 @@ public protocol ComboBoxProtocol: BinProtocol, CellEditableProtocol, CellLayoutP
 /// contains a box with the .linked class. That box contains an entry and a
 /// button, both with the .combo class added.
 /// The button also contains another node with name arrow.
+///
+/// The `ComboBoxRef` type acts as a lightweight Swift reference to an underlying `GtkComboBox` instance.
+/// It exposes methods that can operate on this data type through `ComboBoxProtocol` conformance.
+/// Use `ComboBoxRef` only as an `unowned` reference to an existing `GtkComboBox` instance.
+///
 public struct ComboBoxRef: ComboBoxProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkComboBox` instance.
     /// For type-safe access, use the generated, typed pointer `combo_box_ptr` property instead.
@@ -26900,10 +27203,6 @@ public extension ComboBoxRef {
     }
 }
 
-/// The `ComboBox` type acts as a reference-counted owner of an underlying `GtkComboBox` instance.
-/// It provides the methods that can operate on this data type through `ComboBoxProtocol` conformance.
-/// Use `ComboBox` as a strong reference or owner of a `GtkComboBox` instance.
-///
 /// A GtkComboBox is a widget that allows the user to choose from a list of
 /// valid choices. The GtkComboBox displays the selected choice. When
 /// activated, the GtkComboBox displays a popup which allows the user to
@@ -26960,6 +27259,11 @@ public extension ComboBoxRef {
 /// contains a box with the .linked class. That box contains an entry and a
 /// button, both with the .combo class added.
 /// The button also contains another node with name arrow.
+///
+/// The `ComboBox` type acts as a reference-counted owner of an underlying `GtkComboBox` instance.
+/// It provides the methods that can operate on this data type through `ComboBoxProtocol` conformance.
+/// Use `ComboBox` as a strong reference or owner of a `GtkComboBox` instance.
+///
 open class ComboBox: Bin, ComboBoxProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -27890,12 +28194,14 @@ public enum ComboBoxSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -28480,12 +28786,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -28529,12 +28837,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -28578,12 +28888,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -28627,12 +28939,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -28676,12 +28990,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -28725,12 +29041,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -28774,12 +29092,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -28823,12 +29143,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -28872,12 +29194,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -28921,12 +29245,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -28970,12 +29296,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -29019,12 +29347,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -29068,12 +29398,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -29117,12 +29449,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -29166,12 +29500,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -29215,12 +29551,14 @@ public extension ComboBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -29425,8 +29763,8 @@ public extension ComboBoxProtocol {
     }
 
     /// Sets the active item of `combo_box` to be the item at `index`.
-    @inlinable func setActive(index_: Int) {
-        gtk_combo_box_set_active(combo_box_ptr, gint(index_))
+    @inlinable func setActive(index: Int) {
+        gtk_combo_box_set_active(combo_box_ptr, gint(index))
     
     }
 
@@ -29900,12 +30238,13 @@ public extension ComboBoxProtocol {
 
 // MARK: - ComboBoxAccessible Class
 
+
+///
 /// The `ComboBoxAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkComboBoxAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ComboBoxAccessible`.
 /// Alternatively, use `ComboBoxAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ComboBoxAccessibleProtocol: ContainerAccessibleProtocol, Atk.ActionProtocol, Atk.SelectionProtocol {
         /// Untyped pointer to the underlying `GtkComboBoxAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -29917,11 +30256,12 @@ public protocol ComboBoxAccessibleProtocol: ContainerAccessibleProtocol, Atk.Act
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ComboBoxAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkComboBoxAccessible` instance.
 /// It exposes methods that can operate on this data type through `ComboBoxAccessibleProtocol` conformance.
 /// Use `ComboBoxAccessibleRef` only as an `unowned` reference to an existing `GtkComboBoxAccessible` instance.
 ///
-
 public struct ComboBoxAccessibleRef: ComboBoxAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkComboBoxAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `combo_box_accessible_ptr` property instead.
@@ -30003,11 +30343,12 @@ public extension ComboBoxAccessibleRef {
 
     }
 
+
+///
 /// The `ComboBoxAccessible` type acts as a reference-counted owner of an underlying `GtkComboBoxAccessible` instance.
 /// It provides the methods that can operate on this data type through `ComboBoxAccessibleProtocol` conformance.
 /// Use `ComboBoxAccessible` as a strong reference or owner of a `GtkComboBoxAccessible` instance.
 ///
-
 open class ComboBoxAccessible: ContainerAccessible, ComboBoxAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -30270,12 +30611,14 @@ public enum ComboBoxAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -30371,11 +30714,6 @@ public extension ComboBoxAccessibleProtocol {
 
 // MARK: - ComboBoxText Class
 
-/// The `ComboBoxTextProtocol` protocol exposes the methods and properties of an underlying `GtkComboBoxText` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ComboBoxText`.
-/// Alternatively, use `ComboBoxTextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A GtkComboBoxText is a simple variant of `GtkComboBox` that hides
 /// the model-view complexity for simple text-only use cases.
 /// 
@@ -30428,6 +30766,12 @@ public extension ComboBoxAccessibleProtocol {
 /// GtkComboBoxText has a single CSS node with name combobox. It adds
 /// the style class .combo to the main CSS nodes of its entry and button
 /// children, and the .linked class to the node of its internal box.
+///
+/// The `ComboBoxTextProtocol` protocol exposes the methods and properties of an underlying `GtkComboBoxText` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ComboBoxText`.
+/// Alternatively, use `ComboBoxTextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ComboBoxTextProtocol: ComboBoxProtocol {
         /// Untyped pointer to the underlying `GtkComboBoxText` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -30439,10 +30783,6 @@ public protocol ComboBoxTextProtocol: ComboBoxProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ComboBoxTextRef` type acts as a lightweight Swift reference to an underlying `GtkComboBoxText` instance.
-/// It exposes methods that can operate on this data type through `ComboBoxTextProtocol` conformance.
-/// Use `ComboBoxTextRef` only as an `unowned` reference to an existing `GtkComboBoxText` instance.
-///
 /// A GtkComboBoxText is a simple variant of `GtkComboBox` that hides
 /// the model-view complexity for simple text-only use cases.
 /// 
@@ -30495,6 +30835,11 @@ public protocol ComboBoxTextProtocol: ComboBoxProtocol {
 /// GtkComboBoxText has a single CSS node with name combobox. It adds
 /// the style class .combo to the main CSS nodes of its entry and button
 /// children, and the .linked class to the node of its internal box.
+///
+/// The `ComboBoxTextRef` type acts as a lightweight Swift reference to an underlying `GtkComboBoxText` instance.
+/// It exposes methods that can operate on this data type through `ComboBoxTextProtocol` conformance.
+/// Use `ComboBoxTextRef` only as an `unowned` reference to an existing `GtkComboBoxText` instance.
+///
 public struct ComboBoxTextRef: ComboBoxTextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkComboBoxText` instance.
     /// For type-safe access, use the generated, typed pointer `combo_box_text_ptr` property instead.
@@ -30588,10 +30933,6 @@ public extension ComboBoxTextRef {
     }
 }
 
-/// The `ComboBoxText` type acts as a reference-counted owner of an underlying `GtkComboBoxText` instance.
-/// It provides the methods that can operate on this data type through `ComboBoxTextProtocol` conformance.
-/// Use `ComboBoxText` as a strong reference or owner of a `GtkComboBoxText` instance.
-///
 /// A GtkComboBoxText is a simple variant of `GtkComboBox` that hides
 /// the model-view complexity for simple text-only use cases.
 /// 
@@ -30644,6 +30985,11 @@ public extension ComboBoxTextRef {
 /// GtkComboBoxText has a single CSS node with name combobox. It adds
 /// the style class .combo to the main CSS nodes of its entry and button
 /// children, and the .linked class to the node of its internal box.
+///
+/// The `ComboBoxText` type acts as a reference-counted owner of an underlying `GtkComboBoxText` instance.
+/// It provides the methods that can operate on this data type through `ComboBoxTextProtocol` conformance.
+/// Use `ComboBoxText` as a strong reference or owner of a `GtkComboBoxText` instance.
+///
 open class ComboBoxText: ComboBox, ComboBoxTextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -31514,12 +31860,14 @@ public enum ComboBoxTextSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -31993,11 +32341,6 @@ public extension ComboBoxTextProtocol {
 
 // MARK: - Container Class
 
-/// The `ContainerProtocol` protocol exposes the methods and properties of an underlying `GtkContainer` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Container`.
-/// Alternatively, use `ContainerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A GTK+ user interface is constructed by nesting widgets inside widgets.
 /// Container widgets are the inner nodes in the resulting tree of widgets:
 /// they contain other widgets. So, for example, you might have a `GtkWindow`
@@ -32201,6 +32544,12 @@ public extension ComboBoxTextProtocol {
 /// </object>
 /// ```
 /// 
+///
+/// The `ContainerProtocol` protocol exposes the methods and properties of an underlying `GtkContainer` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Container`.
+/// Alternatively, use `ContainerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ContainerProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkContainer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -32212,10 +32561,6 @@ public protocol ContainerProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ContainerRef` type acts as a lightweight Swift reference to an underlying `GtkContainer` instance.
-/// It exposes methods that can operate on this data type through `ContainerProtocol` conformance.
-/// Use `ContainerRef` only as an `unowned` reference to an existing `GtkContainer` instance.
-///
 /// A GTK+ user interface is constructed by nesting widgets inside widgets.
 /// Container widgets are the inner nodes in the resulting tree of widgets:
 /// they contain other widgets. So, for example, you might have a `GtkWindow`
@@ -32419,6 +32764,11 @@ public protocol ContainerProtocol: WidgetProtocol {
 /// </object>
 /// ```
 /// 
+///
+/// The `ContainerRef` type acts as a lightweight Swift reference to an underlying `GtkContainer` instance.
+/// It exposes methods that can operate on this data type through `ContainerProtocol` conformance.
+/// Use `ContainerRef` only as an `unowned` reference to an existing `GtkContainer` instance.
+///
 public struct ContainerRef: ContainerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkContainer` instance.
     /// For type-safe access, use the generated, typed pointer `container_ptr` property instead.
@@ -32500,10 +32850,6 @@ public extension ContainerRef {
 
     }
 
-/// The `Container` type acts as a reference-counted owner of an underlying `GtkContainer` instance.
-/// It provides the methods that can operate on this data type through `ContainerProtocol` conformance.
-/// Use `Container` as a strong reference or owner of a `GtkContainer` instance.
-///
 /// A GTK+ user interface is constructed by nesting widgets inside widgets.
 /// Container widgets are the inner nodes in the resulting tree of widgets:
 /// they contain other widgets. So, for example, you might have a `GtkWindow`
@@ -32707,6 +33053,11 @@ public extension ContainerRef {
 /// </object>
 /// ```
 /// 
+///
+/// The `Container` type acts as a reference-counted owner of an underlying `GtkContainer` instance.
+/// It provides the methods that can operate on this data type through `ContainerProtocol` conformance.
+/// Use `Container` as a strong reference or owner of a `GtkContainer` instance.
+///
 open class Container: Widget, ContainerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -33452,12 +33803,14 @@ public enum ContainerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -33886,12 +34239,14 @@ public extension ContainerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -33935,12 +34290,14 @@ public extension ContainerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -33984,12 +34341,14 @@ public extension ContainerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -34537,12 +34896,13 @@ public extension ContainerProtocol {
 
 // MARK: - ContainerAccessible Class
 
+
+///
 /// The `ContainerAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkContainerAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ContainerAccessible`.
 /// Alternatively, use `ContainerAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ContainerAccessibleProtocol: WidgetAccessibleProtocol {
         /// Untyped pointer to the underlying `GtkContainerAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34554,11 +34914,12 @@ public protocol ContainerAccessibleProtocol: WidgetAccessibleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ContainerAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkContainerAccessible` instance.
 /// It exposes methods that can operate on this data type through `ContainerAccessibleProtocol` conformance.
 /// Use `ContainerAccessibleRef` only as an `unowned` reference to an existing `GtkContainerAccessible` instance.
 ///
-
 public struct ContainerAccessibleRef: ContainerAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkContainerAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `container_accessible_ptr` property instead.
@@ -34640,11 +35001,12 @@ public extension ContainerAccessibleRef {
 
     }
 
+
+///
 /// The `ContainerAccessible` type acts as a reference-counted owner of an underlying `GtkContainerAccessible` instance.
 /// It provides the methods that can operate on this data type through `ContainerAccessibleProtocol` conformance.
 /// Use `ContainerAccessible` as a strong reference or owner of a `GtkContainerAccessible` instance.
 ///
-
 open class ContainerAccessible: WidgetAccessible, ContainerAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -34907,12 +35269,14 @@ public enum ContainerAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -35008,12 +35372,13 @@ public extension ContainerAccessibleProtocol {
 
 // MARK: - ContainerCellAccessible Class
 
+
+///
 /// The `ContainerCellAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkContainerCellAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ContainerCellAccessible`.
 /// Alternatively, use `ContainerCellAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ContainerCellAccessibleProtocol: CellAccessibleProtocol {
         /// Untyped pointer to the underlying `GtkContainerCellAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -35025,11 +35390,12 @@ public protocol ContainerCellAccessibleProtocol: CellAccessibleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ContainerCellAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkContainerCellAccessible` instance.
 /// It exposes methods that can operate on this data type through `ContainerCellAccessibleProtocol` conformance.
 /// Use `ContainerCellAccessibleRef` only as an `unowned` reference to an existing `GtkContainerCellAccessible` instance.
 ///
-
 public struct ContainerCellAccessibleRef: ContainerCellAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkContainerCellAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `container_cell_accessible_ptr` property instead.
@@ -35115,11 +35481,12 @@ public extension ContainerCellAccessibleRef {
     }
 }
 
+
+///
 /// The `ContainerCellAccessible` type acts as a reference-counted owner of an underlying `GtkContainerCellAccessible` instance.
 /// It provides the methods that can operate on this data type through `ContainerCellAccessibleProtocol` conformance.
 /// Use `ContainerCellAccessible` as a strong reference or owner of a `GtkContainerCellAccessible` instance.
 ///
-
 open class ContainerCellAccessible: CellAccessible, ContainerCellAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -35387,12 +35754,14 @@ public enum ContainerCellAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -35511,11 +35880,6 @@ public extension ContainerCellAccessibleProtocol {
 
 // MARK: - CssProvider Class
 
-/// The `CssProviderProtocol` protocol exposes the methods and properties of an underlying `GtkCssProvider` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CssProvider`.
-/// Alternatively, use `CssProviderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GtkCssProvider is an object implementing the `GtkStyleProvider` interface.
 /// It is able to parse [CSS-like](#css-overview) input in order to style widgets.
 /// 
@@ -35539,6 +35903,12 @@ public extension ContainerCellAccessibleProtocol {
 /// 
 /// In the same way, GTK+ tries to load a gtk-keys.css file for the current
 /// key theme, as defined by `GtkSettings:gtk-key-theme-name`.
+///
+/// The `CssProviderProtocol` protocol exposes the methods and properties of an underlying `GtkCssProvider` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CssProvider`.
+/// Alternatively, use `CssProviderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CssProviderProtocol: GLibObject.ObjectProtocol, StyleProviderProtocol {
         /// Untyped pointer to the underlying `GtkCssProvider` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -35550,10 +35920,6 @@ public protocol CssProviderProtocol: GLibObject.ObjectProtocol, StyleProviderPro
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CssProviderRef` type acts as a lightweight Swift reference to an underlying `GtkCssProvider` instance.
-/// It exposes methods that can operate on this data type through `CssProviderProtocol` conformance.
-/// Use `CssProviderRef` only as an `unowned` reference to an existing `GtkCssProvider` instance.
-///
 /// GtkCssProvider is an object implementing the `GtkStyleProvider` interface.
 /// It is able to parse [CSS-like](#css-overview) input in order to style widgets.
 /// 
@@ -35577,6 +35943,11 @@ public protocol CssProviderProtocol: GLibObject.ObjectProtocol, StyleProviderPro
 /// 
 /// In the same way, GTK+ tries to load a gtk-keys.css file for the current
 /// key theme, as defined by `GtkSettings:gtk-key-theme-name`.
+///
+/// The `CssProviderRef` type acts as a lightweight Swift reference to an underlying `GtkCssProvider` instance.
+/// It exposes methods that can operate on this data type through `CssProviderProtocol` conformance.
+/// Use `CssProviderRef` only as an `unowned` reference to an existing `GtkCssProvider` instance.
+///
 public struct CssProviderRef: CssProviderProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCssProvider` instance.
     /// For type-safe access, use the generated, typed pointer `css_provider_ptr` property instead.
@@ -35679,10 +36050,6 @@ public extension CssProviderRef {
     }
 }
 
-/// The `CssProvider` type acts as a reference-counted owner of an underlying `GtkCssProvider` instance.
-/// It provides the methods that can operate on this data type through `CssProviderProtocol` conformance.
-/// Use `CssProvider` as a strong reference or owner of a `GtkCssProvider` instance.
-///
 /// GtkCssProvider is an object implementing the `GtkStyleProvider` interface.
 /// It is able to parse [CSS-like](#css-overview) input in order to style widgets.
 /// 
@@ -35706,6 +36073,11 @@ public extension CssProviderRef {
 /// 
 /// In the same way, GTK+ tries to load a gtk-keys.css file for the current
 /// key theme, as defined by `GtkSettings:gtk-key-theme-name`.
+///
+/// The `CssProvider` type acts as a reference-counted owner of an underlying `GtkCssProvider` instance.
+/// It provides the methods that can operate on this data type through `CssProviderProtocol` conformance.
+/// Use `CssProvider` as a strong reference or owner of a `GtkCssProvider` instance.
+///
 open class CssProvider: GLibObject.Object, CssProviderProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -35877,12 +36249,14 @@ public enum CssProviderSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -36039,11 +36413,6 @@ public extension CssProviderProtocol {
 
 // MARK: - Dialog Class
 
-/// The `DialogProtocol` protocol exposes the methods and properties of an underlying `GtkDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Dialog`.
-/// Alternatively, use `DialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Dialog boxes are a convenient way to prompt the user for a small amount
 /// of input, e.g. to display a message, ask a question, or anything else
 /// that does not require extensive effort on the user’s part.
@@ -36163,6 +36532,12 @@ public extension CssProviderProtocol {
 /// </object>
 /// ```
 /// 
+///
+/// The `DialogProtocol` protocol exposes the methods and properties of an underlying `GtkDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Dialog`.
+/// Alternatively, use `DialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DialogProtocol: WindowProtocol {
         /// Untyped pointer to the underlying `GtkDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36174,10 +36549,6 @@ public protocol DialogProtocol: WindowProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DialogRef` type acts as a lightweight Swift reference to an underlying `GtkDialog` instance.
-/// It exposes methods that can operate on this data type through `DialogProtocol` conformance.
-/// Use `DialogRef` only as an `unowned` reference to an existing `GtkDialog` instance.
-///
 /// Dialog boxes are a convenient way to prompt the user for a small amount
 /// of input, e.g. to display a message, ask a question, or anything else
 /// that does not require extensive effort on the user’s part.
@@ -36297,6 +36668,11 @@ public protocol DialogProtocol: WindowProtocol {
 /// </object>
 /// ```
 /// 
+///
+/// The `DialogRef` type acts as a lightweight Swift reference to an underlying `GtkDialog` instance.
+/// It exposes methods that can operate on this data type through `DialogProtocol` conformance.
+/// Use `DialogRef` only as an `unowned` reference to an existing `GtkDialog` instance.
+///
 public struct DialogRef: DialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkDialog` instance.
     /// For type-safe access, use the generated, typed pointer `dialog_ptr` property instead.
@@ -36393,10 +36769,6 @@ public extension DialogRef {
 
 }
 
-/// The `Dialog` type acts as a reference-counted owner of an underlying `GtkDialog` instance.
-/// It provides the methods that can operate on this data type through `DialogProtocol` conformance.
-/// Use `Dialog` as a strong reference or owner of a `GtkDialog` instance.
-///
 /// Dialog boxes are a convenient way to prompt the user for a small amount
 /// of input, e.g. to display a message, ask a question, or anything else
 /// that does not require extensive effort on the user’s part.
@@ -36516,6 +36888,11 @@ public extension DialogRef {
 /// </object>
 /// ```
 /// 
+///
+/// The `Dialog` type acts as a reference-counted owner of an underlying `GtkDialog` instance.
+/// It provides the methods that can operate on this data type through `DialogProtocol` conformance.
+/// Use `Dialog` as a strong reference or owner of a `GtkDialog` instance.
+///
 open class Dialog: Window, DialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -37396,12 +37773,14 @@ public enum DialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -37888,12 +38267,14 @@ public extension DialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

@@ -32,12 +32,13 @@ public extension HButtonBoxClassRef {
 
 // MARK: - HButtonBoxClass Record
 
+
+///
 /// The `HButtonBoxClassProtocol` protocol exposes the methods and properties of an underlying `GtkHButtonBoxClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HButtonBoxClass`.
 /// Alternatively, use `HButtonBoxClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HButtonBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkHButtonBoxClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,11 +50,12 @@ public protocol HButtonBoxClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HButtonBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkHButtonBoxClass` instance.
 /// It exposes methods that can operate on this data type through `HButtonBoxClassProtocol` conformance.
 /// Use `HButtonBoxClassRef` only as an `unowned` reference to an existing `GtkHButtonBoxClass` instance.
 ///
-
 public struct HButtonBoxClassRef: HButtonBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkHButtonBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -166,12 +168,13 @@ public extension HPanedClassRef {
 
 // MARK: - HPanedClass Record
 
+
+///
 /// The `HPanedClassProtocol` protocol exposes the methods and properties of an underlying `GtkHPanedClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HPanedClass`.
 /// Alternatively, use `HPanedClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HPanedClassProtocol {
         /// Untyped pointer to the underlying `GtkHPanedClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -183,11 +186,12 @@ public protocol HPanedClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HPanedClassRef` type acts as a lightweight Swift reference to an underlying `GtkHPanedClass` instance.
 /// It exposes methods that can operate on this data type through `HPanedClassProtocol` conformance.
 /// Use `HPanedClassRef` only as an `unowned` reference to an existing `GtkHPanedClass` instance.
 ///
-
 public struct HPanedClassRef: HPanedClassProtocol {
         /// Untyped pointer to the underlying `GtkHPanedClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -300,12 +304,13 @@ public extension HSVClassRef {
 
 // MARK: - HSVClass Record
 
+
+///
 /// The `HSVClassProtocol` protocol exposes the methods and properties of an underlying `GtkHSVClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HSVClass`.
 /// Alternatively, use `HSVClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HSVClassProtocol {
         /// Untyped pointer to the underlying `GtkHSVClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -317,11 +322,12 @@ public protocol HSVClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HSVClassRef` type acts as a lightweight Swift reference to an underlying `GtkHSVClass` instance.
 /// It exposes methods that can operate on this data type through `HSVClassProtocol` conformance.
 /// Use `HSVClassRef` only as an `unowned` reference to an existing `GtkHSVClass` instance.
 ///
-
 public struct HSVClassRef: HSVClassProtocol {
         /// Untyped pointer to the underlying `GtkHSVClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -446,12 +452,13 @@ public extension HScaleClassRef {
 
 // MARK: - HScaleClass Record
 
+
+///
 /// The `HScaleClassProtocol` protocol exposes the methods and properties of an underlying `GtkHScaleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HScaleClass`.
 /// Alternatively, use `HScaleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HScaleClassProtocol {
         /// Untyped pointer to the underlying `GtkHScaleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -463,11 +470,12 @@ public protocol HScaleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HScaleClassRef` type acts as a lightweight Swift reference to an underlying `GtkHScaleClass` instance.
 /// It exposes methods that can operate on this data type through `HScaleClassProtocol` conformance.
 /// Use `HScaleClassRef` only as an `unowned` reference to an existing `GtkHScaleClass` instance.
 ///
-
 public struct HScaleClassRef: HScaleClassProtocol {
         /// Untyped pointer to the underlying `GtkHScaleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -580,12 +588,13 @@ public extension HScrollbarClassRef {
 
 // MARK: - HScrollbarClass Record
 
+
+///
 /// The `HScrollbarClassProtocol` protocol exposes the methods and properties of an underlying `GtkHScrollbarClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HScrollbarClass`.
 /// Alternatively, use `HScrollbarClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HScrollbarClassProtocol {
         /// Untyped pointer to the underlying `GtkHScrollbarClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -597,11 +606,12 @@ public protocol HScrollbarClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HScrollbarClassRef` type acts as a lightweight Swift reference to an underlying `GtkHScrollbarClass` instance.
 /// It exposes methods that can operate on this data type through `HScrollbarClassProtocol` conformance.
 /// Use `HScrollbarClassRef` only as an `unowned` reference to an existing `GtkHScrollbarClass` instance.
 ///
-
 public struct HScrollbarClassRef: HScrollbarClassProtocol {
         /// Untyped pointer to the underlying `GtkHScrollbarClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -714,12 +724,13 @@ public extension HSeparatorClassRef {
 
 // MARK: - HSeparatorClass Record
 
+
+///
 /// The `HSeparatorClassProtocol` protocol exposes the methods and properties of an underlying `GtkHSeparatorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HSeparatorClass`.
 /// Alternatively, use `HSeparatorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HSeparatorClassProtocol {
         /// Untyped pointer to the underlying `GtkHSeparatorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -731,11 +742,12 @@ public protocol HSeparatorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HSeparatorClassRef` type acts as a lightweight Swift reference to an underlying `GtkHSeparatorClass` instance.
 /// It exposes methods that can operate on this data type through `HSeparatorClassProtocol` conformance.
 /// Use `HSeparatorClassRef` only as an `unowned` reference to an existing `GtkHSeparatorClass` instance.
 ///
-
 public struct HSeparatorClassRef: HSeparatorClassProtocol {
         /// Untyped pointer to the underlying `GtkHSeparatorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -848,12 +860,13 @@ public extension HandleBoxClassRef {
 
 // MARK: - HandleBoxClass Record
 
+
+///
 /// The `HandleBoxClassProtocol` protocol exposes the methods and properties of an underlying `GtkHandleBoxClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HandleBoxClass`.
 /// Alternatively, use `HandleBoxClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HandleBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkHandleBoxClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -865,11 +878,12 @@ public protocol HandleBoxClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HandleBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkHandleBoxClass` instance.
 /// It exposes methods that can operate on this data type through `HandleBoxClassProtocol` conformance.
 /// Use `HandleBoxClassRef` only as an `unowned` reference to an existing `GtkHandleBoxClass` instance.
 ///
-
 public struct HandleBoxClassRef: HandleBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkHandleBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -996,12 +1010,13 @@ public extension HeaderBarAccessibleClassRef {
 
 // MARK: - HeaderBarAccessibleClass Record
 
+
+///
 /// The `HeaderBarAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkHeaderBarAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HeaderBarAccessibleClass`.
 /// Alternatively, use `HeaderBarAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HeaderBarAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkHeaderBarAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1013,11 +1028,12 @@ public protocol HeaderBarAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HeaderBarAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkHeaderBarAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `HeaderBarAccessibleClassProtocol` conformance.
 /// Use `HeaderBarAccessibleClassRef` only as an `unowned` reference to an existing `GtkHeaderBarAccessibleClass` instance.
 ///
-
 public struct HeaderBarAccessibleClassRef: HeaderBarAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkHeaderBarAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1130,12 +1146,13 @@ public extension HeaderBarClassRef {
 
 // MARK: - HeaderBarClass Record
 
+
+///
 /// The `HeaderBarClassProtocol` protocol exposes the methods and properties of an underlying `GtkHeaderBarClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HeaderBarClass`.
 /// Alternatively, use `HeaderBarClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HeaderBarClassProtocol {
         /// Untyped pointer to the underlying `GtkHeaderBarClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1147,11 +1164,12 @@ public protocol HeaderBarClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HeaderBarClassRef` type acts as a lightweight Swift reference to an underlying `GtkHeaderBarClass` instance.
 /// It exposes methods that can operate on this data type through `HeaderBarClassProtocol` conformance.
 /// Use `HeaderBarClassRef` only as an `unowned` reference to an existing `GtkHeaderBarClass` instance.
 ///
-
 public struct HeaderBarClassRef: HeaderBarClassProtocol {
         /// Untyped pointer to the underlying `GtkHeaderBarClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1272,12 +1290,13 @@ public extension IMContextClassRef {
 
 // MARK: - IMContextClass Record
 
+
+///
 /// The `IMContextClassProtocol` protocol exposes the methods and properties of an underlying `GtkIMContextClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IMContextClass`.
 /// Alternatively, use `IMContextClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IMContextClassProtocol {
         /// Untyped pointer to the underlying `GtkIMContextClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1289,11 +1308,12 @@ public protocol IMContextClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IMContextClassRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextClass` instance.
 /// It exposes methods that can operate on this data type through `IMContextClassProtocol` conformance.
 /// Use `IMContextClassRef` only as an `unowned` reference to an existing `GtkIMContextClass` instance.
 ///
-
 public struct IMContextClassRef: IMContextClassProtocol {
         /// Untyped pointer to the underlying `GtkIMContextClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

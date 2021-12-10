@@ -17,12 +17,13 @@ import Atk
 
 // MARK: - IMContextInfo Record
 
+/// Bookkeeping information about a loadable input method.
+///
 /// The `IMContextInfoProtocol` protocol exposes the methods and properties of an underlying `GtkIMContextInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IMContextInfo`.
 /// Alternatively, use `IMContextInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Bookkeeping information about a loadable input method.
 public protocol IMContextInfoProtocol {
         /// Untyped pointer to the underlying `GtkIMContextInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,11 +35,12 @@ public protocol IMContextInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Bookkeeping information about a loadable input method.
+///
 /// The `IMContextInfoRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextInfo` instance.
 /// It exposes methods that can operate on this data type through `IMContextInfoProtocol` conformance.
 /// Use `IMContextInfoRef` only as an `unowned` reference to an existing `GtkIMContextInfo` instance.
 ///
-/// Bookkeeping information about a loadable input method.
 public struct IMContextInfoRef: IMContextInfoProtocol {
         /// Untyped pointer to the underlying `GtkIMContextInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -117,11 +119,12 @@ public extension IMContextInfoRef {
 
     }
 
+/// Bookkeeping information about a loadable input method.
+///
 /// The `IMContextInfo` type acts as an owner of an underlying `GtkIMContextInfo` instance.
 /// It provides the methods that can operate on this data type through `IMContextInfoProtocol` conformance.
 /// Use `IMContextInfo` as a strong reference or owner of a `GtkIMContextInfo` instance.
 ///
-/// Bookkeeping information about a loadable input method.
 open class IMContextInfo: IMContextInfoProtocol {
         /// Untyped pointer to the underlying `GtkIMContextInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -366,12 +369,13 @@ public extension IMContextSimpleClassRef {
 
 // MARK: - IMContextSimpleClass Record
 
+
+///
 /// The `IMContextSimpleClassProtocol` protocol exposes the methods and properties of an underlying `GtkIMContextSimpleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IMContextSimpleClass`.
 /// Alternatively, use `IMContextSimpleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IMContextSimpleClassProtocol {
         /// Untyped pointer to the underlying `GtkIMContextSimpleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -383,11 +387,12 @@ public protocol IMContextSimpleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IMContextSimpleClassRef` type acts as a lightweight Swift reference to an underlying `GtkIMContextSimpleClass` instance.
 /// It exposes methods that can operate on this data type through `IMContextSimpleClassProtocol` conformance.
 /// Use `IMContextSimpleClassRef` only as an `unowned` reference to an existing `GtkIMContextSimpleClass` instance.
 ///
-
 public struct IMContextSimpleClassRef: IMContextSimpleClassProtocol {
         /// Untyped pointer to the underlying `GtkIMContextSimpleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -500,12 +505,13 @@ public extension IMMulticontextClassRef {
 
 // MARK: - IMMulticontextClass Record
 
+
+///
 /// The `IMMulticontextClassProtocol` protocol exposes the methods and properties of an underlying `GtkIMMulticontextClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IMMulticontextClass`.
 /// Alternatively, use `IMMulticontextClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IMMulticontextClassProtocol {
         /// Untyped pointer to the underlying `GtkIMMulticontextClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -517,11 +523,12 @@ public protocol IMMulticontextClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IMMulticontextClassRef` type acts as a lightweight Swift reference to an underlying `GtkIMMulticontextClass` instance.
 /// It exposes methods that can operate on this data type through `IMMulticontextClassProtocol` conformance.
 /// Use `IMMulticontextClassRef` only as an `unowned` reference to an existing `GtkIMMulticontextClass` instance.
 ///
-
 public struct IMMulticontextClassRef: IMMulticontextClassProtocol {
         /// Untyped pointer to the underlying `GtkIMMulticontextClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -642,12 +649,13 @@ public extension IconFactoryClassRef {
 
 // MARK: - IconFactoryClass Record
 
+
+///
 /// The `IconFactoryClassProtocol` protocol exposes the methods and properties of an underlying `GtkIconFactoryClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IconFactoryClass`.
 /// Alternatively, use `IconFactoryClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IconFactoryClassProtocol {
         /// Untyped pointer to the underlying `GtkIconFactoryClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -659,11 +667,12 @@ public protocol IconFactoryClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IconFactoryClassRef` type acts as a lightweight Swift reference to an underlying `GtkIconFactoryClass` instance.
 /// It exposes methods that can operate on this data type through `IconFactoryClassProtocol` conformance.
 /// Use `IconFactoryClassRef` only as an `unowned` reference to an existing `GtkIconFactoryClass` instance.
 ///
-
 public struct IconFactoryClassRef: IconFactoryClassProtocol {
         /// Untyped pointer to the underlying `GtkIconFactoryClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -786,12 +795,13 @@ public extension IconInfoClassRef {
 
 // MARK: - IconInfoClass Record
 
+
+///
 /// The `IconInfoClassProtocol` protocol exposes the methods and properties of an underlying `GtkIconInfoClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IconInfoClass`.
 /// Alternatively, use `IconInfoClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IconInfoClassProtocol {
         /// Untyped pointer to the underlying `GtkIconInfoClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -803,11 +813,12 @@ public protocol IconInfoClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IconInfoClassRef` type acts as a lightweight Swift reference to an underlying `GtkIconInfoClass` instance.
 /// It exposes methods that can operate on this data type through `IconInfoClassProtocol` conformance.
 /// Use `IconInfoClassRef` only as an `unowned` reference to an existing `GtkIconInfoClass` instance.
 ///
-
 public struct IconInfoClassRef: IconInfoClassProtocol {
         /// Untyped pointer to the underlying `GtkIconInfoClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -899,12 +910,13 @@ public extension IconInfoClassProtocol {
 
 // MARK: - IconSet Record
 
+
+///
 /// The `IconSetProtocol` protocol exposes the methods and properties of an underlying `GtkIconSet` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IconSet`.
 /// Alternatively, use `IconSetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IconSetProtocol {
         /// Untyped pointer to the underlying `GtkIconSet` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -916,11 +928,12 @@ public protocol IconSetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IconSetRef` type acts as a lightweight Swift reference to an underlying `GtkIconSet` instance.
 /// It exposes methods that can operate on this data type through `IconSetProtocol` conformance.
 /// Use `IconSetRef` only as an `unowned` reference to an existing `GtkIconSet` instance.
 ///
-
 public struct IconSetRef: IconSetProtocol {
         /// Untyped pointer to the underlying `GtkIconSet` instance.
     /// For type-safe access, use the generated, typed pointer `icon_set_ptr` property instead.
@@ -1043,11 +1056,12 @@ public extension IconSetRef {
     }
 }
 
+
+///
 /// The `IconSet` type acts as a reference-counted owner of an underlying `GtkIconSet` instance.
 /// It provides the methods that can operate on this data type through `IconSetProtocol` conformance.
 /// Use `IconSet` as a strong reference or owner of a `GtkIconSet` instance.
 ///
-
 open class IconSet: IconSetProtocol {
         /// Untyped pointer to the underlying `GtkIconSet` instance.
     /// For type-safe access, use the generated, typed pointer `icon_set_ptr` property instead.
@@ -1402,12 +1416,13 @@ public extension IconSetProtocol {
 
 // MARK: - IconSource Record
 
+
+///
 /// The `IconSourceProtocol` protocol exposes the methods and properties of an underlying `GtkIconSource` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IconSource`.
 /// Alternatively, use `IconSourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IconSourceProtocol {
         /// Untyped pointer to the underlying `GtkIconSource` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1419,11 +1434,12 @@ public protocol IconSourceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IconSourceRef` type acts as a lightweight Swift reference to an underlying `GtkIconSource` instance.
 /// It exposes methods that can operate on this data type through `IconSourceProtocol` conformance.
 /// Use `IconSourceRef` only as an `unowned` reference to an existing `GtkIconSource` instance.
 ///
-
 public struct IconSourceRef: IconSourceProtocol {
         /// Untyped pointer to the underlying `GtkIconSource` instance.
     /// For type-safe access, use the generated, typed pointer `icon_source_ptr` property instead.
@@ -1538,11 +1554,12 @@ public extension IconSourceRef {
     }
 }
 
+
+///
 /// The `IconSource` type acts as an owner of an underlying `GtkIconSource` instance.
 /// It provides the methods that can operate on this data type through `IconSourceProtocol` conformance.
 /// Use `IconSource` as a strong reference or owner of a `GtkIconSource` instance.
 ///
-
 open class IconSource: IconSourceProtocol {
         /// Untyped pointer to the underlying `GtkIconSource` instance.
     /// For type-safe access, use the generated, typed pointer `icon_source_ptr` property instead.
@@ -2331,12 +2348,13 @@ public extension IconThemeClassRef {
 
 // MARK: - IconThemeClass Record
 
+
+///
 /// The `IconThemeClassProtocol` protocol exposes the methods and properties of an underlying `GtkIconThemeClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IconThemeClass`.
 /// Alternatively, use `IconThemeClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IconThemeClassProtocol {
         /// Untyped pointer to the underlying `GtkIconThemeClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2348,11 +2366,12 @@ public protocol IconThemeClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IconThemeClassRef` type acts as a lightweight Swift reference to an underlying `GtkIconThemeClass` instance.
 /// It exposes methods that can operate on this data type through `IconThemeClassProtocol` conformance.
 /// Use `IconThemeClassRef` only as an `unowned` reference to an existing `GtkIconThemeClass` instance.
 ///
-
 public struct IconThemeClassRef: IconThemeClassProtocol {
         /// Untyped pointer to the underlying `GtkIconThemeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2477,12 +2496,13 @@ public extension IconViewAccessibleClassRef {
 
 // MARK: - IconViewAccessibleClass Record
 
+
+///
 /// The `IconViewAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkIconViewAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IconViewAccessibleClass`.
 /// Alternatively, use `IconViewAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IconViewAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkIconViewAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2494,11 +2514,12 @@ public protocol IconViewAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IconViewAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkIconViewAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `IconViewAccessibleClassProtocol` conformance.
 /// Use `IconViewAccessibleClassRef` only as an `unowned` reference to an existing `GtkIconViewAccessibleClass` instance.
 ///
-
 public struct IconViewAccessibleClassRef: IconViewAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkIconViewAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2611,12 +2632,13 @@ public extension IconViewClassRef {
 
 // MARK: - IconViewClass Record
 
+
+///
 /// The `IconViewClassProtocol` protocol exposes the methods and properties of an underlying `GtkIconViewClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IconViewClass`.
 /// Alternatively, use `IconViewClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IconViewClassProtocol {
         /// Untyped pointer to the underlying `GtkIconViewClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2628,11 +2650,12 @@ public protocol IconViewClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IconViewClassRef` type acts as a lightweight Swift reference to an underlying `GtkIconViewClass` instance.
 /// It exposes methods that can operate on this data type through `IconViewClassProtocol` conformance.
 /// Use `IconViewClassRef` only as an `unowned` reference to an existing `GtkIconViewClass` instance.
 ///
-
 public struct IconViewClassRef: IconViewClassProtocol {
         /// Untyped pointer to the underlying `GtkIconViewClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2769,12 +2792,13 @@ public extension ImageAccessibleClassRef {
 
 // MARK: - ImageAccessibleClass Record
 
+
+///
 /// The `ImageAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkImageAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ImageAccessibleClass`.
 /// Alternatively, use `ImageAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ImageAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkImageAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2786,11 +2810,12 @@ public protocol ImageAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ImageAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkImageAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `ImageAccessibleClassProtocol` conformance.
 /// Use `ImageAccessibleClassRef` only as an `unowned` reference to an existing `GtkImageAccessibleClass` instance.
 ///
-
 public struct ImageAccessibleClassRef: ImageAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkImageAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2903,12 +2928,13 @@ public extension ImageCellAccessibleClassRef {
 
 // MARK: - ImageCellAccessibleClass Record
 
+
+///
 /// The `ImageCellAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkImageCellAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ImageCellAccessibleClass`.
 /// Alternatively, use `ImageCellAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ImageCellAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkImageCellAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2920,11 +2946,12 @@ public protocol ImageCellAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ImageCellAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkImageCellAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `ImageCellAccessibleClassProtocol` conformance.
 /// Use `ImageCellAccessibleClassRef` only as an `unowned` reference to an existing `GtkImageCellAccessibleClass` instance.
 ///
-
 public struct ImageCellAccessibleClassRef: ImageCellAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkImageCellAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3037,12 +3064,13 @@ public extension ImageClassRef {
 
 // MARK: - ImageClass Record
 
+
+///
 /// The `ImageClassProtocol` protocol exposes the methods and properties of an underlying `GtkImageClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ImageClass`.
 /// Alternatively, use `ImageClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ImageClassProtocol {
         /// Untyped pointer to the underlying `GtkImageClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3054,11 +3082,12 @@ public protocol ImageClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ImageClassRef` type acts as a lightweight Swift reference to an underlying `GtkImageClass` instance.
 /// It exposes methods that can operate on this data type through `ImageClassProtocol` conformance.
 /// Use `ImageClassRef` only as an `unowned` reference to an existing `GtkImageClass` instance.
 ///
-
 public struct ImageClassRef: ImageClassProtocol {
         /// Untyped pointer to the underlying `GtkImageClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3179,12 +3208,13 @@ public extension ImageMenuItemClassRef {
 
 // MARK: - ImageMenuItemClass Record
 
+
+///
 /// The `ImageMenuItemClassProtocol` protocol exposes the methods and properties of an underlying `GtkImageMenuItemClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ImageMenuItemClass`.
 /// Alternatively, use `ImageMenuItemClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ImageMenuItemClassProtocol {
         /// Untyped pointer to the underlying `GtkImageMenuItemClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3196,11 +3226,12 @@ public protocol ImageMenuItemClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ImageMenuItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkImageMenuItemClass` instance.
 /// It exposes methods that can operate on this data type through `ImageMenuItemClassProtocol` conformance.
 /// Use `ImageMenuItemClassRef` only as an `unowned` reference to an existing `GtkImageMenuItemClass` instance.
 ///
-
 public struct ImageMenuItemClassRef: ImageMenuItemClassProtocol {
         /// Untyped pointer to the underlying `GtkImageMenuItemClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3323,12 +3354,13 @@ public extension InfoBarClassRef {
 
 // MARK: - InfoBarClass Record
 
+
+///
 /// The `InfoBarClassProtocol` protocol exposes the methods and properties of an underlying `GtkInfoBarClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InfoBarClass`.
 /// Alternatively, use `InfoBarClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol InfoBarClassProtocol {
         /// Untyped pointer to the underlying `GtkInfoBarClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3340,11 +3372,12 @@ public protocol InfoBarClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `InfoBarClassRef` type acts as a lightweight Swift reference to an underlying `GtkInfoBarClass` instance.
 /// It exposes methods that can operate on this data type through `InfoBarClassProtocol` conformance.
 /// Use `InfoBarClassRef` only as an `unowned` reference to an existing `GtkInfoBarClass` instance.
 ///
-
 public struct InfoBarClassRef: InfoBarClassProtocol {
         /// Untyped pointer to the underlying `GtkInfoBarClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3469,12 +3502,13 @@ public extension InvisibleClassRef {
 
 // MARK: - InvisibleClass Record
 
+
+///
 /// The `InvisibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkInvisibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InvisibleClass`.
 /// Alternatively, use `InvisibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol InvisibleClassProtocol {
         /// Untyped pointer to the underlying `GtkInvisibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3486,11 +3520,12 @@ public protocol InvisibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `InvisibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkInvisibleClass` instance.
 /// It exposes methods that can operate on this data type through `InvisibleClassProtocol` conformance.
 /// Use `InvisibleClassRef` only as an `unowned` reference to an existing `GtkInvisibleClass` instance.
 ///
-
 public struct InvisibleClassRef: InvisibleClassProtocol {
         /// Untyped pointer to the underlying `GtkInvisibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3611,12 +3646,13 @@ public extension LabelAccessibleClassRef {
 
 // MARK: - LabelAccessibleClass Record
 
+
+///
 /// The `LabelAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkLabelAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LabelAccessibleClass`.
 /// Alternatively, use `LabelAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol LabelAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkLabelAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3628,11 +3664,12 @@ public protocol LabelAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `LabelAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkLabelAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `LabelAccessibleClassProtocol` conformance.
 /// Use `LabelAccessibleClassRef` only as an `unowned` reference to an existing `GtkLabelAccessibleClass` instance.
 ///
-
 public struct LabelAccessibleClassRef: LabelAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkLabelAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

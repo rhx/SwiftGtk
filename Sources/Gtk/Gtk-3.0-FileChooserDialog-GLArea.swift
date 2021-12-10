@@ -17,11 +17,6 @@ import Atk
 
 // MARK: - FileChooserDialog Class
 
-/// The `FileChooserDialogProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileChooserDialog`.
-/// Alternatively, use `FileChooserDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkFileChooserDialog` is a dialog box suitable for use with
 /// “File/Open” or “File/Save as” commands.  This widget works by
 /// putting a `GtkFileChooserWidget` inside a `GtkDialog`.  It exposes
@@ -177,6 +172,12 @@ import Atk
 /// To summarize, make sure you use a
 /// [stock response code](#gtkfilechooserdialog-responses)
 /// when you use `GtkFileChooserDialog` to ensure proper operation.
+///
+/// The `FileChooserDialogProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileChooserDialog`.
+/// Alternatively, use `FileChooserDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileChooserDialogProtocol: DialogProtocol, FileChooserProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -188,10 +189,6 @@ public protocol FileChooserDialogProtocol: DialogProtocol, FileChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileChooserDialogRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserDialog` instance.
-/// It exposes methods that can operate on this data type through `FileChooserDialogProtocol` conformance.
-/// Use `FileChooserDialogRef` only as an `unowned` reference to an existing `GtkFileChooserDialog` instance.
-///
 /// `GtkFileChooserDialog` is a dialog box suitable for use with
 /// “File/Open” or “File/Save as” commands.  This widget works by
 /// putting a `GtkFileChooserWidget` inside a `GtkDialog`.  It exposes
@@ -347,6 +344,11 @@ public protocol FileChooserDialogProtocol: DialogProtocol, FileChooserProtocol {
 /// To summarize, make sure you use a
 /// [stock response code](#gtkfilechooserdialog-responses)
 /// when you use `GtkFileChooserDialog` to ensure proper operation.
+///
+/// The `FileChooserDialogRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserDialog` instance.
+/// It exposes methods that can operate on this data type through `FileChooserDialogProtocol` conformance.
+/// Use `FileChooserDialogRef` only as an `unowned` reference to an existing `GtkFileChooserDialog` instance.
+///
 public struct FileChooserDialogRef: FileChooserDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFileChooserDialog` instance.
     /// For type-safe access, use the generated, typed pointer `file_chooser_dialog_ptr` property instead.
@@ -431,10 +433,6 @@ public extension FileChooserDialogRef {
 
 }
 
-/// The `FileChooserDialog` type acts as a reference-counted owner of an underlying `GtkFileChooserDialog` instance.
-/// It provides the methods that can operate on this data type through `FileChooserDialogProtocol` conformance.
-/// Use `FileChooserDialog` as a strong reference or owner of a `GtkFileChooserDialog` instance.
-///
 /// `GtkFileChooserDialog` is a dialog box suitable for use with
 /// “File/Open” or “File/Save as” commands.  This widget works by
 /// putting a `GtkFileChooserWidget` inside a `GtkDialog`.  It exposes
@@ -590,6 +588,11 @@ public extension FileChooserDialogRef {
 /// To summarize, make sure you use a
 /// [stock response code](#gtkfilechooserdialog-responses)
 /// when you use `GtkFileChooserDialog` to ensure proper operation.
+///
+/// The `FileChooserDialog` type acts as a reference-counted owner of an underlying `GtkFileChooserDialog` instance.
+/// It provides the methods that can operate on this data type through `FileChooserDialogProtocol` conformance.
+/// Use `FileChooserDialog` as a strong reference or owner of a `GtkFileChooserDialog` instance.
+///
 open class FileChooserDialog: Dialog, FileChooserDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1457,12 +1460,14 @@ public enum FileChooserDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1869,11 +1874,6 @@ public extension FileChooserDialogProtocol {
 
 // MARK: - FileChooserNative Class
 
-/// The `FileChooserNativeProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserNative` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileChooserNative`.
-/// Alternatively, use `FileChooserNativeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkFileChooserNative` is an abstraction of a dialog box suitable
 /// for use with “File/Open” or “File/Save as” commands. By default, this
 /// just uses a `GtkFileChooserDialog` to implement the actual dialog.
@@ -2030,6 +2030,12 @@ public extension FileChooserDialogProtocol {
 /// * Any `GtkFileFilter` added with a custom filter.
 /// 
 /// * Shortcut folders.
+///
+/// The `FileChooserNativeProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserNative` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileChooserNative`.
+/// Alternatively, use `FileChooserNativeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileChooserNativeProtocol: NativeDialogProtocol, FileChooserProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserNative` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2041,10 +2047,6 @@ public protocol FileChooserNativeProtocol: NativeDialogProtocol, FileChooserProt
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileChooserNativeRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserNative` instance.
-/// It exposes methods that can operate on this data type through `FileChooserNativeProtocol` conformance.
-/// Use `FileChooserNativeRef` only as an `unowned` reference to an existing `GtkFileChooserNative` instance.
-///
 /// `GtkFileChooserNative` is an abstraction of a dialog box suitable
 /// for use with “File/Open” or “File/Save as” commands. By default, this
 /// just uses a `GtkFileChooserDialog` to implement the actual dialog.
@@ -2201,6 +2203,11 @@ public protocol FileChooserNativeProtocol: NativeDialogProtocol, FileChooserProt
 /// * Any `GtkFileFilter` added with a custom filter.
 /// 
 /// * Shortcut folders.
+///
+/// The `FileChooserNativeRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserNative` instance.
+/// It exposes methods that can operate on this data type through `FileChooserNativeProtocol` conformance.
+/// Use `FileChooserNativeRef` only as an `unowned` reference to an existing `GtkFileChooserNative` instance.
+///
 public struct FileChooserNativeRef: FileChooserNativeProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFileChooserNative` instance.
     /// For type-safe access, use the generated, typed pointer `file_chooser_native_ptr` property instead.
@@ -2287,10 +2294,6 @@ public extension FileChooserNativeRef {
     }
 }
 
-/// The `FileChooserNative` type acts as a reference-counted owner of an underlying `GtkFileChooserNative` instance.
-/// It provides the methods that can operate on this data type through `FileChooserNativeProtocol` conformance.
-/// Use `FileChooserNative` as a strong reference or owner of a `GtkFileChooserNative` instance.
-///
 /// `GtkFileChooserNative` is an abstraction of a dialog box suitable
 /// for use with “File/Open” or “File/Save as” commands. By default, this
 /// just uses a `GtkFileChooserDialog` to implement the actual dialog.
@@ -2447,6 +2450,11 @@ public extension FileChooserNativeRef {
 /// * Any `GtkFileFilter` added with a custom filter.
 /// 
 /// * Shortcut folders.
+///
+/// The `FileChooserNative` type acts as a reference-counted owner of an underlying `GtkFileChooserNative` instance.
+/// It provides the methods that can operate on this data type through `FileChooserNativeProtocol` conformance.
+/// Use `FileChooserNative` as a strong reference or owner of a `GtkFileChooserNative` instance.
+///
 open class FileChooserNative: NativeDialog, FileChooserNativeProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2668,12 +2676,14 @@ public enum FileChooserNativeSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2787,11 +2797,6 @@ public extension FileChooserNativeProtocol {
 
 // MARK: - FileChooserWidget Class
 
-/// The `FileChooserWidgetProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserWidget` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileChooserWidget`.
-/// Alternatively, use `FileChooserWidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkFileChooserWidget` is a widget for choosing files.
 /// It exposes the `GtkFileChooser` interface, and you should
 /// use the methods of this interface to interact with the
@@ -2800,6 +2805,12 @@ public extension FileChooserNativeProtocol {
 /// # CSS nodes
 /// 
 /// GtkFileChooserWidget has a single CSS node with name filechooser.
+///
+/// The `FileChooserWidgetProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserWidget` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileChooserWidget`.
+/// Alternatively, use `FileChooserWidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileChooserWidgetProtocol: BoxProtocol, FileChooserProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserWidget` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2811,10 +2822,6 @@ public protocol FileChooserWidgetProtocol: BoxProtocol, FileChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserWidget` instance.
-/// It exposes methods that can operate on this data type through `FileChooserWidgetProtocol` conformance.
-/// Use `FileChooserWidgetRef` only as an `unowned` reference to an existing `GtkFileChooserWidget` instance.
-///
 /// `GtkFileChooserWidget` is a widget for choosing files.
 /// It exposes the `GtkFileChooser` interface, and you should
 /// use the methods of this interface to interact with the
@@ -2823,6 +2830,11 @@ public protocol FileChooserWidgetProtocol: BoxProtocol, FileChooserProtocol {
 /// # CSS nodes
 /// 
 /// GtkFileChooserWidget has a single CSS node with name filechooser.
+///
+/// The `FileChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserWidget` instance.
+/// It exposes methods that can operate on this data type through `FileChooserWidgetProtocol` conformance.
+/// Use `FileChooserWidgetRef` only as an `unowned` reference to an existing `GtkFileChooserWidget` instance.
+///
 public struct FileChooserWidgetRef: FileChooserWidgetProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFileChooserWidget` instance.
     /// For type-safe access, use the generated, typed pointer `file_chooser_widget_ptr` property instead.
@@ -2911,10 +2923,6 @@ public extension FileChooserWidgetRef {
     }
 }
 
-/// The `FileChooserWidget` type acts as a reference-counted owner of an underlying `GtkFileChooserWidget` instance.
-/// It provides the methods that can operate on this data type through `FileChooserWidgetProtocol` conformance.
-/// Use `FileChooserWidget` as a strong reference or owner of a `GtkFileChooserWidget` instance.
-///
 /// `GtkFileChooserWidget` is a widget for choosing files.
 /// It exposes the `GtkFileChooser` interface, and you should
 /// use the methods of this interface to interact with the
@@ -2923,6 +2931,11 @@ public extension FileChooserWidgetRef {
 /// # CSS nodes
 /// 
 /// GtkFileChooserWidget has a single CSS node with name filechooser.
+///
+/// The `FileChooserWidget` type acts as a reference-counted owner of an underlying `GtkFileChooserWidget` instance.
+/// It provides the methods that can operate on this data type through `FileChooserWidgetProtocol` conformance.
+/// Use `FileChooserWidget` as a strong reference or owner of a `GtkFileChooserWidget` instance.
+///
 open class FileChooserWidget: Box, FileChooserWidgetProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3736,12 +3749,14 @@ public enum FileChooserWidgetSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4507,12 +4522,14 @@ public extension FileChooserWidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4556,12 +4573,14 @@ public extension FileChooserWidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4611,13 +4630,484 @@ public extension FileChooserWidgetProtocol {
 
 
 
+// MARK: - FileChooserWidgetAccessible Class
+
+
+///
+/// The `FileChooserWidgetAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserWidgetAccessible` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileChooserWidgetAccessible`.
+/// Alternatively, use `FileChooserWidgetAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol FileChooserWidgetAccessibleProtocol: ContainerAccessibleProtocol, Atk.ActionProtocol {
+        /// Untyped pointer to the underlying `GtkFileChooserWidgetAccessible` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GtkFileChooserWidgetAccessible` instance.
+    var file_chooser_widget_accessible_ptr: UnsafeMutablePointer<GtkFileChooserWidgetAccessible>! { get }
+
+    /// Required Initialiser for types conforming to `FileChooserWidgetAccessibleProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+
+///
+/// The `FileChooserWidgetAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserWidgetAccessible` instance.
+/// It exposes methods that can operate on this data type through `FileChooserWidgetAccessibleProtocol` conformance.
+/// Use `FileChooserWidgetAccessibleRef` only as an `unowned` reference to an existing `GtkFileChooserWidgetAccessible` instance.
+///
+public struct FileChooserWidgetAccessibleRef: FileChooserWidgetAccessibleProtocol, GWeakCapturing {
+        /// Untyped pointer to the underlying `GtkFileChooserWidgetAccessible` instance.
+    /// For type-safe access, use the generated, typed pointer `file_chooser_widget_accessible_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension FileChooserWidgetAccessibleRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GtkFileChooserWidgetAccessible>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GtkFileChooserWidgetAccessible>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GtkFileChooserWidgetAccessible>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GtkFileChooserWidgetAccessible>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `FileChooserWidgetAccessibleProtocol`
+    @inlinable init<T: FileChooserWidgetAccessibleProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: FileChooserWidgetAccessibleProtocol>(_ other: T) -> FileChooserWidgetAccessibleRef { FileChooserWidgetAccessibleRef(other) }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+
+///
+/// The `FileChooserWidgetAccessible` type acts as a reference-counted owner of an underlying `GtkFileChooserWidgetAccessible` instance.
+/// It provides the methods that can operate on this data type through `FileChooserWidgetAccessibleProtocol` conformance.
+/// Use `FileChooserWidgetAccessible` as a strong reference or owner of a `GtkFileChooserWidgetAccessible` instance.
+///
+open class FileChooserWidgetAccessible: ContainerAccessible, FileChooserWidgetAccessibleProtocol {
+        /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileChooserWidgetAccessible` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GtkFileChooserWidgetAccessible>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileChooserWidgetAccessible` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GtkFileChooserWidgetAccessible>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileChooserWidgetAccessible` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileChooserWidgetAccessible` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileChooserWidgetAccessible` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GtkFileChooserWidgetAccessible>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileChooserWidgetAccessible` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GtkFileChooserWidgetAccessible>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// Will retain `GtkFileChooserWidgetAccessible`.
+    /// i.e., ownership is transferred to the `FileChooserWidgetAccessible` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GtkFileChooserWidgetAccessible>) {
+        super.init(retainingCPointer: op)
+    }
+
+    /// Reference intialiser for a related type that implements `FileChooserWidgetAccessibleProtocol`
+    /// Will retain `GtkFileChooserWidgetAccessible`.
+    /// - Parameter other: an instance of a related type that implements `FileChooserWidgetAccessibleProtocol`
+    @inlinable public init<T: FileChooserWidgetAccessibleProtocol>(fileChooserWidgetAccessible other: T) {
+        super.init(retainingRaw: other.ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
+    }
+
+
+
+}
+
+public enum FileChooserWidgetAccessiblePropertyName: String, PropertyNameProtocol {
+    case accessibleComponentLayer = "accessible-component-layer"
+    case accessibleComponentMdiZorder = "accessible-component-mdi-zorder"
+    case accessibleDescription = "accessible-description"
+    case accessibleHypertextNlinks = "accessible-hypertext-nlinks"
+    case accessibleName = "accessible-name"
+    case accessibleParent = "accessible-parent"
+    case accessibleRole = "accessible-role"
+    /// Table caption.
+    ///
+    /// **accessible-table-caption is deprecated:**
+    /// Since 1.3. Use table-caption-object instead.
+    case accessibleTableCaption = "accessible-table-caption"
+    case accessibleTableCaptionObject = "accessible-table-caption-object"
+    /// Accessible table column description.
+    ///
+    /// **accessible-table-column-description is deprecated:**
+    /// Since 2.12. Use atk_table_get_column_description()
+    /// and atk_table_set_column_description() instead.
+    case accessibleTableColumnDescription = "accessible-table-column-description"
+    /// Accessible table column header.
+    ///
+    /// **accessible-table-column-header is deprecated:**
+    /// Since 2.12. Use atk_table_get_column_header() and
+    /// atk_table_set_column_header() instead.
+    case accessibleTableColumnHeader = "accessible-table-column-header"
+    /// Accessible table row description.
+    ///
+    /// **accessible-table-row-description is deprecated:**
+    /// Since 2.12. Use atk_table_get_row_description() and
+    /// atk_table_set_row_description() instead.
+    case accessibleTableRowDescription = "accessible-table-row-description"
+    /// Accessible table row header.
+    ///
+    /// **accessible-table-row-header is deprecated:**
+    /// Since 2.12. Use atk_table_get_row_header() and
+    /// atk_table_set_row_header() instead.
+    case accessibleTableRowHeader = "accessible-table-row-header"
+    case accessibleTableSummary = "accessible-table-summary"
+    /// Numeric value of this object, in case being and AtkValue.
+    ///
+    /// **accessible-value is deprecated:**
+    /// Since 2.12. Use atk_value_get_value_and_text() to get
+    /// the value, and value-changed signal to be notified on their value
+    /// changes.
+    case accessibleValue = "accessible-value"
+    case widget = "widget"
+}
+
+public extension FileChooserWidgetAccessibleProtocol {
+    /// Bind a `FileChooserWidgetAccessiblePropertyName` source property to a given target object.
+    /// - Parameter source_property: the source property to bind
+    /// - Parameter target: the target object to bind to
+    /// - Parameter target_property: the target property to bind to
+    /// - Parameter flags: the flags to pass to the `Binding`
+    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Returns: binding reference or `nil` in case of an error
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FileChooserWidgetAccessiblePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
+            let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
+            let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+                if let swift = UnsafeRawPointer($0) {
+                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
+                    holder.release()
+                }
+            }
+            return rv.map { BindingRef($0) }
+        }
+
+        let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
+            let ptr = UnsafeRawPointer($3)
+            let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
+            return holder.transform_from(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
+        }) {
+            let ptr = UnsafeRawPointer($3)
+            let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
+            return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
+        }
+        return rv
+    }
+
+    /// Get the value of a FileChooserWidgetAccessible property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    @inlinable func get(property: FileChooserWidgetAccessiblePropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a FileChooserWidgetAccessible property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    @inlinable func set(property: FileChooserWidgetAccessiblePropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+    }
+}
+
+public enum FileChooserWidgetAccessibleSignalName: String, SignalNameProtocol {
+    /// The "active-descendant-changed" signal is emitted by an object
+    /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
+    /// object in the object changes. For instance, a table will emit the
+    /// signal when the cell in the table which has focus changes.
+    case activeDescendantChanged = "active-descendant-changed"
+    /// The signal "children-changed" is emitted when a child is added or
+    /// removed form an object. It supports two details: "add" and
+    /// "remove"
+    case childrenChanged = "children-changed"
+    /// The signal "focus-event" is emitted when an object gained or lost
+    /// focus.
+    ///
+    /// **focus-event is deprecated:**
+    /// Use the #AtkObject::state-change signal instead.
+    case focusEvent = "focus-event"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The signal "property-change" is emitted when an object's property
+    /// value changes. `arg1` contains an `AtkPropertyValues` with the name
+    /// and the new value of the property whose value has changed. Note
+    /// that, as with GObject notify, getting this signal does not
+    /// guarantee that the value of the property has actually changed; it
+    /// may also be emitted when the setter of the property is called to
+    /// reinstate the previous value.
+    /// 
+    /// Toolkit implementor note: ATK implementors should use
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property-changed` is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
+    /// notify doesn't support emission hooks.
+    case propertyChange = "property-change"
+    /// The "state-change" signal is emitted when an object's state
+    /// changes.  The detail value identifies the state type which has
+    /// changed.
+    case stateChange = "state-change"
+    /// The "visible-data-changed" signal is emitted when the visual
+    /// appearance of the object changed.
+    case visibleDataChanged = "visible-data-changed"
+    case notifyAccessibleComponentLayer = "notify::accessible-component-layer"
+    case notifyAccessibleComponentMdiZorder = "notify::accessible-component-mdi-zorder"
+    case notifyAccessibleDescription = "notify::accessible-description"
+    case notifyAccessibleHypertextNlinks = "notify::accessible-hypertext-nlinks"
+    case notifyAccessibleName = "notify::accessible-name"
+    case notifyAccessibleParent = "notify::accessible-parent"
+    case notifyAccessibleRole = "notify::accessible-role"
+    /// Table caption.
+    ///
+    /// **accessible-table-caption is deprecated:**
+    /// Since 1.3. Use table-caption-object instead.
+    case notifyAccessibleTableCaption = "notify::accessible-table-caption"
+    case notifyAccessibleTableCaptionObject = "notify::accessible-table-caption-object"
+    /// Accessible table column description.
+    ///
+    /// **accessible-table-column-description is deprecated:**
+    /// Since 2.12. Use atk_table_get_column_description()
+    /// and atk_table_set_column_description() instead.
+    case notifyAccessibleTableColumnDescription = "notify::accessible-table-column-description"
+    /// Accessible table column header.
+    ///
+    /// **accessible-table-column-header is deprecated:**
+    /// Since 2.12. Use atk_table_get_column_header() and
+    /// atk_table_set_column_header() instead.
+    case notifyAccessibleTableColumnHeader = "notify::accessible-table-column-header"
+    /// Accessible table row description.
+    ///
+    /// **accessible-table-row-description is deprecated:**
+    /// Since 2.12. Use atk_table_get_row_description() and
+    /// atk_table_set_row_description() instead.
+    case notifyAccessibleTableRowDescription = "notify::accessible-table-row-description"
+    /// Accessible table row header.
+    ///
+    /// **accessible-table-row-header is deprecated:**
+    /// Since 2.12. Use atk_table_get_row_header() and
+    /// atk_table_set_row_header() instead.
+    case notifyAccessibleTableRowHeader = "notify::accessible-table-row-header"
+    case notifyAccessibleTableSummary = "notify::accessible-table-summary"
+    /// Numeric value of this object, in case being and AtkValue.
+    ///
+    /// **accessible-value is deprecated:**
+    /// Since 2.12. Use atk_value_get_value_and_text() to get
+    /// the value, and value-changed signal to be notified on their value
+    /// changes.
+    case notifyAccessibleValue = "notify::accessible-value"
+    case notifyWidget = "notify::widget"
+}
+
+// MARK: FileChooserWidgetAccessible has no signals
+// MARK: FileChooserWidgetAccessible Class: FileChooserWidgetAccessibleProtocol extension (methods and fields)
+public extension FileChooserWidgetAccessibleProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GtkFileChooserWidgetAccessible` instance.
+    @inlinable var file_chooser_widget_accessible_ptr: UnsafeMutablePointer<GtkFileChooserWidgetAccessible>! { return ptr?.assumingMemoryBound(to: GtkFileChooserWidgetAccessible.self) }
+
+
+    @inlinable var parent: GtkContainerAccessible {
+        get {
+            let rv = file_chooser_widget_accessible_ptr.pointee.parent
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
+}
+
+
+
 // MARK: - FileFilter Class
 
-/// The `FileFilterProtocol` protocol exposes the methods and properties of an underlying `GtkFileFilter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileFilter`.
-/// Alternatively, use `FileFilterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A GtkFileFilter can be used to restrict the files being shown in a
 /// `GtkFileChooser`. Files can be filtered based on their name (with
 /// `gtk_file_filter_add_pattern()`), on their mime type (with
@@ -4657,6 +5147,12 @@ public extension FileChooserWidgetProtocol {
 /// </object>
 /// ```
 /// 
+///
+/// The `FileFilterProtocol` protocol exposes the methods and properties of an underlying `GtkFileFilter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileFilter`.
+/// Alternatively, use `FileFilterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileFilterProtocol: GLibObject.InitiallyUnownedProtocol, BuildableProtocol {
         /// Untyped pointer to the underlying `GtkFileFilter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4668,10 +5164,6 @@ public protocol FileFilterProtocol: GLibObject.InitiallyUnownedProtocol, Buildab
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileFilterRef` type acts as a lightweight Swift reference to an underlying `GtkFileFilter` instance.
-/// It exposes methods that can operate on this data type through `FileFilterProtocol` conformance.
-/// Use `FileFilterRef` only as an `unowned` reference to an existing `GtkFileFilter` instance.
-///
 /// A GtkFileFilter can be used to restrict the files being shown in a
 /// `GtkFileChooser`. Files can be filtered based on their name (with
 /// `gtk_file_filter_add_pattern()`), on their mime type (with
@@ -4711,6 +5203,11 @@ public protocol FileFilterProtocol: GLibObject.InitiallyUnownedProtocol, Buildab
 /// </object>
 /// ```
 /// 
+///
+/// The `FileFilterRef` type acts as a lightweight Swift reference to an underlying `GtkFileFilter` instance.
+/// It exposes methods that can operate on this data type through `FileFilterProtocol` conformance.
+/// Use `FileFilterRef` only as an `unowned` reference to an existing `GtkFileFilter` instance.
+///
 public struct FileFilterRef: FileFilterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFileFilter` instance.
     /// For type-safe access, use the generated, typed pointer `file_filter_ptr` property instead.
@@ -4821,10 +5318,6 @@ public extension FileFilterRef {
     }
 }
 
-/// The `FileFilter` type acts as a reference-counted owner of an underlying `GtkFileFilter` instance.
-/// It provides the methods that can operate on this data type through `FileFilterProtocol` conformance.
-/// Use `FileFilter` as a strong reference or owner of a `GtkFileFilter` instance.
-///
 /// A GtkFileFilter can be used to restrict the files being shown in a
 /// `GtkFileChooser`. Files can be filtered based on their name (with
 /// `gtk_file_filter_add_pattern()`), on their mime type (with
@@ -4864,6 +5357,11 @@ public extension FileFilterRef {
 /// </object>
 /// ```
 /// 
+///
+/// The `FileFilter` type acts as a reference-counted owner of an underlying `GtkFileFilter` instance.
+/// It provides the methods that can operate on this data type through `FileFilterProtocol` conformance.
+/// Use `FileFilter` as a strong reference or owner of a `GtkFileFilter` instance.
+///
 open class FileFilter: GLibObject.InitiallyUnowned, FileFilterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5043,12 +5541,14 @@ public enum FileFilterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5174,11 +5674,6 @@ public extension FileFilterProtocol {
 
 // MARK: - Fixed Class
 
-/// The `FixedProtocol` protocol exposes the methods and properties of an underlying `GtkFixed` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Fixed`.
-/// Alternatively, use `FixedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkFixed` widget is a container which can place child widgets
 /// at fixed positions and with fixed sizes, given in pixels. `GtkFixed`
 /// performs no automatic layout management.
@@ -5219,6 +5714,12 @@ public extension FileFilterProtocol {
 /// 
 /// See also `GtkLayout`, which shares the ability to perform fixed positioning
 /// of child widgets and additionally adds custom drawing and scrollability.
+///
+/// The `FixedProtocol` protocol exposes the methods and properties of an underlying `GtkFixed` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Fixed`.
+/// Alternatively, use `FixedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FixedProtocol: ContainerProtocol {
         /// Untyped pointer to the underlying `GtkFixed` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5230,10 +5731,6 @@ public protocol FixedProtocol: ContainerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FixedRef` type acts as a lightweight Swift reference to an underlying `GtkFixed` instance.
-/// It exposes methods that can operate on this data type through `FixedProtocol` conformance.
-/// Use `FixedRef` only as an `unowned` reference to an existing `GtkFixed` instance.
-///
 /// The `GtkFixed` widget is a container which can place child widgets
 /// at fixed positions and with fixed sizes, given in pixels. `GtkFixed`
 /// performs no automatic layout management.
@@ -5274,6 +5771,11 @@ public protocol FixedProtocol: ContainerProtocol {
 /// 
 /// See also `GtkLayout`, which shares the ability to perform fixed positioning
 /// of child widgets and additionally adds custom drawing and scrollability.
+///
+/// The `FixedRef` type acts as a lightweight Swift reference to an underlying `GtkFixed` instance.
+/// It exposes methods that can operate on this data type through `FixedProtocol` conformance.
+/// Use `FixedRef` only as an `unowned` reference to an existing `GtkFixed` instance.
+///
 public struct FixedRef: FixedProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFixed` instance.
     /// For type-safe access, use the generated, typed pointer `fixed_ptr` property instead.
@@ -5360,10 +5862,6 @@ public extension FixedRef {
     }
 }
 
-/// The `Fixed` type acts as a reference-counted owner of an underlying `GtkFixed` instance.
-/// It provides the methods that can operate on this data type through `FixedProtocol` conformance.
-/// Use `Fixed` as a strong reference or owner of a `GtkFixed` instance.
-///
 /// The `GtkFixed` widget is a container which can place child widgets
 /// at fixed positions and with fixed sizes, given in pixels. `GtkFixed`
 /// performs no automatic layout management.
@@ -5404,6 +5902,11 @@ public extension FixedRef {
 /// 
 /// See also `GtkLayout`, which shares the ability to perform fixed positioning
 /// of child widgets and additionally adds custom drawing and scrollability.
+///
+/// The `Fixed` type acts as a reference-counted owner of an underlying `GtkFixed` instance.
+/// It provides the methods that can operate on this data type through `FixedProtocol` conformance.
+/// Use `Fixed` as a strong reference or owner of a `GtkFixed` instance.
+///
 open class Fixed: Container, FixedProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6155,12 +6658,14 @@ public enum FixedSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6480,11 +6985,6 @@ public extension FixedProtocol {
 
 // MARK: - FlowBox Class
 
-/// The `FlowBoxProtocol` protocol exposes the methods and properties of an underlying `GtkFlowBox` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FlowBox`.
-/// Alternatively, use `FlowBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A GtkFlowBox positions child widgets in sequence according to its
 /// orientation.
 /// 
@@ -6529,6 +7029,12 @@ public extension FixedProtocol {
 /// GtkFlowBox uses a single CSS node with name flowbox. GtkFlowBoxChild
 /// uses a single CSS node with name flowboxchild.
 /// For rubberband selection, a subnode with name rubberband is used.
+///
+/// The `FlowBoxProtocol` protocol exposes the methods and properties of an underlying `GtkFlowBox` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FlowBox`.
+/// Alternatively, use `FlowBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FlowBoxProtocol: ContainerProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkFlowBox` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6540,10 +7046,6 @@ public protocol FlowBoxProtocol: ContainerProtocol, OrientableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FlowBoxRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBox` instance.
-/// It exposes methods that can operate on this data type through `FlowBoxProtocol` conformance.
-/// Use `FlowBoxRef` only as an `unowned` reference to an existing `GtkFlowBox` instance.
-///
 /// A GtkFlowBox positions child widgets in sequence according to its
 /// orientation.
 /// 
@@ -6588,6 +7090,11 @@ public protocol FlowBoxProtocol: ContainerProtocol, OrientableProtocol {
 /// GtkFlowBox uses a single CSS node with name flowbox. GtkFlowBoxChild
 /// uses a single CSS node with name flowboxchild.
 /// For rubberband selection, a subnode with name rubberband is used.
+///
+/// The `FlowBoxRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBox` instance.
+/// It exposes methods that can operate on this data type through `FlowBoxProtocol` conformance.
+/// Use `FlowBoxRef` only as an `unowned` reference to an existing `GtkFlowBox` instance.
+///
 public struct FlowBoxRef: FlowBoxProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFlowBox` instance.
     /// For type-safe access, use the generated, typed pointer `flow_box_ptr` property instead.
@@ -6674,10 +7181,6 @@ public extension FlowBoxRef {
     }
 }
 
-/// The `FlowBox` type acts as a reference-counted owner of an underlying `GtkFlowBox` instance.
-/// It provides the methods that can operate on this data type through `FlowBoxProtocol` conformance.
-/// Use `FlowBox` as a strong reference or owner of a `GtkFlowBox` instance.
-///
 /// A GtkFlowBox positions child widgets in sequence according to its
 /// orientation.
 /// 
@@ -6722,6 +7225,11 @@ public extension FlowBoxRef {
 /// GtkFlowBox uses a single CSS node with name flowbox. GtkFlowBoxChild
 /// uses a single CSS node with name flowboxchild.
 /// For rubberband selection, a subnode with name rubberband is used.
+///
+/// The `FlowBox` type acts as a reference-counted owner of an underlying `GtkFlowBox` instance.
+/// It provides the methods that can operate on this data type through `FlowBoxProtocol` conformance.
+/// Use `FlowBox` as a strong reference or owner of a `GtkFlowBox` instance.
+///
 open class FlowBox: Container, FlowBoxProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7518,12 +8026,14 @@ public enum FlowBoxSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8116,12 +8626,14 @@ public extension FlowBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8165,12 +8677,14 @@ public extension FlowBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8214,12 +8728,14 @@ public extension FlowBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8263,12 +8779,14 @@ public extension FlowBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8312,12 +8830,14 @@ public extension FlowBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8361,12 +8881,14 @@ public extension FlowBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8410,12 +8932,14 @@ public extension FlowBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8866,12 +9390,13 @@ public extension FlowBoxProtocol {
 
 // MARK: - FlowBoxAccessible Class
 
+
+///
 /// The `FlowBoxAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkFlowBoxAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FlowBoxAccessible`.
 /// Alternatively, use `FlowBoxAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FlowBoxAccessibleProtocol: ContainerAccessibleProtocol, Atk.SelectionProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8883,11 +9408,12 @@ public protocol FlowBoxAccessibleProtocol: ContainerAccessibleProtocol, Atk.Sele
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FlowBoxAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxAccessible` instance.
 /// It exposes methods that can operate on this data type through `FlowBoxAccessibleProtocol` conformance.
 /// Use `FlowBoxAccessibleRef` only as an `unowned` reference to an existing `GtkFlowBoxAccessible` instance.
 ///
-
 public struct FlowBoxAccessibleRef: FlowBoxAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFlowBoxAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `flow_box_accessible_ptr` property instead.
@@ -8969,11 +9495,12 @@ public extension FlowBoxAccessibleRef {
 
     }
 
+
+///
 /// The `FlowBoxAccessible` type acts as a reference-counted owner of an underlying `GtkFlowBoxAccessible` instance.
 /// It provides the methods that can operate on this data type through `FlowBoxAccessibleProtocol` conformance.
 /// Use `FlowBoxAccessible` as a strong reference or owner of a `GtkFlowBoxAccessible` instance.
 ///
-
 open class FlowBoxAccessible: ContainerAccessible, FlowBoxAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9236,12 +9763,14 @@ public enum FlowBoxAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9337,12 +9866,13 @@ public extension FlowBoxAccessibleProtocol {
 
 // MARK: - FlowBoxChild Class
 
+
+///
 /// The `FlowBoxChildProtocol` protocol exposes the methods and properties of an underlying `GtkFlowBoxChild` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FlowBoxChild`.
 /// Alternatively, use `FlowBoxChildRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FlowBoxChildProtocol: BinProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxChild` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9354,11 +9884,12 @@ public protocol FlowBoxChildProtocol: BinProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FlowBoxChildRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxChild` instance.
 /// It exposes methods that can operate on this data type through `FlowBoxChildProtocol` conformance.
 /// Use `FlowBoxChildRef` only as an `unowned` reference to an existing `GtkFlowBoxChild` instance.
 ///
-
 public struct FlowBoxChildRef: FlowBoxChildProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFlowBoxChild` instance.
     /// For type-safe access, use the generated, typed pointer `flow_box_child_ptr` property instead.
@@ -9446,11 +9977,12 @@ public extension FlowBoxChildRef {
     }
 }
 
+
+///
 /// The `FlowBoxChild` type acts as a reference-counted owner of an underlying `GtkFlowBoxChild` instance.
 /// It provides the methods that can operate on this data type through `FlowBoxChildProtocol` conformance.
 /// Use `FlowBoxChild` as a strong reference or owner of a `GtkFlowBoxChild` instance.
 ///
-
 open class FlowBoxChild: Bin, FlowBoxChildProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10211,12 +10743,14 @@ public enum FlowBoxChildSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10629,12 +11163,13 @@ public extension FlowBoxChildProtocol {
 
 // MARK: - FlowBoxChildAccessible Class
 
+
+///
 /// The `FlowBoxChildAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkFlowBoxChildAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FlowBoxChildAccessible`.
 /// Alternatively, use `FlowBoxChildAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FlowBoxChildAccessibleProtocol: ContainerAccessibleProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxChildAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -10646,11 +11181,12 @@ public protocol FlowBoxChildAccessibleProtocol: ContainerAccessibleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FlowBoxChildAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxChildAccessible` instance.
 /// It exposes methods that can operate on this data type through `FlowBoxChildAccessibleProtocol` conformance.
 /// Use `FlowBoxChildAccessibleRef` only as an `unowned` reference to an existing `GtkFlowBoxChildAccessible` instance.
 ///
-
 public struct FlowBoxChildAccessibleRef: FlowBoxChildAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFlowBoxChildAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `flow_box_child_accessible_ptr` property instead.
@@ -10732,11 +11268,12 @@ public extension FlowBoxChildAccessibleRef {
 
     }
 
+
+///
 /// The `FlowBoxChildAccessible` type acts as a reference-counted owner of an underlying `GtkFlowBoxChildAccessible` instance.
 /// It provides the methods that can operate on this data type through `FlowBoxChildAccessibleProtocol` conformance.
 /// Use `FlowBoxChildAccessible` as a strong reference or owner of a `GtkFlowBoxChildAccessible` instance.
 ///
-
 open class FlowBoxChildAccessible: ContainerAccessible, FlowBoxChildAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10999,12 +11536,14 @@ public enum FlowBoxChildAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11098,11 +11637,6 @@ public extension FlowBoxChildAccessibleProtocol {
 
 // MARK: - FontButton Class
 
-/// The `FontButtonProtocol` protocol exposes the methods and properties of an underlying `GtkFontButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FontButton`.
-/// Alternatively, use `FontButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkFontButton` is a button which displays the currently selected
 /// font an allows to open a font chooser dialog to change the font.
 /// It is suitable widget for selecting a font in a preference dialog.
@@ -11110,6 +11644,12 @@ public extension FlowBoxChildAccessibleProtocol {
 /// # CSS nodes
 /// 
 /// GtkFontButton has a single CSS node with name button and style class .font.
+///
+/// The `FontButtonProtocol` protocol exposes the methods and properties of an underlying `GtkFontButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FontButton`.
+/// Alternatively, use `FontButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FontButtonProtocol: ButtonProtocol, FontChooserProtocol {
         /// Untyped pointer to the underlying `GtkFontButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -11121,10 +11661,6 @@ public protocol FontButtonProtocol: ButtonProtocol, FontChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FontButtonRef` type acts as a lightweight Swift reference to an underlying `GtkFontButton` instance.
-/// It exposes methods that can operate on this data type through `FontButtonProtocol` conformance.
-/// Use `FontButtonRef` only as an `unowned` reference to an existing `GtkFontButton` instance.
-///
 /// The `GtkFontButton` is a button which displays the currently selected
 /// font an allows to open a font chooser dialog to change the font.
 /// It is suitable widget for selecting a font in a preference dialog.
@@ -11132,6 +11668,11 @@ public protocol FontButtonProtocol: ButtonProtocol, FontChooserProtocol {
 /// # CSS nodes
 /// 
 /// GtkFontButton has a single CSS node with name button and style class .font.
+///
+/// The `FontButtonRef` type acts as a lightweight Swift reference to an underlying `GtkFontButton` instance.
+/// It exposes methods that can operate on this data type through `FontButtonProtocol` conformance.
+/// Use `FontButtonRef` only as an `unowned` reference to an existing `GtkFontButton` instance.
+///
 public struct FontButtonRef: FontButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFontButton` instance.
     /// For type-safe access, use the generated, typed pointer `font_button_ptr` property instead.
@@ -11229,10 +11770,6 @@ public extension FontButtonRef {
     }
 }
 
-/// The `FontButton` type acts as a reference-counted owner of an underlying `GtkFontButton` instance.
-/// It provides the methods that can operate on this data type through `FontButtonProtocol` conformance.
-/// Use `FontButton` as a strong reference or owner of a `GtkFontButton` instance.
-///
 /// The `GtkFontButton` is a button which displays the currently selected
 /// font an allows to open a font chooser dialog to change the font.
 /// It is suitable widget for selecting a font in a preference dialog.
@@ -11240,6 +11777,11 @@ public extension FontButtonRef {
 /// # CSS nodes
 /// 
 /// GtkFontButton has a single CSS node with name button and style class .font.
+///
+/// The `FontButton` type acts as a reference-counted owner of an underlying `GtkFontButton` instance.
+/// It provides the methods that can operate on this data type through `FontButtonProtocol` conformance.
+/// Use `FontButton` as a strong reference or owner of a `GtkFontButton` instance.
+///
 open class FontButton: Button, FontButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -12084,12 +12626,14 @@ public enum FontButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12515,12 +13059,14 @@ public extension FontButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12564,12 +13110,14 @@ public extension FontButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12613,12 +13161,14 @@ public extension FontButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12662,12 +13212,14 @@ public extension FontButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12711,12 +13263,14 @@ public extension FontButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12760,12 +13314,14 @@ public extension FontButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12999,11 +13555,6 @@ public extension FontButtonProtocol {
 
 // MARK: - FontChooserDialog Class
 
-/// The `FontChooserDialogProtocol` protocol exposes the methods and properties of an underlying `GtkFontChooserDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FontChooserDialog`.
-/// Alternatively, use `FontChooserDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkFontChooserDialog` widget is a dialog for selecting a font.
 /// It implements the `GtkFontChooser` interface.
 /// 
@@ -13012,6 +13563,12 @@ public extension FontButtonProtocol {
 /// The GtkFontChooserDialog implementation of the `GtkBuildable`
 /// interface exposes the buttons with the names “select_button”
 /// and “cancel_button”.
+///
+/// The `FontChooserDialogProtocol` protocol exposes the methods and properties of an underlying `GtkFontChooserDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FontChooserDialog`.
+/// Alternatively, use `FontChooserDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FontChooserDialogProtocol: DialogProtocol, FontChooserProtocol {
         /// Untyped pointer to the underlying `GtkFontChooserDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -13023,10 +13580,6 @@ public protocol FontChooserDialogProtocol: DialogProtocol, FontChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FontChooserDialogRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserDialog` instance.
-/// It exposes methods that can operate on this data type through `FontChooserDialogProtocol` conformance.
-/// Use `FontChooserDialogRef` only as an `unowned` reference to an existing `GtkFontChooserDialog` instance.
-///
 /// The `GtkFontChooserDialog` widget is a dialog for selecting a font.
 /// It implements the `GtkFontChooser` interface.
 /// 
@@ -13035,6 +13588,11 @@ public protocol FontChooserDialogProtocol: DialogProtocol, FontChooserProtocol {
 /// The GtkFontChooserDialog implementation of the `GtkBuildable`
 /// interface exposes the buttons with the names “select_button”
 /// and “cancel_button”.
+///
+/// The `FontChooserDialogRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserDialog` instance.
+/// It exposes methods that can operate on this data type through `FontChooserDialogProtocol` conformance.
+/// Use `FontChooserDialogRef` only as an `unowned` reference to an existing `GtkFontChooserDialog` instance.
+///
 public struct FontChooserDialogRef: FontChooserDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFontChooserDialog` instance.
     /// For type-safe access, use the generated, typed pointer `font_chooser_dialog_ptr` property instead.
@@ -13121,10 +13679,6 @@ public extension FontChooserDialogRef {
     }
 }
 
-/// The `FontChooserDialog` type acts as a reference-counted owner of an underlying `GtkFontChooserDialog` instance.
-/// It provides the methods that can operate on this data type through `FontChooserDialogProtocol` conformance.
-/// Use `FontChooserDialog` as a strong reference or owner of a `GtkFontChooserDialog` instance.
-///
 /// The `GtkFontChooserDialog` widget is a dialog for selecting a font.
 /// It implements the `GtkFontChooser` interface.
 /// 
@@ -13133,6 +13687,11 @@ public extension FontChooserDialogRef {
 /// The GtkFontChooserDialog implementation of the `GtkBuildable`
 /// interface exposes the buttons with the names “select_button”
 /// and “cancel_button”.
+///
+/// The `FontChooserDialog` type acts as a reference-counted owner of an underlying `GtkFontChooserDialog` instance.
+/// It provides the methods that can operate on this data type through `FontChooserDialogProtocol` conformance.
+/// Use `FontChooserDialog` as a strong reference or owner of a `GtkFontChooserDialog` instance.
+///
 open class FontChooserDialog: Dialog, FontChooserDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -14003,12 +14562,14 @@ public enum FontChooserDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14415,11 +14976,6 @@ public extension FontChooserDialogProtocol {
 
 // MARK: - FontChooserWidget Class
 
-/// The `FontChooserWidgetProtocol` protocol exposes the methods and properties of an underlying `GtkFontChooserWidget` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FontChooserWidget`.
-/// Alternatively, use `FontChooserWidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkFontChooserWidget` widget lists the available fonts,
 /// styles and sizes, allowing the user to select a font. It is
 /// used in the `GtkFontChooserDialog` widget to provide a
@@ -14437,6 +14993,12 @@ public extension FontChooserDialogProtocol {
 /// # CSS nodes
 /// 
 /// GtkFontChooserWidget has a single CSS node with name fontchooser.
+///
+/// The `FontChooserWidgetProtocol` protocol exposes the methods and properties of an underlying `GtkFontChooserWidget` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FontChooserWidget`.
+/// Alternatively, use `FontChooserWidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FontChooserWidgetProtocol: BoxProtocol, FontChooserProtocol {
         /// Untyped pointer to the underlying `GtkFontChooserWidget` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -14448,10 +15010,6 @@ public protocol FontChooserWidgetProtocol: BoxProtocol, FontChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FontChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserWidget` instance.
-/// It exposes methods that can operate on this data type through `FontChooserWidgetProtocol` conformance.
-/// Use `FontChooserWidgetRef` only as an `unowned` reference to an existing `GtkFontChooserWidget` instance.
-///
 /// The `GtkFontChooserWidget` widget lists the available fonts,
 /// styles and sizes, allowing the user to select a font. It is
 /// used in the `GtkFontChooserDialog` widget to provide a
@@ -14469,6 +15027,11 @@ public protocol FontChooserWidgetProtocol: BoxProtocol, FontChooserProtocol {
 /// # CSS nodes
 /// 
 /// GtkFontChooserWidget has a single CSS node with name fontchooser.
+///
+/// The `FontChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserWidget` instance.
+/// It exposes methods that can operate on this data type through `FontChooserWidgetProtocol` conformance.
+/// Use `FontChooserWidgetRef` only as an `unowned` reference to an existing `GtkFontChooserWidget` instance.
+///
 public struct FontChooserWidgetRef: FontChooserWidgetProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFontChooserWidget` instance.
     /// For type-safe access, use the generated, typed pointer `font_chooser_widget_ptr` property instead.
@@ -14555,10 +15118,6 @@ public extension FontChooserWidgetRef {
     }
 }
 
-/// The `FontChooserWidget` type acts as a reference-counted owner of an underlying `GtkFontChooserWidget` instance.
-/// It provides the methods that can operate on this data type through `FontChooserWidgetProtocol` conformance.
-/// Use `FontChooserWidget` as a strong reference or owner of a `GtkFontChooserWidget` instance.
-///
 /// The `GtkFontChooserWidget` widget lists the available fonts,
 /// styles and sizes, allowing the user to select a font. It is
 /// used in the `GtkFontChooserDialog` widget to provide a
@@ -14576,6 +15135,11 @@ public extension FontChooserWidgetRef {
 /// # CSS nodes
 /// 
 /// GtkFontChooserWidget has a single CSS node with name fontchooser.
+///
+/// The `FontChooserWidget` type acts as a reference-counted owner of an underlying `GtkFontChooserWidget` instance.
+/// It provides the methods that can operate on this data type through `FontChooserWidgetProtocol` conformance.
+/// Use `FontChooserWidget` as a strong reference or owner of a `GtkFontChooserWidget` instance.
+///
 open class FontChooserWidget: Box, FontChooserWidgetProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -15337,12 +15901,14 @@ public enum FontChooserWidgetSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15661,12 +16227,13 @@ public extension FontChooserWidgetProtocol {
 
 // MARK: - FontSelection Class
 
+
+///
 /// The `FontSelectionProtocol` protocol exposes the methods and properties of an underlying `GtkFontSelection` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FontSelection`.
 /// Alternatively, use `FontSelectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FontSelectionProtocol: BoxProtocol {
         /// Untyped pointer to the underlying `GtkFontSelection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -15678,11 +16245,12 @@ public protocol FontSelectionProtocol: BoxProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FontSelectionRef` type acts as a lightweight Swift reference to an underlying `GtkFontSelection` instance.
 /// It exposes methods that can operate on this data type through `FontSelectionProtocol` conformance.
 /// Use `FontSelectionRef` only as an `unowned` reference to an existing `GtkFontSelection` instance.
 ///
-
 public struct FontSelectionRef: FontSelectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFontSelection` instance.
     /// For type-safe access, use the generated, typed pointer `font_selection_ptr` property instead.
@@ -15773,11 +16341,12 @@ public extension FontSelectionRef {
     }
 }
 
+
+///
 /// The `FontSelection` type acts as a reference-counted owner of an underlying `GtkFontSelection` instance.
 /// It provides the methods that can operate on this data type through `FontSelectionProtocol` conformance.
 /// Use `FontSelection` as a strong reference or owner of a `GtkFontSelection` instance.
 ///
-
 open class FontSelection: Box, FontSelectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -16538,12 +17107,14 @@ public enum FontSelectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17194,12 +17765,13 @@ public extension FontSelectionProtocol {
 
 // MARK: - FontSelectionDialog Class
 
+
+///
 /// The `FontSelectionDialogProtocol` protocol exposes the methods and properties of an underlying `GtkFontSelectionDialog` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FontSelectionDialog`.
 /// Alternatively, use `FontSelectionDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FontSelectionDialogProtocol: DialogProtocol {
         /// Untyped pointer to the underlying `GtkFontSelectionDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -17211,11 +17783,12 @@ public protocol FontSelectionDialogProtocol: DialogProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FontSelectionDialogRef` type acts as a lightweight Swift reference to an underlying `GtkFontSelectionDialog` instance.
 /// It exposes methods that can operate on this data type through `FontSelectionDialogProtocol` conformance.
 /// Use `FontSelectionDialogRef` only as an `unowned` reference to an existing `GtkFontSelectionDialog` instance.
 ///
-
 public struct FontSelectionDialogRef: FontSelectionDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFontSelectionDialog` instance.
     /// For type-safe access, use the generated, typed pointer `font_selection_dialog_ptr` property instead.
@@ -17306,11 +17879,12 @@ public extension FontSelectionDialogRef {
     }
 }
 
+
+///
 /// The `FontSelectionDialog` type acts as a reference-counted owner of an underlying `GtkFontSelectionDialog` instance.
 /// It provides the methods that can operate on this data type through `FontSelectionDialogProtocol` conformance.
 /// Use `FontSelectionDialog` as a strong reference or owner of a `GtkFontSelectionDialog` instance.
 ///
-
 open class FontSelectionDialog: Dialog, FontSelectionDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -18185,12 +18759,14 @@ public enum FontSelectionDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18782,11 +19358,6 @@ public extension FontSelectionDialogProtocol {
 
 // MARK: - Frame Class
 
-/// The `FrameProtocol` protocol exposes the methods and properties of an underlying `GtkFrame` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Frame`.
-/// Alternatively, use `FrameRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The frame widget is a bin that surrounds its child with a decorative
 /// frame and an optional label. If present, the label is drawn in a gap
 /// in the top side of the frame. The position of the label can be
@@ -18829,6 +19400,12 @@ public extension FontSelectionDialogProtocol {
 /// to disable drawing of the border. To do this from code, call
 /// `gtk_frame_set_shadow_type()` with `GTK_SHADOW_NONE` to add the “.flat” class or
 /// any other shadow type to remove it.
+///
+/// The `FrameProtocol` protocol exposes the methods and properties of an underlying `GtkFrame` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Frame`.
+/// Alternatively, use `FrameRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FrameProtocol: BinProtocol {
         /// Untyped pointer to the underlying `GtkFrame` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -18840,10 +19417,6 @@ public protocol FrameProtocol: BinProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FrameRef` type acts as a lightweight Swift reference to an underlying `GtkFrame` instance.
-/// It exposes methods that can operate on this data type through `FrameProtocol` conformance.
-/// Use `FrameRef` only as an `unowned` reference to an existing `GtkFrame` instance.
-///
 /// The frame widget is a bin that surrounds its child with a decorative
 /// frame and an optional label. If present, the label is drawn in a gap
 /// in the top side of the frame. The position of the label can be
@@ -18886,6 +19459,11 @@ public protocol FrameProtocol: BinProtocol {
 /// to disable drawing of the border. To do this from code, call
 /// `gtk_frame_set_shadow_type()` with `GTK_SHADOW_NONE` to add the “.flat” class or
 /// any other shadow type to remove it.
+///
+/// The `FrameRef` type acts as a lightweight Swift reference to an underlying `GtkFrame` instance.
+/// It exposes methods that can operate on this data type through `FrameProtocol` conformance.
+/// Use `FrameRef` only as an `unowned` reference to an existing `GtkFrame` instance.
+///
 public struct FrameRef: FrameProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFrame` instance.
     /// For type-safe access, use the generated, typed pointer `frame_ptr` property instead.
@@ -18973,10 +19551,6 @@ public extension FrameRef {
     }
 }
 
-/// The `Frame` type acts as a reference-counted owner of an underlying `GtkFrame` instance.
-/// It provides the methods that can operate on this data type through `FrameProtocol` conformance.
-/// Use `Frame` as a strong reference or owner of a `GtkFrame` instance.
-///
 /// The frame widget is a bin that surrounds its child with a decorative
 /// frame and an optional label. If present, the label is drawn in a gap
 /// in the top side of the frame. The position of the label can be
@@ -19019,6 +19593,11 @@ public extension FrameRef {
 /// to disable drawing of the border. To do this from code, call
 /// `gtk_frame_set_shadow_type()` with `GTK_SHADOW_NONE` to add the “.flat” class or
 /// any other shadow type to remove it.
+///
+/// The `Frame` type acts as a reference-counted owner of an underlying `GtkFrame` instance.
+/// It provides the methods that can operate on this data type through `FrameProtocol` conformance.
+/// Use `Frame` as a strong reference or owner of a `GtkFrame` instance.
+///
 open class Frame: Bin, FrameProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -19776,12 +20355,14 @@ public enum FrameSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20209,12 +20790,13 @@ public extension FrameProtocol {
 
 // MARK: - FrameAccessible Class
 
+
+///
 /// The `FrameAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkFrameAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FrameAccessible`.
 /// Alternatively, use `FrameAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FrameAccessibleProtocol: ContainerAccessibleProtocol {
         /// Untyped pointer to the underlying `GtkFrameAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -20226,11 +20808,12 @@ public protocol FrameAccessibleProtocol: ContainerAccessibleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FrameAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkFrameAccessible` instance.
 /// It exposes methods that can operate on this data type through `FrameAccessibleProtocol` conformance.
 /// Use `FrameAccessibleRef` only as an `unowned` reference to an existing `GtkFrameAccessible` instance.
 ///
-
 public struct FrameAccessibleRef: FrameAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFrameAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `frame_accessible_ptr` property instead.
@@ -20312,11 +20895,12 @@ public extension FrameAccessibleRef {
 
     }
 
+
+///
 /// The `FrameAccessible` type acts as a reference-counted owner of an underlying `GtkFrameAccessible` instance.
 /// It provides the methods that can operate on this data type through `FrameAccessibleProtocol` conformance.
 /// Use `FrameAccessible` as a strong reference or owner of a `GtkFrameAccessible` instance.
 ///
-
 open class FrameAccessible: ContainerAccessible, FrameAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -20579,12 +21163,14 @@ public enum FrameAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20680,11 +21266,6 @@ public extension FrameAccessibleProtocol {
 
 // MARK: - GLArea Class
 
-/// The `GLAreaProtocol` protocol exposes the methods and properties of an underlying `GtkGLArea` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `GLArea`.
-/// Alternatively, use `GLAreaRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkGLArea` is a widget that allows drawing with OpenGL.
 /// 
 /// `GtkGLArea` sets up its own `GdkGLContext` for the window it creates, and
@@ -20787,6 +21368,12 @@ public extension FrameAccessibleProtocol {
 /// 
 /// If you need to change the options for creating the `GdkGLContext`
 /// you should use the `GtkGLArea::create-context` signal.
+///
+/// The `GLAreaProtocol` protocol exposes the methods and properties of an underlying `GtkGLArea` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `GLArea`.
+/// Alternatively, use `GLAreaRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GLAreaProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkGLArea` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -20798,10 +21385,6 @@ public protocol GLAreaProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GLAreaRef` type acts as a lightweight Swift reference to an underlying `GtkGLArea` instance.
-/// It exposes methods that can operate on this data type through `GLAreaProtocol` conformance.
-/// Use `GLAreaRef` only as an `unowned` reference to an existing `GtkGLArea` instance.
-///
 /// `GtkGLArea` is a widget that allows drawing with OpenGL.
 /// 
 /// `GtkGLArea` sets up its own `GdkGLContext` for the window it creates, and
@@ -20904,6 +21487,11 @@ public protocol GLAreaProtocol: WidgetProtocol {
 /// 
 /// If you need to change the options for creating the `GdkGLContext`
 /// you should use the `GtkGLArea::create-context` signal.
+///
+/// The `GLAreaRef` type acts as a lightweight Swift reference to an underlying `GtkGLArea` instance.
+/// It exposes methods that can operate on this data type through `GLAreaProtocol` conformance.
+/// Use `GLAreaRef` only as an `unowned` reference to an existing `GtkGLArea` instance.
+///
 public struct GLAreaRef: GLAreaProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkGLArea` instance.
     /// For type-safe access, use the generated, typed pointer `gl_area_ptr` property instead.
@@ -20990,10 +21578,6 @@ public extension GLAreaRef {
     }
 }
 
-/// The `GLArea` type acts as a reference-counted owner of an underlying `GtkGLArea` instance.
-/// It provides the methods that can operate on this data type through `GLAreaProtocol` conformance.
-/// Use `GLArea` as a strong reference or owner of a `GtkGLArea` instance.
-///
 /// `GtkGLArea` is a widget that allows drawing with OpenGL.
 /// 
 /// `GtkGLArea` sets up its own `GdkGLContext` for the window it creates, and
@@ -21096,6 +21680,11 @@ public extension GLAreaRef {
 /// 
 /// If you need to change the options for creating the `GdkGLContext`
 /// you should use the `GtkGLArea::create-context` signal.
+///
+/// The `GLArea` type acts as a reference-counted owner of an underlying `GtkGLArea` instance.
+/// It provides the methods that can operate on this data type through `GLAreaProtocol` conformance.
+/// Use `GLArea` as a strong reference or owner of a `GtkGLArea` instance.
+///
 open class GLArea: Widget, GLAreaProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -21886,12 +22475,14 @@ public enum GLAreaSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -22347,12 +22938,14 @@ public extension GLAreaProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -22396,12 +22989,14 @@ public extension GLAreaProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -22445,12 +23040,14 @@ public extension GLAreaProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -22494,12 +23091,14 @@ public extension GLAreaProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -22543,12 +23142,14 @@ public extension GLAreaProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -22592,12 +23193,14 @@ public extension GLAreaProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

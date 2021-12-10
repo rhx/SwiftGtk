@@ -22,5 +22,6 @@ import Atk
 /// more information.
 public typealias Allocation = GtkAllocation
 
+
 @available(*, deprecated)
     public typealias Stock = GtkStock

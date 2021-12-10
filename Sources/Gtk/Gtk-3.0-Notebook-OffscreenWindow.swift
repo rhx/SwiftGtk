@@ -17,11 +17,6 @@ import Atk
 
 // MARK: - Notebook Class
 
-/// The `NotebookProtocol` protocol exposes the methods and properties of an underlying `GtkNotebook` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Notebook`.
-/// Alternatively, use `NotebookRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkNotebook` widget is a `GtkContainer` whose children are pages that
 /// can be switched between using tab labels along one edge.
 /// 
@@ -103,6 +98,12 @@ import Atk
 /// A tab node gets the .dnd style class while it is moved with drag-and-drop.
 /// 
 /// The nodes are always arranged from left-to-right, regarldess of text direction.
+///
+/// The `NotebookProtocol` protocol exposes the methods and properties of an underlying `GtkNotebook` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Notebook`.
+/// Alternatively, use `NotebookRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol NotebookProtocol: ContainerProtocol {
         /// Untyped pointer to the underlying `GtkNotebook` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -114,10 +115,6 @@ public protocol NotebookProtocol: ContainerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NotebookRef` type acts as a lightweight Swift reference to an underlying `GtkNotebook` instance.
-/// It exposes methods that can operate on this data type through `NotebookProtocol` conformance.
-/// Use `NotebookRef` only as an `unowned` reference to an existing `GtkNotebook` instance.
-///
 /// The `GtkNotebook` widget is a `GtkContainer` whose children are pages that
 /// can be switched between using tab labels along one edge.
 /// 
@@ -199,6 +196,11 @@ public protocol NotebookProtocol: ContainerProtocol {
 /// A tab node gets the .dnd style class while it is moved with drag-and-drop.
 /// 
 /// The nodes are always arranged from left-to-right, regarldess of text direction.
+///
+/// The `NotebookRef` type acts as a lightweight Swift reference to an underlying `GtkNotebook` instance.
+/// It exposes methods that can operate on this data type through `NotebookProtocol` conformance.
+/// Use `NotebookRef` only as an `unowned` reference to an existing `GtkNotebook` instance.
+///
 public struct NotebookRef: NotebookProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNotebook` instance.
     /// For type-safe access, use the generated, typed pointer `notebook_ptr` property instead.
@@ -285,10 +287,6 @@ public extension NotebookRef {
     }
 }
 
-/// The `Notebook` type acts as a reference-counted owner of an underlying `GtkNotebook` instance.
-/// It provides the methods that can operate on this data type through `NotebookProtocol` conformance.
-/// Use `Notebook` as a strong reference or owner of a `GtkNotebook` instance.
-///
 /// The `GtkNotebook` widget is a `GtkContainer` whose children are pages that
 /// can be switched between using tab labels along one edge.
 /// 
@@ -370,6 +368,11 @@ public extension NotebookRef {
 /// A tab node gets the .dnd style class while it is moved with drag-and-drop.
 /// 
 /// The nodes are always arranged from left-to-right, regarldess of text direction.
+///
+/// The `Notebook` type acts as a reference-counted owner of an underlying `GtkNotebook` instance.
+/// It provides the methods that can operate on this data type through `NotebookProtocol` conformance.
+/// Use `Notebook` as a strong reference or owner of a `GtkNotebook` instance.
+///
 open class Notebook: Container, NotebookProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1141,12 +1144,14 @@ public enum NotebookSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1752,12 +1757,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1801,12 +1808,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1850,12 +1859,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1899,12 +1910,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1948,12 +1961,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1997,12 +2012,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2046,12 +2063,14 @@ public extension NotebookProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2598,12 +2617,13 @@ public extension NotebookProtocol {
 
 // MARK: - NotebookAccessible Class
 
+
+///
 /// The `NotebookAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkNotebookAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NotebookAccessible`.
 /// Alternatively, use `NotebookAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NotebookAccessibleProtocol: ContainerAccessibleProtocol, Atk.SelectionProtocol {
         /// Untyped pointer to the underlying `GtkNotebookAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2615,11 +2635,12 @@ public protocol NotebookAccessibleProtocol: ContainerAccessibleProtocol, Atk.Sel
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NotebookAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkNotebookAccessible` instance.
 /// It exposes methods that can operate on this data type through `NotebookAccessibleProtocol` conformance.
 /// Use `NotebookAccessibleRef` only as an `unowned` reference to an existing `GtkNotebookAccessible` instance.
 ///
-
 public struct NotebookAccessibleRef: NotebookAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNotebookAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `notebook_accessible_ptr` property instead.
@@ -2701,11 +2722,12 @@ public extension NotebookAccessibleRef {
 
     }
 
+
+///
 /// The `NotebookAccessible` type acts as a reference-counted owner of an underlying `GtkNotebookAccessible` instance.
 /// It provides the methods that can operate on this data type through `NotebookAccessibleProtocol` conformance.
 /// Use `NotebookAccessible` as a strong reference or owner of a `GtkNotebookAccessible` instance.
 ///
-
 open class NotebookAccessible: ContainerAccessible, NotebookAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2968,12 +2990,14 @@ public enum NotebookAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3069,12 +3093,13 @@ public extension NotebookAccessibleProtocol {
 
 // MARK: - NotebookPageAccessible Class
 
+
+///
 /// The `NotebookPageAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkNotebookPageAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NotebookPageAccessible`.
 /// Alternatively, use `NotebookPageAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NotebookPageAccessibleProtocol: Atk.ObjectProtocol, Atk.ComponentProtocol {
         /// Untyped pointer to the underlying `GtkNotebookPageAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3086,11 +3111,12 @@ public protocol NotebookPageAccessibleProtocol: Atk.ObjectProtocol, Atk.Componen
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NotebookPageAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkNotebookPageAccessible` instance.
 /// It exposes methods that can operate on this data type through `NotebookPageAccessibleProtocol` conformance.
 /// Use `NotebookPageAccessibleRef` only as an `unowned` reference to an existing `GtkNotebookPageAccessible` instance.
 ///
-
 public struct NotebookPageAccessibleRef: NotebookPageAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNotebookPageAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `notebook_page_accessible_ptr` property instead.
@@ -3172,11 +3198,12 @@ public extension NotebookPageAccessibleRef {
 
     }
 
+
+///
 /// The `NotebookPageAccessible` type acts as a reference-counted owner of an underlying `GtkNotebookPageAccessible` instance.
 /// It provides the methods that can operate on this data type through `NotebookPageAccessibleProtocol` conformance.
 /// Use `NotebookPageAccessible` as a strong reference or owner of a `GtkNotebookPageAccessible` instance.
 ///
-
 open class NotebookPageAccessible: Atk.Object, NotebookPageAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3438,12 +3465,14 @@ public enum NotebookPageAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3542,11 +3571,6 @@ public extension NotebookPageAccessibleProtocol {
 
 // MARK: - NumerableIcon Class
 
-/// The `NumerableIconProtocol` protocol exposes the methods and properties of an underlying `GtkNumerableIcon` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `NumerableIcon`.
-/// Alternatively, use `NumerableIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GtkNumerableIcon is a subclass of `GEmblemedIcon` that can
 /// show a number or short string as an emblem. The number can
 /// be overlayed on top of another emblem, if desired.
@@ -3558,6 +3582,12 @@ public extension NotebookPageAccessibleProtocol {
 /// Typical numerable icons:
 /// ![](numerableicon.png)
 /// ![](numerableicon2.png)
+///
+/// The `NumerableIconProtocol` protocol exposes the methods and properties of an underlying `GtkNumerableIcon` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `NumerableIcon`.
+/// Alternatively, use `NumerableIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol NumerableIconProtocol: GIO.EmblemedIconProtocol, GIO.IconProtocol {
         /// Untyped pointer to the underlying `GtkNumerableIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3569,10 +3599,6 @@ public protocol NumerableIconProtocol: GIO.EmblemedIconProtocol, GIO.IconProtoco
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NumerableIconRef` type acts as a lightweight Swift reference to an underlying `GtkNumerableIcon` instance.
-/// It exposes methods that can operate on this data type through `NumerableIconProtocol` conformance.
-/// Use `NumerableIconRef` only as an `unowned` reference to an existing `GtkNumerableIcon` instance.
-///
 /// GtkNumerableIcon is a subclass of `GEmblemedIcon` that can
 /// show a number or short string as an emblem. The number can
 /// be overlayed on top of another emblem, if desired.
@@ -3584,6 +3610,11 @@ public protocol NumerableIconProtocol: GIO.EmblemedIconProtocol, GIO.IconProtoco
 /// Typical numerable icons:
 /// ![](numerableicon.png)
 /// ![](numerableicon2.png)
+///
+/// The `NumerableIconRef` type acts as a lightweight Swift reference to an underlying `GtkNumerableIcon` instance.
+/// It exposes methods that can operate on this data type through `NumerableIconProtocol` conformance.
+/// Use `NumerableIconRef` only as an `unowned` reference to an existing `GtkNumerableIcon` instance.
+///
 public struct NumerableIconRef: NumerableIconProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNumerableIcon` instance.
     /// For type-safe access, use the generated, typed pointer `numerable_icon_ptr` property instead.
@@ -3665,10 +3696,6 @@ public extension NumerableIconRef {
 
     }
 
-/// The `NumerableIcon` type acts as a reference-counted owner of an underlying `GtkNumerableIcon` instance.
-/// It provides the methods that can operate on this data type through `NumerableIconProtocol` conformance.
-/// Use `NumerableIcon` as a strong reference or owner of a `GtkNumerableIcon` instance.
-///
 /// GtkNumerableIcon is a subclass of `GEmblemedIcon` that can
 /// show a number or short string as an emblem. The number can
 /// be overlayed on top of another emblem, if desired.
@@ -3680,6 +3707,11 @@ public extension NumerableIconRef {
 /// Typical numerable icons:
 /// ![](numerableicon.png)
 /// ![](numerableicon2.png)
+///
+/// The `NumerableIcon` type acts as a reference-counted owner of an underlying `GtkNumerableIcon` instance.
+/// It provides the methods that can operate on this data type through `NumerableIconProtocol` conformance.
+/// Use `NumerableIcon` as a strong reference or owner of a `GtkNumerableIcon` instance.
+///
 open class NumerableIcon: GIO.EmblemedIcon, NumerableIconProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3887,12 +3919,14 @@ public enum NumerableIconSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4235,11 +4269,6 @@ public extension NumerableIconProtocol {
 
 // MARK: - OffscreenWindow Class
 
-/// The `OffscreenWindowProtocol` protocol exposes the methods and properties of an underlying `GtkOffscreenWindow` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `OffscreenWindow`.
-/// Alternatively, use `OffscreenWindowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GtkOffscreenWindow is strictly intended to be used for obtaining
 /// snapshots of widgets that are not part of a normal widget hierarchy.
 /// Since `GtkOffscreenWindow` is a toplevel widget you cannot obtain
@@ -4257,6 +4286,12 @@ public extension NumerableIconProtocol {
 /// 
 /// When contained offscreen widgets are redrawn, GtkOffscreenWindow
 /// will emit a `GtkWidget::damage-event` signal.
+///
+/// The `OffscreenWindowProtocol` protocol exposes the methods and properties of an underlying `GtkOffscreenWindow` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `OffscreenWindow`.
+/// Alternatively, use `OffscreenWindowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol OffscreenWindowProtocol: WindowProtocol {
         /// Untyped pointer to the underlying `GtkOffscreenWindow` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4268,10 +4303,6 @@ public protocol OffscreenWindowProtocol: WindowProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `OffscreenWindowRef` type acts as a lightweight Swift reference to an underlying `GtkOffscreenWindow` instance.
-/// It exposes methods that can operate on this data type through `OffscreenWindowProtocol` conformance.
-/// Use `OffscreenWindowRef` only as an `unowned` reference to an existing `GtkOffscreenWindow` instance.
-///
 /// GtkOffscreenWindow is strictly intended to be used for obtaining
 /// snapshots of widgets that are not part of a normal widget hierarchy.
 /// Since `GtkOffscreenWindow` is a toplevel widget you cannot obtain
@@ -4289,6 +4320,11 @@ public protocol OffscreenWindowProtocol: WindowProtocol {
 /// 
 /// When contained offscreen widgets are redrawn, GtkOffscreenWindow
 /// will emit a `GtkWidget::damage-event` signal.
+///
+/// The `OffscreenWindowRef` type acts as a lightweight Swift reference to an underlying `GtkOffscreenWindow` instance.
+/// It exposes methods that can operate on this data type through `OffscreenWindowProtocol` conformance.
+/// Use `OffscreenWindowRef` only as an `unowned` reference to an existing `GtkOffscreenWindow` instance.
+///
 public struct OffscreenWindowRef: OffscreenWindowProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkOffscreenWindow` instance.
     /// For type-safe access, use the generated, typed pointer `offscreen_window_ptr` property instead.
@@ -4376,10 +4412,6 @@ public extension OffscreenWindowRef {
     }
 }
 
-/// The `OffscreenWindow` type acts as a reference-counted owner of an underlying `GtkOffscreenWindow` instance.
-/// It provides the methods that can operate on this data type through `OffscreenWindowProtocol` conformance.
-/// Use `OffscreenWindow` as a strong reference or owner of a `GtkOffscreenWindow` instance.
-///
 /// GtkOffscreenWindow is strictly intended to be used for obtaining
 /// snapshots of widgets that are not part of a normal widget hierarchy.
 /// Since `GtkOffscreenWindow` is a toplevel widget you cannot obtain
@@ -4397,6 +4429,11 @@ public extension OffscreenWindowRef {
 /// 
 /// When contained offscreen widgets are redrawn, GtkOffscreenWindow
 /// will emit a `GtkWidget::damage-event` signal.
+///
+/// The `OffscreenWindow` type acts as a reference-counted owner of an underlying `GtkOffscreenWindow` instance.
+/// It provides the methods that can operate on this data type through `OffscreenWindowProtocol` conformance.
+/// Use `OffscreenWindow` as a strong reference or owner of a `GtkOffscreenWindow` instance.
+///
 open class OffscreenWindow: Window, OffscreenWindowProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5255,12 +5292,14 @@ public enum OffscreenWindowSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

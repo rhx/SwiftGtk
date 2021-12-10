@@ -32,12 +32,13 @@ public extension LabelClassRef {
 
 // MARK: - LabelClass Record
 
+
+///
 /// The `LabelClassProtocol` protocol exposes the methods and properties of an underlying `GtkLabelClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LabelClass`.
 /// Alternatively, use `LabelClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol LabelClassProtocol {
         /// Untyped pointer to the underlying `GtkLabelClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,11 +50,12 @@ public protocol LabelClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `LabelClassRef` type acts as a lightweight Swift reference to an underlying `GtkLabelClass` instance.
 /// It exposes methods that can operate on this data type through `LabelClassProtocol` conformance.
 /// Use `LabelClassRef` only as an `unowned` reference to an existing `GtkLabelClass` instance.
 ///
-
 public struct LabelClassRef: LabelClassProtocol {
         /// Untyped pointer to the underlying `GtkLabelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -175,12 +177,13 @@ public extension LabelClassProtocol {
 
 // MARK: - LabelSelectionInfo Record
 
+
+///
 /// The `LabelSelectionInfoProtocol` protocol exposes the methods and properties of an underlying `GtkLabelSelectionInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LabelSelectionInfo`.
 /// Alternatively, use `LabelSelectionInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol LabelSelectionInfoProtocol {
         /// Untyped pointer to the underlying `GtkLabelSelectionInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -192,11 +195,12 @@ public protocol LabelSelectionInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `LabelSelectionInfoRef` type acts as a lightweight Swift reference to an underlying `GtkLabelSelectionInfo` instance.
 /// It exposes methods that can operate on this data type through `LabelSelectionInfoProtocol` conformance.
 /// Use `LabelSelectionInfoRef` only as an `unowned` reference to an existing `GtkLabelSelectionInfo` instance.
 ///
-
 public struct LabelSelectionInfoRef: LabelSelectionInfoProtocol {
         /// Untyped pointer to the underlying `GtkLabelSelectionInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -275,11 +279,12 @@ public extension LabelSelectionInfoRef {
 
     }
 
+
+///
 /// The `LabelSelectionInfo` type acts as an owner of an underlying `GtkLabelSelectionInfo` instance.
 /// It provides the methods that can operate on this data type through `LabelSelectionInfoProtocol` conformance.
 /// Use `LabelSelectionInfo` as a strong reference or owner of a `GtkLabelSelectionInfo` instance.
 ///
-
 open class LabelSelectionInfo: LabelSelectionInfoProtocol {
         /// Untyped pointer to the underlying `GtkLabelSelectionInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -457,12 +462,13 @@ public extension LayoutClassRef {
 
 // MARK: - LayoutClass Record
 
+
+///
 /// The `LayoutClassProtocol` protocol exposes the methods and properties of an underlying `GtkLayoutClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LayoutClass`.
 /// Alternatively, use `LayoutClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol LayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkLayoutClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -474,11 +480,12 @@ public protocol LayoutClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `LayoutClassRef` type acts as a lightweight Swift reference to an underlying `GtkLayoutClass` instance.
 /// It exposes methods that can operate on this data type through `LayoutClassProtocol` conformance.
 /// Use `LayoutClassRef` only as an `unowned` reference to an existing `GtkLayoutClass` instance.
 ///
-
 public struct LayoutClassRef: LayoutClassProtocol {
         /// Untyped pointer to the underlying `GtkLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -599,12 +606,13 @@ public extension LevelBarAccessibleClassRef {
 
 // MARK: - LevelBarAccessibleClass Record
 
+
+///
 /// The `LevelBarAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkLevelBarAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LevelBarAccessibleClass`.
 /// Alternatively, use `LevelBarAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol LevelBarAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkLevelBarAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -616,11 +624,12 @@ public protocol LevelBarAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `LevelBarAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkLevelBarAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `LevelBarAccessibleClassProtocol` conformance.
 /// Use `LevelBarAccessibleClassRef` only as an `unowned` reference to an existing `GtkLevelBarAccessibleClass` instance.
 ///
-
 public struct LevelBarAccessibleClassRef: LevelBarAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkLevelBarAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -733,12 +742,13 @@ public extension LevelBarClassRef {
 
 // MARK: - LevelBarClass Record
 
+
+///
 /// The `LevelBarClassProtocol` protocol exposes the methods and properties of an underlying `GtkLevelBarClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LevelBarClass`.
 /// Alternatively, use `LevelBarClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol LevelBarClassProtocol {
         /// Untyped pointer to the underlying `GtkLevelBarClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -750,11 +760,12 @@ public protocol LevelBarClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `LevelBarClassRef` type acts as a lightweight Swift reference to an underlying `GtkLevelBarClass` instance.
 /// It exposes methods that can operate on this data type through `LevelBarClassProtocol` conformance.
 /// Use `LevelBarClassRef` only as an `unowned` reference to an existing `GtkLevelBarClass` instance.
 ///
-
 public struct LevelBarClassRef: LevelBarClassProtocol {
         /// Untyped pointer to the underlying `GtkLevelBarClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -866,12 +877,13 @@ public extension LinkButtonAccessibleClassRef {
 
 // MARK: - LinkButtonAccessibleClass Record
 
+
+///
 /// The `LinkButtonAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkLinkButtonAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LinkButtonAccessibleClass`.
 /// Alternatively, use `LinkButtonAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol LinkButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkLinkButtonAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -883,11 +895,12 @@ public protocol LinkButtonAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `LinkButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkLinkButtonAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `LinkButtonAccessibleClassProtocol` conformance.
 /// Use `LinkButtonAccessibleClassRef` only as an `unowned` reference to an existing `GtkLinkButtonAccessibleClass` instance.
 ///
-
 public struct LinkButtonAccessibleClassRef: LinkButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkLinkButtonAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1000,13 +1013,14 @@ public extension LinkButtonClassRef {
 
 // MARK: - LinkButtonClass Record
 
+/// The `GtkLinkButtonClass` contains only
+/// private data.
+///
 /// The `LinkButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkLinkButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LinkButtonClass`.
 /// Alternatively, use `LinkButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkLinkButtonClass` contains only
-/// private data.
 public protocol LinkButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkLinkButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1018,12 +1032,13 @@ public protocol LinkButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GtkLinkButtonClass` contains only
+/// private data.
+///
 /// The `LinkButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkLinkButtonClass` instance.
 /// It exposes methods that can operate on this data type through `LinkButtonClassProtocol` conformance.
 /// Use `LinkButtonClassRef` only as an `unowned` reference to an existing `GtkLinkButtonClass` instance.
 ///
-/// The `GtkLinkButtonClass` contains only
-/// private data.
 public struct LinkButtonClassRef: LinkButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkLinkButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1141,12 +1156,13 @@ public extension ListBoxAccessibleClassRef {
 
 // MARK: - ListBoxAccessibleClass Record
 
+
+///
 /// The `ListBoxAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkListBoxAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListBoxAccessibleClass`.
 /// Alternatively, use `ListBoxAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListBoxAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkListBoxAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1158,11 +1174,12 @@ public protocol ListBoxAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListBoxAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `ListBoxAccessibleClassProtocol` conformance.
 /// Use `ListBoxAccessibleClassRef` only as an `unowned` reference to an existing `GtkListBoxAccessibleClass` instance.
 ///
-
 public struct ListBoxAccessibleClassRef: ListBoxAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkListBoxAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1275,12 +1292,13 @@ public extension ListBoxClassRef {
 
 // MARK: - ListBoxClass Record
 
+
+///
 /// The `ListBoxClassProtocol` protocol exposes the methods and properties of an underlying `GtkListBoxClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListBoxClass`.
 /// Alternatively, use `ListBoxClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkListBoxClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1292,11 +1310,12 @@ public protocol ListBoxClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxClass` instance.
 /// It exposes methods that can operate on this data type through `ListBoxClassProtocol` conformance.
 /// Use `ListBoxClassRef` only as an `unowned` reference to an existing `GtkListBoxClass` instance.
 ///
-
 public struct ListBoxClassRef: ListBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkListBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1433,12 +1452,13 @@ public extension ListBoxRowAccessibleClassRef {
 
 // MARK: - ListBoxRowAccessibleClass Record
 
+
+///
 /// The `ListBoxRowAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkListBoxRowAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListBoxRowAccessibleClass`.
 /// Alternatively, use `ListBoxRowAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListBoxRowAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkListBoxRowAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1450,11 +1470,12 @@ public protocol ListBoxRowAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListBoxRowAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxRowAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `ListBoxRowAccessibleClassProtocol` conformance.
 /// Use `ListBoxRowAccessibleClassRef` only as an `unowned` reference to an existing `GtkListBoxRowAccessibleClass` instance.
 ///
-
 public struct ListBoxRowAccessibleClassRef: ListBoxRowAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkListBoxRowAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1567,12 +1588,13 @@ public extension ListBoxRowClassRef {
 
 // MARK: - ListBoxRowClass Record
 
+
+///
 /// The `ListBoxRowClassProtocol` protocol exposes the methods and properties of an underlying `GtkListBoxRowClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListBoxRowClass`.
 /// Alternatively, use `ListBoxRowClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListBoxRowClassProtocol {
         /// Untyped pointer to the underlying `GtkListBoxRowClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1584,11 +1606,12 @@ public protocol ListBoxRowClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListBoxRowClassRef` type acts as a lightweight Swift reference to an underlying `GtkListBoxRowClass` instance.
 /// It exposes methods that can operate on this data type through `ListBoxRowClassProtocol` conformance.
 /// Use `ListBoxRowClassRef` only as an `unowned` reference to an existing `GtkListBoxRowClass` instance.
 ///
-
 public struct ListBoxRowClassRef: ListBoxRowClassProtocol {
         /// Untyped pointer to the underlying `GtkListBoxRowClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1709,12 +1732,13 @@ public extension ListStoreClassRef {
 
 // MARK: - ListStoreClass Record
 
+
+///
 /// The `ListStoreClassProtocol` protocol exposes the methods and properties of an underlying `GtkListStoreClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListStoreClass`.
 /// Alternatively, use `ListStoreClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListStoreClassProtocol {
         /// Untyped pointer to the underlying `GtkListStoreClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1726,11 +1750,12 @@ public protocol ListStoreClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListStoreClassRef` type acts as a lightweight Swift reference to an underlying `GtkListStoreClass` instance.
 /// It exposes methods that can operate on this data type through `ListStoreClassProtocol` conformance.
 /// Use `ListStoreClassRef` only as an `unowned` reference to an existing `GtkListStoreClass` instance.
 ///
-
 public struct ListStoreClassRef: ListStoreClassProtocol {
         /// Untyped pointer to the underlying `GtkListStoreClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1851,12 +1876,13 @@ public extension LockButtonAccessibleClassRef {
 
 // MARK: - LockButtonAccessibleClass Record
 
+
+///
 /// The `LockButtonAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkLockButtonAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LockButtonAccessibleClass`.
 /// Alternatively, use `LockButtonAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol LockButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkLockButtonAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1868,11 +1894,12 @@ public protocol LockButtonAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `LockButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkLockButtonAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `LockButtonAccessibleClassProtocol` conformance.
 /// Use `LockButtonAccessibleClassRef` only as an `unowned` reference to an existing `GtkLockButtonAccessibleClass` instance.
 ///
-
 public struct LockButtonAccessibleClassRef: LockButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkLockButtonAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1985,12 +2012,13 @@ public extension LockButtonClassRef {
 
 // MARK: - LockButtonClass Record
 
+
+///
 /// The `LockButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkLockButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LockButtonClass`.
 /// Alternatively, use `LockButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol LockButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkLockButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2002,11 +2030,12 @@ public protocol LockButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `LockButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkLockButtonClass` instance.
 /// It exposes methods that can operate on this data type through `LockButtonClassProtocol` conformance.
 /// Use `LockButtonClassRef` only as an `unowned` reference to an existing `GtkLockButtonClass` instance.
 ///
-
 public struct LockButtonClassRef: LockButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkLockButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2137,12 +2166,13 @@ public extension MenuAccessibleClassRef {
 
 // MARK: - MenuAccessibleClass Record
 
+
+///
 /// The `MenuAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkMenuAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuAccessibleClass`.
 /// Alternatively, use `MenuAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2154,11 +2184,12 @@ public protocol MenuAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `MenuAccessibleClassProtocol` conformance.
 /// Use `MenuAccessibleClassRef` only as an `unowned` reference to an existing `GtkMenuAccessibleClass` instance.
 ///
-
 public struct MenuAccessibleClassRef: MenuAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

@@ -17,12 +17,13 @@ import Atk
 
 // MARK: - HButtonBox Class
 
+
+///
 /// The `HButtonBoxProtocol` protocol exposes the methods and properties of an underlying `GtkHButtonBox` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HButtonBox`.
 /// Alternatively, use `HButtonBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HButtonBoxProtocol: ButtonBoxProtocol {
         /// Untyped pointer to the underlying `GtkHButtonBox` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,11 +35,12 @@ public protocol HButtonBoxProtocol: ButtonBoxProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HButtonBoxRef` type acts as a lightweight Swift reference to an underlying `GtkHButtonBox` instance.
 /// It exposes methods that can operate on this data type through `HButtonBoxProtocol` conformance.
 /// Use `HButtonBoxRef` only as an `unowned` reference to an existing `GtkHButtonBox` instance.
 ///
-
 public struct HButtonBoxRef: HButtonBoxProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkHButtonBox` instance.
     /// For type-safe access, use the generated, typed pointer `hbutton_box_ptr` property instead.
@@ -129,11 +131,12 @@ public extension HButtonBoxRef {
     }
 }
 
+
+///
 /// The `HButtonBox` type acts as a reference-counted owner of an underlying `GtkHButtonBox` instance.
 /// It provides the methods that can operate on this data type through `HButtonBoxProtocol` conformance.
 /// Use `HButtonBox` as a strong reference or owner of a `GtkHButtonBox` instance.
 ///
-
 open class HButtonBox: ButtonBox, HButtonBoxProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -893,12 +896,14 @@ public enum HButtonBoxSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1209,17 +1214,18 @@ public extension HButtonBoxProtocol {
 
 // MARK: - HPaned Class
 
-/// The `HPanedProtocol` protocol exposes the methods and properties of an underlying `GtkHPaned` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `HPaned`.
-/// Alternatively, use `HPanedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The HPaned widget is a container widget with two
 /// children arranged horizontally. The division between
 /// the two panes is adjustable by the user by dragging
 /// a handle. See `GtkPaned` for details.
 /// 
 /// GtkHPaned has been deprecated, use `GtkPaned` instead.
+///
+/// The `HPanedProtocol` protocol exposes the methods and properties of an underlying `GtkHPaned` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `HPaned`.
+/// Alternatively, use `HPanedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol HPanedProtocol: PanedProtocol {
         /// Untyped pointer to the underlying `GtkHPaned` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1231,16 +1237,17 @@ public protocol HPanedProtocol: PanedProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `HPanedRef` type acts as a lightweight Swift reference to an underlying `GtkHPaned` instance.
-/// It exposes methods that can operate on this data type through `HPanedProtocol` conformance.
-/// Use `HPanedRef` only as an `unowned` reference to an existing `GtkHPaned` instance.
-///
 /// The HPaned widget is a container widget with two
 /// children arranged horizontally. The division between
 /// the two panes is adjustable by the user by dragging
 /// a handle. See `GtkPaned` for details.
 /// 
 /// GtkHPaned has been deprecated, use `GtkPaned` instead.
+///
+/// The `HPanedRef` type acts as a lightweight Swift reference to an underlying `GtkHPaned` instance.
+/// It exposes methods that can operate on this data type through `HPanedProtocol` conformance.
+/// Use `HPanedRef` only as an `unowned` reference to an existing `GtkHPaned` instance.
+///
 public struct HPanedRef: HPanedProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkHPaned` instance.
     /// For type-safe access, use the generated, typed pointer `hpaned_ptr` property instead.
@@ -1331,16 +1338,17 @@ public extension HPanedRef {
     }
 }
 
-/// The `HPaned` type acts as a reference-counted owner of an underlying `GtkHPaned` instance.
-/// It provides the methods that can operate on this data type through `HPanedProtocol` conformance.
-/// Use `HPaned` as a strong reference or owner of a `GtkHPaned` instance.
-///
 /// The HPaned widget is a container widget with two
 /// children arranged horizontally. The division between
 /// the two panes is adjustable by the user by dragging
 /// a handle. See `GtkPaned` for details.
 /// 
 /// GtkHPaned has been deprecated, use `GtkPaned` instead.
+///
+/// The `HPaned` type acts as a reference-counted owner of an underlying `GtkHPaned` instance.
+/// It provides the methods that can operate on this data type through `HPanedProtocol` conformance.
+/// Use `HPaned` as a strong reference or owner of a `GtkHPaned` instance.
+///
 open class HPaned: Paned, HPanedProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2143,12 +2151,14 @@ public enum HPanedSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2476,11 +2486,6 @@ public extension HPanedProtocol {
 
 // MARK: - HSV Class
 
-/// The `HSVProtocol` protocol exposes the methods and properties of an underlying `GtkHSV` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `HSV`.
-/// Alternatively, use `HSVRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkHSV` is the “color wheel” part of a complete color selector widget.
 /// It allows to select a color by determining its HSV components in an
 /// intuitive way. Moving the selection around the outer ring changes the hue,
@@ -2489,6 +2494,12 @@ public extension HPanedProtocol {
 /// 
 /// `GtkHSV` has been deprecated together with `GtkColorSelection`, where
 /// it was used.
+///
+/// The `HSVProtocol` protocol exposes the methods and properties of an underlying `GtkHSV` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `HSV`.
+/// Alternatively, use `HSVRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol HSVProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkHSV` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2500,10 +2511,6 @@ public protocol HSVProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `HSVRef` type acts as a lightweight Swift reference to an underlying `GtkHSV` instance.
-/// It exposes methods that can operate on this data type through `HSVProtocol` conformance.
-/// Use `HSVRef` only as an `unowned` reference to an existing `GtkHSV` instance.
-///
 /// `GtkHSV` is the “color wheel” part of a complete color selector widget.
 /// It allows to select a color by determining its HSV components in an
 /// intuitive way. Moving the selection around the outer ring changes the hue,
@@ -2512,6 +2519,11 @@ public protocol HSVProtocol: WidgetProtocol {
 /// 
 /// `GtkHSV` has been deprecated together with `GtkColorSelection`, where
 /// it was used.
+///
+/// The `HSVRef` type acts as a lightweight Swift reference to an underlying `GtkHSV` instance.
+/// It exposes methods that can operate on this data type through `HSVProtocol` conformance.
+/// Use `HSVRef` only as an `unowned` reference to an existing `GtkHSV` instance.
+///
 public struct HSVRef: HSVProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkHSV` instance.
     /// For type-safe access, use the generated, typed pointer `hsv_ptr` property instead.
@@ -2599,10 +2611,6 @@ public extension HSVRef {
     }
 }
 
-/// The `HSV` type acts as a reference-counted owner of an underlying `GtkHSV` instance.
-/// It provides the methods that can operate on this data type through `HSVProtocol` conformance.
-/// Use `HSV` as a strong reference or owner of a `GtkHSV` instance.
-///
 /// `GtkHSV` is the “color wheel” part of a complete color selector widget.
 /// It allows to select a color by determining its HSV components in an
 /// intuitive way. Moving the selection around the outer ring changes the hue,
@@ -2611,6 +2619,11 @@ public extension HSVRef {
 /// 
 /// `GtkHSV` has been deprecated together with `GtkColorSelection`, where
 /// it was used.
+///
+/// The `HSV` type acts as a reference-counted owner of an underlying `GtkHSV` instance.
+/// It provides the methods that can operate on this data type through `HSVProtocol` conformance.
+/// Use `HSV` as a strong reference or owner of a `GtkHSV` instance.
+///
 open class HSV: Widget, HSVProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3360,12 +3373,14 @@ public enum HSVSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3792,11 +3807,6 @@ public extension HSVProtocol {
 
 // MARK: - HScale Class
 
-/// The `HScaleProtocol` protocol exposes the methods and properties of an underlying `GtkHScale` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `HScale`.
-/// Alternatively, use `HScaleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkHScale` widget is used to allow the user to select a value using
 /// a horizontal slider. To create one, use `gtk_hscale_new_with_range()`.
 /// 
@@ -3804,6 +3814,12 @@ public extension HSVProtocol {
 /// shown can be set using the parent `GtkScale` class’s functions.
 /// 
 /// GtkHScale has been deprecated, use `GtkScale` instead.
+///
+/// The `HScaleProtocol` protocol exposes the methods and properties of an underlying `GtkHScale` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `HScale`.
+/// Alternatively, use `HScaleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol HScaleProtocol: ScaleProtocol {
         /// Untyped pointer to the underlying `GtkHScale` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3815,10 +3831,6 @@ public protocol HScaleProtocol: ScaleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `HScaleRef` type acts as a lightweight Swift reference to an underlying `GtkHScale` instance.
-/// It exposes methods that can operate on this data type through `HScaleProtocol` conformance.
-/// Use `HScaleRef` only as an `unowned` reference to an existing `GtkHScale` instance.
-///
 /// The `GtkHScale` widget is used to allow the user to select a value using
 /// a horizontal slider. To create one, use `gtk_hscale_new_with_range()`.
 /// 
@@ -3826,6 +3838,11 @@ public protocol HScaleProtocol: ScaleProtocol {
 /// shown can be set using the parent `GtkScale` class’s functions.
 /// 
 /// GtkHScale has been deprecated, use `GtkScale` instead.
+///
+/// The `HScaleRef` type acts as a lightweight Swift reference to an underlying `GtkHScale` instance.
+/// It exposes methods that can operate on this data type through `HScaleProtocol` conformance.
+/// Use `HScaleRef` only as an `unowned` reference to an existing `GtkHScale` instance.
+///
 public struct HScaleRef: HScaleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkHScale` instance.
     /// For type-safe access, use the generated, typed pointer `hscale_ptr` property instead.
@@ -3949,10 +3966,6 @@ public extension HScaleRef {
     }
 }
 
-/// The `HScale` type acts as a reference-counted owner of an underlying `GtkHScale` instance.
-/// It provides the methods that can operate on this data type through `HScaleProtocol` conformance.
-/// Use `HScale` as a strong reference or owner of a `GtkHScale` instance.
-///
 /// The `GtkHScale` widget is used to allow the user to select a value using
 /// a horizontal slider. To create one, use `gtk_hscale_new_with_range()`.
 /// 
@@ -3960,6 +3973,11 @@ public extension HScaleRef {
 /// shown can be set using the parent `GtkScale` class’s functions.
 /// 
 /// GtkHScale has been deprecated, use `GtkScale` instead.
+///
+/// The `HScale` type acts as a reference-counted owner of an underlying `GtkHScale` instance.
+/// It provides the methods that can operate on this data type through `HScaleProtocol` conformance.
+/// Use `HScale` as a strong reference or owner of a `GtkHScale` instance.
+///
 open class HScale: Scale, HScaleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4806,12 +4824,14 @@ public enum HScaleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5137,11 +5157,6 @@ public extension HScaleProtocol {
 
 // MARK: - HScrollbar Class
 
-/// The `HScrollbarProtocol` protocol exposes the methods and properties of an underlying `GtkHScrollbar` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `HScrollbar`.
-/// Alternatively, use `HScrollbarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkHScrollbar` widget is a widget arranged horizontally creating a
 /// scrollbar. See `GtkScrollbar` for details on
 /// scrollbars. `GtkAdjustment` pointers may be added to handle the
@@ -5150,6 +5165,12 @@ public extension HScaleProtocol {
 /// fields in an adjustment represent for a scrollbar.
 /// 
 /// GtkHScrollbar has been deprecated, use `GtkScrollbar` instead.
+///
+/// The `HScrollbarProtocol` protocol exposes the methods and properties of an underlying `GtkHScrollbar` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `HScrollbar`.
+/// Alternatively, use `HScrollbarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol HScrollbarProtocol: ScrollbarProtocol {
         /// Untyped pointer to the underlying `GtkHScrollbar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5161,10 +5182,6 @@ public protocol HScrollbarProtocol: ScrollbarProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `HScrollbarRef` type acts as a lightweight Swift reference to an underlying `GtkHScrollbar` instance.
-/// It exposes methods that can operate on this data type through `HScrollbarProtocol` conformance.
-/// Use `HScrollbarRef` only as an `unowned` reference to an existing `GtkHScrollbar` instance.
-///
 /// The `GtkHScrollbar` widget is a widget arranged horizontally creating a
 /// scrollbar. See `GtkScrollbar` for details on
 /// scrollbars. `GtkAdjustment` pointers may be added to handle the
@@ -5173,6 +5190,11 @@ public protocol HScrollbarProtocol: ScrollbarProtocol {
 /// fields in an adjustment represent for a scrollbar.
 /// 
 /// GtkHScrollbar has been deprecated, use `GtkScrollbar` instead.
+///
+/// The `HScrollbarRef` type acts as a lightweight Swift reference to an underlying `GtkHScrollbar` instance.
+/// It exposes methods that can operate on this data type through `HScrollbarProtocol` conformance.
+/// Use `HScrollbarRef` only as an `unowned` reference to an existing `GtkHScrollbar` instance.
+///
 public struct HScrollbarRef: HScrollbarProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkHScrollbar` instance.
     /// For type-safe access, use the generated, typed pointer `hscrollbar_ptr` property instead.
@@ -5263,10 +5285,6 @@ public extension HScrollbarRef {
     }
 }
 
-/// The `HScrollbar` type acts as a reference-counted owner of an underlying `GtkHScrollbar` instance.
-/// It provides the methods that can operate on this data type through `HScrollbarProtocol` conformance.
-/// Use `HScrollbar` as a strong reference or owner of a `GtkHScrollbar` instance.
-///
 /// The `GtkHScrollbar` widget is a widget arranged horizontally creating a
 /// scrollbar. See `GtkScrollbar` for details on
 /// scrollbars. `GtkAdjustment` pointers may be added to handle the
@@ -5275,6 +5293,11 @@ public extension HScrollbarRef {
 /// fields in an adjustment represent for a scrollbar.
 /// 
 /// GtkHScrollbar has been deprecated, use `GtkScrollbar` instead.
+///
+/// The `HScrollbar` type acts as a reference-counted owner of an underlying `GtkHScrollbar` instance.
+/// It provides the methods that can operate on this data type through `HScrollbarProtocol` conformance.
+/// Use `HScrollbar` as a strong reference or owner of a `GtkHScrollbar` instance.
+///
 open class HScrollbar: Scrollbar, HScrollbarProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6061,12 +6084,14 @@ public enum HScrollbarSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6388,11 +6413,6 @@ public extension HScrollbarProtocol {
 
 // MARK: - HSeparator Class
 
-/// The `HSeparatorProtocol` protocol exposes the methods and properties of an underlying `GtkHSeparator` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `HSeparator`.
-/// Alternatively, use `HSeparatorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkHSeparator` widget is a horizontal separator, used to group the
 /// widgets within a window. It displays a horizontal line with a shadow to
 /// make it appear sunken into the interface.
@@ -6403,6 +6423,12 @@ public extension HScrollbarProtocol {
 /// &gt; `gtk_menu_shell_append()`.
 /// 
 /// GtkHSeparator has been deprecated, use `GtkSeparator` instead.
+///
+/// The `HSeparatorProtocol` protocol exposes the methods and properties of an underlying `GtkHSeparator` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `HSeparator`.
+/// Alternatively, use `HSeparatorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol HSeparatorProtocol: SeparatorProtocol {
         /// Untyped pointer to the underlying `GtkHSeparator` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6414,10 +6440,6 @@ public protocol HSeparatorProtocol: SeparatorProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `HSeparatorRef` type acts as a lightweight Swift reference to an underlying `GtkHSeparator` instance.
-/// It exposes methods that can operate on this data type through `HSeparatorProtocol` conformance.
-/// Use `HSeparatorRef` only as an `unowned` reference to an existing `GtkHSeparator` instance.
-///
 /// The `GtkHSeparator` widget is a horizontal separator, used to group the
 /// widgets within a window. It displays a horizontal line with a shadow to
 /// make it appear sunken into the interface.
@@ -6428,6 +6450,11 @@ public protocol HSeparatorProtocol: SeparatorProtocol {
 /// &gt; `gtk_menu_shell_append()`.
 /// 
 /// GtkHSeparator has been deprecated, use `GtkSeparator` instead.
+///
+/// The `HSeparatorRef` type acts as a lightweight Swift reference to an underlying `GtkHSeparator` instance.
+/// It exposes methods that can operate on this data type through `HSeparatorProtocol` conformance.
+/// Use `HSeparatorRef` only as an `unowned` reference to an existing `GtkHSeparator` instance.
+///
 public struct HSeparatorRef: HSeparatorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkHSeparator` instance.
     /// For type-safe access, use the generated, typed pointer `hseparator_ptr` property instead.
@@ -6519,10 +6546,6 @@ public extension HSeparatorRef {
     }
 }
 
-/// The `HSeparator` type acts as a reference-counted owner of an underlying `GtkHSeparator` instance.
-/// It provides the methods that can operate on this data type through `HSeparatorProtocol` conformance.
-/// Use `HSeparator` as a strong reference or owner of a `GtkHSeparator` instance.
-///
 /// The `GtkHSeparator` widget is a horizontal separator, used to group the
 /// widgets within a window. It displays a horizontal line with a shadow to
 /// make it appear sunken into the interface.
@@ -6533,6 +6556,11 @@ public extension HSeparatorRef {
 /// &gt; `gtk_menu_shell_append()`.
 /// 
 /// GtkHSeparator has been deprecated, use `GtkSeparator` instead.
+///
+/// The `HSeparator` type acts as a reference-counted owner of an underlying `GtkHSeparator` instance.
+/// It provides the methods that can operate on this data type through `HSeparatorProtocol` conformance.
+/// Use `HSeparator` as a strong reference or owner of a `GtkHSeparator` instance.
+///
 open class HSeparator: Separator, HSeparatorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7283,12 +7311,14 @@ public enum HSeparatorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7590,11 +7620,6 @@ public extension HSeparatorProtocol {
 
 // MARK: - HandleBox Class
 
-/// The `HandleBoxProtocol` protocol exposes the methods and properties of an underlying `GtkHandleBox` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `HandleBox`.
-/// Alternatively, use `HandleBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkHandleBox` widget allows a portion of a window to be "torn
 /// off". It is a bin widget which displays its child and a handle that
 /// the user can drag to tear off a separate window (the “float
@@ -7620,6 +7645,12 @@ public extension HSeparatorProtocol {
 /// &gt; `GtkHandleBox` has been deprecated. It is very specialized, lacks features
 /// &gt; to make it useful and most importantly does not fit well into modern
 /// &gt; application design. Do not use it. There is no replacement.
+///
+/// The `HandleBoxProtocol` protocol exposes the methods and properties of an underlying `GtkHandleBox` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `HandleBox`.
+/// Alternatively, use `HandleBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol HandleBoxProtocol: BinProtocol {
         /// Untyped pointer to the underlying `GtkHandleBox` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7631,10 +7662,6 @@ public protocol HandleBoxProtocol: BinProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `HandleBoxRef` type acts as a lightweight Swift reference to an underlying `GtkHandleBox` instance.
-/// It exposes methods that can operate on this data type through `HandleBoxProtocol` conformance.
-/// Use `HandleBoxRef` only as an `unowned` reference to an existing `GtkHandleBox` instance.
-///
 /// The `GtkHandleBox` widget allows a portion of a window to be "torn
 /// off". It is a bin widget which displays its child and a handle that
 /// the user can drag to tear off a separate window (the “float
@@ -7660,6 +7687,11 @@ public protocol HandleBoxProtocol: BinProtocol {
 /// &gt; `GtkHandleBox` has been deprecated. It is very specialized, lacks features
 /// &gt; to make it useful and most importantly does not fit well into modern
 /// &gt; application design. Do not use it. There is no replacement.
+///
+/// The `HandleBoxRef` type acts as a lightweight Swift reference to an underlying `GtkHandleBox` instance.
+/// It exposes methods that can operate on this data type through `HandleBoxProtocol` conformance.
+/// Use `HandleBoxRef` only as an `unowned` reference to an existing `GtkHandleBox` instance.
+///
 public struct HandleBoxRef: HandleBoxProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkHandleBox` instance.
     /// For type-safe access, use the generated, typed pointer `handle_box_ptr` property instead.
@@ -7750,10 +7782,6 @@ public extension HandleBoxRef {
     }
 }
 
-/// The `HandleBox` type acts as a reference-counted owner of an underlying `GtkHandleBox` instance.
-/// It provides the methods that can operate on this data type through `HandleBoxProtocol` conformance.
-/// Use `HandleBox` as a strong reference or owner of a `GtkHandleBox` instance.
-///
 /// The `GtkHandleBox` widget allows a portion of a window to be "torn
 /// off". It is a bin widget which displays its child and a handle that
 /// the user can drag to tear off a separate window (the “float
@@ -7779,6 +7807,11 @@ public extension HandleBoxRef {
 /// &gt; `GtkHandleBox` has been deprecated. It is very specialized, lacks features
 /// &gt; to make it useful and most importantly does not fit well into modern
 /// &gt; application design. Do not use it. There is no replacement.
+///
+/// The `HandleBox` type acts as a reference-counted owner of an underlying `GtkHandleBox` instance.
+/// It provides the methods that can operate on this data type through `HandleBoxProtocol` conformance.
+/// Use `HandleBox` as a strong reference or owner of a `GtkHandleBox` instance.
+///
 open class HandleBox: Bin, HandleBoxProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8551,12 +8584,14 @@ public enum HandleBoxSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8945,12 +8980,14 @@ public extension HandleBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8994,12 +9031,14 @@ public extension HandleBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9043,12 +9082,14 @@ public extension HandleBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9092,12 +9133,14 @@ public extension HandleBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9141,12 +9184,14 @@ public extension HandleBoxProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9389,11 +9434,6 @@ public extension HandleBoxProtocol {
 
 // MARK: - HeaderBar Class
 
-/// The `HeaderBarProtocol` protocol exposes the methods and properties of an underlying `GtkHeaderBar` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `HeaderBar`.
-/// Alternatively, use `HeaderBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GtkHeaderBar is similar to a horizontal `GtkBox`. It allows children to
 /// be placed at the start or the end. In addition, it allows a title and
 /// subtitle to be displayed. The title will be centered with respect to
@@ -9409,6 +9449,12 @@ public extension HandleBoxProtocol {
 /// For these reasons, GtkHeaderBar is the natural choice for use as the custom
 /// titlebar widget of a `GtkWindow` (see `gtk_window_set_titlebar()`), as it gives
 /// features typical of titlebars while allowing the addition of child widgets.
+///
+/// The `HeaderBarProtocol` protocol exposes the methods and properties of an underlying `GtkHeaderBar` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `HeaderBar`.
+/// Alternatively, use `HeaderBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol HeaderBarProtocol: ContainerProtocol {
         /// Untyped pointer to the underlying `GtkHeaderBar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9420,10 +9466,6 @@ public protocol HeaderBarProtocol: ContainerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `HeaderBarRef` type acts as a lightweight Swift reference to an underlying `GtkHeaderBar` instance.
-/// It exposes methods that can operate on this data type through `HeaderBarProtocol` conformance.
-/// Use `HeaderBarRef` only as an `unowned` reference to an existing `GtkHeaderBar` instance.
-///
 /// GtkHeaderBar is similar to a horizontal `GtkBox`. It allows children to
 /// be placed at the start or the end. In addition, it allows a title and
 /// subtitle to be displayed. The title will be centered with respect to
@@ -9439,6 +9481,11 @@ public protocol HeaderBarProtocol: ContainerProtocol {
 /// For these reasons, GtkHeaderBar is the natural choice for use as the custom
 /// titlebar widget of a `GtkWindow` (see `gtk_window_set_titlebar()`), as it gives
 /// features typical of titlebars while allowing the addition of child widgets.
+///
+/// The `HeaderBarRef` type acts as a lightweight Swift reference to an underlying `GtkHeaderBar` instance.
+/// It exposes methods that can operate on this data type through `HeaderBarProtocol` conformance.
+/// Use `HeaderBarRef` only as an `unowned` reference to an existing `GtkHeaderBar` instance.
+///
 public struct HeaderBarRef: HeaderBarProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkHeaderBar` instance.
     /// For type-safe access, use the generated, typed pointer `header_bar_ptr` property instead.
@@ -9525,10 +9572,6 @@ public extension HeaderBarRef {
     }
 }
 
-/// The `HeaderBar` type acts as a reference-counted owner of an underlying `GtkHeaderBar` instance.
-/// It provides the methods that can operate on this data type through `HeaderBarProtocol` conformance.
-/// Use `HeaderBar` as a strong reference or owner of a `GtkHeaderBar` instance.
-///
 /// GtkHeaderBar is similar to a horizontal `GtkBox`. It allows children to
 /// be placed at the start or the end. In addition, it allows a title and
 /// subtitle to be displayed. The title will be centered with respect to
@@ -9544,6 +9587,11 @@ public extension HeaderBarRef {
 /// For these reasons, GtkHeaderBar is the natural choice for use as the custom
 /// titlebar widget of a `GtkWindow` (see `gtk_window_set_titlebar()`), as it gives
 /// features typical of titlebars while allowing the addition of child widgets.
+///
+/// The `HeaderBar` type acts as a reference-counted owner of an underlying `GtkHeaderBar` instance.
+/// It provides the methods that can operate on this data type through `HeaderBarProtocol` conformance.
+/// Use `HeaderBar` as a strong reference or owner of a `GtkHeaderBar` instance.
+///
 open class HeaderBar: Container, HeaderBarProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10318,12 +10366,14 @@ public enum HeaderBarSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10907,12 +10957,13 @@ public extension HeaderBarProtocol {
 
 // MARK: - HeaderBarAccessible Class
 
+
+///
 /// The `HeaderBarAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkHeaderBarAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HeaderBarAccessible`.
 /// Alternatively, use `HeaderBarAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HeaderBarAccessibleProtocol: ContainerAccessibleProtocol {
         /// Untyped pointer to the underlying `GtkHeaderBarAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -10924,11 +10975,12 @@ public protocol HeaderBarAccessibleProtocol: ContainerAccessibleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HeaderBarAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkHeaderBarAccessible` instance.
 /// It exposes methods that can operate on this data type through `HeaderBarAccessibleProtocol` conformance.
 /// Use `HeaderBarAccessibleRef` only as an `unowned` reference to an existing `GtkHeaderBarAccessible` instance.
 ///
-
 public struct HeaderBarAccessibleRef: HeaderBarAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkHeaderBarAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `header_bar_accessible_ptr` property instead.
@@ -11010,11 +11062,12 @@ public extension HeaderBarAccessibleRef {
 
     }
 
+
+///
 /// The `HeaderBarAccessible` type acts as a reference-counted owner of an underlying `GtkHeaderBarAccessible` instance.
 /// It provides the methods that can operate on this data type through `HeaderBarAccessibleProtocol` conformance.
 /// Use `HeaderBarAccessible` as a strong reference or owner of a `GtkHeaderBarAccessible` instance.
 ///
-
 open class HeaderBarAccessible: ContainerAccessible, HeaderBarAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -11277,12 +11330,14 @@ public enum HeaderBarAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11376,11 +11431,6 @@ public extension HeaderBarAccessibleProtocol {
 
 // MARK: - IMContext Class
 
-/// The `IMContextProtocol` protocol exposes the methods and properties of an underlying `GtkIMContext` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `IMContext`.
-/// Alternatively, use `IMContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkIMContext` defines the interface for GTK+ input methods. An input method
 /// is used by GTK+ text input widgets like `GtkEntry` to map from key events to
 /// Unicode character strings.
@@ -11451,6 +11501,12 @@ public extension HeaderBarAccessibleProtocol {
 /// the configuration file `gtk.immodules` needs to be
 /// regenerated by [gtk-query-immodules-3.0](#gtk-query-immodules-3.0),
 /// in order for the new input method to become available to GTK+ applications.
+///
+/// The `IMContextProtocol` protocol exposes the methods and properties of an underlying `GtkIMContext` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `IMContext`.
+/// Alternatively, use `IMContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol IMContextProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkIMContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -11462,10 +11518,6 @@ public protocol IMContextProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `IMContextRef` type acts as a lightweight Swift reference to an underlying `GtkIMContext` instance.
-/// It exposes methods that can operate on this data type through `IMContextProtocol` conformance.
-/// Use `IMContextRef` only as an `unowned` reference to an existing `GtkIMContext` instance.
-///
 /// `GtkIMContext` defines the interface for GTK+ input methods. An input method
 /// is used by GTK+ text input widgets like `GtkEntry` to map from key events to
 /// Unicode character strings.
@@ -11536,6 +11588,11 @@ public protocol IMContextProtocol: GLibObject.ObjectProtocol {
 /// the configuration file `gtk.immodules` needs to be
 /// regenerated by [gtk-query-immodules-3.0](#gtk-query-immodules-3.0),
 /// in order for the new input method to become available to GTK+ applications.
+///
+/// The `IMContextRef` type acts as a lightweight Swift reference to an underlying `GtkIMContext` instance.
+/// It exposes methods that can operate on this data type through `IMContextProtocol` conformance.
+/// Use `IMContextRef` only as an `unowned` reference to an existing `GtkIMContext` instance.
+///
 public struct IMContextRef: IMContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkIMContext` instance.
     /// For type-safe access, use the generated, typed pointer `im_context_ptr` property instead.
@@ -11617,10 +11674,6 @@ public extension IMContextRef {
 
     }
 
-/// The `IMContext` type acts as a reference-counted owner of an underlying `GtkIMContext` instance.
-/// It provides the methods that can operate on this data type through `IMContextProtocol` conformance.
-/// Use `IMContext` as a strong reference or owner of a `GtkIMContext` instance.
-///
 /// `GtkIMContext` defines the interface for GTK+ input methods. An input method
 /// is used by GTK+ text input widgets like `GtkEntry` to map from key events to
 /// Unicode character strings.
@@ -11691,6 +11744,11 @@ public extension IMContextRef {
 /// the configuration file `gtk.immodules` needs to be
 /// regenerated by [gtk-query-immodules-3.0](#gtk-query-immodules-3.0),
 /// in order for the new input method to become available to GTK+ applications.
+///
+/// The `IMContext` type acts as a reference-counted owner of an underlying `GtkIMContext` instance.
+/// It provides the methods that can operate on this data type through `IMContextProtocol` conformance.
+/// Use `IMContext` as a strong reference or owner of a `GtkIMContext` instance.
+///
 open class IMContext: GLibObject.Object, IMContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -11901,12 +11959,14 @@ public enum IMContextSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12138,12 +12198,14 @@ public extension IMContextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12187,12 +12249,14 @@ public extension IMContextProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

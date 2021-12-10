@@ -32,12 +32,13 @@ public extension NotebookAccessibleClassRef {
 
 // MARK: - NotebookAccessibleClass Record
 
+
+///
 /// The `NotebookAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkNotebookAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NotebookAccessibleClass`.
 /// Alternatively, use `NotebookAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NotebookAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkNotebookAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,11 +50,12 @@ public protocol NotebookAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NotebookAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkNotebookAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `NotebookAccessibleClassProtocol` conformance.
 /// Use `NotebookAccessibleClassRef` only as an `unowned` reference to an existing `GtkNotebookAccessibleClass` instance.
 ///
-
 public struct NotebookAccessibleClassRef: NotebookAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkNotebookAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -166,12 +168,13 @@ public extension NotebookClassRef {
 
 // MARK: - NotebookClass Record
 
+
+///
 /// The `NotebookClassProtocol` protocol exposes the methods and properties of an underlying `GtkNotebookClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NotebookClass`.
 /// Alternatively, use `NotebookClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NotebookClassProtocol {
         /// Untyped pointer to the underlying `GtkNotebookClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -183,11 +186,12 @@ public protocol NotebookClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NotebookClassRef` type acts as a lightweight Swift reference to an underlying `GtkNotebookClass` instance.
 /// It exposes methods that can operate on this data type through `NotebookClassProtocol` conformance.
 /// Use `NotebookClassRef` only as an `unowned` reference to an existing `GtkNotebookClass` instance.
 ///
-
 public struct NotebookClassRef: NotebookClassProtocol {
         /// Untyped pointer to the underlying `GtkNotebookClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -338,12 +342,13 @@ public extension NotebookPageAccessibleClassRef {
 
 // MARK: - NotebookPageAccessibleClass Record
 
+
+///
 /// The `NotebookPageAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkNotebookPageAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NotebookPageAccessibleClass`.
 /// Alternatively, use `NotebookPageAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NotebookPageAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkNotebookPageAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -355,11 +360,12 @@ public protocol NotebookPageAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NotebookPageAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkNotebookPageAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `NotebookPageAccessibleClassProtocol` conformance.
 /// Use `NotebookPageAccessibleClassRef` only as an `unowned` reference to an existing `GtkNotebookPageAccessibleClass` instance.
 ///
-
 public struct NotebookPageAccessibleClassRef: NotebookPageAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkNotebookPageAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -472,12 +478,13 @@ public extension NumerableIconClassRef {
 
 // MARK: - NumerableIconClass Record
 
+
+///
 /// The `NumerableIconClassProtocol` protocol exposes the methods and properties of an underlying `GtkNumerableIconClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NumerableIconClass`.
 /// Alternatively, use `NumerableIconClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NumerableIconClassProtocol {
         /// Untyped pointer to the underlying `GtkNumerableIconClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -489,11 +496,12 @@ public protocol NumerableIconClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NumerableIconClassRef` type acts as a lightweight Swift reference to an underlying `GtkNumerableIconClass` instance.
 /// It exposes methods that can operate on this data type through `NumerableIconClassProtocol` conformance.
 /// Use `NumerableIconClassRef` only as an `unowned` reference to an existing `GtkNumerableIconClass` instance.
 ///
-
 public struct NumerableIconClassRef: NumerableIconClassProtocol {
         /// Untyped pointer to the underlying `GtkNumerableIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -613,12 +621,13 @@ public extension OffscreenWindowClassRef {
 
 // MARK: - OffscreenWindowClass Record
 
+
+///
 /// The `OffscreenWindowClassProtocol` protocol exposes the methods and properties of an underlying `GtkOffscreenWindowClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OffscreenWindowClass`.
 /// Alternatively, use `OffscreenWindowClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol OffscreenWindowClassProtocol {
         /// Untyped pointer to the underlying `GtkOffscreenWindowClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -630,11 +639,12 @@ public protocol OffscreenWindowClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `OffscreenWindowClassRef` type acts as a lightweight Swift reference to an underlying `GtkOffscreenWindowClass` instance.
 /// It exposes methods that can operate on this data type through `OffscreenWindowClassProtocol` conformance.
 /// Use `OffscreenWindowClassRef` only as an `unowned` reference to an existing `GtkOffscreenWindowClass` instance.
 ///
-
 public struct OffscreenWindowClassRef: OffscreenWindowClassProtocol {
         /// Untyped pointer to the underlying `GtkOffscreenWindowClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

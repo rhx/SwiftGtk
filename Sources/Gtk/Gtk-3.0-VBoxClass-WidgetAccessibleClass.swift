@@ -32,12 +32,13 @@ public extension VBoxClassRef {
 
 // MARK: - VBoxClass Record
 
+
+///
 /// The `VBoxClassProtocol` protocol exposes the methods and properties of an underlying `GtkVBoxClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VBoxClass`.
 /// Alternatively, use `VBoxClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol VBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkVBoxClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,11 +50,12 @@ public protocol VBoxClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `VBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkVBoxClass` instance.
 /// It exposes methods that can operate on this data type through `VBoxClassProtocol` conformance.
 /// Use `VBoxClassRef` only as an `unowned` reference to an existing `GtkVBoxClass` instance.
 ///
-
 public struct VBoxClassRef: VBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkVBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -166,12 +168,13 @@ public extension VButtonBoxClassRef {
 
 // MARK: - VButtonBoxClass Record
 
+
+///
 /// The `VButtonBoxClassProtocol` protocol exposes the methods and properties of an underlying `GtkVButtonBoxClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VButtonBoxClass`.
 /// Alternatively, use `VButtonBoxClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol VButtonBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkVButtonBoxClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -183,11 +186,12 @@ public protocol VButtonBoxClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `VButtonBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkVButtonBoxClass` instance.
 /// It exposes methods that can operate on this data type through `VButtonBoxClassProtocol` conformance.
 /// Use `VButtonBoxClassRef` only as an `unowned` reference to an existing `GtkVButtonBoxClass` instance.
 ///
-
 public struct VButtonBoxClassRef: VButtonBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkVButtonBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -300,12 +304,13 @@ public extension VPanedClassRef {
 
 // MARK: - VPanedClass Record
 
+
+///
 /// The `VPanedClassProtocol` protocol exposes the methods and properties of an underlying `GtkVPanedClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VPanedClass`.
 /// Alternatively, use `VPanedClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol VPanedClassProtocol {
         /// Untyped pointer to the underlying `GtkVPanedClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -317,11 +322,12 @@ public protocol VPanedClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `VPanedClassRef` type acts as a lightweight Swift reference to an underlying `GtkVPanedClass` instance.
 /// It exposes methods that can operate on this data type through `VPanedClassProtocol` conformance.
 /// Use `VPanedClassRef` only as an `unowned` reference to an existing `GtkVPanedClass` instance.
 ///
-
 public struct VPanedClassRef: VPanedClassProtocol {
         /// Untyped pointer to the underlying `GtkVPanedClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -434,12 +440,13 @@ public extension VScaleClassRef {
 
 // MARK: - VScaleClass Record
 
+
+///
 /// The `VScaleClassProtocol` protocol exposes the methods and properties of an underlying `GtkVScaleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VScaleClass`.
 /// Alternatively, use `VScaleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol VScaleClassProtocol {
         /// Untyped pointer to the underlying `GtkVScaleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -451,11 +458,12 @@ public protocol VScaleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `VScaleClassRef` type acts as a lightweight Swift reference to an underlying `GtkVScaleClass` instance.
 /// It exposes methods that can operate on this data type through `VScaleClassProtocol` conformance.
 /// Use `VScaleClassRef` only as an `unowned` reference to an existing `GtkVScaleClass` instance.
 ///
-
 public struct VScaleClassRef: VScaleClassProtocol {
         /// Untyped pointer to the underlying `GtkVScaleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -568,12 +576,13 @@ public extension VScrollbarClassRef {
 
 // MARK: - VScrollbarClass Record
 
+
+///
 /// The `VScrollbarClassProtocol` protocol exposes the methods and properties of an underlying `GtkVScrollbarClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VScrollbarClass`.
 /// Alternatively, use `VScrollbarClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol VScrollbarClassProtocol {
         /// Untyped pointer to the underlying `GtkVScrollbarClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -585,11 +594,12 @@ public protocol VScrollbarClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `VScrollbarClassRef` type acts as a lightweight Swift reference to an underlying `GtkVScrollbarClass` instance.
 /// It exposes methods that can operate on this data type through `VScrollbarClassProtocol` conformance.
 /// Use `VScrollbarClassRef` only as an `unowned` reference to an existing `GtkVScrollbarClass` instance.
 ///
-
 public struct VScrollbarClassRef: VScrollbarClassProtocol {
         /// Untyped pointer to the underlying `GtkVScrollbarClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -702,12 +712,13 @@ public extension VSeparatorClassRef {
 
 // MARK: - VSeparatorClass Record
 
+
+///
 /// The `VSeparatorClassProtocol` protocol exposes the methods and properties of an underlying `GtkVSeparatorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VSeparatorClass`.
 /// Alternatively, use `VSeparatorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol VSeparatorClassProtocol {
         /// Untyped pointer to the underlying `GtkVSeparatorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -719,11 +730,12 @@ public protocol VSeparatorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `VSeparatorClassRef` type acts as a lightweight Swift reference to an underlying `GtkVSeparatorClass` instance.
 /// It exposes methods that can operate on this data type through `VSeparatorClassProtocol` conformance.
 /// Use `VSeparatorClassRef` only as an `unowned` reference to an existing `GtkVSeparatorClass` instance.
 ///
-
 public struct VSeparatorClassRef: VSeparatorClassProtocol {
         /// Untyped pointer to the underlying `GtkVSeparatorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -836,12 +848,13 @@ public extension ViewportClassRef {
 
 // MARK: - ViewportClass Record
 
+
+///
 /// The `ViewportClassProtocol` protocol exposes the methods and properties of an underlying `GtkViewportClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ViewportClass`.
 /// Alternatively, use `ViewportClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ViewportClassProtocol {
         /// Untyped pointer to the underlying `GtkViewportClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -853,11 +866,12 @@ public protocol ViewportClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ViewportClassRef` type acts as a lightweight Swift reference to an underlying `GtkViewportClass` instance.
 /// It exposes methods that can operate on this data type through `ViewportClassProtocol` conformance.
 /// Use `ViewportClassRef` only as an `unowned` reference to an existing `GtkViewportClass` instance.
 ///
-
 public struct ViewportClassRef: ViewportClassProtocol {
         /// Untyped pointer to the underlying `GtkViewportClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -980,12 +994,13 @@ public extension VolumeButtonClassRef {
 
 // MARK: - VolumeButtonClass Record
 
+
+///
 /// The `VolumeButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkVolumeButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VolumeButtonClass`.
 /// Alternatively, use `VolumeButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol VolumeButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkVolumeButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -997,11 +1012,12 @@ public protocol VolumeButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `VolumeButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkVolumeButtonClass` instance.
 /// It exposes methods that can operate on this data type through `VolumeButtonClassProtocol` conformance.
 /// Use `VolumeButtonClassRef` only as an `unowned` reference to an existing `GtkVolumeButtonClass` instance.
 ///
-
 public struct VolumeButtonClassRef: VolumeButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkVolumeButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1122,12 +1138,13 @@ public extension WidgetAccessibleClassRef {
 
 // MARK: - WidgetAccessibleClass Record
 
+
+///
 /// The `WidgetAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkWidgetAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WidgetAccessibleClass`.
 /// Alternatively, use `WidgetAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WidgetAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkWidgetAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1139,11 +1156,12 @@ public protocol WidgetAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WidgetAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `WidgetAccessibleClassProtocol` conformance.
 /// Use `WidgetAccessibleClassRef` only as an `unowned` reference to an existing `GtkWidgetAccessibleClass` instance.
 ///
-
 public struct WidgetAccessibleClassRef: WidgetAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkWidgetAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

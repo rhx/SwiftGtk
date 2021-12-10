@@ -17,11 +17,6 @@ import Atk
 
 // MARK: - RadioButton Class
 
-/// The `RadioButtonProtocol` protocol exposes the methods and properties of an underlying `GtkRadioButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RadioButton`.
-/// Alternatively, use `RadioButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A single radio button performs the same basic function as a `GtkCheckButton`,
 /// as its position in the object hierarchy reflects. It is only when multiple
 /// radio buttons are grouped together that they become a different user
@@ -109,6 +104,12 @@ import Atk
 /// selected button.
 /// Inside the `GtkToggleButton::toggled` handler, `gtk_toggle_button_get_active()`
 /// can be used to determine if the button has been selected or deselected.
+///
+/// The `RadioButtonProtocol` protocol exposes the methods and properties of an underlying `GtkRadioButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RadioButton`.
+/// Alternatively, use `RadioButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RadioButtonProtocol: CheckButtonProtocol {
         /// Untyped pointer to the underlying `GtkRadioButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -120,10 +121,6 @@ public protocol RadioButtonProtocol: CheckButtonProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RadioButtonRef` type acts as a lightweight Swift reference to an underlying `GtkRadioButton` instance.
-/// It exposes methods that can operate on this data type through `RadioButtonProtocol` conformance.
-/// Use `RadioButtonRef` only as an `unowned` reference to an existing `GtkRadioButton` instance.
-///
 /// A single radio button performs the same basic function as a `GtkCheckButton`,
 /// as its position in the object hierarchy reflects. It is only when multiple
 /// radio buttons are grouped together that they become a different user
@@ -211,6 +208,11 @@ public protocol RadioButtonProtocol: CheckButtonProtocol {
 /// selected button.
 /// Inside the `GtkToggleButton::toggled` handler, `gtk_toggle_button_get_active()`
 /// can be used to determine if the button has been selected or deselected.
+///
+/// The `RadioButtonRef` type acts as a lightweight Swift reference to an underlying `GtkRadioButton` instance.
+/// It exposes methods that can operate on this data type through `RadioButtonProtocol` conformance.
+/// Use `RadioButtonRef` only as an `unowned` reference to an existing `GtkRadioButton` instance.
+///
 public struct RadioButtonRef: RadioButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRadioButton` instance.
     /// For type-safe access, use the generated, typed pointer `radio_button_ptr` property instead.
@@ -327,10 +329,6 @@ public extension RadioButtonRef {
     }
 }
 
-/// The `RadioButton` type acts as a reference-counted owner of an underlying `GtkRadioButton` instance.
-/// It provides the methods that can operate on this data type through `RadioButtonProtocol` conformance.
-/// Use `RadioButton` as a strong reference or owner of a `GtkRadioButton` instance.
-///
 /// A single radio button performs the same basic function as a `GtkCheckButton`,
 /// as its position in the object hierarchy reflects. It is only when multiple
 /// radio buttons are grouped together that they become a different user
@@ -418,6 +416,11 @@ public extension RadioButtonRef {
 /// selected button.
 /// Inside the `GtkToggleButton::toggled` handler, `gtk_toggle_button_get_active()`
 /// can be used to determine if the button has been selected or deselected.
+///
+/// The `RadioButton` type acts as a reference-counted owner of an underlying `GtkRadioButton` instance.
+/// It provides the methods that can operate on this data type through `RadioButtonProtocol` conformance.
+/// Use `RadioButton` as a strong reference or owner of a `GtkRadioButton` instance.
+///
 open class RadioButton: CheckButton, RadioButtonProtocol {
     /// Constructor for creating a RadioButton with a text label,
     /// creating a new group.
@@ -1285,12 +1288,14 @@ public enum RadioButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1702,12 +1707,14 @@ public extension RadioButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1845,12 +1852,13 @@ public extension RadioButtonProtocol {
 
 // MARK: - RadioButtonAccessible Class
 
+
+///
 /// The `RadioButtonAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkRadioButtonAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RadioButtonAccessible`.
 /// Alternatively, use `RadioButtonAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RadioButtonAccessibleProtocol: ToggleButtonAccessibleProtocol {
         /// Untyped pointer to the underlying `GtkRadioButtonAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1862,11 +1870,12 @@ public protocol RadioButtonAccessibleProtocol: ToggleButtonAccessibleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RadioButtonAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkRadioButtonAccessible` instance.
 /// It exposes methods that can operate on this data type through `RadioButtonAccessibleProtocol` conformance.
 /// Use `RadioButtonAccessibleRef` only as an `unowned` reference to an existing `GtkRadioButtonAccessible` instance.
 ///
-
 public struct RadioButtonAccessibleRef: RadioButtonAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRadioButtonAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `radio_button_accessible_ptr` property instead.
@@ -1948,11 +1957,12 @@ public extension RadioButtonAccessibleRef {
 
     }
 
+
+///
 /// The `RadioButtonAccessible` type acts as a reference-counted owner of an underlying `GtkRadioButtonAccessible` instance.
 /// It provides the methods that can operate on this data type through `RadioButtonAccessibleProtocol` conformance.
 /// Use `RadioButtonAccessible` as a strong reference or owner of a `GtkRadioButtonAccessible` instance.
 ///
-
 open class RadioButtonAccessible: ToggleButtonAccessible, RadioButtonAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2215,12 +2225,14 @@ public enum RadioButtonAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2316,11 +2328,6 @@ public extension RadioButtonAccessibleProtocol {
 
 // MARK: - RadioMenuItem Class
 
-/// The `RadioMenuItemProtocol` protocol exposes the methods and properties of an underlying `GtkRadioMenuItem` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RadioMenuItem`.
-/// Alternatively, use `RadioMenuItemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A radio menu item is a check menu item that belongs to a group. At each
 /// instant exactly one of the radio menu items from a group is selected.
 /// 
@@ -2358,6 +2365,12 @@ public extension RadioButtonAccessibleProtocol {
 /// 
 /// GtkRadioMenuItem has a main CSS node with name menuitem, and a subnode
 /// with name radio, which gets the .left or .right style class.
+///
+/// The `RadioMenuItemProtocol` protocol exposes the methods and properties of an underlying `GtkRadioMenuItem` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RadioMenuItem`.
+/// Alternatively, use `RadioMenuItemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RadioMenuItemProtocol: CheckMenuItemProtocol {
         /// Untyped pointer to the underlying `GtkRadioMenuItem` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2369,10 +2382,6 @@ public protocol RadioMenuItemProtocol: CheckMenuItemProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RadioMenuItemRef` type acts as a lightweight Swift reference to an underlying `GtkRadioMenuItem` instance.
-/// It exposes methods that can operate on this data type through `RadioMenuItemProtocol` conformance.
-/// Use `RadioMenuItemRef` only as an `unowned` reference to an existing `GtkRadioMenuItem` instance.
-///
 /// A radio menu item is a check menu item that belongs to a group. At each
 /// instant exactly one of the radio menu items from a group is selected.
 /// 
@@ -2410,6 +2419,11 @@ public protocol RadioMenuItemProtocol: CheckMenuItemProtocol {
 /// 
 /// GtkRadioMenuItem has a main CSS node with name menuitem, and a subnode
 /// with name radio, which gets the .left or .right style class.
+///
+/// The `RadioMenuItemRef` type acts as a lightweight Swift reference to an underlying `GtkRadioMenuItem` instance.
+/// It exposes methods that can operate on this data type through `RadioMenuItemProtocol` conformance.
+/// Use `RadioMenuItemRef` only as an `unowned` reference to an existing `GtkRadioMenuItem` instance.
+///
 public struct RadioMenuItemRef: RadioMenuItemProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRadioMenuItem` instance.
     /// For type-safe access, use the generated, typed pointer `radio_menu_item_ptr` property instead.
@@ -2523,10 +2537,6 @@ public extension RadioMenuItemRef {
     }
 }
 
-/// The `RadioMenuItem` type acts as a reference-counted owner of an underlying `GtkRadioMenuItem` instance.
-/// It provides the methods that can operate on this data type through `RadioMenuItemProtocol` conformance.
-/// Use `RadioMenuItem` as a strong reference or owner of a `GtkRadioMenuItem` instance.
-///
 /// A radio menu item is a check menu item that belongs to a group. At each
 /// instant exactly one of the radio menu items from a group is selected.
 /// 
@@ -2564,6 +2574,11 @@ public extension RadioMenuItemRef {
 /// 
 /// GtkRadioMenuItem has a main CSS node with name menuitem, and a subnode
 /// with name radio, which gets the .left or .right style class.
+///
+/// The `RadioMenuItem` type acts as a reference-counted owner of an underlying `GtkRadioMenuItem` instance.
+/// It provides the methods that can operate on this data type through `RadioMenuItemProtocol` conformance.
+/// Use `RadioMenuItem` as a strong reference or owner of a `GtkRadioMenuItem` instance.
+///
 open class RadioMenuItem: CheckMenuItem, RadioMenuItemProtocol {
     /// Constructor for creating a RadioMenuItem with a text label,
     /// creating a new group.
@@ -3391,12 +3406,14 @@ public enum RadioMenuItemSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3776,12 +3793,14 @@ public extension RadioMenuItemProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3918,12 +3937,13 @@ public extension RadioMenuItemProtocol {
 
 // MARK: - RadioMenuItemAccessible Class
 
+
+///
 /// The `RadioMenuItemAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkRadioMenuItemAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RadioMenuItemAccessible`.
 /// Alternatively, use `RadioMenuItemAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RadioMenuItemAccessibleProtocol: CheckMenuItemAccessibleProtocol {
         /// Untyped pointer to the underlying `GtkRadioMenuItemAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3935,11 +3955,12 @@ public protocol RadioMenuItemAccessibleProtocol: CheckMenuItemAccessibleProtocol
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RadioMenuItemAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkRadioMenuItemAccessible` instance.
 /// It exposes methods that can operate on this data type through `RadioMenuItemAccessibleProtocol` conformance.
 /// Use `RadioMenuItemAccessibleRef` only as an `unowned` reference to an existing `GtkRadioMenuItemAccessible` instance.
 ///
-
 public struct RadioMenuItemAccessibleRef: RadioMenuItemAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRadioMenuItemAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `radio_menu_item_accessible_ptr` property instead.
@@ -4021,11 +4042,12 @@ public extension RadioMenuItemAccessibleRef {
 
     }
 
+
+///
 /// The `RadioMenuItemAccessible` type acts as a reference-counted owner of an underlying `GtkRadioMenuItemAccessible` instance.
 /// It provides the methods that can operate on this data type through `RadioMenuItemAccessibleProtocol` conformance.
 /// Use `RadioMenuItemAccessible` as a strong reference or owner of a `GtkRadioMenuItemAccessible` instance.
 ///
-
 open class RadioMenuItemAccessible: CheckMenuItemAccessible, RadioMenuItemAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4288,12 +4310,14 @@ public enum RadioMenuItemAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4389,11 +4413,6 @@ public extension RadioMenuItemAccessibleProtocol {
 
 // MARK: - RadioToolButton Class
 
-/// The `RadioToolButtonProtocol` protocol exposes the methods and properties of an underlying `GtkRadioToolButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RadioToolButton`.
-/// Alternatively, use `RadioToolButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkRadioToolButton` is a `GtkToolItem` that contains a radio button,
 /// that is, a button that is part of a group of toggle buttons where only
 /// one button can be active at a time.
@@ -4405,6 +4424,12 @@ public extension RadioMenuItemAccessibleProtocol {
 /// # CSS nodes
 /// 
 /// GtkRadioToolButton has a single CSS node with name toolbutton.
+///
+/// The `RadioToolButtonProtocol` protocol exposes the methods and properties of an underlying `GtkRadioToolButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RadioToolButton`.
+/// Alternatively, use `RadioToolButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RadioToolButtonProtocol: ToggleToolButtonProtocol {
         /// Untyped pointer to the underlying `GtkRadioToolButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4416,10 +4441,6 @@ public protocol RadioToolButtonProtocol: ToggleToolButtonProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RadioToolButtonRef` type acts as a lightweight Swift reference to an underlying `GtkRadioToolButton` instance.
-/// It exposes methods that can operate on this data type through `RadioToolButtonProtocol` conformance.
-/// Use `RadioToolButtonRef` only as an `unowned` reference to an existing `GtkRadioToolButton` instance.
-///
 /// A `GtkRadioToolButton` is a `GtkToolItem` that contains a radio button,
 /// that is, a button that is part of a group of toggle buttons where only
 /// one button can be active at a time.
@@ -4431,6 +4452,11 @@ public protocol RadioToolButtonProtocol: ToggleToolButtonProtocol {
 /// # CSS nodes
 /// 
 /// GtkRadioToolButton has a single CSS node with name toolbutton.
+///
+/// The `RadioToolButtonRef` type acts as a lightweight Swift reference to an underlying `GtkRadioToolButton` instance.
+/// It exposes methods that can operate on this data type through `RadioToolButtonProtocol` conformance.
+/// Use `RadioToolButtonRef` only as an `unowned` reference to an existing `GtkRadioToolButton` instance.
+///
 public struct RadioToolButtonRef: RadioToolButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRadioToolButton` instance.
     /// For type-safe access, use the generated, typed pointer `radio_tool_button_ptr` property instead.
@@ -4540,10 +4566,6 @@ public extension RadioToolButtonRef {
     }
 }
 
-/// The `RadioToolButton` type acts as a reference-counted owner of an underlying `GtkRadioToolButton` instance.
-/// It provides the methods that can operate on this data type through `RadioToolButtonProtocol` conformance.
-/// Use `RadioToolButton` as a strong reference or owner of a `GtkRadioToolButton` instance.
-///
 /// A `GtkRadioToolButton` is a `GtkToolItem` that contains a radio button,
 /// that is, a button that is part of a group of toggle buttons where only
 /// one button can be active at a time.
@@ -4555,6 +4577,11 @@ public extension RadioToolButtonRef {
 /// # CSS nodes
 /// 
 /// GtkRadioToolButton has a single CSS node with name toolbutton.
+///
+/// The `RadioToolButton` type acts as a reference-counted owner of an underlying `GtkRadioToolButton` instance.
+/// It provides the methods that can operate on this data type through `RadioToolButtonProtocol` conformance.
+/// Use `RadioToolButton` as a strong reference or owner of a `GtkRadioToolButton` instance.
+///
 open class RadioToolButton: ToggleToolButton, RadioToolButtonProtocol {
     /// Convenience constructor for creating a RadioToolButton group.
     @inlinable public override init() {
@@ -5381,12 +5408,14 @@ public enum RadioToolButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5754,11 +5783,6 @@ public extension RadioToolButtonProtocol {
 
 // MARK: - Range Class
 
-/// The `RangeProtocol` protocol exposes the methods and properties of an underlying `GtkRange` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Range`.
-/// Alternatively, use `RangeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkRange` is the common base class for widgets which visualize an
 /// adjustment, e.g `GtkScale` or `GtkScrollbar`.
 /// 
@@ -5766,6 +5790,12 @@ public extension RadioToolButtonProtocol {
 /// `GtkRange` provides properties and methods for influencing the sensitivity
 /// of the “steppers”. It also provides properties and methods for setting a
 /// “fill level” on range widgets. See `gtk_range_set_fill_level()`.
+///
+/// The `RangeProtocol` protocol exposes the methods and properties of an underlying `GtkRange` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Range`.
+/// Alternatively, use `RangeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RangeProtocol: WidgetProtocol, OrientableProtocol {
         /// Untyped pointer to the underlying `GtkRange` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5777,10 +5807,6 @@ public protocol RangeProtocol: WidgetProtocol, OrientableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RangeRef` type acts as a lightweight Swift reference to an underlying `GtkRange` instance.
-/// It exposes methods that can operate on this data type through `RangeProtocol` conformance.
-/// Use `RangeRef` only as an `unowned` reference to an existing `GtkRange` instance.
-///
 /// `GtkRange` is the common base class for widgets which visualize an
 /// adjustment, e.g `GtkScale` or `GtkScrollbar`.
 /// 
@@ -5788,6 +5814,11 @@ public protocol RangeProtocol: WidgetProtocol, OrientableProtocol {
 /// `GtkRange` provides properties and methods for influencing the sensitivity
 /// of the “steppers”. It also provides properties and methods for setting a
 /// “fill level” on range widgets. See `gtk_range_set_fill_level()`.
+///
+/// The `RangeRef` type acts as a lightweight Swift reference to an underlying `GtkRange` instance.
+/// It exposes methods that can operate on this data type through `RangeProtocol` conformance.
+/// Use `RangeRef` only as an `unowned` reference to an existing `GtkRange` instance.
+///
 public struct RangeRef: RangeProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRange` instance.
     /// For type-safe access, use the generated, typed pointer `range_ptr` property instead.
@@ -5869,10 +5900,6 @@ public extension RangeRef {
 
     }
 
-/// The `Range` type acts as a reference-counted owner of an underlying `GtkRange` instance.
-/// It provides the methods that can operate on this data type through `RangeProtocol` conformance.
-/// Use `Range` as a strong reference or owner of a `GtkRange` instance.
-///
 /// `GtkRange` is the common base class for widgets which visualize an
 /// adjustment, e.g `GtkScale` or `GtkScrollbar`.
 /// 
@@ -5880,6 +5907,11 @@ public extension RangeRef {
 /// `GtkRange` provides properties and methods for influencing the sensitivity
 /// of the “steppers”. It also provides properties and methods for setting a
 /// “fill level” on range widgets. See `gtk_range_set_fill_level()`.
+///
+/// The `Range` type acts as a reference-counted owner of an underlying `GtkRange` instance.
+/// It provides the methods that can operate on this data type through `RangeProtocol` conformance.
+/// Use `Range` as a strong reference or owner of a `GtkRange` instance.
+///
 open class Range: Widget, RangeProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6656,12 +6688,14 @@ public enum RangeSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7122,12 +7156,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7171,12 +7207,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7220,12 +7258,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7269,12 +7309,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7318,12 +7360,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7367,12 +7411,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7416,12 +7462,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7465,12 +7513,14 @@ public extension RangeProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7990,12 +8040,13 @@ public extension RangeProtocol {
 
 // MARK: - RangeAccessible Class
 
+
+///
 /// The `RangeAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkRangeAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RangeAccessible`.
 /// Alternatively, use `RangeAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RangeAccessibleProtocol: WidgetAccessibleProtocol, Atk.ValueProtocol {
         /// Untyped pointer to the underlying `GtkRangeAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8007,11 +8058,12 @@ public protocol RangeAccessibleProtocol: WidgetAccessibleProtocol, Atk.ValueProt
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RangeAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkRangeAccessible` instance.
 /// It exposes methods that can operate on this data type through `RangeAccessibleProtocol` conformance.
 /// Use `RangeAccessibleRef` only as an `unowned` reference to an existing `GtkRangeAccessible` instance.
 ///
-
 public struct RangeAccessibleRef: RangeAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRangeAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `range_accessible_ptr` property instead.
@@ -8093,11 +8145,12 @@ public extension RangeAccessibleRef {
 
     }
 
+
+///
 /// The `RangeAccessible` type acts as a reference-counted owner of an underlying `GtkRangeAccessible` instance.
 /// It provides the methods that can operate on this data type through `RangeAccessibleProtocol` conformance.
 /// Use `RangeAccessible` as a strong reference or owner of a `GtkRangeAccessible` instance.
 ///
-
 open class RangeAccessible: WidgetAccessible, RangeAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8360,12 +8413,14 @@ public enum RangeAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8461,15 +8516,16 @@ public extension RangeAccessibleProtocol {
 
 // MARK: - RcStyle Class
 
+/// The `GtkRcStyle-struct` is used to represent a set
+/// of information about the appearance of a widget.
+/// This can later be composited together with other
+/// `GtkRcStyle-struct`&lt;!-- --&gt;s to form a `GtkStyle`.
+///
 /// The `RcStyleProtocol` protocol exposes the methods and properties of an underlying `GtkRcStyle` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RcStyle`.
 /// Alternatively, use `RcStyleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkRcStyle-struct` is used to represent a set
-/// of information about the appearance of a widget.
-/// This can later be composited together with other
-/// `GtkRcStyle-struct`&lt;!-- --&gt;s to form a `GtkStyle`.
 public protocol RcStyleProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkRcStyle` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8481,14 +8537,15 @@ public protocol RcStyleProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RcStyleRef` type acts as a lightweight Swift reference to an underlying `GtkRcStyle` instance.
-/// It exposes methods that can operate on this data type through `RcStyleProtocol` conformance.
-/// Use `RcStyleRef` only as an `unowned` reference to an existing `GtkRcStyle` instance.
-///
 /// The `GtkRcStyle-struct` is used to represent a set
 /// of information about the appearance of a widget.
 /// This can later be composited together with other
 /// `GtkRcStyle-struct`&lt;!-- --&gt;s to form a `GtkStyle`.
+///
+/// The `RcStyleRef` type acts as a lightweight Swift reference to an underlying `GtkRcStyle` instance.
+/// It exposes methods that can operate on this data type through `RcStyleProtocol` conformance.
+/// Use `RcStyleRef` only as an `unowned` reference to an existing `GtkRcStyle` instance.
+///
 public struct RcStyleRef: RcStyleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRcStyle` instance.
     /// For type-safe access, use the generated, typed pointer `rc_style_ptr` property instead.
@@ -8580,14 +8637,15 @@ public extension RcStyleRef {
     }
 }
 
-/// The `RcStyle` type acts as a reference-counted owner of an underlying `GtkRcStyle` instance.
-/// It provides the methods that can operate on this data type through `RcStyleProtocol` conformance.
-/// Use `RcStyle` as a strong reference or owner of a `GtkRcStyle` instance.
-///
 /// The `GtkRcStyle-struct` is used to represent a set
 /// of information about the appearance of a widget.
 /// This can later be composited together with other
 /// `GtkRcStyle-struct`&lt;!-- --&gt;s to form a `GtkStyle`.
+///
+/// The `RcStyle` type acts as a reference-counted owner of an underlying `GtkRcStyle` instance.
+/// It provides the methods that can operate on this data type through `RcStyleProtocol` conformance.
+/// Use `RcStyle` as a strong reference or owner of a `GtkRcStyle` instance.
+///
 open class RcStyle: GLibObject.Object, RcStyleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8746,12 +8804,14 @@ public enum RcStyleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8900,11 +8960,6 @@ public extension RcStyleProtocol {
 
 // MARK: - RecentAction Class
 
-/// The `RecentActionProtocol` protocol exposes the methods and properties of an underlying `GtkRecentAction` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RecentAction`.
-/// Alternatively, use `RecentActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkRecentAction` represents a list of recently used files, which
 /// can be shown by widgets such as `GtkRecentChooserDialog` or
 /// `GtkRecentChooserMenu`.
@@ -8913,6 +8968,12 @@ public extension RcStyleProtocol {
 /// as the action for a &lt;menuitem&gt;. To construct a menu toolbutton showing
 /// the recently used files in the popup menu, use a `GtkRecentAction` as the
 /// action for a &lt;toolitem&gt; element.
+///
+/// The `RecentActionProtocol` protocol exposes the methods and properties of an underlying `GtkRecentAction` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RecentAction`.
+/// Alternatively, use `RecentActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RecentActionProtocol: ActionProtocol, RecentChooserProtocol {
         /// Untyped pointer to the underlying `GtkRecentAction` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8924,10 +8985,6 @@ public protocol RecentActionProtocol: ActionProtocol, RecentChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RecentActionRef` type acts as a lightweight Swift reference to an underlying `GtkRecentAction` instance.
-/// It exposes methods that can operate on this data type through `RecentActionProtocol` conformance.
-/// Use `RecentActionRef` only as an `unowned` reference to an existing `GtkRecentAction` instance.
-///
 /// A `GtkRecentAction` represents a list of recently used files, which
 /// can be shown by widgets such as `GtkRecentChooserDialog` or
 /// `GtkRecentChooserMenu`.
@@ -8936,6 +8993,11 @@ public protocol RecentActionProtocol: ActionProtocol, RecentChooserProtocol {
 /// as the action for a &lt;menuitem&gt;. To construct a menu toolbutton showing
 /// the recently used files in the popup menu, use a `GtkRecentAction` as the
 /// action for a &lt;toolitem&gt; element.
+///
+/// The `RecentActionRef` type acts as a lightweight Swift reference to an underlying `GtkRecentAction` instance.
+/// It exposes methods that can operate on this data type through `RecentActionProtocol` conformance.
+/// Use `RecentActionRef` only as an `unowned` reference to an existing `GtkRecentAction` instance.
+///
 public struct RecentActionRef: RecentActionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRecentAction` instance.
     /// For type-safe access, use the generated, typed pointer `recent_action_ptr` property instead.
@@ -9051,10 +9113,6 @@ public extension RecentActionRef {
     }
 }
 
-/// The `RecentAction` type acts as a reference-counted owner of an underlying `GtkRecentAction` instance.
-/// It provides the methods that can operate on this data type through `RecentActionProtocol` conformance.
-/// Use `RecentAction` as a strong reference or owner of a `GtkRecentAction` instance.
-///
 /// A `GtkRecentAction` represents a list of recently used files, which
 /// can be shown by widgets such as `GtkRecentChooserDialog` or
 /// `GtkRecentChooserMenu`.
@@ -9063,6 +9121,11 @@ public extension RecentActionRef {
 /// as the action for a &lt;menuitem&gt;. To construct a menu toolbutton showing
 /// the recently used files in the popup menu, use a `GtkRecentAction` as the
 /// action for a &lt;toolitem&gt; element.
+///
+/// The `RecentAction` type acts as a reference-counted owner of an underlying `GtkRecentAction` instance.
+/// It provides the methods that can operate on this data type through `RecentActionProtocol` conformance.
+/// Use `RecentAction` as a strong reference or owner of a `GtkRecentAction` instance.
+///
 open class RecentAction: Action, RecentActionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9433,12 +9496,14 @@ public enum RecentActionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9642,11 +9707,6 @@ public extension RecentActionProtocol {
 
 // MARK: - RecentChooserDialog Class
 
-/// The `RecentChooserDialogProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooserDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RecentChooserDialog`.
-/// Alternatively, use `RecentChooserDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkRecentChooserDialog` is a dialog box suitable for displaying the recently
 /// used documents.  This widgets works by putting a `GtkRecentChooserWidget` inside
 /// a `GtkDialog`.  It exposes the `GtkRecentChooserIface` interface, so you can use
@@ -9689,6 +9749,12 @@ public extension RecentActionProtocol {
 /// ```
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooserDialogProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooserDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RecentChooserDialog`.
+/// Alternatively, use `RecentChooserDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RecentChooserDialogProtocol: DialogProtocol, RecentChooserProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooserDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9700,10 +9766,6 @@ public protocol RecentChooserDialogProtocol: DialogProtocol, RecentChooserProtoc
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RecentChooserDialogRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserDialog` instance.
-/// It exposes methods that can operate on this data type through `RecentChooserDialogProtocol` conformance.
-/// Use `RecentChooserDialogRef` only as an `unowned` reference to an existing `GtkRecentChooserDialog` instance.
-///
 /// `GtkRecentChooserDialog` is a dialog box suitable for displaying the recently
 /// used documents.  This widgets works by putting a `GtkRecentChooserWidget` inside
 /// a `GtkDialog`.  It exposes the `GtkRecentChooserIface` interface, so you can use
@@ -9746,6 +9808,11 @@ public protocol RecentChooserDialogProtocol: DialogProtocol, RecentChooserProtoc
 /// ```
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooserDialogRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserDialog` instance.
+/// It exposes methods that can operate on this data type through `RecentChooserDialogProtocol` conformance.
+/// Use `RecentChooserDialogRef` only as an `unowned` reference to an existing `GtkRecentChooserDialog` instance.
+///
 public struct RecentChooserDialogRef: RecentChooserDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRecentChooserDialog` instance.
     /// For type-safe access, use the generated, typed pointer `recent_chooser_dialog_ptr` property instead.
@@ -9837,10 +9904,6 @@ public extension RecentChooserDialogRef {
 
 }
 
-/// The `RecentChooserDialog` type acts as a reference-counted owner of an underlying `GtkRecentChooserDialog` instance.
-/// It provides the methods that can operate on this data type through `RecentChooserDialogProtocol` conformance.
-/// Use `RecentChooserDialog` as a strong reference or owner of a `GtkRecentChooserDialog` instance.
-///
 /// `GtkRecentChooserDialog` is a dialog box suitable for displaying the recently
 /// used documents.  This widgets works by putting a `GtkRecentChooserWidget` inside
 /// a `GtkDialog`.  It exposes the `GtkRecentChooserIface` interface, so you can use
@@ -9883,6 +9946,11 @@ public extension RecentChooserDialogRef {
 /// ```
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooserDialog` type acts as a reference-counted owner of an underlying `GtkRecentChooserDialog` instance.
+/// It provides the methods that can operate on this data type through `RecentChooserDialogProtocol` conformance.
+/// Use `RecentChooserDialog` as a strong reference or owner of a `GtkRecentChooserDialog` instance.
+///
 open class RecentChooserDialog: Dialog, RecentChooserDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10757,12 +10825,14 @@ public enum RecentChooserDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11169,11 +11239,6 @@ public extension RecentChooserDialogProtocol {
 
 // MARK: - RecentChooserMenu Class
 
-/// The `RecentChooserMenuProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooserMenu` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RecentChooserMenu`.
-/// Alternatively, use `RecentChooserMenuRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkRecentChooserMenu` is a widget suitable for displaying recently used files
 /// inside a menu.  It can be used to set a sub-menu of a `GtkMenuItem` using
 /// `gtk_menu_item_set_submenu()`, or as the menu of a `GtkMenuToolButton`.
@@ -11192,6 +11257,12 @@ public extension RecentChooserDialogProtocol {
 /// `GtkRecentFilter` object.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooserMenuProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooserMenu` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RecentChooserMenu`.
+/// Alternatively, use `RecentChooserMenuRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RecentChooserMenuProtocol: MenuProtocol, ActivatableProtocol, RecentChooserProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooserMenu` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -11203,10 +11274,6 @@ public protocol RecentChooserMenuProtocol: MenuProtocol, ActivatableProtocol, Re
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RecentChooserMenuRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserMenu` instance.
-/// It exposes methods that can operate on this data type through `RecentChooserMenuProtocol` conformance.
-/// Use `RecentChooserMenuRef` only as an `unowned` reference to an existing `GtkRecentChooserMenu` instance.
-///
 /// `GtkRecentChooserMenu` is a widget suitable for displaying recently used files
 /// inside a menu.  It can be used to set a sub-menu of a `GtkMenuItem` using
 /// `gtk_menu_item_set_submenu()`, or as the menu of a `GtkMenuToolButton`.
@@ -11225,6 +11292,11 @@ public protocol RecentChooserMenuProtocol: MenuProtocol, ActivatableProtocol, Re
 /// `GtkRecentFilter` object.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooserMenuRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserMenu` instance.
+/// It exposes methods that can operate on this data type through `RecentChooserMenuProtocol` conformance.
+/// Use `RecentChooserMenuRef` only as an `unowned` reference to an existing `GtkRecentChooserMenu` instance.
+///
 public struct RecentChooserMenuRef: RecentChooserMenuProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRecentChooserMenu` instance.
     /// For type-safe access, use the generated, typed pointer `recent_chooser_menu_ptr` property instead.
@@ -11345,10 +11417,6 @@ public extension RecentChooserMenuRef {
     }
 }
 
-/// The `RecentChooserMenu` type acts as a reference-counted owner of an underlying `GtkRecentChooserMenu` instance.
-/// It provides the methods that can operate on this data type through `RecentChooserMenuProtocol` conformance.
-/// Use `RecentChooserMenu` as a strong reference or owner of a `GtkRecentChooserMenu` instance.
-///
 /// `GtkRecentChooserMenu` is a widget suitable for displaying recently used files
 /// inside a menu.  It can be used to set a sub-menu of a `GtkMenuItem` using
 /// `gtk_menu_item_set_submenu()`, or as the menu of a `GtkMenuToolButton`.
@@ -11367,6 +11435,11 @@ public extension RecentChooserMenuRef {
 /// `GtkRecentFilter` object.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooserMenu` type acts as a reference-counted owner of an underlying `GtkRecentChooserMenu` instance.
+/// It provides the methods that can operate on this data type through `RecentChooserMenuProtocol` conformance.
+/// Use `RecentChooserMenu` as a strong reference or owner of a `GtkRecentChooserMenu` instance.
+///
 open class RecentChooserMenu: Menu, RecentChooserMenuProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -12252,12 +12325,14 @@ public enum RecentChooserMenuSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12694,11 +12769,6 @@ public extension RecentChooserMenuProtocol {
 
 // MARK: - RecentChooserWidget Class
 
-/// The `RecentChooserWidgetProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooserWidget` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RecentChooserWidget`.
-/// Alternatively, use `RecentChooserWidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkRecentChooserWidget` is a widget suitable for selecting recently used
 /// files.  It is the main building block of a `GtkRecentChooserDialog`.  Most
 /// applications will only need to use the latter; you can use
@@ -12708,6 +12778,12 @@ public extension RecentChooserMenuProtocol {
 /// Instead, you should use the functions that work on a `GtkRecentChooser`.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooserWidgetProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooserWidget` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RecentChooserWidget`.
+/// Alternatively, use `RecentChooserWidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RecentChooserWidgetProtocol: BoxProtocol, RecentChooserProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooserWidget` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12719,10 +12795,6 @@ public protocol RecentChooserWidgetProtocol: BoxProtocol, RecentChooserProtocol 
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RecentChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserWidget` instance.
-/// It exposes methods that can operate on this data type through `RecentChooserWidgetProtocol` conformance.
-/// Use `RecentChooserWidgetRef` only as an `unowned` reference to an existing `GtkRecentChooserWidget` instance.
-///
 /// `GtkRecentChooserWidget` is a widget suitable for selecting recently used
 /// files.  It is the main building block of a `GtkRecentChooserDialog`.  Most
 /// applications will only need to use the latter; you can use
@@ -12732,6 +12804,11 @@ public protocol RecentChooserWidgetProtocol: BoxProtocol, RecentChooserProtocol 
 /// Instead, you should use the functions that work on a `GtkRecentChooser`.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooserWidget` instance.
+/// It exposes methods that can operate on this data type through `RecentChooserWidgetProtocol` conformance.
+/// Use `RecentChooserWidgetRef` only as an `unowned` reference to an existing `GtkRecentChooserWidget` instance.
+///
 public struct RecentChooserWidgetRef: RecentChooserWidgetProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRecentChooserWidget` instance.
     /// For type-safe access, use the generated, typed pointer `recent_chooser_widget_ptr` property instead.
@@ -12836,10 +12913,6 @@ public extension RecentChooserWidgetRef {
     }
 }
 
-/// The `RecentChooserWidget` type acts as a reference-counted owner of an underlying `GtkRecentChooserWidget` instance.
-/// It provides the methods that can operate on this data type through `RecentChooserWidgetProtocol` conformance.
-/// Use `RecentChooserWidget` as a strong reference or owner of a `GtkRecentChooserWidget` instance.
-///
 /// `GtkRecentChooserWidget` is a widget suitable for selecting recently used
 /// files.  It is the main building block of a `GtkRecentChooserDialog`.  Most
 /// applications will only need to use the latter; you can use
@@ -12849,6 +12922,11 @@ public extension RecentChooserWidgetRef {
 /// Instead, you should use the functions that work on a `GtkRecentChooser`.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooserWidget` type acts as a reference-counted owner of an underlying `GtkRecentChooserWidget` instance.
+/// It provides the methods that can operate on this data type through `RecentChooserWidgetProtocol` conformance.
+/// Use `RecentChooserWidget` as a strong reference or owner of a `GtkRecentChooserWidget` instance.
+///
 open class RecentChooserWidget: Box, RecentChooserWidgetProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -13623,12 +13701,14 @@ public enum RecentChooserWidgetSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13940,11 +14020,6 @@ public extension RecentChooserWidgetProtocol {
 
 // MARK: - RecentFilter Class
 
-/// The `RecentFilterProtocol` protocol exposes the methods and properties of an underlying `GtkRecentFilter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RecentFilter`.
-/// Alternatively, use `RecentFilterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkRecentFilter` can be used to restrict the files being shown
 /// in a `GtkRecentChooser`.  Files can be filtered based on their name
 /// (with `gtk_recent_filter_add_pattern()`), on their mime type (with
@@ -13992,6 +14067,12 @@ public extension RecentChooserWidgetProtocol {
 /// </object>
 /// ```
 /// 
+///
+/// The `RecentFilterProtocol` protocol exposes the methods and properties of an underlying `GtkRecentFilter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RecentFilter`.
+/// Alternatively, use `RecentFilterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RecentFilterProtocol: GLibObject.InitiallyUnownedProtocol, BuildableProtocol {
         /// Untyped pointer to the underlying `GtkRecentFilter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -14003,10 +14084,6 @@ public protocol RecentFilterProtocol: GLibObject.InitiallyUnownedProtocol, Build
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RecentFilterRef` type acts as a lightweight Swift reference to an underlying `GtkRecentFilter` instance.
-/// It exposes methods that can operate on this data type through `RecentFilterProtocol` conformance.
-/// Use `RecentFilterRef` only as an `unowned` reference to an existing `GtkRecentFilter` instance.
-///
 /// A `GtkRecentFilter` can be used to restrict the files being shown
 /// in a `GtkRecentChooser`.  Files can be filtered based on their name
 /// (with `gtk_recent_filter_add_pattern()`), on their mime type (with
@@ -14054,6 +14131,11 @@ public protocol RecentFilterProtocol: GLibObject.InitiallyUnownedProtocol, Build
 /// </object>
 /// ```
 /// 
+///
+/// The `RecentFilterRef` type acts as a lightweight Swift reference to an underlying `GtkRecentFilter` instance.
+/// It exposes methods that can operate on this data type through `RecentFilterProtocol` conformance.
+/// Use `RecentFilterRef` only as an `unowned` reference to an existing `GtkRecentFilter` instance.
+///
 public struct RecentFilterRef: RecentFilterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRecentFilter` instance.
     /// For type-safe access, use the generated, typed pointer `recent_filter_ptr` property instead.
@@ -14151,10 +14233,6 @@ public extension RecentFilterRef {
     }
 }
 
-/// The `RecentFilter` type acts as a reference-counted owner of an underlying `GtkRecentFilter` instance.
-/// It provides the methods that can operate on this data type through `RecentFilterProtocol` conformance.
-/// Use `RecentFilter` as a strong reference or owner of a `GtkRecentFilter` instance.
-///
 /// A `GtkRecentFilter` can be used to restrict the files being shown
 /// in a `GtkRecentChooser`.  Files can be filtered based on their name
 /// (with `gtk_recent_filter_add_pattern()`), on their mime type (with
@@ -14202,6 +14280,11 @@ public extension RecentFilterRef {
 /// </object>
 /// ```
 /// 
+///
+/// The `RecentFilter` type acts as a reference-counted owner of an underlying `GtkRecentFilter` instance.
+/// It provides the methods that can operate on this data type through `RecentFilterProtocol` conformance.
+/// Use `RecentFilter` as a strong reference or owner of a `GtkRecentFilter` instance.
+///
 open class RecentFilter: GLibObject.InitiallyUnowned, RecentFilterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -14366,12 +14449,14 @@ public enum RecentFilterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14518,11 +14603,6 @@ public extension RecentFilterProtocol {
 
 // MARK: - RecentManager Class
 
-/// The `RecentManagerProtocol` protocol exposes the methods and properties of an underlying `GtkRecentManager` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RecentManager`.
-/// Alternatively, use `RecentManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkRecentManager` provides a facility for adding, removing and
 /// looking up recently used files. Each recently used file is
 /// identified by its URI, and has meta-data associated to it, like
@@ -14585,6 +14665,12 @@ public extension RecentFilterProtocol {
 /// property.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentManagerProtocol` protocol exposes the methods and properties of an underlying `GtkRecentManager` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RecentManager`.
+/// Alternatively, use `RecentManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RecentManagerProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkRecentManager` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -14596,10 +14682,6 @@ public protocol RecentManagerProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RecentManagerRef` type acts as a lightweight Swift reference to an underlying `GtkRecentManager` instance.
-/// It exposes methods that can operate on this data type through `RecentManagerProtocol` conformance.
-/// Use `RecentManagerRef` only as an `unowned` reference to an existing `GtkRecentManager` instance.
-///
 /// `GtkRecentManager` provides a facility for adding, removing and
 /// looking up recently used files. Each recently used file is
 /// identified by its URI, and has meta-data associated to it, like
@@ -14662,6 +14744,11 @@ public protocol RecentManagerProtocol: GLibObject.ObjectProtocol {
 /// property.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentManagerRef` type acts as a lightweight Swift reference to an underlying `GtkRecentManager` instance.
+/// It exposes methods that can operate on this data type through `RecentManagerProtocol` conformance.
+/// Use `RecentManagerRef` only as an `unowned` reference to an existing `GtkRecentManager` instance.
+///
 public struct RecentManagerRef: RecentManagerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRecentManager` instance.
     /// For type-safe access, use the generated, typed pointer `recent_manager_ptr` property instead.
@@ -14760,10 +14847,6 @@ public extension RecentManagerRef {
     }
 }
 
-/// The `RecentManager` type acts as a reference-counted owner of an underlying `GtkRecentManager` instance.
-/// It provides the methods that can operate on this data type through `RecentManagerProtocol` conformance.
-/// Use `RecentManager` as a strong reference or owner of a `GtkRecentManager` instance.
-///
 /// `GtkRecentManager` provides a facility for adding, removing and
 /// looking up recently used files. Each recently used file is
 /// identified by its URI, and has meta-data associated to it, like
@@ -14826,6 +14909,11 @@ public extension RecentManagerRef {
 /// property.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentManager` type acts as a reference-counted owner of an underlying `GtkRecentManager` instance.
+/// It provides the methods that can operate on this data type through `RecentManagerProtocol` conformance.
+/// Use `RecentManager` as a strong reference or owner of a `GtkRecentManager` instance.
+///
 open class RecentManager: GLibObject.Object, RecentManagerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -15055,12 +15143,14 @@ public enum RecentManagerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15142,12 +15232,14 @@ public extension RecentManagerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15191,12 +15283,14 @@ public extension RecentManagerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15339,12 +15433,13 @@ public extension RecentManagerProtocol {
 
 // MARK: - RendererCellAccessible Class
 
+
+///
 /// The `RendererCellAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkRendererCellAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RendererCellAccessible`.
 /// Alternatively, use `RendererCellAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol RendererCellAccessibleProtocol: CellAccessibleProtocol {
         /// Untyped pointer to the underlying `GtkRendererCellAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -15356,11 +15451,12 @@ public protocol RendererCellAccessibleProtocol: CellAccessibleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `RendererCellAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkRendererCellAccessible` instance.
 /// It exposes methods that can operate on this data type through `RendererCellAccessibleProtocol` conformance.
 /// Use `RendererCellAccessibleRef` only as an `unowned` reference to an existing `GtkRendererCellAccessible` instance.
 ///
-
 public struct RendererCellAccessibleRef: RendererCellAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRendererCellAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `renderer_cell_accessible_ptr` property instead.
@@ -15442,11 +15538,12 @@ public extension RendererCellAccessibleRef {
 
     }
 
+
+///
 /// The `RendererCellAccessible` type acts as a reference-counted owner of an underlying `GtkRendererCellAccessible` instance.
 /// It provides the methods that can operate on this data type through `RendererCellAccessibleProtocol` conformance.
 /// Use `RendererCellAccessible` as a strong reference or owner of a `GtkRendererCellAccessible` instance.
 ///
-
 open class RendererCellAccessible: CellAccessible, RendererCellAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -15710,12 +15807,14 @@ public enum RendererCellAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15812,11 +15911,6 @@ public extension RendererCellAccessibleProtocol {
 
 // MARK: - Revealer Class
 
-/// The `RevealerProtocol` protocol exposes the methods and properties of an underlying `GtkRevealer` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Revealer`.
-/// Alternatively, use `RevealerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The GtkRevealer widget is a container which animates
 /// the transition of its child from invisible to visible.
 /// 
@@ -15831,6 +15925,12 @@ public extension RendererCellAccessibleProtocol {
 /// GtkRevealer has a single CSS node with name revealer.
 /// 
 /// The GtkRevealer widget was added in GTK+ 3.10.
+///
+/// The `RevealerProtocol` protocol exposes the methods and properties of an underlying `GtkRevealer` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Revealer`.
+/// Alternatively, use `RevealerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RevealerProtocol: BinProtocol {
         /// Untyped pointer to the underlying `GtkRevealer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -15842,10 +15942,6 @@ public protocol RevealerProtocol: BinProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RevealerRef` type acts as a lightweight Swift reference to an underlying `GtkRevealer` instance.
-/// It exposes methods that can operate on this data type through `RevealerProtocol` conformance.
-/// Use `RevealerRef` only as an `unowned` reference to an existing `GtkRevealer` instance.
-///
 /// The GtkRevealer widget is a container which animates
 /// the transition of its child from invisible to visible.
 /// 
@@ -15860,6 +15956,11 @@ public protocol RevealerProtocol: BinProtocol {
 /// GtkRevealer has a single CSS node with name revealer.
 /// 
 /// The GtkRevealer widget was added in GTK+ 3.10.
+///
+/// The `RevealerRef` type acts as a lightweight Swift reference to an underlying `GtkRevealer` instance.
+/// It exposes methods that can operate on this data type through `RevealerProtocol` conformance.
+/// Use `RevealerRef` only as an `unowned` reference to an existing `GtkRevealer` instance.
+///
 public struct RevealerRef: RevealerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkRevealer` instance.
     /// For type-safe access, use the generated, typed pointer `revealer_ptr` property instead.
@@ -15946,10 +16047,6 @@ public extension RevealerRef {
     }
 }
 
-/// The `Revealer` type acts as a reference-counted owner of an underlying `GtkRevealer` instance.
-/// It provides the methods that can operate on this data type through `RevealerProtocol` conformance.
-/// Use `Revealer` as a strong reference or owner of a `GtkRevealer` instance.
-///
 /// The GtkRevealer widget is a container which animates
 /// the transition of its child from invisible to visible.
 /// 
@@ -15964,6 +16061,11 @@ public extension RevealerRef {
 /// GtkRevealer has a single CSS node with name revealer.
 /// 
 /// The GtkRevealer widget was added in GTK+ 3.10.
+///
+/// The `Revealer` type acts as a reference-counted owner of an underlying `GtkRevealer` instance.
+/// It provides the methods that can operate on this data type through `RevealerProtocol` conformance.
+/// Use `Revealer` as a strong reference or owner of a `GtkRevealer` instance.
+///
 open class Revealer: Bin, RevealerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -16719,12 +16821,14 @@ public enum RevealerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17160,11 +17264,6 @@ public extension RevealerProtocol {
 
 // MARK: - Scale Class
 
-/// The `ScaleProtocol` protocol exposes the methods and properties of an underlying `GtkScale` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Scale`.
-/// Alternatively, use `ScaleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A GtkScale is a slider control used to select a numeric value.
 /// To use it, you’ll probably want to investigate the methods on
 /// its base class, `GtkRange`, in addition to the methods for GtkScale itself.
@@ -17238,6 +17337,12 @@ public extension RevealerProtocol {
 /// 
 /// If the scale is displaying the value (see `GtkScale:draw-value`), there is
 /// subnode with name value.
+///
+/// The `ScaleProtocol` protocol exposes the methods and properties of an underlying `GtkScale` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Scale`.
+/// Alternatively, use `ScaleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ScaleProtocol: RangeProtocol {
         /// Untyped pointer to the underlying `GtkScale` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -17249,10 +17354,6 @@ public protocol ScaleProtocol: RangeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ScaleRef` type acts as a lightweight Swift reference to an underlying `GtkScale` instance.
-/// It exposes methods that can operate on this data type through `ScaleProtocol` conformance.
-/// Use `ScaleRef` only as an `unowned` reference to an existing `GtkScale` instance.
-///
 /// A GtkScale is a slider control used to select a numeric value.
 /// To use it, you’ll probably want to investigate the methods on
 /// its base class, `GtkRange`, in addition to the methods for GtkScale itself.
@@ -17326,6 +17427,11 @@ public protocol ScaleProtocol: RangeProtocol {
 /// 
 /// If the scale is displaying the value (see `GtkScale:draw-value`), there is
 /// subnode with name value.
+///
+/// The `ScaleRef` type acts as a lightweight Swift reference to an underlying `GtkScale` instance.
+/// It exposes methods that can operate on this data type through `ScaleProtocol` conformance.
+/// Use `ScaleRef` only as an `unowned` reference to an existing `GtkScale` instance.
+///
 public struct ScaleRef: ScaleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkScale` instance.
     /// For type-safe access, use the generated, typed pointer `scale_ptr` property instead.
@@ -17439,10 +17545,6 @@ public extension ScaleRef {
     }
 }
 
-/// The `Scale` type acts as a reference-counted owner of an underlying `GtkScale` instance.
-/// It provides the methods that can operate on this data type through `ScaleProtocol` conformance.
-/// Use `Scale` as a strong reference or owner of a `GtkScale` instance.
-///
 /// A GtkScale is a slider control used to select a numeric value.
 /// To use it, you’ll probably want to investigate the methods on
 /// its base class, `GtkRange`, in addition to the methods for GtkScale itself.
@@ -17516,6 +17618,11 @@ public extension ScaleRef {
 /// 
 /// If the scale is displaying the value (see `GtkScale:draw-value`), there is
 /// subnode with name value.
+///
+/// The `Scale` type acts as a reference-counted owner of an underlying `GtkScale` instance.
+/// It provides the methods that can operate on this data type through `ScaleProtocol` conformance.
+/// Use `Scale` as a strong reference or owner of a `GtkScale` instance.
+///
 open class Scale: Range, ScaleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -18352,12 +18459,14 @@ public enum ScaleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18754,12 +18863,14 @@ public extension ScaleProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18803,12 +18914,14 @@ public extension ScaleProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18852,12 +18965,14 @@ public extension ScaleProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18901,12 +19016,14 @@ public extension ScaleProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

@@ -17,12 +17,13 @@ import Atk
 
 // MARK: - EntryAccessible Class
 
+
+///
 /// The `EntryAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkEntryAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EntryAccessible`.
 /// Alternatively, use `EntryAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EntryAccessibleProtocol: WidgetAccessibleProtocol, Atk.ActionProtocol, Atk.EditableTextProtocol, Atk.TextProtocol {
         /// Untyped pointer to the underlying `GtkEntryAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,11 +35,12 @@ public protocol EntryAccessibleProtocol: WidgetAccessibleProtocol, Atk.ActionPro
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EntryAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkEntryAccessible` instance.
 /// It exposes methods that can operate on this data type through `EntryAccessibleProtocol` conformance.
 /// Use `EntryAccessibleRef` only as an `unowned` reference to an existing `GtkEntryAccessible` instance.
 ///
-
 public struct EntryAccessibleRef: EntryAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEntryAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `entry_accessible_ptr` property instead.
@@ -120,11 +122,12 @@ public extension EntryAccessibleRef {
 
     }
 
+
+///
 /// The `EntryAccessible` type acts as a reference-counted owner of an underlying `GtkEntryAccessible` instance.
 /// It provides the methods that can operate on this data type through `EntryAccessibleProtocol` conformance.
 /// Use `EntryAccessible` as a strong reference or owner of a `GtkEntryAccessible` instance.
 ///
-
 open class EntryAccessible: WidgetAccessible, EntryAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -387,12 +390,14 @@ public enum EntryAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -488,11 +493,6 @@ public extension EntryAccessibleProtocol {
 
 // MARK: - EntryBuffer Class
 
-/// The `EntryBufferProtocol` protocol exposes the methods and properties of an underlying `GtkEntryBuffer` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `EntryBuffer`.
-/// Alternatively, use `EntryBufferRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkEntryBuffer` class contains the actual text displayed in a
 /// `GtkEntry` widget.
 /// 
@@ -504,6 +504,12 @@ public extension EntryAccessibleProtocol {
 /// text to be stored in an alternate location, such as non-pageable memory,
 /// useful in the case of important passwords. Or a derived class could
 /// integrate with an application’s concept of undo/redo.
+///
+/// The `EntryBufferProtocol` protocol exposes the methods and properties of an underlying `GtkEntryBuffer` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `EntryBuffer`.
+/// Alternatively, use `EntryBufferRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol EntryBufferProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkEntryBuffer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -515,10 +521,6 @@ public protocol EntryBufferProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `EntryBufferRef` type acts as a lightweight Swift reference to an underlying `GtkEntryBuffer` instance.
-/// It exposes methods that can operate on this data type through `EntryBufferProtocol` conformance.
-/// Use `EntryBufferRef` only as an `unowned` reference to an existing `GtkEntryBuffer` instance.
-///
 /// The `GtkEntryBuffer` class contains the actual text displayed in a
 /// `GtkEntry` widget.
 /// 
@@ -530,6 +532,11 @@ public protocol EntryBufferProtocol: GLibObject.ObjectProtocol {
 /// text to be stored in an alternate location, such as non-pageable memory,
 /// useful in the case of important passwords. Or a derived class could
 /// integrate with an application’s concept of undo/redo.
+///
+/// The `EntryBufferRef` type acts as a lightweight Swift reference to an underlying `GtkEntryBuffer` instance.
+/// It exposes methods that can operate on this data type through `EntryBufferProtocol` conformance.
+/// Use `EntryBufferRef` only as an `unowned` reference to an existing `GtkEntryBuffer` instance.
+///
 public struct EntryBufferRef: EntryBufferProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEntryBuffer` instance.
     /// For type-safe access, use the generated, typed pointer `entry_buffer_ptr` property instead.
@@ -618,10 +625,6 @@ public extension EntryBufferRef {
     }
 }
 
-/// The `EntryBuffer` type acts as a reference-counted owner of an underlying `GtkEntryBuffer` instance.
-/// It provides the methods that can operate on this data type through `EntryBufferProtocol` conformance.
-/// Use `EntryBuffer` as a strong reference or owner of a `GtkEntryBuffer` instance.
-///
 /// The `GtkEntryBuffer` class contains the actual text displayed in a
 /// `GtkEntry` widget.
 /// 
@@ -633,6 +636,11 @@ public extension EntryBufferRef {
 /// text to be stored in an alternate location, such as non-pageable memory,
 /// useful in the case of important passwords. Or a derived class could
 /// integrate with an application’s concept of undo/redo.
+///
+/// The `EntryBuffer` type acts as a reference-counted owner of an underlying `GtkEntryBuffer` instance.
+/// It provides the methods that can operate on this data type through `EntryBufferProtocol` conformance.
+/// Use `EntryBuffer` as a strong reference or owner of a `GtkEntryBuffer` instance.
+///
 open class EntryBuffer: GLibObject.Object, EntryBufferProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -852,12 +860,14 @@ public enum EntryBufferSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -968,12 +978,14 @@ public extension EntryBufferProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1017,12 +1029,14 @@ public extension EntryBufferProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1066,12 +1080,14 @@ public extension EntryBufferProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1257,11 +1273,6 @@ public extension EntryBufferProtocol {
 
 // MARK: - EntryCompletion Class
 
-/// The `EntryCompletionProtocol` protocol exposes the methods and properties of an underlying `GtkEntryCompletion` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `EntryCompletion`.
-/// Alternatively, use `EntryCompletionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkEntryCompletion` is an auxiliary object to be used in conjunction with
 /// `GtkEntry` to provide the completion functionality. It implements the
 /// `GtkCellLayout` interface, to allow the user to add extra cells to the
@@ -1302,6 +1313,12 @@ public extension EntryBufferProtocol {
 /// `gtk_tree_model_filter_get_model()`. Don’t forget to use
 /// `gtk_tree_model_filter_convert_iter_to_child_iter()` to obtain a
 /// matching iter.
+///
+/// The `EntryCompletionProtocol` protocol exposes the methods and properties of an underlying `GtkEntryCompletion` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `EntryCompletion`.
+/// Alternatively, use `EntryCompletionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol EntryCompletionProtocol: GLibObject.ObjectProtocol, BuildableProtocol, CellLayoutProtocol {
         /// Untyped pointer to the underlying `GtkEntryCompletion` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1313,10 +1330,6 @@ public protocol EntryCompletionProtocol: GLibObject.ObjectProtocol, BuildablePro
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `EntryCompletionRef` type acts as a lightweight Swift reference to an underlying `GtkEntryCompletion` instance.
-/// It exposes methods that can operate on this data type through `EntryCompletionProtocol` conformance.
-/// Use `EntryCompletionRef` only as an `unowned` reference to an existing `GtkEntryCompletion` instance.
-///
 /// `GtkEntryCompletion` is an auxiliary object to be used in conjunction with
 /// `GtkEntry` to provide the completion functionality. It implements the
 /// `GtkCellLayout` interface, to allow the user to add extra cells to the
@@ -1357,6 +1370,11 @@ public protocol EntryCompletionProtocol: GLibObject.ObjectProtocol, BuildablePro
 /// `gtk_tree_model_filter_get_model()`. Don’t forget to use
 /// `gtk_tree_model_filter_convert_iter_to_child_iter()` to obtain a
 /// matching iter.
+///
+/// The `EntryCompletionRef` type acts as a lightweight Swift reference to an underlying `GtkEntryCompletion` instance.
+/// It exposes methods that can operate on this data type through `EntryCompletionProtocol` conformance.
+/// Use `EntryCompletionRef` only as an `unowned` reference to an existing `GtkEntryCompletion` instance.
+///
 public struct EntryCompletionRef: EntryCompletionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEntryCompletion` instance.
     /// For type-safe access, use the generated, typed pointer `entry_completion_ptr` property instead.
@@ -1458,10 +1476,6 @@ public extension EntryCompletionRef {
     }
 }
 
-/// The `EntryCompletion` type acts as a reference-counted owner of an underlying `GtkEntryCompletion` instance.
-/// It provides the methods that can operate on this data type through `EntryCompletionProtocol` conformance.
-/// Use `EntryCompletion` as a strong reference or owner of a `GtkEntryCompletion` instance.
-///
 /// `GtkEntryCompletion` is an auxiliary object to be used in conjunction with
 /// `GtkEntry` to provide the completion functionality. It implements the
 /// `GtkCellLayout` interface, to allow the user to add extra cells to the
@@ -1502,6 +1516,11 @@ public extension EntryCompletionRef {
 /// `gtk_tree_model_filter_get_model()`. Don’t forget to use
 /// `gtk_tree_model_filter_convert_iter_to_child_iter()` to obtain a
 /// matching iter.
+///
+/// The `EntryCompletion` type acts as a reference-counted owner of an underlying `GtkEntryCompletion` instance.
+/// It provides the methods that can operate on this data type through `EntryCompletionProtocol` conformance.
+/// Use `EntryCompletion` as a strong reference or owner of a `GtkEntryCompletion` instance.
+///
 open class EntryCompletion: GLibObject.Object, EntryCompletionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1788,12 +1807,14 @@ public enum EntryCompletionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2026,12 +2047,14 @@ public extension EntryCompletionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2075,12 +2098,14 @@ public extension EntryCompletionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2124,12 +2149,14 @@ public extension EntryCompletionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2173,12 +2200,14 @@ public extension EntryCompletionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2222,12 +2251,14 @@ public extension EntryCompletionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2271,12 +2302,14 @@ public extension EntryCompletionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2320,12 +2353,14 @@ public extension EntryCompletionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2369,12 +2404,14 @@ public extension EntryCompletionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2418,12 +2455,14 @@ public extension EntryCompletionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2480,8 +2519,8 @@ public extension EntryCompletionProtocol {
     /// 
     /// Note that `index_` is a relative position and the position of an
     /// action may have changed since it was inserted.
-    @inlinable func deleteAction(index_: Int) {
-        gtk_entry_completion_delete_action(entry_completion_ptr, gint(index_))
+    @inlinable func deleteAction(index: Int) {
+        gtk_entry_completion_delete_action(entry_completion_ptr, gint(index))
     
     }
 
@@ -2552,8 +2591,8 @@ public extension EntryCompletionProtocol {
 
     /// Inserts an action in `completion`’s action item list at position `index_`
     /// with markup `markup`.
-    @inlinable func insertActionMarkup(index_: Int, markup: UnsafePointer<gchar>!) {
-        gtk_entry_completion_insert_action_markup(entry_completion_ptr, gint(index_), markup)
+    @inlinable func insertActionMarkup(index: Int, markup: UnsafePointer<gchar>!) {
+        gtk_entry_completion_insert_action_markup(entry_completion_ptr, gint(index), markup)
     
     }
 
@@ -2563,8 +2602,8 @@ public extension EntryCompletionProtocol {
     /// 
     /// Note that `index_` is a relative position in the list of actions and
     /// the position of an action can change when deleting a different action.
-    @inlinable func insertActionText(index_: Int, text: UnsafePointer<gchar>!) {
-        gtk_entry_completion_insert_action_text(entry_completion_ptr, gint(index_), text)
+    @inlinable func insertActionText(index: Int, text: UnsafePointer<gchar>!) {
+        gtk_entry_completion_insert_action_text(entry_completion_ptr, gint(index), text)
     
     }
 
@@ -2817,12 +2856,13 @@ public extension EntryCompletionProtocol {
 
 // MARK: - EntryIconAccessible Class
 
+
+///
 /// The `EntryIconAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkEntryIconAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EntryIconAccessible`.
 /// Alternatively, use `EntryIconAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EntryIconAccessibleProtocol: Atk.ObjectProtocol, Atk.ActionProtocol, Atk.ComponentProtocol {
         /// Untyped pointer to the underlying `GtkEntryIconAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2834,11 +2874,12 @@ public protocol EntryIconAccessibleProtocol: Atk.ObjectProtocol, Atk.ActionProto
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EntryIconAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkEntryIconAccessible` instance.
 /// It exposes methods that can operate on this data type through `EntryIconAccessibleProtocol` conformance.
 /// Use `EntryIconAccessibleRef` only as an `unowned` reference to an existing `GtkEntryIconAccessible` instance.
 ///
-
 public struct EntryIconAccessibleRef: EntryIconAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEntryIconAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `entry_icon_accessible_ptr` property instead.
@@ -2920,11 +2961,12 @@ public extension EntryIconAccessibleRef {
 
     }
 
+
+///
 /// The `EntryIconAccessible` type acts as a reference-counted owner of an underlying `GtkEntryIconAccessible` instance.
 /// It provides the methods that can operate on this data type through `EntryIconAccessibleProtocol` conformance.
 /// Use `EntryIconAccessible` as a strong reference or owner of a `GtkEntryIconAccessible` instance.
 ///
-
 open class EntryIconAccessible: Atk.Object, EntryIconAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3186,12 +3228,14 @@ public enum EntryIconAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3278,14 +3322,15 @@ public extension EntryIconAccessibleProtocol {
 
 // MARK: - EventBox Class
 
+/// The `GtkEventBox` widget is a subclass of `GtkBin` which also has its
+/// own window. It is useful since it allows you to catch events for widgets
+/// which do not have their own window.
+///
 /// The `EventBoxProtocol` protocol exposes the methods and properties of an underlying `GtkEventBox` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EventBox`.
 /// Alternatively, use `EventBoxRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkEventBox` widget is a subclass of `GtkBin` which also has its
-/// own window. It is useful since it allows you to catch events for widgets
-/// which do not have their own window.
 public protocol EventBoxProtocol: BinProtocol {
         /// Untyped pointer to the underlying `GtkEventBox` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3297,13 +3342,14 @@ public protocol EventBoxProtocol: BinProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GtkEventBox` widget is a subclass of `GtkBin` which also has its
+/// own window. It is useful since it allows you to catch events for widgets
+/// which do not have their own window.
+///
 /// The `EventBoxRef` type acts as a lightweight Swift reference to an underlying `GtkEventBox` instance.
 /// It exposes methods that can operate on this data type through `EventBoxProtocol` conformance.
 /// Use `EventBoxRef` only as an `unowned` reference to an existing `GtkEventBox` instance.
 ///
-/// The `GtkEventBox` widget is a subclass of `GtkBin` which also has its
-/// own window. It is useful since it allows you to catch events for widgets
-/// which do not have their own window.
 public struct EventBoxRef: EventBoxProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEventBox` instance.
     /// For type-safe access, use the generated, typed pointer `event_box_ptr` property instead.
@@ -3390,13 +3436,14 @@ public extension EventBoxRef {
     }
 }
 
+/// The `GtkEventBox` widget is a subclass of `GtkBin` which also has its
+/// own window. It is useful since it allows you to catch events for widgets
+/// which do not have their own window.
+///
 /// The `EventBox` type acts as a reference-counted owner of an underlying `GtkEventBox` instance.
 /// It provides the methods that can operate on this data type through `EventBoxProtocol` conformance.
 /// Use `EventBox` as a strong reference or owner of a `GtkEventBox` instance.
 ///
-/// The `GtkEventBox` widget is a subclass of `GtkBin` which also has its
-/// own window. It is useful since it allows you to catch events for widgets
-/// which do not have their own window.
 open class EventBox: Bin, EventBoxProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4150,12 +4197,14 @@ public enum EventBoxSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4599,14 +4648,15 @@ public extension EventBoxProtocol {
 
 // MARK: - EventController Class
 
+/// `GtkEventController` is a base, low-level implementation for event
+/// controllers. Those react to a series of `GdkEvents`, and possibly trigger
+/// actions as a consequence of those.
+///
 /// The `EventControllerProtocol` protocol exposes the methods and properties of an underlying `GtkEventController` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EventController`.
 /// Alternatively, use `EventControllerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkEventController` is a base, low-level implementation for event
-/// controllers. Those react to a series of `GdkEvents`, and possibly trigger
-/// actions as a consequence of those.
 public protocol EventControllerProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkEventController` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4618,13 +4668,14 @@ public protocol EventControllerProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkEventController` is a base, low-level implementation for event
+/// controllers. Those react to a series of `GdkEvents`, and possibly trigger
+/// actions as a consequence of those.
+///
 /// The `EventControllerRef` type acts as a lightweight Swift reference to an underlying `GtkEventController` instance.
 /// It exposes methods that can operate on this data type through `EventControllerProtocol` conformance.
 /// Use `EventControllerRef` only as an `unowned` reference to an existing `GtkEventController` instance.
 ///
-/// `GtkEventController` is a base, low-level implementation for event
-/// controllers. Those react to a series of `GdkEvents`, and possibly trigger
-/// actions as a consequence of those.
 public struct EventControllerRef: EventControllerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEventController` instance.
     /// For type-safe access, use the generated, typed pointer `event_controller_ptr` property instead.
@@ -4706,13 +4757,14 @@ public extension EventControllerRef {
 
     }
 
+/// `GtkEventController` is a base, low-level implementation for event
+/// controllers. Those react to a series of `GdkEvents`, and possibly trigger
+/// actions as a consequence of those.
+///
 /// The `EventController` type acts as a reference-counted owner of an underlying `GtkEventController` instance.
 /// It provides the methods that can operate on this data type through `EventControllerProtocol` conformance.
 /// Use `EventController` as a strong reference or owner of a `GtkEventController` instance.
 ///
-/// `GtkEventController` is a base, low-level implementation for event
-/// controllers. Those react to a series of `GdkEvents`, and possibly trigger
-/// actions as a consequence of those.
 open class EventController: GLibObject.Object, EventControllerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4918,12 +4970,14 @@ public enum EventControllerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5009,15 +5063,16 @@ public extension EventControllerProtocol {
 
 // MARK: - EventControllerKey Class
 
+/// `GtkEventControllerKey` is an event controller meant for situations
+/// where you need access to key events.
+/// 
+/// This object was added in 3.24.
+///
 /// The `EventControllerKeyProtocol` protocol exposes the methods and properties of an underlying `GtkEventControllerKey` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EventControllerKey`.
 /// Alternatively, use `EventControllerKeyRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkEventControllerKey` is an event controller meant for situations
-/// where you need access to key events.
-/// 
-/// This object was added in 3.24.
 public protocol EventControllerKeyProtocol: EventControllerProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerKey` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5029,14 +5084,15 @@ public protocol EventControllerKeyProtocol: EventControllerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `EventControllerKeyRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerKey` instance.
-/// It exposes methods that can operate on this data type through `EventControllerKeyProtocol` conformance.
-/// Use `EventControllerKeyRef` only as an `unowned` reference to an existing `GtkEventControllerKey` instance.
-///
 /// `GtkEventControllerKey` is an event controller meant for situations
 /// where you need access to key events.
 /// 
 /// This object was added in 3.24.
+///
+/// The `EventControllerKeyRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerKey` instance.
+/// It exposes methods that can operate on this data type through `EventControllerKeyProtocol` conformance.
+/// Use `EventControllerKeyRef` only as an `unowned` reference to an existing `GtkEventControllerKey` instance.
+///
 public struct EventControllerKeyRef: EventControllerKeyProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEventControllerKey` instance.
     /// For type-safe access, use the generated, typed pointer `event_controller_key_ptr` property instead.
@@ -5122,14 +5178,15 @@ public extension EventControllerKeyRef {
     }
 }
 
-/// The `EventControllerKey` type acts as a reference-counted owner of an underlying `GtkEventControllerKey` instance.
-/// It provides the methods that can operate on this data type through `EventControllerKeyProtocol` conformance.
-/// Use `EventControllerKey` as a strong reference or owner of a `GtkEventControllerKey` instance.
-///
 /// `GtkEventControllerKey` is an event controller meant for situations
 /// where you need access to key events.
 /// 
 /// This object was added in 3.24.
+///
+/// The `EventControllerKey` type acts as a reference-counted owner of an underlying `GtkEventControllerKey` instance.
+/// It provides the methods that can operate on this data type through `EventControllerKeyProtocol` conformance.
+/// Use `EventControllerKey` as a strong reference or owner of a `GtkEventControllerKey` instance.
+///
 open class EventControllerKey: EventController, EventControllerKeyProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5348,12 +5405,14 @@ public enum EventControllerKeySignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5599,15 +5658,16 @@ public extension EventControllerKeyProtocol {
 
 // MARK: - EventControllerMotion Class
 
+/// `GtkEventControllerMotion` is an event controller meant for situations
+/// where you need to track the position of the pointer.
+/// 
+/// This object was added in 3.24.
+///
 /// The `EventControllerMotionProtocol` protocol exposes the methods and properties of an underlying `GtkEventControllerMotion` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EventControllerMotion`.
 /// Alternatively, use `EventControllerMotionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkEventControllerMotion` is an event controller meant for situations
-/// where you need to track the position of the pointer.
-/// 
-/// This object was added in 3.24.
 public protocol EventControllerMotionProtocol: EventControllerProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerMotion` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5619,14 +5679,15 @@ public protocol EventControllerMotionProtocol: EventControllerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `EventControllerMotionRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerMotion` instance.
-/// It exposes methods that can operate on this data type through `EventControllerMotionProtocol` conformance.
-/// Use `EventControllerMotionRef` only as an `unowned` reference to an existing `GtkEventControllerMotion` instance.
-///
 /// `GtkEventControllerMotion` is an event controller meant for situations
 /// where you need to track the position of the pointer.
 /// 
 /// This object was added in 3.24.
+///
+/// The `EventControllerMotionRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerMotion` instance.
+/// It exposes methods that can operate on this data type through `EventControllerMotionProtocol` conformance.
+/// Use `EventControllerMotionRef` only as an `unowned` reference to an existing `GtkEventControllerMotion` instance.
+///
 public struct EventControllerMotionRef: EventControllerMotionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEventControllerMotion` instance.
     /// For type-safe access, use the generated, typed pointer `event_controller_motion_ptr` property instead.
@@ -5714,14 +5775,15 @@ public extension EventControllerMotionRef {
     }
 }
 
-/// The `EventControllerMotion` type acts as a reference-counted owner of an underlying `GtkEventControllerMotion` instance.
-/// It provides the methods that can operate on this data type through `EventControllerMotionProtocol` conformance.
-/// Use `EventControllerMotion` as a strong reference or owner of a `GtkEventControllerMotion` instance.
-///
 /// `GtkEventControllerMotion` is an event controller meant for situations
 /// where you need to track the position of the pointer.
 /// 
 /// This object was added in 3.24.
+///
+/// The `EventControllerMotion` type acts as a reference-counted owner of an underlying `GtkEventControllerMotion` instance.
+/// It provides the methods that can operate on this data type through `EventControllerMotionProtocol` conformance.
+/// Use `EventControllerMotion` as a strong reference or owner of a `GtkEventControllerMotion` instance.
+///
 open class EventControllerMotion: EventController, EventControllerMotionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5940,12 +6002,14 @@ public enum EventControllerMotionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6079,11 +6143,6 @@ public extension EventControllerMotionProtocol {
 
 // MARK: - EventControllerScroll Class
 
-/// The `EventControllerScrollProtocol` protocol exposes the methods and properties of an underlying `GtkEventControllerScroll` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `EventControllerScroll`.
-/// Alternatively, use `EventControllerScrollRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkEventControllerScroll` is an event controller meant to handle
 /// scroll events from mice and touchpads. It is capable of handling
 /// both discrete and continuous scroll events, abstracting them both
@@ -6118,6 +6177,12 @@ public extension EventControllerMotionProtocol {
 /// was received.
 /// 
 /// This object was added in 3.24.
+///
+/// The `EventControllerScrollProtocol` protocol exposes the methods and properties of an underlying `GtkEventControllerScroll` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `EventControllerScroll`.
+/// Alternatively, use `EventControllerScrollRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol EventControllerScrollProtocol: EventControllerProtocol {
         /// Untyped pointer to the underlying `GtkEventControllerScroll` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6129,10 +6194,6 @@ public protocol EventControllerScrollProtocol: EventControllerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `EventControllerScrollRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerScroll` instance.
-/// It exposes methods that can operate on this data type through `EventControllerScrollProtocol` conformance.
-/// Use `EventControllerScrollRef` only as an `unowned` reference to an existing `GtkEventControllerScroll` instance.
-///
 /// `GtkEventControllerScroll` is an event controller meant to handle
 /// scroll events from mice and touchpads. It is capable of handling
 /// both discrete and continuous scroll events, abstracting them both
@@ -6167,6 +6228,11 @@ public protocol EventControllerScrollProtocol: EventControllerProtocol {
 /// was received.
 /// 
 /// This object was added in 3.24.
+///
+/// The `EventControllerScrollRef` type acts as a lightweight Swift reference to an underlying `GtkEventControllerScroll` instance.
+/// It exposes methods that can operate on this data type through `EventControllerScrollProtocol` conformance.
+/// Use `EventControllerScrollRef` only as an `unowned` reference to an existing `GtkEventControllerScroll` instance.
+///
 public struct EventControllerScrollRef: EventControllerScrollProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkEventControllerScroll` instance.
     /// For type-safe access, use the generated, typed pointer `event_controller_scroll_ptr` property instead.
@@ -6254,10 +6320,6 @@ public extension EventControllerScrollRef {
     }
 }
 
-/// The `EventControllerScroll` type acts as a reference-counted owner of an underlying `GtkEventControllerScroll` instance.
-/// It provides the methods that can operate on this data type through `EventControllerScrollProtocol` conformance.
-/// Use `EventControllerScroll` as a strong reference or owner of a `GtkEventControllerScroll` instance.
-///
 /// `GtkEventControllerScroll` is an event controller meant to handle
 /// scroll events from mice and touchpads. It is capable of handling
 /// both discrete and continuous scroll events, abstracting them both
@@ -6292,6 +6354,11 @@ public extension EventControllerScrollRef {
 /// was received.
 /// 
 /// This object was added in 3.24.
+///
+/// The `EventControllerScroll` type acts as a reference-counted owner of an underlying `GtkEventControllerScroll` instance.
+/// It provides the methods that can operate on this data type through `EventControllerScrollProtocol` conformance.
+/// Use `EventControllerScroll` as a strong reference or owner of a `GtkEventControllerScroll` instance.
+///
 open class EventControllerScroll: EventController, EventControllerScrollProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6511,12 +6578,14 @@ public enum EventControllerScrollSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6691,12 +6760,14 @@ public extension EventControllerScrollProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6763,11 +6834,6 @@ public extension EventControllerScrollProtocol {
 
 // MARK: - Expander Class
 
-/// The `ExpanderProtocol` protocol exposes the methods and properties of an underlying `GtkExpander` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Expander`.
-/// Alternatively, use `ExpanderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkExpander` allows the user to hide or show its child by clicking
 /// on an expander triangle similar to the triangles used in a `GtkTreeView`.
 /// 
@@ -6851,6 +6917,12 @@ public extension EventControllerScrollProtocol {
 /// GtkExpander has three CSS nodes, the main node with the name expander,
 /// a subnode with name title and node below it with name arrow. The arrow of an
 /// expander that is showing its child gets the :checked pseudoclass added to it.
+///
+/// The `ExpanderProtocol` protocol exposes the methods and properties of an underlying `GtkExpander` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Expander`.
+/// Alternatively, use `ExpanderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ExpanderProtocol: BinProtocol {
         /// Untyped pointer to the underlying `GtkExpander` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6862,10 +6934,6 @@ public protocol ExpanderProtocol: BinProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ExpanderRef` type acts as a lightweight Swift reference to an underlying `GtkExpander` instance.
-/// It exposes methods that can operate on this data type through `ExpanderProtocol` conformance.
-/// Use `ExpanderRef` only as an `unowned` reference to an existing `GtkExpander` instance.
-///
 /// A `GtkExpander` allows the user to hide or show its child by clicking
 /// on an expander triangle similar to the triangles used in a `GtkTreeView`.
 /// 
@@ -6949,6 +7017,11 @@ public protocol ExpanderProtocol: BinProtocol {
 /// GtkExpander has three CSS nodes, the main node with the name expander,
 /// a subnode with name title and node below it with name arrow. The arrow of an
 /// expander that is showing its child gets the :checked pseudoclass added to it.
+///
+/// The `ExpanderRef` type acts as a lightweight Swift reference to an underlying `GtkExpander` instance.
+/// It exposes methods that can operate on this data type through `ExpanderProtocol` conformance.
+/// Use `ExpanderRef` only as an `unowned` reference to an existing `GtkExpander` instance.
+///
 public struct ExpanderRef: ExpanderProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkExpander` instance.
     /// For type-safe access, use the generated, typed pointer `expander_ptr` property instead.
@@ -7056,10 +7129,6 @@ public extension ExpanderRef {
     }
 }
 
-/// The `Expander` type acts as a reference-counted owner of an underlying `GtkExpander` instance.
-/// It provides the methods that can operate on this data type through `ExpanderProtocol` conformance.
-/// Use `Expander` as a strong reference or owner of a `GtkExpander` instance.
-///
 /// A `GtkExpander` allows the user to hide or show its child by clicking
 /// on an expander triangle similar to the triangles used in a `GtkTreeView`.
 /// 
@@ -7143,6 +7212,11 @@ public extension ExpanderRef {
 /// GtkExpander has three CSS nodes, the main node with the name expander,
 /// a subnode with name title and node below it with name arrow. The arrow of an
 /// expander that is showing its child gets the :checked pseudoclass added to it.
+///
+/// The `Expander` type acts as a reference-counted owner of an underlying `GtkExpander` instance.
+/// It provides the methods that can operate on this data type through `ExpanderProtocol` conformance.
+/// Use `Expander` as a strong reference or owner of a `GtkExpander` instance.
+///
 open class Expander: Bin, ExpanderProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7937,12 +8011,14 @@ public enum ExpanderSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8315,12 +8391,14 @@ public extension ExpanderProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8364,12 +8442,14 @@ public extension ExpanderProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8413,12 +8493,14 @@ public extension ExpanderProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8462,12 +8544,14 @@ public extension ExpanderProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8511,12 +8595,14 @@ public extension ExpanderProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8560,12 +8646,14 @@ public extension ExpanderProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8609,12 +8697,14 @@ public extension ExpanderProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8658,12 +8748,14 @@ public extension ExpanderProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9008,12 +9100,13 @@ public extension ExpanderProtocol {
 
 // MARK: - ExpanderAccessible Class
 
+
+///
 /// The `ExpanderAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkExpanderAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ExpanderAccessible`.
 /// Alternatively, use `ExpanderAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ExpanderAccessibleProtocol: ContainerAccessibleProtocol, Atk.ActionProtocol {
         /// Untyped pointer to the underlying `GtkExpanderAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9025,11 +9118,12 @@ public protocol ExpanderAccessibleProtocol: ContainerAccessibleProtocol, Atk.Act
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ExpanderAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkExpanderAccessible` instance.
 /// It exposes methods that can operate on this data type through `ExpanderAccessibleProtocol` conformance.
 /// Use `ExpanderAccessibleRef` only as an `unowned` reference to an existing `GtkExpanderAccessible` instance.
 ///
-
 public struct ExpanderAccessibleRef: ExpanderAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkExpanderAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `expander_accessible_ptr` property instead.
@@ -9111,11 +9205,12 @@ public extension ExpanderAccessibleRef {
 
     }
 
+
+///
 /// The `ExpanderAccessible` type acts as a reference-counted owner of an underlying `GtkExpanderAccessible` instance.
 /// It provides the methods that can operate on this data type through `ExpanderAccessibleProtocol` conformance.
 /// Use `ExpanderAccessible` as a strong reference or owner of a `GtkExpanderAccessible` instance.
 ///
-
 open class ExpanderAccessible: ContainerAccessible, ExpanderAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9378,12 +9473,14 @@ public enum ExpanderAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9479,11 +9576,6 @@ public extension ExpanderAccessibleProtocol {
 
 // MARK: - FileChooserButton Class
 
-/// The `FileChooserButtonProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileChooserButton`.
-/// Alternatively, use `FileChooserButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkFileChooserButton` is a widget that lets the user select a
 /// file.  It implements the `GtkFileChooser` interface.  Visually, it is a
 /// file name with a button to bring up a `GtkFileChooserDialog`.
@@ -9519,6 +9611,12 @@ public extension ExpanderAccessibleProtocol {
 /// 
 /// GtkFileChooserButton has a CSS node with name “filechooserbutton”, containing
 /// a subnode for the internal button with name “button” and style class “.file”.
+///
+/// The `FileChooserButtonProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileChooserButton`.
+/// Alternatively, use `FileChooserButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileChooserButtonProtocol: BoxProtocol, FileChooserProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9530,10 +9628,6 @@ public protocol FileChooserButtonProtocol: BoxProtocol, FileChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileChooserButtonRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserButton` instance.
-/// It exposes methods that can operate on this data type through `FileChooserButtonProtocol` conformance.
-/// Use `FileChooserButtonRef` only as an `unowned` reference to an existing `GtkFileChooserButton` instance.
-///
 /// The `GtkFileChooserButton` is a widget that lets the user select a
 /// file.  It implements the `GtkFileChooser` interface.  Visually, it is a
 /// file name with a button to bring up a `GtkFileChooserDialog`.
@@ -9569,6 +9663,11 @@ public protocol FileChooserButtonProtocol: BoxProtocol, FileChooserProtocol {
 /// 
 /// GtkFileChooserButton has a CSS node with name “filechooserbutton”, containing
 /// a subnode for the internal button with name “button” and style class “.file”.
+///
+/// The `FileChooserButtonRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserButton` instance.
+/// It exposes methods that can operate on this data type through `FileChooserButtonProtocol` conformance.
+/// Use `FileChooserButtonRef` only as an `unowned` reference to an existing `GtkFileChooserButton` instance.
+///
 public struct FileChooserButtonRef: FileChooserButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkFileChooserButton` instance.
     /// For type-safe access, use the generated, typed pointer `file_chooser_button_ptr` property instead.
@@ -9684,10 +9783,6 @@ public extension FileChooserButtonRef {
     }
 }
 
-/// The `FileChooserButton` type acts as a reference-counted owner of an underlying `GtkFileChooserButton` instance.
-/// It provides the methods that can operate on this data type through `FileChooserButtonProtocol` conformance.
-/// Use `FileChooserButton` as a strong reference or owner of a `GtkFileChooserButton` instance.
-///
 /// The `GtkFileChooserButton` is a widget that lets the user select a
 /// file.  It implements the `GtkFileChooser` interface.  Visually, it is a
 /// file name with a button to bring up a `GtkFileChooserDialog`.
@@ -9723,6 +9818,11 @@ public extension FileChooserButtonRef {
 /// 
 /// GtkFileChooserButton has a CSS node with name “filechooserbutton”, containing
 /// a subnode for the internal button with name “button” and style class “.file”.
+///
+/// The `FileChooserButton` type acts as a reference-counted owner of an underlying `GtkFileChooserButton` instance.
+/// It provides the methods that can operate on this data type through `FileChooserButtonProtocol` conformance.
+/// Use `FileChooserButton` as a strong reference or owner of a `GtkFileChooserButton` instance.
+///
 open class FileChooserButton: Box, FileChooserButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10519,12 +10619,14 @@ public enum FileChooserButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10891,12 +10993,14 @@ public extension FileChooserButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10940,12 +11044,14 @@ public extension FileChooserButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10989,12 +11095,14 @@ public extension FileChooserButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

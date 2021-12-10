@@ -32,12 +32,13 @@ public extension MenuBarClassRef {
 
 // MARK: - MenuBarClass Record
 
+
+///
 /// The `MenuBarClassProtocol` protocol exposes the methods and properties of an underlying `GtkMenuBarClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuBarClass`.
 /// Alternatively, use `MenuBarClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuBarClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuBarClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,11 +50,12 @@ public protocol MenuBarClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuBarClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuBarClass` instance.
 /// It exposes methods that can operate on this data type through `MenuBarClassProtocol` conformance.
 /// Use `MenuBarClassRef` only as an `unowned` reference to an existing `GtkMenuBarClass` instance.
 ///
-
 public struct MenuBarClassRef: MenuBarClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuBarClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -174,12 +176,13 @@ public extension MenuButtonAccessibleClassRef {
 
 // MARK: - MenuButtonAccessibleClass Record
 
+
+///
 /// The `MenuButtonAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkMenuButtonAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuButtonAccessibleClass`.
 /// Alternatively, use `MenuButtonAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuButtonAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -191,11 +194,12 @@ public protocol MenuButtonAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuButtonAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `MenuButtonAccessibleClassProtocol` conformance.
 /// Use `MenuButtonAccessibleClassRef` only as an `unowned` reference to an existing `GtkMenuButtonAccessibleClass` instance.
 ///
-
 public struct MenuButtonAccessibleClassRef: MenuButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuButtonAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -308,12 +312,13 @@ public extension MenuButtonClassRef {
 
 // MARK: - MenuButtonClass Record
 
+
+///
 /// The `MenuButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkMenuButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuButtonClass`.
 /// Alternatively, use `MenuButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -325,11 +330,12 @@ public protocol MenuButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuButtonClass` instance.
 /// It exposes methods that can operate on this data type through `MenuButtonClassProtocol` conformance.
 /// Use `MenuButtonClassRef` only as an `unowned` reference to an existing `GtkMenuButtonClass` instance.
 ///
-
 public struct MenuButtonClassRef: MenuButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -450,12 +456,13 @@ public extension MenuClassRef {
 
 // MARK: - MenuClass Record
 
+
+///
 /// The `MenuClassProtocol` protocol exposes the methods and properties of an underlying `GtkMenuClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuClass`.
 /// Alternatively, use `MenuClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -467,11 +474,12 @@ public protocol MenuClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuClass` instance.
 /// It exposes methods that can operate on this data type through `MenuClassProtocol` conformance.
 /// Use `MenuClassRef` only as an `unowned` reference to an existing `GtkMenuClass` instance.
 ///
-
 public struct MenuClassRef: MenuClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -592,12 +600,13 @@ public extension MenuItemAccessibleClassRef {
 
 // MARK: - MenuItemAccessibleClass Record
 
+
+///
 /// The `MenuItemAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkMenuItemAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuItemAccessibleClass`.
 /// Alternatively, use `MenuItemAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuItemAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuItemAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -609,11 +618,12 @@ public protocol MenuItemAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuItemAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuItemAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `MenuItemAccessibleClassProtocol` conformance.
 /// Use `MenuItemAccessibleClassRef` only as an `unowned` reference to an existing `GtkMenuItemAccessibleClass` instance.
 ///
-
 public struct MenuItemAccessibleClassRef: MenuItemAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuItemAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -726,12 +736,13 @@ public extension MenuItemClassRef {
 
 // MARK: - MenuItemClass Record
 
+
+///
 /// The `MenuItemClassProtocol` protocol exposes the methods and properties of an underlying `GtkMenuItemClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuItemClass`.
 /// Alternatively, use `MenuItemClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuItemClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuItemClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -743,11 +754,12 @@ public protocol MenuItemClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuItemClass` instance.
 /// It exposes methods that can operate on this data type through `MenuItemClassProtocol` conformance.
 /// Use `MenuItemClassRef` only as an `unowned` reference to an existing `GtkMenuItemClass` instance.
 ///
-
 public struct MenuItemClassRef: MenuItemClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuItemClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -899,12 +911,13 @@ public extension MenuShellAccessibleClassRef {
 
 // MARK: - MenuShellAccessibleClass Record
 
+
+///
 /// The `MenuShellAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkMenuShellAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuShellAccessibleClass`.
 /// Alternatively, use `MenuShellAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuShellAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuShellAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -916,11 +929,12 @@ public protocol MenuShellAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuShellAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuShellAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `MenuShellAccessibleClassProtocol` conformance.
 /// Use `MenuShellAccessibleClassRef` only as an `unowned` reference to an existing `GtkMenuShellAccessibleClass` instance.
 ///
-
 public struct MenuShellAccessibleClassRef: MenuShellAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuShellAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1033,12 +1047,13 @@ public extension MenuShellClassRef {
 
 // MARK: - MenuShellClass Record
 
+
+///
 /// The `MenuShellClassProtocol` protocol exposes the methods and properties of an underlying `GtkMenuShellClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuShellClass`.
 /// Alternatively, use `MenuShellClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuShellClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuShellClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1050,11 +1065,12 @@ public protocol MenuShellClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuShellClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuShellClass` instance.
 /// It exposes methods that can operate on this data type through `MenuShellClassProtocol` conformance.
 /// Use `MenuShellClassRef` only as an `unowned` reference to an existing `GtkMenuShellClass` instance.
 ///
-
 public struct MenuShellClassRef: MenuShellClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuShellClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1200,12 +1216,13 @@ public extension MenuToolButtonClassRef {
 
 // MARK: - MenuToolButtonClass Record
 
+
+///
 /// The `MenuToolButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkMenuToolButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuToolButtonClass`.
 /// Alternatively, use `MenuToolButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuToolButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuToolButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1217,11 +1234,12 @@ public protocol MenuToolButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuToolButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkMenuToolButtonClass` instance.
 /// It exposes methods that can operate on this data type through `MenuToolButtonClassProtocol` conformance.
 /// Use `MenuToolButtonClassRef` only as an `unowned` reference to an existing `GtkMenuToolButtonClass` instance.
 ///
-
 public struct MenuToolButtonClassRef: MenuToolButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkMenuToolButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1346,12 +1364,13 @@ public extension MessageDialogClassRef {
 
 // MARK: - MessageDialogClass Record
 
+
+///
 /// The `MessageDialogClassProtocol` protocol exposes the methods and properties of an underlying `GtkMessageDialogClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MessageDialogClass`.
 /// Alternatively, use `MessageDialogClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MessageDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkMessageDialogClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1363,11 +1382,12 @@ public protocol MessageDialogClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MessageDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkMessageDialogClass` instance.
 /// It exposes methods that can operate on this data type through `MessageDialogClassProtocol` conformance.
 /// Use `MessageDialogClassRef` only as an `unowned` reference to an existing `GtkMessageDialogClass` instance.
 ///
-
 public struct MessageDialogClassRef: MessageDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkMessageDialogClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1488,12 +1508,13 @@ public extension MiscClassRef {
 
 // MARK: - MiscClass Record
 
+
+///
 /// The `MiscClassProtocol` protocol exposes the methods and properties of an underlying `GtkMiscClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MiscClass`.
 /// Alternatively, use `MiscClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MiscClassProtocol {
         /// Untyped pointer to the underlying `GtkMiscClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1505,11 +1526,12 @@ public protocol MiscClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MiscClassRef` type acts as a lightweight Swift reference to an underlying `GtkMiscClass` instance.
 /// It exposes methods that can operate on this data type through `MiscClassProtocol` conformance.
 /// Use `MiscClassRef` only as an `unowned` reference to an existing `GtkMiscClass` instance.
 ///
-
 public struct MiscClassRef: MiscClassProtocol {
         /// Untyped pointer to the underlying `GtkMiscClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1630,12 +1652,13 @@ public extension MountOperationClassRef {
 
 // MARK: - MountOperationClass Record
 
+
+///
 /// The `MountOperationClassProtocol` protocol exposes the methods and properties of an underlying `GtkMountOperationClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MountOperationClass`.
 /// Alternatively, use `MountOperationClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MountOperationClassProtocol {
         /// Untyped pointer to the underlying `GtkMountOperationClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1647,11 +1670,12 @@ public protocol MountOperationClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MountOperationClassRef` type acts as a lightweight Swift reference to an underlying `GtkMountOperationClass` instance.
 /// It exposes methods that can operate on this data type through `MountOperationClassProtocol` conformance.
 /// Use `MountOperationClassRef` only as an `unowned` reference to an existing `GtkMountOperationClass` instance.
 ///
-
 public struct MountOperationClassRef: MountOperationClassProtocol {
         /// Untyped pointer to the underlying `GtkMountOperationClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1774,12 +1798,13 @@ public extension NativeDialogClassRef {
 
 // MARK: - NativeDialogClass Record
 
+
+///
 /// The `NativeDialogClassProtocol` protocol exposes the methods and properties of an underlying `GtkNativeDialogClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NativeDialogClass`.
 /// Alternatively, use `NativeDialogClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NativeDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkNativeDialogClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1791,11 +1816,12 @@ public protocol NativeDialogClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NativeDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkNativeDialogClass` instance.
 /// It exposes methods that can operate on this data type through `NativeDialogClassProtocol` conformance.
 /// Use `NativeDialogClassRef` only as an `unowned` reference to an existing `GtkNativeDialogClass` instance.
 ///
-
 public struct NativeDialogClassRef: NativeDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkNativeDialogClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

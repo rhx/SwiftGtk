@@ -17,12 +17,13 @@ import Atk
 
 // MARK: - WidgetAccessible Class
 
+
+///
 /// The `WidgetAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkWidgetAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WidgetAccessible`.
 /// Alternatively, use `WidgetAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WidgetAccessibleProtocol: AccessibleProtocol, Atk.ComponentProtocol {
         /// Untyped pointer to the underlying `GtkWidgetAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,11 +35,12 @@ public protocol WidgetAccessibleProtocol: AccessibleProtocol, Atk.ComponentProto
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WidgetAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetAccessible` instance.
 /// It exposes methods that can operate on this data type through `WidgetAccessibleProtocol` conformance.
 /// Use `WidgetAccessibleRef` only as an `unowned` reference to an existing `GtkWidgetAccessible` instance.
 ///
-
 public struct WidgetAccessibleRef: WidgetAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkWidgetAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `widget_accessible_ptr` property instead.
@@ -120,11 +122,12 @@ public extension WidgetAccessibleRef {
 
     }
 
+
+///
 /// The `WidgetAccessible` type acts as a reference-counted owner of an underlying `GtkWidgetAccessible` instance.
 /// It provides the methods that can operate on this data type through `WidgetAccessibleProtocol` conformance.
 /// Use `WidgetAccessible` as a strong reference or owner of a `GtkWidgetAccessible` instance.
 ///
-
 open class WidgetAccessible: Accessible, WidgetAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -387,12 +390,14 @@ public enum WidgetAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -488,11 +493,6 @@ public extension WidgetAccessibleProtocol {
 
 // MARK: - Window Class
 
-/// The `WindowProtocol` protocol exposes the methods and properties of an underlying `GtkWindow` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Window`.
-/// Alternatively, use `WindowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A GtkWindow is a toplevel window which can contain other widgets.
 /// Windows normally have decorations that are under the control
 /// of the windowing system and allow the user to manipulate the window
@@ -549,6 +549,12 @@ public extension WidgetAccessibleProtocol {
 /// 
 /// GtkWindow adds the .titlebar and .default-decoration style classes to the
 /// widget that is added as a titlebar child.
+///
+/// The `WindowProtocol` protocol exposes the methods and properties of an underlying `GtkWindow` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Window`.
+/// Alternatively, use `WindowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol WindowProtocol: BinProtocol {
         /// Untyped pointer to the underlying `GtkWindow` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -560,10 +566,6 @@ public protocol WindowProtocol: BinProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `WindowRef` type acts as a lightweight Swift reference to an underlying `GtkWindow` instance.
-/// It exposes methods that can operate on this data type through `WindowProtocol` conformance.
-/// Use `WindowRef` only as an `unowned` reference to an existing `GtkWindow` instance.
-///
 /// A GtkWindow is a toplevel window which can contain other widgets.
 /// Windows normally have decorations that are under the control
 /// of the windowing system and allow the user to manipulate the window
@@ -620,6 +622,11 @@ public protocol WindowProtocol: BinProtocol {
 /// 
 /// GtkWindow adds the .titlebar and .default-decoration style classes to the
 /// widget that is added as a titlebar child.
+///
+/// The `WindowRef` type acts as a lightweight Swift reference to an underlying `GtkWindow` instance.
+/// It exposes methods that can operate on this data type through `WindowProtocol` conformance.
+/// Use `WindowRef` only as an `unowned` reference to an existing `GtkWindow` instance.
+///
 public struct WindowRef: WindowProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkWindow` instance.
     /// For type-safe access, use the generated, typed pointer `window_ptr` property instead.
@@ -725,10 +732,6 @@ public extension WindowRef {
     }
 }
 
-/// The `Window` type acts as a reference-counted owner of an underlying `GtkWindow` instance.
-/// It provides the methods that can operate on this data type through `WindowProtocol` conformance.
-/// Use `Window` as a strong reference or owner of a `GtkWindow` instance.
-///
 /// A GtkWindow is a toplevel window which can contain other widgets.
 /// Windows normally have decorations that are under the control
 /// of the windowing system and allow the user to manipulate the window
@@ -785,6 +788,11 @@ public extension WindowRef {
 /// 
 /// GtkWindow adds the .titlebar and .default-decoration style classes to the
 /// widget that is added as a titlebar child.
+///
+/// The `Window` type acts as a reference-counted owner of an underlying `GtkWindow` instance.
+/// It provides the methods that can operate on this data type through `WindowProtocol` conformance.
+/// Use `Window` as a strong reference or owner of a `GtkWindow` instance.
+///
 open class Window: Bin, WindowProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1661,12 +1669,14 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2225,12 +2235,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2274,12 +2286,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2323,12 +2337,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2372,12 +2388,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2421,12 +2439,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2470,12 +2490,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2519,12 +2541,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2568,12 +2592,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2617,12 +2643,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2666,12 +2694,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2715,12 +2745,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2764,12 +2796,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2813,12 +2847,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2862,12 +2898,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2911,12 +2949,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2960,12 +3000,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3009,12 +3051,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3058,12 +3102,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3107,12 +3153,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3156,12 +3204,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3205,12 +3255,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3254,12 +3306,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3303,12 +3357,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3352,12 +3408,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3401,12 +3459,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3450,12 +3510,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3499,12 +3561,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3548,12 +3612,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3597,12 +3663,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3646,12 +3714,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3695,12 +3765,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3744,12 +3816,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3793,12 +3867,14 @@ public extension WindowProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6134,12 +6210,13 @@ public extension WindowProtocol {
 
 // MARK: - WindowAccessible Class
 
+
+///
 /// The `WindowAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkWindowAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WindowAccessible`.
 /// Alternatively, use `WindowAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WindowAccessibleProtocol: ContainerAccessibleProtocol, Atk.WindowProtocol {
         /// Untyped pointer to the underlying `GtkWindowAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6151,11 +6228,12 @@ public protocol WindowAccessibleProtocol: ContainerAccessibleProtocol, Atk.Windo
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WindowAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkWindowAccessible` instance.
 /// It exposes methods that can operate on this data type through `WindowAccessibleProtocol` conformance.
 /// Use `WindowAccessibleRef` only as an `unowned` reference to an existing `GtkWindowAccessible` instance.
 ///
-
 public struct WindowAccessibleRef: WindowAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkWindowAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `window_accessible_ptr` property instead.
@@ -6237,11 +6315,12 @@ public extension WindowAccessibleRef {
 
     }
 
+
+///
 /// The `WindowAccessible` type acts as a reference-counted owner of an underlying `GtkWindowAccessible` instance.
 /// It provides the methods that can operate on this data type through `WindowAccessibleProtocol` conformance.
 /// Use `WindowAccessible` as a strong reference or owner of a `GtkWindowAccessible` instance.
 ///
-
 open class WindowAccessible: ContainerAccessible, WindowAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6504,12 +6583,14 @@ public enum WindowAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6605,11 +6686,6 @@ public extension WindowAccessibleProtocol {
 
 // MARK: - WindowGroup Class
 
-/// The `WindowGroupProtocol` protocol exposes the methods and properties of an underlying `GtkWindowGroup` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `WindowGroup`.
-/// Alternatively, use `WindowGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkWindowGroup` restricts the effect of grabs to windows
 /// in the same group, thereby making window groups almost behave
 /// like separate applications.
@@ -6625,6 +6701,12 @@ public extension WindowAccessibleProtocol {
 /// be removed from the window group and drop their references on the window
 /// group; when all window have been removed, the window group will be
 /// freed.
+///
+/// The `WindowGroupProtocol` protocol exposes the methods and properties of an underlying `GtkWindowGroup` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `WindowGroup`.
+/// Alternatively, use `WindowGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol WindowGroupProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkWindowGroup` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6636,10 +6718,6 @@ public protocol WindowGroupProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `WindowGroupRef` type acts as a lightweight Swift reference to an underlying `GtkWindowGroup` instance.
-/// It exposes methods that can operate on this data type through `WindowGroupProtocol` conformance.
-/// Use `WindowGroupRef` only as an `unowned` reference to an existing `GtkWindowGroup` instance.
-///
 /// A `GtkWindowGroup` restricts the effect of grabs to windows
 /// in the same group, thereby making window groups almost behave
 /// like separate applications.
@@ -6655,6 +6733,11 @@ public protocol WindowGroupProtocol: GLibObject.ObjectProtocol {
 /// be removed from the window group and drop their references on the window
 /// group; when all window have been removed, the window group will be
 /// freed.
+///
+/// The `WindowGroupRef` type acts as a lightweight Swift reference to an underlying `GtkWindowGroup` instance.
+/// It exposes methods that can operate on this data type through `WindowGroupProtocol` conformance.
+/// Use `WindowGroupRef` only as an `unowned` reference to an existing `GtkWindowGroup` instance.
+///
 public struct WindowGroupRef: WindowGroupProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkWindowGroup` instance.
     /// For type-safe access, use the generated, typed pointer `window_group_ptr` property instead.
@@ -6742,10 +6825,6 @@ public extension WindowGroupRef {
     }
 }
 
-/// The `WindowGroup` type acts as a reference-counted owner of an underlying `GtkWindowGroup` instance.
-/// It provides the methods that can operate on this data type through `WindowGroupProtocol` conformance.
-/// Use `WindowGroup` as a strong reference or owner of a `GtkWindowGroup` instance.
-///
 /// A `GtkWindowGroup` restricts the effect of grabs to windows
 /// in the same group, thereby making window groups almost behave
 /// like separate applications.
@@ -6761,6 +6840,11 @@ public extension WindowGroupRef {
 /// be removed from the window group and drop their references on the window
 /// group; when all window have been removed, the window group will be
 /// freed.
+///
+/// The `WindowGroup` type acts as a reference-counted owner of an underlying `GtkWindowGroup` instance.
+/// It provides the methods that can operate on this data type through `WindowGroupProtocol` conformance.
+/// Use `WindowGroup` as a strong reference or owner of a `GtkWindowGroup` instance.
+///
 open class WindowGroup: GLibObject.Object, WindowGroupProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6915,12 +6999,14 @@ public enum WindowGroupSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

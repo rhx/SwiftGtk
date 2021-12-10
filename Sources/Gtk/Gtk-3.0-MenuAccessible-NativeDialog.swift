@@ -17,12 +17,13 @@ import Atk
 
 // MARK: - MenuAccessible Class
 
+
+///
 /// The `MenuAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkMenuAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuAccessible`.
 /// Alternatively, use `MenuAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuAccessibleProtocol: MenuShellAccessibleProtocol {
         /// Untyped pointer to the underlying `GtkMenuAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,11 +35,12 @@ public protocol MenuAccessibleProtocol: MenuShellAccessibleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkMenuAccessible` instance.
 /// It exposes methods that can operate on this data type through `MenuAccessibleProtocol` conformance.
 /// Use `MenuAccessibleRef` only as an `unowned` reference to an existing `GtkMenuAccessible` instance.
 ///
-
 public struct MenuAccessibleRef: MenuAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMenuAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `menu_accessible_ptr` property instead.
@@ -120,11 +122,12 @@ public extension MenuAccessibleRef {
 
     }
 
+
+///
 /// The `MenuAccessible` type acts as a reference-counted owner of an underlying `GtkMenuAccessible` instance.
 /// It provides the methods that can operate on this data type through `MenuAccessibleProtocol` conformance.
 /// Use `MenuAccessible` as a strong reference or owner of a `GtkMenuAccessible` instance.
 ///
-
 open class MenuAccessible: MenuShellAccessible, MenuAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -387,12 +390,14 @@ public enum MenuAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -488,11 +493,6 @@ public extension MenuAccessibleProtocol {
 
 // MARK: - MenuBar Class
 
-/// The `MenuBarProtocol` protocol exposes the methods and properties of an underlying `GtkMenuBar` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MenuBar`.
-/// Alternatively, use `MenuBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkMenuBar` is a subclass of `GtkMenuShell` which contains one or
 /// more `GtkMenuItems`. The result is a standard menu bar which can hold
 /// many menu items.
@@ -500,6 +500,12 @@ public extension MenuAccessibleProtocol {
 /// # CSS nodes
 /// 
 /// GtkMenuBar has a single CSS node with name menubar.
+///
+/// The `MenuBarProtocol` protocol exposes the methods and properties of an underlying `GtkMenuBar` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MenuBar`.
+/// Alternatively, use `MenuBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MenuBarProtocol: MenuShellProtocol {
         /// Untyped pointer to the underlying `GtkMenuBar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -511,10 +517,6 @@ public protocol MenuBarProtocol: MenuShellProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MenuBarRef` type acts as a lightweight Swift reference to an underlying `GtkMenuBar` instance.
-/// It exposes methods that can operate on this data type through `MenuBarProtocol` conformance.
-/// Use `MenuBarRef` only as an `unowned` reference to an existing `GtkMenuBar` instance.
-///
 /// The `GtkMenuBar` is a subclass of `GtkMenuShell` which contains one or
 /// more `GtkMenuItems`. The result is a standard menu bar which can hold
 /// many menu items.
@@ -522,6 +524,11 @@ public protocol MenuBarProtocol: MenuShellProtocol {
 /// # CSS nodes
 /// 
 /// GtkMenuBar has a single CSS node with name menubar.
+///
+/// The `MenuBarRef` type acts as a lightweight Swift reference to an underlying `GtkMenuBar` instance.
+/// It exposes methods that can operate on this data type through `MenuBarProtocol` conformance.
+/// Use `MenuBarRef` only as an `unowned` reference to an existing `GtkMenuBar` instance.
+///
 public struct MenuBarRef: MenuBarProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMenuBar` instance.
     /// For type-safe access, use the generated, typed pointer `menu_bar_ptr` property instead.
@@ -631,10 +638,6 @@ public extension MenuBarRef {
     }
 }
 
-/// The `MenuBar` type acts as a reference-counted owner of an underlying `GtkMenuBar` instance.
-/// It provides the methods that can operate on this data type through `MenuBarProtocol` conformance.
-/// Use `MenuBar` as a strong reference or owner of a `GtkMenuBar` instance.
-///
 /// The `GtkMenuBar` is a subclass of `GtkMenuShell` which contains one or
 /// more `GtkMenuItems`. The result is a standard menu bar which can hold
 /// many menu items.
@@ -642,6 +645,11 @@ public extension MenuBarRef {
 /// # CSS nodes
 /// 
 /// GtkMenuBar has a single CSS node with name menubar.
+///
+/// The `MenuBar` type acts as a reference-counted owner of an underlying `GtkMenuBar` instance.
+/// It provides the methods that can operate on this data type through `MenuBarProtocol` conformance.
+/// Use `MenuBar` as a strong reference or owner of a `GtkMenuBar` instance.
+///
 open class MenuBar: MenuShell, MenuBarProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1452,12 +1460,14 @@ public enum MenuBarSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1833,11 +1843,6 @@ public extension MenuBarProtocol {
 
 // MARK: - MenuButton Class
 
-/// The `MenuButtonProtocol` protocol exposes the methods and properties of an underlying `GtkMenuButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MenuButton`.
-/// Alternatively, use `MenuButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkMenuButton` widget is used to display a popup when clicked on.
 /// This popup can be provided either as a `GtkMenu`, a `GtkPopover` or an
 /// abstract `GMenuModel`.
@@ -1921,6 +1926,12 @@ public extension MenuBarProtocol {
 /// 
 /// GtkMenuButton has a single CSS node with name button. To differentiate
 /// it from a plain `GtkButton`, it gets the .popup style class.
+///
+/// The `MenuButtonProtocol` protocol exposes the methods and properties of an underlying `GtkMenuButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MenuButton`.
+/// Alternatively, use `MenuButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MenuButtonProtocol: ToggleButtonProtocol {
         /// Untyped pointer to the underlying `GtkMenuButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1932,10 +1943,6 @@ public protocol MenuButtonProtocol: ToggleButtonProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MenuButtonRef` type acts as a lightweight Swift reference to an underlying `GtkMenuButton` instance.
-/// It exposes methods that can operate on this data type through `MenuButtonProtocol` conformance.
-/// Use `MenuButtonRef` only as an `unowned` reference to an existing `GtkMenuButton` instance.
-///
 /// The `GtkMenuButton` widget is used to display a popup when clicked on.
 /// This popup can be provided either as a `GtkMenu`, a `GtkPopover` or an
 /// abstract `GMenuModel`.
@@ -2019,6 +2026,11 @@ public protocol MenuButtonProtocol: ToggleButtonProtocol {
 /// 
 /// GtkMenuButton has a single CSS node with name button. To differentiate
 /// it from a plain `GtkButton`, it gets the .popup style class.
+///
+/// The `MenuButtonRef` type acts as a lightweight Swift reference to an underlying `GtkMenuButton` instance.
+/// It exposes methods that can operate on this data type through `MenuButtonProtocol` conformance.
+/// Use `MenuButtonRef` only as an `unowned` reference to an existing `GtkMenuButton` instance.
+///
 public struct MenuButtonRef: MenuButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMenuButton` instance.
     /// For type-safe access, use the generated, typed pointer `menu_button_ptr` property instead.
@@ -2107,10 +2119,6 @@ public extension MenuButtonRef {
     }
 }
 
-/// The `MenuButton` type acts as a reference-counted owner of an underlying `GtkMenuButton` instance.
-/// It provides the methods that can operate on this data type through `MenuButtonProtocol` conformance.
-/// Use `MenuButton` as a strong reference or owner of a `GtkMenuButton` instance.
-///
 /// The `GtkMenuButton` widget is used to display a popup when clicked on.
 /// This popup can be provided either as a `GtkMenu`, a `GtkPopover` or an
 /// abstract `GMenuModel`.
@@ -2194,6 +2202,11 @@ public extension MenuButtonRef {
 /// 
 /// GtkMenuButton has a single CSS node with name button. To differentiate
 /// it from a plain `GtkButton`, it gets the .popup style class.
+///
+/// The `MenuButton` type acts as a reference-counted owner of an underlying `GtkMenuButton` instance.
+/// It provides the methods that can operate on this data type through `MenuButtonProtocol` conformance.
+/// Use `MenuButton` as a strong reference or owner of a `GtkMenuButton` instance.
+///
 open class MenuButton: ToggleButton, MenuButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3020,12 +3033,14 @@ public enum MenuButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3678,12 +3693,13 @@ public extension MenuButtonProtocol {
 
 // MARK: - MenuButtonAccessible Class
 
+
+///
 /// The `MenuButtonAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkMenuButtonAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuButtonAccessible`.
 /// Alternatively, use `MenuButtonAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuButtonAccessibleProtocol: ToggleButtonAccessibleProtocol {
         /// Untyped pointer to the underlying `GtkMenuButtonAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3695,11 +3711,12 @@ public protocol MenuButtonAccessibleProtocol: ToggleButtonAccessibleProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuButtonAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkMenuButtonAccessible` instance.
 /// It exposes methods that can operate on this data type through `MenuButtonAccessibleProtocol` conformance.
 /// Use `MenuButtonAccessibleRef` only as an `unowned` reference to an existing `GtkMenuButtonAccessible` instance.
 ///
-
 public struct MenuButtonAccessibleRef: MenuButtonAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMenuButtonAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `menu_button_accessible_ptr` property instead.
@@ -3781,11 +3798,12 @@ public extension MenuButtonAccessibleRef {
 
     }
 
+
+///
 /// The `MenuButtonAccessible` type acts as a reference-counted owner of an underlying `GtkMenuButtonAccessible` instance.
 /// It provides the methods that can operate on this data type through `MenuButtonAccessibleProtocol` conformance.
 /// Use `MenuButtonAccessible` as a strong reference or owner of a `GtkMenuButtonAccessible` instance.
 ///
-
 open class MenuButtonAccessible: ToggleButtonAccessible, MenuButtonAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4048,12 +4066,14 @@ public enum MenuButtonAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4149,11 +4169,6 @@ public extension MenuButtonAccessibleProtocol {
 
 // MARK: - MenuItem Class
 
-/// The `MenuItemProtocol` protocol exposes the methods and properties of an underlying `GtkMenuItem` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MenuItem`.
-/// Alternatively, use `MenuItemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkMenuItem` widget and the derived widgets are the only valid
 /// children for menus. Their function is to correctly handle highlighting,
 /// alignment, events and submenus.
@@ -4202,6 +4217,12 @@ public extension MenuButtonAccessibleProtocol {
 /// GtkMenuItem has a single CSS node with name menuitem. If the menuitem
 /// has a submenu, it gets another CSS node with name arrow, which has
 /// the .left or .right style class.
+///
+/// The `MenuItemProtocol` protocol exposes the methods and properties of an underlying `GtkMenuItem` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MenuItem`.
+/// Alternatively, use `MenuItemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MenuItemProtocol: BinProtocol, ActionableProtocol, ActivatableProtocol {
         /// Untyped pointer to the underlying `GtkMenuItem` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4213,10 +4234,6 @@ public protocol MenuItemProtocol: BinProtocol, ActionableProtocol, ActivatablePr
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MenuItemRef` type acts as a lightweight Swift reference to an underlying `GtkMenuItem` instance.
-/// It exposes methods that can operate on this data type through `MenuItemProtocol` conformance.
-/// Use `MenuItemRef` only as an `unowned` reference to an existing `GtkMenuItem` instance.
-///
 /// The `GtkMenuItem` widget and the derived widgets are the only valid
 /// children for menus. Their function is to correctly handle highlighting,
 /// alignment, events and submenus.
@@ -4265,6 +4282,11 @@ public protocol MenuItemProtocol: BinProtocol, ActionableProtocol, ActivatablePr
 /// GtkMenuItem has a single CSS node with name menuitem. If the menuitem
 /// has a submenu, it gets another CSS node with name arrow, which has
 /// the .left or .right style class.
+///
+/// The `MenuItemRef` type acts as a lightweight Swift reference to an underlying `GtkMenuItem` instance.
+/// It exposes methods that can operate on this data type through `MenuItemProtocol` conformance.
+/// Use `MenuItemRef` only as an `unowned` reference to an existing `GtkMenuItem` instance.
+///
 public struct MenuItemRef: MenuItemProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMenuItem` instance.
     /// For type-safe access, use the generated, typed pointer `menu_item_ptr` property instead.
@@ -4380,10 +4402,6 @@ public extension MenuItemRef {
     }
 }
 
-/// The `MenuItem` type acts as a reference-counted owner of an underlying `GtkMenuItem` instance.
-/// It provides the methods that can operate on this data type through `MenuItemProtocol` conformance.
-/// Use `MenuItem` as a strong reference or owner of a `GtkMenuItem` instance.
-///
 /// The `GtkMenuItem` widget and the derived widgets are the only valid
 /// children for menus. Their function is to correctly handle highlighting,
 /// alignment, events and submenus.
@@ -4432,6 +4450,11 @@ public extension MenuItemRef {
 /// GtkMenuItem has a single CSS node with name menuitem. If the menuitem
 /// has a submenu, it gets another CSS node with name arrow, which has
 /// the .left or .right style class.
+///
+/// The `MenuItem` type acts as a reference-counted owner of an underlying `GtkMenuItem` instance.
+/// It provides the methods that can operate on this data type through `MenuItemProtocol` conformance.
+/// Use `MenuItem` as a strong reference or owner of a `GtkMenuItem` instance.
+///
 open class MenuItem: Bin, MenuItemProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5236,12 +5259,14 @@ public enum MenuItemSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5720,12 +5745,14 @@ public extension MenuItemProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5769,12 +5796,14 @@ public extension MenuItemProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5818,12 +5847,14 @@ public extension MenuItemProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5867,12 +5898,14 @@ public extension MenuItemProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5916,12 +5949,14 @@ public extension MenuItemProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6256,12 +6291,13 @@ public extension MenuItemProtocol {
 
 // MARK: - MenuItemAccessible Class
 
+
+///
 /// The `MenuItemAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkMenuItemAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuItemAccessible`.
 /// Alternatively, use `MenuItemAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuItemAccessibleProtocol: ContainerAccessibleProtocol, Atk.ActionProtocol, Atk.SelectionProtocol {
         /// Untyped pointer to the underlying `GtkMenuItemAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6273,11 +6309,12 @@ public protocol MenuItemAccessibleProtocol: ContainerAccessibleProtocol, Atk.Act
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuItemAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkMenuItemAccessible` instance.
 /// It exposes methods that can operate on this data type through `MenuItemAccessibleProtocol` conformance.
 /// Use `MenuItemAccessibleRef` only as an `unowned` reference to an existing `GtkMenuItemAccessible` instance.
 ///
-
 public struct MenuItemAccessibleRef: MenuItemAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMenuItemAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `menu_item_accessible_ptr` property instead.
@@ -6359,11 +6396,12 @@ public extension MenuItemAccessibleRef {
 
     }
 
+
+///
 /// The `MenuItemAccessible` type acts as a reference-counted owner of an underlying `GtkMenuItemAccessible` instance.
 /// It provides the methods that can operate on this data type through `MenuItemAccessibleProtocol` conformance.
 /// Use `MenuItemAccessible` as a strong reference or owner of a `GtkMenuItemAccessible` instance.
 ///
-
 open class MenuItemAccessible: ContainerAccessible, MenuItemAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6626,12 +6664,14 @@ public enum MenuItemAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6727,11 +6767,6 @@ public extension MenuItemAccessibleProtocol {
 
 // MARK: - MenuShell Class
 
-/// The `MenuShellProtocol` protocol exposes the methods and properties of an underlying `GtkMenuShell` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MenuShell`.
-/// Alternatively, use `MenuShellRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkMenuShell` is the abstract base class used to derive the
 /// `GtkMenu` and `GtkMenuBar` subclasses.
 /// 
@@ -6759,6 +6794,12 @@ public extension MenuItemAccessibleProtocol {
 /// a selected menu item.) The current menu is the menu that
 /// contains the current menu item. It will always have a GTK
 /// grab and receive all key presses.
+///
+/// The `MenuShellProtocol` protocol exposes the methods and properties of an underlying `GtkMenuShell` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MenuShell`.
+/// Alternatively, use `MenuShellRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MenuShellProtocol: ContainerProtocol {
         /// Untyped pointer to the underlying `GtkMenuShell` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6770,10 +6811,6 @@ public protocol MenuShellProtocol: ContainerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MenuShellRef` type acts as a lightweight Swift reference to an underlying `GtkMenuShell` instance.
-/// It exposes methods that can operate on this data type through `MenuShellProtocol` conformance.
-/// Use `MenuShellRef` only as an `unowned` reference to an existing `GtkMenuShell` instance.
-///
 /// A `GtkMenuShell` is the abstract base class used to derive the
 /// `GtkMenu` and `GtkMenuBar` subclasses.
 /// 
@@ -6801,6 +6838,11 @@ public protocol MenuShellProtocol: ContainerProtocol {
 /// a selected menu item.) The current menu is the menu that
 /// contains the current menu item. It will always have a GTK
 /// grab and receive all key presses.
+///
+/// The `MenuShellRef` type acts as a lightweight Swift reference to an underlying `GtkMenuShell` instance.
+/// It exposes methods that can operate on this data type through `MenuShellProtocol` conformance.
+/// Use `MenuShellRef` only as an `unowned` reference to an existing `GtkMenuShell` instance.
+///
 public struct MenuShellRef: MenuShellProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMenuShell` instance.
     /// For type-safe access, use the generated, typed pointer `menu_shell_ptr` property instead.
@@ -6882,10 +6924,6 @@ public extension MenuShellRef {
 
     }
 
-/// The `MenuShell` type acts as a reference-counted owner of an underlying `GtkMenuShell` instance.
-/// It provides the methods that can operate on this data type through `MenuShellProtocol` conformance.
-/// Use `MenuShell` as a strong reference or owner of a `GtkMenuShell` instance.
-///
 /// A `GtkMenuShell` is the abstract base class used to derive the
 /// `GtkMenu` and `GtkMenuBar` subclasses.
 /// 
@@ -6913,6 +6951,11 @@ public extension MenuShellRef {
 /// a selected menu item.) The current menu is the menu that
 /// contains the current menu item. It will always have a GTK
 /// grab and receive all key presses.
+///
+/// The `MenuShell` type acts as a reference-counted owner of an underlying `GtkMenuShell` instance.
+/// It provides the methods that can operate on this data type through `MenuShellProtocol` conformance.
+/// Use `MenuShell` as a strong reference or owner of a `GtkMenuShell` instance.
+///
 open class MenuShell: Container, MenuShellProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7686,12 +7729,14 @@ public enum MenuShellSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8245,12 +8290,14 @@ public extension MenuShellProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8552,12 +8599,13 @@ public extension MenuShellProtocol {
 
 // MARK: - MenuShellAccessible Class
 
+
+///
 /// The `MenuShellAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkMenuShellAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuShellAccessible`.
 /// Alternatively, use `MenuShellAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuShellAccessibleProtocol: ContainerAccessibleProtocol, Atk.SelectionProtocol {
         /// Untyped pointer to the underlying `GtkMenuShellAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8569,11 +8617,12 @@ public protocol MenuShellAccessibleProtocol: ContainerAccessibleProtocol, Atk.Se
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuShellAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkMenuShellAccessible` instance.
 /// It exposes methods that can operate on this data type through `MenuShellAccessibleProtocol` conformance.
 /// Use `MenuShellAccessibleRef` only as an `unowned` reference to an existing `GtkMenuShellAccessible` instance.
 ///
-
 public struct MenuShellAccessibleRef: MenuShellAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMenuShellAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `menu_shell_accessible_ptr` property instead.
@@ -8655,11 +8704,12 @@ public extension MenuShellAccessibleRef {
 
     }
 
+
+///
 /// The `MenuShellAccessible` type acts as a reference-counted owner of an underlying `GtkMenuShellAccessible` instance.
 /// It provides the methods that can operate on this data type through `MenuShellAccessibleProtocol` conformance.
 /// Use `MenuShellAccessible` as a strong reference or owner of a `GtkMenuShellAccessible` instance.
 ///
-
 open class MenuShellAccessible: ContainerAccessible, MenuShellAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8922,12 +8972,14 @@ public enum MenuShellAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9023,11 +9075,6 @@ public extension MenuShellAccessibleProtocol {
 
 // MARK: - MenuToolButton Class
 
-/// The `MenuToolButtonProtocol` protocol exposes the methods and properties of an underlying `GtkMenuToolButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MenuToolButton`.
-/// Alternatively, use `MenuToolButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkMenuToolButton` is a `GtkToolItem` that contains a button and
 /// a small additional button with an arrow. When clicked, the arrow
 /// button pops up a dropdown menu.
@@ -9050,6 +9097,12 @@ public extension MenuShellAccessibleProtocol {
 /// </object>
 /// ```
 /// 
+///
+/// The `MenuToolButtonProtocol` protocol exposes the methods and properties of an underlying `GtkMenuToolButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MenuToolButton`.
+/// Alternatively, use `MenuToolButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MenuToolButtonProtocol: ToolButtonProtocol {
         /// Untyped pointer to the underlying `GtkMenuToolButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9061,10 +9114,6 @@ public protocol MenuToolButtonProtocol: ToolButtonProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MenuToolButtonRef` type acts as a lightweight Swift reference to an underlying `GtkMenuToolButton` instance.
-/// It exposes methods that can operate on this data type through `MenuToolButtonProtocol` conformance.
-/// Use `MenuToolButtonRef` only as an `unowned` reference to an existing `GtkMenuToolButton` instance.
-///
 /// A `GtkMenuToolButton` is a `GtkToolItem` that contains a button and
 /// a small additional button with an arrow. When clicked, the arrow
 /// button pops up a dropdown menu.
@@ -9087,6 +9136,11 @@ public protocol MenuToolButtonProtocol: ToolButtonProtocol {
 /// </object>
 /// ```
 /// 
+///
+/// The `MenuToolButtonRef` type acts as a lightweight Swift reference to an underlying `GtkMenuToolButton` instance.
+/// It exposes methods that can operate on this data type through `MenuToolButtonProtocol` conformance.
+/// Use `MenuToolButtonRef` only as an `unowned` reference to an existing `GtkMenuToolButton` instance.
+///
 public struct MenuToolButtonRef: MenuToolButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMenuToolButton` instance.
     /// For type-safe access, use the generated, typed pointer `menu_tool_button_ptr` property instead.
@@ -9197,10 +9251,6 @@ public extension MenuToolButtonRef {
     }
 }
 
-/// The `MenuToolButton` type acts as a reference-counted owner of an underlying `GtkMenuToolButton` instance.
-/// It provides the methods that can operate on this data type through `MenuToolButtonProtocol` conformance.
-/// Use `MenuToolButton` as a strong reference or owner of a `GtkMenuToolButton` instance.
-///
 /// A `GtkMenuToolButton` is a `GtkToolItem` that contains a button and
 /// a small additional button with an arrow. When clicked, the arrow
 /// button pops up a dropdown menu.
@@ -9223,6 +9273,11 @@ public extension MenuToolButtonRef {
 /// </object>
 /// ```
 /// 
+///
+/// The `MenuToolButton` type acts as a reference-counted owner of an underlying `GtkMenuToolButton` instance.
+/// It provides the methods that can operate on this data type through `MenuToolButtonProtocol` conformance.
+/// Use `MenuToolButton` as a strong reference or owner of a `GtkMenuToolButton` instance.
+///
 open class MenuToolButton: ToolButton, MenuToolButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10041,12 +10096,14 @@ public enum MenuToolButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10445,12 +10502,14 @@ public extension MenuToolButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10542,11 +10601,6 @@ public extension MenuToolButtonProtocol {
 
 // MARK: - MessageDialog Class
 
-/// The `MessageDialogProtocol` protocol exposes the methods and properties of an underlying `GtkMessageDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MessageDialog`.
-/// Alternatively, use `MessageDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkMessageDialog` presents a dialog with some message text. It’s simply a
 /// convenience widget; you could construct the equivalent of `GtkMessageDialog`
 /// from `GtkDialog` without too much effort, but `GtkMessageDialog` saves typing.
@@ -10601,6 +10655,12 @@ public extension MenuToolButtonProtocol {
 /// 
 /// The GtkMessageDialog implementation of the GtkBuildable interface exposes
 /// the message area as an internal child with the name “message_area”.
+///
+/// The `MessageDialogProtocol` protocol exposes the methods and properties of an underlying `GtkMessageDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MessageDialog`.
+/// Alternatively, use `MessageDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MessageDialogProtocol: DialogProtocol {
         /// Untyped pointer to the underlying `GtkMessageDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -10612,10 +10672,6 @@ public protocol MessageDialogProtocol: DialogProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MessageDialogRef` type acts as a lightweight Swift reference to an underlying `GtkMessageDialog` instance.
-/// It exposes methods that can operate on this data type through `MessageDialogProtocol` conformance.
-/// Use `MessageDialogRef` only as an `unowned` reference to an existing `GtkMessageDialog` instance.
-///
 /// `GtkMessageDialog` presents a dialog with some message text. It’s simply a
 /// convenience widget; you could construct the equivalent of `GtkMessageDialog`
 /// from `GtkDialog` without too much effort, but `GtkMessageDialog` saves typing.
@@ -10670,6 +10726,11 @@ public protocol MessageDialogProtocol: DialogProtocol {
 /// 
 /// The GtkMessageDialog implementation of the GtkBuildable interface exposes
 /// the message area as an internal child with the name “message_area”.
+///
+/// The `MessageDialogRef` type acts as a lightweight Swift reference to an underlying `GtkMessageDialog` instance.
+/// It exposes methods that can operate on this data type through `MessageDialogProtocol` conformance.
+/// Use `MessageDialogRef` only as an `unowned` reference to an existing `GtkMessageDialog` instance.
+///
 public struct MessageDialogRef: MessageDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMessageDialog` instance.
     /// For type-safe access, use the generated, typed pointer `message_dialog_ptr` property instead.
@@ -10761,10 +10822,6 @@ public extension MessageDialogRef {
 
 }
 
-/// The `MessageDialog` type acts as a reference-counted owner of an underlying `GtkMessageDialog` instance.
-/// It provides the methods that can operate on this data type through `MessageDialogProtocol` conformance.
-/// Use `MessageDialog` as a strong reference or owner of a `GtkMessageDialog` instance.
-///
 /// `GtkMessageDialog` presents a dialog with some message text. It’s simply a
 /// convenience widget; you could construct the equivalent of `GtkMessageDialog`
 /// from `GtkDialog` without too much effort, but `GtkMessageDialog` saves typing.
@@ -10819,6 +10876,11 @@ public extension MessageDialogRef {
 /// 
 /// The GtkMessageDialog implementation of the GtkBuildable interface exposes
 /// the message area as an internal child with the name “message_area”.
+///
+/// The `MessageDialog` type acts as a reference-counted owner of an underlying `GtkMessageDialog` instance.
+/// It provides the methods that can operate on this data type through `MessageDialogProtocol` conformance.
+/// Use `MessageDialog` as a strong reference or owner of a `GtkMessageDialog` instance.
+///
 open class MessageDialog: Dialog, MessageDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -11716,12 +11778,14 @@ public enum MessageDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12235,11 +12299,6 @@ public extension MessageDialogProtocol {
 
 // MARK: - Misc Class
 
-/// The `MiscProtocol` protocol exposes the methods and properties of an underlying `GtkMisc` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Misc`.
-/// Alternatively, use `MiscRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkMisc` widget is an abstract widget which is not useful itself, but
 /// is used to derive subclasses which have alignment and padding attributes.
 /// 
@@ -12255,6 +12314,12 @@ public extension MessageDialogProtocol {
 /// `GtkWidget:halign`, `GtkWidget:valign` and `GtkWidget:margin` properties
 /// on the child widget, so GtkMisc should not be used in new code. To reflect
 /// this fact, all `GtkMisc` API has been deprecated.
+///
+/// The `MiscProtocol` protocol exposes the methods and properties of an underlying `GtkMisc` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Misc`.
+/// Alternatively, use `MiscRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MiscProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkMisc` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12266,10 +12331,6 @@ public protocol MiscProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MiscRef` type acts as a lightweight Swift reference to an underlying `GtkMisc` instance.
-/// It exposes methods that can operate on this data type through `MiscProtocol` conformance.
-/// Use `MiscRef` only as an `unowned` reference to an existing `GtkMisc` instance.
-///
 /// The `GtkMisc` widget is an abstract widget which is not useful itself, but
 /// is used to derive subclasses which have alignment and padding attributes.
 /// 
@@ -12285,6 +12346,11 @@ public protocol MiscProtocol: WidgetProtocol {
 /// `GtkWidget:halign`, `GtkWidget:valign` and `GtkWidget:margin` properties
 /// on the child widget, so GtkMisc should not be used in new code. To reflect
 /// this fact, all `GtkMisc` API has been deprecated.
+///
+/// The `MiscRef` type acts as a lightweight Swift reference to an underlying `GtkMisc` instance.
+/// It exposes methods that can operate on this data type through `MiscProtocol` conformance.
+/// Use `MiscRef` only as an `unowned` reference to an existing `GtkMisc` instance.
+///
 public struct MiscRef: MiscProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMisc` instance.
     /// For type-safe access, use the generated, typed pointer `misc_ptr` property instead.
@@ -12366,10 +12432,6 @@ public extension MiscRef {
 
     }
 
-/// The `Misc` type acts as a reference-counted owner of an underlying `GtkMisc` instance.
-/// It provides the methods that can operate on this data type through `MiscProtocol` conformance.
-/// Use `Misc` as a strong reference or owner of a `GtkMisc` instance.
-///
 /// The `GtkMisc` widget is an abstract widget which is not useful itself, but
 /// is used to derive subclasses which have alignment and padding attributes.
 /// 
@@ -12385,6 +12447,11 @@ public extension MiscRef {
 /// `GtkWidget:halign`, `GtkWidget:valign` and `GtkWidget:margin` properties
 /// on the child widget, so GtkMisc should not be used in new code. To reflect
 /// this fact, all `GtkMisc` API has been deprecated.
+///
+/// The `Misc` type acts as a reference-counted owner of an underlying `GtkMisc` instance.
+/// It provides the methods that can operate on this data type through `MiscProtocol` conformance.
+/// Use `Misc` as a strong reference or owner of a `GtkMisc` instance.
+///
 open class Misc: Widget, MiscProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -13154,12 +13221,14 @@ public enum MiscSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13533,11 +13602,6 @@ public extension MiscProtocol {
 
 // MARK: - ModelButton Class
 
-/// The `ModelButtonProtocol` protocol exposes the methods and properties of an underlying `GtkModelButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ModelButton`.
-/// Alternatively, use `ModelButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GtkModelButton is a button class that can use a `GAction` as its model.
 /// In contrast to `GtkToggleButton` or `GtkRadioButton`, which can also
 /// be backed by a `GAction` via the `GtkActionable:action-name` property,
@@ -13641,6 +13705,12 @@ public extension MiscProtocol {
 /// Iconic model buttons (see `GtkModelButton:iconic`) change the name of
 /// their main node to button and add a .model style class to it. The indicator
 /// subnode is invisible in this case.
+///
+/// The `ModelButtonProtocol` protocol exposes the methods and properties of an underlying `GtkModelButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ModelButton`.
+/// Alternatively, use `ModelButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ModelButtonProtocol: ButtonProtocol {
         /// Untyped pointer to the underlying `GtkModelButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -13652,10 +13722,6 @@ public protocol ModelButtonProtocol: ButtonProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ModelButtonRef` type acts as a lightweight Swift reference to an underlying `GtkModelButton` instance.
-/// It exposes methods that can operate on this data type through `ModelButtonProtocol` conformance.
-/// Use `ModelButtonRef` only as an `unowned` reference to an existing `GtkModelButton` instance.
-///
 /// GtkModelButton is a button class that can use a `GAction` as its model.
 /// In contrast to `GtkToggleButton` or `GtkRadioButton`, which can also
 /// be backed by a `GAction` via the `GtkActionable:action-name` property,
@@ -13759,6 +13825,11 @@ public protocol ModelButtonProtocol: ButtonProtocol {
 /// Iconic model buttons (see `GtkModelButton:iconic`) change the name of
 /// their main node to button and add a .model style class to it. The indicator
 /// subnode is invisible in this case.
+///
+/// The `ModelButtonRef` type acts as a lightweight Swift reference to an underlying `GtkModelButton` instance.
+/// It exposes methods that can operate on this data type through `ModelButtonProtocol` conformance.
+/// Use `ModelButtonRef` only as an `unowned` reference to an existing `GtkModelButton` instance.
+///
 public struct ModelButtonRef: ModelButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkModelButton` instance.
     /// For type-safe access, use the generated, typed pointer `model_button_ptr` property instead.
@@ -13845,10 +13916,6 @@ public extension ModelButtonRef {
     }
 }
 
-/// The `ModelButton` type acts as a reference-counted owner of an underlying `GtkModelButton` instance.
-/// It provides the methods that can operate on this data type through `ModelButtonProtocol` conformance.
-/// Use `ModelButton` as a strong reference or owner of a `GtkModelButton` instance.
-///
 /// GtkModelButton is a button class that can use a `GAction` as its model.
 /// In contrast to `GtkToggleButton` or `GtkRadioButton`, which can also
 /// be backed by a `GAction` via the `GtkActionable:action-name` property,
@@ -13952,6 +14019,11 @@ public extension ModelButtonRef {
 /// Iconic model buttons (see `GtkModelButton:iconic`) change the name of
 /// their main node to button and add a .model style class to it. The indicator
 /// subnode is invisible in this case.
+///
+/// The `ModelButton` type acts as a reference-counted owner of an underlying `GtkModelButton` instance.
+/// It provides the methods that can operate on this data type through `ModelButtonProtocol` conformance.
+/// Use `ModelButton` as a strong reference or owner of a `GtkModelButton` instance.
+///
 open class ModelButton: Button, ModelButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -14784,12 +14856,14 @@ public enum ModelButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15164,12 +15238,13 @@ public extension ModelButtonProtocol {
 
 // MARK: - MountOperation Class
 
+/// This should not be accessed directly. Use the accessor functions below.
+///
 /// The `MountOperationProtocol` protocol exposes the methods and properties of an underlying `GtkMountOperation` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MountOperation`.
 /// Alternatively, use `MountOperationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// This should not be accessed directly. Use the accessor functions below.
 public protocol MountOperationProtocol: GIO.MountOperationProtocol {
         /// Untyped pointer to the underlying `GtkMountOperation` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -15181,11 +15256,12 @@ public protocol MountOperationProtocol: GIO.MountOperationProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// This should not be accessed directly. Use the accessor functions below.
+///
 /// The `MountOperationRef` type acts as a lightweight Swift reference to an underlying `GtkMountOperation` instance.
 /// It exposes methods that can operate on this data type through `MountOperationProtocol` conformance.
 /// Use `MountOperationRef` only as an `unowned` reference to an existing `GtkMountOperation` instance.
 ///
-/// This should not be accessed directly. Use the accessor functions below.
 public struct MountOperationRef: MountOperationProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkMountOperation` instance.
     /// For type-safe access, use the generated, typed pointer `mount_operation_ptr` property instead.
@@ -15267,11 +15343,12 @@ public extension MountOperationRef {
 
     }
 
+/// This should not be accessed directly. Use the accessor functions below.
+///
 /// The `MountOperation` type acts as a reference-counted owner of an underlying `GtkMountOperation` instance.
 /// It provides the methods that can operate on this data type through `MountOperationProtocol` conformance.
 /// Use `MountOperation` as a strong reference or owner of a `GtkMountOperation` instance.
 ///
-/// This should not be accessed directly. Use the accessor functions below.
 open class MountOperation: GIO.MountOperation, MountOperationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -15522,12 +15599,14 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15685,11 +15764,6 @@ public extension MountOperationProtocol {
 
 // MARK: - NativeDialog Class
 
-/// The `NativeDialogProtocol` protocol exposes the methods and properties of an underlying `GtkNativeDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `NativeDialog`.
-/// Alternatively, use `NativeDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Native dialogs are platform dialogs that don't use `GtkDialog` or
 /// `GtkWindow`. They are used in order to integrate better with a
 /// platform, by looking the same as other native applications and
@@ -15705,6 +15779,12 @@ public extension MountOperationProtocol {
 /// There is also a `gtk_native_dialog_run()` helper that makes it easy
 /// to run any native dialog in a modal way with a recursive mainloop,
 /// similar to `gtk_dialog_run()`.
+///
+/// The `NativeDialogProtocol` protocol exposes the methods and properties of an underlying `GtkNativeDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `NativeDialog`.
+/// Alternatively, use `NativeDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol NativeDialogProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkNativeDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -15716,10 +15796,6 @@ public protocol NativeDialogProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NativeDialogRef` type acts as a lightweight Swift reference to an underlying `GtkNativeDialog` instance.
-/// It exposes methods that can operate on this data type through `NativeDialogProtocol` conformance.
-/// Use `NativeDialogRef` only as an `unowned` reference to an existing `GtkNativeDialog` instance.
-///
 /// Native dialogs are platform dialogs that don't use `GtkDialog` or
 /// `GtkWindow`. They are used in order to integrate better with a
 /// platform, by looking the same as other native applications and
@@ -15735,6 +15811,11 @@ public protocol NativeDialogProtocol: GLibObject.ObjectProtocol {
 /// There is also a `gtk_native_dialog_run()` helper that makes it easy
 /// to run any native dialog in a modal way with a recursive mainloop,
 /// similar to `gtk_dialog_run()`.
+///
+/// The `NativeDialogRef` type acts as a lightweight Swift reference to an underlying `GtkNativeDialog` instance.
+/// It exposes methods that can operate on this data type through `NativeDialogProtocol` conformance.
+/// Use `NativeDialogRef` only as an `unowned` reference to an existing `GtkNativeDialog` instance.
+///
 public struct NativeDialogRef: NativeDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkNativeDialog` instance.
     /// For type-safe access, use the generated, typed pointer `native_dialog_ptr` property instead.
@@ -15816,10 +15897,6 @@ public extension NativeDialogRef {
 
     }
 
-/// The `NativeDialog` type acts as a reference-counted owner of an underlying `GtkNativeDialog` instance.
-/// It provides the methods that can operate on this data type through `NativeDialogProtocol` conformance.
-/// Use `NativeDialog` as a strong reference or owner of a `GtkNativeDialog` instance.
-///
 /// Native dialogs are platform dialogs that don't use `GtkDialog` or
 /// `GtkWindow`. They are used in order to integrate better with a
 /// platform, by looking the same as other native applications and
@@ -15835,6 +15912,11 @@ public extension NativeDialogRef {
 /// There is also a `gtk_native_dialog_run()` helper that makes it easy
 /// to run any native dialog in a modal way with a recursive mainloop,
 /// similar to `gtk_dialog_run()`.
+///
+/// The `NativeDialog` type acts as a reference-counted owner of an underlying `GtkNativeDialog` instance.
+/// It provides the methods that can operate on this data type through `NativeDialogProtocol` conformance.
+/// Use `NativeDialog` as a strong reference or owner of a `GtkNativeDialog` instance.
+///
 open class NativeDialog: GLibObject.Object, NativeDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -16044,12 +16126,14 @@ public enum NativeDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16145,12 +16229,14 @@ public extension NativeDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16194,12 +16280,14 @@ public extension NativeDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16243,12 +16331,14 @@ public extension NativeDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16292,12 +16382,14 @@ public extension NativeDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -16411,7 +16503,7 @@ public extension NativeDialogProtocol {
     /// modal dialog (it prevents the user from interacting with other
     /// windows in the same window group while the dialog is run), callbacks
     /// such as timeouts, IO channel watches, DND drops, etc, will
-    /// be triggered during a `gtk_nautilus_dialog_run()` call.
+    /// be triggered during a `gtk_native_dialog_run()` call.
     @inlinable func run() -> Int {
         let rv = Int(gtk_native_dialog_run(native_dialog_ptr))
         return rv

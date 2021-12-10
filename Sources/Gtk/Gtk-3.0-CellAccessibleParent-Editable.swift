@@ -17,12 +17,13 @@ import Atk
 
 // MARK: - CellAccessibleParent Interface
 
+
+///
 /// The `CellAccessibleParentProtocol` protocol exposes the methods and properties of an underlying `GtkCellAccessibleParent` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellAccessibleParent`.
 /// Alternatively, use `CellAccessibleParentRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CellAccessibleParentProtocol {
         /// Untyped pointer to the underlying `GtkCellAccessibleParent` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,11 +35,12 @@ public protocol CellAccessibleParentProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CellAccessibleParentRef` type acts as a lightweight Swift reference to an underlying `GtkCellAccessibleParent` instance.
 /// It exposes methods that can operate on this data type through `CellAccessibleParentProtocol` conformance.
 /// Use `CellAccessibleParentRef` only as an `unowned` reference to an existing `GtkCellAccessibleParent` instance.
 ///
-
 public struct CellAccessibleParentRef: CellAccessibleParentProtocol {
         /// Untyped pointer to the underlying `GtkCellAccessibleParent` instance.
     /// For type-safe access, use the generated, typed pointer `cell_accessible_parent_ptr` property instead.
@@ -117,11 +119,12 @@ public extension CellAccessibleParentRef {
 
     }
 
+
+///
 /// The `CellAccessibleParent` type acts as an owner of an underlying `GtkCellAccessibleParent` instance.
 /// It provides the methods that can operate on this data type through `CellAccessibleParentProtocol` conformance.
 /// Use `CellAccessibleParent` as a strong reference or owner of a `GtkCellAccessibleParent` instance.
 ///
-
 open class CellAccessibleParent: CellAccessibleParentProtocol {
         /// Untyped pointer to the underlying `GtkCellAccessibleParent` instance.
     /// For type-safe access, use the generated, typed pointer `cell_accessible_parent_ptr` property instead.
@@ -343,14 +346,15 @@ public extension CellAccessibleParentProtocol {
 
 // MARK: - CellEditable Interface
 
+/// The `GtkCellEditable` interface must be implemented for widgets to be usable
+/// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
+/// temporary widgets should be configured for editing, get the new value, etc.
+///
 /// The `CellEditableProtocol` protocol exposes the methods and properties of an underlying `GtkCellEditable` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CellEditable`.
 /// Alternatively, use `CellEditableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkCellEditable` interface must be implemented for widgets to be usable
-/// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
-/// temporary widgets should be configured for editing, get the new value, etc.
 public protocol CellEditableProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkCellEditable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -362,13 +366,14 @@ public protocol CellEditableProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GtkCellEditable` interface must be implemented for widgets to be usable
+/// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
+/// temporary widgets should be configured for editing, get the new value, etc.
+///
 /// The `CellEditableRef` type acts as a lightweight Swift reference to an underlying `GtkCellEditable` instance.
 /// It exposes methods that can operate on this data type through `CellEditableProtocol` conformance.
 /// Use `CellEditableRef` only as an `unowned` reference to an existing `GtkCellEditable` instance.
 ///
-/// The `GtkCellEditable` interface must be implemented for widgets to be usable
-/// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
-/// temporary widgets should be configured for editing, get the new value, etc.
 public struct CellEditableRef: CellEditableProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkCellEditable` instance.
     /// For type-safe access, use the generated, typed pointer `cell_editable_ptr` property instead.
@@ -450,13 +455,14 @@ public extension CellEditableRef {
 
     }
 
+/// The `GtkCellEditable` interface must be implemented for widgets to be usable
+/// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
+/// temporary widgets should be configured for editing, get the new value, etc.
+///
 /// The `CellEditable` type acts as a reference-counted owner of an underlying `GtkCellEditable` instance.
 /// It provides the methods that can operate on this data type through `CellEditableProtocol` conformance.
 /// Use `CellEditable` as a strong reference or owner of a `GtkCellEditable` instance.
 ///
-/// The `GtkCellEditable` interface must be implemented for widgets to be usable
-/// to edit the contents of a `GtkTreeView` cell. It provides a way to specify how
-/// temporary widgets should be configured for editing, get the new value, etc.
 open class CellEditable: Widget, CellEditableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1211,12 +1217,14 @@ public enum CellEditableSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1627,12 +1635,14 @@ public extension CellEditableProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1716,11 +1726,6 @@ public extension CellEditableProtocol {
 
 // MARK: - CellLayout Interface
 
-/// The `CellLayoutProtocol` protocol exposes the methods and properties of an underlying `GtkCellLayout` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `CellLayout`.
-/// Alternatively, use `CellLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkCellLayout` is an interface to be implemented by all objects which
 /// want to provide a `GtkTreeViewColumn` like API for packing cells,
 /// setting attributes and data funcs.
@@ -1826,6 +1831,12 @@ public extension CellEditableProtocol {
 /// to support alternative cell areas, you can do so by moving the
 /// problematic calls out of `init()` and into a `constructor()`
 /// for your class.
+///
+/// The `CellLayoutProtocol` protocol exposes the methods and properties of an underlying `GtkCellLayout` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CellLayout`.
+/// Alternatively, use `CellLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CellLayoutProtocol {
         /// Untyped pointer to the underlying `GtkCellLayout` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1837,10 +1848,6 @@ public protocol CellLayoutProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CellLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkCellLayout` instance.
-/// It exposes methods that can operate on this data type through `CellLayoutProtocol` conformance.
-/// Use `CellLayoutRef` only as an `unowned` reference to an existing `GtkCellLayout` instance.
-///
 /// `GtkCellLayout` is an interface to be implemented by all objects which
 /// want to provide a `GtkTreeViewColumn` like API for packing cells,
 /// setting attributes and data funcs.
@@ -1946,6 +1953,11 @@ public protocol CellLayoutProtocol {
 /// to support alternative cell areas, you can do so by moving the
 /// problematic calls out of `init()` and into a `constructor()`
 /// for your class.
+///
+/// The `CellLayoutRef` type acts as a lightweight Swift reference to an underlying `GtkCellLayout` instance.
+/// It exposes methods that can operate on this data type through `CellLayoutProtocol` conformance.
+/// Use `CellLayoutRef` only as an `unowned` reference to an existing `GtkCellLayout` instance.
+///
 public struct CellLayoutRef: CellLayoutProtocol {
         /// Untyped pointer to the underlying `GtkCellLayout` instance.
     /// For type-safe access, use the generated, typed pointer `cell_layout_ptr` property instead.
@@ -2024,10 +2036,6 @@ public extension CellLayoutRef {
 
     }
 
-/// The `CellLayout` type acts as an owner of an underlying `GtkCellLayout` instance.
-/// It provides the methods that can operate on this data type through `CellLayoutProtocol` conformance.
-/// Use `CellLayout` as a strong reference or owner of a `GtkCellLayout` instance.
-///
 /// `GtkCellLayout` is an interface to be implemented by all objects which
 /// want to provide a `GtkTreeViewColumn` like API for packing cells,
 /// setting attributes and data funcs.
@@ -2133,6 +2141,11 @@ public extension CellLayoutRef {
 /// to support alternative cell areas, you can do so by moving the
 /// problematic calls out of `init()` and into a `constructor()`
 /// for your class.
+///
+/// The `CellLayout` type acts as an owner of an underlying `GtkCellLayout` instance.
+/// It provides the methods that can operate on this data type through `CellLayoutProtocol` conformance.
+/// Use `CellLayout` as a strong reference or owner of a `GtkCellLayout` instance.
+///
 open class CellLayout: CellLayoutProtocol {
         /// Untyped pointer to the underlying `GtkCellLayout` instance.
     /// For type-safe access, use the generated, typed pointer `cell_layout_ptr` property instead.
@@ -2399,17 +2412,18 @@ public extension CellLayoutProtocol {
 
 // MARK: - ColorChooser Interface
 
-/// The `ColorChooserProtocol` protocol exposes the methods and properties of an underlying `GtkColorChooser` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ColorChooser`.
-/// Alternatively, use `ColorChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkColorChooser` is an interface that is implemented by widgets
 /// for choosing colors. Depending on the situation, colors may be
 /// allowed to have alpha (translucency).
 /// 
 /// In GTK+, the main widgets that implement this interface are
 /// `GtkColorChooserWidget`, `GtkColorChooserDialog` and `GtkColorButton`.
+///
+/// The `ColorChooserProtocol` protocol exposes the methods and properties of an underlying `GtkColorChooser` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ColorChooser`.
+/// Alternatively, use `ColorChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ColorChooserProtocol {
         /// Untyped pointer to the underlying `GtkColorChooser` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2421,16 +2435,17 @@ public protocol ColorChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ColorChooserRef` type acts as a lightweight Swift reference to an underlying `GtkColorChooser` instance.
-/// It exposes methods that can operate on this data type through `ColorChooserProtocol` conformance.
-/// Use `ColorChooserRef` only as an `unowned` reference to an existing `GtkColorChooser` instance.
-///
 /// `GtkColorChooser` is an interface that is implemented by widgets
 /// for choosing colors. Depending on the situation, colors may be
 /// allowed to have alpha (translucency).
 /// 
 /// In GTK+, the main widgets that implement this interface are
 /// `GtkColorChooserWidget`, `GtkColorChooserDialog` and `GtkColorButton`.
+///
+/// The `ColorChooserRef` type acts as a lightweight Swift reference to an underlying `GtkColorChooser` instance.
+/// It exposes methods that can operate on this data type through `ColorChooserProtocol` conformance.
+/// Use `ColorChooserRef` only as an `unowned` reference to an existing `GtkColorChooser` instance.
+///
 public struct ColorChooserRef: ColorChooserProtocol {
         /// Untyped pointer to the underlying `GtkColorChooser` instance.
     /// For type-safe access, use the generated, typed pointer `color_chooser_ptr` property instead.
@@ -2509,16 +2524,17 @@ public extension ColorChooserRef {
 
     }
 
-/// The `ColorChooser` type acts as an owner of an underlying `GtkColorChooser` instance.
-/// It provides the methods that can operate on this data type through `ColorChooserProtocol` conformance.
-/// Use `ColorChooser` as a strong reference or owner of a `GtkColorChooser` instance.
-///
 /// `GtkColorChooser` is an interface that is implemented by widgets
 /// for choosing colors. Depending on the situation, colors may be
 /// allowed to have alpha (translucency).
 /// 
 /// In GTK+, the main widgets that implement this interface are
 /// `GtkColorChooserWidget`, `GtkColorChooserDialog` and `GtkColorButton`.
+///
+/// The `ColorChooser` type acts as an owner of an underlying `GtkColorChooser` instance.
+/// It provides the methods that can operate on this data type through `ColorChooserProtocol` conformance.
+/// Use `ColorChooser` as a strong reference or owner of a `GtkColorChooser` instance.
+///
 open class ColorChooser: ColorChooserProtocol {
         /// Untyped pointer to the underlying `GtkColorChooser` instance.
     /// For type-safe access, use the generated, typed pointer `color_chooser_ptr` property instead.
@@ -2823,12 +2839,14 @@ public extension ColorChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2872,12 +2890,14 @@ public extension ColorChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2978,11 +2998,6 @@ public extension ColorChooserProtocol {
 
 // MARK: - Editable Interface
 
-/// The `EditableProtocol` protocol exposes the methods and properties of an underlying `GtkEditable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Editable`.
-/// Alternatively, use `EditableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkEditable` interface is an interface which should be implemented by
 /// text editing widgets, such as `GtkEntry` and `GtkSpinButton`. It contains functions
 /// for generically manipulating an editable widget, a large number of action
@@ -3020,6 +3035,12 @@ public extension ColorChooserProtocol {
 /// }
 /// ```
 /// 
+///
+/// The `EditableProtocol` protocol exposes the methods and properties of an underlying `GtkEditable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Editable`.
+/// Alternatively, use `EditableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol EditableProtocol {
         /// Untyped pointer to the underlying `GtkEditable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3031,10 +3052,6 @@ public protocol EditableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `EditableRef` type acts as a lightweight Swift reference to an underlying `GtkEditable` instance.
-/// It exposes methods that can operate on this data type through `EditableProtocol` conformance.
-/// Use `EditableRef` only as an `unowned` reference to an existing `GtkEditable` instance.
-///
 /// The `GtkEditable` interface is an interface which should be implemented by
 /// text editing widgets, such as `GtkEntry` and `GtkSpinButton`. It contains functions
 /// for generically manipulating an editable widget, a large number of action
@@ -3072,6 +3089,11 @@ public protocol EditableProtocol {
 /// }
 /// ```
 /// 
+///
+/// The `EditableRef` type acts as a lightweight Swift reference to an underlying `GtkEditable` instance.
+/// It exposes methods that can operate on this data type through `EditableProtocol` conformance.
+/// Use `EditableRef` only as an `unowned` reference to an existing `GtkEditable` instance.
+///
 public struct EditableRef: EditableProtocol {
         /// Untyped pointer to the underlying `GtkEditable` instance.
     /// For type-safe access, use the generated, typed pointer `editable_ptr` property instead.
@@ -3150,10 +3172,6 @@ public extension EditableRef {
 
     }
 
-/// The `Editable` type acts as an owner of an underlying `GtkEditable` instance.
-/// It provides the methods that can operate on this data type through `EditableProtocol` conformance.
-/// Use `Editable` as a strong reference or owner of a `GtkEditable` instance.
-///
 /// The `GtkEditable` interface is an interface which should be implemented by
 /// text editing widgets, such as `GtkEntry` and `GtkSpinButton`. It contains functions
 /// for generically manipulating an editable widget, a large number of action
@@ -3191,6 +3209,11 @@ public extension EditableRef {
 /// }
 /// ```
 /// 
+///
+/// The `Editable` type acts as an owner of an underlying `GtkEditable` instance.
+/// It provides the methods that can operate on this data type through `EditableProtocol` conformance.
+/// Use `Editable` as a strong reference or owner of a `GtkEditable` instance.
+///
 open class Editable: EditableProtocol {
         /// Untyped pointer to the underlying `GtkEditable` instance.
     /// For type-safe access, use the generated, typed pointer `editable_ptr` property instead.

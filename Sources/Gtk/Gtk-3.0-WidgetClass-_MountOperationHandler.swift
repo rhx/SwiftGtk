@@ -32,12 +32,13 @@ public extension WidgetClassRef {
 
 // MARK: - WidgetClass Record
 
+
+///
 /// The `WidgetClassProtocol` protocol exposes the methods and properties of an underlying `GtkWidgetClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WidgetClass`.
 /// Alternatively, use `WidgetClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WidgetClassProtocol {
         /// Untyped pointer to the underlying `GtkWidgetClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,11 +50,12 @@ public protocol WidgetClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WidgetClassRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetClass` instance.
 /// It exposes methods that can operate on this data type through `WidgetClassProtocol` conformance.
 /// Use `WidgetClassRef` only as an `unowned` reference to an existing `GtkWidgetClass` instance.
 ///
-
 public struct WidgetClassRef: WidgetClassProtocol {
         /// Untyped pointer to the underlying `GtkWidgetClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -496,12 +498,13 @@ public extension WidgetClassProtocol {
 
 // MARK: - WidgetClassPrivate Record
 
+
+///
 /// The `WidgetClassPrivateProtocol` protocol exposes the methods and properties of an underlying `GtkWidgetClassPrivate` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WidgetClassPrivate`.
 /// Alternatively, use `WidgetClassPrivateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WidgetClassPrivateProtocol {
         /// Untyped pointer to the underlying `GtkWidgetClassPrivate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -513,11 +516,12 @@ public protocol WidgetClassPrivateProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WidgetClassPrivateRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetClassPrivate` instance.
 /// It exposes methods that can operate on this data type through `WidgetClassPrivateProtocol` conformance.
 /// Use `WidgetClassPrivateRef` only as an `unowned` reference to an existing `GtkWidgetClassPrivate` instance.
 ///
-
 public struct WidgetClassPrivateRef: WidgetClassPrivateProtocol {
         /// Untyped pointer to the underlying `GtkWidgetClassPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -596,11 +600,12 @@ public extension WidgetClassPrivateRef {
 
     }
 
+
+///
 /// The `WidgetClassPrivate` type acts as an owner of an underlying `GtkWidgetClassPrivate` instance.
 /// It provides the methods that can operate on this data type through `WidgetClassPrivateProtocol` conformance.
 /// Use `WidgetClassPrivate` as a strong reference or owner of a `GtkWidgetClassPrivate` instance.
 ///
-
 open class WidgetClassPrivate: WidgetClassPrivateProtocol {
         /// Untyped pointer to the underlying `GtkWidgetClassPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -763,11 +768,6 @@ public extension WidgetClassPrivateProtocol {
 
 // MARK: - WidgetPath Record
 
-/// The `WidgetPathProtocol` protocol exposes the methods and properties of an underlying `GtkWidgetPath` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `WidgetPath`.
-/// Alternatively, use `WidgetPathRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GtkWidgetPath is a boxed type that represents a widget hierarchy from
 /// the topmost widget, typically a toplevel, to any child. This widget
 /// path abstraction is used in `GtkStyleContext` on behalf of the real
@@ -817,6 +817,12 @@ public extension WidgetClassPrivateProtocol {
 /// 
 /// All this information will be used to match the style information
 /// that applies to the described widget.
+///
+/// The `WidgetPathProtocol` protocol exposes the methods and properties of an underlying `GtkWidgetPath` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `WidgetPath`.
+/// Alternatively, use `WidgetPathRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol WidgetPathProtocol {
         /// Untyped pointer to the underlying `GtkWidgetPath` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -828,10 +834,6 @@ public protocol WidgetPathProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `WidgetPathRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetPath` instance.
-/// It exposes methods that can operate on this data type through `WidgetPathProtocol` conformance.
-/// Use `WidgetPathRef` only as an `unowned` reference to an existing `GtkWidgetPath` instance.
-///
 /// GtkWidgetPath is a boxed type that represents a widget hierarchy from
 /// the topmost widget, typically a toplevel, to any child. This widget
 /// path abstraction is used in `GtkStyleContext` on behalf of the real
@@ -881,6 +883,11 @@ public protocol WidgetPathProtocol {
 /// 
 /// All this information will be used to match the style information
 /// that applies to the described widget.
+///
+/// The `WidgetPathRef` type acts as a lightweight Swift reference to an underlying `GtkWidgetPath` instance.
+/// It exposes methods that can operate on this data type through `WidgetPathProtocol` conformance.
+/// Use `WidgetPathRef` only as an `unowned` reference to an existing `GtkWidgetPath` instance.
+///
 public struct WidgetPathRef: WidgetPathProtocol {
         /// Untyped pointer to the underlying `GtkWidgetPath` instance.
     /// For type-safe access, use the generated, typed pointer `widget_path_ptr` property instead.
@@ -964,10 +971,6 @@ public extension WidgetPathRef {
     }
 }
 
-/// The `WidgetPath` type acts as a reference-counted owner of an underlying `GtkWidgetPath` instance.
-/// It provides the methods that can operate on this data type through `WidgetPathProtocol` conformance.
-/// Use `WidgetPath` as a strong reference or owner of a `GtkWidgetPath` instance.
-///
 /// GtkWidgetPath is a boxed type that represents a widget hierarchy from
 /// the topmost widget, typically a toplevel, to any child. This widget
 /// path abstraction is used in `GtkStyleContext` on behalf of the real
@@ -1017,6 +1020,11 @@ public extension WidgetPathRef {
 /// 
 /// All this information will be used to match the style information
 /// that applies to the described widget.
+///
+/// The `WidgetPath` type acts as a reference-counted owner of an underlying `GtkWidgetPath` instance.
+/// It provides the methods that can operate on this data type through `WidgetPathProtocol` conformance.
+/// Use `WidgetPath` as a strong reference or owner of a `GtkWidgetPath` instance.
+///
 open class WidgetPath: WidgetPathProtocol {
         /// Untyped pointer to the underlying `GtkWidgetPath` instance.
     /// For type-safe access, use the generated, typed pointer `widget_path_ptr` property instead.
@@ -1528,12 +1536,13 @@ public extension WindowAccessibleClassRef {
 
 // MARK: - WindowAccessibleClass Record
 
+
+///
 /// The `WindowAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkWindowAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WindowAccessibleClass`.
 /// Alternatively, use `WindowAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WindowAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1545,11 +1554,12 @@ public protocol WindowAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WindowAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `WindowAccessibleClassProtocol` conformance.
 /// Use `WindowAccessibleClassRef` only as an `unowned` reference to an existing `GtkWindowAccessibleClass` instance.
 ///
-
 public struct WindowAccessibleClassRef: WindowAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1662,12 +1672,13 @@ public extension WindowClassRef {
 
 // MARK: - WindowClass Record
 
+
+///
 /// The `WindowClassProtocol` protocol exposes the methods and properties of an underlying `GtkWindowClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WindowClass`.
 /// Alternatively, use `WindowClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WindowClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1679,11 +1690,12 @@ public protocol WindowClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WindowClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowClass` instance.
 /// It exposes methods that can operate on this data type through `WindowClassProtocol` conformance.
 /// Use `WindowClassRef` only as an `unowned` reference to an existing `GtkWindowClass` instance.
 ///
-
 public struct WindowClassRef: WindowClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1799,12 +1811,13 @@ public extension WindowClassProtocol {
 
 // MARK: - WindowGeometryInfo Record
 
+
+///
 /// The `WindowGeometryInfoProtocol` protocol exposes the methods and properties of an underlying `GtkWindowGeometryInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WindowGeometryInfo`.
 /// Alternatively, use `WindowGeometryInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WindowGeometryInfoProtocol {
         /// Untyped pointer to the underlying `GtkWindowGeometryInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1816,11 +1829,12 @@ public protocol WindowGeometryInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WindowGeometryInfoRef` type acts as a lightweight Swift reference to an underlying `GtkWindowGeometryInfo` instance.
 /// It exposes methods that can operate on this data type through `WindowGeometryInfoProtocol` conformance.
 /// Use `WindowGeometryInfoRef` only as an `unowned` reference to an existing `GtkWindowGeometryInfo` instance.
 ///
-
 public struct WindowGeometryInfoRef: WindowGeometryInfoProtocol {
         /// Untyped pointer to the underlying `GtkWindowGeometryInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1899,11 +1913,12 @@ public extension WindowGeometryInfoRef {
 
     }
 
+
+///
 /// The `WindowGeometryInfo` type acts as an owner of an underlying `GtkWindowGeometryInfo` instance.
 /// It provides the methods that can operate on this data type through `WindowGeometryInfoProtocol` conformance.
 /// Use `WindowGeometryInfo` as a strong reference or owner of a `GtkWindowGeometryInfo` instance.
 ///
-
 open class WindowGeometryInfo: WindowGeometryInfoProtocol {
         /// Untyped pointer to the underlying `GtkWindowGeometryInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2081,12 +2096,13 @@ public extension WindowGroupClassRef {
 
 // MARK: - WindowGroupClass Record
 
+
+///
 /// The `WindowGroupClassProtocol` protocol exposes the methods and properties of an underlying `GtkWindowGroupClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `WindowGroupClass`.
 /// Alternatively, use `WindowGroupClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol WindowGroupClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowGroupClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2098,11 +2114,12 @@ public protocol WindowGroupClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `WindowGroupClassRef` type acts as a lightweight Swift reference to an underlying `GtkWindowGroupClass` instance.
 /// It exposes methods that can operate on this data type through `WindowGroupClassProtocol` conformance.
 /// Use `WindowGroupClassRef` only as an `unowned` reference to an existing `GtkWindowGroupClass` instance.
 ///
-
 public struct WindowGroupClassRef: WindowGroupClassProtocol {
         /// Untyped pointer to the underlying `GtkWindowGroupClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2208,12 +2225,13 @@ public extension WindowGroupClassProtocol {
 
 // MARK: - _MountOperationHandler Record
 
+/// Abstract interface type for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
+///
 /// The `_MountOperationHandlerProtocol` protocol exposes the methods and properties of an underlying `_GtkMountOperationHandler` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `_MountOperationHandler`.
 /// Alternatively, use `_MountOperationHandlerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Abstract interface type for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 public protocol _MountOperationHandlerProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandler` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2225,11 +2243,12 @@ public protocol _MountOperationHandlerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Abstract interface type for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
+///
 /// The `_MountOperationHandlerRef` type acts as a lightweight Swift reference to an underlying `_GtkMountOperationHandler` instance.
 /// It exposes methods that can operate on this data type through `_MountOperationHandlerProtocol` conformance.
 /// Use `_MountOperationHandlerRef` only as an `unowned` reference to an existing `_GtkMountOperationHandler` instance.
 ///
-/// Abstract interface type for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 public struct _MountOperationHandlerRef: _MountOperationHandlerProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandler` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2308,11 +2327,12 @@ public extension _MountOperationHandlerRef {
 
     }
 
+/// Abstract interface type for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
+///
 /// The `_MountOperationHandler` type acts as an owner of an underlying `_GtkMountOperationHandler` instance.
 /// It provides the methods that can operate on this data type through `_MountOperationHandlerProtocol` conformance.
 /// Use `_MountOperationHandler` as a strong reference or owner of a `_GtkMountOperationHandler` instance.
 ///
-/// Abstract interface type for the D-Bus interface &lt;link linkend="gdbus-interface-org-Gtk-MountOperationHandler.top_of_page"&gt;org.Gtk.MountOperationHandler&lt;/link&gt;.
 open class _MountOperationHandler: _MountOperationHandlerProtocol {
         /// Untyped pointer to the underlying `_GtkMountOperationHandler` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

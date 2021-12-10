@@ -17,11 +17,6 @@ import Atk
 
 // MARK: - AboutDialog Class
 
-/// The `AboutDialogProtocol` protocol exposes the methods and properties of an underlying `GtkAboutDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AboutDialog`.
-/// Alternatively, use `AboutDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The GtkAboutDialog offers a simple way to display information about
 /// a program like its logo, name, copyright, website and license. It is
 /// also possible to give credits to the authors, documenters, translators
@@ -60,6 +55,12 @@ import Atk
 /// It is also possible to show a `GtkAboutDialog` like any other `GtkDialog`,
 /// e.g. using `gtk_dialog_run()`. In this case, you might need to know that
 /// the “Close” button returns the `GTK_RESPONSE_CANCEL` response id.
+///
+/// The `AboutDialogProtocol` protocol exposes the methods and properties of an underlying `GtkAboutDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AboutDialog`.
+/// Alternatively, use `AboutDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AboutDialogProtocol: DialogProtocol {
         /// Untyped pointer to the underlying `GtkAboutDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -71,10 +72,6 @@ public protocol AboutDialogProtocol: DialogProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AboutDialogRef` type acts as a lightweight Swift reference to an underlying `GtkAboutDialog` instance.
-/// It exposes methods that can operate on this data type through `AboutDialogProtocol` conformance.
-/// Use `AboutDialogRef` only as an `unowned` reference to an existing `GtkAboutDialog` instance.
-///
 /// The GtkAboutDialog offers a simple way to display information about
 /// a program like its logo, name, copyright, website and license. It is
 /// also possible to give credits to the authors, documenters, translators
@@ -113,6 +110,11 @@ public protocol AboutDialogProtocol: DialogProtocol {
 /// It is also possible to show a `GtkAboutDialog` like any other `GtkDialog`,
 /// e.g. using `gtk_dialog_run()`. In this case, you might need to know that
 /// the “Close” button returns the `GTK_RESPONSE_CANCEL` response id.
+///
+/// The `AboutDialogRef` type acts as a lightweight Swift reference to an underlying `GtkAboutDialog` instance.
+/// It exposes methods that can operate on this data type through `AboutDialogProtocol` conformance.
+/// Use `AboutDialogRef` only as an `unowned` reference to an existing `GtkAboutDialog` instance.
+///
 public struct AboutDialogRef: AboutDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAboutDialog` instance.
     /// For type-safe access, use the generated, typed pointer `about_dialog_ptr` property instead.
@@ -199,10 +201,6 @@ public extension AboutDialogRef {
     }
 }
 
-/// The `AboutDialog` type acts as a reference-counted owner of an underlying `GtkAboutDialog` instance.
-/// It provides the methods that can operate on this data type through `AboutDialogProtocol` conformance.
-/// Use `AboutDialog` as a strong reference or owner of a `GtkAboutDialog` instance.
-///
 /// The GtkAboutDialog offers a simple way to display information about
 /// a program like its logo, name, copyright, website and license. It is
 /// also possible to give credits to the authors, documenters, translators
@@ -241,6 +239,11 @@ public extension AboutDialogRef {
 /// It is also possible to show a `GtkAboutDialog` like any other `GtkDialog`,
 /// e.g. using `gtk_dialog_run()`. In this case, you might need to know that
 /// the “Close” button returns the `GTK_RESPONSE_CANCEL` response id.
+///
+/// The `AboutDialog` type acts as a reference-counted owner of an underlying `GtkAboutDialog` instance.
+/// It provides the methods that can operate on this data type through `AboutDialogProtocol` conformance.
+/// Use `AboutDialog` as a strong reference or owner of a `GtkAboutDialog` instance.
+///
 open class AboutDialog: Dialog, AboutDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1180,12 +1183,14 @@ public enum AboutDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1706,12 +1711,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1755,12 +1762,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1804,12 +1813,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1853,12 +1864,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1902,12 +1915,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1951,12 +1966,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2000,12 +2017,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2049,12 +2068,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2098,12 +2119,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2147,12 +2170,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2196,12 +2221,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2245,12 +2272,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2294,12 +2323,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2343,12 +2374,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2392,12 +2425,14 @@ public extension AboutDialogProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2930,11 +2965,6 @@ public extension AboutDialogProtocol {
 
 // MARK: - AccelGroup Class
 
-/// The `AccelGroupProtocol` protocol exposes the methods and properties of an underlying `GtkAccelGroup` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AccelGroup`.
-/// Alternatively, use `AccelGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkAccelGroup` represents a group of keyboard accelerators,
 /// typically attached to a toplevel `GtkWindow` (with
 /// `gtk_window_add_accel_group()`). Usually you won’t need to create a
@@ -2950,6 +2980,12 @@ public extension AboutDialogProtocol {
 /// entries or buttons; they appear as underlined characters. See
 /// `gtk_label_new_with_mnemonic()`. Menu items can have both accelerators
 /// and mnemonics, of course.
+///
+/// The `AccelGroupProtocol` protocol exposes the methods and properties of an underlying `GtkAccelGroup` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AccelGroup`.
+/// Alternatively, use `AccelGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AccelGroupProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkAccelGroup` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2961,10 +2997,6 @@ public protocol AccelGroupProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AccelGroupRef` type acts as a lightweight Swift reference to an underlying `GtkAccelGroup` instance.
-/// It exposes methods that can operate on this data type through `AccelGroupProtocol` conformance.
-/// Use `AccelGroupRef` only as an `unowned` reference to an existing `GtkAccelGroup` instance.
-///
 /// A `GtkAccelGroup` represents a group of keyboard accelerators,
 /// typically attached to a toplevel `GtkWindow` (with
 /// `gtk_window_add_accel_group()`). Usually you won’t need to create a
@@ -2980,6 +3012,11 @@ public protocol AccelGroupProtocol: GLibObject.ObjectProtocol {
 /// entries or buttons; they appear as underlined characters. See
 /// `gtk_label_new_with_mnemonic()`. Menu items can have both accelerators
 /// and mnemonics, of course.
+///
+/// The `AccelGroupRef` type acts as a lightweight Swift reference to an underlying `GtkAccelGroup` instance.
+/// It exposes methods that can operate on this data type through `AccelGroupProtocol` conformance.
+/// Use `AccelGroupRef` only as an `unowned` reference to an existing `GtkAccelGroup` instance.
+///
 public struct AccelGroupRef: AccelGroupProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAccelGroup` instance.
     /// For type-safe access, use the generated, typed pointer `accel_group_ptr` property instead.
@@ -3072,10 +3109,6 @@ public extension AccelGroupRef {
     }
 }
 
-/// The `AccelGroup` type acts as a reference-counted owner of an underlying `GtkAccelGroup` instance.
-/// It provides the methods that can operate on this data type through `AccelGroupProtocol` conformance.
-/// Use `AccelGroup` as a strong reference or owner of a `GtkAccelGroup` instance.
-///
 /// A `GtkAccelGroup` represents a group of keyboard accelerators,
 /// typically attached to a toplevel `GtkWindow` (with
 /// `gtk_window_add_accel_group()`). Usually you won’t need to create a
@@ -3091,6 +3124,11 @@ public extension AccelGroupRef {
 /// entries or buttons; they appear as underlined characters. See
 /// `gtk_label_new_with_mnemonic()`. Menu items can have both accelerators
 /// and mnemonics, of course.
+///
+/// The `AccelGroup` type acts as a reference-counted owner of an underlying `GtkAccelGroup` instance.
+/// It provides the methods that can operate on this data type through `AccelGroupProtocol` conformance.
+/// Use `AccelGroup` as a strong reference or owner of a `GtkAccelGroup` instance.
+///
 open class AccelGroup: GLibObject.Object, AccelGroupProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3317,12 +3355,14 @@ public enum AccelGroupSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3436,12 +3476,14 @@ public extension AccelGroupProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3485,12 +3527,14 @@ public extension AccelGroupProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3672,11 +3716,6 @@ public extension AccelGroupProtocol {
 
 // MARK: - AccelLabel Class
 
-/// The `AccelLabelProtocol` protocol exposes the methods and properties of an underlying `GtkAccelLabel` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AccelLabel`.
-/// Alternatively, use `AccelLabelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkAccelLabel` widget is a subclass of `GtkLabel` that also displays an
 /// accelerator key on the right of the label text, e.g. “Ctrl+S”.
 /// It is commonly used in menus to show the keyboard short-cuts for commands.
@@ -3739,6 +3778,12 @@ public extension AccelGroupProtocol {
 /// 
 /// Like `GtkLabel`, GtkAccelLabel has a main CSS node with the name label.
 /// It adds a subnode with name accelerator.
+///
+/// The `AccelLabelProtocol` protocol exposes the methods and properties of an underlying `GtkAccelLabel` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AccelLabel`.
+/// Alternatively, use `AccelLabelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AccelLabelProtocol: LabelProtocol {
         /// Untyped pointer to the underlying `GtkAccelLabel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3750,10 +3795,6 @@ public protocol AccelLabelProtocol: LabelProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AccelLabelRef` type acts as a lightweight Swift reference to an underlying `GtkAccelLabel` instance.
-/// It exposes methods that can operate on this data type through `AccelLabelProtocol` conformance.
-/// Use `AccelLabelRef` only as an `unowned` reference to an existing `GtkAccelLabel` instance.
-///
 /// The `GtkAccelLabel` widget is a subclass of `GtkLabel` that also displays an
 /// accelerator key on the right of the label text, e.g. “Ctrl+S”.
 /// It is commonly used in menus to show the keyboard short-cuts for commands.
@@ -3816,6 +3857,11 @@ public protocol AccelLabelProtocol: LabelProtocol {
 /// 
 /// Like `GtkLabel`, GtkAccelLabel has a main CSS node with the name label.
 /// It adds a subnode with name accelerator.
+///
+/// The `AccelLabelRef` type acts as a lightweight Swift reference to an underlying `GtkAccelLabel` instance.
+/// It exposes methods that can operate on this data type through `AccelLabelProtocol` conformance.
+/// Use `AccelLabelRef` only as an `unowned` reference to an existing `GtkAccelLabel` instance.
+///
 public struct AccelLabelRef: AccelLabelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAccelLabel` instance.
     /// For type-safe access, use the generated, typed pointer `accel_label_ptr` property instead.
@@ -3902,10 +3948,6 @@ public extension AccelLabelRef {
     }
 }
 
-/// The `AccelLabel` type acts as a reference-counted owner of an underlying `GtkAccelLabel` instance.
-/// It provides the methods that can operate on this data type through `AccelLabelProtocol` conformance.
-/// Use `AccelLabel` as a strong reference or owner of a `GtkAccelLabel` instance.
-///
 /// The `GtkAccelLabel` widget is a subclass of `GtkLabel` that also displays an
 /// accelerator key on the right of the label text, e.g. “Ctrl+S”.
 /// It is commonly used in menus to show the keyboard short-cuts for commands.
@@ -3968,6 +4010,11 @@ public extension AccelLabelRef {
 /// 
 /// Like `GtkLabel`, GtkAccelLabel has a main CSS node with the name label.
 /// It adds a subnode with name accelerator.
+///
+/// The `AccelLabel` type acts as a reference-counted owner of an underlying `GtkAccelLabel` instance.
+/// It provides the methods that can operate on this data type through `AccelLabelProtocol` conformance.
+/// Use `AccelLabel` as a strong reference or owner of a `GtkAccelLabel` instance.
+///
 open class AccelLabel: Label, AccelLabelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4849,12 +4896,14 @@ public enum AccelLabelSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5363,11 +5412,6 @@ public extension AccelLabelProtocol {
 
 // MARK: - AccelMap Class
 
-/// The `AccelMapProtocol` protocol exposes the methods and properties of an underlying `GtkAccelMap` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AccelMap`.
-/// Alternatively, use `AccelMapRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Accelerator maps are used to define runtime configurable accelerators.
 /// Functions for manipulating them are are usually used by higher level
 /// convenience mechanisms like `GtkUIManager` and are thus considered
@@ -5421,6 +5465,12 @@ public extension AccelLabelProtocol {
 /// can monitor changes of all accelerators. It is also possible to
 /// monitor only single accelerator path by using it as a detail of
 /// the `GtkAccelMap::changed` signal.
+///
+/// The `AccelMapProtocol` protocol exposes the methods and properties of an underlying `GtkAccelMap` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AccelMap`.
+/// Alternatively, use `AccelMapRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AccelMapProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkAccelMap` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5432,10 +5482,6 @@ public protocol AccelMapProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AccelMapRef` type acts as a lightweight Swift reference to an underlying `GtkAccelMap` instance.
-/// It exposes methods that can operate on this data type through `AccelMapProtocol` conformance.
-/// Use `AccelMapRef` only as an `unowned` reference to an existing `GtkAccelMap` instance.
-///
 /// Accelerator maps are used to define runtime configurable accelerators.
 /// Functions for manipulating them are are usually used by higher level
 /// convenience mechanisms like `GtkUIManager` and are thus considered
@@ -5489,6 +5535,11 @@ public protocol AccelMapProtocol: GLibObject.ObjectProtocol {
 /// can monitor changes of all accelerators. It is also possible to
 /// monitor only single accelerator path by using it as a detail of
 /// the `GtkAccelMap::changed` signal.
+///
+/// The `AccelMapRef` type acts as a lightweight Swift reference to an underlying `GtkAccelMap` instance.
+/// It exposes methods that can operate on this data type through `AccelMapProtocol` conformance.
+/// Use `AccelMapRef` only as an `unowned` reference to an existing `GtkAccelMap` instance.
+///
 public struct AccelMapRef: AccelMapProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAccelMap` instance.
     /// For type-safe access, use the generated, typed pointer `accel_map_ptr` property instead.
@@ -5578,10 +5629,6 @@ public extension AccelMapRef {
     }
 }
 
-/// The `AccelMap` type acts as a reference-counted owner of an underlying `GtkAccelMap` instance.
-/// It provides the methods that can operate on this data type through `AccelMapProtocol` conformance.
-/// Use `AccelMap` as a strong reference or owner of a `GtkAccelMap` instance.
-///
 /// Accelerator maps are used to define runtime configurable accelerators.
 /// Functions for manipulating them are are usually used by higher level
 /// convenience mechanisms like `GtkUIManager` and are thus considered
@@ -5635,6 +5682,11 @@ public extension AccelMapRef {
 /// can monitor changes of all accelerators. It is also possible to
 /// monitor only single accelerator path by using it as a detail of
 /// the `GtkAccelMap::changed` signal.
+///
+/// The `AccelMap` type acts as a reference-counted owner of an underlying `GtkAccelMap` instance.
+/// It provides the methods that can operate on this data type through `AccelMapProtocol` conformance.
+/// Use `AccelMap` as a strong reference or owner of a `GtkAccelMap` instance.
+///
 open class AccelMap: GLibObject.Object, AccelMapProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5796,12 +5848,14 @@ public enum AccelMapSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5884,11 +5938,6 @@ public extension AccelMapProtocol {
 
 // MARK: - Accessible Class
 
-/// The `AccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkAccessible` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Accessible`.
-/// Alternatively, use `AccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkAccessible` class is the base class for accessible
 /// implementations for `GtkWidget` subclasses. It is a thin
 /// wrapper around `AtkObject`, which adds facilities for associating
@@ -5900,6 +5949,12 @@ public extension AccelMapProtocol {
 /// the connection between the widget class and its corresponding
 /// acccessible implementation, override the get_accessible vfunc
 /// in `GtkWidgetClass`.
+///
+/// The `AccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkAccessible` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Accessible`.
+/// Alternatively, use `AccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AccessibleProtocol: Atk.ObjectProtocol {
         /// Untyped pointer to the underlying `GtkAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5911,10 +5966,6 @@ public protocol AccessibleProtocol: Atk.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkAccessible` instance.
-/// It exposes methods that can operate on this data type through `AccessibleProtocol` conformance.
-/// Use `AccessibleRef` only as an `unowned` reference to an existing `GtkAccessible` instance.
-///
 /// The `GtkAccessible` class is the base class for accessible
 /// implementations for `GtkWidget` subclasses. It is a thin
 /// wrapper around `AtkObject`, which adds facilities for associating
@@ -5926,6 +5977,11 @@ public protocol AccessibleProtocol: Atk.ObjectProtocol {
 /// the connection between the widget class and its corresponding
 /// acccessible implementation, override the get_accessible vfunc
 /// in `GtkWidgetClass`.
+///
+/// The `AccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkAccessible` instance.
+/// It exposes methods that can operate on this data type through `AccessibleProtocol` conformance.
+/// Use `AccessibleRef` only as an `unowned` reference to an existing `GtkAccessible` instance.
+///
 public struct AccessibleRef: AccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `accessible_ptr` property instead.
@@ -6007,10 +6063,6 @@ public extension AccessibleRef {
 
     }
 
-/// The `Accessible` type acts as a reference-counted owner of an underlying `GtkAccessible` instance.
-/// It provides the methods that can operate on this data type through `AccessibleProtocol` conformance.
-/// Use `Accessible` as a strong reference or owner of a `GtkAccessible` instance.
-///
 /// The `GtkAccessible` class is the base class for accessible
 /// implementations for `GtkWidget` subclasses. It is a thin
 /// wrapper around `AtkObject`, which adds facilities for associating
@@ -6022,6 +6074,11 @@ public extension AccessibleRef {
 /// the connection between the widget class and its corresponding
 /// acccessible implementation, override the get_accessible vfunc
 /// in `GtkWidgetClass`.
+///
+/// The `Accessible` type acts as a reference-counted owner of an underlying `GtkAccessible` instance.
+/// It provides the methods that can operate on this data type through `AccessibleProtocol` conformance.
+/// Use `Accessible` as a strong reference or owner of a `GtkAccessible` instance.
+///
 open class Accessible: Atk.Object, AccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6284,12 +6341,14 @@ public enum AccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6442,11 +6501,6 @@ public extension AccessibleProtocol {
 
 // MARK: - Action Class
 
-/// The `ActionProtocol` protocol exposes the methods and properties of an underlying `GtkAction` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Action`.
-/// Alternatively, use `ActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// >&gt; In GTK+ 3.10, GtkAction has been deprecated. Use `GAction`
 /// &gt; instead, and associate actions with `GtkActionable` widgets. Use
 /// &gt; `GMenuModel` for creating menus with `gtk_menu_new_from_model()`.
@@ -6494,6 +6548,12 @@ public extension AccessibleProtocol {
 /// `true`.
 /// 
 /// When the proxy is activated, it should activate its action.
+///
+/// The `ActionProtocol` protocol exposes the methods and properties of an underlying `GtkAction` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Action`.
+/// Alternatively, use `ActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ActionProtocol: GLibObject.ObjectProtocol, BuildableProtocol {
         /// Untyped pointer to the underlying `GtkAction` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6505,10 +6565,6 @@ public protocol ActionProtocol: GLibObject.ObjectProtocol, BuildableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ActionRef` type acts as a lightweight Swift reference to an underlying `GtkAction` instance.
-/// It exposes methods that can operate on this data type through `ActionProtocol` conformance.
-/// Use `ActionRef` only as an `unowned` reference to an existing `GtkAction` instance.
-///
 /// >&gt; In GTK+ 3.10, GtkAction has been deprecated. Use `GAction`
 /// &gt; instead, and associate actions with `GtkActionable` widgets. Use
 /// &gt; `GMenuModel` for creating menus with `gtk_menu_new_from_model()`.
@@ -6556,6 +6612,11 @@ public protocol ActionProtocol: GLibObject.ObjectProtocol, BuildableProtocol {
 /// `true`.
 /// 
 /// When the proxy is activated, it should activate its action.
+///
+/// The `ActionRef` type acts as a lightweight Swift reference to an underlying `GtkAction` instance.
+/// It exposes methods that can operate on this data type through `ActionProtocol` conformance.
+/// Use `ActionRef` only as an `unowned` reference to an existing `GtkAction` instance.
+///
 public struct ActionRef: ActionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAction` instance.
     /// For type-safe access, use the generated, typed pointer `action_ptr` property instead.
@@ -6651,10 +6712,6 @@ public extension ActionRef {
     }
 }
 
-/// The `Action` type acts as a reference-counted owner of an underlying `GtkAction` instance.
-/// It provides the methods that can operate on this data type through `ActionProtocol` conformance.
-/// Use `Action` as a strong reference or owner of a `GtkAction` instance.
-///
 /// >&gt; In GTK+ 3.10, GtkAction has been deprecated. Use `GAction`
 /// &gt; instead, and associate actions with `GtkActionable` widgets. Use
 /// &gt; `GMenuModel` for creating menus with `gtk_menu_new_from_model()`.
@@ -6702,6 +6759,11 @@ public extension ActionRef {
 /// `true`.
 /// 
 /// When the proxy is activated, it should activate its action.
+///
+/// The `Action` type acts as a reference-counted owner of an underlying `GtkAction` instance.
+/// It provides the methods that can operate on this data type through `ActionProtocol` conformance.
+/// Use `Action` as a strong reference or owner of a `GtkAction` instance.
+///
 open class Action: GLibObject.Object, ActionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7045,12 +7107,14 @@ public enum ActionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7247,12 +7311,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7296,12 +7362,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7345,12 +7413,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7394,12 +7464,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7443,12 +7515,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7492,12 +7566,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7541,12 +7617,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7590,12 +7668,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7639,12 +7719,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7688,12 +7770,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7737,12 +7821,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7786,12 +7872,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7835,12 +7923,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7884,12 +7974,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7933,12 +8025,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7982,12 +8076,14 @@ public extension ActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9002,11 +9098,6 @@ public extension ActionProtocol {
 
 // MARK: - ActionBar Class
 
-/// The `ActionBarProtocol` protocol exposes the methods and properties of an underlying `GtkActionBar` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ActionBar`.
-/// Alternatively, use `ActionBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GtkActionBar is designed to present contextual actions. It is
 /// expected to be displayed below the content and expand horizontally
 /// to fill the area.
@@ -9019,6 +9110,12 @@ public extension ActionProtocol {
 /// # CSS nodes
 /// 
 /// GtkActionBar has a single CSS node with name actionbar.
+///
+/// The `ActionBarProtocol` protocol exposes the methods and properties of an underlying `GtkActionBar` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ActionBar`.
+/// Alternatively, use `ActionBarRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ActionBarProtocol: BinProtocol {
         /// Untyped pointer to the underlying `GtkActionBar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9030,10 +9127,6 @@ public protocol ActionBarProtocol: BinProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ActionBarRef` type acts as a lightweight Swift reference to an underlying `GtkActionBar` instance.
-/// It exposes methods that can operate on this data type through `ActionBarProtocol` conformance.
-/// Use `ActionBarRef` only as an `unowned` reference to an existing `GtkActionBar` instance.
-///
 /// GtkActionBar is designed to present contextual actions. It is
 /// expected to be displayed below the content and expand horizontally
 /// to fill the area.
@@ -9046,6 +9139,11 @@ public protocol ActionBarProtocol: BinProtocol {
 /// # CSS nodes
 /// 
 /// GtkActionBar has a single CSS node with name actionbar.
+///
+/// The `ActionBarRef` type acts as a lightweight Swift reference to an underlying `GtkActionBar` instance.
+/// It exposes methods that can operate on this data type through `ActionBarProtocol` conformance.
+/// Use `ActionBarRef` only as an `unowned` reference to an existing `GtkActionBar` instance.
+///
 public struct ActionBarRef: ActionBarProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkActionBar` instance.
     /// For type-safe access, use the generated, typed pointer `action_bar_ptr` property instead.
@@ -9132,10 +9230,6 @@ public extension ActionBarRef {
     }
 }
 
-/// The `ActionBar` type acts as a reference-counted owner of an underlying `GtkActionBar` instance.
-/// It provides the methods that can operate on this data type through `ActionBarProtocol` conformance.
-/// Use `ActionBar` as a strong reference or owner of a `GtkActionBar` instance.
-///
 /// GtkActionBar is designed to present contextual actions. It is
 /// expected to be displayed below the content and expand horizontally
 /// to fill the area.
@@ -9148,6 +9242,11 @@ public extension ActionBarRef {
 /// # CSS nodes
 /// 
 /// GtkActionBar has a single CSS node with name actionbar.
+///
+/// The `ActionBar` type acts as a reference-counted owner of an underlying `GtkActionBar` instance.
+/// It provides the methods that can operate on this data type through `ActionBarProtocol` conformance.
+/// Use `ActionBar` as a strong reference or owner of a `GtkActionBar` instance.
+///
 open class ActionBar: Bin, ActionBarProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9899,12 +9998,14 @@ public enum ActionBarSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10248,11 +10349,6 @@ public extension ActionBarProtocol {
 
 // MARK: - ActionGroup Class
 
-/// The `ActionGroupProtocol` protocol exposes the methods and properties of an underlying `GtkActionGroup` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ActionGroup`.
-/// Alternatively, use `ActionGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Actions are organised into groups. An action group is essentially a
 /// map from names to `GtkAction` objects.
 /// 
@@ -10303,6 +10399,12 @@ public extension ActionBarProtocol {
 /// </object>
 /// ```
 /// 
+///
+/// The `ActionGroupProtocol` protocol exposes the methods and properties of an underlying `GtkActionGroup` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ActionGroup`.
+/// Alternatively, use `ActionGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ActionGroupProtocol: GLibObject.ObjectProtocol, BuildableProtocol {
         /// Untyped pointer to the underlying `GtkActionGroup` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -10314,10 +10416,6 @@ public protocol ActionGroupProtocol: GLibObject.ObjectProtocol, BuildableProtoco
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ActionGroupRef` type acts as a lightweight Swift reference to an underlying `GtkActionGroup` instance.
-/// It exposes methods that can operate on this data type through `ActionGroupProtocol` conformance.
-/// Use `ActionGroupRef` only as an `unowned` reference to an existing `GtkActionGroup` instance.
-///
 /// Actions are organised into groups. An action group is essentially a
 /// map from names to `GtkAction` objects.
 /// 
@@ -10368,6 +10466,11 @@ public protocol ActionGroupProtocol: GLibObject.ObjectProtocol, BuildableProtoco
 /// </object>
 /// ```
 /// 
+///
+/// The `ActionGroupRef` type acts as a lightweight Swift reference to an underlying `GtkActionGroup` instance.
+/// It exposes methods that can operate on this data type through `ActionGroupProtocol` conformance.
+/// Use `ActionGroupRef` only as an `unowned` reference to an existing `GtkActionGroup` instance.
+///
 public struct ActionGroupRef: ActionGroupProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `action_group_ptr` property instead.
@@ -10460,10 +10563,6 @@ public extension ActionGroupRef {
     }
 }
 
-/// The `ActionGroup` type acts as a reference-counted owner of an underlying `GtkActionGroup` instance.
-/// It provides the methods that can operate on this data type through `ActionGroupProtocol` conformance.
-/// Use `ActionGroup` as a strong reference or owner of a `GtkActionGroup` instance.
-///
 /// Actions are organised into groups. An action group is essentially a
 /// map from names to `GtkAction` objects.
 /// 
@@ -10514,6 +10613,11 @@ public extension ActionGroupRef {
 /// </object>
 /// ```
 /// 
+///
+/// The `ActionGroup` type acts as a reference-counted owner of an underlying `GtkActionGroup` instance.
+/// It provides the methods that can operate on this data type through `ActionGroupProtocol` conformance.
+/// Use `ActionGroup` as a strong reference or owner of a `GtkActionGroup` instance.
+///
 open class ActionGroup: GLibObject.Object, ActionGroupProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10772,12 +10876,14 @@ public enum ActionGroupSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10994,12 +11100,14 @@ public extension ActionGroupProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11043,12 +11151,14 @@ public extension ActionGroupProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11092,12 +11202,14 @@ public extension ActionGroupProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11141,12 +11253,14 @@ public extension ActionGroupProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11552,11 +11666,6 @@ public extension ActionGroupProtocol {
 
 // MARK: - Adjustment Class
 
-/// The `AdjustmentProtocol` protocol exposes the methods and properties of an underlying `GtkAdjustment` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Adjustment`.
-/// Alternatively, use `AdjustmentRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkAdjustment` object represents a value which has an associated lower
 /// and upper bound, together with step and page increments, and a page size.
 /// It is used within several GTK+ widgets, including `GtkSpinButton`, `GtkViewport`,
@@ -11564,6 +11673,12 @@ public extension ActionGroupProtocol {
 /// 
 /// The `GtkAdjustment` object does not update the value itself. Instead
 /// it is left up to the owner of the `GtkAdjustment` to control the value.
+///
+/// The `AdjustmentProtocol` protocol exposes the methods and properties of an underlying `GtkAdjustment` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Adjustment`.
+/// Alternatively, use `AdjustmentRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AdjustmentProtocol: GLibObject.InitiallyUnownedProtocol {
         /// Untyped pointer to the underlying `GtkAdjustment` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -11575,10 +11690,6 @@ public protocol AdjustmentProtocol: GLibObject.InitiallyUnownedProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AdjustmentRef` type acts as a lightweight Swift reference to an underlying `GtkAdjustment` instance.
-/// It exposes methods that can operate on this data type through `AdjustmentProtocol` conformance.
-/// Use `AdjustmentRef` only as an `unowned` reference to an existing `GtkAdjustment` instance.
-///
 /// The `GtkAdjustment` object represents a value which has an associated lower
 /// and upper bound, together with step and page increments, and a page size.
 /// It is used within several GTK+ widgets, including `GtkSpinButton`, `GtkViewport`,
@@ -11586,6 +11697,11 @@ public protocol AdjustmentProtocol: GLibObject.InitiallyUnownedProtocol {
 /// 
 /// The `GtkAdjustment` object does not update the value itself. Instead
 /// it is left up to the owner of the `GtkAdjustment` to control the value.
+///
+/// The `AdjustmentRef` type acts as a lightweight Swift reference to an underlying `GtkAdjustment` instance.
+/// It exposes methods that can operate on this data type through `AdjustmentProtocol` conformance.
+/// Use `AdjustmentRef` only as an `unowned` reference to an existing `GtkAdjustment` instance.
+///
 public struct AdjustmentRef: AdjustmentProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAdjustment` instance.
     /// For type-safe access, use the generated, typed pointer `adjustment_ptr` property instead.
@@ -11672,10 +11788,6 @@ public extension AdjustmentRef {
     }
 }
 
-/// The `Adjustment` type acts as a reference-counted owner of an underlying `GtkAdjustment` instance.
-/// It provides the methods that can operate on this data type through `AdjustmentProtocol` conformance.
-/// Use `Adjustment` as a strong reference or owner of a `GtkAdjustment` instance.
-///
 /// The `GtkAdjustment` object represents a value which has an associated lower
 /// and upper bound, together with step and page increments, and a page size.
 /// It is used within several GTK+ widgets, including `GtkSpinButton`, `GtkViewport`,
@@ -11683,6 +11795,11 @@ public extension AdjustmentRef {
 /// 
 /// The `GtkAdjustment` object does not update the value itself. Instead
 /// it is left up to the owner of the `GtkAdjustment` to control the value.
+///
+/// The `Adjustment` type acts as a reference-counted owner of an underlying `GtkAdjustment` instance.
+/// It provides the methods that can operate on this data type through `AdjustmentProtocol` conformance.
+/// Use `Adjustment` as a strong reference or owner of a `GtkAdjustment` instance.
+///
 open class Adjustment: GLibObject.InitiallyUnowned, AdjustmentProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -11911,12 +12028,14 @@ public enum AdjustmentSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12037,12 +12156,14 @@ public extension AdjustmentProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12086,12 +12207,14 @@ public extension AdjustmentProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12135,12 +12258,14 @@ public extension AdjustmentProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12184,12 +12309,14 @@ public extension AdjustmentProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12233,12 +12360,14 @@ public extension AdjustmentProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12282,12 +12411,14 @@ public extension AdjustmentProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12628,11 +12759,6 @@ public extension AdjustmentProtocol {
 
 // MARK: - Alignment Class
 
-/// The `AlignmentProtocol` protocol exposes the methods and properties of an underlying `GtkAlignment` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Alignment`.
-/// Alternatively, use `AlignmentRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkAlignment` widget controls the alignment and size of its child widget.
 /// It has four settings: xscale, yscale, xalign, and yalign.
 /// 
@@ -12650,6 +12776,12 @@ public extension AdjustmentProtocol {
 /// newly-written code. The desired effect can be achieved by using the
 /// `GtkWidget:halign`, `GtkWidget:valign` and `GtkWidget:margin` properties on the
 /// child widget.
+///
+/// The `AlignmentProtocol` protocol exposes the methods and properties of an underlying `GtkAlignment` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Alignment`.
+/// Alternatively, use `AlignmentRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AlignmentProtocol: BinProtocol {
         /// Untyped pointer to the underlying `GtkAlignment` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12661,10 +12793,6 @@ public protocol AlignmentProtocol: BinProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AlignmentRef` type acts as a lightweight Swift reference to an underlying `GtkAlignment` instance.
-/// It exposes methods that can operate on this data type through `AlignmentProtocol` conformance.
-/// Use `AlignmentRef` only as an `unowned` reference to an existing `GtkAlignment` instance.
-///
 /// The `GtkAlignment` widget controls the alignment and size of its child widget.
 /// It has four settings: xscale, yscale, xalign, and yalign.
 /// 
@@ -12682,6 +12810,11 @@ public protocol AlignmentProtocol: BinProtocol {
 /// newly-written code. The desired effect can be achieved by using the
 /// `GtkWidget:halign`, `GtkWidget:valign` and `GtkWidget:margin` properties on the
 /// child widget.
+///
+/// The `AlignmentRef` type acts as a lightweight Swift reference to an underlying `GtkAlignment` instance.
+/// It exposes methods that can operate on this data type through `AlignmentProtocol` conformance.
+/// Use `AlignmentRef` only as an `unowned` reference to an existing `GtkAlignment` instance.
+///
 public struct AlignmentRef: AlignmentProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAlignment` instance.
     /// For type-safe access, use the generated, typed pointer `alignment_ptr` property instead.
@@ -12772,10 +12905,6 @@ public extension AlignmentRef {
     }
 }
 
-/// The `Alignment` type acts as a reference-counted owner of an underlying `GtkAlignment` instance.
-/// It provides the methods that can operate on this data type through `AlignmentProtocol` conformance.
-/// Use `Alignment` as a strong reference or owner of a `GtkAlignment` instance.
-///
 /// The `GtkAlignment` widget controls the alignment and size of its child widget.
 /// It has four settings: xscale, yscale, xalign, and yalign.
 /// 
@@ -12793,6 +12922,11 @@ public extension AlignmentRef {
 /// newly-written code. The desired effect can be achieved by using the
 /// `GtkWidget:halign`, `GtkWidget:valign` and `GtkWidget:margin` properties on the
 /// child widget.
+///
+/// The `Alignment` type acts as a reference-counted owner of an underlying `GtkAlignment` instance.
+/// It provides the methods that can operate on this data type through `AlignmentProtocol` conformance.
+/// Use `Alignment` as a strong reference or owner of a `GtkAlignment` instance.
+///
 open class Alignment: Bin, AlignmentProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -13596,12 +13730,14 @@ public enum AlignmentSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13991,11 +14127,6 @@ public extension AlignmentProtocol {
 
 // MARK: - AppChooserButton Class
 
-/// The `AppChooserButtonProtocol` protocol exposes the methods and properties of an underlying `GtkAppChooserButton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AppChooserButton`.
-/// Alternatively, use `AppChooserButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkAppChooserButton` is a widget that lets the user select
 /// an application. It implements the `GtkAppChooser` interface.
 /// 
@@ -14018,6 +14149,12 @@ public extension AlignmentProtocol {
 /// 
 /// To track changes in the selected application, use the
 /// `GtkComboBox::changed` signal.
+///
+/// The `AppChooserButtonProtocol` protocol exposes the methods and properties of an underlying `GtkAppChooserButton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AppChooserButton`.
+/// Alternatively, use `AppChooserButtonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AppChooserButtonProtocol: ComboBoxProtocol, AppChooserProtocol {
         /// Untyped pointer to the underlying `GtkAppChooserButton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -14029,10 +14166,6 @@ public protocol AppChooserButtonProtocol: ComboBoxProtocol, AppChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AppChooserButtonRef` type acts as a lightweight Swift reference to an underlying `GtkAppChooserButton` instance.
-/// It exposes methods that can operate on this data type through `AppChooserButtonProtocol` conformance.
-/// Use `AppChooserButtonRef` only as an `unowned` reference to an existing `GtkAppChooserButton` instance.
-///
 /// The `GtkAppChooserButton` is a widget that lets the user select
 /// an application. It implements the `GtkAppChooser` interface.
 /// 
@@ -14055,6 +14188,11 @@ public protocol AppChooserButtonProtocol: ComboBoxProtocol, AppChooserProtocol {
 /// 
 /// To track changes in the selected application, use the
 /// `GtkComboBox::changed` signal.
+///
+/// The `AppChooserButtonRef` type acts as a lightweight Swift reference to an underlying `GtkAppChooserButton` instance.
+/// It exposes methods that can operate on this data type through `AppChooserButtonProtocol` conformance.
+/// Use `AppChooserButtonRef` only as an `unowned` reference to an existing `GtkAppChooserButton` instance.
+///
 public struct AppChooserButtonRef: AppChooserButtonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAppChooserButton` instance.
     /// For type-safe access, use the generated, typed pointer `app_chooser_button_ptr` property instead.
@@ -14142,10 +14280,6 @@ public extension AppChooserButtonRef {
     }
 }
 
-/// The `AppChooserButton` type acts as a reference-counted owner of an underlying `GtkAppChooserButton` instance.
-/// It provides the methods that can operate on this data type through `AppChooserButtonProtocol` conformance.
-/// Use `AppChooserButton` as a strong reference or owner of a `GtkAppChooserButton` instance.
-///
 /// The `GtkAppChooserButton` is a widget that lets the user select
 /// an application. It implements the `GtkAppChooser` interface.
 /// 
@@ -14168,6 +14302,11 @@ public extension AppChooserButtonRef {
 /// 
 /// To track changes in the selected application, use the
 /// `GtkComboBox::changed` signal.
+///
+/// The `AppChooserButton` type acts as a reference-counted owner of an underlying `GtkAppChooserButton` instance.
+/// It provides the methods that can operate on this data type through `AppChooserButtonProtocol` conformance.
+/// Use `AppChooserButton` as a strong reference or owner of a `GtkAppChooserButton` instance.
+///
 open class AppChooserButton: ComboBox, AppChooserButtonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -15046,12 +15185,14 @@ public enum AppChooserButtonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15497,12 +15638,14 @@ public extension AppChooserButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15546,12 +15689,14 @@ public extension AppChooserButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15595,12 +15740,14 @@ public extension AppChooserButtonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15766,11 +15913,6 @@ public extension AppChooserButtonProtocol {
 
 // MARK: - AppChooserDialog Class
 
-/// The `AppChooserDialogProtocol` protocol exposes the methods and properties of an underlying `GtkAppChooserDialog` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AppChooserDialog`.
-/// Alternatively, use `AppChooserDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkAppChooserDialog` shows a `GtkAppChooserWidget` inside a `GtkDialog`.
 /// 
 /// Note that `GtkAppChooserDialog` does not have any interesting methods
@@ -15780,6 +15922,12 @@ public extension AppChooserButtonProtocol {
 /// 
 /// To set the heading that is shown above the `GtkAppChooserWidget`,
 /// use `gtk_app_chooser_dialog_set_heading()`.
+///
+/// The `AppChooserDialogProtocol` protocol exposes the methods and properties of an underlying `GtkAppChooserDialog` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AppChooserDialog`.
+/// Alternatively, use `AppChooserDialogRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AppChooserDialogProtocol: DialogProtocol, AppChooserProtocol {
         /// Untyped pointer to the underlying `GtkAppChooserDialog` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -15791,10 +15939,6 @@ public protocol AppChooserDialogProtocol: DialogProtocol, AppChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AppChooserDialogRef` type acts as a lightweight Swift reference to an underlying `GtkAppChooserDialog` instance.
-/// It exposes methods that can operate on this data type through `AppChooserDialogProtocol` conformance.
-/// Use `AppChooserDialogRef` only as an `unowned` reference to an existing `GtkAppChooserDialog` instance.
-///
 /// `GtkAppChooserDialog` shows a `GtkAppChooserWidget` inside a `GtkDialog`.
 /// 
 /// Note that `GtkAppChooserDialog` does not have any interesting methods
@@ -15804,6 +15948,11 @@ public protocol AppChooserDialogProtocol: DialogProtocol, AppChooserProtocol {
 /// 
 /// To set the heading that is shown above the `GtkAppChooserWidget`,
 /// use `gtk_app_chooser_dialog_set_heading()`.
+///
+/// The `AppChooserDialogRef` type acts as a lightweight Swift reference to an underlying `GtkAppChooserDialog` instance.
+/// It exposes methods that can operate on this data type through `AppChooserDialogProtocol` conformance.
+/// Use `AppChooserDialogRef` only as an `unowned` reference to an existing `GtkAppChooserDialog` instance.
+///
 public struct AppChooserDialogRef: AppChooserDialogProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAppChooserDialog` instance.
     /// For type-safe access, use the generated, typed pointer `app_chooser_dialog_ptr` property instead.
@@ -15904,10 +16053,6 @@ public extension AppChooserDialogRef {
     }
 }
 
-/// The `AppChooserDialog` type acts as a reference-counted owner of an underlying `GtkAppChooserDialog` instance.
-/// It provides the methods that can operate on this data type through `AppChooserDialogProtocol` conformance.
-/// Use `AppChooserDialog` as a strong reference or owner of a `GtkAppChooserDialog` instance.
-///
 /// `GtkAppChooserDialog` shows a `GtkAppChooserWidget` inside a `GtkDialog`.
 /// 
 /// Note that `GtkAppChooserDialog` does not have any interesting methods
@@ -15917,6 +16062,11 @@ public extension AppChooserDialogRef {
 /// 
 /// To set the heading that is shown above the `GtkAppChooserWidget`,
 /// use `gtk_app_chooser_dialog_set_heading()`.
+///
+/// The `AppChooserDialog` type acts as a reference-counted owner of an underlying `GtkAppChooserDialog` instance.
+/// It provides the methods that can operate on this data type through `AppChooserDialogProtocol` conformance.
+/// Use `AppChooserDialog` as a strong reference or owner of a `GtkAppChooserDialog` instance.
+///
 open class AppChooserDialog: Dialog, AppChooserDialogProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -16810,12 +16960,14 @@ public enum AppChooserDialogSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -17270,11 +17422,6 @@ public extension AppChooserDialogProtocol {
 
 // MARK: - AppChooserWidget Class
 
-/// The `AppChooserWidgetProtocol` protocol exposes the methods and properties of an underlying `GtkAppChooserWidget` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AppChooserWidget`.
-/// Alternatively, use `AppChooserWidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkAppChooserWidget` is a widget for selecting applications.
 /// It is the main building block for `GtkAppChooserDialog`. Most
 /// applications only need to use the latter; but you can use
@@ -17296,6 +17443,12 @@ public extension AppChooserDialogProtocol {
 /// # CSS nodes
 /// 
 /// GtkAppChooserWidget has a single CSS node with name appchooser.
+///
+/// The `AppChooserWidgetProtocol` protocol exposes the methods and properties of an underlying `GtkAppChooserWidget` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AppChooserWidget`.
+/// Alternatively, use `AppChooserWidgetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AppChooserWidgetProtocol: BoxProtocol, AppChooserProtocol {
         /// Untyped pointer to the underlying `GtkAppChooserWidget` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -17307,10 +17460,6 @@ public protocol AppChooserWidgetProtocol: BoxProtocol, AppChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AppChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkAppChooserWidget` instance.
-/// It exposes methods that can operate on this data type through `AppChooserWidgetProtocol` conformance.
-/// Use `AppChooserWidgetRef` only as an `unowned` reference to an existing `GtkAppChooserWidget` instance.
-///
 /// `GtkAppChooserWidget` is a widget for selecting applications.
 /// It is the main building block for `GtkAppChooserDialog`. Most
 /// applications only need to use the latter; but you can use
@@ -17332,6 +17481,11 @@ public protocol AppChooserWidgetProtocol: BoxProtocol, AppChooserProtocol {
 /// # CSS nodes
 /// 
 /// GtkAppChooserWidget has a single CSS node with name appchooser.
+///
+/// The `AppChooserWidgetRef` type acts as a lightweight Swift reference to an underlying `GtkAppChooserWidget` instance.
+/// It exposes methods that can operate on this data type through `AppChooserWidgetProtocol` conformance.
+/// Use `AppChooserWidgetRef` only as an `unowned` reference to an existing `GtkAppChooserWidget` instance.
+///
 public struct AppChooserWidgetRef: AppChooserWidgetProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAppChooserWidget` instance.
     /// For type-safe access, use the generated, typed pointer `app_chooser_widget_ptr` property instead.
@@ -17419,10 +17573,6 @@ public extension AppChooserWidgetRef {
     }
 }
 
-/// The `AppChooserWidget` type acts as a reference-counted owner of an underlying `GtkAppChooserWidget` instance.
-/// It provides the methods that can operate on this data type through `AppChooserWidgetProtocol` conformance.
-/// Use `AppChooserWidget` as a strong reference or owner of a `GtkAppChooserWidget` instance.
-///
 /// `GtkAppChooserWidget` is a widget for selecting applications.
 /// It is the main building block for `GtkAppChooserDialog`. Most
 /// applications only need to use the latter; but you can use
@@ -17444,6 +17594,11 @@ public extension AppChooserWidgetRef {
 /// # CSS nodes
 /// 
 /// GtkAppChooserWidget has a single CSS node with name appchooser.
+///
+/// The `AppChooserWidget` type acts as a reference-counted owner of an underlying `GtkAppChooserWidget` instance.
+/// It provides the methods that can operate on this data type through `AppChooserWidgetProtocol` conformance.
+/// Use `AppChooserWidget` as a strong reference or owner of a `GtkAppChooserWidget` instance.
+///
 open class AppChooserWidget: Box, AppChooserWidgetProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -18234,12 +18389,14 @@ public enum AppChooserWidgetSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18690,12 +18847,14 @@ public extension AppChooserWidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18739,12 +18898,14 @@ public extension AppChooserWidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18788,12 +18949,14 @@ public extension AppChooserWidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18837,12 +19000,14 @@ public extension AppChooserWidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18886,12 +19051,14 @@ public extension AppChooserWidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18935,12 +19102,14 @@ public extension AppChooserWidgetProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -19170,11 +19339,6 @@ public extension AppChooserWidgetProtocol {
 
 // MARK: - Application Class
 
-/// The `ApplicationProtocol` protocol exposes the methods and properties of an underlying `GtkApplication` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Application`.
-/// Alternatively, use `ApplicationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkApplication` is a class that handles many important aspects
 /// of a GTK+ application in a convenient fashion, without enforcing
 /// a one-size-fits-all application model.
@@ -19251,6 +19415,12 @@ public extension AppChooserWidgetProtocol {
 /// ## See Also ## <a name="seealso"></a>
 /// [HowDoI: Using GtkApplication](https://wiki.gnome.org/HowDoI/GtkApplication),
 /// [Getting Started with GTK+: Basics](https://developer.gnome.org/gtk3/stable/gtk-getting-started.html`id-1.2.3.3`)
+///
+/// The `ApplicationProtocol` protocol exposes the methods and properties of an underlying `GtkApplication` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Application`.
+/// Alternatively, use `ApplicationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ApplicationProtocol: GIO.ApplicationProtocol, GIO.ActionGroupProtocol, GIO.ActionMapProtocol {
         /// Untyped pointer to the underlying `GtkApplication` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -19262,10 +19432,6 @@ public protocol ApplicationProtocol: GIO.ApplicationProtocol, GIO.ActionGroupPro
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ApplicationRef` type acts as a lightweight Swift reference to an underlying `GtkApplication` instance.
-/// It exposes methods that can operate on this data type through `ApplicationProtocol` conformance.
-/// Use `ApplicationRef` only as an `unowned` reference to an existing `GtkApplication` instance.
-///
 /// `GtkApplication` is a class that handles many important aspects
 /// of a GTK+ application in a convenient fashion, without enforcing
 /// a one-size-fits-all application model.
@@ -19342,6 +19508,11 @@ public protocol ApplicationProtocol: GIO.ApplicationProtocol, GIO.ActionGroupPro
 /// ## See Also ## <a name="seealso"></a>
 /// [HowDoI: Using GtkApplication](https://wiki.gnome.org/HowDoI/GtkApplication),
 /// [Getting Started with GTK+: Basics](https://developer.gnome.org/gtk3/stable/gtk-getting-started.html`id-1.2.3.3`)
+///
+/// The `ApplicationRef` type acts as a lightweight Swift reference to an underlying `GtkApplication` instance.
+/// It exposes methods that can operate on this data type through `ApplicationProtocol` conformance.
+/// Use `ApplicationRef` only as an `unowned` reference to an existing `GtkApplication` instance.
+///
 public struct ApplicationRef: ApplicationProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkApplication` instance.
     /// For type-safe access, use the generated, typed pointer `application_ptr` property instead.
@@ -19451,10 +19622,6 @@ public extension ApplicationRef {
     }
 }
 
-/// The `Application` type acts as a reference-counted owner of an underlying `GtkApplication` instance.
-/// It provides the methods that can operate on this data type through `ApplicationProtocol` conformance.
-/// Use `Application` as a strong reference or owner of a `GtkApplication` instance.
-///
 /// `GtkApplication` is a class that handles many important aspects
 /// of a GTK+ application in a convenient fashion, without enforcing
 /// a one-size-fits-all application model.
@@ -19531,6 +19698,11 @@ public extension ApplicationRef {
 /// ## See Also ## <a name="seealso"></a>
 /// [HowDoI: Using GtkApplication](https://wiki.gnome.org/HowDoI/GtkApplication),
 /// [Getting Started with GTK+: Basics](https://developer.gnome.org/gtk3/stable/gtk-getting-started.html`id-1.2.3.3`)
+///
+/// The `Application` type acts as a reference-counted owner of an underlying `GtkApplication` instance.
+/// It provides the methods that can operate on this data type through `ApplicationProtocol` conformance.
+/// Use `Application` as a strong reference or owner of a `GtkApplication` instance.
+///
 open class Application: GIO.Application, ApplicationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -19837,12 +20009,14 @@ public enum ApplicationSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20019,12 +20193,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20068,12 +20244,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20117,12 +20295,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20166,12 +20346,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20215,12 +20397,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -20777,11 +20961,6 @@ public extension ApplicationProtocol {
 
 // MARK: - ApplicationWindow Class
 
-/// The `ApplicationWindowProtocol` protocol exposes the methods and properties of an underlying `GtkApplicationWindow` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ApplicationWindow`.
-/// Alternatively, use `ApplicationWindowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkApplicationWindow` is a `GtkWindow` subclass that offers some
 /// extra functionality for better integration with `GtkApplication`
 /// features.  Notably, it can handle both the application menu as well
@@ -20886,6 +21065,12 @@ public extension ApplicationProtocol {
 /// The following attributes are used when constructing submenus:
 /// - "label": a user-visible string to display
 /// - "icon": icon name to display
+///
+/// The `ApplicationWindowProtocol` protocol exposes the methods and properties of an underlying `GtkApplicationWindow` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ApplicationWindow`.
+/// Alternatively, use `ApplicationWindowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ApplicationWindowProtocol: WindowProtocol, GIO.ActionGroupProtocol, GIO.ActionMapProtocol {
         /// Untyped pointer to the underlying `GtkApplicationWindow` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -20897,10 +21082,6 @@ public protocol ApplicationWindowProtocol: WindowProtocol, GIO.ActionGroupProtoc
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ApplicationWindowRef` type acts as a lightweight Swift reference to an underlying `GtkApplicationWindow` instance.
-/// It exposes methods that can operate on this data type through `ApplicationWindowProtocol` conformance.
-/// Use `ApplicationWindowRef` only as an `unowned` reference to an existing `GtkApplicationWindow` instance.
-///
 /// `GtkApplicationWindow` is a `GtkWindow` subclass that offers some
 /// extra functionality for better integration with `GtkApplication`
 /// features.  Notably, it can handle both the application menu as well
@@ -21005,6 +21186,11 @@ public protocol ApplicationWindowProtocol: WindowProtocol, GIO.ActionGroupProtoc
 /// The following attributes are used when constructing submenus:
 /// - "label": a user-visible string to display
 /// - "icon": icon name to display
+///
+/// The `ApplicationWindowRef` type acts as a lightweight Swift reference to an underlying `GtkApplicationWindow` instance.
+/// It exposes methods that can operate on this data type through `ApplicationWindowProtocol` conformance.
+/// Use `ApplicationWindowRef` only as an `unowned` reference to an existing `GtkApplicationWindow` instance.
+///
 public struct ApplicationWindowRef: ApplicationWindowProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkApplicationWindow` instance.
     /// For type-safe access, use the generated, typed pointer `application_window_ptr` property instead.
@@ -21091,10 +21277,6 @@ public extension ApplicationWindowRef {
     }
 }
 
-/// The `ApplicationWindow` type acts as a reference-counted owner of an underlying `GtkApplicationWindow` instance.
-/// It provides the methods that can operate on this data type through `ApplicationWindowProtocol` conformance.
-/// Use `ApplicationWindow` as a strong reference or owner of a `GtkApplicationWindow` instance.
-///
 /// `GtkApplicationWindow` is a `GtkWindow` subclass that offers some
 /// extra functionality for better integration with `GtkApplication`
 /// features.  Notably, it can handle both the application menu as well
@@ -21199,6 +21381,11 @@ public extension ApplicationWindowRef {
 /// The following attributes are used when constructing submenus:
 /// - "label": a user-visible string to display
 /// - "icon": icon name to display
+///
+/// The `ApplicationWindow` type acts as a reference-counted owner of an underlying `GtkApplicationWindow` instance.
+/// It provides the methods that can operate on this data type through `ApplicationWindowProtocol` conformance.
+/// Use `ApplicationWindow` as a strong reference or owner of a `GtkApplicationWindow` instance.
+///
 open class ApplicationWindow: Window, ApplicationWindowProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -22064,12 +22251,14 @@ public enum ApplicationWindowSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -22564,11 +22753,6 @@ public extension ApplicationWindowProtocol {
 
 // MARK: - Arrow Class
 
-/// The `ArrowProtocol` protocol exposes the methods and properties of an underlying `GtkArrow` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Arrow`.
-/// Alternatively, use `ArrowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GtkArrow should be used to draw simple arrows that need to point in
 /// one of the four cardinal directions (up, down, left, or right).  The
 /// style of the arrow can be one of shadow in, shadow out, etched in, or
@@ -22589,6 +22773,12 @@ public extension ApplicationWindowProtocol {
 /// depending on the text direction. To get the same effect with an image,
 /// use the icon names “pan-start-symbolic“ and “pan-end-symbolic“, which
 /// react to the text direction.
+///
+/// The `ArrowProtocol` protocol exposes the methods and properties of an underlying `GtkArrow` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Arrow`.
+/// Alternatively, use `ArrowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ArrowProtocol: MiscProtocol {
         /// Untyped pointer to the underlying `GtkArrow` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22600,10 +22790,6 @@ public protocol ArrowProtocol: MiscProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ArrowRef` type acts as a lightweight Swift reference to an underlying `GtkArrow` instance.
-/// It exposes methods that can operate on this data type through `ArrowProtocol` conformance.
-/// Use `ArrowRef` only as an `unowned` reference to an existing `GtkArrow` instance.
-///
 /// GtkArrow should be used to draw simple arrows that need to point in
 /// one of the four cardinal directions (up, down, left, or right).  The
 /// style of the arrow can be one of shadow in, shadow out, etched in, or
@@ -22624,6 +22810,11 @@ public protocol ArrowProtocol: MiscProtocol {
 /// depending on the text direction. To get the same effect with an image,
 /// use the icon names “pan-start-symbolic“ and “pan-end-symbolic“, which
 /// react to the text direction.
+///
+/// The `ArrowRef` type acts as a lightweight Swift reference to an underlying `GtkArrow` instance.
+/// It exposes methods that can operate on this data type through `ArrowProtocol` conformance.
+/// Use `ArrowRef` only as an `unowned` reference to an existing `GtkArrow` instance.
+///
 public struct ArrowRef: ArrowProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkArrow` instance.
     /// For type-safe access, use the generated, typed pointer `arrow_ptr` property instead.
@@ -22714,10 +22905,6 @@ public extension ArrowRef {
     }
 }
 
-/// The `Arrow` type acts as a reference-counted owner of an underlying `GtkArrow` instance.
-/// It provides the methods that can operate on this data type through `ArrowProtocol` conformance.
-/// Use `Arrow` as a strong reference or owner of a `GtkArrow` instance.
-///
 /// GtkArrow should be used to draw simple arrows that need to point in
 /// one of the four cardinal directions (up, down, left, or right).  The
 /// style of the arrow can be one of shadow in, shadow out, etched in, or
@@ -22738,6 +22925,11 @@ public extension ArrowRef {
 /// depending on the text direction. To get the same effect with an image,
 /// use the icon names “pan-start-symbolic“ and “pan-end-symbolic“, which
 /// react to the text direction.
+///
+/// The `Arrow` type acts as a reference-counted owner of an underlying `GtkArrow` instance.
+/// It provides the methods that can operate on this data type through `ArrowProtocol` conformance.
+/// Use `Arrow` as a strong reference or owner of a `GtkArrow` instance.
+///
 open class Arrow: Misc, ArrowProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -23519,12 +23711,14 @@ public enum ArrowSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -23868,12 +24062,13 @@ public extension ArrowProtocol {
 
 // MARK: - ArrowAccessible Class
 
+
+///
 /// The `ArrowAccessibleProtocol` protocol exposes the methods and properties of an underlying `GtkArrowAccessible` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ArrowAccessible`.
 /// Alternatively, use `ArrowAccessibleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ArrowAccessibleProtocol: WidgetAccessibleProtocol, Atk.ImageProtocol {
         /// Untyped pointer to the underlying `GtkArrowAccessible` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -23885,11 +24080,12 @@ public protocol ArrowAccessibleProtocol: WidgetAccessibleProtocol, Atk.ImageProt
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ArrowAccessibleRef` type acts as a lightweight Swift reference to an underlying `GtkArrowAccessible` instance.
 /// It exposes methods that can operate on this data type through `ArrowAccessibleProtocol` conformance.
 /// Use `ArrowAccessibleRef` only as an `unowned` reference to an existing `GtkArrowAccessible` instance.
 ///
-
 public struct ArrowAccessibleRef: ArrowAccessibleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkArrowAccessible` instance.
     /// For type-safe access, use the generated, typed pointer `arrow_accessible_ptr` property instead.
@@ -23971,11 +24167,12 @@ public extension ArrowAccessibleRef {
 
     }
 
+
+///
 /// The `ArrowAccessible` type acts as a reference-counted owner of an underlying `GtkArrowAccessible` instance.
 /// It provides the methods that can operate on this data type through `ArrowAccessibleProtocol` conformance.
 /// Use `ArrowAccessible` as a strong reference or owner of a `GtkArrowAccessible` instance.
 ///
-
 open class ArrowAccessible: WidgetAccessible, ArrowAccessibleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -24238,12 +24435,14 @@ public enum ArrowAccessibleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -24339,11 +24538,6 @@ public extension ArrowAccessibleProtocol {
 
 // MARK: - AspectFrame Class
 
-/// The `AspectFrameProtocol` protocol exposes the methods and properties of an underlying `GtkAspectFrame` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AspectFrame`.
-/// Alternatively, use `AspectFrameRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkAspectFrame` is useful when you want
 /// pack a widget so that it can resize but always retains
 /// the same aspect ratio. For instance, one might be
@@ -24355,6 +24549,12 @@ public extension ArrowAccessibleProtocol {
 /// # CSS nodes
 /// 
 /// GtkAspectFrame uses a CSS node with name frame.
+///
+/// The `AspectFrameProtocol` protocol exposes the methods and properties of an underlying `GtkAspectFrame` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AspectFrame`.
+/// Alternatively, use `AspectFrameRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AspectFrameProtocol: FrameProtocol {
         /// Untyped pointer to the underlying `GtkAspectFrame` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -24366,10 +24566,6 @@ public protocol AspectFrameProtocol: FrameProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AspectFrameRef` type acts as a lightweight Swift reference to an underlying `GtkAspectFrame` instance.
-/// It exposes methods that can operate on this data type through `AspectFrameProtocol` conformance.
-/// Use `AspectFrameRef` only as an `unowned` reference to an existing `GtkAspectFrame` instance.
-///
 /// The `GtkAspectFrame` is useful when you want
 /// pack a widget so that it can resize but always retains
 /// the same aspect ratio. For instance, one might be
@@ -24381,6 +24577,11 @@ public protocol AspectFrameProtocol: FrameProtocol {
 /// # CSS nodes
 /// 
 /// GtkAspectFrame uses a CSS node with name frame.
+///
+/// The `AspectFrameRef` type acts as a lightweight Swift reference to an underlying `GtkAspectFrame` instance.
+/// It exposes methods that can operate on this data type through `AspectFrameProtocol` conformance.
+/// Use `AspectFrameRef` only as an `unowned` reference to an existing `GtkAspectFrame` instance.
+///
 public struct AspectFrameRef: AspectFrameProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAspectFrame` instance.
     /// For type-safe access, use the generated, typed pointer `aspect_frame_ptr` property instead.
@@ -24467,10 +24668,6 @@ public extension AspectFrameRef {
     }
 }
 
-/// The `AspectFrame` type acts as a reference-counted owner of an underlying `GtkAspectFrame` instance.
-/// It provides the methods that can operate on this data type through `AspectFrameProtocol` conformance.
-/// Use `AspectFrame` as a strong reference or owner of a `GtkAspectFrame` instance.
-///
 /// The `GtkAspectFrame` is useful when you want
 /// pack a widget so that it can resize but always retains
 /// the same aspect ratio. For instance, one might be
@@ -24482,6 +24679,11 @@ public extension AspectFrameRef {
 /// # CSS nodes
 /// 
 /// GtkAspectFrame uses a CSS node with name frame.
+///
+/// The `AspectFrame` type acts as a reference-counted owner of an underlying `GtkAspectFrame` instance.
+/// It provides the methods that can operate on this data type through `AspectFrameProtocol` conformance.
+/// Use `AspectFrame` as a strong reference or owner of a `GtkAspectFrame` instance.
+///
 open class AspectFrame: Frame, AspectFrameProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -25242,12 +25444,14 @@ public enum AspectFrameSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -25570,11 +25774,6 @@ public extension AspectFrameProtocol {
 
 // MARK: - Assistant Class
 
-/// The `AssistantProtocol` protocol exposes the methods and properties of an underlying `GtkAssistant` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Assistant`.
-/// Alternatively, use `AssistantRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GtkAssistant` is a widget used to represent a generally complex
 /// operation splitted in several steps, guiding the user through its
 /// pages and controlling the page flow to collect the necessary data.
@@ -25603,6 +25802,12 @@ public extension AspectFrameProtocol {
 /// # CSS nodes
 /// 
 /// GtkAssistant has a single CSS node with the name assistant.
+///
+/// The `AssistantProtocol` protocol exposes the methods and properties of an underlying `GtkAssistant` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Assistant`.
+/// Alternatively, use `AssistantRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AssistantProtocol: WindowProtocol {
         /// Untyped pointer to the underlying `GtkAssistant` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -25614,10 +25819,6 @@ public protocol AssistantProtocol: WindowProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AssistantRef` type acts as a lightweight Swift reference to an underlying `GtkAssistant` instance.
-/// It exposes methods that can operate on this data type through `AssistantProtocol` conformance.
-/// Use `AssistantRef` only as an `unowned` reference to an existing `GtkAssistant` instance.
-///
 /// A `GtkAssistant` is a widget used to represent a generally complex
 /// operation splitted in several steps, guiding the user through its
 /// pages and controlling the page flow to collect the necessary data.
@@ -25646,6 +25847,11 @@ public protocol AssistantProtocol: WindowProtocol {
 /// # CSS nodes
 /// 
 /// GtkAssistant has a single CSS node with the name assistant.
+///
+/// The `AssistantRef` type acts as a lightweight Swift reference to an underlying `GtkAssistant` instance.
+/// It exposes methods that can operate on this data type through `AssistantProtocol` conformance.
+/// Use `AssistantRef` only as an `unowned` reference to an existing `GtkAssistant` instance.
+///
 public struct AssistantRef: AssistantProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkAssistant` instance.
     /// For type-safe access, use the generated, typed pointer `assistant_ptr` property instead.
@@ -25732,10 +25938,6 @@ public extension AssistantRef {
     }
 }
 
-/// The `Assistant` type acts as a reference-counted owner of an underlying `GtkAssistant` instance.
-/// It provides the methods that can operate on this data type through `AssistantProtocol` conformance.
-/// Use `Assistant` as a strong reference or owner of a `GtkAssistant` instance.
-///
 /// A `GtkAssistant` is a widget used to represent a generally complex
 /// operation splitted in several steps, guiding the user through its
 /// pages and controlling the page flow to collect the necessary data.
@@ -25764,6 +25966,11 @@ public extension AssistantRef {
 /// # CSS nodes
 /// 
 /// GtkAssistant has a single CSS node with the name assistant.
+///
+/// The `Assistant` type acts as a reference-counted owner of an underlying `GtkAssistant` instance.
+/// It provides the methods that can operate on this data type through `AssistantProtocol` conformance.
+/// Use `Assistant` as a strong reference or owner of a `GtkAssistant` instance.
+///
 open class Assistant: Window, AssistantProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -26646,12 +26853,14 @@ public enum AssistantSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -27221,12 +27430,14 @@ public extension AssistantProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -27557,17 +27768,18 @@ public extension AssistantProtocol {
 
 // MARK: - Bin Class
 
-/// The `BinProtocol` protocol exposes the methods and properties of an underlying `GtkBin` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Bin`.
-/// Alternatively, use `BinRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkBin` widget is a container with just one child.
 /// It is not very useful itself, but it is useful for deriving subclasses,
 /// since it provides common code needed for handling a single child widget.
 /// 
 /// Many GTK+ widgets are subclasses of `GtkBin`, including `GtkWindow`,
 /// `GtkButton`, `GtkFrame`, `GtkHandleBox` or `GtkScrolledWindow`.
+///
+/// The `BinProtocol` protocol exposes the methods and properties of an underlying `GtkBin` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Bin`.
+/// Alternatively, use `BinRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BinProtocol: ContainerProtocol {
         /// Untyped pointer to the underlying `GtkBin` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -27579,16 +27791,17 @@ public protocol BinProtocol: ContainerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BinRef` type acts as a lightweight Swift reference to an underlying `GtkBin` instance.
-/// It exposes methods that can operate on this data type through `BinProtocol` conformance.
-/// Use `BinRef` only as an `unowned` reference to an existing `GtkBin` instance.
-///
 /// The `GtkBin` widget is a container with just one child.
 /// It is not very useful itself, but it is useful for deriving subclasses,
 /// since it provides common code needed for handling a single child widget.
 /// 
 /// Many GTK+ widgets are subclasses of `GtkBin`, including `GtkWindow`,
 /// `GtkButton`, `GtkFrame`, `GtkHandleBox` or `GtkScrolledWindow`.
+///
+/// The `BinRef` type acts as a lightweight Swift reference to an underlying `GtkBin` instance.
+/// It exposes methods that can operate on this data type through `BinProtocol` conformance.
+/// Use `BinRef` only as an `unowned` reference to an existing `GtkBin` instance.
+///
 public struct BinRef: BinProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkBin` instance.
     /// For type-safe access, use the generated, typed pointer `bin_ptr` property instead.
@@ -27670,16 +27883,17 @@ public extension BinRef {
 
     }
 
-/// The `Bin` type acts as a reference-counted owner of an underlying `GtkBin` instance.
-/// It provides the methods that can operate on this data type through `BinProtocol` conformance.
-/// Use `Bin` as a strong reference or owner of a `GtkBin` instance.
-///
 /// The `GtkBin` widget is a container with just one child.
 /// It is not very useful itself, but it is useful for deriving subclasses,
 /// since it provides common code needed for handling a single child widget.
 /// 
 /// Many GTK+ widgets are subclasses of `GtkBin`, including `GtkWindow`,
 /// `GtkButton`, `GtkFrame`, `GtkHandleBox` or `GtkScrolledWindow`.
+///
+/// The `Bin` type acts as a reference-counted owner of an underlying `GtkBin` instance.
+/// It provides the methods that can operate on this data type through `BinProtocol` conformance.
+/// Use `Bin` as a strong reference or owner of a `GtkBin` instance.
+///
 open class Bin: Container, BinProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -28425,12 +28639,14 @@ public enum BinSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

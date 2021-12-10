@@ -17,12 +17,13 @@ import Atk
 
 // MARK: - PrintOperationPreview Interface
 
+
+///
 /// The `PrintOperationPreviewProtocol` protocol exposes the methods and properties of an underlying `GtkPrintOperationPreview` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PrintOperationPreview`.
 /// Alternatively, use `PrintOperationPreviewRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol PrintOperationPreviewProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationPreview` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,11 +35,12 @@ public protocol PrintOperationPreviewProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `PrintOperationPreviewRef` type acts as a lightweight Swift reference to an underlying `GtkPrintOperationPreview` instance.
 /// It exposes methods that can operate on this data type through `PrintOperationPreviewProtocol` conformance.
 /// Use `PrintOperationPreviewRef` only as an `unowned` reference to an existing `GtkPrintOperationPreview` instance.
 ///
-
 public struct PrintOperationPreviewRef: PrintOperationPreviewProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationPreview` instance.
     /// For type-safe access, use the generated, typed pointer `print_operation_preview_ptr` property instead.
@@ -117,11 +119,12 @@ public extension PrintOperationPreviewRef {
 
     }
 
+
+///
 /// The `PrintOperationPreview` type acts as an owner of an underlying `GtkPrintOperationPreview` instance.
 /// It provides the methods that can operate on this data type through `PrintOperationPreviewProtocol` conformance.
 /// Use `PrintOperationPreview` as a strong reference or owner of a `GtkPrintOperationPreview` instance.
 ///
-
 open class PrintOperationPreview: PrintOperationPreviewProtocol {
         /// Untyped pointer to the underlying `GtkPrintOperationPreview` instance.
     /// For type-safe access, use the generated, typed pointer `print_operation_preview_ptr` property instead.
@@ -417,17 +420,18 @@ public extension PrintOperationPreviewProtocol {
 
 // MARK: - RecentChooser Interface
 
-/// The `RecentChooserProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooser` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RecentChooser`.
-/// Alternatively, use `RecentChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkRecentChooser` is an interface that can be implemented by widgets
 /// displaying the list of recently used files.  In GTK+, the main objects
 /// that implement this interface are `GtkRecentChooserWidget`,
 /// `GtkRecentChooserDialog` and `GtkRecentChooserMenu`.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooserProtocol` protocol exposes the methods and properties of an underlying `GtkRecentChooser` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RecentChooser`.
+/// Alternatively, use `RecentChooserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RecentChooserProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooser` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -439,16 +443,17 @@ public protocol RecentChooserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RecentChooserRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooser` instance.
-/// It exposes methods that can operate on this data type through `RecentChooserProtocol` conformance.
-/// Use `RecentChooserRef` only as an `unowned` reference to an existing `GtkRecentChooser` instance.
-///
 /// `GtkRecentChooser` is an interface that can be implemented by widgets
 /// displaying the list of recently used files.  In GTK+, the main objects
 /// that implement this interface are `GtkRecentChooserWidget`,
 /// `GtkRecentChooserDialog` and `GtkRecentChooserMenu`.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooserRef` type acts as a lightweight Swift reference to an underlying `GtkRecentChooser` instance.
+/// It exposes methods that can operate on this data type through `RecentChooserProtocol` conformance.
+/// Use `RecentChooserRef` only as an `unowned` reference to an existing `GtkRecentChooser` instance.
+///
 public struct RecentChooserRef: RecentChooserProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooser` instance.
     /// For type-safe access, use the generated, typed pointer `recent_chooser_ptr` property instead.
@@ -527,16 +532,17 @@ public extension RecentChooserRef {
 
     }
 
-/// The `RecentChooser` type acts as an owner of an underlying `GtkRecentChooser` instance.
-/// It provides the methods that can operate on this data type through `RecentChooserProtocol` conformance.
-/// Use `RecentChooser` as a strong reference or owner of a `GtkRecentChooser` instance.
-///
 /// `GtkRecentChooser` is an interface that can be implemented by widgets
 /// displaying the list of recently used files.  In GTK+, the main objects
 /// that implement this interface are `GtkRecentChooserWidget`,
 /// `GtkRecentChooserDialog` and `GtkRecentChooserMenu`.
 /// 
 /// Recently used files are supported since GTK+ 2.10.
+///
+/// The `RecentChooser` type acts as an owner of an underlying `GtkRecentChooser` instance.
+/// It provides the methods that can operate on this data type through `RecentChooserProtocol` conformance.
+/// Use `RecentChooser` as a strong reference or owner of a `GtkRecentChooser` instance.
+///
 open class RecentChooser: RecentChooserProtocol {
         /// Untyped pointer to the underlying `GtkRecentChooser` instance.
     /// For type-safe access, use the generated, typed pointer `recent_chooser_ptr` property instead.
@@ -903,12 +909,14 @@ public extension RecentChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -952,12 +960,14 @@ public extension RecentChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1001,12 +1011,14 @@ public extension RecentChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1050,12 +1062,14 @@ public extension RecentChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1099,12 +1113,14 @@ public extension RecentChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1148,12 +1164,14 @@ public extension RecentChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1197,12 +1215,14 @@ public extension RecentChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1246,12 +1266,14 @@ public extension RecentChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1295,12 +1317,14 @@ public extension RecentChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1344,12 +1368,14 @@ public extension RecentChooserProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

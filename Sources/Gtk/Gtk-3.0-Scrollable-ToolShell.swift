@@ -17,11 +17,6 @@ import Atk
 
 // MARK: - Scrollable Interface
 
-/// The `ScrollableProtocol` protocol exposes the methods and properties of an underlying `GtkScrollable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Scrollable`.
-/// Alternatively, use `ScrollableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GtkScrollable` is an interface that is implemented by widgets with native
 /// scrolling ability.
 /// 
@@ -49,6 +44,12 @@ import Atk
 /// 
 /// - When any of the adjustments emits the `GtkAdjustment::value-changed` signal,
 ///   the scrollable widget should scroll its contents.
+///
+/// The `ScrollableProtocol` protocol exposes the methods and properties of an underlying `GtkScrollable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Scrollable`.
+/// Alternatively, use `ScrollableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkScrollable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -60,10 +61,6 @@ public protocol ScrollableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ScrollableRef` type acts as a lightweight Swift reference to an underlying `GtkScrollable` instance.
-/// It exposes methods that can operate on this data type through `ScrollableProtocol` conformance.
-/// Use `ScrollableRef` only as an `unowned` reference to an existing `GtkScrollable` instance.
-///
 /// `GtkScrollable` is an interface that is implemented by widgets with native
 /// scrolling ability.
 /// 
@@ -91,6 +88,11 @@ public protocol ScrollableProtocol {
 /// 
 /// - When any of the adjustments emits the `GtkAdjustment::value-changed` signal,
 ///   the scrollable widget should scroll its contents.
+///
+/// The `ScrollableRef` type acts as a lightweight Swift reference to an underlying `GtkScrollable` instance.
+/// It exposes methods that can operate on this data type through `ScrollableProtocol` conformance.
+/// Use `ScrollableRef` only as an `unowned` reference to an existing `GtkScrollable` instance.
+///
 public struct ScrollableRef: ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkScrollable` instance.
     /// For type-safe access, use the generated, typed pointer `scrollable_ptr` property instead.
@@ -169,10 +171,6 @@ public extension ScrollableRef {
 
     }
 
-/// The `Scrollable` type acts as an owner of an underlying `GtkScrollable` instance.
-/// It provides the methods that can operate on this data type through `ScrollableProtocol` conformance.
-/// Use `Scrollable` as a strong reference or owner of a `GtkScrollable` instance.
-///
 /// `GtkScrollable` is an interface that is implemented by widgets with native
 /// scrolling ability.
 /// 
@@ -200,6 +198,11 @@ public extension ScrollableRef {
 /// 
 /// - When any of the adjustments emits the `GtkAdjustment::value-changed` signal,
 ///   the scrollable widget should scroll its contents.
+///
+/// The `Scrollable` type acts as an owner of an underlying `GtkScrollable` instance.
+/// It provides the methods that can operate on this data type through `ScrollableProtocol` conformance.
+/// Use `Scrollable` as a strong reference or owner of a `GtkScrollable` instance.
+///
 open class Scrollable: ScrollableProtocol {
         /// Untyped pointer to the underlying `GtkScrollable` instance.
     /// For type-safe access, use the generated, typed pointer `scrollable_ptr` property instead.
@@ -570,13 +573,14 @@ public extension ScrollableProtocol {
 
 // MARK: - StyleProvider Interface
 
+/// GtkStyleProvider is an interface used to provide style information to a `GtkStyleContext`.
+/// See `gtk_style_context_add_provider()` and `gtk_style_context_add_provider_for_screen()`.
+///
 /// The `StyleProviderProtocol` protocol exposes the methods and properties of an underlying `GtkStyleProvider` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StyleProvider`.
 /// Alternatively, use `StyleProviderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GtkStyleProvider is an interface used to provide style information to a `GtkStyleContext`.
-/// See `gtk_style_context_add_provider()` and `gtk_style_context_add_provider_for_screen()`.
 public protocol StyleProviderProtocol {
         /// Untyped pointer to the underlying `GtkStyleProvider` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -588,12 +592,13 @@ public protocol StyleProviderProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// GtkStyleProvider is an interface used to provide style information to a `GtkStyleContext`.
+/// See `gtk_style_context_add_provider()` and `gtk_style_context_add_provider_for_screen()`.
+///
 /// The `StyleProviderRef` type acts as a lightweight Swift reference to an underlying `GtkStyleProvider` instance.
 /// It exposes methods that can operate on this data type through `StyleProviderProtocol` conformance.
 /// Use `StyleProviderRef` only as an `unowned` reference to an existing `GtkStyleProvider` instance.
 ///
-/// GtkStyleProvider is an interface used to provide style information to a `GtkStyleContext`.
-/// See `gtk_style_context_add_provider()` and `gtk_style_context_add_provider_for_screen()`.
 public struct StyleProviderRef: StyleProviderProtocol {
         /// Untyped pointer to the underlying `GtkStyleProvider` instance.
     /// For type-safe access, use the generated, typed pointer `style_provider_ptr` property instead.
@@ -672,12 +677,13 @@ public extension StyleProviderRef {
 
     }
 
+/// GtkStyleProvider is an interface used to provide style information to a `GtkStyleContext`.
+/// See `gtk_style_context_add_provider()` and `gtk_style_context_add_provider_for_screen()`.
+///
 /// The `StyleProvider` type acts as an owner of an underlying `GtkStyleProvider` instance.
 /// It provides the methods that can operate on this data type through `StyleProviderProtocol` conformance.
 /// Use `StyleProvider` as a strong reference or owner of a `GtkStyleProvider` instance.
 ///
-/// GtkStyleProvider is an interface used to provide style information to a `GtkStyleContext`.
-/// See `gtk_style_context_add_provider()` and `gtk_style_context_add_provider_for_screen()`.
 open class StyleProvider: StyleProviderProtocol {
         /// Untyped pointer to the underlying `GtkStyleProvider` instance.
     /// For type-safe access, use the generated, typed pointer `style_provider_ptr` property instead.
@@ -869,13 +875,14 @@ public extension StyleProviderProtocol {
 
 // MARK: - ToolShell Interface
 
+/// The `GtkToolShell` interface allows container widgets to provide additional
+/// information when embedding `GtkToolItem` widgets.
+///
 /// The `ToolShellProtocol` protocol exposes the methods and properties of an underlying `GtkToolShell` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ToolShell`.
 /// Alternatively, use `ToolShellRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkToolShell` interface allows container widgets to provide additional
-/// information when embedding `GtkToolItem` widgets.
 public protocol ToolShellProtocol: WidgetProtocol {
         /// Untyped pointer to the underlying `GtkToolShell` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -887,12 +894,13 @@ public protocol ToolShellProtocol: WidgetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GtkToolShell` interface allows container widgets to provide additional
+/// information when embedding `GtkToolItem` widgets.
+///
 /// The `ToolShellRef` type acts as a lightweight Swift reference to an underlying `GtkToolShell` instance.
 /// It exposes methods that can operate on this data type through `ToolShellProtocol` conformance.
 /// Use `ToolShellRef` only as an `unowned` reference to an existing `GtkToolShell` instance.
 ///
-/// The `GtkToolShell` interface allows container widgets to provide additional
-/// information when embedding `GtkToolItem` widgets.
 public struct ToolShellRef: ToolShellProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GtkToolShell` instance.
     /// For type-safe access, use the generated, typed pointer `tool_shell_ptr` property instead.
@@ -974,12 +982,13 @@ public extension ToolShellRef {
 
     }
 
+/// The `GtkToolShell` interface allows container widgets to provide additional
+/// information when embedding `GtkToolItem` widgets.
+///
 /// The `ToolShell` type acts as a reference-counted owner of an underlying `GtkToolShell` instance.
 /// It provides the methods that can operate on this data type through `ToolShellProtocol` conformance.
 /// Use `ToolShell` as a strong reference or owner of a `GtkToolShell` instance.
 ///
-/// The `GtkToolShell` interface allows container widgets to provide additional
-/// information when embedding `GtkToolItem` widgets.
 open class ToolShell: Widget, ToolShellProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1720,12 +1729,14 @@ public enum ToolShellSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

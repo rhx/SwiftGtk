@@ -17,12 +17,13 @@ import Atk
 
 // MARK: - TreeDragDest Interface
 
+
+///
 /// The `TreeDragDestProtocol` protocol exposes the methods and properties of an underlying `GtkTreeDragDest` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeDragDest`.
 /// Alternatively, use `TreeDragDestRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeDragDestProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragDest` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,11 +35,12 @@ public protocol TreeDragDestProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeDragDestRef` type acts as a lightweight Swift reference to an underlying `GtkTreeDragDest` instance.
 /// It exposes methods that can operate on this data type through `TreeDragDestProtocol` conformance.
 /// Use `TreeDragDestRef` only as an `unowned` reference to an existing `GtkTreeDragDest` instance.
 ///
-
 public struct TreeDragDestRef: TreeDragDestProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragDest` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_dest_ptr` property instead.
@@ -117,11 +119,12 @@ public extension TreeDragDestRef {
 
     }
 
+
+///
 /// The `TreeDragDest` type acts as an owner of an underlying `GtkTreeDragDest` instance.
 /// It provides the methods that can operate on this data type through `TreeDragDestProtocol` conformance.
 /// Use `TreeDragDest` as a strong reference or owner of a `GtkTreeDragDest` instance.
 ///
-
 open class TreeDragDest: TreeDragDestProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragDest` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_dest_ptr` property instead.
@@ -304,12 +307,13 @@ public extension TreeDragDestProtocol {
 
 // MARK: - TreeDragSource Interface
 
+
+///
 /// The `TreeDragSourceProtocol` protocol exposes the methods and properties of an underlying `GtkTreeDragSource` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeDragSource`.
 /// Alternatively, use `TreeDragSourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TreeDragSourceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragSource` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -321,11 +325,12 @@ public protocol TreeDragSourceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TreeDragSourceRef` type acts as a lightweight Swift reference to an underlying `GtkTreeDragSource` instance.
 /// It exposes methods that can operate on this data type through `TreeDragSourceProtocol` conformance.
 /// Use `TreeDragSourceRef` only as an `unowned` reference to an existing `GtkTreeDragSource` instance.
 ///
-
 public struct TreeDragSourceRef: TreeDragSourceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragSource` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_source_ptr` property instead.
@@ -404,11 +409,12 @@ public extension TreeDragSourceRef {
 
     }
 
+
+///
 /// The `TreeDragSource` type acts as an owner of an underlying `GtkTreeDragSource` instance.
 /// It provides the methods that can operate on this data type through `TreeDragSourceProtocol` conformance.
 /// Use `TreeDragSource` as a strong reference or owner of a `GtkTreeDragSource` instance.
 ///
-
 open class TreeDragSource: TreeDragSourceProtocol {
         /// Untyped pointer to the underlying `GtkTreeDragSource` instance.
     /// For type-safe access, use the generated, typed pointer `tree_drag_source_ptr` property instead.
@@ -597,11 +603,6 @@ public extension TreeDragSourceProtocol {
 
 // MARK: - TreeModel Interface
 
-/// The `TreeModelProtocol` protocol exposes the methods and properties of an underlying `GtkTreeModel` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TreeModel`.
-/// Alternatively, use `TreeModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GtkTreeModel` interface defines a generic tree interface for
 /// use by the `GtkTreeView` widget. It is an abstract interface, and
 /// is designed to be usable with any appropriate data structure. The
@@ -798,6 +799,12 @@ public extension TreeDragSourceProtocol {
 ///   required for levels in which nodes are referenced. For the root level
 ///   however, signals must be emitted at all times (however the root level
 ///   is always referenced when any view is attached).
+///
+/// The `TreeModelProtocol` protocol exposes the methods and properties of an underlying `GtkTreeModel` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeModel`.
+/// Alternatively, use `TreeModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TreeModelProtocol {
         /// Untyped pointer to the underlying `GtkTreeModel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -809,10 +816,6 @@ public protocol TreeModelProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TreeModelRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModel` instance.
-/// It exposes methods that can operate on this data type through `TreeModelProtocol` conformance.
-/// Use `TreeModelRef` only as an `unowned` reference to an existing `GtkTreeModel` instance.
-///
 /// The `GtkTreeModel` interface defines a generic tree interface for
 /// use by the `GtkTreeView` widget. It is an abstract interface, and
 /// is designed to be usable with any appropriate data structure. The
@@ -1009,6 +1012,11 @@ public protocol TreeModelProtocol {
 ///   required for levels in which nodes are referenced. For the root level
 ///   however, signals must be emitted at all times (however the root level
 ///   is always referenced when any view is attached).
+///
+/// The `TreeModelRef` type acts as a lightweight Swift reference to an underlying `GtkTreeModel` instance.
+/// It exposes methods that can operate on this data type through `TreeModelProtocol` conformance.
+/// Use `TreeModelRef` only as an `unowned` reference to an existing `GtkTreeModel` instance.
+///
 public struct TreeModelRef: TreeModelProtocol {
         /// Untyped pointer to the underlying `GtkTreeModel` instance.
     /// For type-safe access, use the generated, typed pointer `tree_model_ptr` property instead.
@@ -1087,10 +1095,6 @@ public extension TreeModelRef {
 
     }
 
-/// The `TreeModel` type acts as an owner of an underlying `GtkTreeModel` instance.
-/// It provides the methods that can operate on this data type through `TreeModelProtocol` conformance.
-/// Use `TreeModel` as a strong reference or owner of a `GtkTreeModel` instance.
-///
 /// The `GtkTreeModel` interface defines a generic tree interface for
 /// use by the `GtkTreeView` widget. It is an abstract interface, and
 /// is designed to be usable with any appropriate data structure. The
@@ -1287,6 +1291,11 @@ public extension TreeModelRef {
 ///   required for levels in which nodes are referenced. For the root level
 ///   however, signals must be emitted at all times (however the root level
 ///   is always referenced when any view is attached).
+///
+/// The `TreeModel` type acts as an owner of an underlying `GtkTreeModel` instance.
+/// It provides the methods that can operate on this data type through `TreeModelProtocol` conformance.
+/// Use `TreeModel` as a strong reference or owner of a `GtkTreeModel` instance.
+///
 open class TreeModel: TreeModelProtocol {
         /// Untyped pointer to the underlying `GtkTreeModel` instance.
     /// For type-safe access, use the generated, typed pointer `tree_model_ptr` property instead.
@@ -1664,8 +1673,8 @@ public extension TreeModelProtocol {
 
 
     /// Returns the type of the column.
-    @inlinable func getColumnType(index_: Int) -> GType {
-        let rv = gtk_tree_model_get_column_type(tree_model_ptr, gint(index_))
+    @inlinable func getColumnType(index: Int) -> GType {
+        let rv = gtk_tree_model_get_column_type(tree_model_ptr, gint(index))
         return rv
     }
 
@@ -1954,14 +1963,15 @@ public extension TreeModelProtocol {
 
 // MARK: - TreeSortable Interface
 
+/// `GtkTreeSortable` is an interface to be implemented by tree models which
+/// support sorting. The `GtkTreeView` uses the methods provided by this interface
+/// to sort the model.
+///
 /// The `TreeSortableProtocol` protocol exposes the methods and properties of an underlying `GtkTreeSortable` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TreeSortable`.
 /// Alternatively, use `TreeSortableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GtkTreeSortable` is an interface to be implemented by tree models which
-/// support sorting. The `GtkTreeView` uses the methods provided by this interface
-/// to sort the model.
 public protocol TreeSortableProtocol: TreeModelProtocol {
         /// Untyped pointer to the underlying `GtkTreeSortable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1973,13 +1983,14 @@ public protocol TreeSortableProtocol: TreeModelProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GtkTreeSortable` is an interface to be implemented by tree models which
+/// support sorting. The `GtkTreeView` uses the methods provided by this interface
+/// to sort the model.
+///
 /// The `TreeSortableRef` type acts as a lightweight Swift reference to an underlying `GtkTreeSortable` instance.
 /// It exposes methods that can operate on this data type through `TreeSortableProtocol` conformance.
 /// Use `TreeSortableRef` only as an `unowned` reference to an existing `GtkTreeSortable` instance.
 ///
-/// `GtkTreeSortable` is an interface to be implemented by tree models which
-/// support sorting. The `GtkTreeView` uses the methods provided by this interface
-/// to sort the model.
 public struct TreeSortableRef: TreeSortableProtocol {
         /// Untyped pointer to the underlying `GtkTreeSortable` instance.
     /// For type-safe access, use the generated, typed pointer `tree_sortable_ptr` property instead.
@@ -2058,13 +2069,14 @@ public extension TreeSortableRef {
 
     }
 
+/// `GtkTreeSortable` is an interface to be implemented by tree models which
+/// support sorting. The `GtkTreeView` uses the methods provided by this interface
+/// to sort the model.
+///
 /// The `TreeSortable` type acts as an owner of an underlying `GtkTreeSortable` instance.
 /// It provides the methods that can operate on this data type through `TreeSortableProtocol` conformance.
 /// Use `TreeSortable` as a strong reference or owner of a `GtkTreeSortable` instance.
 ///
-/// `GtkTreeSortable` is an interface to be implemented by tree models which
-/// support sorting. The `GtkTreeView` uses the methods provided by this interface
-/// to sort the model.
 open class TreeSortable: TreeModel, TreeSortableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain

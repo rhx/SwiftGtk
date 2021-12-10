@@ -32,12 +32,13 @@ public extension FileChooserDialogClassRef {
 
 // MARK: - FileChooserDialogClass Record
 
+
+///
 /// The `FileChooserDialogClassProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserDialogClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileChooserDialogClass`.
 /// Alternatively, use `FileChooserDialogClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FileChooserDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserDialogClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,11 +50,12 @@ public protocol FileChooserDialogClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FileChooserDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserDialogClass` instance.
 /// It exposes methods that can operate on this data type through `FileChooserDialogClassProtocol` conformance.
 /// Use `FileChooserDialogClassRef` only as an `unowned` reference to an existing `GtkFileChooserDialogClass` instance.
 ///
-
 public struct FileChooserDialogClassRef: FileChooserDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserDialogClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -174,12 +176,13 @@ public extension FileChooserNativeClassRef {
 
 // MARK: - FileChooserNativeClass Record
 
+
+///
 /// The `FileChooserNativeClassProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserNativeClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileChooserNativeClass`.
 /// Alternatively, use `FileChooserNativeClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FileChooserNativeClassProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserNativeClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -191,11 +194,12 @@ public protocol FileChooserNativeClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FileChooserNativeClassRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserNativeClass` instance.
 /// It exposes methods that can operate on this data type through `FileChooserNativeClassProtocol` conformance.
 /// Use `FileChooserNativeClassRef` only as an `unowned` reference to an existing `GtkFileChooserNativeClass` instance.
 ///
-
 public struct FileChooserNativeClassRef: FileChooserNativeClassProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserNativeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -291,6 +295,142 @@ public extension FileChooserNativeClassProtocol {
 
 
 
+/// Metatype/GType declaration for FileChooserWidgetAccessible
+public extension FileChooserWidgetAccessibleClassRef {
+    
+    /// This getter returns the GLib type identifier registered for `FileChooserWidgetAccessible`
+    static var metatypeReference: GType { gtk_file_chooser_widget_accessible_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GtkFileChooserWidgetAccessibleClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GtkFileChooserWidgetAccessibleClass.self) }
+    
+    static var metatype: GtkFileChooserWidgetAccessibleClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: FileChooserWidgetAccessibleClassRef? { FileChooserWidgetAccessibleClassRef(metatypePointer) }
+    
+    
+}
+
+// MARK: - FileChooserWidgetAccessibleClass Record
+
+
+///
+/// The `FileChooserWidgetAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserWidgetAccessibleClass` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileChooserWidgetAccessibleClass`.
+/// Alternatively, use `FileChooserWidgetAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol FileChooserWidgetAccessibleClassProtocol {
+        /// Untyped pointer to the underlying `GtkFileChooserWidgetAccessibleClass` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GtkFileChooserWidgetAccessibleClass` instance.
+    var _ptr: UnsafeMutablePointer<GtkFileChooserWidgetAccessibleClass>! { get }
+
+    /// Required Initialiser for types conforming to `FileChooserWidgetAccessibleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+
+///
+/// The `FileChooserWidgetAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserWidgetAccessibleClass` instance.
+/// It exposes methods that can operate on this data type through `FileChooserWidgetAccessibleClassProtocol` conformance.
+/// Use `FileChooserWidgetAccessibleClassRef` only as an `unowned` reference to an existing `GtkFileChooserWidgetAccessibleClass` instance.
+///
+public struct FileChooserWidgetAccessibleClassRef: FileChooserWidgetAccessibleClassProtocol {
+        /// Untyped pointer to the underlying `GtkFileChooserWidgetAccessibleClass` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension FileChooserWidgetAccessibleClassRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GtkFileChooserWidgetAccessibleClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GtkFileChooserWidgetAccessibleClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GtkFileChooserWidgetAccessibleClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GtkFileChooserWidgetAccessibleClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `FileChooserWidgetAccessibleClassProtocol`
+    @inlinable init<T: FileChooserWidgetAccessibleClassProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleClassProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleClassProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleClassProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleClassProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileChooserWidgetAccessibleClassProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+// MARK: FileChooserWidgetAccessibleClass Record: FileChooserWidgetAccessibleClassProtocol extension (methods and fields)
+public extension FileChooserWidgetAccessibleClassProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GtkFileChooserWidgetAccessibleClass` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GtkFileChooserWidgetAccessibleClass>! { return ptr?.assumingMemoryBound(to: GtkFileChooserWidgetAccessibleClass.self) }
+
+
+    @inlinable var parentClass: GtkContainerAccessibleClass {
+        get {
+            let rv = _ptr.pointee.parent_class
+            return rv
+        }
+    }
+
+}
+
+
+
 /// Metatype/GType declaration for FileChooserWidget
 public extension FileChooserWidgetClassRef {
     
@@ -308,12 +448,13 @@ public extension FileChooserWidgetClassRef {
 
 // MARK: - FileChooserWidgetClass Record
 
+
+///
 /// The `FileChooserWidgetClassProtocol` protocol exposes the methods and properties of an underlying `GtkFileChooserWidgetClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileChooserWidgetClass`.
 /// Alternatively, use `FileChooserWidgetClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FileChooserWidgetClassProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserWidgetClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -325,11 +466,12 @@ public protocol FileChooserWidgetClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FileChooserWidgetClassRef` type acts as a lightweight Swift reference to an underlying `GtkFileChooserWidgetClass` instance.
 /// It exposes methods that can operate on this data type through `FileChooserWidgetClassProtocol` conformance.
 /// Use `FileChooserWidgetClassRef` only as an `unowned` reference to an existing `GtkFileChooserWidgetClass` instance.
 ///
-
 public struct FileChooserWidgetClassRef: FileChooserWidgetClassProtocol {
         /// Untyped pointer to the underlying `GtkFileChooserWidgetClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -437,13 +579,14 @@ public extension FileChooserWidgetClassProtocol {
 
 // MARK: - FileFilterInfo Record
 
+/// A `GtkFileFilterInfo-struct` is used to pass information about the
+/// tested file to `gtk_file_filter_filter()`.
+///
 /// The `FileFilterInfoProtocol` protocol exposes the methods and properties of an underlying `GtkFileFilterInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileFilterInfo`.
 /// Alternatively, use `FileFilterInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GtkFileFilterInfo-struct` is used to pass information about the
-/// tested file to `gtk_file_filter_filter()`.
 public protocol FileFilterInfoProtocol {
         /// Untyped pointer to the underlying `GtkFileFilterInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -455,12 +598,13 @@ public protocol FileFilterInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GtkFileFilterInfo-struct` is used to pass information about the
+/// tested file to `gtk_file_filter_filter()`.
+///
 /// The `FileFilterInfoRef` type acts as a lightweight Swift reference to an underlying `GtkFileFilterInfo` instance.
 /// It exposes methods that can operate on this data type through `FileFilterInfoProtocol` conformance.
 /// Use `FileFilterInfoRef` only as an `unowned` reference to an existing `GtkFileFilterInfo` instance.
 ///
-/// A `GtkFileFilterInfo-struct` is used to pass information about the
-/// tested file to `gtk_file_filter_filter()`.
 public struct FileFilterInfoRef: FileFilterInfoProtocol {
         /// Untyped pointer to the underlying `GtkFileFilterInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -539,12 +683,13 @@ public extension FileFilterInfoRef {
 
     }
 
+/// A `GtkFileFilterInfo-struct` is used to pass information about the
+/// tested file to `gtk_file_filter_filter()`.
+///
 /// The `FileFilterInfo` type acts as an owner of an underlying `GtkFileFilterInfo` instance.
 /// It provides the methods that can operate on this data type through `FileFilterInfoProtocol` conformance.
 /// Use `FileFilterInfo` as a strong reference or owner of a `GtkFileFilterInfo` instance.
 ///
-/// A `GtkFileFilterInfo-struct` is used to pass information about the
-/// tested file to `gtk_file_filter_filter()`.
 open class FileFilterInfo: FileFilterInfoProtocol {
         /// Untyped pointer to the underlying `GtkFileFilterInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -777,12 +922,13 @@ public extension FileFilterInfoProtocol {
 
 // MARK: - FixedChild Record
 
+
+///
 /// The `FixedChildProtocol` protocol exposes the methods and properties of an underlying `GtkFixedChild` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FixedChild`.
 /// Alternatively, use `FixedChildRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FixedChildProtocol {
         /// Untyped pointer to the underlying `GtkFixedChild` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -794,11 +940,12 @@ public protocol FixedChildProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FixedChildRef` type acts as a lightweight Swift reference to an underlying `GtkFixedChild` instance.
 /// It exposes methods that can operate on this data type through `FixedChildProtocol` conformance.
 /// Use `FixedChildRef` only as an `unowned` reference to an existing `GtkFixedChild` instance.
 ///
-
 public struct FixedChildRef: FixedChildProtocol {
         /// Untyped pointer to the underlying `GtkFixedChild` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -877,11 +1024,12 @@ public extension FixedChildRef {
 
     }
 
+
+///
 /// The `FixedChild` type acts as an owner of an underlying `GtkFixedChild` instance.
 /// It provides the methods that can operate on this data type through `FixedChildProtocol` conformance.
 /// Use `FixedChild` as a strong reference or owner of a `GtkFixedChild` instance.
 ///
-
 open class FixedChild: FixedChildProtocol {
         /// Untyped pointer to the underlying `GtkFixedChild` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1088,12 +1236,13 @@ public extension FixedClassRef {
 
 // MARK: - FixedClass Record
 
+
+///
 /// The `FixedClassProtocol` protocol exposes the methods and properties of an underlying `GtkFixedClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FixedClass`.
 /// Alternatively, use `FixedClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FixedClassProtocol {
         /// Untyped pointer to the underlying `GtkFixedClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1105,11 +1254,12 @@ public protocol FixedClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FixedClassRef` type acts as a lightweight Swift reference to an underlying `GtkFixedClass` instance.
 /// It exposes methods that can operate on this data type through `FixedClassProtocol` conformance.
 /// Use `FixedClassRef` only as an `unowned` reference to an existing `GtkFixedClass` instance.
 ///
-
 public struct FixedClassRef: FixedClassProtocol {
         /// Untyped pointer to the underlying `GtkFixedClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1230,12 +1380,13 @@ public extension FlowBoxAccessibleClassRef {
 
 // MARK: - FlowBoxAccessibleClass Record
 
+
+///
 /// The `FlowBoxAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkFlowBoxAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FlowBoxAccessibleClass`.
 /// Alternatively, use `FlowBoxAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FlowBoxAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1247,11 +1398,12 @@ public protocol FlowBoxAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FlowBoxAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `FlowBoxAccessibleClassProtocol` conformance.
 /// Use `FlowBoxAccessibleClassRef` only as an `unowned` reference to an existing `GtkFlowBoxAccessibleClass` instance.
 ///
-
 public struct FlowBoxAccessibleClassRef: FlowBoxAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1364,12 +1516,13 @@ public extension FlowBoxChildAccessibleClassRef {
 
 // MARK: - FlowBoxChildAccessibleClass Record
 
+
+///
 /// The `FlowBoxChildAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkFlowBoxChildAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FlowBoxChildAccessibleClass`.
 /// Alternatively, use `FlowBoxChildAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FlowBoxChildAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxChildAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1381,11 +1534,12 @@ public protocol FlowBoxChildAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FlowBoxChildAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxChildAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `FlowBoxChildAccessibleClassProtocol` conformance.
 /// Use `FlowBoxChildAccessibleClassRef` only as an `unowned` reference to an existing `GtkFlowBoxChildAccessibleClass` instance.
 ///
-
 public struct FlowBoxChildAccessibleClassRef: FlowBoxChildAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxChildAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1498,12 +1652,13 @@ public extension FlowBoxChildClassRef {
 
 // MARK: - FlowBoxChildClass Record
 
+
+///
 /// The `FlowBoxChildClassProtocol` protocol exposes the methods and properties of an underlying `GtkFlowBoxChildClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FlowBoxChildClass`.
 /// Alternatively, use `FlowBoxChildClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FlowBoxChildClassProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxChildClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1515,11 +1670,12 @@ public protocol FlowBoxChildClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FlowBoxChildClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxChildClass` instance.
 /// It exposes methods that can operate on this data type through `FlowBoxChildClassProtocol` conformance.
 /// Use `FlowBoxChildClassRef` only as an `unowned` reference to an existing `GtkFlowBoxChildClass` instance.
 ///
-
 public struct FlowBoxChildClassRef: FlowBoxChildClassProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxChildClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1638,12 +1794,13 @@ public extension FlowBoxClassRef {
 
 // MARK: - FlowBoxClass Record
 
+
+///
 /// The `FlowBoxClassProtocol` protocol exposes the methods and properties of an underlying `GtkFlowBoxClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FlowBoxClass`.
 /// Alternatively, use `FlowBoxClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FlowBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1655,11 +1812,12 @@ public protocol FlowBoxClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FlowBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkFlowBoxClass` instance.
 /// It exposes methods that can operate on this data type through `FlowBoxClassProtocol` conformance.
 /// Use `FlowBoxClassRef` only as an `unowned` reference to an existing `GtkFlowBoxClass` instance.
 ///
-
 public struct FlowBoxClassRef: FlowBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkFlowBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1798,12 +1956,13 @@ public extension FontButtonClassRef {
 
 // MARK: - FontButtonClass Record
 
+
+///
 /// The `FontButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkFontButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FontButtonClass`.
 /// Alternatively, use `FontButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FontButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkFontButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1815,11 +1974,12 @@ public protocol FontButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FontButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkFontButtonClass` instance.
 /// It exposes methods that can operate on this data type through `FontButtonClassProtocol` conformance.
 /// Use `FontButtonClassRef` only as an `unowned` reference to an existing `GtkFontButtonClass` instance.
 ///
-
 public struct FontButtonClassRef: FontButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkFontButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1942,12 +2102,13 @@ public extension FontChooserDialogClassRef {
 
 // MARK: - FontChooserDialogClass Record
 
+
+///
 /// The `FontChooserDialogClassProtocol` protocol exposes the methods and properties of an underlying `GtkFontChooserDialogClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FontChooserDialogClass`.
 /// Alternatively, use `FontChooserDialogClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FontChooserDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkFontChooserDialogClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1959,11 +2120,12 @@ public protocol FontChooserDialogClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FontChooserDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserDialogClass` instance.
 /// It exposes methods that can operate on this data type through `FontChooserDialogClassProtocol` conformance.
 /// Use `FontChooserDialogClassRef` only as an `unowned` reference to an existing `GtkFontChooserDialogClass` instance.
 ///
-
 public struct FontChooserDialogClassRef: FontChooserDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkFontChooserDialogClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2086,12 +2248,13 @@ public extension FontChooserIfaceRef {
 
 // MARK: - FontChooserIface Record
 
+
+///
 /// The `FontChooserIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkFontChooserIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FontChooserIface`.
 /// Alternatively, use `FontChooserIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FontChooserIfaceProtocol {
         /// Untyped pointer to the underlying `GtkFontChooserIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2103,11 +2266,12 @@ public protocol FontChooserIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FontChooserIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserIface` instance.
 /// It exposes methods that can operate on this data type through `FontChooserIfaceProtocol` conformance.
 /// Use `FontChooserIfaceRef` only as an `unowned` reference to an existing `GtkFontChooserIface` instance.
 ///
-
 public struct FontChooserIfaceRef: FontChooserIfaceProtocol {
         /// Untyped pointer to the underlying `GtkFontChooserIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2241,12 +2405,13 @@ public extension FontChooserWidgetClassRef {
 
 // MARK: - FontChooserWidgetClass Record
 
+
+///
 /// The `FontChooserWidgetClassProtocol` protocol exposes the methods and properties of an underlying `GtkFontChooserWidgetClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FontChooserWidgetClass`.
 /// Alternatively, use `FontChooserWidgetClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FontChooserWidgetClassProtocol {
         /// Untyped pointer to the underlying `GtkFontChooserWidgetClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2258,11 +2423,12 @@ public protocol FontChooserWidgetClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FontChooserWidgetClassRef` type acts as a lightweight Swift reference to an underlying `GtkFontChooserWidgetClass` instance.
 /// It exposes methods that can operate on this data type through `FontChooserWidgetClassProtocol` conformance.
 /// Use `FontChooserWidgetClassRef` only as an `unowned` reference to an existing `GtkFontChooserWidgetClass` instance.
 ///
-
 public struct FontChooserWidgetClassRef: FontChooserWidgetClassProtocol {
         /// Untyped pointer to the underlying `GtkFontChooserWidgetClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2393,12 +2559,13 @@ public extension FontSelectionClassRef {
 
 // MARK: - FontSelectionClass Record
 
+
+///
 /// The `FontSelectionClassProtocol` protocol exposes the methods and properties of an underlying `GtkFontSelectionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FontSelectionClass`.
 /// Alternatively, use `FontSelectionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FontSelectionClassProtocol {
         /// Untyped pointer to the underlying `GtkFontSelectionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2410,11 +2577,12 @@ public protocol FontSelectionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FontSelectionClassRef` type acts as a lightweight Swift reference to an underlying `GtkFontSelectionClass` instance.
 /// It exposes methods that can operate on this data type through `FontSelectionClassProtocol` conformance.
 /// Use `FontSelectionClassRef` only as an `unowned` reference to an existing `GtkFontSelectionClass` instance.
 ///
-
 public struct FontSelectionClassRef: FontSelectionClassProtocol {
         /// Untyped pointer to the underlying `GtkFontSelectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2535,12 +2703,13 @@ public extension FontSelectionDialogClassRef {
 
 // MARK: - FontSelectionDialogClass Record
 
+
+///
 /// The `FontSelectionDialogClassProtocol` protocol exposes the methods and properties of an underlying `GtkFontSelectionDialogClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FontSelectionDialogClass`.
 /// Alternatively, use `FontSelectionDialogClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FontSelectionDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkFontSelectionDialogClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2552,11 +2721,12 @@ public protocol FontSelectionDialogClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FontSelectionDialogClassRef` type acts as a lightweight Swift reference to an underlying `GtkFontSelectionDialogClass` instance.
 /// It exposes methods that can operate on this data type through `FontSelectionDialogClassProtocol` conformance.
 /// Use `FontSelectionDialogClassRef` only as an `unowned` reference to an existing `GtkFontSelectionDialogClass` instance.
 ///
-
 public struct FontSelectionDialogClassRef: FontSelectionDialogClassProtocol {
         /// Untyped pointer to the underlying `GtkFontSelectionDialogClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2677,12 +2847,13 @@ public extension FrameAccessibleClassRef {
 
 // MARK: - FrameAccessibleClass Record
 
+
+///
 /// The `FrameAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkFrameAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FrameAccessibleClass`.
 /// Alternatively, use `FrameAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FrameAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkFrameAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2694,11 +2865,12 @@ public protocol FrameAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FrameAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkFrameAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `FrameAccessibleClassProtocol` conformance.
 /// Use `FrameAccessibleClassRef` only as an `unowned` reference to an existing `GtkFrameAccessibleClass` instance.
 ///
-
 public struct FrameAccessibleClassRef: FrameAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkFrameAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2811,12 +2983,13 @@ public extension FrameClassRef {
 
 // MARK: - FrameClass Record
 
+
+///
 /// The `FrameClassProtocol` protocol exposes the methods and properties of an underlying `GtkFrameClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FrameClass`.
 /// Alternatively, use `FrameClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FrameClassProtocol {
         /// Untyped pointer to the underlying `GtkFrameClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2828,11 +3001,12 @@ public protocol FrameClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FrameClassRef` type acts as a lightweight Swift reference to an underlying `GtkFrameClass` instance.
 /// It exposes methods that can operate on this data type through `FrameClassProtocol` conformance.
 /// Use `FrameClassRef` only as an `unowned` reference to an existing `GtkFrameClass` instance.
 ///
-
 public struct FrameClassRef: FrameClassProtocol {
         /// Untyped pointer to the underlying `GtkFrameClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2957,12 +3131,13 @@ public extension GLAreaClassRef {
 
 // MARK: - GLAreaClass Record
 
+/// The `GtkGLAreaClass` structure contains only private data.
+///
 /// The `GLAreaClassProtocol` protocol exposes the methods and properties of an underlying `GtkGLAreaClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GLAreaClass`.
 /// Alternatively, use `GLAreaClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GtkGLAreaClass` structure contains only private data.
 public protocol GLAreaClassProtocol {
         /// Untyped pointer to the underlying `GtkGLAreaClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2974,11 +3149,12 @@ public protocol GLAreaClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GtkGLAreaClass` structure contains only private data.
+///
 /// The `GLAreaClassRef` type acts as a lightweight Swift reference to an underlying `GtkGLAreaClass` instance.
 /// It exposes methods that can operate on this data type through `GLAreaClassProtocol` conformance.
 /// Use `GLAreaClassRef` only as an `unowned` reference to an existing `GtkGLAreaClass` instance.
 ///
-/// The `GtkGLAreaClass` structure contains only private data.
 public struct GLAreaClassRef: GLAreaClassProtocol {
         /// Untyped pointer to the underlying `GtkGLAreaClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

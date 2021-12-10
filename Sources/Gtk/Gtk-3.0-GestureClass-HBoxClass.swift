@@ -32,12 +32,13 @@ public extension GestureClassRef {
 
 // MARK: - GestureClass Record
 
+
+///
 /// The `GestureClassProtocol` protocol exposes the methods and properties of an underlying `GtkGestureClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GestureClass`.
 /// Alternatively, use `GestureClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol GestureClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,11 +50,12 @@ public protocol GestureClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `GestureClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureClass` instance.
 /// It exposes methods that can operate on this data type through `GestureClassProtocol` conformance.
 /// Use `GestureClassRef` only as an `unowned` reference to an existing `GtkGestureClass` instance.
 ///
-
 public struct GestureClassRef: GestureClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -160,12 +162,13 @@ public extension GestureDragClassRef {
 
 // MARK: - GestureDragClass Record
 
+
+///
 /// The `GestureDragClassProtocol` protocol exposes the methods and properties of an underlying `GtkGestureDragClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GestureDragClass`.
 /// Alternatively, use `GestureDragClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol GestureDragClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureDragClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -177,11 +180,12 @@ public protocol GestureDragClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `GestureDragClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureDragClass` instance.
 /// It exposes methods that can operate on this data type through `GestureDragClassProtocol` conformance.
 /// Use `GestureDragClassRef` only as an `unowned` reference to an existing `GtkGestureDragClass` instance.
 ///
-
 public struct GestureDragClassRef: GestureDragClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureDragClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -288,12 +292,13 @@ public extension GestureLongPressClassRef {
 
 // MARK: - GestureLongPressClass Record
 
+
+///
 /// The `GestureLongPressClassProtocol` protocol exposes the methods and properties of an underlying `GtkGestureLongPressClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GestureLongPressClass`.
 /// Alternatively, use `GestureLongPressClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol GestureLongPressClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureLongPressClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -305,11 +310,12 @@ public protocol GestureLongPressClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `GestureLongPressClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureLongPressClass` instance.
 /// It exposes methods that can operate on this data type through `GestureLongPressClassProtocol` conformance.
 /// Use `GestureLongPressClassRef` only as an `unowned` reference to an existing `GtkGestureLongPressClass` instance.
 ///
-
 public struct GestureLongPressClassRef: GestureLongPressClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureLongPressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -416,12 +422,13 @@ public extension GestureMultiPressClassRef {
 
 // MARK: - GestureMultiPressClass Record
 
+
+///
 /// The `GestureMultiPressClassProtocol` protocol exposes the methods and properties of an underlying `GtkGestureMultiPressClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GestureMultiPressClass`.
 /// Alternatively, use `GestureMultiPressClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol GestureMultiPressClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureMultiPressClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -433,11 +440,12 @@ public protocol GestureMultiPressClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `GestureMultiPressClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureMultiPressClass` instance.
 /// It exposes methods that can operate on this data type through `GestureMultiPressClassProtocol` conformance.
 /// Use `GestureMultiPressClassRef` only as an `unowned` reference to an existing `GtkGestureMultiPressClass` instance.
 ///
-
 public struct GestureMultiPressClassRef: GestureMultiPressClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureMultiPressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -544,12 +552,13 @@ public extension GesturePanClassRef {
 
 // MARK: - GesturePanClass Record
 
+
+///
 /// The `GesturePanClassProtocol` protocol exposes the methods and properties of an underlying `GtkGesturePanClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GesturePanClass`.
 /// Alternatively, use `GesturePanClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol GesturePanClassProtocol {
         /// Untyped pointer to the underlying `GtkGesturePanClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -561,11 +570,12 @@ public protocol GesturePanClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `GesturePanClassRef` type acts as a lightweight Swift reference to an underlying `GtkGesturePanClass` instance.
 /// It exposes methods that can operate on this data type through `GesturePanClassProtocol` conformance.
 /// Use `GesturePanClassRef` only as an `unowned` reference to an existing `GtkGesturePanClass` instance.
 ///
-
 public struct GesturePanClassRef: GesturePanClassProtocol {
         /// Untyped pointer to the underlying `GtkGesturePanClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -672,12 +682,13 @@ public extension GestureRotateClassRef {
 
 // MARK: - GestureRotateClass Record
 
+
+///
 /// The `GestureRotateClassProtocol` protocol exposes the methods and properties of an underlying `GtkGestureRotateClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GestureRotateClass`.
 /// Alternatively, use `GestureRotateClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol GestureRotateClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureRotateClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -689,11 +700,12 @@ public protocol GestureRotateClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `GestureRotateClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureRotateClass` instance.
 /// It exposes methods that can operate on this data type through `GestureRotateClassProtocol` conformance.
 /// Use `GestureRotateClassRef` only as an `unowned` reference to an existing `GtkGestureRotateClass` instance.
 ///
-
 public struct GestureRotateClassRef: GestureRotateClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureRotateClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -800,12 +812,13 @@ public extension GestureSingleClassRef {
 
 // MARK: - GestureSingleClass Record
 
+
+///
 /// The `GestureSingleClassProtocol` protocol exposes the methods and properties of an underlying `GtkGestureSingleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GestureSingleClass`.
 /// Alternatively, use `GestureSingleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol GestureSingleClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureSingleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -817,11 +830,12 @@ public protocol GestureSingleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `GestureSingleClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureSingleClass` instance.
 /// It exposes methods that can operate on this data type through `GestureSingleClassProtocol` conformance.
 /// Use `GestureSingleClassRef` only as an `unowned` reference to an existing `GtkGestureSingleClass` instance.
 ///
-
 public struct GestureSingleClassRef: GestureSingleClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureSingleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -928,12 +942,13 @@ public extension GestureStylusClassRef {
 
 // MARK: - GestureStylusClass Record
 
+
+///
 /// The `GestureStylusClassProtocol` protocol exposes the methods and properties of an underlying `GtkGestureStylusClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GestureStylusClass`.
 /// Alternatively, use `GestureStylusClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol GestureStylusClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureStylusClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -945,11 +960,12 @@ public protocol GestureStylusClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `GestureStylusClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureStylusClass` instance.
 /// It exposes methods that can operate on this data type through `GestureStylusClassProtocol` conformance.
 /// Use `GestureStylusClassRef` only as an `unowned` reference to an existing `GtkGestureStylusClass` instance.
 ///
-
 public struct GestureStylusClassRef: GestureStylusClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureStylusClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1056,12 +1072,13 @@ public extension GestureSwipeClassRef {
 
 // MARK: - GestureSwipeClass Record
 
+
+///
 /// The `GestureSwipeClassProtocol` protocol exposes the methods and properties of an underlying `GtkGestureSwipeClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GestureSwipeClass`.
 /// Alternatively, use `GestureSwipeClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol GestureSwipeClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureSwipeClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1073,11 +1090,12 @@ public protocol GestureSwipeClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `GestureSwipeClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureSwipeClass` instance.
 /// It exposes methods that can operate on this data type through `GestureSwipeClassProtocol` conformance.
 /// Use `GestureSwipeClassRef` only as an `unowned` reference to an existing `GtkGestureSwipeClass` instance.
 ///
-
 public struct GestureSwipeClassRef: GestureSwipeClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureSwipeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1184,12 +1202,13 @@ public extension GestureZoomClassRef {
 
 // MARK: - GestureZoomClass Record
 
+
+///
 /// The `GestureZoomClassProtocol` protocol exposes the methods and properties of an underlying `GtkGestureZoomClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GestureZoomClass`.
 /// Alternatively, use `GestureZoomClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol GestureZoomClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureZoomClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1201,11 +1220,12 @@ public protocol GestureZoomClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `GestureZoomClassRef` type acts as a lightweight Swift reference to an underlying `GtkGestureZoomClass` instance.
 /// It exposes methods that can operate on this data type through `GestureZoomClassProtocol` conformance.
 /// Use `GestureZoomClassRef` only as an `unowned` reference to an existing `GtkGestureZoomClass` instance.
 ///
-
 public struct GestureZoomClassRef: GestureZoomClassProtocol {
         /// Untyped pointer to the underlying `GtkGestureZoomClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1297,11 +1317,6 @@ public extension GestureZoomClassProtocol {
 
 // MARK: - Gradient Record
 
-/// The `GradientProtocol` protocol exposes the methods and properties of an underlying `GtkGradient` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Gradient`.
-/// Alternatively, use `GradientRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GtkGradient is a boxed type that represents a gradient.
 /// It is the result of parsing a
 /// [gradient expression](#gtkcssprovider-gradients).
@@ -1318,6 +1333,12 @@ public extension GestureZoomClassProtocol {
 /// to represent gradients. As its handling is not conforming to modern
 /// web standards, it is not used anymore. If you want to use gradients in
 /// your own code, please use Cairo directly.
+///
+/// The `GradientProtocol` protocol exposes the methods and properties of an underlying `GtkGradient` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Gradient`.
+/// Alternatively, use `GradientRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol GradientProtocol {
         /// Untyped pointer to the underlying `GtkGradient` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1329,10 +1350,6 @@ public protocol GradientProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `GradientRef` type acts as a lightweight Swift reference to an underlying `GtkGradient` instance.
-/// It exposes methods that can operate on this data type through `GradientProtocol` conformance.
-/// Use `GradientRef` only as an `unowned` reference to an existing `GtkGradient` instance.
-///
 /// GtkGradient is a boxed type that represents a gradient.
 /// It is the result of parsing a
 /// [gradient expression](#gtkcssprovider-gradients).
@@ -1349,6 +1366,11 @@ public protocol GradientProtocol {
 /// to represent gradients. As its handling is not conforming to modern
 /// web standards, it is not used anymore. If you want to use gradients in
 /// your own code, please use Cairo directly.
+///
+/// The `GradientRef` type acts as a lightweight Swift reference to an underlying `GtkGradient` instance.
+/// It exposes methods that can operate on this data type through `GradientProtocol` conformance.
+/// Use `GradientRef` only as an `unowned` reference to an existing `GtkGradient` instance.
+///
 public struct GradientRef: GradientProtocol {
         /// Untyped pointer to the underlying `GtkGradient` instance.
     /// For type-safe access, use the generated, typed pointer `gradient_ptr` property instead.
@@ -1471,10 +1493,6 @@ public extension GradientRef {
     }
 }
 
-/// The `Gradient` type acts as a reference-counted owner of an underlying `GtkGradient` instance.
-/// It provides the methods that can operate on this data type through `GradientProtocol` conformance.
-/// Use `Gradient` as a strong reference or owner of a `GtkGradient` instance.
-///
 /// GtkGradient is a boxed type that represents a gradient.
 /// It is the result of parsing a
 /// [gradient expression](#gtkcssprovider-gradients).
@@ -1491,6 +1509,11 @@ public extension GradientRef {
 /// to represent gradients. As its handling is not conforming to modern
 /// web standards, it is not used anymore. If you want to use gradients in
 /// your own code, please use Cairo directly.
+///
+/// The `Gradient` type acts as a reference-counted owner of an underlying `GtkGradient` instance.
+/// It provides the methods that can operate on this data type through `GradientProtocol` conformance.
+/// Use `Gradient` as a strong reference or owner of a `GtkGradient` instance.
+///
 open class Gradient: GradientProtocol {
         /// Untyped pointer to the underlying `GtkGradient` instance.
     /// For type-safe access, use the generated, typed pointer `gradient_ptr` property instead.
@@ -1772,12 +1795,13 @@ public extension GridClassRef {
 
 // MARK: - GridClass Record
 
+
+///
 /// The `GridClassProtocol` protocol exposes the methods and properties of an underlying `GtkGridClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GridClass`.
 /// Alternatively, use `GridClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol GridClassProtocol {
         /// Untyped pointer to the underlying `GtkGridClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1789,11 +1813,12 @@ public protocol GridClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `GridClassRef` type acts as a lightweight Swift reference to an underlying `GtkGridClass` instance.
 /// It exposes methods that can operate on this data type through `GridClassProtocol` conformance.
 /// Use `GridClassRef` only as an `unowned` reference to an existing `GtkGridClass` instance.
 ///
-
 public struct GridClassRef: GridClassProtocol {
         /// Untyped pointer to the underlying `GtkGridClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1924,12 +1949,13 @@ public extension HBoxClassRef {
 
 // MARK: - HBoxClass Record
 
+
+///
 /// The `HBoxClassProtocol` protocol exposes the methods and properties of an underlying `GtkHBoxClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HBoxClass`.
 /// Alternatively, use `HBoxClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol HBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkHBoxClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1941,11 +1967,12 @@ public protocol HBoxClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `HBoxClassRef` type acts as a lightweight Swift reference to an underlying `GtkHBoxClass` instance.
 /// It exposes methods that can operate on this data type through `HBoxClassProtocol` conformance.
 /// Use `HBoxClassRef` only as an `unowned` reference to an existing `GtkHBoxClass` instance.
 ///
-
 public struct HBoxClassRef: HBoxClassProtocol {
         /// Untyped pointer to the underlying `GtkHBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

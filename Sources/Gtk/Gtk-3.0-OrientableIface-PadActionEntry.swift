@@ -32,12 +32,13 @@ public extension OrientableIfaceRef {
 
 // MARK: - OrientableIface Record
 
+
+///
 /// The `OrientableIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkOrientableIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OrientableIface`.
 /// Alternatively, use `OrientableIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol OrientableIfaceProtocol {
         /// Untyped pointer to the underlying `GtkOrientableIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,11 +50,12 @@ public protocol OrientableIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `OrientableIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkOrientableIface` instance.
 /// It exposes methods that can operate on this data type through `OrientableIfaceProtocol` conformance.
 /// Use `OrientableIfaceRef` only as an `unowned` reference to an existing `GtkOrientableIface` instance.
 ///
-
 public struct OrientableIfaceRef: OrientableIfaceProtocol {
         /// Untyped pointer to the underlying `GtkOrientableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -166,12 +168,13 @@ public extension OverlayClassRef {
 
 // MARK: - OverlayClass Record
 
+
+///
 /// The `OverlayClassProtocol` protocol exposes the methods and properties of an underlying `GtkOverlayClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OverlayClass`.
 /// Alternatively, use `OverlayClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol OverlayClassProtocol {
         /// Untyped pointer to the underlying `GtkOverlayClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -183,11 +186,12 @@ public protocol OverlayClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `OverlayClassRef` type acts as a lightweight Swift reference to an underlying `GtkOverlayClass` instance.
 /// It exposes methods that can operate on this data type through `OverlayClassProtocol` conformance.
 /// Use `OverlayClassRef` only as an `unowned` reference to an existing `GtkOverlayClass` instance.
 ///
-
 public struct OverlayClassRef: OverlayClassProtocol {
         /// Untyped pointer to the underlying `GtkOverlayClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -305,12 +309,13 @@ public extension OverlayClassProtocol {
 
 // MARK: - PadActionEntry Record
 
+/// Struct defining a pad action entry.
+///
 /// The `PadActionEntryProtocol` protocol exposes the methods and properties of an underlying `GtkPadActionEntry` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PadActionEntry`.
 /// Alternatively, use `PadActionEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Struct defining a pad action entry.
 public protocol PadActionEntryProtocol {
         /// Untyped pointer to the underlying `GtkPadActionEntry` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -322,11 +327,12 @@ public protocol PadActionEntryProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Struct defining a pad action entry.
+///
 /// The `PadActionEntryRef` type acts as a lightweight Swift reference to an underlying `GtkPadActionEntry` instance.
 /// It exposes methods that can operate on this data type through `PadActionEntryProtocol` conformance.
 /// Use `PadActionEntryRef` only as an `unowned` reference to an existing `GtkPadActionEntry` instance.
 ///
-/// Struct defining a pad action entry.
 public struct PadActionEntryRef: PadActionEntryProtocol {
         /// Untyped pointer to the underlying `GtkPadActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -405,11 +411,12 @@ public extension PadActionEntryRef {
 
     }
 
+/// Struct defining a pad action entry.
+///
 /// The `PadActionEntry` type acts as an owner of an underlying `GtkPadActionEntry` instance.
 /// It provides the methods that can operate on this data type through `PadActionEntryProtocol` conformance.
 /// Use `PadActionEntry` as a strong reference or owner of a `GtkPadActionEntry` instance.
 ///
-/// Struct defining a pad action entry.
 open class PadActionEntry: PadActionEntryProtocol {
         /// Untyped pointer to the underlying `GtkPadActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

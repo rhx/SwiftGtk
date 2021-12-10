@@ -32,12 +32,13 @@ public extension ScaleButtonAccessibleClassRef {
 
 // MARK: - ScaleButtonAccessibleClass Record
 
+
+///
 /// The `ScaleButtonAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkScaleButtonAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ScaleButtonAccessibleClass`.
 /// Alternatively, use `ScaleButtonAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ScaleButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkScaleButtonAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,11 +50,12 @@ public protocol ScaleButtonAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ScaleButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkScaleButtonAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `ScaleButtonAccessibleClassProtocol` conformance.
 /// Use `ScaleButtonAccessibleClassRef` only as an `unowned` reference to an existing `GtkScaleButtonAccessibleClass` instance.
 ///
-
 public struct ScaleButtonAccessibleClassRef: ScaleButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkScaleButtonAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -166,12 +168,13 @@ public extension ScaleButtonClassRef {
 
 // MARK: - ScaleButtonClass Record
 
+
+///
 /// The `ScaleButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkScaleButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ScaleButtonClass`.
 /// Alternatively, use `ScaleButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ScaleButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkScaleButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -183,11 +186,12 @@ public protocol ScaleButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ScaleButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkScaleButtonClass` instance.
 /// It exposes methods that can operate on this data type through `ScaleButtonClassProtocol` conformance.
 /// Use `ScaleButtonClassRef` only as an `unowned` reference to an existing `GtkScaleButtonClass` instance.
 ///
-
 public struct ScaleButtonClassRef: ScaleButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkScaleButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -310,12 +314,13 @@ public extension ScaleClassRef {
 
 // MARK: - ScaleClass Record
 
+
+///
 /// The `ScaleClassProtocol` protocol exposes the methods and properties of an underlying `GtkScaleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ScaleClass`.
 /// Alternatively, use `ScaleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ScaleClassProtocol {
         /// Untyped pointer to the underlying `GtkScaleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -327,11 +332,12 @@ public protocol ScaleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ScaleClassRef` type acts as a lightweight Swift reference to an underlying `GtkScaleClass` instance.
 /// It exposes methods that can operate on this data type through `ScaleClassProtocol` conformance.
 /// Use `ScaleClassRef` only as an `unowned` reference to an existing `GtkScaleClass` instance.
 ///
-
 public struct ScaleClassRef: ScaleClassProtocol {
         /// Untyped pointer to the underlying `GtkScaleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -458,12 +464,13 @@ public extension ScrollableInterfaceRef {
 
 // MARK: - ScrollableInterface Record
 
+
+///
 /// The `ScrollableInterfaceProtocol` protocol exposes the methods and properties of an underlying `GtkScrollableInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ScrollableInterface`.
 /// Alternatively, use `ScrollableInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ScrollableInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkScrollableInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -475,11 +482,12 @@ public protocol ScrollableInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ScrollableInterfaceRef` type acts as a lightweight Swift reference to an underlying `GtkScrollableInterface` instance.
 /// It exposes methods that can operate on this data type through `ScrollableInterfaceProtocol` conformance.
 /// Use `ScrollableInterfaceRef` only as an `unowned` reference to an existing `GtkScrollableInterface` instance.
 ///
-
 public struct ScrollableInterfaceRef: ScrollableInterfaceProtocol {
         /// Untyped pointer to the underlying `GtkScrollableInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -594,12 +602,13 @@ public extension ScrollbarClassRef {
 
 // MARK: - ScrollbarClass Record
 
+
+///
 /// The `ScrollbarClassProtocol` protocol exposes the methods and properties of an underlying `GtkScrollbarClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ScrollbarClass`.
 /// Alternatively, use `ScrollbarClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ScrollbarClassProtocol {
         /// Untyped pointer to the underlying `GtkScrollbarClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -611,11 +620,12 @@ public protocol ScrollbarClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ScrollbarClassRef` type acts as a lightweight Swift reference to an underlying `GtkScrollbarClass` instance.
 /// It exposes methods that can operate on this data type through `ScrollbarClassProtocol` conformance.
 /// Use `ScrollbarClassRef` only as an `unowned` reference to an existing `GtkScrollbarClass` instance.
 ///
-
 public struct ScrollbarClassRef: ScrollbarClassProtocol {
         /// Untyped pointer to the underlying `GtkScrollbarClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -736,12 +746,13 @@ public extension ScrolledWindowAccessibleClassRef {
 
 // MARK: - ScrolledWindowAccessibleClass Record
 
+
+///
 /// The `ScrolledWindowAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkScrolledWindowAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ScrolledWindowAccessibleClass`.
 /// Alternatively, use `ScrolledWindowAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ScrolledWindowAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkScrolledWindowAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -753,11 +764,12 @@ public protocol ScrolledWindowAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ScrolledWindowAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkScrolledWindowAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `ScrolledWindowAccessibleClassProtocol` conformance.
 /// Use `ScrolledWindowAccessibleClassRef` only as an `unowned` reference to an existing `GtkScrolledWindowAccessibleClass` instance.
 ///
-
 public struct ScrolledWindowAccessibleClassRef: ScrolledWindowAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkScrolledWindowAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -870,12 +882,13 @@ public extension ScrolledWindowClassRef {
 
 // MARK: - ScrolledWindowClass Record
 
+
+///
 /// The `ScrolledWindowClassProtocol` protocol exposes the methods and properties of an underlying `GtkScrolledWindowClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ScrolledWindowClass`.
 /// Alternatively, use `ScrolledWindowClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ScrolledWindowClassProtocol {
         /// Untyped pointer to the underlying `GtkScrolledWindowClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -887,11 +900,12 @@ public protocol ScrolledWindowClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ScrolledWindowClassRef` type acts as a lightweight Swift reference to an underlying `GtkScrolledWindowClass` instance.
 /// It exposes methods that can operate on this data type through `ScrolledWindowClassProtocol` conformance.
 /// Use `ScrolledWindowClassRef` only as an `unowned` reference to an existing `GtkScrolledWindowClass` instance.
 ///
-
 public struct ScrolledWindowClassRef: ScrolledWindowClassProtocol {
         /// Untyped pointer to the underlying `GtkScrolledWindowClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1025,12 +1039,13 @@ public extension SearchBarClassRef {
 
 // MARK: - SearchBarClass Record
 
+
+///
 /// The `SearchBarClassProtocol` protocol exposes the methods and properties of an underlying `GtkSearchBarClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SearchBarClass`.
 /// Alternatively, use `SearchBarClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SearchBarClassProtocol {
         /// Untyped pointer to the underlying `GtkSearchBarClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1042,11 +1057,12 @@ public protocol SearchBarClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SearchBarClassRef` type acts as a lightweight Swift reference to an underlying `GtkSearchBarClass` instance.
 /// It exposes methods that can operate on this data type through `SearchBarClassProtocol` conformance.
 /// Use `SearchBarClassRef` only as an `unowned` reference to an existing `GtkSearchBarClass` instance.
 ///
-
 public struct SearchBarClassRef: SearchBarClassProtocol {
         /// Untyped pointer to the underlying `GtkSearchBarClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1169,12 +1185,13 @@ public extension SearchEntryClassRef {
 
 // MARK: - SearchEntryClass Record
 
+
+///
 /// The `SearchEntryClassProtocol` protocol exposes the methods and properties of an underlying `GtkSearchEntryClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SearchEntryClass`.
 /// Alternatively, use `SearchEntryClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SearchEntryClassProtocol {
         /// Untyped pointer to the underlying `GtkSearchEntryClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1186,11 +1203,12 @@ public protocol SearchEntryClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SearchEntryClassRef` type acts as a lightweight Swift reference to an underlying `GtkSearchEntryClass` instance.
 /// It exposes methods that can operate on this data type through `SearchEntryClassProtocol` conformance.
 /// Use `SearchEntryClassRef` only as an `unowned` reference to an existing `GtkSearchEntryClass` instance.
 ///
-
 public struct SearchEntryClassRef: SearchEntryClassProtocol {
         /// Untyped pointer to the underlying `GtkSearchEntryClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1296,12 +1314,13 @@ public extension SearchEntryClassProtocol {
 
 // MARK: - SelectionData Record
 
+
+///
 /// The `SelectionDataProtocol` protocol exposes the methods and properties of an underlying `GtkSelectionData` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SelectionData`.
 /// Alternatively, use `SelectionDataRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SelectionDataProtocol {
         /// Untyped pointer to the underlying `GtkSelectionData` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1313,11 +1332,12 @@ public protocol SelectionDataProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SelectionDataRef` type acts as a lightweight Swift reference to an underlying `GtkSelectionData` instance.
 /// It exposes methods that can operate on this data type through `SelectionDataProtocol` conformance.
 /// Use `SelectionDataRef` only as an `unowned` reference to an existing `GtkSelectionData` instance.
 ///
-
 public struct SelectionDataRef: SelectionDataProtocol {
         /// Untyped pointer to the underlying `GtkSelectionData` instance.
     /// For type-safe access, use the generated, typed pointer `selection_data_ptr` property instead.
@@ -1396,11 +1416,12 @@ public extension SelectionDataRef {
 
     }
 
+
+///
 /// The `SelectionData` type acts as an owner of an underlying `GtkSelectionData` instance.
 /// It provides the methods that can operate on this data type through `SelectionDataProtocol` conformance.
 /// Use `SelectionData` as a strong reference or owner of a `GtkSelectionData` instance.
 ///
-
 open class SelectionData: SelectionDataProtocol {
         /// Untyped pointer to the underlying `GtkSelectionData` instance.
     /// For type-safe access, use the generated, typed pointer `selection_data_ptr` property instead.
@@ -1851,12 +1872,13 @@ public extension SeparatorClassRef {
 
 // MARK: - SeparatorClass Record
 
+
+///
 /// The `SeparatorClassProtocol` protocol exposes the methods and properties of an underlying `GtkSeparatorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SeparatorClass`.
 /// Alternatively, use `SeparatorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SeparatorClassProtocol {
         /// Untyped pointer to the underlying `GtkSeparatorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1868,11 +1890,12 @@ public protocol SeparatorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SeparatorClassRef` type acts as a lightweight Swift reference to an underlying `GtkSeparatorClass` instance.
 /// It exposes methods that can operate on this data type through `SeparatorClassProtocol` conformance.
 /// Use `SeparatorClassRef` only as an `unowned` reference to an existing `GtkSeparatorClass` instance.
 ///
-
 public struct SeparatorClassRef: SeparatorClassProtocol {
         /// Untyped pointer to the underlying `GtkSeparatorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1993,12 +2016,13 @@ public extension SeparatorMenuItemClassRef {
 
 // MARK: - SeparatorMenuItemClass Record
 
+
+///
 /// The `SeparatorMenuItemClassProtocol` protocol exposes the methods and properties of an underlying `GtkSeparatorMenuItemClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SeparatorMenuItemClass`.
 /// Alternatively, use `SeparatorMenuItemClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SeparatorMenuItemClassProtocol {
         /// Untyped pointer to the underlying `GtkSeparatorMenuItemClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2010,11 +2034,12 @@ public protocol SeparatorMenuItemClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SeparatorMenuItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkSeparatorMenuItemClass` instance.
 /// It exposes methods that can operate on this data type through `SeparatorMenuItemClassProtocol` conformance.
 /// Use `SeparatorMenuItemClassRef` only as an `unowned` reference to an existing `GtkSeparatorMenuItemClass` instance.
 ///
-
 public struct SeparatorMenuItemClassRef: SeparatorMenuItemClassProtocol {
         /// Untyped pointer to the underlying `GtkSeparatorMenuItemClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2137,12 +2162,13 @@ public extension SeparatorToolItemClassRef {
 
 // MARK: - SeparatorToolItemClass Record
 
+
+///
 /// The `SeparatorToolItemClassProtocol` protocol exposes the methods and properties of an underlying `GtkSeparatorToolItemClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SeparatorToolItemClass`.
 /// Alternatively, use `SeparatorToolItemClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SeparatorToolItemClassProtocol {
         /// Untyped pointer to the underlying `GtkSeparatorToolItemClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2154,11 +2180,12 @@ public protocol SeparatorToolItemClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SeparatorToolItemClassRef` type acts as a lightweight Swift reference to an underlying `GtkSeparatorToolItemClass` instance.
 /// It exposes methods that can operate on this data type through `SeparatorToolItemClassProtocol` conformance.
 /// Use `SeparatorToolItemClassRef` only as an `unowned` reference to an existing `GtkSeparatorToolItemClass` instance.
 ///
-
 public struct SeparatorToolItemClassRef: SeparatorToolItemClassProtocol {
         /// Untyped pointer to the underlying `GtkSeparatorToolItemClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2281,12 +2308,13 @@ public extension SettingsClassRef {
 
 // MARK: - SettingsClass Record
 
+
+///
 /// The `SettingsClassProtocol` protocol exposes the methods and properties of an underlying `GtkSettingsClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SettingsClass`.
 /// Alternatively, use `SettingsClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SettingsClassProtocol {
         /// Untyped pointer to the underlying `GtkSettingsClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2298,11 +2326,12 @@ public protocol SettingsClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SettingsClassRef` type acts as a lightweight Swift reference to an underlying `GtkSettingsClass` instance.
 /// It exposes methods that can operate on this data type through `SettingsClassProtocol` conformance.
 /// Use `SettingsClassRef` only as an `unowned` reference to an existing `GtkSettingsClass` instance.
 ///
-
 public struct SettingsClassRef: SettingsClassProtocol {
         /// Untyped pointer to the underlying `GtkSettingsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2408,12 +2437,13 @@ public extension SettingsClassProtocol {
 
 // MARK: - SettingsValue Record
 
+
+///
 /// The `SettingsValueProtocol` protocol exposes the methods and properties of an underlying `GtkSettingsValue` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SettingsValue`.
 /// Alternatively, use `SettingsValueRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SettingsValueProtocol {
         /// Untyped pointer to the underlying `GtkSettingsValue` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2425,11 +2455,12 @@ public protocol SettingsValueProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SettingsValueRef` type acts as a lightweight Swift reference to an underlying `GtkSettingsValue` instance.
 /// It exposes methods that can operate on this data type through `SettingsValueProtocol` conformance.
 /// Use `SettingsValueRef` only as an `unowned` reference to an existing `GtkSettingsValue` instance.
 ///
-
 public struct SettingsValueRef: SettingsValueProtocol {
         /// Untyped pointer to the underlying `GtkSettingsValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2508,11 +2539,12 @@ public extension SettingsValueRef {
 
     }
 
+
+///
 /// The `SettingsValue` type acts as an owner of an underlying `GtkSettingsValue` instance.
 /// It provides the methods that can operate on this data type through `SettingsValueProtocol` conformance.
 /// Use `SettingsValue` as a strong reference or owner of a `GtkSettingsValue` instance.
 ///
-
 open class SettingsValue: SettingsValueProtocol {
         /// Untyped pointer to the underlying `GtkSettingsValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2721,12 +2753,13 @@ public extension ShortcutLabelClassRef {
 
 // MARK: - ShortcutLabelClass Record
 
+
+///
 /// The `ShortcutLabelClassProtocol` protocol exposes the methods and properties of an underlying `GtkShortcutLabelClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ShortcutLabelClass`.
 /// Alternatively, use `ShortcutLabelClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ShortcutLabelClassProtocol {
         /// Untyped pointer to the underlying `GtkShortcutLabelClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2738,11 +2771,12 @@ public protocol ShortcutLabelClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ShortcutLabelClassRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutLabelClass` instance.
 /// It exposes methods that can operate on this data type through `ShortcutLabelClassProtocol` conformance.
 /// Use `ShortcutLabelClassRef` only as an `unowned` reference to an existing `GtkShortcutLabelClass` instance.
 ///
-
 public struct ShortcutLabelClassRef: ShortcutLabelClassProtocol {
         /// Untyped pointer to the underlying `GtkShortcutLabelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2849,12 +2883,13 @@ public extension ShortcutsGroupClassRef {
 
 // MARK: - ShortcutsGroupClass Record
 
+
+///
 /// The `ShortcutsGroupClassProtocol` protocol exposes the methods and properties of an underlying `GtkShortcutsGroupClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ShortcutsGroupClass`.
 /// Alternatively, use `ShortcutsGroupClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ShortcutsGroupClassProtocol {
         /// Untyped pointer to the underlying `GtkShortcutsGroupClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2866,11 +2901,12 @@ public protocol ShortcutsGroupClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ShortcutsGroupClassRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutsGroupClass` instance.
 /// It exposes methods that can operate on this data type through `ShortcutsGroupClassProtocol` conformance.
 /// Use `ShortcutsGroupClassRef` only as an `unowned` reference to an existing `GtkShortcutsGroupClass` instance.
 ///
-
 public struct ShortcutsGroupClassRef: ShortcutsGroupClassProtocol {
         /// Untyped pointer to the underlying `GtkShortcutsGroupClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2977,12 +3013,13 @@ public extension ShortcutsSectionClassRef {
 
 // MARK: - ShortcutsSectionClass Record
 
+
+///
 /// The `ShortcutsSectionClassProtocol` protocol exposes the methods and properties of an underlying `GtkShortcutsSectionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ShortcutsSectionClass`.
 /// Alternatively, use `ShortcutsSectionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ShortcutsSectionClassProtocol {
         /// Untyped pointer to the underlying `GtkShortcutsSectionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2994,11 +3031,12 @@ public protocol ShortcutsSectionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ShortcutsSectionClassRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutsSectionClass` instance.
 /// It exposes methods that can operate on this data type through `ShortcutsSectionClassProtocol` conformance.
 /// Use `ShortcutsSectionClassRef` only as an `unowned` reference to an existing `GtkShortcutsSectionClass` instance.
 ///
-
 public struct ShortcutsSectionClassRef: ShortcutsSectionClassProtocol {
         /// Untyped pointer to the underlying `GtkShortcutsSectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3105,12 +3143,13 @@ public extension ShortcutsShortcutClassRef {
 
 // MARK: - ShortcutsShortcutClass Record
 
+
+///
 /// The `ShortcutsShortcutClassProtocol` protocol exposes the methods and properties of an underlying `GtkShortcutsShortcutClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ShortcutsShortcutClass`.
 /// Alternatively, use `ShortcutsShortcutClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ShortcutsShortcutClassProtocol {
         /// Untyped pointer to the underlying `GtkShortcutsShortcutClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3122,11 +3161,12 @@ public protocol ShortcutsShortcutClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ShortcutsShortcutClassRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutsShortcutClass` instance.
 /// It exposes methods that can operate on this data type through `ShortcutsShortcutClassProtocol` conformance.
 /// Use `ShortcutsShortcutClassRef` only as an `unowned` reference to an existing `GtkShortcutsShortcutClass` instance.
 ///
-
 public struct ShortcutsShortcutClassRef: ShortcutsShortcutClassProtocol {
         /// Untyped pointer to the underlying `GtkShortcutsShortcutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3233,12 +3273,13 @@ public extension ShortcutsWindowClassRef {
 
 // MARK: - ShortcutsWindowClass Record
 
+
+///
 /// The `ShortcutsWindowClassProtocol` protocol exposes the methods and properties of an underlying `GtkShortcutsWindowClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ShortcutsWindowClass`.
 /// Alternatively, use `ShortcutsWindowClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ShortcutsWindowClassProtocol {
         /// Untyped pointer to the underlying `GtkShortcutsWindowClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3250,11 +3291,12 @@ public protocol ShortcutsWindowClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ShortcutsWindowClassRef` type acts as a lightweight Swift reference to an underlying `GtkShortcutsWindowClass` instance.
 /// It exposes methods that can operate on this data type through `ShortcutsWindowClassProtocol` conformance.
 /// Use `ShortcutsWindowClassRef` only as an `unowned` reference to an existing `GtkShortcutsWindowClass` instance.
 ///
-
 public struct ShortcutsWindowClassRef: ShortcutsWindowClassProtocol {
         /// Untyped pointer to the underlying `GtkShortcutsWindowClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3371,12 +3413,13 @@ public extension SizeGroupClassRef {
 
 // MARK: - SizeGroupClass Record
 
+
+///
 /// The `SizeGroupClassProtocol` protocol exposes the methods and properties of an underlying `GtkSizeGroupClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SizeGroupClass`.
 /// Alternatively, use `SizeGroupClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SizeGroupClassProtocol {
         /// Untyped pointer to the underlying `GtkSizeGroupClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3388,11 +3431,12 @@ public protocol SizeGroupClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SizeGroupClassRef` type acts as a lightweight Swift reference to an underlying `GtkSizeGroupClass` instance.
 /// It exposes methods that can operate on this data type through `SizeGroupClassProtocol` conformance.
 /// Use `SizeGroupClassRef` only as an `unowned` reference to an existing `GtkSizeGroupClass` instance.
 ///
-
 public struct SizeGroupClassRef: SizeGroupClassProtocol {
         /// Untyped pointer to the underlying `GtkSizeGroupClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3513,12 +3557,13 @@ public extension SocketAccessibleClassRef {
 
 // MARK: - SocketAccessibleClass Record
 
+
+///
 /// The `SocketAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkSocketAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SocketAccessibleClass`.
 /// Alternatively, use `SocketAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SocketAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkSocketAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3530,11 +3575,12 @@ public protocol SocketAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SocketAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkSocketAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `SocketAccessibleClassProtocol` conformance.
 /// Use `SocketAccessibleClassRef` only as an `unowned` reference to an existing `GtkSocketAccessibleClass` instance.
 ///
-
 public struct SocketAccessibleClassRef: SocketAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkSocketAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3647,12 +3693,13 @@ public extension SpinButtonAccessibleClassRef {
 
 // MARK: - SpinButtonAccessibleClass Record
 
+
+///
 /// The `SpinButtonAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkSpinButtonAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SpinButtonAccessibleClass`.
 /// Alternatively, use `SpinButtonAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SpinButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkSpinButtonAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3664,11 +3711,12 @@ public protocol SpinButtonAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SpinButtonAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkSpinButtonAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `SpinButtonAccessibleClassProtocol` conformance.
 /// Use `SpinButtonAccessibleClassRef` only as an `unowned` reference to an existing `GtkSpinButtonAccessibleClass` instance.
 ///
-
 public struct SpinButtonAccessibleClassRef: SpinButtonAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkSpinButtonAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3781,12 +3829,13 @@ public extension SpinButtonClassRef {
 
 // MARK: - SpinButtonClass Record
 
+
+///
 /// The `SpinButtonClassProtocol` protocol exposes the methods and properties of an underlying `GtkSpinButtonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SpinButtonClass`.
 /// Alternatively, use `SpinButtonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SpinButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkSpinButtonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3798,11 +3847,12 @@ public protocol SpinButtonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SpinButtonClassRef` type acts as a lightweight Swift reference to an underlying `GtkSpinButtonClass` instance.
 /// It exposes methods that can operate on this data type through `SpinButtonClassProtocol` conformance.
 /// Use `SpinButtonClassRef` only as an `unowned` reference to an existing `GtkSpinButtonClass` instance.
 ///
-
 public struct SpinButtonClassRef: SpinButtonClassProtocol {
         /// Untyped pointer to the underlying `GtkSpinButtonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3933,12 +3983,13 @@ public extension SpinnerAccessibleClassRef {
 
 // MARK: - SpinnerAccessibleClass Record
 
+
+///
 /// The `SpinnerAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkSpinnerAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SpinnerAccessibleClass`.
 /// Alternatively, use `SpinnerAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SpinnerAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkSpinnerAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3950,11 +4001,12 @@ public protocol SpinnerAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SpinnerAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkSpinnerAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `SpinnerAccessibleClassProtocol` conformance.
 /// Use `SpinnerAccessibleClassRef` only as an `unowned` reference to an existing `GtkSpinnerAccessibleClass` instance.
 ///
-
 public struct SpinnerAccessibleClassRef: SpinnerAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkSpinnerAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4067,12 +4119,13 @@ public extension SpinnerClassRef {
 
 // MARK: - SpinnerClass Record
 
+
+///
 /// The `SpinnerClassProtocol` protocol exposes the methods and properties of an underlying `GtkSpinnerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SpinnerClass`.
 /// Alternatively, use `SpinnerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SpinnerClassProtocol {
         /// Untyped pointer to the underlying `GtkSpinnerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4084,11 +4137,12 @@ public protocol SpinnerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SpinnerClassRef` type acts as a lightweight Swift reference to an underlying `GtkSpinnerClass` instance.
 /// It exposes methods that can operate on this data type through `SpinnerClassProtocol` conformance.
 /// Use `SpinnerClassRef` only as an `unowned` reference to an existing `GtkSpinnerClass` instance.
 ///
-
 public struct SpinnerClassRef: SpinnerClassProtocol {
         /// Untyped pointer to the underlying `GtkSpinnerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4209,12 +4263,13 @@ public extension StackAccessibleClassRef {
 
 // MARK: - StackAccessibleClass Record
 
+
+///
 /// The `StackAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkStackAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StackAccessibleClass`.
 /// Alternatively, use `StackAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StackAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkStackAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4226,11 +4281,12 @@ public protocol StackAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StackAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkStackAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `StackAccessibleClassProtocol` conformance.
 /// Use `StackAccessibleClassRef` only as an `unowned` reference to an existing `GtkStackAccessibleClass` instance.
 ///
-
 public struct StackAccessibleClassRef: StackAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkStackAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4343,12 +4399,13 @@ public extension StackClassRef {
 
 // MARK: - StackClass Record
 
+
+///
 /// The `StackClassProtocol` protocol exposes the methods and properties of an underlying `GtkStackClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StackClass`.
 /// Alternatively, use `StackClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StackClassProtocol {
         /// Untyped pointer to the underlying `GtkStackClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4360,11 +4417,12 @@ public protocol StackClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StackClassRef` type acts as a lightweight Swift reference to an underlying `GtkStackClass` instance.
 /// It exposes methods that can operate on this data type through `StackClassProtocol` conformance.
 /// Use `StackClassRef` only as an `unowned` reference to an existing `GtkStackClass` instance.
 ///
-
 public struct StackClassRef: StackClassProtocol {
         /// Untyped pointer to the underlying `GtkStackClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4477,12 +4535,13 @@ public extension StackSidebarClassRef {
 
 // MARK: - StackSidebarClass Record
 
+
+///
 /// The `StackSidebarClassProtocol` protocol exposes the methods and properties of an underlying `GtkStackSidebarClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StackSidebarClass`.
 /// Alternatively, use `StackSidebarClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StackSidebarClassProtocol {
         /// Untyped pointer to the underlying `GtkStackSidebarClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4494,11 +4553,12 @@ public protocol StackSidebarClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StackSidebarClassRef` type acts as a lightweight Swift reference to an underlying `GtkStackSidebarClass` instance.
 /// It exposes methods that can operate on this data type through `StackSidebarClassProtocol` conformance.
 /// Use `StackSidebarClassRef` only as an `unowned` reference to an existing `GtkStackSidebarClass` instance.
 ///
-
 public struct StackSidebarClassRef: StackSidebarClassProtocol {
         /// Untyped pointer to the underlying `GtkStackSidebarClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4619,12 +4679,13 @@ public extension StackSwitcherClassRef {
 
 // MARK: - StackSwitcherClass Record
 
+
+///
 /// The `StackSwitcherClassProtocol` protocol exposes the methods and properties of an underlying `GtkStackSwitcherClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StackSwitcherClass`.
 /// Alternatively, use `StackSwitcherClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StackSwitcherClassProtocol {
         /// Untyped pointer to the underlying `GtkStackSwitcherClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4636,11 +4697,12 @@ public protocol StackSwitcherClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StackSwitcherClassRef` type acts as a lightweight Swift reference to an underlying `GtkStackSwitcherClass` instance.
 /// It exposes methods that can operate on this data type through `StackSwitcherClassProtocol` conformance.
 /// Use `StackSwitcherClassRef` only as an `unowned` reference to an existing `GtkStackSwitcherClass` instance.
 ///
-
 public struct StackSwitcherClassRef: StackSwitcherClassProtocol {
         /// Untyped pointer to the underlying `GtkStackSwitcherClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4761,12 +4823,13 @@ public extension StatusIconClassRef {
 
 // MARK: - StatusIconClass Record
 
+
+///
 /// The `StatusIconClassProtocol` protocol exposes the methods and properties of an underlying `GtkStatusIconClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StatusIconClass`.
 /// Alternatively, use `StatusIconClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StatusIconClassProtocol {
         /// Untyped pointer to the underlying `GtkStatusIconClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4778,11 +4841,12 @@ public protocol StatusIconClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StatusIconClassRef` type acts as a lightweight Swift reference to an underlying `GtkStatusIconClass` instance.
 /// It exposes methods that can operate on this data type through `StatusIconClassProtocol` conformance.
 /// Use `StatusIconClassRef` only as an `unowned` reference to an existing `GtkStatusIconClass` instance.
 ///
-
 public struct StatusIconClassRef: StatusIconClassProtocol {
         /// Untyped pointer to the underlying `GtkStatusIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4888,13 +4952,13 @@ public extension StatusIconClassProtocol {
 
     // var queryTooltip is unavailable because query_tooltip is void
 
-    // var _gtkReserved1 is unavailable because __gtk_reserved1 is void
+    // var GtkReserved1 is unavailable because __gtk_reserved1 is void
 
-    // var _gtkReserved2 is unavailable because __gtk_reserved2 is void
+    // var GtkReserved2 is unavailable because __gtk_reserved2 is void
 
-    // var _gtkReserved3 is unavailable because __gtk_reserved3 is void
+    // var GtkReserved3 is unavailable because __gtk_reserved3 is void
 
-    // var _gtkReserved4 is unavailable because __gtk_reserved4 is void
+    // var GtkReserved4 is unavailable because __gtk_reserved4 is void
 
 }
 
@@ -4917,12 +4981,13 @@ public extension StatusbarAccessibleClassRef {
 
 // MARK: - StatusbarAccessibleClass Record
 
+
+///
 /// The `StatusbarAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkStatusbarAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StatusbarAccessibleClass`.
 /// Alternatively, use `StatusbarAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StatusbarAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkStatusbarAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4934,11 +4999,12 @@ public protocol StatusbarAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StatusbarAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkStatusbarAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `StatusbarAccessibleClassProtocol` conformance.
 /// Use `StatusbarAccessibleClassRef` only as an `unowned` reference to an existing `GtkStatusbarAccessibleClass` instance.
 ///
-
 public struct StatusbarAccessibleClassRef: StatusbarAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkStatusbarAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5051,12 +5117,13 @@ public extension StatusbarClassRef {
 
 // MARK: - StatusbarClass Record
 
+
+///
 /// The `StatusbarClassProtocol` protocol exposes the methods and properties of an underlying `GtkStatusbarClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StatusbarClass`.
 /// Alternatively, use `StatusbarClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StatusbarClassProtocol {
         /// Untyped pointer to the underlying `GtkStatusbarClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5068,11 +5135,12 @@ public protocol StatusbarClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StatusbarClassRef` type acts as a lightweight Swift reference to an underlying `GtkStatusbarClass` instance.
 /// It exposes methods that can operate on this data type through `StatusbarClassProtocol` conformance.
 /// Use `StatusbarClassRef` only as an `unowned` reference to an existing `GtkStatusbarClass` instance.
 ///
-
 public struct StatusbarClassRef: StatusbarClassProtocol {
         /// Untyped pointer to the underlying `GtkStatusbarClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5189,12 +5257,13 @@ public extension StatusbarClassProtocol {
 
 // MARK: - StockItem Record
 
+
+///
 /// The `StockItemProtocol` protocol exposes the methods and properties of an underlying `GtkStockItem` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StockItem`.
 /// Alternatively, use `StockItemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StockItemProtocol {
         /// Untyped pointer to the underlying `GtkStockItem` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5206,11 +5275,12 @@ public protocol StockItemProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StockItemRef` type acts as a lightweight Swift reference to an underlying `GtkStockItem` instance.
 /// It exposes methods that can operate on this data type through `StockItemProtocol` conformance.
 /// Use `StockItemRef` only as an `unowned` reference to an existing `GtkStockItem` instance.
 ///
-
 public struct StockItemRef: StockItemProtocol {
         /// Untyped pointer to the underlying `GtkStockItem` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5289,11 +5359,12 @@ public extension StockItemRef {
 
     }
 
+
+///
 /// The `StockItem` type acts as an owner of an underlying `GtkStockItem` instance.
 /// It provides the methods that can operate on this data type through `StockItemProtocol` conformance.
 /// Use `StockItem` as a strong reference or owner of a `GtkStockItem` instance.
 ///
-
 open class StockItem: StockItemProtocol {
         /// Untyped pointer to the underlying `GtkStockItem` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5567,12 +5638,13 @@ public extension StyleClassRef {
 
 // MARK: - StyleClass Record
 
+
+///
 /// The `StyleClassProtocol` protocol exposes the methods and properties of an underlying `GtkStyleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StyleClass`.
 /// Alternatively, use `StyleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StyleClassProtocol {
         /// Untyped pointer to the underlying `GtkStyleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5584,11 +5656,12 @@ public protocol StyleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StyleClassRef` type acts as a lightweight Swift reference to an underlying `GtkStyleClass` instance.
 /// It exposes methods that can operate on this data type through `StyleClassProtocol` conformance.
 /// Use `StyleClassRef` only as an `unowned` reference to an existing `GtkStyleClass` instance.
 ///
-
 public struct StyleClassRef: StyleClassProtocol {
         /// Untyped pointer to the underlying `GtkStyleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5779,12 +5852,13 @@ public extension StyleContextClassRef {
 
 // MARK: - StyleContextClass Record
 
+
+///
 /// The `StyleContextClassProtocol` protocol exposes the methods and properties of an underlying `GtkStyleContextClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StyleContextClass`.
 /// Alternatively, use `StyleContextClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StyleContextClassProtocol {
         /// Untyped pointer to the underlying `GtkStyleContextClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5796,11 +5870,12 @@ public protocol StyleContextClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StyleContextClassRef` type acts as a lightweight Swift reference to an underlying `GtkStyleContextClass` instance.
 /// It exposes methods that can operate on this data type through `StyleContextClassProtocol` conformance.
 /// Use `StyleContextClassRef` only as an `unowned` reference to an existing `GtkStyleContextClass` instance.
 ///
-
 public struct StyleContextClassRef: StyleContextClassProtocol {
         /// Untyped pointer to the underlying `GtkStyleContextClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5923,12 +5998,13 @@ public extension StylePropertiesClassRef {
 
 // MARK: - StylePropertiesClass Record
 
+
+///
 /// The `StylePropertiesClassProtocol` protocol exposes the methods and properties of an underlying `GtkStylePropertiesClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StylePropertiesClass`.
 /// Alternatively, use `StylePropertiesClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StylePropertiesClassProtocol {
         /// Untyped pointer to the underlying `GtkStylePropertiesClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5940,11 +6016,12 @@ public protocol StylePropertiesClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StylePropertiesClassRef` type acts as a lightweight Swift reference to an underlying `GtkStylePropertiesClass` instance.
 /// It exposes methods that can operate on this data type through `StylePropertiesClassProtocol` conformance.
 /// Use `StylePropertiesClassRef` only as an `unowned` reference to an existing `GtkStylePropertiesClass` instance.
 ///
-
 public struct StylePropertiesClassRef: StylePropertiesClassProtocol {
         /// Untyped pointer to the underlying `GtkStylePropertiesClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -6060,12 +6137,13 @@ public extension StyleProviderIfaceRef {
 
 // MARK: - StyleProviderIface Record
 
+
+///
 /// The `StyleProviderIfaceProtocol` protocol exposes the methods and properties of an underlying `GtkStyleProviderIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StyleProviderIface`.
 /// Alternatively, use `StyleProviderIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol StyleProviderIfaceProtocol {
         /// Untyped pointer to the underlying `GtkStyleProviderIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6077,11 +6155,12 @@ public protocol StyleProviderIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `StyleProviderIfaceRef` type acts as a lightweight Swift reference to an underlying `GtkStyleProviderIface` instance.
 /// It exposes methods that can operate on this data type through `StyleProviderIfaceProtocol` conformance.
 /// Use `StyleProviderIfaceRef` only as an `unowned` reference to an existing `GtkStyleProviderIface` instance.
 ///
-
 public struct StyleProviderIfaceRef: StyleProviderIfaceProtocol {
         /// Untyped pointer to the underlying `GtkStyleProviderIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -6195,12 +6274,13 @@ public extension SwitchAccessibleClassRef {
 
 // MARK: - SwitchAccessibleClass Record
 
+
+///
 /// The `SwitchAccessibleClassProtocol` protocol exposes the methods and properties of an underlying `GtkSwitchAccessibleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SwitchAccessibleClass`.
 /// Alternatively, use `SwitchAccessibleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SwitchAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkSwitchAccessibleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6212,11 +6292,12 @@ public protocol SwitchAccessibleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SwitchAccessibleClassRef` type acts as a lightweight Swift reference to an underlying `GtkSwitchAccessibleClass` instance.
 /// It exposes methods that can operate on this data type through `SwitchAccessibleClassProtocol` conformance.
 /// Use `SwitchAccessibleClassRef` only as an `unowned` reference to an existing `GtkSwitchAccessibleClass` instance.
 ///
-
 public struct SwitchAccessibleClassRef: SwitchAccessibleClassProtocol {
         /// Untyped pointer to the underlying `GtkSwitchAccessibleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -6329,12 +6410,13 @@ public extension SwitchClassRef {
 
 // MARK: - SwitchClass Record
 
+
+///
 /// The `SwitchClassProtocol` protocol exposes the methods and properties of an underlying `GtkSwitchClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SwitchClass`.
 /// Alternatively, use `SwitchClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SwitchClassProtocol {
         /// Untyped pointer to the underlying `GtkSwitchClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6346,11 +6428,12 @@ public protocol SwitchClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SwitchClassRef` type acts as a lightweight Swift reference to an underlying `GtkSwitchClass` instance.
 /// It exposes methods that can operate on this data type through `SwitchClassProtocol` conformance.
 /// Use `SwitchClassRef` only as an `unowned` reference to an existing `GtkSwitchClass` instance.
 ///
-
 public struct SwitchClassRef: SwitchClassProtocol {
         /// Untyped pointer to the underlying `GtkSwitchClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -6464,11 +6547,6 @@ public extension SwitchClassProtocol {
 
 // MARK: - SymbolicColor Record
 
-/// The `SymbolicColorProtocol` protocol exposes the methods and properties of an underlying `GtkSymbolicColor` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SymbolicColor`.
-/// Alternatively, use `SymbolicColorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GtkSymbolicColor is a boxed type that represents a symbolic color.
 /// It is the result of parsing a
 /// [color expression](#gtkcssprovider-symbolic-colors).
@@ -6484,6 +6562,12 @@ public extension SwitchClassProtocol {
 /// 
 /// `GtkSymbolicColor` is deprecated. Symbolic colors are considered an
 /// implementation detail of GTK+.
+///
+/// The `SymbolicColorProtocol` protocol exposes the methods and properties of an underlying `GtkSymbolicColor` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SymbolicColor`.
+/// Alternatively, use `SymbolicColorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SymbolicColorProtocol {
         /// Untyped pointer to the underlying `GtkSymbolicColor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6495,10 +6579,6 @@ public protocol SymbolicColorProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SymbolicColorRef` type acts as a lightweight Swift reference to an underlying `GtkSymbolicColor` instance.
-/// It exposes methods that can operate on this data type through `SymbolicColorProtocol` conformance.
-/// Use `SymbolicColorRef` only as an `unowned` reference to an existing `GtkSymbolicColor` instance.
-///
 /// GtkSymbolicColor is a boxed type that represents a symbolic color.
 /// It is the result of parsing a
 /// [color expression](#gtkcssprovider-symbolic-colors).
@@ -6514,6 +6594,11 @@ public protocol SymbolicColorProtocol {
 /// 
 /// `GtkSymbolicColor` is deprecated. Symbolic colors are considered an
 /// implementation detail of GTK+.
+///
+/// The `SymbolicColorRef` type acts as a lightweight Swift reference to an underlying `GtkSymbolicColor` instance.
+/// It exposes methods that can operate on this data type through `SymbolicColorProtocol` conformance.
+/// Use `SymbolicColorRef` only as an `unowned` reference to an existing `GtkSymbolicColor` instance.
+///
 public struct SymbolicColorRef: SymbolicColorProtocol {
         /// Untyped pointer to the underlying `GtkSymbolicColor` instance.
     /// For type-safe access, use the generated, typed pointer `symbolic_color_ptr` property instead.
@@ -6664,10 +6749,6 @@ public extension SymbolicColorRef {
     }
 }
 
-/// The `SymbolicColor` type acts as a reference-counted owner of an underlying `GtkSymbolicColor` instance.
-/// It provides the methods that can operate on this data type through `SymbolicColorProtocol` conformance.
-/// Use `SymbolicColor` as a strong reference or owner of a `GtkSymbolicColor` instance.
-///
 /// GtkSymbolicColor is a boxed type that represents a symbolic color.
 /// It is the result of parsing a
 /// [color expression](#gtkcssprovider-symbolic-colors).
@@ -6683,6 +6764,11 @@ public extension SymbolicColorRef {
 /// 
 /// `GtkSymbolicColor` is deprecated. Symbolic colors are considered an
 /// implementation detail of GTK+.
+///
+/// The `SymbolicColor` type acts as a reference-counted owner of an underlying `GtkSymbolicColor` instance.
+/// It provides the methods that can operate on this data type through `SymbolicColorProtocol` conformance.
+/// Use `SymbolicColor` as a strong reference or owner of a `GtkSymbolicColor` instance.
+///
 open class SymbolicColor: SymbolicColorProtocol {
         /// Untyped pointer to the underlying `GtkSymbolicColor` instance.
     /// For type-safe access, use the generated, typed pointer `symbolic_color_ptr` property instead.
@@ -6984,12 +7070,13 @@ public extension SymbolicColorProtocol {
 
 // MARK: - TableChild Record
 
+
+///
 /// The `TableChildProtocol` protocol exposes the methods and properties of an underlying `GtkTableChild` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TableChild`.
 /// Alternatively, use `TableChildRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TableChildProtocol {
         /// Untyped pointer to the underlying `GtkTableChild` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7001,11 +7088,12 @@ public protocol TableChildProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TableChildRef` type acts as a lightweight Swift reference to an underlying `GtkTableChild` instance.
 /// It exposes methods that can operate on this data type through `TableChildProtocol` conformance.
 /// Use `TableChildRef` only as an `unowned` reference to an existing `GtkTableChild` instance.
 ///
-
 public struct TableChildRef: TableChildProtocol {
         /// Untyped pointer to the underlying `GtkTableChild` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -7084,11 +7172,12 @@ public extension TableChildRef {
 
     }
 
+
+///
 /// The `TableChild` type acts as an owner of an underlying `GtkTableChild` instance.
 /// It provides the methods that can operate on this data type through `TableChildProtocol` conformance.
 /// Use `TableChild` as a strong reference or owner of a `GtkTableChild` instance.
 ///
-
 open class TableChild: TableChildProtocol {
         /// Untyped pointer to the underlying `GtkTableChild` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

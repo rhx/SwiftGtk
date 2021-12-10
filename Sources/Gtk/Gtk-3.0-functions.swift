@@ -484,8 +484,8 @@ import Atk
 
 
 
-@inlinable public func dragFinish<DragContextT: Gdk.DragContextProtocol>(context: DragContextT, success: Bool, del: Bool, time_: guint32) {
-    gtk_drag_finish(context.drag_context_ptr, gboolean((success) ? 1 : 0), gboolean((del) ? 1 : 0), time_)
+@inlinable public func dragFinish<DragContextT: Gdk.DragContextProtocol>(context: DragContextT, success: Bool, del: Bool, time: guint32) {
+    gtk_drag_finish(context.drag_context_ptr, gboolean((success) ? 1 : 0), gboolean((del) ? 1 : 0), time)
 
 }
 
@@ -1615,8 +1615,8 @@ import Atk
 /// **paint_vline is deprecated:**
 /// Use gtk_render_line() instead
 @available(*, deprecated)
-    @inlinable public func paintVline<ContextT: Cairo.ContextProtocol, StyleT: StyleProtocol>(style: StyleT, cr: ContextT, stateType: GtkStateType, widget: WidgetRef? = nil, detail: UnsafePointer<gchar>? = nil, y1_: Int, y2_: Int, x: Int) {
-    gtk_paint_vline(style.style_ptr, cr._ptr, stateType, widget?.widget_ptr, detail, gint(y1_), gint(y2_), gint(x))
+    @inlinable public func paintVline<ContextT: Cairo.ContextProtocol, StyleT: StyleProtocol>(style: StyleT, cr: ContextT, stateType: GtkStateType, widget: WidgetRef? = nil, detail: UnsafePointer<gchar>? = nil, y1: Int, y2: Int, x: Int) {
+    gtk_paint_vline(style.style_ptr, cr._ptr, stateType, widget?.widget_ptr, detail, gint(y1), gint(y2), gint(x))
 
 }
 /// Draws a vertical line from (`x`, `y1_`) to (`x`, `y2_`) in `cr`
@@ -1625,8 +1625,8 @@ import Atk
 /// **paint_vline is deprecated:**
 /// Use gtk_render_line() instead
 @available(*, deprecated)
-    @inlinable public func paintVline<ContextT: Cairo.ContextProtocol, StyleT: StyleProtocol, WidgetT: WidgetProtocol>(style: StyleT, cr: ContextT, stateType: GtkStateType, widget: WidgetT?, detail: UnsafePointer<gchar>? = nil, y1_: Int, y2_: Int, x: Int) {
-    gtk_paint_vline(style.style_ptr, cr._ptr, stateType, widget?.widget_ptr, detail, gint(y1_), gint(y2_), gint(x))
+    @inlinable public func paintVline<ContextT: Cairo.ContextProtocol, StyleT: StyleProtocol, WidgetT: WidgetProtocol>(style: StyleT, cr: ContextT, stateType: GtkStateType, widget: WidgetT?, detail: UnsafePointer<gchar>? = nil, y1: Int, y2: Int, x: Int) {
+    gtk_paint_vline(style.style_ptr, cr._ptr, stateType, widget?.widget_ptr, detail, gint(y1), gint(y2), gint(x))
 
 }
 
@@ -2482,8 +2482,8 @@ import Atk
 
 /// Requests the contents of a selection. When received,
 /// a “selection-received” signal will be generated.
-@inlinable public func selectionConvert<WidgetT: WidgetProtocol>(widget: WidgetT, selection: GdkAtom, target: GdkAtom, time_: guint32) -> Bool {
-    let rv = ((gtk_selection_convert(widget.widget_ptr, selection, target, time_)) != 0)
+@inlinable public func selectionConvert<WidgetT: WidgetProtocol>(widget: WidgetT, selection: GdkAtom, target: GdkAtom, time: guint32) -> Bool {
+    let rv = ((gtk_selection_convert(widget.widget_ptr, selection, target, time)) != 0)
     return rv
 }
 
@@ -2492,14 +2492,14 @@ import Atk
 
 /// Claims ownership of a given selection for a particular widget,
 /// or, if `widget` is `nil`, release ownership of the selection.
-@inlinable public func selectionOwnerSet(widget: WidgetRef? = nil, selection: GdkAtom, time_: guint32) -> Bool {
-    let rv = ((gtk_selection_owner_set(widget?.widget_ptr, selection, time_)) != 0)
+@inlinable public func selectionOwnerSet(widget: WidgetRef? = nil, selection: GdkAtom, time: guint32) -> Bool {
+    let rv = ((gtk_selection_owner_set(widget?.widget_ptr, selection, time)) != 0)
     return rv
 }
 /// Claims ownership of a given selection for a particular widget,
 /// or, if `widget` is `nil`, release ownership of the selection.
-@inlinable public func selectionOwnerSet<WidgetT: WidgetProtocol>(widget: WidgetT?, selection: GdkAtom, time_: guint32) -> Bool {
-    let rv = ((gtk_selection_owner_set(widget?.widget_ptr, selection, time_)) != 0)
+@inlinable public func selectionOwnerSet<WidgetT: WidgetProtocol>(widget: WidgetT?, selection: GdkAtom, time: guint32) -> Bool {
+    let rv = ((gtk_selection_owner_set(widget?.widget_ptr, selection, time)) != 0)
     return rv
 }
 
@@ -2508,14 +2508,14 @@ import Atk
 
 /// Claim ownership of a given selection for a particular widget, or,
 /// if `widget` is `nil`, release ownership of the selection.
-@inlinable public func selectionOwnerSetFor<DisplayT: Gdk.DisplayProtocol>(display: DisplayT, widget: WidgetRef? = nil, selection: GdkAtom, time_: guint32) -> Bool {
-    let rv = ((gtk_selection_owner_set_for_display(display.display_ptr, widget?.widget_ptr, selection, time_)) != 0)
+@inlinable public func selectionOwnerSetFor<DisplayT: Gdk.DisplayProtocol>(display: DisplayT, widget: WidgetRef? = nil, selection: GdkAtom, time: guint32) -> Bool {
+    let rv = ((gtk_selection_owner_set_for_display(display.display_ptr, widget?.widget_ptr, selection, time)) != 0)
     return rv
 }
 /// Claim ownership of a given selection for a particular widget, or,
 /// if `widget` is `nil`, release ownership of the selection.
-@inlinable public func selectionOwnerSetFor<DisplayT: Gdk.DisplayProtocol, WidgetT: WidgetProtocol>(display: DisplayT, widget: WidgetT?, selection: GdkAtom, time_: guint32) -> Bool {
-    let rv = ((gtk_selection_owner_set_for_display(display.display_ptr, widget?.widget_ptr, selection, time_)) != 0)
+@inlinable public func selectionOwnerSetFor<DisplayT: Gdk.DisplayProtocol, WidgetT: WidgetProtocol>(display: DisplayT, widget: WidgetT?, selection: GdkAtom, time: guint32) -> Bool {
+    let rv = ((gtk_selection_owner_set_for_display(display.display_ptr, widget?.widget_ptr, selection, time)) != 0)
     return rv
 }
 
