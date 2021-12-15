@@ -124,8 +124,8 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 To build, you need at least Swift 5.2 (Swift 5.3 is required for `gtk4`; also some Linux distributions have issues and seem to **require at least Swift 5.5**), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
-    Target: x86_64-apple-darwin20.5.0
+	swift-driver version: 1.26.21 Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+    Target: x86_64-apple-macosx12.0
 
 on macOS, or on Linux you should get something like:
 
