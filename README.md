@@ -124,18 +124,18 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 To build, you need at least Swift 5.2 (Swift 5.3 is required for `gtk4`; also some Linux distributions have issues and seem to **require at least Swift 5.5**), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
-    Target: x86_64-apple-darwin20.5.0
+	swift-driver version: 1.45.2 Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+    Target: x86_64-apple-macosx12.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.5 (swift-5.5-RELEASE)
+	Swift version 5.6 (swift-5.6-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68 and 2.70, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2 and 4.4 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68 and 2.70, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2, 4.4, and 4.6 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
