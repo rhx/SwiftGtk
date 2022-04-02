@@ -236,6 +236,7 @@ struct _GtkStyleProvider {};
 struct _GtkSwitchAccessiblePrivate {};
 struct _GtkSwitchPrivate {};
 struct _GtkSymbolicColor {};
+struct _GtkSymbolicPaintable {};
 struct _GtkTablePrivate {};
 struct _GtkTargetList {};
 struct _GtkTearoffMenuItemPrivate {};
