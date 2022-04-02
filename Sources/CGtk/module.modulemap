@@ -2,8 +2,6 @@ module CGtk [system] {
 	header "gtk_bridging.h"
 
 	link "gtk-4"
-	link "gdk-4"
-	link "atk-1.0"
 	link "pangocairo-1.0"
 	link "pangoft2-1.0"
 	link "fontconfig"
