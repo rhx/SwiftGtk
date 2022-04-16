@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 
 import PackageDescription
 
@@ -6,9 +6,9 @@ let package = Package(
     name: "Gtk",
     products: [ .library(name: "Gtk", targets: ["Gtk"]) ],
     dependencies: [
-        .package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("development")),
-        .package(name: "Gdk", url: "https://github.com/rhx/SwiftGdk.git", .branch("gtk4-development")),
-        .package(name: "PangoCairo", url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("development")),
+        .package(url: "https://github.com/rhx/gir2swift.git", branch: "development"),
+        .package(url: "https://github.com/rhx/SwiftAtk.git",  branch: "development"),
+        .package(url: "https://github.com/rhx/SwiftGdk.git",  branch: "gtk4-development"),
     ],
     targets: [
         .systemLibrary(name: "CGtk", pkgConfig: "gtk4-unix-print",
@@ -18,10 +18,28 @@ let package = Package(
 	    ]),
         .target(
             name: "Gtk", 
-            dependencies: ["GtkCHelpers", "Gdk", "PangoCairo"],
-            swiftSettings: [.unsafeFlags(["-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug))]
+            dependencies: [
+                "GtkCHelpers",
+                .product(name: "gir2swift",  package: "gir2swift"),
+                .product(name: "Gdk",        package: "SwiftGdk"),
+                .product(name: "Atk",        package: "SwiftAtk")
+            ],
+            swiftSettings: [
+                .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
+                .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),
+            ],
+            plugins: [
+                .plugin(name: "gir2swift-plugin", package: "gir2swift")
+            ]
         ),
         .target(name: "GtkCHelpers", dependencies: ["CGtk"]),
-        .testTarget(name: "GtkTests", dependencies: ["Gtk"]),
+        .testTarget(
+            name: "GtkTests",
+            dependencies: ["Gtk"],
+            swiftSettings: [
+                .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
+                .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),
+            ]
+        ),
     ]
 )

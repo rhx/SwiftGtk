@@ -1,3 +1,5 @@
 version: 1
 gir-name: Gtk-4.0
+pkg-config: gtk4
 output-directory: Sources/Gtk
+alpha-names: true
