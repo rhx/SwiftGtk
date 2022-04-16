@@ -799,23 +799,3 @@ class GtkTests: XCTestCase {
  */
     }
 }
-
-extension GtkTests {
-    static var allTests : [(String, (GtkTests) -> () throws -> Void)] {
-        return [
-            ("testApp",                 testApp),
-            ("testDialog",              testDialog),
-            ("testFileChooser",         testFileChooser),
-            ("testFileChooserNative",   testFileChooserNative),
-            ("testInitiallyUnowned",    testInitiallyUnowned),
-            ("testMessageDialog",       testMessageDialog),
-            ("testTextBuffer",          testTextBuffer),
-            ("testScrolledWindow",      testScrolledWindow),
-            ("testMajorVersion",        testMajorVersion),
-            ("testMinorVersion",        testMinorVersion),
-            ("testMicroVersion",        testMicroVersion),
-            ("testInterfaceAge",        testInterfaceAge),
-            ("testBinaryAge",           testBinaryAge),
-        ]
-    }
-}

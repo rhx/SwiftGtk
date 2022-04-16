@@ -145,8 +145,8 @@ s/: \([A-Za-z][A-Za-z.]*ListenerInit[,)]\)/: @escaping \1/g
 s/: \([A-Za-z][A-Za-z.]*Predicate[,)]\)/: @escaping \1/g
 s/: \([A-Za-z][A-Za-z.]*Foreach[,)]\)/: @escaping \1/g
 s/: \([A-Za-z][A-Za-z.]*Parser[,)]\)/: @escaping \1/g
-s/label group: SListT/group: SListT/
-s/mnemonic group: SListT\(.*\)label:/group: SListT\1mnemonic label:/
+s/label group: GLibSListT/group: GLibSListT/
+s/mnemonic group: GLibSListT\(.*\)label:/group: GLibSListT\1mnemonic label:/
 s/radio.*NewWith/newWith/
 s/, GObject.TypePluginProtocol//
 s/Int\( = cast.gtk_icon.*_size\)/GtkIconSize\1/
@@ -162,7 +162,7 @@ s/getBaseSize() -> GtkIconSize/getBaseSize() -> Int/
 s|\(gtk_menu_set_active(menu_ptr, guint(newValue))\)|// \1|
 s|\(gtk_container_class_find.*(\)_ptr|\1ptr.assumingMemoryBound(to: GObjectClass.self)|
 s|\(gtk_container_class_list.*(\)_ptr|\1ptr.assumingMemoryBound(to: GObjectClass.self)|
-s|\(waitForRichText<\)AtomT: Gdk.AtomProtocol, \(.*format: \)AtomT|\1\2UnsafeMutablePointer<GdkAtom?>|
+s|\(waitForRichText<\)GdkAtomT: Gdk.AtomProtocol, \(.*format: \)GdkAtomT|\1\2UnsafeMutablePointer<GdkAtom?>|
 s|\(gtk_clipboard_wait_for_rich_text(.*format\)._ptr|\1|
 s|\(gtk_menu_item_set_submenu(.*\.\)menu_ptr|\1widget_ptr|
 s|\(gtk_menu_shell_append(.*\.\)menu_item_ptr|\1widget_ptr|
@@ -189,3 +189,5 @@ s|getAuthors() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>|getAuthors() 
 s|getDocumenters() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>|getDocumenters() -> UnsafePointer<UnsafePointer<gchar>|
 s|getSearch(path: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|getSearch(path: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>|
 s|setSearch(path: UnsafeMutablePointer<gchar>|setSearch(path: UnsafeMutablePointer<UnsafePointer<gchar>?>|
+s|rv = Gdk\(ModifierType(.*)\)|rv = Gdk.\1|
+s|rv = Gdk\(EventMask(.*)\)|rv = Gdk.\1|
