@@ -170,7 +170,9 @@ s|bgPixmapName: (UnsafeMutablePointer<gchar>!, UnsafeMutablePointer<gchar>!, Uns
 s|background: (UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!, UnsafeMutablePointer<cairo_pattern_t>!)|background: (UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?, UnsafeMutablePointer<cairo_pattern_t>?)|
 s|\(func testListAllTypes(.* -> Unsafe\)MutablePointer<GType>|\1Pointer<GType>|
 s|addID(window: Window)|addID(window: XID)|
-s|socketID: Window|socketID: XID|
+s|socketID: Window|socketID: CGtk.Window|
+s|Window(socketID)|CGtk.Window(socketID)|
+s|Window(window)|CGtk.Window(window)|
 s|options: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|options: UnsafeMutablePointer<UnsafePointer<CChar>|
 s|optionLabels: UnsafeMutablePointer<UnsafeMutablePointer<CChar>|optionLabels: UnsafeMutablePointer<UnsafePointer<CChar>|
 s|iconNames: UnsafeMutablePointer<gchar>|iconNames: UnsafeMutablePointer<UnsafePointer<gchar>?>|
