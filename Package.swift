@@ -6,9 +6,10 @@ let package = Package(
     name: "Gtk",
     products: [ .library(name: "Gtk", targets: ["Gtk"]) ],
     dependencies: [
-        .package(url: "https://github.com/rhx/gir2swift.git", branch: "development"),
-        .package(url: "https://github.com/rhx/SwiftAtk.git",  branch: "development"),
-        .package(url: "https://github.com/rhx/SwiftGdk.git",  branch: "gtk4-development"),
+        .package(url: "https://github.com/rhx/gir2swift.git",     branch: "development"),
+        .package(url: "https://github.com/rhx/SwiftGraphene.git", branch: "development"),
+        .package(url: "https://github.com/rhx/SwiftAtk.git",      branch: "development"),
+        .package(url: "https://github.com/rhx/SwiftGsk.git",      branch: "development"),
     ],
     targets: [
         .systemLibrary(name: "CGtk", pkgConfig: "gtk4-unix-print",
@@ -21,8 +22,9 @@ let package = Package(
             dependencies: [
                 "GtkCHelpers",
                 .product(name: "gir2swift",  package: "gir2swift"),
-                .product(name: "Gdk",        package: "SwiftGdk"),
-                .product(name: "Atk",        package: "SwiftAtk")
+                .product(name: "Graphene",   package: "SwiftGraphene"),
+                .product(name: "Atk",        package: "SwiftAtk"),
+                .product(name: "Gsk",        package: "SwiftGsk"),
             ],
             swiftSettings: [
                 .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
