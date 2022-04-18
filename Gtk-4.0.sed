@@ -35,3 +35,6 @@ s/: \([A-Za-z.]*ListenerInit[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Predicate[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Foreach[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Parser[,)]\)/: @escaping \1/g
+s|rv = Gdk\(ModifierType(.*)\)|rv = Gdk.\1|
+s|rv = Gdk\(EventMask(.*)\)|rv = Gdk.\1|
+s|rv = Gdk\(DragAction(.*)\)|rv = Gdk.\1|
