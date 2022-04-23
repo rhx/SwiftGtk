@@ -23,7 +23,6 @@ Normally, you don't build this package directly (but for testing you can - see '
 mkdir MyProject
 cd MyProject
 curl -L https://git.io/SwiftGtk3.sh | sh
-./run-gir2swift.sh
 ```
 
 After this, you should be able to `import Gtk` in your sources and use `swift build` to build your project.
@@ -110,10 +109,12 @@ The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66
 
 ##### Ubuntu
 
-On Ubuntu 20.04 and 18.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
+On Ubuntu 22.04, 20.04, and 18.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
-	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 gobject-introspection libgirepository1.0-dev libxml2-dev jq
+	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 libcogl-pango-dev libcogl-path-dev libcogl-dev libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libgraphene-1.0-dev gir1.2-graphene-1.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq
+
+Ubuntu 18.04 also requires you to install `libcogl-gles2-dev`.
 
 ##### Fedora
 
