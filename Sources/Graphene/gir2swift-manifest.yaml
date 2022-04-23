@@ -1,0 +1,5 @@
+version: 1
+gir-name: Graphene-1.0
+pkg-config: graphene-gobject-1.0
+output-directory: Sources/Graphene
+alpha-names: true

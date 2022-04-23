@@ -1,0 +1,9 @@
+import CGLib
+
+// The following three declarations are invalid in the .gir XML file:
+
+public let G_MININT16: Int16 = -32768
+public let G_MININT32: Int32 = -2147483648
+public let G_MININT8: Int8 = -128
+public let G_SOURCE_CONTINUE: gboolean = 1
+

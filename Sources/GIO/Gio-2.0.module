@@ -1,0 +1,13 @@
+import CGLib
+import GLib
+import GLibObject
+
+@usableFromInline
+func g_io_module_load(_ module: UnsafeMutablePointer<GIOModule>) {
+    fatalError("private g_io_module_load called")
+}
+
+@usableFromInline
+func g_io_module_unload(_ module: UnsafeMutablePointer<GIOModule>) {
+    fatalError("private g_io_module_unload called")
+}

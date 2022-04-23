@@ -1,0 +1,4 @@
+version: 1
+gir-name: GModule-2.0
+output-directory: Sources/GModule
+alpha-names: true

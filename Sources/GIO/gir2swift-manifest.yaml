@@ -1,0 +1,4 @@
+version: 1
+gir-name: Gio-2.0
+output-directory: Sources/GIO
+alpha-names: true

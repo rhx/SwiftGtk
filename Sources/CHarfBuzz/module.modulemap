@@ -1,0 +1,12 @@
+module CHarfBuzz [system] {
+	header "harfbuzz_bridging.h"
+
+	link "harfbuzz-gobject"
+	link "harfbuzz"
+	link "freetype"
+	link "graphite2"
+	link "gobject-2.0"
+	link "glib-2.0"
+
+	export *
+}

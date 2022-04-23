@@ -1,0 +1,10 @@
+module CCoglPath [system] {
+	header "cogl_bridging.h"
+
+        link "cogl-path"
+	link "libgdk_pixbuf-2.0"
+	link "gobject-2.0"
+	link "glib-2.0"
+
+	export *
+}

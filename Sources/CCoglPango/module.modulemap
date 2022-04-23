@@ -1,0 +1,12 @@
+module CCoglPango [system] {
+	header "coglpango_bridging.h"
+
+	link "cogl-pango"
+	link "cogl"
+        link "cogl-path"
+	link "pango-1.0"
+	link "gobject-2.0"
+	link "glib-2.0"
+
+	export *
+}

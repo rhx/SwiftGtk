@@ -1,0 +1,9 @@
+module CCogl [system] {
+	header "cogl_bridging.h"
+
+	link "cogl"
+	link "gobject-2.0"
+	link "glib-2.0"
+
+	export *
+}

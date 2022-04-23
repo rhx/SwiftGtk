@@ -1,0 +1,13 @@
+module CPangoCairo [system] {
+	header "pangocairo_bridging.h"
+
+    link "pangocairo-1.0"
+	link "pango-1.0"
+	link "pangoft2-1.0"
+	link "fontconfig"
+	link "freetype"
+	link "gobject-2.0"
+	link "glib-2.0"
+
+	export *
+}

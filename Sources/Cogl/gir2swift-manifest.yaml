@@ -1,0 +1,5 @@
+version: 1
+gir-name: Cogl-1.0
+pkg-config: cogl-path-1.0
+output-directory: Sources/Cogl
+alpha-names: true

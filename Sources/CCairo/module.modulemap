@@ -1,0 +1,10 @@
+module CCairo [system] {
+	header "cairo_bridging.h"
+
+	link "cairo"
+	link "cairo-gobject"
+	link "gobject-2.0"
+	link "glib-2.0"
+
+	export *
+}

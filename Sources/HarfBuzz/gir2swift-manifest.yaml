@@ -1,0 +1,5 @@
+version: 1
+gir-name: HarfBuzz-0.0
+pkg-config: harfbuzz-gobject
+output-directory: Sources/CHarfBuzz
+alpha-names: true

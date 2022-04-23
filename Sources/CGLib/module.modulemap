@@ -1,0 +1,11 @@
+module CGLib [system] [swift_infer_import_as_member] {
+	header "glib_bridging.h"
+
+	link "gmodule-2.0"
+	link "gobject-2.0"
+	link "gthread-2.0"
+	link "gio-2.0"
+	link "glib-2.0"
+
+	export *
+}

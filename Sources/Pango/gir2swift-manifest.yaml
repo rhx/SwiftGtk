@@ -1,0 +1,5 @@
+version: 1
+gir-name: Pango-1.0
+pkg-config: pango
+output-directory: Sources/Pango
+alpha-names: true

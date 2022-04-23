@@ -1,0 +1,9 @@
+import CGLib
+import CPango
+import CCogl
+import CCoglPango
+import GLib
+import GLibObject
+import Pango
+import PangoCairo
+import Cogl

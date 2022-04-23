@@ -1,0 +1,5 @@
+version: 1
+gir-name: Atk-1.0
+pkg-config: atk
+output-directory: Sources/Atk
+alpha-names: true
