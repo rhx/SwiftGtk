@@ -65,10 +65,10 @@ jobs:
           rm -rf .build/repositories
           cd ..
 
-      - name: 'Upload Artefact'
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artefact-macos-gtk4
-          path: |
-            SwiftGtk/Sources/
-          retention-days: 1
+#     - name: 'Upload Artefact'
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: build-artefact-macos-gtk4
+#         path: |
+#           SwiftGtk/Sources/
+#         retention-days: 1
