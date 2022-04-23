@@ -7,10 +7,12 @@ env:
 on:
   push:
     branches:
+      - monorepo
       - development
       - main
   pull_request:
     branches:
+      - monorepo
       - development
       - main
 
