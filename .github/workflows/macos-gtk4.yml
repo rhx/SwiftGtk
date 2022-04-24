@@ -7,10 +7,12 @@ env:
 on:
   push:
     branches:
+      - gtk4-monorepo
       - gtk4-development
       - gtk4
   pull_request:
     branches:
+      - gtk4-monorepo
       - gtk4-development
       - gtk4
 

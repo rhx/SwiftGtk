@@ -3,10 +3,15 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 22/4/17.
-//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020, 2021 Rene Hexel.  All rights reserved.
 //
 import GLibObject
 import CGtk
+
+/// Tree View row activation signal handler
+public typealias TreeViewRowActivatedSignalHandler = (TreeViewRef, TreePathRef, TreeViewColumnRef) -> Void
+/// Closure holder for a Tree View row activation signal handler
+public typealias TreeViewRowActivatedSignalHandlerClosureHolder = Closure3Holder<TreeViewRef, TreePathRef, TreeViewColumnRef, Void>
 
 public extension TreeStore {
     /// Return a tree model reference for the list store

@@ -54,12 +54,6 @@ let package = Package(
             dependencies: ["GLibObject"],
             swiftSettings: [.unsafeFlags(["-suppress-warnings"])]
         ),
-	.systemLibrary(name: "CGtk", pkgConfig: "gtk+-3.0",
-	    providers: [
-		.brew(["gtk+3", "glib", "glib-networking", "gobject-introspection"]),
-		.apt(["libgtk-3-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
-	    ]
-        ),
         .target(
             name: "GIO",
             dependencies: ["GLibObject"],
@@ -266,10 +260,10 @@ let package = Package(
         ),
         .testTarget(name: "CoglPangoTests", dependencies: ["CoglPango"]),
         .systemLibrary(
-            name: "CGdk", pkgConfig: "gdk-3.0",
+            name: "CGdk", pkgConfig: "gtk4",
             providers: [
-                .brew(["gtk+3", "glib", "glib-networking", "gobject-introspection"]),
-                .apt(["libgtk-3-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
+                .brew(["gtk4", "glib", "glib-networking", "gobject-introspection"]),
+                .apt(["libgtk-4-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
             ]),
         .target(
             name: "Gdk",
@@ -283,9 +277,35 @@ let package = Package(
             ]
         ),
         .testTarget(name: "GdkTests", dependencies: ["Gdk"]),
+        .systemLibrary(
+            name: "CGsk",
+            pkgConfig: "gtk4",
+            providers: [
+                .brew(["gtk4", "glib", "glib-networking", "gobject-introspection"]),
+                .apt(["libgtk-4-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
+            ]),
+        .target(
+            name: "Gsk",
+            dependencies: ["CGsk", "GLibObject", "Graphene", "Gdk"],
+            swiftSettings: [
+                .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
+                .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),
+            ],
+            plugins: [
+                .plugin(name: "gir2swift-plugin", package: "gir2swift")
+            ]
+        ),
+        .testTarget(name: "GskTests", dependencies: ["Gsk"]),
+        .systemLibrary(
+            name: "CGtk", pkgConfig: "gtk4-unix-print",
+            providers: [
+                .brew(["gtk4", "glib", "glib-networking", "gobject-introspection"]),
+                .apt(["libgtk-4-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
+            ]
+        ),
         .target(
             name: "Gtk", 
-            dependencies: ["GtkCHelpers", "Atk", "Gdk"],
+            dependencies: ["GtkCHelpers", "Graphene", "Gsk"],
             swiftSettings: [
                 .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
                 .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),

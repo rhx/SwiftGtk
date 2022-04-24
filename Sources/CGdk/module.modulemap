@@ -1,7 +1,7 @@
 module CGdk [system] {
 	header "gdk_bridging.h"
 
-	link "gdk-3"
+	link "gtk-4"
 	link "pangocairo-1.0"
 	link "pangoft2-1.0"
 	link "fontconfig"

@@ -3,7 +3,7 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 22/4/17.
-//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020, 2021 Rene Hexel.  All rights reserved.
 //
 import GLibObject
 import CGtk
@@ -68,38 +68,5 @@ public extension ListStore {
             gtk_list_store_append($0, i.tree_iter_ptr)
         }
         set(iter: i, values: values, startColumn: s)
-    }
-}
-
-
-/// TreeView subclass for displaying lists that retain their model
-open class ListView: TreeView {
-    /// The underlying list store
-    public var listStore: ListStore
-
-    /// Convenience List View constructor
-    ///
-    /// - Parameter store: list view store description
-    @inlinable public init(model store: ListStore) {
-        listStore = store
-        super.init(model: store.treeModel)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable required public init(raw p: UnsafeMutableRawPointer) {
-        var gtype = GType.string
-        listStore = ListStore(nColumns: 0, types: &gtype)
-        super.init(raw: p)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object to be retained
-    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        var gtype = GType.string
-        listStore = ListStore(nColumns: 0, types: &gtype)
-        super.init(retainingRaw: raw)
     }
 }

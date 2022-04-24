@@ -17,3 +17,13 @@ s/gdk_selection_property_get(requestor.window_ptr, data, _ptr, propFormat)/gdk_s
 s/\(@available(., deprecated) @inlinable\) \(public init() {\)/\1 override \2/
 s/gdk_gl_context_set_use_es(gl_context_ptr, gint(newValue))/gdk_gl_context_set_use_es(gl_context_ptr, newValue ? 1 : 0)/
 s/_ptr.pointee.state = newValue.value/_ptr.pointee.state = newValue.rawValue/
+s/\(gdk_crossing_event.*\)crossing_\(event_ptr\)/\1\2/
+s/\(gdk_button_event.*\)button_\(event_ptr\)/\1\2/
+s/\(gdk_dnd_event.*\)dnd_\(event_ptr\)/\1\2/
+s/\(gdk_focus_event.*\)focus_\(event_ptr\)/\1\2/
+s/\(gdk_grab_broken_event.*\)grab_broken_\(event_ptr\)/\1\2/
+s/\(gdk_key_event.*\)key_\(event_ptr\)/\1\2/
+s/\(gdk_pad_event.*\)pad_\(event_ptr\)/\1\2/
+s/\(gdk_scroll_event.*\)scroll_\(event_ptr\)/\1\2/
+s/\(gdk_touch.*_event.*\)touch.*_\(event_ptr\)/\1\2/
+

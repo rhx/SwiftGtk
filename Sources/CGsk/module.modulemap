@@ -1,0 +1,10 @@
+module CGsk [system] {
+	header "gsk_bridging.h"
+
+	link "gtk-4"
+	link "graphene-1.0"
+	link "gobject-2.0"
+	link "glib-2.0"
+
+	export *
+}

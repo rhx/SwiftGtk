@@ -1,0 +1,5 @@
+version: 1
+gir-name: Gsk-4.0
+pkg-config: gtk4
+output-directory: Sources/Gsk
+alpha-names: true

@@ -22,7 +22,7 @@ Normally, you don't build this package directly (but for testing you can - see '
 ```
 mkdir MyProject
 cd MyProject
-curl -L https://git.io/SwiftGtk3.sh | sh
+curl -L https://git.io/SwiftGtk4.sh | sh
 ```
 
 After this, you should be able to `import Gtk` in your sources and use `swift build` to build your project.
@@ -36,7 +36,7 @@ import PackageDescription
 let package = Package(name: "MyPackage",
     dependencies: [
         .package(url: "https://github.com/rhx/gir2swift.git", branch: "main"),
-        .package(url: "https://github.com/rhx/SwiftGtk.git",  branch: "gtk3"),
+        .package(url: "https://github.com/rhx/SwiftGtk.git",  branch: "gtk4"),
     ],
     targets: [
         .target(name: "MyPackage",
@@ -48,7 +48,7 @@ let package = Package(name: "MyPackage",
 )
 ```
 
-For gtk4 replace `.branch("gtk3")` with `.branch("gtk4")`.
+For gtk3 replace `.branch("gtk4")` with `.branch("gtk3")`.
 
 ### Examples
 
@@ -112,7 +112,7 @@ The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66
 On Ubuntu 22.04, 20.04, and 18.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
-	sudo apt install libgtk-3-dev gir1.2-gtksource-3.0 libcogl-pango-dev libcogl-path-dev libcogl-dev libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libgraphene-1.0-dev gir1.2-graphene-1.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq
+	sudo apt install libgtk-4-dev gir1.2-gtksource-4.0 libcogl-pango-dev libcogl-path-dev libcogl-dev libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libgraphene-1.0-dev gir1.2-graphene-1.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq
 
 Ubuntu 18.04 also requires you to install `libcogl-gles2-dev`.
 
@@ -127,7 +127,7 @@ On Fedora 29, you can use the gtk that comes with the distribution.  Just instal
 On macOS, you can install gtk using HomeBrew (for setup instructions, see http://brew.sh).  Once you have a running HomeBrew installation, you can use it to install a native version of gtk:
 
 	brew update
-	brew install gtk+3 glib glib-networking gobject-introspection pkg-config jq
+	brew install gtk4 glib glib-networking gobject-introspection pkg-config jq
 
 
 ## Building

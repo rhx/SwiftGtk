@@ -15,9 +15,7 @@ import GLibObject
 public extension WindowProtocol {
     /// size of the window
     @inlinable var size: (width: Int, height: Int) {
-        var w = CInt(0), h = CInt(0)
-        getSize(width: &w, height: &h)
-        return (Int(w), Int(h))
+        return (width, height)
     }
 }
 
@@ -27,9 +25,9 @@ public extension ScrolledWindow {
     /// - Parameters:
     ///   - vAdjustment: optional vertical adjustment
     @inlinable convenience init<T: AdjustmentProtocol>(vAdjustment: T!) {
-        let vadjust = vAdjustment.map { $0.adjustment_ptr.withMemoryRebound(to: GtkAdjustment.self, capacity: 1) { $0 } }
-        let win = gtk_scrolled_window_new(nil, vadjust).withMemoryRebound(to: GtkScrolledWindow.self, capacity: 1) { $0 }
-        self.init(win)
+        let win = gtk_scrolled_window_new()
+        self.init(cPointer: win!)
+        set(vadjustment: vAdjustment)
         _ = refSink()
     }
 
@@ -37,9 +35,9 @@ public extension ScrolledWindow {
     /// - Parameters:
     ///   - vAdjustment: optional vertical adjustment
     @inlinable convenience init(vAdjustment: AdjustmentRef? = nil) {
-        let vadjust = vAdjustment.map { $0.adjustment_ptr.withMemoryRebound(to: GtkAdjustment.self, capacity: 1) { $0 } }
-        let win = gtk_scrolled_window_new(nil, vadjust).withMemoryRebound(to: GtkScrolledWindow.self, capacity: 1) { $0 }
-        self.init(win)
+        let win = gtk_scrolled_window_new()
+        self.init(cPointer: win!)
+        if let v = vAdjustment { set(vadjustment: v) }
         _ = refSink()
     }
 }
