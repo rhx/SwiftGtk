@@ -16,7 +16,7 @@ on:
 
 jobs:
   # macOS tasks
-  build-mac-big-sur-swift-latest:
+  build-mac-monterey-latest:
     runs-on: macos-12.0
     steps:
       - name: Checkout
@@ -54,11 +54,3 @@ jobs:
           swift package clean
           rm -rf .build/repositories
           cd ..
-
-      - name: 'Upload Artefact'
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artefact-monterey
-          path: |
-            SwiftGtk/Sources/
-          retention-days: 1

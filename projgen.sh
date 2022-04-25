@@ -22,8 +22,8 @@ fi
 swiftver=`swift --version | head -n1 | sed 's/.*version *\([1-9][0-9]*.[0-9][0-9]*\).*/\1/'`
 swiftmajor=`echo $swiftver | cut -d. -f1`
 swiftminor=`echo $swiftver | cut -d. -f2`
-if [ "$swiftmajor" -lt 5 -o "$swiftmajor" -eq 5 -a "$swiftminor" -lt 3 ]; then
-	echo "This script requires at least Swift 5.3"
+if [ "$swiftmajor" -lt 5 -o "$swiftmajor" -eq 5 -a "$swiftminor" -lt 6 ]; then
+	echo "This script requires at least Swift 5.6"
 	echo ""
 	echo "*** Unsuitable Swift version $swiftver - giving up."
 	exit 1
@@ -56,9 +56,9 @@ if ! git commit -am "Add Package.resolved" ; then
 	exit 1
 fi
 if ! ( sed \
-   -e 's|// Dependencies.*|.package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("main")),|' \
-   -e 's|// .package.url:.*|.package(name: "Gtk", url: "https://github.com/rhx/SwiftGtk.git", .branch("gtk3")),|' \
-   -e 's|dependencies: ...,|dependencies: ["Gtk"]),|' \
+   -e 's|// Dependencies.*|.package(url: "https://github.com/rhx/gir2swift.git", branch: "main"),|' \
+   -e 's|// .package.url:.*|.package(url: "https://github.com/rhx/SwiftGtk.git", branch: "gtk3"),|' \
+   -e 's|dependencies: ...,|dependencies: [.product(name: "Gtk", package: "SwiftGtk")]),|' \
    < Package.swift > Package.swift.out && \
    mv Package.swift.out Package.swift ) ; then
 	echo "*** Could not add SwiftGtk to Package.swift"
@@ -105,7 +105,6 @@ echo ""
 echo "Modify main.swift in Sources/$projdir to import and use SwiftGtk,"
 echo "then you can build the wrapper and your project, e.g.:"
 echo ""
-echo "./run-gir2swift.sh"
 echo "swift build"
 echo "swift run"
 echo "swift test"

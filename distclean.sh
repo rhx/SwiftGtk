@@ -4,4 +4,4 @@
 #
 . ./config.sh
 ./clean.sh
-exec rm -rf Package.resolved Package.pins Packages Sources/${Mod}/${Module}*.swift* ${Mod}.xcodeproj .swiftpm $BUILD_DIR
+exec rm -rf Package.resolved Package.pins Packages Sources/${Mod}/${Module}*.swift* ${Mod}.xcodeproj .swiftpm docs .docs.old $BUILD_DIR

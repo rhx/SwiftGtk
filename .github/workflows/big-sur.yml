@@ -1,35 +1,30 @@
-name: macOS gtk4
+name: macOS 11
 
 # Dependencies of this package
 env:
-  MACOS_BREW: ${{ 'gtk4 pango glib glib-networking gobject-introspection pkg-config jq' }}
+  MACOS_BREW: ${{ 'gtk+3 pango glib glib-networking gobject-introspection pkg-config jq' }}
 
 on:
   push:
     branches:
-      - gtk4-development
-      - gtk4
+      - swift52
   pull_request:
     branches:
-      - gtk4-development
-      - gtk4
+      - swift52
 
 jobs:
   # macOS tasks
-  build-mac-gtk4-swift-latest:
-    runs-on: macos-latest
+  build-mac-big-sur-swift-latest:
+    runs-on: macos-11.0
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '13.3.1'
+          xcode-version: '13.2.1'
 
       - name: Print Swift version to confirm
         run: swift --version
-
-      - name: Fetch dependencies for general repository
-        run: brew upgrade
 
       - name: Fetch dependencies for general repository
         run: brew install $MACOS_BREW
@@ -37,7 +32,7 @@ jobs:
       - name: Checkout SwiftGtk
         uses: actions/checkout@v2
         with:
-          ref: gtk4
+          ref: swift52
           path: SwiftGtk
 
       - name: Build Swift Wrappers
@@ -56,7 +51,7 @@ jobs:
       - name: Test SwiftGtk
         run: |
           cd SwiftGtk
-          swift test -Xswiftc -suppress-warnings `./run-gir2swift.sh flags -noUpdate`
+          swift test `./run-gir2swift.sh flags -noUpdate`
           cd ..
 
       - name: Remove unneeded files and archive artefacts
