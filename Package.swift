@@ -10,6 +10,7 @@ let package = Package(
         .package(url: "https://github.com/rhx/SwiftGraphene.git", branch: "development"),
         .package(url: "https://github.com/rhx/SwiftAtk.git",      branch: "development"),
         .package(url: "https://github.com/rhx/SwiftGsk.git",      branch: "development"),
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
     ],
     targets: [
         .systemLibrary(name: "CGtk", pkgConfig: "gtk4-unix-print",

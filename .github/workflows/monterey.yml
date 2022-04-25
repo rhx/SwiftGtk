@@ -1,8 +1,8 @@
-name: Ubuntu 20.04
+name: macOS 12
 
 # Dependencies of this package
 env:
-  UBUNTU_APT: ${{ 'libgtk-4-dev gir1.2-gtk-4.0 gir1.2-gtksource-4.0 libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq' }}
+  MACOS_BREW: ${{ 'gtk+3 pango glib glib-networking gobject-introspection pkg-config jq' }}
 
 on:
   push:
@@ -15,23 +15,21 @@ on:
       - main
 
 jobs:
-  # Ubuntu 20.04 tasks
-  build-ubuntu-20_04-swift-latest:
-    runs-on: ubuntu-20.04
+  # macOS tasks
+  build-mac-monterey-latest:
+    runs-on: macos-12.0
     steps:
-      - uses: actions/checkout@v2
-      - uses: YOCKOW/Action-setup-swift@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: maxim-lobanov/setup-xcode@v1
         with:
-          swift-version: '5.6.1'
+          xcode-version: '13.3.1'
 
       - name: Print Swift version to confirm
         run: swift --version
 
-      - name: Update package repository
-        run: sudo apt-get update
-
       - name: Fetch dependencies for general repository
-        run: sudo apt-get install $UBUNTU_APT
+        run: brew install $MACOS_BREW
 
       - name: Checkout SwiftGtk
         uses: actions/checkout@v2
@@ -44,14 +42,14 @@ jobs:
           swift build
           cd ..
 
-#      - name: Test SwiftGtk
-#        run: |
-#          cd SwiftGtk
-#          swift test
-#          cd ..
+      - name: Test SwiftGtk
+        run: |
+          cd SwiftGtk
+          swift test
+          cd ..
 
       - name: Remove unneeded files and archive artefacts
-        run: |
+        run: | 
           cd SwiftGtk
           swift package clean
           rm -rf .build/repositories
