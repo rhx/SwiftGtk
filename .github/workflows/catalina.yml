@@ -7,12 +7,10 @@ env:
 on:
   push:
     branches:
-      - development
-      - main
+      - swift52
   pull_request:
     branches:
-      - development
-      - main
+      - swift52
 
 jobs:
   # macOS tasks
@@ -34,6 +32,7 @@ jobs:
       - name: Checkout SwiftGtk
         uses: actions/checkout@v2
         with:
+          ref: swift52
           path: SwiftGtk
 
       - name: Build Swift Wrappers
@@ -61,11 +60,3 @@ jobs:
           swift package clean
           rm -rf .build/repositories
           cd ..
-
-      - name: 'Upload Artefact'
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artefact-catalina
-          path: |
-            SwiftGtk/Sources/
-          retention-days: 1
