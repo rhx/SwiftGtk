@@ -91,6 +91,13 @@ class GtkTests: XCTestCase {
         XCTAssertEqual(window2.allocatedHeight, 1)
     }
 
+    /// test selection mode
+    func testSelectionMode() {
+        let list = ListBox()
+        list.selectionMode = .none
+        XCTAssertEqual(list.selectionMode.rawValue, 0)
+    }
+
     /// text text buffers
     func testTextBuffer() {
         guard let buffer = TextBuffer() else { XCTFail() ; return }
