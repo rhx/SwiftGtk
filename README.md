@@ -118,7 +118,7 @@ Ubuntu 18.04 also requires you to install `libcogl-gles2-dev`.
 
 ##### Fedora
 
-On Fedora 29, you can use the gtk that comes with the distribution.  Just install with the `dnf` package manager:
+On Fedora, you can use the gtk that comes with the distribution.  Just install with the `dnf` package manager:
 
 	sudo dnf install gtk3-devel pango-devel cairo-devel cairo-gobject-devel glib2-devel gobject-introspection-devel libxml2-devel jq
 
