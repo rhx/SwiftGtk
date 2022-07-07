@@ -173,7 +173,7 @@ let package = Package(
             ]),
         .target(
             name: "Pango",
-            dependencies: ["CPango", "GLibObject", "HarfBuzz"],
+            dependencies: ["CPango", "GLibObject", "GIO", "HarfBuzz"],
             swiftSettings: [
                 .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
                 .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),
