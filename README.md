@@ -100,12 +100,12 @@ To build, download Swift from https://swift.org/download/ -- if you are using ma
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.6.1 (swift-5.6.1-RELEASE)
+	Swift version 5.6.3 (swift-5.6.3-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70 and 2.72, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2, 4.4, and 4.6 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70 and 2.72, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2, 4.4, 4.6, and 4.8 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 

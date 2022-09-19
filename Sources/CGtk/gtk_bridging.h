@@ -138,6 +138,7 @@ struct _GtkImageCellAccessiblePrivate {};
 struct _GtkImageMenuItemPrivate {};
 struct _GtkImagePrivate {};
 struct _GtkInfoBarPrivate {};
+struct _GtkInscription {};
 struct _GtkInvisiblePrivate {};
 struct _GtkLabelAccessiblePrivate {};
 struct _GtkLabelPrivate {};
