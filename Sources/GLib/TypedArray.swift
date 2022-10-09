@@ -1,5 +1,5 @@
 //
-//  Array.swift
+//  TypedArray.swift
 //
 //  Created by Rene Hexel on 7/10/2022.
 //  Copyright © 2022 Rene Hexel.  All rights reserved.
@@ -57,6 +57,9 @@ public class TypedArray<Element>: ArrayType, TypedArrayProtocol, ExpressibleByAr
         }
     }
 
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ArrayProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
     @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }

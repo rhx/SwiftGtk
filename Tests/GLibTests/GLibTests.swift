@@ -372,7 +372,38 @@ class GLibTests: XCTestCase {
             XCTAssertEqual(element, sequence[index])
             XCTAssertEqual(item, tl[i1])
         }
-        XCTAssertEqual(tl.count, i)
+        XCTAssertEqual(sequence.count, i)
+        XCTAssertEqual(tl.endIndex, g)
+    }
+
+    func testReferenceArray() {
+        let tl: TypedSequence = [0, 1, 2, 3, 4, 5]
+        let a: SequenceIterRef = tl.startIndex
+        let b: SequenceIterRef = tl.index(after: a)
+        let c: SequenceIterRef = tl.index(after: b)
+        let d: SequenceIterRef = tl.index(after: c)
+        let e: SequenceIterRef = tl.index(after: d)
+        let f: SequenceIterRef = tl.index(after: e)
+        let g: SequenceIterRef = tl.index(after: f)
+        let elements = [a, b, c, d, e, f]
+        let array: ReferenceArray = [a, b, c, d, e, f]
+        var i = 0
+        var i1 = tl.startIndex
+        var index = array.startIndex
+        for element in array {
+            defer {
+                i1 = tl.index(after: i1)
+                index = array.index(after: index)
+                i += 1
+            }
+            let item = tl[element]
+            XCTAssertEqual(i, index)
+            XCTAssertEqual(i1, elements[i])
+            XCTAssertEqual(element, i1)
+            XCTAssertEqual(element, array[index])
+            XCTAssertEqual(item, tl[i1])
+        }
+        XCTAssertEqual(array.count, i)
         XCTAssertEqual(tl.endIndex, g)
     }
 
