@@ -1,7 +1,7 @@
 #if os(Linux)
-    import Glibc
+import Glibc
 #else
-    import Darwin
+import Darwin
 #endif
 
 import XCTest
@@ -123,7 +123,9 @@ class GLibTests: XCTestCase {
         }
         XCTAssertFalse(context.pending())
     }
-    
+
+    // FIXME: macOS concurrency interferes with testing multiple different log hooks
+#if !os(macOS)
     func testLog() {
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
@@ -176,7 +178,7 @@ class GLibTests: XCTestCase {
                 guard LogLevelFlags($0) == .debug, let fields = $1,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
                 resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "test") == 0
-                                 && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomain") == 0
+                && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomain") == 0
                 return .handled
             }, userData: gpointer(result), userDataFree: { _ in })
             return g_log_set_default_handler({
@@ -184,14 +186,15 @@ class GLibTests: XCTestCase {
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee =
-                    strcmp(domain, "testDomain") == 0 &&
-                    strcmp(message, "test") == 0
+                strcmp(domain, "testDomain") == 0 &&
+                strcmp(message, "test") == 0
             }, gpointer(result))
         }
         g_log(domain: "testDomain", "test")
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
+#endif
 
     func testLogDomainLevel() {
         var logResult = false
@@ -201,7 +204,7 @@ class GLibTests: XCTestCase {
                 guard LogLevelFlags($0) == .message, let fields = $1,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
                 resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "%%s") == 0
-                    && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomainLevel") == 0
+                && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomainLevel") == 0
                 return .handled
             }, userData: gpointer(result), userDataFree: { _ in })
             return g_log_set_default_handler({
@@ -209,8 +212,8 @@ class GLibTests: XCTestCase {
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee =
-                    strcmp(domain, "testDomainLevel") == 0 &&
-                    strcmp(message, "%s") == 0
+                strcmp(domain, "testDomainLevel") == 0 &&
+                strcmp(message, "%s") == 0
             }, gpointer(result))
         }
         g_log(domain: "testDomainLevel", "%s", level: .message)
@@ -254,5 +257,151 @@ class GLibTests: XCTestCase {
             XCTAssertEqual(ieee.mpn.mantissa_high, 524288)
             XCTAssertEqual(ieee.mpn.sign, 1)
         }
+    }
+
+    func testTypedSequence() {
+        var sequence: TypedSequence = [0, 1, 2, 3, 4, 5]
+        var i = 0
+        var index = sequence.startIndex
+        for _ in sequence {
+            defer {
+                i += 1
+                index = sequence.index(after: index)
+            }
+            XCTAssertEqual(sequence[index], i)
+            sequence[index] *= 2
+        }
+        i = 0
+        index = sequence.startIndex
+        for _ in sequence {
+            defer {
+                i += 1
+                index = sequence.index(after: index)
+            }
+            XCTAssertEqual(sequence[index], i*2)
+        }
+        XCTAssertEqual(i, sequence.count)
+    }
+
+    func testArray() {
+        var array: TypedArray = [0, 1, 2, 3, 4, 5]
+        for (i, element) in array.enumerated() {
+            XCTAssertEqual(element, array[i])
+            XCTAssertEqual(element, i)
+            array[i] *= 2
+        }
+        for (i, element) in array.enumerated() {
+            XCTAssertEqual(element, array[i])
+            XCTAssertEqual(element, i*2)
+        }
+    }
+
+    func testTypedList() {
+        let list: TypedList = [0, 1, 2, 3, 4, 5]
+        for (i, element) in list.enumerated() {
+            XCTAssertEqual(element, i)
+        }
+    }
+
+    func testTypedSList() {
+        let list: TypedSList = [0, 1, 2, 3, 4, 5]
+        for (i, element) in list.enumerated() {
+            XCTAssertEqual(element, i)
+        }
+    }
+
+    func testReferenceList() {
+        let tl: TypedSequence = [0, 1, 2, 3, 4, 5]
+        let a: SequenceIterRef = tl.startIndex
+        let b: SequenceIterRef = tl.index(after: a)
+        let c: SequenceIterRef = tl.index(after: b)
+        let d: SequenceIterRef = tl.index(after: c)
+        let e: SequenceIterRef = tl.index(after: d)
+        let f: SequenceIterRef = tl.index(after: e)
+        XCTAssertEqual(tl.index(after: f), tl.endIndex)
+        let list: ReferenceList = [a, b, c, d, e, f]
+        var n = 0
+        for (i, index) in list.enumerated() {
+            XCTAssertEqual(tl[index], i)
+            n = i+1
+        }
+        XCTAssertEqual(tl.count, n)
+    }
+
+    func testReferenceSList() {
+        let tl: TypedSequence = [0, 1, 2, 3, 4, 5]
+        let a: SequenceIterRef = tl.startIndex
+        let b: SequenceIterRef = tl.index(after: a)
+        let c: SequenceIterRef = tl.index(after: b)
+        let d: SequenceIterRef = tl.index(after: c)
+        let e: SequenceIterRef = tl.index(after: d)
+        let f: SequenceIterRef = tl.index(after: e)
+        XCTAssertEqual(tl.index(after: f), tl.endIndex)
+        let list: ReferenceSList = [a, b, c, d, e, f]
+        var n = 0
+        for (i, index) in list.enumerated() {
+            XCTAssertEqual(tl[index], i)
+            n = i+1
+        }
+        XCTAssertEqual(tl.count, n)
+    }
+
+    func testReferenceSequence() {
+        let tl: TypedSequence = [0, 1, 2, 3, 4, 5]
+        let a: SequenceIterRef = tl.startIndex
+        let b: SequenceIterRef = tl.index(after: a)
+        let c: SequenceIterRef = tl.index(after: b)
+        let d: SequenceIterRef = tl.index(after: c)
+        let e: SequenceIterRef = tl.index(after: d)
+        let f: SequenceIterRef = tl.index(after: e)
+        let g: SequenceIterRef = tl.index(after: f)
+        let elements = [a, b, c, d, e, f]
+        let sequence: ReferenceSequence = [a, b, c, d, e, f]
+        var i = 0
+        var i1 = tl.startIndex
+        var index = sequence.startIndex
+        for element in sequence {
+            defer {
+                i1 = tl.index(after: i1)
+                index = sequence.index(after: index)
+                i += 1
+            }
+            let item = tl[element]
+            XCTAssertEqual(i1, elements[i])
+            XCTAssertEqual(element, i1)
+            XCTAssertEqual(element, sequence[index])
+            XCTAssertEqual(item, tl[i1])
+        }
+        XCTAssertEqual(tl.count, i)
+        XCTAssertEqual(tl.endIndex, g)
+    }
+
+    func testByteArray() {
+        var array: ByteArray = [0, 1, 2, 3, 4, 5]
+        for (i, element) in array.enumerated() {
+            XCTAssertEqual(element, array[i])
+            XCTAssertEqual(element, UInt8(i))
+            array[i] *= 2
+        }
+        for (i, element) in array.enumerated() {
+            XCTAssertEqual(element, array[i])
+            XCTAssertEqual(element, UInt8(i*2))
+        }
+    }
+
+    func testByteArrayString() {
+        let string = "Test"
+        let utf8 = string.utf8CString
+        let array1: ByteArray = "Test"
+        for (i, element) in array1.enumerated() {
+            XCTAssertEqual(element, array1[i])
+            XCTAssertEqual(element, UInt8(bitPattern: utf8[i]))
+        }
+        XCTAssertEqual(array1.stringValue, "Test")
+        XCTAssertEqual(array1.count, 5)
+        let array2 = ByteArray(array1.stringValue)
+        XCTAssertEqual(array1, array2)
+        XCTAssertEqual(array1.stringValue, array2.stringValue)
+        XCTAssertNotEqual(array1.ptr, array2.ptr)
     }
 }
