@@ -112,7 +112,7 @@ The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66
 On Ubuntu 22.04, you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
-	sudo apt install libgtk-4-dev gir1.2-gtksource-4.0 libcogl-pango-dev libcogl-path-dev libcogl-dev libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libgraphene-1.0-dev gir1.2-graphene-1.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq
+	sudo apt install libgtk-4-dev gir1.2-gtksource-4.0 libcogl-pango-dev libcogl-path-dev libcogl-dev libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libgraphene-1.0-dev gir1.2-graphene-1.0 libglib2.0-dev glib-networking libatk1.0-dev libatk-bridge2.0-dev libcogl-dev libcogl-pango-dev gobject-introspection libgirepository1.0-dev libxml2-dev jq
 
 Ubuntu 18.04 also requires you to install `libcogl-gles2-dev`.
 
