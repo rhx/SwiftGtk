@@ -21,3 +21,4 @@ s/ -> UnsafeMutablePointer<PangoScript>/ -> UnsafePointer<PangoScript>/
 s/(CChar, CChar, CChar, CChar, CChar, CChar, CChar)/(Int8, Int8, Int8, Int8, Int8, Int8)/
 s/\(@inlinable var shapeEngine:\) gpointer. {/\1 UnsafeMutablePointer<PangoEngineShape>! {/
 s/\(@inlinable var langEngine:\) gpointer. {/\1 UnsafeMutablePointer<PangoEngineLang>! {/
+s/rv.map { PangoLanguageUnsafeMutablePointer<PangoLanguage>.*/rv/
