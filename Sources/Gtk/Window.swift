@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import CGtk
@@ -15,7 +15,7 @@ import GLibObject
 public extension WindowProtocol {
     /// size of the window
     @inlinable var size: (width: Int, height: Int) {
-        return (width, height)
+        return (Int(width), Int(height))
     }
 }
 

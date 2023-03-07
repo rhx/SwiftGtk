@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 23/4/17.
-//  Copyright © 2017, 2018, 2020, 2021 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2020, 2021, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import CGtk
@@ -25,10 +25,10 @@ public extension BoxProtocol {
     ///
     /// - Parameter marginStart: start margin
 
-    @inlinable func set(marginStart: Int) { setMarginStart(margin: marginStart) }
+    @inlinable func set(marginStart: Int) { setMarginStart(margin: CInt(marginStart)) }
     /// Set the end margin of the box
     ///
     /// - Parameter marginEnd: end margin
-    @inlinable func set(marginEnd: Int) { setMarginEnd(margin: marginEnd) }
+    @inlinable func set(marginEnd: Int) { setMarginEnd(margin: CInt(marginEnd)) }
 }
 
