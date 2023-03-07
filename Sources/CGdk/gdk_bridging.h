@@ -82,6 +82,7 @@ struct _GdkSurface {};
 struct _GdkSurfaceClass {};
 struct _GdkTexture {};
 struct _GdkTextureClass {};
+struct _GdkTextureDownloader {};
 struct _GdkToplevel {};
 struct _GdkToplevelInterface {};
 struct _GdkToplevelLayout {};
