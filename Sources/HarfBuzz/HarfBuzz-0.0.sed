@@ -13,3 +13,5 @@ s/\(func otTagsToScriptAndLanguage(scriptTag: hb_tag_t, languageTag: hb_tag_t, s
 s/\(hb_ot_tags_to_script_and_language(scriptTag, languageTag, script, \).*_ptr./\1\&ptr) ; return ptr.map(embed)/
 s/\(shaperList: Unsafe\)Mutable\(Pointer<Unsafe\)Mutable\(Pointer<CChar>\)/\1\2\3/
 s/\(shapeListShapers() -> UnsafeMutablePointer<Unsafe\)Mutable\(Pointer<CChar>\)/\1\2/
+s/getColorStops: @escaping hb_color_line_get_color_stops_func_t/getColorStops: hb_color_line_get_color_stops_func_t!/
+s/getExtend: @escaping hb_color_line_get_extend_func_t/getExtend: hb_color_line_get_extend_func_t!/

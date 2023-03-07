@@ -94,13 +94,13 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	swift-driver version: 1.62.8 Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+	swift-driver version: 1.62.15 Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
 	Target: x86_64-apple-macosx12.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.7 (swift-5.7-RELEASE)
+	Swift version 5.7.3 (swift-5.7.3-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.22 or higher
