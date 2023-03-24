@@ -20,7 +20,9 @@ struct _cairo_region {};
 #include <cairo-script-interpreter.h>
 #include <cairo-script.h>
 #include <cairo-svg.h>
+#if CAIRO_VERSION < 11700
 #include <cairo-tee.h>
+#endif
 #include <cairo-version.h>
 #ifdef __APPLE__
 #include <cairo-quartz-image.h>

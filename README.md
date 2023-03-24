@@ -12,9 +12,12 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 ## What is new?
 
-Support for gtk 4 was added via the `gtk4` branch.
+ * Experimental Monorepo support was added through the `monorepo` and `gtk4-monorepo` branches.
 
-Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher.
+ * Support for gtk 4 was added via the `gtk4` branch.
+
+ * Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher.
+
 
 ## Usage
 
@@ -93,7 +96,7 @@ To build, download Swift from https://swift.org/download/ -- if you are using ma
 
 	$ swift --version
 	swift-driver version: 1.62.15 Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
-	Target: x86_64-apple-macosx12.0
+	Target: arm64-apple-macosx13.0
 
 on macOS, or on Linux you should get something like:
 
@@ -103,7 +106,7 @@ on macOS, or on Linux you should get something like:
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70 and 2.72, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2, 4.4, 4.6, and 4.8 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.74, and 2.76, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2, 4.4, 4.6, 4.8, and 4.10 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
