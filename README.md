@@ -16,8 +16,9 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
  * Support for gtk 4 was added via the `gtk4` branch.
 
- * Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher.
+ * SwiftGLib 2.73 introduces typed convenience wrappers for GLib collection types such as `GArray`, `GByteArray`, `GList`, `GSList`, and `GSequence`.
 
+ * Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher.
 
 ## Usage
 
