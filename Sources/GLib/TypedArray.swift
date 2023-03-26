@@ -2,7 +2,7 @@
 //  TypedArray.swift
 //
 //  Created by Rene Hexel on 7/10/2022.
-//  Copyright © 2022 Rene Hexel.  All rights reserved.
+//  Copyright © 2022, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -51,7 +51,7 @@ public class TypedArray<Element>: ArrayType, TypedArrayProtocol, ExpressibleByAr
     /// Array literal initialiser
     /// - Parameter elements: The elements to initialise the array with
     @inlinable required public init(arrayLiteral elements: Element...) {
-        super.init(g_array_sized_new(0, 0, guint(MemoryLayout<Element>.stride), guint(elements.count)))
+        super.init(retaining: g_array_sized_new(0, 0, guint(MemoryLayout<Element>.stride), guint(elements.count)))
         elements.withUnsafeBytes {
             appendVals(data: $0.baseAddress, len: $0.count)
         }

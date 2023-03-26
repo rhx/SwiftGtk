@@ -1,7 +1,7 @@
 #if os(Linux)
-import Glibc
+    import Glibc
 #else
-import Darwin
+    import Darwin
 #endif
 
 import XCTest
@@ -124,7 +124,7 @@ class GLibTests: XCTestCase {
         XCTAssertFalse(context.pending())
     }
 
-    // FIXME: macOS concurrency interferes with testing multiple different log hooks
+// FIXME: macOS concurrency interferes with testing multiple different log hooks
 #if !os(macOS)
     func testLog() {
         var logResult = false
@@ -178,7 +178,7 @@ class GLibTests: XCTestCase {
                 guard LogLevelFlags($0) == .debug, let fields = $1,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
                 resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "test") == 0
-                && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomain") == 0
+                                 && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomain") == 0
                 return .handled
             }, userData: gpointer(result), userDataFree: { _ in })
             return g_log_set_default_handler({
@@ -186,8 +186,8 @@ class GLibTests: XCTestCase {
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee =
-                strcmp(domain, "testDomain") == 0 &&
-                strcmp(message, "test") == 0
+                    strcmp(domain, "testDomain") == 0 &&
+                    strcmp(message, "test") == 0
             }, gpointer(result))
         }
         g_log(domain: "testDomain", "test")
@@ -204,7 +204,7 @@ class GLibTests: XCTestCase {
                 guard LogLevelFlags($0) == .message, let fields = $1,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
                 resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "%%s") == 0
-                && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomainLevel") == 0
+                    && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomainLevel") == 0
                 return .handled
             }, userData: gpointer(result), userDataFree: { _ in })
             return g_log_set_default_handler({
@@ -212,8 +212,8 @@ class GLibTests: XCTestCase {
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee =
-                strcmp(domain, "testDomainLevel") == 0 &&
-                strcmp(message, "%s") == 0
+                    strcmp(domain, "testDomainLevel") == 0 &&
+                    strcmp(message, "%s") == 0
             }, gpointer(result))
         }
         g_log(domain: "testDomainLevel", "%s", level: .message)
@@ -280,7 +280,7 @@ class GLibTests: XCTestCase {
             }
             XCTAssertEqual(sequence[index], i*2)
         }
-        XCTAssertEqual(i, sequence.count)
+        XCTAssertEqual(index, sequence.endIndex)
     }
 
     func testArray() {

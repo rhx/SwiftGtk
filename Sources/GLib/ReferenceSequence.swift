@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021, 2022 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -100,7 +100,7 @@ public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, Ex
     ///
     /// - Parameter elements: The elements to initialise the sequence with
     @inlinable required public init(arrayLiteral elements: Element...) {
-        super.init(g_sequence_new({ $0?.deallocate() }))
+        super.init(retaining: g_sequence_new(nil))
         for var element in elements {
             withUnsafeMutablePointer(to: &element) {
                 $0.withMemoryRebound(to: gpointer.self, capacity: 1) {
@@ -112,6 +112,10 @@ public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, Ex
 
     @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
+    }
+
+    deinit {
+        g_sequence_free(_ptr)
     }
 }
 

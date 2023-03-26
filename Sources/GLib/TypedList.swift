@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021, 2022 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
 

@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: YOCKOW/Action-setup-swift@v1
         with:
-          swift-version: '5.6.1'
+          swift-version: '5.7.3'
 
       - name: Print Swift version to confirm
         run: swift --version
@@ -46,23 +46,9 @@ jobs:
           swift build
           cd ..
 
-#      - name: Test SwiftGtk
-#        run: |
-#          cd SwiftGtk
-#          swift test
-#          cd ..
-
       - name: Remove unneeded files and archive artefacts
         run: |
           cd SwiftGtk
           swift package clean
           rm -rf .build/repositories
           cd ..
-
-#     - name: 'Upload Artefact'
-#       uses: actions/upload-artifact@v2
-#       with:
-#         name: build-artefact-20.04-5.3
-#         path: |
-#           SwiftGtk/Sources/
-#         retention-days: 1

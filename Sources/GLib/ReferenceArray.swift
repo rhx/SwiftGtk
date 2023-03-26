@@ -53,12 +53,16 @@ public extension ReferenceArrayProtocol {
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
 public class ReferenceArray<Element>: PtrArray, ReferenceArrayProtocol, ExpressibleByArrayLiteral {
+    /// `true` to deallocate the block of associated elements on deinit.
+    public var freeElements = false
+
     /// Array literal initialiser
     /// - Parameter elements: The elements to initialise the array with
     @inlinable required public init(arrayLiteral elements: Element...) {
         assert(MemoryLayout<Element>.size == MemoryLayout<gpointer>.size)
         let n = elements.count
-        super.init(g_ptr_array_sized_new(guint(n)))
+        freeElements = true
+        super.init(retaining: g_ptr_array_sized_new(guint(n)))
         pdata.withMemoryRebound(to: Element.self, capacity: n) {
             UnsafeMutableBufferPointer(start: $0, count: n).initialize(from: elements)
         }
@@ -69,6 +73,10 @@ public class ReferenceArray<Element>: PtrArray, ReferenceArrayProtocol, Expressi
     /// - Parameter p: mutable raw pointer to the underlying object
     @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
+    }
+
+    deinit {
+        g_ptr_array_free(ptr_array_ptr, freeElements ? 1 : 0)
     }
 }
 
