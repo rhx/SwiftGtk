@@ -6,7 +6,7 @@ let package = Package(
     name: "Gtk",
     products: [ .library(name: "Gtk", targets: ["Gtk"]) ],
     dependencies: [
-        .package(url: "https://github.com/rhx/gir2swift.git", branch: "development"),
+        .package(url: "https://github.com/rhx/gir2swift.git", branch: "main"),
     ],
     targets: [
         .systemLibrary(
