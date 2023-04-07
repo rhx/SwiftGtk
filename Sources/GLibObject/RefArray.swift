@@ -1,5 +1,5 @@
 //
-//  ReferenceArray.swift
+//  RefArray.swift
 //
 //  Created by Rene Hexel on 9/10/2022.
 //  Copyright © 2022, 2023 Rene Hexel.  All rights reserved.
@@ -10,18 +10,18 @@ import GLib
 /// Protocol for a reference `PtrArray`, where each element represents a reference
 /// type pointing to an underlying object.
 ///
-/// The `ReferenceArrayProtocol` protocol exposes the methods and properties of an underlying `GPtrArray` instance.
+/// The `RefArrayProtocol` protocol exposes the methods and properties of an underlying `GPtrArray` instance.
 /// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ReferenceArray`.
-/// Alternatively, use `ReferenceArrayRef` as a lighweight, `unowned` reference
+/// For a concrete class that implements these methods and properties, see `RefArray`.
+/// Alternatively, use `RefArrayRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
-/// - Note: This colection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefArrayProtocol`.
-public protocol ReferenceArrayProtocol: PtrArrayProtocol, RandomAccessCollection, MutableCollection {
+/// - Note: This colection type is mainly for referencing GLib types.  For referencing primitive types, use `ReferenceArrayProtocol`.
+public protocol RefArrayProtocol: PtrArrayProtocol, RandomAccessCollection, MutableCollection {
     /// The element contained at each index
-    associatedtype Element
+    associatedtype Element: ObjectProtocol
 }
 
-public extension ReferenceArrayProtocol {
+public extension RefArrayProtocol {
     /// Return an iterator representing the start index of the sequence
     @inlinable var startIndex: Int { 0 }
 
@@ -36,38 +36,31 @@ public extension ReferenceArrayProtocol {
     @inlinable subscript(position: Int) -> Element {
         get {
             precondition(position < count)
-            assert(MemoryLayout<Element>.size == MemoryLayout<gpointer>.size)
-            return pdata.withMemoryRebound(to: Element.self, capacity: count) {
-                $0[position]
-            }
+            return Element(raw: pdata![position]!)
         }
         set(newValue) {
             precondition(position < count)
-            assert(MemoryLayout<Element>.size == MemoryLayout<gpointer>.size)
-            pdata.withMemoryRebound(to: Element.self, capacity: count) {
-                $0[position] = newValue
+            pdata.withMemoryRebound(to: UnsafeMutableRawPointer.self, capacity: count) {
+                $0[position] = newValue.ptr
             }
         }
     }
 }
 
-/// The `ReferenceArray` class acts as a typed wrapper around `GPtrArray`,
+/// The `RefArray` class acts as a typed wrapper around `GPtrArray`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefArray`.
-public class ReferenceArray<Element>: PtrArray, ReferenceArrayProtocol, ExpressibleByArrayLiteral {
+/// - Note: This collection type is mainly for referencing GLib types.  For referencing primitive types, use `ReferenceArray`.
+public class RefArray<Element: ObjectProtocol>: PtrArray, RefArrayProtocol, ExpressibleByArrayLiteral {
     /// `true` to deallocate the block of associated elements on deinit.
     public var freeElements = false
 
     /// Array literal initialiser
     /// - Parameter elements: The elements to initialise the array with
     @inlinable required public init(arrayLiteral elements: Element...) {
-        assert(MemoryLayout<Element>.size == MemoryLayout<gpointer>.size)
-        let n = elements.count
-        freeElements = true
-        super.init(retaining: g_ptr_array_sized_new(guint(n)))
-        pdata.withMemoryRebound(to: Element.self, capacity: n) {
-            UnsafeMutableBufferPointer(start: $0, count: n).initialize(from: elements)
+        super.init(retaining: g_ptr_array_sized_new(guint(elements.count)))
+        elements.forEach {
+            add(data: $0.ptr)
         }
     }
 
@@ -83,16 +76,16 @@ public class ReferenceArray<Element>: PtrArray, ReferenceArrayProtocol, Expressi
     }
 }
 
-/// The `ReferenceArrayRef` struct acts as a lightweight, typed wrapper aroundptr `GList`,
+/// The `RefArrayRef` struct acts as a lightweight, typed wrapper aroundptr `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefArrayRef`.
-public struct ReferenceArrayRef<Element>: ReferenceArrayProtocol {
+/// - Note: This collection type is mainly for referencing GLib types.  For referencing primitive types, use `ReferenceArrayRef`.
+public struct RefArrayRef<Element: ObjectProtocol>: RefArrayProtocol {
     /// Untyped reference to the underlying `GPtrArray`
     public var ptr: UnsafeMutableRawPointer!
 }
 
-public extension ReferenceArrayRef {
+public extension RefArrayRef {
     /// Designated initialiser from the underlying `C` data type
     @inlinable init(_ p: UnsafeMutablePointer<GPtrArray>) {
         ptr = UnsafeMutableRawPointer(p)
@@ -127,7 +120,7 @@ public extension ReferenceArrayRef {
         ptr = p
     }
 
-    /// Reference intialiser for a related type that implements `ArrayProtocol`
+    /// Ref intialiser for a related type that implements `ArrayProtocol`
     @inlinable init<T: ArrayProtocol>(_ other: T) {
         ptr = other.ptr
     }

@@ -1,5 +1,6 @@
 import XCTest
 import CGLib
+import GLib
 @testable import GLibObject
 
 class GLibObjectTests: XCTestCase {
@@ -21,8 +22,8 @@ class GLibObjectTests: XCTestCase {
 
     /// test whether creating an empty object works
     func testCreateObject() {
-        let object = Object.new(0)
-        XCTAssertNil(object)
+        let object = Object.new(.object)
+        XCTAssertNotNil(object)
     }
 
     /// test values and transformations
@@ -93,8 +94,8 @@ class GLibObjectTests: XCTestCase {
         XCTAssertFalse(type.isAbstractValue)
         guard let targetObject = Object.new(type),
               let sourceObject = Object.new(type) else {
-                XCTFail("Cannot instantiate objects")
-                return
+            XCTFail("Cannot instantiate objects")
+            return
         }
         targetObject.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
@@ -151,9 +152,9 @@ class GLibObjectTests: XCTestCase {
         XCTAssertFalse(type.isAbstract)
         XCTAssertFalse(type.isAbstractValue)
         guard let objA = Object.new(type),
-            let objB = Object.new(type) else {
-                XCTFail("Cannot instantiate objects")
-                return
+              let objB = Object.new(type) else {
+            XCTFail("Cannot instantiate objects")
+            return
         }
         withExtendedLifetime(objA) { $0.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
@@ -187,7 +188,7 @@ class GLibObjectTests: XCTestCase {
         }}
     }
 
-    
+
     /// test typed bindings and transformations between two instances
     func testTypedBindings() {
         let type = type_a_get_type()
@@ -202,9 +203,9 @@ class GLibObjectTests: XCTestCase {
         XCTAssertFalse(type.isAbstract)
         XCTAssertFalse(type.isAbstractValue)
         guard let objA = Object.new(type),
-            let objB = Object.new(type) else {
-                XCTFail("Cannot instantiate objects")
-                return
+              let objB = Object.new(type) else {
+            XCTFail("Cannot instantiate objects")
+            return
         }
         objA.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
@@ -251,8 +252,8 @@ class GLibObjectTests: XCTestCase {
         XCTAssertFalse(typeB.isAbstractValue)
         guard let objA = Object.new(typeA),
               let objB = Object.new(typeB) else {
-                XCTFail("Cannot instantiate objects")
-                return
+            XCTFail("Cannot instantiate objects")
+            return
         }
         objA.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
@@ -274,11 +275,21 @@ class GLibObjectTests: XCTestCase {
     }
 
     func testInitiallyUnowned() {
-        // InitiallyUnowned is actually not of type InitiallyUnownedClassRef.metatypeReference?
-        let initiallyUnowned = InitiallyUnowned(raw: ObjectRef.new(g_initially_unowned_get_type())!.ptr)
-        XCTAssertNotEqual(initiallyUnowned is InitiallyUnownedProtocol, typeIsA(type: initiallyUnowned.type, isAType: InitiallyUnownedClassRef.metatypeReference))
-        let object = Object.new(.object)!
-        XCTAssertEqual(object is InitiallyUnownedProtocol, typeIsA(type: object.type, isAType: InitiallyUnownedClassRef.metatypeReference))
+        let type = g_initially_unowned_get_type()
+        XCTAssertNotEqual(type, 0)
+        let ref = ObjectRef.new(type)
+        XCTAssertNotNil(ref)
+        guard let ref = ref else { return }
+        let initiallyUnowned = InitiallyUnownedRef(raw: ref.ptr)
+        XCTAssertEqual(initiallyUnowned is InitiallyUnownedProtocol, typeIsA(type: initiallyUnowned.type, isAType: InitiallyUnownedClassRef.metatypeReference))
+    }
+
+    func testRefArray() {
+        let o = Object.new(.object)
+        XCTAssertNotNil(o)
+        guard let o = o else { return }
+        let array: RefArray = [o, o, o, o, o]
+        XCTAssertEqual(array.count, 5)
     }
 }
 
@@ -337,29 +348,29 @@ fileprivate func type_a_set_property(_ object: UnsafeMutablePointer<GObject>?, _
     guard let iptr = object.map({ $0.withMemoryRebound(to: GTypeA.self, capacity: 1) { p in p } }),
           let valueRef = value.map(ValueRef.init) else { return }
     iptr.pointee.integer = valueRef.get()
-//    print("Set a (\(iptr)): \(iptr.pointee.integer) from \(valueRef.ptr) = \(value!)")
+    //    print("Set a (\(iptr)): \(iptr.pointee.integer) from \(valueRef.ptr) = \(value!)")
 }
 
 fileprivate func type_a_get_property(_ object: UnsafeMutablePointer<GObject>?, _ property_id: guint, _ value: UnsafeMutablePointer<GValue>?, _ pspec: UnsafeMutablePointer<GParamSpec>?) {
     guard let iptr = object.map({ $0.withMemoryRebound(to: GTypeA.self, capacity: 1) { p in p } }),
           let valueRef = value.map({ ValueRef($0) }) else { return }
     valueRef.set(iptr.pointee.integer)
-//    let i: Int = valueRef.get()
-//    print("Get a (\(iptr)): \(i) (should be \(iptr.pointee.integer)) into \(valueRef.ptr) = \(value!)")
+    //    let i: Int = valueRef.get()
+    //    print("Get a (\(iptr)): \(i) (should be \(iptr.pointee.integer)) into \(valueRef.ptr) = \(value!)")
 }
 
 fileprivate func type_b_set_property(_ object: UnsafeMutablePointer<GObject>?, _ property_id: guint, _ value: UnsafePointer<GValue>?, _ pspec: UnsafeMutablePointer<GParamSpec>?) {
     guard let iptr = object.map({ $0.withMemoryRebound(to: GTypeB.self, capacity: 1) { p in p } }),
-        let valueRef = value.map(ValueRef.init),
-        let s: String = valueRef.get() else { return }
+          let valueRef = value.map(ValueRef.init),
+          let s: String = valueRef.get() else { return }
     iptr.pointee.string = s
-//    print("Set b (\(iptr)): \(iptr.pointee.string) from \(valueRef.ptr) (\(value!)) = \(value!)")
+    //    print("Set b (\(iptr)): \(iptr.pointee.string) from \(valueRef.ptr) (\(value!)) = \(value!)")
 }
 
 fileprivate func type_b_get_property(_ object: UnsafeMutablePointer<GObject>?, _ property_id: guint, _ value: UnsafeMutablePointer<GValue>?, _ pspec: UnsafeMutablePointer<GParamSpec>?) {
     guard let iptr = object.map({ $0.withMemoryRebound(to: GTypeB.self, capacity: 1) { p in p } }),
           let valueRef = value.map({ ValueRef($0) }) else { return }
     valueRef.set(iptr.pointee.string)
-//    let s: String = valueRef.get()
-//    print("Get b (\(iptr)): \(s) (should be \(iptr.pointee.string)) into \(valueRef.ptr) = \(value!)")
+    //    let s: String = valueRef.get()
+    //    print("Get b (\(iptr)): \(s) (should be \(iptr.pointee.string)) into \(valueRef.ptr) = \(value!)")
 }
