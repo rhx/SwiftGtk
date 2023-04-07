@@ -20,10 +20,11 @@ class GLibObjectTests: XCTestCase {
         XCTAssertNotNil(name)
     }
 
-    /// test whether creating an empty object works
+    /// test whether creating an object works
     func testCreateObject() {
-        let object = Object.new(.object)
+        let object = Object.new(type: .object, properties: [:])
         XCTAssertNotNil(object)
+        XCTAssertEqual(object.type, ObjectClassRef.metatypeReference)
     }
 
     /// test values and transformations
@@ -285,11 +286,65 @@ class GLibObjectTests: XCTestCase {
     }
 
     func testRefArray() {
-        let o = Object.new(.object)
-        XCTAssertNotNil(o)
-        guard let o = o else { return }
-        let array: RefArray = [o, o, o, o, o]
-        XCTAssertEqual(array.count, 5)
+        let object = Object.new(.object)
+        XCTAssertNotNil(object)
+        guard let object = object else { return }
+        let o = ObjectRef(object)
+        withExtendedLifetime(object) {
+            XCTAssertEqual(o.ptr, object.ptr)
+            let swiftArray = [o, o, o, o, o]
+            let array: RefArray = [o, o, o, o, o]
+            XCTAssertEqual(array.count, 5)
+            XCTAssertEqual(array.first?.ptr, o.ptr)
+            XCTAssertEqual(array.last?.ptr, o.ptr)
+            XCTAssertEqual(array[2].ptr, o.ptr)
+            XCTAssertTrue(array.allSatisfy { $0.ptr == o.ptr })
+            XCTAssertEqual(array.map(\.ptr), swiftArray.map(\.ptr))
+        }
+    }
+
+    func testRefSequence() {
+        let object = Object.new(.object)
+        XCTAssertNotNil(object)
+        guard let object = object else { return }
+        let o = ObjectRef(object)
+        withExtendedLifetime(object) {
+            XCTAssertEqual(o.ptr, object.ptr)
+            let swiftArray = [o, o, o, o, o]
+            let sequence: RefSequence = [o, o, o, o, o]
+            XCTAssertEqual(sequence[sequence.startIndex].ptr, o.ptr)
+            XCTAssertEqual(sequence[sequence.index(before: sequence.endIndex)].ptr, o.ptr)
+            XCTAssertTrue(sequence.allSatisfy { $0.ptr == o.ptr })
+            XCTAssertEqual(sequence.map(\.ptr), swiftArray.map(\.ptr))
+        }
+    }
+
+    func testRefList() {
+        let object = Object.new(.object)
+        XCTAssertNotNil(object)
+        guard let object = object else { return }
+        let o = ObjectRef(object)
+        withExtendedLifetime(object) {
+            XCTAssertEqual(o.ptr, object.ptr)
+            let swiftArray = [o, o, o, o, o]
+            let list: RefList = [o, o, o, o, o]
+            XCTAssertTrue(list.allSatisfy { $0.ptr == o.ptr })
+            XCTAssertEqual(list.map(\.ptr), swiftArray.map(\.ptr))
+        }
+    }
+
+    func testRefSList() {
+        let object = Object.new(.object)
+        XCTAssertNotNil(object)
+        guard let object = object else { return }
+        let o = ObjectRef(object)
+        withExtendedLifetime(object) {
+            XCTAssertEqual(o.ptr, object.ptr)
+            let swiftArray = [o, o, o, o, o]
+            let list: RefSList = [o, o, o, o, o]
+            XCTAssertTrue(list.allSatisfy { $0.ptr == o.ptr })
+            XCTAssertEqual(list.map(\.ptr), swiftArray.map(\.ptr))
+        }
     }
 }
 

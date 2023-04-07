@@ -3,7 +3,7 @@
 //  GObject
 //
 //  Created by Rene Hexel on 27/4/17.
-//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -55,7 +55,7 @@ public extension ObjectProtocol {
             guard nq.pointee.freeze_count > 0 else { return }
             nq.pointee.freeze_count -= 1
             guard nq.pointee.freeze_count == 0 else { return }
-            
+
             pspecs.reserveCapacity(Int(nq.pointee.n_pspecs))
             var slist = nq.pointee.pspecs
             while let sl = slist {
