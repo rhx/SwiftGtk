@@ -45,3 +45,4 @@ s/func getEnviron() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>/func get
 s/func getSupportedTypes() -> UnsafeMutablePointer<UnsafeMutablePointer<..har>/func getSupportedTypes() -> UnsafeMutablePointer<UnsafePointer<CChar>/
 s/\(func peekFds(length:.*\) -> UnsafeMutablePointer<gint>/\1 -> UnsafePointer<gint>/
 s/\(let rv = \)G\(IOCondition(result\)/\1\2/
+s|\(, equalFunc: GEqualFuncFull\)|\1!|
