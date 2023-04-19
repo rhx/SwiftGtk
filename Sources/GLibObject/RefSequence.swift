@@ -1,26 +1,27 @@
 //
-//  Sequence.swift
+//  RefSequence.swift
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
 //  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
+import GLib
 
-/// Protocol for a typed `Sequence`, representing each element in a sequence
-/// with a pointer pointing to the element data.
+/// Protocol for a Ref `Sequence`, representing each element in a sequence.
 ///
-/// The `TypedSequenceProtocol` protocol exposes the methods and properties of an underlying `GSequence` instance.
+/// The `RefSequenceProtocol` protocol exposes the methods and properties of an underlying `GSequence` instance.
 /// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TypedSequence`.
-/// Alternatively, use `TypedSequenceRef` as a lighweight, `unowned` reference
+/// For a concrete class that implements these methods and properties, see `RefSequence`.
+/// Alternatively, use `RefSequenceRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
-public protocol TypedSequenceProtocol: SequenceProtocol, BidirectionalCollection, MutableCollection {
+/// - Note: This collection type is mainly for referencing GLib objects.  For referencing primitive types, use `ReferenceSequenceProtocol`.
+public protocol RefSequenceProtocol: SequenceProtocol, BidirectionalCollection, MutableCollection {
     /// The element contained in each `SList` node.
-    associatedtype Element
+    associatedtype Element: ObjectProtocol
 }
 
-public extension TypedSequenceProtocol {
+public extension RefSequenceProtocol {
     /// Return an iterator representing the start index of the sequence
     @inlinable var startIndex: SequenceIterRef { getBeginIter() }
 
@@ -28,7 +29,7 @@ public extension TypedSequenceProtocol {
     @inlinable var endIndex: SequenceIterRef { getEndIter() }
 
     /// Return the number of elements in the sequence
-    @inlinable var count: Int { length }
+    @inlinable var count: Int { endIndex.position - startIndex.position }
 
     /// Returns the position immediately after the given index.
     /// - Parameter i: The original index
@@ -49,43 +50,43 @@ public extension TypedSequenceProtocol {
         i.move(delta: distance)
     }
 
-    /// Create an interator over a`TypedSequence`
+    /// Create an interator over a`RefSequence`
     /// - Returns: a list iterator
-    @inlinable func makeIterator() -> TypedSequenceIterator<Element> {
-        TypedSequenceIterator(getBeginIter())
+    @inlinable func makeIterator() -> RefSequenceIterator<Element> {
+        RefSequenceIterator(getBeginIter())
     }
-    /// Get or set an element pointer at the given position
+    /// Get or set a pointer element at the given position
     ///
     /// - Parameter position: The position in the sequence to retrieve the element from
     ///
-    /// This subscript treats the node referenced by `position`
-    /// as containing a pointer to `Element`.
-    ///
-    /// - note: The setter of this subscript will always allocate memory for
-    /// the element being emplaced. This memory will need to be freed manually
-    /// if a `DestroyNotify` function to deallocate memory has not been set
-    /// (the corresponding pointer can be retrieved by calling
-    /// `position.sequenceGet()`).
+    /// This index requires that `Element` is pointer size and that
+    /// the data type represented by `Element` wraps a pointer
+    /// to an underlying `GLib` type (which typically is the case for
+    /// `Ref` types).  Use the `pointeeAt:` subscript to always
+    /// treat the node data as a pointer to the given element.
     @inlinable subscript(position: SequenceIterRef) -> Element {
         get {
             guard var data = position.sequenceGet() else {
-                fatalError("Invalid subscript index at \(position)")
+                fatalError("Invalid subscript index at \(position.position)")
             }
-#if swift(>=5.7)
-            return data.withMemoryRebound(to: Element.self, capacity: 1) {
-                $0.pointee
-            }
-#else
-            return data.assumingMemoryBound(to: Element.self).pointee
-#endif
+            return withUnsafeBytes(of: &data) {
+                $0.baseAddress.map {
+                    Element(raw: $0.assumingMemoryBound(to: UnsafeMutableRawPointer.self).pointee)
+                }
+            }!
         }
         set {
-            let newElementPointer = UnsafeMutablePointer<Element>.allocate(capacity: 1)
-            newElementPointer.initialize(to: newValue)
-            position.sequenceSet(data: UnsafeMutableRawPointer(newElementPointer))
+            var pointerValue = newValue.ptr
+            withUnsafeBytes(of: &pointerValue) {
+#if swift(>=5.7)
+                position.sequenceSet(data: $0.assumingMemoryBound(to: gpointer.self).baseAddress?.pointee)
+#else
+                position.sequenceSet(data: $0.baseAddress?.assumingMemoryBound(to: gpointer.self).pointee)
+#endif
+            }
         }
     }
-    /// Returns `true` if the typed sequence contains zero items.
+    /// Returns `true` if the Ref sequence contains zero items.
     ///
     /// This function is functionally identical to checking the result of
     /// `g_sequence_get_length()` being equal to zero. However this function is
@@ -94,10 +95,11 @@ public extension TypedSequenceProtocol {
 }
 
 
-/// The `TypedSequence` class acts as a typed wrapper around `GSequence`,
+/// The `RefSequence` class acts as a Ref wrapper around `GSequence`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, ExpressibleByArrayLiteral {
+/// - Note: This collection type is mainly for referencing GLib objects.  For referencing primitive types, use `ReferenceSequence`.
+public class RefSequence<Element: ObjectProtocol>: Sequence, RefSequenceProtocol, ExpressibleByArrayLiteral {
     /// Array literal initialiser
     ///
     /// This initialiser will always allocate memory for the given elements
@@ -105,12 +107,9 @@ public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, Expressibl
     ///
     /// - Parameter elements: The elements to initialise the sequence with
     @inlinable required public init(arrayLiteral elements: Element...) {
-        super.init(retaining: g_sequence_new({
-            $0?.deallocate() }))
-        for element in elements {
-            let elementPointer = UnsafeMutablePointer<Element>.allocate(capacity: 1)
-            elementPointer.initialize(to: element)
-            append(data: gpointer(elementPointer))
+        super.init(retaining: g_sequence_new(nil))
+        for var element in elements {
+            append(data: element.ptr)
         }
     }
 
@@ -123,15 +122,16 @@ public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, Expressibl
     }
 }
 
-/// The `TypedSequenceRef` struct acts as a lightweight, typed wrapper aroundptr `GList`,
+/// The `RefSequenceRef` struct acts as a lightweight, Ref wrapper aroundptr `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-public struct TypedSequenceRef<Element>: TypedSequenceProtocol {
-    /// Untyped reference to the underlying `GSequence`
+/// - Note: This collection type is mainly for referencing GLib objects.  For referencing primitive types, use `ReferenceSequenceRef`.
+public struct RefSequenceRef<Element: ObjectProtocol>: RefSequenceProtocol {
+    /// UnRef reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!
 }
 
-public extension TypedSequenceRef {
+public extension RefSequenceRef {
     /// Designated initialiser from the underlying `C` data type
     @inlinable init(_ p: UnsafeMutablePointer<GSequence>) {
         ptr = UnsafeMutableRawPointer(p)
@@ -166,48 +166,47 @@ public extension TypedSequenceRef {
         ptr = p
     }
 
-    /// Reference intialiser for a related type that implements `SequenceProtocol`
+    /// Ref intialiser for a related type that implements `SequenceProtocol`
     @inlinable init<T: SequenceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
-    /// Unsafe typed initialiser.
+    /// Unsafe Ref initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
-    /// Unsafe typed initialiser.
+    /// Unsafe Ref initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
-    /// Unsafe untyped initialiser.
+    /// Unsafe unRef initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
-    /// Unsafe untyped initialiser.
+    /// Unsafe unRef initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
-    /// Unsafe untyped initialiser.
+    /// Unsafe unRef initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
-
 }
 
 /// A lightweight iterator over a `Sequence`
-public struct TypedSequenceIterator<Element>: IteratorProtocol {
+public struct RefSequenceIterator<Element: ObjectProtocol>: IteratorProtocol {
     public var iterator: SequenceIterRef?
 
-    /// Constructor for a `TypedSequenceIterator`
+    /// Constructor for a `RefSequenceIterator`
     /// - Parameter ptr: Optional `GSequenceIter` pointer
     @inlinable init(_ iter: SequenceIterRef?) {
         iterator = iter
@@ -218,18 +217,10 @@ public struct TypedSequenceIterator<Element>: IteratorProtocol {
     @inlinable public mutating func next() -> Element? {
         defer { iterator = iterator?.next() }
         guard var data = iterator?.sequenceGet() else { return nil }
-        if MemoryLayout<Element>.size == MemoryLayout<gpointer>.size {
-            return withUnsafeBytes(of: &data) {
-                $0.baseAddress?.assumingMemoryBound(to: Element.self).pointee
-            }!
-        } else {
-#if swift(>=5.7)
-            return data.withMemoryRebound(to: Element.self, capacity: 1) {
-                $0.pointee
+        return withUnsafeBytes(of: &data) {
+            $0.baseAddress.map {
+                Element(raw: $0.assumingMemoryBound(to: UnsafeMutableRawPointer.self).pointee)
             }
-#else
-            return data.assumingMemoryBound(to: Element.self).pointee
-#endif
         }
     }
 }

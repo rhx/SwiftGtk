@@ -3,7 +3,7 @@
 //  GObject
 //
 //  Created by Rene Hexel on 20/06/2016.
-//  Copyright © 2016, 2017, 2018, 2019, 2020, 2021 Rene Hexel.  All rights reserved.
+//  Copyright © 2016, 2017, 2018, 2019, 2020, 2021, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -303,54 +303,120 @@ public extension ObjectProtocol {
 @usableFromInline let gfalse: gboolean = 0
 
 public extension GLibObject.ObjectProtocol {
-	/// The swift wrapper for this object.
+    /// The swift wrapper for this object.
     @inlinable var swiftObj: AnyObject? {
-		get {
+        get {
             guard let pointer = getData(key: swiftObjKey) else { return nil }
             return Unmanaged<AnyObject>.fromOpaque(pointer).takeUnretainedValue()
-		}
-		nonmutating set {
-			// Setting swift object to the already existing swiftObj is a no-op, in order to avoid duplicate toggleRefs, which never fire and thus cause reference cycles.
-			guard let newValue = newValue, newValue !== swiftObj else {
-				return
-			}
-			// Get a strong pointer to swiftObj
-			let pointer = Unmanaged<AnyObject>.passRetained(newValue).toOpaque();
-			setData(key: swiftObjKey, data: pointer);
-			// In the majority of cases, swiftObj will be the swift wrapper for this gobject's c implementation. To prevent orphaning, these should be equivalent for memory management purposes; If one is referenced, the other is referenced. A naive way to implement this is to have both strongly reference each other, but this creates a strong reference cycle. Therefore, the wrapper has a strong toggle reference to the gobject, which tells us when there are other references. In this instance, the wrapper should be referenced, so the gobject strongly references it. Otherwise, the gobject weakly references it, allowing it, and thus the gobject, to be released once it is not referenced in swift-space.
-			addToggleRef { (_, selfPointer, lastRef) in
-				let swiftObjPointer = Unmanaged<AnyObject>.fromOpaque(g_object_get_data(selfPointer, swiftObjKey))
-				switch lastRef {
-				case gfalse:
-					// Make the gobject strongly reference the wrapper.
-					_ = swiftObjPointer.retain()
-				case gtrue:
-					// Make the gobject weakly reference the wrapper.
-					swiftObjPointer.release()
-				default:
-					break
-				}
-			}
-			// Release the regular reference so we don't have two references from the wrapper.
-			unref()
-		}
-	}
-	
+        }
+        nonmutating set {
+            // Setting swift object to the already existing swiftObj is a no-op, in order to avoid duplicate toggleRefs, which never fire and thus cause reference cycles.
+            guard let newValue = newValue, newValue !== swiftObj else {
+                return
+            }
+            // Get a strong pointer to swiftObj
+            let pointer = Unmanaged<AnyObject>.passRetained(newValue).toOpaque();
+            setData(key: swiftObjKey, data: pointer);
+            // In the majority of cases, swiftObj will be the swift wrapper for this gobject's c implementation. To prevent orphaning, these should be equivalent for memory management purposes; If one is referenced, the other is referenced. A naive way to implement this is to have both strongly reference each other, but this creates a strong reference cycle. Therefore, the wrapper has a strong toggle reference to the gobject, which tells us when there are other references. In this instance, the wrapper should be referenced, so the gobject strongly references it. Otherwise, the gobject weakly references it, allowing it, and thus the gobject, to be released once it is not referenced in swift-space.
+            addToggleRef { (_, selfPointer, lastRef) in
+                let swiftObjPointer = Unmanaged<AnyObject>.fromOpaque(g_object_get_data(selfPointer, swiftObjKey))
+                switch lastRef {
+                case gfalse:
+                    // Make the gobject strongly reference the wrapper.
+                    _ = swiftObjPointer.retain()
+                case gtrue:
+                    // Make the gobject weakly reference the wrapper.
+                    swiftObjPointer.release()
+                default:
+                    break
+                }
+            }
+            // Release the regular reference so we don't have two references from the wrapper.
+            unref()
+        }
+    }
+
 }
 
 public extension GLibObject.Object {
-	/// Will set this swift instance to be the swiftObj.
+    /// Creates a new instance of a `GObject` subtype and sets its properties using
+    /// the provided dictionary.
+    ///
+    /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
+    /// which are not explicitly specified are set to their default values.
+    ///
+    /// - Parameters:
+    ///   - type: The type of object to create
+    ///   - properties: Dictionary of name/value pairs representing the properties of the type
+    /// - Returns: A new object of the given type with the given properties
+    static func new(type: GType, properties: [String: Any]) -> GLibObject.Object {
+        var keys = properties.keys.map { $0.withCString { UnsafePointer(strdup($0)) } }
+        let vals = properties.values.map { Value($0) }
+        let obj: Object = keys.withUnsafeMutableBufferPointer { keys in
+            withExtendedLifetime(vals) {
+                let gvalues = vals.map { $0.value_ptr.pointee }
+                return GLibObject.Object(properties: type, nProperties: keys.count, names: keys.baseAddress, values: gvalues)
+            }
+        }
+        keys.forEach { free(UnsafeMutableRawPointer(mutating: $0)) }
+        return obj
+    }
+
+    /// Return the values of the given properties
+    /// - Parameter properties: Array of properties to examine
+    /// - Returns: Array of values associated with the tiven properties
+    func values(for properties: [String]) -> [Value] {
+        var keys = properties.map { $0.withCString { UnsafePointer(strdup($0)) } }
+        let vals = properties.map { _ in Value() }
+        keys.withUnsafeMutableBufferPointer { keys in
+            var gvalues = vals.map { $0.value_ptr.pointee }
+            getv(nProperties: keys.count, names: keys.baseAddress, values: &gvalues)
+        }
+        keys.forEach { free(UnsafeMutableRawPointer(mutating: $0)) }
+        return vals
+    }
+
+    /// Return the underlying String value of the given property
+    /// - Parameter property: Name of the property to examine
+    /// - Returns: Value of the given type
+    @inlinable func value(for property: String) -> String {
+        return values(for: [property])[0].get()
+    }
+
+    /// Return the values of the given properties
+    /// - Parameter properties: Dictionary of name/value pairs representing the properties to set
+    /// - Returns: Array of values associated with the tiven properties
+    func setPropertyValues(_ properties: [String: Any]) {
+        var keys = properties.keys.map { $0.withCString { UnsafePointer(strdup($0)) } }
+        let vals = properties.values.map { Value($0) }
+        keys.withUnsafeMutableBufferPointer { keys in
+            var gvalues = vals.map { $0.value_ptr.pointee }
+            setv(nProperties: keys.count, names: keys.baseAddress, values: &gvalues)
+        }
+        keys.forEach { free(UnsafeMutableRawPointer(mutating: $0)) }
+    }
+
+    /// Set a string value for the given property
+    /// - Returns: Value of the given type
+    /// - Parameters:
+    ///   - value: The value to set
+    ///   - property: The property whose value to set
+    @inlinable func set(value: String, for property: String) {
+        setPropertyValues([property : value])
+    }
+
+    /// Will set this swift instance to be the swiftObj.
     @inlinable func becomeSwiftObj() {
-		swiftObj = self;
-	}
+        swiftObj = self;
+    }
 }
 
 /// Fetches the swift object from the given pointers, if any. Assume pointer is a GObject, so only call this function if this is known.
 @inlinable public func swiftObj(fromRaw raw: UnsafeMutableRawPointer) -> AnyObject? {
-	let objPointer = g_object_get_data(raw.assumingMemoryBound(to: GObject.self), swiftObjKey);
-	if let objPointer = objPointer {
-		return Unmanaged<AnyObject>.fromOpaque(objPointer).takeUnretainedValue();
-	} else {
-		return nil;
-	}
+    let objPointer = g_object_get_data(raw.assumingMemoryBound(to: GObject.self), swiftObjKey);
+    if let objPointer = objPointer {
+        return Unmanaged<AnyObject>.fromOpaque(objPointer).takeUnretainedValue();
+    } else {
+        return nil;
+    }
 }
