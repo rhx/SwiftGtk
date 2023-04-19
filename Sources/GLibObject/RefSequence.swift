@@ -78,7 +78,11 @@ public extension RefSequenceProtocol {
         set {
             var pointerValue = newValue.ptr
             withUnsafeBytes(of: &pointerValue) {
+#if swift(>=5.7)
                 position.sequenceSet(data: $0.assumingMemoryBound(to: gpointer.self).baseAddress?.pointee)
+#else
+                position.sequenceSet(data: $0.baseAddress?.assumingMemoryBound(to: gpointer.self).pointee)
+#endif
             }
         }
     }

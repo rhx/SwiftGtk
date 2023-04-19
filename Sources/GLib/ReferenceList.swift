@@ -63,9 +63,13 @@ public class ReferenceList<Element>: List, ReferenceListProtocol, ExpressibleByA
         freeNodes = true
         for var element in elements.reversed() {
             withUnsafeMutableBytes(of: &element) {
+#if swift(>=5.7)
                 $0.withMemoryRebound(to: gpointer.self) {
                     last = g_list_prepend(last, $0.baseAddress?.pointee)
                 }
+#else
+                last = g_list_prepend(last, $0.baseAddress?.assumingMemoryBound(to: gpointer.self).pointee)
+#endif
             }
         }
         super.init(last)

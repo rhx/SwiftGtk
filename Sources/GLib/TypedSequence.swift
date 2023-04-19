@@ -71,9 +71,13 @@ public extension TypedSequenceProtocol {
             guard var data = position.sequenceGet() else {
                 fatalError("Invalid subscript index at \(position)")
             }
+#if swift(>=5.7)
             return data.withMemoryRebound(to: Element.self, capacity: 1) {
                 $0.pointee
             }
+#else
+            return data.assumingMemoryBound(to: Element.self).pointee
+#endif
         }
         set {
             let newElementPointer = UnsafeMutablePointer<Element>.allocate(capacity: 1)
@@ -219,9 +223,13 @@ public struct TypedSequenceIterator<Element>: IteratorProtocol {
                 $0.baseAddress?.assumingMemoryBound(to: Element.self).pointee
             }!
         } else {
+#if swift(>=5.7)
             return data.withMemoryRebound(to: Element.self, capacity: 1) {
                 $0.pointee
             }
+#else
+            return data.assumingMemoryBound(to: Element.self).pointee
+#endif
         }
     }
 }

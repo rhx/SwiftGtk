@@ -352,7 +352,7 @@ public extension GLibObject.Object {
     static func new(type: GType, properties: [String: Any]) -> GLibObject.Object {
         var keys = properties.keys.map { $0.withCString { UnsafePointer(strdup($0)) } }
         let vals = properties.values.map { Value($0) }
-        let obj = keys.withUnsafeMutableBufferPointer { keys in
+        let obj: Object = keys.withUnsafeMutableBufferPointer { keys in
             withExtendedLifetime(vals) {
                 let gvalues = vals.map { $0.value_ptr.pointee }
                 return GLibObject.Object(properties: type, nProperties: keys.count, names: keys.baseAddress, values: gvalues)
