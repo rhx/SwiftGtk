@@ -354,6 +354,9 @@ typedef void (*GDesktopAppLaunchCallback) (GDesktopAppInfo  *appinfo,
                                            GPid              pid,
                                            gpointer          user_data);
 #endif
+#ifndef G_VA_COPY_AS_ARRAY
+#define G_VA_COPY_AS_ARRAY 1
+#endif
 //
 // Type aliases for idiomatic Swift
 //
