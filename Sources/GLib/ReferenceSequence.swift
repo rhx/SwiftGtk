@@ -6,7 +6,6 @@
 //  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
-import GLib
 
 /// Protocol for a Reference `Sequence`, representing each element in a sequence.
 ///
@@ -15,7 +14,7 @@ import GLib
 /// For a concrete class that implements these methods and properties, see `ReferenceSequence`.
 /// Alternatively, use `ReferenceSequenceRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
-/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefSequenceProtocol`.
+/// - Note: This protocol is mainly for referencing GLib objects.  For  primitive types, use `TypedSequenceProtocol`.
 public protocol ReferenceSequenceProtocol: SequenceProtocol, BidirectionalCollection, MutableCollection {
     /// The element contained in each `SList` node.
     associatedtype Element
@@ -98,7 +97,7 @@ public extension ReferenceSequenceProtocol {
 /// The `ReferenceSequence` class acts as a Reference wrapper around `GSequence`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefSequence`.
+/// - Note: This collection type is mainly for referencing GLib objects.  For  primitive types, use `TypedSequence`.
 public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, ExpressibleByArrayLiteral {
     /// Array literal initialiser
     ///
@@ -126,10 +125,10 @@ public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, Ex
     }
 }
 
-/// The `ReferenceSequenceRef` struct acts as a lightweight, Reference wrapper aroundptr `GList`,
+/// The `ReferenceSequenceRef` struct acts as a lightweight, Reference wrapper around `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefSequenceRef`.
+/// - Note: This collection type is mainly for referencing GLib objects.  For  primitive types, use `TypedSequenceRef`.
 public struct ReferenceSequenceRef<Element>: ReferenceSequenceProtocol {
     /// UnReference reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!

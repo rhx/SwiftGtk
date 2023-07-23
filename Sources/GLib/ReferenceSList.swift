@@ -5,7 +5,6 @@
 //  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
-import GLib
 
 /// Protocol for a reference `SList`, where each node represents a reference
 /// type pointing to an underlying object.
@@ -15,7 +14,7 @@ import GLib
 /// For a concrete class that implements these methods and properties, see `ReferenceSList`.
 /// Alternatively, use `ReferenceSListRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
-/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefSListProtocol`.
+/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `ReferenceSListProtocol`.
 public protocol ReferenceSListProtocol: SListProtocol, Swift.Sequence {
     /// The element contained in each `SList` node.
     associatedtype Element
@@ -49,7 +48,7 @@ public extension ReferenceSListProtocol {
 /// The `ReferenceSList` class acts as a Reference, memory-managed wrapper around `GSList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefSList`.
+/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `ReferenceSList`.
 public class ReferenceSList<Element>: SList, ReferenceSListProtocol, ExpressibleByArrayLiteral {
     /// `true` to deallocate the associated list nodes on deinit.
     public var freeNodes = false
@@ -104,7 +103,7 @@ public class ReferenceSList<Element>: SList, ReferenceSListProtocol, Expressible
 /// The `ReferenceSListRef` struct acts as a lightweight, Reference wrapper around `GSList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefSListRef`.
+/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `ReferenceSListRef`.
 public struct ReferenceSListRef<Element>: ReferenceSListProtocol {
     public var ptr: UnsafeMutableRawPointer!
 }

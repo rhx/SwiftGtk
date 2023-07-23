@@ -18,7 +18,7 @@ import GLib
 /// - Note: This collection type is mainly for referencing GLib objects.  For referencing primitive types, use `ReferenceSequenceProtocol`.
 public protocol RefSequenceProtocol: SequenceProtocol, BidirectionalCollection, MutableCollection {
     /// The element contained in each `SList` node.
-    associatedtype Element: ObjectProtocol
+    associatedtype Element: PointerWrapper
 }
 
 public extension RefSequenceProtocol {
@@ -99,7 +99,7 @@ public extension RefSequenceProtocol {
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
 /// - Note: This collection type is mainly for referencing GLib objects.  For referencing primitive types, use `ReferenceSequence`.
-public class RefSequence<Element: ObjectProtocol>: Sequence, RefSequenceProtocol, ExpressibleByArrayLiteral {
+public class RefSequence<Element: PointerWrapper>: Sequence, RefSequenceProtocol, ExpressibleByArrayLiteral {
     /// Array literal initialiser
     ///
     /// This initialiser will always allocate memory for the given elements
@@ -126,7 +126,7 @@ public class RefSequence<Element: ObjectProtocol>: Sequence, RefSequenceProtocol
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
 /// - Note: This collection type is mainly for referencing GLib objects.  For referencing primitive types, use `ReferenceSequenceRef`.
-public struct RefSequenceRef<Element: ObjectProtocol>: RefSequenceProtocol {
+public struct RefSequenceRef<Element: PointerWrapper>: RefSequenceProtocol {
     /// UnRef reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!
 }
@@ -203,7 +203,7 @@ public extension RefSequenceRef {
 }
 
 /// A lightweight iterator over a `Sequence`
-public struct RefSequenceIterator<Element: ObjectProtocol>: IteratorProtocol {
+public struct RefSequenceIterator<Element: PointerWrapper>: IteratorProtocol {
     public var iterator: SequenceIterRef?
 
     /// Constructor for a `RefSequenceIterator`

@@ -18,7 +18,7 @@ import GLib
 /// - Note: This colection type is mainly for referencing GLib types.  For referencing primitive types, use `ReferenceArrayProtocol`.
 public protocol RefArrayProtocol: PtrArrayProtocol, RandomAccessCollection, MutableCollection {
     /// The element contained at each index
-    associatedtype Element: ObjectProtocol
+    associatedtype Element: PointerWrapper
 }
 
 public extension RefArrayProtocol {
@@ -51,7 +51,7 @@ public extension RefArrayProtocol {
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
 /// - Note: This collection type is mainly for referencing GLib types.  For referencing primitive types, use `ReferenceArray`.
-public class RefArray<Element: ObjectProtocol>: PtrArray, RefArrayProtocol, ExpressibleByArrayLiteral {
+public class RefArray<Element: PointerWrapper>: PtrArray, RefArrayProtocol, ExpressibleByArrayLiteral {
     /// `true` to deallocate the block of associated elements on deinit.
     public var freeElements = false
 
@@ -80,7 +80,7 @@ public class RefArray<Element: ObjectProtocol>: PtrArray, RefArrayProtocol, Expr
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
 /// - Note: This collection type is mainly for referencing GLib types.  For referencing primitive types, use `ReferenceArrayRef`.
-public struct RefArrayRef<Element: ObjectProtocol>: RefArrayProtocol {
+public struct RefArrayRef<Element: PointerWrapper>: RefArrayProtocol {
     /// Untyped reference to the underlying `GPtrArray`
     public var ptr: UnsafeMutableRawPointer!
 }
