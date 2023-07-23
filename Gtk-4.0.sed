@@ -44,5 +44,8 @@ s/var wrapperForApplication:/var wrapperForGtkApplication:/
 s/var metatypeReferenceForMountOperation:/var metatypeReferenceForGtkMountOperation:/
 s/var metatypeForMountOperation:/var metatypeForGtkMountOperation:/
 s/var wrapperForMountOperation:/var wrapperForGtkMountOperation:/
+s/var metatypeReferenceForSnapshot:/var metatypeReferenceForGtkSnapshot:/
+s/var metatypeForSnapshot:/var metatypeForGtkSnapshot:/
+s/var wrapperForSnapshot:/var wrapperForGtkSnapshot:/
 s/GLib.RefSListRef<ObjectRef>/GLib.RefSListRef<GLibObject.ObjectRef>/
 s/free(UnsafeMutableRawPointer/systemFree(UnsafeMutableRawPointer/
