@@ -23,7 +23,7 @@ public extension TreeStore {
     /// - Parameter types: array of column types for this tree model
     @available(*, deprecated) @inlinable convenience init(types: [GType]) {
         var ts = types
-        self.init(nColumns: CInt(types.count), types: &ts)
+        self.init(nColumns: types.count, types: &ts)
     }
 
     /// Convenience constructor specifying the column types
@@ -32,7 +32,7 @@ public extension TreeStore {
     /// - Parameter types: column types for this tree model
     @available(*, deprecated) @inlinable convenience init(_ types: GType...) {
         var ts = types
-        self.init(nColumns: CInt(types.count), types: &ts)
+        self.init(nColumns: types.count, types: &ts)
     }
 
     /// Set the given values for the current row
@@ -163,7 +163,7 @@ public extension TreeViewColumn {
             renderer.setProperty(propertyName: a.0.name, value: a.1)
         }
         packStart(cell: renderer, expand: e)
-        addAttribute(cellRenderer: renderer, attribute: attribute.name, column: CInt(column))
+        addAttribute(cellRenderer: renderer, attribute: attribute.name, column: column)
     }
 
     /// Convenience constructor for setting up a tree or list view column
