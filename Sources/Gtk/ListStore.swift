@@ -18,7 +18,7 @@ public extension ListStore {
     /// - Parameter types: array of column types for this list model
     @available(*, deprecated) @inlinable convenience init(types: [GType]) {
         var ts = types
-        self.init(nColumns: CInt(types.count), types: &ts)
+        self.init(nColumns: types.count, types: &ts)
     }
 
     /// Convenience constructor specifying the list column types
@@ -27,7 +27,7 @@ public extension ListStore {
     /// - Parameter types: column types for this list model
     @inlinable convenience init(_ types: GType...) {
         var ts = types
-        self.init(nColumns: CInt(types.count), types: &ts)
+        self.init(nColumns: types.count, types: &ts)
     }
 
     /// Set the given values for the current row

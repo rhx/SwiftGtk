@@ -25,10 +25,10 @@ public extension BoxProtocol {
     ///
     /// - Parameter marginStart: start margin
 
-    @inlinable func set(marginStart: Int) { setMarginStart(margin: CInt(marginStart)) }
+    @inlinable func set(marginStart: Int) { setMarginStart(margin: marginStart) }
     /// Set the end margin of the box
     ///
     /// - Parameter marginEnd: end margin
-    @inlinable func set(marginEnd: Int) { setMarginEnd(margin: CInt(marginEnd)) }
+    @inlinable func set(marginEnd: Int) { setMarginEnd(margin: marginEnd) }
 }
 
