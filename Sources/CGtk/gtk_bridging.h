@@ -589,6 +589,10 @@ struct _GtkWindowHandle {};
 #include <gtk/gtk.h>
 #include <gtk/gtkunixprint.h>
 
+#if (GTK_MAJOR_VERSION == 4 && GTK_MINOR_VERSION < 10)
+typedef struct _GtkAccessibleInterface GtkAccessibleInterface;
+#endif
+
 typedef void (*GObjectNotifyQueueDispatcher) (GObject *object, guint n_pspecs, GParamSpec **pspecs);
 
 typedef struct _GObjectNotifyContext
