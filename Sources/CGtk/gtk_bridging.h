@@ -590,6 +590,7 @@ struct _GtkWindowHandle {};
 #include <gtk/gtkunixprint.h>
 
 #if (GTK_MAJOR_VERSION == 4 && GTK_MINOR_VERSION < 10)
+struct _GtkAccessibleInterface {};
 typedef struct _GtkAccessibleInterface GtkAccessibleInterface;
 #endif
 
