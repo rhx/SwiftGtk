@@ -1,26 +1,27 @@
 //
-//  ReferenceSequence.swift
+//  RefSequence.swift
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
 //  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
+import GLib
 
-/// Protocol for a Reference `Sequence`, representing each element in a sequence.
+/// Protocol for a Ref `Sequence`, representing each element in a sequence.
 ///
-/// The `ReferenceSequenceProtocol` protocol exposes the methods and properties of an underlying `GSequence` instance.
+/// The `RefSequenceProtocol` protocol exposes the methods and properties of an underlying `GSequence` instance.
 /// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ReferenceSequence`.
-/// Alternatively, use `ReferenceSequenceRef` as a lighweight, `unowned` reference
+/// For a concrete class that implements these methods and properties, see `RefSequence`.
+/// Alternatively, use `RefSequenceRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
-/// - Note: This protocol is mainly for referencing GLib objects.  For  primitive types, use `TypedSequenceProtocol`.
-public protocol ReferenceSequenceProtocol: SequenceProtocol, BidirectionalCollection, MutableCollection {
+/// - Note: This collection type is mainly for referencing GLib objects.  For referencing primitive types, use `ReferenceSequenceProtocol`.
+public protocol RefSequenceProtocol: SequenceProtocol, BidirectionalCollection, MutableCollection {
     /// The element contained in each `SList` node.
-    associatedtype Element
+    associatedtype Element: PointerWrapper
 }
 
-public extension ReferenceSequenceProtocol {
+public extension RefSequenceProtocol {
     /// Return an iterator representing the start index of the sequence
     @inlinable var startIndex: SequenceIterRef { getBeginIter() }
 
@@ -49,10 +50,10 @@ public extension ReferenceSequenceProtocol {
         i.move(delta: distance)
     }
 
-    /// Create an interator over a`ReferenceSequence`
+    /// Create an interator over a`RefSequence`
     /// - Returns: a list iterator
-    @inlinable func makeIterator() -> ReferenceSequenceIterator<Element> {
-        ReferenceSequenceIterator(getBeginIter())
+    @inlinable func makeIterator() -> RefSequenceIterator<Element> {
+        RefSequenceIterator(getBeginIter())
     }
     /// Get or set a pointer element at the given position
     ///
@@ -65,17 +66,17 @@ public extension ReferenceSequenceProtocol {
     /// treat the node data as a pointer to the given element.
     @inlinable subscript(position: SequenceIterRef) -> Element {
         get {
-            assert(MemoryLayout<Element>.size == MemoryLayout<gpointer>.size)
             guard var data = position.sequenceGet() else {
                 fatalError("Invalid subscript index at \(position.position)")
             }
             return withUnsafeBytes(of: &data) {
-                $0.baseAddress?.assumingMemoryBound(to: Element.self).pointee
+                $0.baseAddress.map {
+                    Element(raw: $0.assumingMemoryBound(to: UnsafeMutableRawPointer.self).pointee)
+                }
             }!
         }
         set {
-            assert(MemoryLayout<Element>.size == MemoryLayout<gpointer>.size)
-            var pointerValue = newValue
+            var pointerValue = newValue.ptr
             withUnsafeBytes(of: &pointerValue) {
 #if swift(>=5.7)
                 position.sequenceSet(data: $0.assumingMemoryBound(to: gpointer.self).baseAddress?.pointee)
@@ -85,7 +86,7 @@ public extension ReferenceSequenceProtocol {
             }
         }
     }
-    /// Returns `true` if the Reference sequence contains zero items.
+    /// Returns `true` if the Ref sequence contains zero items.
     ///
     /// This function is functionally identical to checking the result of
     /// `g_sequence_get_length()` being equal to zero. However this function is
@@ -94,11 +95,11 @@ public extension ReferenceSequenceProtocol {
 }
 
 
-/// The `ReferenceSequence` class acts as a Reference wrapper around `GSequence`,
+/// The `RefSequence` class acts as a Ref wrapper around `GSequence`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-/// - Note: This collection type is mainly for referencing GLib objects.  For  primitive types, use `TypedSequence`.
-public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, ExpressibleByArrayLiteral {
+/// - Note: This collection type is mainly for referencing GLib objects.  For referencing primitive types, use `ReferenceSequence`.
+public class RefSequence<Element: PointerWrapper>: Sequence, RefSequenceProtocol, ExpressibleByArrayLiteral {
     /// Array literal initialiser
     ///
     /// This initialiser will always allocate memory for the given elements
@@ -108,11 +109,7 @@ public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, Ex
     @inlinable required public init(arrayLiteral elements: Element...) {
         super.init(retaining: g_sequence_new(nil))
         for var element in elements {
-            withUnsafeMutablePointer(to: &element) {
-                $0.withMemoryRebound(to: gpointer.self, capacity: 1) {
-                    append(data: $0.pointee)
-                }
-            }
+            append(data: element.ptr)
         }
     }
 
@@ -125,16 +122,16 @@ public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, Ex
     }
 }
 
-/// The `ReferenceSequenceRef` struct acts as a lightweight, Reference wrapper around `GList`,
+/// The `RefSequenceRef` struct acts as a lightweight, Ref wrapper aroundptr `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-/// - Note: This collection type is mainly for referencing GLib objects.  For  primitive types, use `TypedSequenceRef`.
-public struct ReferenceSequenceRef<Element>: ReferenceSequenceProtocol {
-    /// UnReference reference to the underlying `GSequence`
+/// - Note: This collection type is mainly for referencing GLib objects.  For referencing primitive types, use `ReferenceSequenceRef`.
+public struct RefSequenceRef<Element: PointerWrapper>: RefSequenceProtocol {
+    /// UnRef reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!
 }
 
-public extension ReferenceSequenceRef {
+public extension RefSequenceRef {
     /// Designated initialiser from the underlying `C` data type
     @inlinable init(_ p: UnsafeMutablePointer<GSequence>) {
         ptr = UnsafeMutableRawPointer(p)
@@ -169,48 +166,47 @@ public extension ReferenceSequenceRef {
         ptr = p
     }
 
-    /// Reference intialiser for a related type that implements `SequenceProtocol`
+    /// Ref intialiser for a related type that implements `SequenceProtocol`
     @inlinable init<T: SequenceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
-    /// Unsafe Reference initialiser.
+    /// Unsafe Ref initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
-    /// Unsafe Reference initialiser.
+    /// Unsafe Ref initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
-    /// Unsafe unReference initialiser.
+    /// Unsafe unRef initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
-    /// Unsafe unReference initialiser.
+    /// Unsafe unRef initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
-    /// Unsafe unReference initialiser.
+    /// Unsafe unRef initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
-
 }
 
 /// A lightweight iterator over a `Sequence`
-public struct ReferenceSequenceIterator<Element>: IteratorProtocol {
+public struct RefSequenceIterator<Element: PointerWrapper>: IteratorProtocol {
     public var iterator: SequenceIterRef?
 
-    /// Constructor for a `ReferenceSequenceIterator`
+    /// Constructor for a `RefSequenceIterator`
     /// - Parameter ptr: Optional `GSequenceIter` pointer
     @inlinable init(_ iter: SequenceIterRef?) {
         iterator = iter
@@ -222,29 +218,9 @@ public struct ReferenceSequenceIterator<Element>: IteratorProtocol {
         defer { iterator = iterator?.next() }
         guard var data = iterator?.sequenceGet() else { return nil }
         return withUnsafeBytes(of: &data) {
-            $0.baseAddress?.assumingMemoryBound(to: Element.self).pointee
+            $0.baseAddress.map {
+                Element(raw: $0.assumingMemoryBound(to: UnsafeMutableRawPointer.self).pointee)
+            }
         }
-    }
-}
-
-extension SequenceIterRef: Equatable {
-    /// Compare two sequence iterators for equality
-    /// - Parameters:
-    ///   - lhs: left hand side sequence iterator to compare
-    ///   - rhs: right hand side sequence iterator to compare
-    /// - Returns: `true` iff the two iterators refer to the same element
-    @inlinable public static func == (lhs: SequenceIterRef, rhs: SequenceIterRef) -> Bool {
-        lhs.ptr == rhs.ptr
-    }
-}
-
-extension SequenceIterRef: Comparable {
-    /// Compare two sequence iterator positions
-    /// - Parameters:
-    ///   - lhs: left hand side sequence iterator to compare
-    ///   - rhs: right hand side sequence iterator to compare
-    /// - Returns: `true` iff the left hand side iterator is positioned before the right hand side iterator
-    @inlinable public static func < (lhs: SequenceIterRef, rhs: SequenceIterRef) -> Bool {
-        lhs.compare(b: rhs) < 0
     }
 }

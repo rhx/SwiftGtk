@@ -15,6 +15,7 @@ import CGLib
 /// Alternatively, use `ReferenceListRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
 ///
+/// - Note: This protocol is mainly for referencing GLib objects.  For  primitive types, use `TypedListProtocol`.
 public protocol ReferenceListProtocol: ListProtocol, Swift.Sequence {
     /// The element contained in each `GList` node.
     associatedtype Element
@@ -44,6 +45,7 @@ public extension ReferenceListProtocol {
 /// The `ReferenceList` class acts as a Reference wrapper around `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This colection type is mainly for referencing GLib objects.  For  primitive types, use `TypedList`.
 public class ReferenceList<Element>: List, ReferenceListProtocol, ExpressibleByArrayLiteral {
     /// `true` to deallocate the associated list nodes on deinit.
     public var freeNodes = false
@@ -98,6 +100,7 @@ public class ReferenceList<Element>: List, ReferenceListProtocol, ExpressibleByA
 /// The `ReferenceListRef` struct acts as a lightweight, Reference wrapper around `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This colection type is mainly for referencing GLib objects.  For  primitive types, use `TypedListRef`.
 public struct ReferenceListRef<Element>: ReferenceListProtocol {
     public var ptr: UnsafeMutableRawPointer!
 }

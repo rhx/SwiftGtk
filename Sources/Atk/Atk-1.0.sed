@@ -13,3 +13,6 @@ s/: \([A-Za-z.]*Function[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Mapping[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Listener[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*ListenerInit[,)]\)/: @escaping \1/g
+s/var metatypeReferenceForObject:/var metatypeReferenceForAtkObject:/
+s/var metatypeForObject:/var metatypeForAtkObject:/
+s/var wrapperForObject:/var wrapperForAtkObject:/

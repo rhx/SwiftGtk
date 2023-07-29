@@ -221,50 +221,50 @@ let package = Package(
             ]
         ),
         .testTarget(name: "GdkPixBufTests", dependencies: ["GdkPixBuf"]),
-        .systemLibrary(
-            name: "CCogl", pkgConfig: "cogl-1.0",
-            providers: [
-                .brew(["cogl", "gdk-pixbuf", "cairo", "glib", "glib-networking", "gobject-introspection"]),
-                .apt(["libcogl-gles2-dev", "libgdk-pixbuf2.0-dev", "libcogl-dev", "libcairo2-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
-            ]
-        ),
-        .systemLibrary(
-            name: "CCoglPath", pkgConfig: "cogl-1.0",
-            providers: [
-                .brew(["cogl", "cairo", "glib", "glib-networking", "gobject-introspection"]),
-                .apt(["libcogl-path-dev", "libcairo2-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
-            ]
-        ),
-        .target(
-            name: "Cogl",
-            dependencies: ["CCogl", "CCoglPath", "GdkPixBuf"],
-            swiftSettings: [
-                .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
-                .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),
-            ],
-            plugins: [
-                .plugin(name: "gir2swift-plugin", package: "gir2swift")
-            ]
-        ),
-        .testTarget(name: "CoglTests", dependencies: ["Cogl"]),
-        .systemLibrary(
-            name: "CCoglPango", pkgConfig: "cogl-pango-1.0",
-            providers: [
-                .brew(["cogl", "cairo", "glib", "glib-networking", "gobject-introspection"]),
-                .apt(["libcogl-pango-dev", "libcogl-gles2-dev", "libcogl-path-dev", "libcogl-dev", "libcairo2-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
-            ]),
-        .target(
-            name: "CoglPango",
-            dependencies: ["CCoglPango", "Cogl", "PangoCairo"],
-            swiftSettings: [
-                .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
-                .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),
-            ],
-            plugins: [
-                .plugin(name: "gir2swift-plugin", package: "gir2swift")
-            ]
-        ),
-        .testTarget(name: "CoglPangoTests", dependencies: ["CoglPango"]),
+//        .systemLibrary(
+//            name: "CCogl", pkgConfig: "cogl-1.0",
+//            providers: [
+//                .brew(["cogl", "gdk-pixbuf", "cairo", "glib", "glib-networking", "gobject-introspection"]),
+//                .apt(["libcogl-gles2-dev", "libgdk-pixbuf2.0-dev", "libcogl-dev", "libcairo2-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
+//            ]
+//        ),
+//        .systemLibrary(
+//            name: "CCoglPath", pkgConfig: "cogl-1.0",
+//            providers: [
+//                .brew(["cogl", "cairo", "glib", "glib-networking", "gobject-introspection"]),
+//                .apt(["libcogl-path-dev", "libcairo2-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
+//            ]
+//        ),
+//        .target(
+//            name: "Cogl",
+//            dependencies: ["CCogl", "CCoglPath", "GdkPixBuf"],
+//            swiftSettings: [
+//                .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
+//                .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),
+//            ],
+//            plugins: [
+//                .plugin(name: "gir2swift-plugin", package: "gir2swift")
+//            ]
+//        ),
+//        .testTarget(name: "CoglTests", dependencies: ["Cogl"]),
+//        .systemLibrary(
+//            name: "CCoglPango", pkgConfig: "cogl-pango-1.0",
+//            providers: [
+//                .brew(["cogl", "cairo", "glib", "glib-networking", "gobject-introspection"]),
+//                .apt(["libcogl-pango-dev", "libcogl-gles2-dev", "libcogl-path-dev", "libcogl-dev", "libcairo2-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
+//            ]),
+//        .target(
+//            name: "CoglPango",
+//            dependencies: ["CCoglPango", "Cogl", "PangoCairo"],
+//            swiftSettings: [
+//                .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
+//                .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),
+//            ],
+//            plugins: [
+//                .plugin(name: "gir2swift-plugin", package: "gir2swift")
+//            ]
+//        ),
+//        .testTarget(name: "CoglPangoTests", dependencies: ["CoglPango"]),
         .systemLibrary(
             name: "CGdk", pkgConfig: "gdk-3.0",
             providers: [
