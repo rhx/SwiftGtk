@@ -142,6 +142,7 @@ struct _GtkImageCellAccessiblePrivate {};
 struct _GtkImageMenuItemPrivate {};
 struct _GtkImagePrivate {};
 struct _GtkInfoBarPrivate {};
+struct _GtkInscription {};
 struct _GtkInvisiblePrivate {};
 struct _GtkLabelAccessiblePrivate {};
 struct _GtkLabelPrivate {};
@@ -365,10 +366,11 @@ struct _GtkATContext {};
 struct _GtkATContextClass {};
 struct _GtkAboutDialog {};
 struct _GtkAccessible {};
-struct _GtkAccessibleInterface {};
+struct _GtkAccessibleRange {};
 struct _GtkActionBar {};
 struct _GtkActivateAction {};
 struct _GtkActivateActionClass {};
+struct _GtkAlertDialog {};
 struct _GtkAlternativeTrigger {};
 struct _GtkAlternativeTriggerClass {};
 struct _GtkAnyFilter {};
@@ -410,10 +412,13 @@ struct _GtkClosureExpression {};
 struct _GtkColorButton {};
 struct _GtkColorChooserDialog {};
 struct _GtkColorChooserWidget {};
+struct _GtkColorDialog {};
+struct _GtkColorDialogButton {};
 struct _GtkColumnView {};
 struct _GtkColumnViewClass {};
 struct _GtkColumnViewColumn {};
 struct _GtkColumnViewColumnClass {};
+struct _GtkColumnViewSorter {};
 struct _GtkComboBoxText {};
 struct _GtkConstantExpression {};
 struct _GtkConstraint {};
@@ -453,6 +458,8 @@ struct _GtkExpression {};
 struct _GtkExpressionWatch {};
 struct _GtkFileChooserDialog {};
 struct _GtkFileChooserWidget {};
+struct _GtkFileDialog {};
+struct _GtkFileLauncher {};
 struct _GtkFilterListModel {};
 struct _GtkFixedLayout {};
 struct _GtkFixedLayoutChild {};
@@ -461,6 +468,8 @@ struct _GtkFlowBox {};
 struct _GtkFontButton {};
 struct _GtkFontChooserDialog {};
 struct _GtkFontChooserWidget {};
+struct _GtkFontDialog {};
+struct _GtkFontDialogButton {};
 struct _GtkGestureClick {};
 struct _GtkGestureClickClass {};
 struct _GtkGridLayout {};
@@ -571,6 +580,7 @@ struct _GtkTreeListRow {};
 struct _GtkTreeListRowSorter {};
 struct _GtkTreeSelection {};
 struct _GtkTreeViewColumn {};
+struct _GtkUriLauncher {};
 struct _GtkVideo {};
 struct _GtkViewport {};
 struct _GtkWidgetPaintable {};
@@ -586,6 +596,11 @@ struct _GtkWindowHandle {};
 #include <gtk/gtkimmodule.h>
 #include <gtk/gtk.h>
 #include <gtk/gtkunixprint.h>
+
+#if (GTK_MAJOR_VERSION == 4 && GTK_MINOR_VERSION < 10)
+struct _GtkAccessibleInterface {};
+typedef struct _GtkAccessibleInterface GtkAccessibleInterface;
+#endif
 
 typedef void (*GObjectNotifyQueueDispatcher) (GObject *object, guint n_pspecs, GParamSpec **pspecs);
 

@@ -3,12 +3,12 @@
 //  GLibObject
 //
 //  Created by Rene Hexel on 17/4/17.
-//  Copyright © 2016, 2017, 2018, 2020, 2021 Rene Hexel.  All rights reserved.
+//  Copyright © 2016, 2017, 2018, 2020, 2021, 2023 Rene Hexel.  All rights reserved.
 //
 #if os(macOS) || os(iOS) || os(tvOS)
-    import Darwin
+import Darwin
 #else
-    import Glibc
+import Glibc
 #endif
 import CGLib
 import GLib

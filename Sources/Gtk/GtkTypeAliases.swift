@@ -1,5 +1,18 @@
 import CGtk
 
+/// Free the memory allocated for the given pointer.
+///
+/// This function calles the `free()` function provided
+/// by the system.
+///
+/// - Note: The only reason this function exists is to avoid collisions with gtk  object`free()` methods.
+///
+/// - Parameter ptr: The pointer to free.
+@usableFromInline
+func systemFree(_ ptr: UnsafeMutableRawPointer?) {
+    free(ptr)
+}
+
 // Private structs not exported but needed for public pointers
 public typealias GtkArrowAccessiblePrivate = _GtkArrowAccessiblePrivate
 public typealias GtkBooleanCellAccessiblePrivate = _GtkBooleanCellAccessiblePrivate

@@ -24,7 +24,7 @@ public final class GWeak<T: ObjectProtocol & GWeakCapturing> {
         self.storage = UnsafeMutablePointer.allocate(capacity: 1)
         self.storage.pointee = UnsafeMutablePointer.allocate(capacity: 1)
         self.storage.pointee.pointee = nil
-        assign(newValue: wrappedValue) 
+        assign(newValue: wrappedValue)
     }
 
     /// Convenience init with ommited label.
@@ -38,7 +38,7 @@ public final class GWeak<T: ObjectProtocol & GWeakCapturing> {
         current?.removeWeakPointer(weakPointerLocation: storage.pointee)
         storage.pointee.pointee = newValue?.ptr
         newValue?.addWeakPointer(weakPointerLocation: storage.pointee)
-        
+
     }
 
     /// If weak reference is no longer needed, safely deregisters it and deallocates storage.
@@ -47,13 +47,13 @@ public final class GWeak<T: ObjectProtocol & GWeakCapturing> {
         storage.pointee.deallocate()
         storage.deallocate()
     }
-} 
+}
 
-/// Opaque class containing all information about weak notification required to remove it, if deallocated. 
+/// Opaque class containing all information about weak notification required to remove it, if deallocated.
 final class WeakReferenceContainer {
 
     typealias Container = (closureBox: AnyObject, handler: GWeakNotify, unownedInstance: UnsafeMutableRawPointer)
-    
+
     private var container: Container? = nil
 
     init() { }
@@ -68,7 +68,7 @@ final class WeakReferenceContainer {
         container = nil
     }
 
-    /// In case this instance is being deinitialized and container exists, notification is no longer needed and should be deregistered. After notification is deregistered, all Swift instances are disposed of. 
+    /// In case this instance is being deinitialized and container exists, notification is no longer needed and should be deregistered. After notification is deregistered, all Swift instances are disposed of.
     deinit {
         if let container = container {
             let data = Unmanaged.passUnretained(container.closureBox)
@@ -77,11 +77,11 @@ final class WeakReferenceContainer {
         }
     }
 
-} 
+}
 
 extension ObjectProtocol {
 
-    /// This method registers notification which is called when underlying GObject instance is being released from memory. 
+    /// This method registers notification which is called when underlying GObject instance is being released from memory.
     /// - Argument handler: Handler called when instance is being destroyed.
     /// - Argument objectBeingDestroyed: Unsafe pointer to the instance being destroyed.
     /// - Returns: Opaque referenced token. Retain this token to keep notification alive. Releasing this token will result in deregistation of the notification.

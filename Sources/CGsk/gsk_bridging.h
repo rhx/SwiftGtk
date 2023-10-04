@@ -16,6 +16,7 @@ struct _GskDebugNode {};
 struct _GskGLShaderNode {};
 struct _GskInsetShadowNode {};
 struct _GskLinearGradientNode {};
+struct _GskMaskNode {};
 struct _GskOpacityNode {};
 struct _GskOutsetShadowNode {};
 struct _GskRadialGradientNode {};
@@ -30,6 +31,7 @@ struct _GskShaderArgsBuilder {};
 struct _GskShadowNode {};
 struct _GskTextNode {};
 struct _GskTextureNode {};
+struct _GskTextureScaleNode {};
 struct _GskTransform {};
 struct _GskTransformNode {};
 struct _GskGLRenderer {};
@@ -43,6 +45,7 @@ typedef struct _GskGLShader GskGLShader;
 typedef struct _GskNglRenderer GskNglRenderer;
 
 #include <sys/types.h>
+#include <stdint.h>
 #include <gsk/gsk.h>
 #if __has_include(<gsk/gl/gsknglrenderer.h>)
 #include <gsk/gl/gsknglrenderer.h>

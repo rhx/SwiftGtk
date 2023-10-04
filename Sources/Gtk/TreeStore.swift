@@ -3,7 +3,7 @@
 //  Gtk
 //
 //  Created by Rene Hexel on 22/4/17.
-//  Copyright © 2017, 2018, 2019, 2020, 2021 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020, 2021, 2023 Rene Hexel.  All rights reserved.
 //
 import GLibObject
 import CGtk
@@ -19,16 +19,18 @@ public extension TreeStore {
 
     /// Convenience constructor specifying the column types
     ///
+    /// This initialiser is deprecated, use `TreeListModel` instead!
     /// - Parameter types: array of column types for this tree model
-    @inlinable convenience init(types: [GType]) {
+    @available(*, deprecated) @inlinable convenience init(types: [GType]) {
         var ts = types
         self.init(nColumns: types.count, types: &ts)
     }
 
     /// Convenience constructor specifying the column types
     ///
+    /// This initialiser is deprecated, use `TreeListModel` instead!
     /// - Parameter types: column types for this tree model
-    @inlinable convenience init(_ types: GType...) {
+    @available(*, deprecated) @inlinable convenience init(_ types: GType...) {
         var ts = types
         self.init(nColumns: types.count, types: &ts)
     }

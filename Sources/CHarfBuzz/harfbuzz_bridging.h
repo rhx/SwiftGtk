@@ -13,6 +13,7 @@ struct hb_language_impl_t {};
 struct hb_link_t {};
 struct hb_map_t {};
 struct hb_object_t {};
+struct hb_paint_funcs_t {};
 struct hb_set_t {};
 struct hb_shape_plan_t {};
 struct hb_subset_input_t {};

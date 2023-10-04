@@ -3,9 +3,18 @@
 //  GLib
 //
 //  Created by Rene Hexel on 27/04/2017.
-//  Copyright © 2016, 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2016, 2017, 2018, 2019, 2020, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
+
+/// Protocol for GLib types that wrap pointers.
+public protocol PointerWrapper {
+    /// Untyped pointer to the underlying instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Required Initialiser for types conforming to `PointerWrapper`
+    init(raw: UnsafeMutableRawPointer)
+}
 
 /// The key for passing the log message to `logStructuredArray` (required)
 public let logKeyMessage  = "MESSAGE"

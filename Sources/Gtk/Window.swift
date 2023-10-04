@@ -15,7 +15,7 @@ import GLibObject
 public extension WindowProtocol {
     /// size of the window
     @inlinable var size: (width: Int, height: Int) {
-        return (width, height)
+        return (Int(width), Int(height))
     }
 }
 
