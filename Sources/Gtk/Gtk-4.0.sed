@@ -38,3 +38,16 @@ s/: \([A-Za-z.]*Parser[,)]\)/: @escaping \1/g
 s|rv = Gdk\(ModifierType(.*)\)|rv = Gdk.\1|
 s|rv = Gdk\(EventMask(.*)\)|rv = Gdk.\1|
 s|rv = Gdk\(DragAction(.*)\)|rv = Gdk.\1|
+s/var metatypeReferenceForApplication:/var metatypeReferenceForGtkApplication:/
+s/var metatypeForApplication:/var metatypeForGtkApplication:/
+s/var wrapperForApplication:/var wrapperForGtkApplication:/
+s/var metatypeReferenceForMountOperation:/var metatypeReferenceForGtkMountOperation:/
+s/var metatypeForMountOperation:/var metatypeForGtkMountOperation:/
+s/var wrapperForMountOperation:/var wrapperForGtkMountOperation:/
+s/var metatypeReferenceForSnapshot:/var metatypeReferenceForGtkSnapshot:/
+s/var metatypeForSnapshot:/var metatypeForGtkSnapshot:/
+s/var wrapperForSnapshot:/var wrapperForGtkSnapshot:/
+s/GLib.RefSListRef<ObjectRef>/GLib.RefSListRef<GLibObject.ObjectRef>/
+s/free(UnsafeMutableRawPointer/systemFree(UnsafeMutableRawPointer/
+s/func load(from path: UnsafePointer<CChar>/func loadFrom(file path: UnsafePointer<CChar>/
+s/func load(from string: UnsafePointer<CChar>/func loadFrom(string: UnsafePointer<CChar>/
