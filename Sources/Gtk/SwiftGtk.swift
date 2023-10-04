@@ -8,13 +8,17 @@ import GLib
 import GLibObject
 import GIO
 import Cairo
+import Gdk
+
+/// Alias for the `Gdk.GLAPI`
+public typealias GdkGLAPI = Gdk.GLAPI
 
 /// Internal Class that wraps a 2-parameter closure to make sure the closure
 /// is retained until no longer required
 public class DualClosureHolder<S, T, U> {
-    
+
     public let call: (S, T) -> U
-    
+
     public init(_ closure: @escaping (S, T) -> U) {
         self.call = closure
     }
