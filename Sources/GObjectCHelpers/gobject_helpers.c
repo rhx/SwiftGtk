@@ -2,17 +2,19 @@
 
 /// Get the type of a `GObject` instance.
 /// @param gobject the object to get the type for
-GTypeClass *glibobject_get_instance_type(GObject * const gobject)
+/// @return the type of the object
+GType glibobject_get_instance_type(GObject * const gobject)
 {
     return G_TYPE_FROM_INSTANCE(gobject);
 }
 
 
-/// Return whether the given receiver is a `GObject`.
-/// @param gobject pointer to test
-gboolean glibobject_is_object(GObject * const gobject)
+/// Get the type class of a `GObject` instance.
+/// @param gobject the object to get the type for
+/// @return the type class of the object
+GTypeClass *glibobject_get_class(GObject * const gobject)
 {
-    return G_IS_OBJECT(gobject);
+    return G_OBJECT_GET_CLASS(gobject);
 }
 
 
