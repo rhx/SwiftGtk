@@ -5,7 +5,13 @@
 
 /// Get the type of a `GObject` instance.
 /// @param gobject the object to get the type for
-GTypeClass *glibobject_get_instance_type(GObject * const gobject)  __attribute__((nonnull)) __attribute__((returns_nonnull));
+/// @return the type of the object
+GType glibobject_get_instance_type(GObject * const gobject)  __attribute__((nonnull));
+
+/// Get the type class of a `GObject` instance.
+/// @param gobject the object to get the type for
+/// @return the type class of the object
+GTypeClass *glibobject_get_class(GObject * const gobject)  __attribute__((nonnull)) __attribute__((returns_nonnull));
 
 /// Return whether the given receiver is a `GObject`.
 /// @param gobject pointer to test
