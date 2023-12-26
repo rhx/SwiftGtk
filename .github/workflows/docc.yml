@@ -2,7 +2,7 @@ name: DocC
 
 # Dependencies of this package
 env:
-  MACOS_BREW: ${{ 'gtk4 pango glib glib-networking gobject-introspection pkg-config jq' }}
+  MACOS_BREW: ${{ 'gtk4 atk pango glib glib-networking gobject-introspection pkg-config jq' }}
   UBUNTU_APT: ${{ 'libgtk-4-dev gir1.2-gtk-4.0 gir1.2-gtksource-4.0 libcogl-pango-dev libcogl-path-dev libcogl-dev libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libgraphene-1.0-dev gir1.2-graphene-1.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq' }}
   WINDOWS_GTK: ${{ '2022-01-04' }}
 
