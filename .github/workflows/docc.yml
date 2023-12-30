@@ -43,6 +43,9 @@ jobs:
         with:
           hosting-base-path: ${{ github.event.repository.name }} 
 
+      - name: Show Generated Content
+        run: find . -type d -maxdepth 3
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
