@@ -2,6 +2,7 @@
 
 A Swift wrapper around gtk-3.x and gtk-4.x that is largely auto-generated from gobject-introspection.
 This project tries to make gtk more "swifty" than using the plain C language interface.
+
 For up to date (auto-generated) reference documentation, see [https://rhx.github.io/SwiftGtk/](https://rhx.github.io/SwiftGtk/).
 
 
@@ -28,9 +29,10 @@ which makes it more straightforward to keep up with changes in they underlying G
 - <doc:Usage>
 - <doc:Documentation>
 
-### Tutorial
+### Tutorials
 
 - <doc:Tutorial>
+- <doc:GtkAppAnatomy>
 
 ### Troubleshooting
 

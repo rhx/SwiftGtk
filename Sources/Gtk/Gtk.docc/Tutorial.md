@@ -189,3 +189,9 @@ should start, displaying a `Hello, World!` window.
 
 >Tip: This project and the full source code can be found on GitHub:
 [https://github.com/rhx/SwiftHelloGtk](https://github.com/rhx/SwiftHelloGtk/tree/gtk4-monorepo)
+
+## Structure of a Gtk Application
+
+The next part of the tutorial looks at the anatomy of a Gtk application:
+
+<doc:GtkAppAnatomy>
