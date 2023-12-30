@@ -14,10 +14,13 @@ The documentation structure for SwiftGtk follows the structure of the generated 
 For every [Object](/documentation/GLibObject/Object), there is a Swift
 [Protocol](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/)
 that provides a default implementation of the Object's methods and properties.
+For the documentation, the use of Protocols means that the methods and properties
+are usually documented in the `Default Implementations` Section towards the bottom
+rather than the main section of the type documentation.
 
->Tip: For the documentation, the use of Protocols means that the methods and properties
-      are usually documented in the `Default Implementations` Section towards the bottom
-      rather than the main section of the type documentation.
+>Tip: You can quickly navigate to the `Default Implementations` Section
+      by clicking on the `Relationships` link in the navigation column
+      on the right hand side.
 
 There are two concrete types that wrap the Object in Swift and inherit the protocol implementation:
 
