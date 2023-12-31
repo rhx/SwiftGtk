@@ -42,7 +42,7 @@ jobs:
       - name: Generate Documentation
         uses: rhx/swiftpm-generate-documentation@main
         with:
-          hosting-base-path: $HOSTING_BASE
+          hosting-base-path: SwiftGtk4DocC
 
       - name: Show Generated Content
         run: find . -type d -maxdepth 3
@@ -51,5 +51,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          external_repository: rhx/$HOSTING_BASE
+          external_repository: rhx/SwiftGtk4DocC
           publish_dir: ./docs
