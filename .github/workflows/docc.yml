@@ -2,6 +2,7 @@ name: DocC
 
 # Dependencies of this package
 env:
+  HOSTING_BASE: ${{ 'SwiftGtk4DocC' }}
   MACOS_BREW: ${{ 'gtk4 atk pango glib glib-networking gobject-introspection pkg-config jq' }}
   UBUNTU_APT: ${{ 'libgtk-4-dev gir1.2-gtk-4.0 gir1.2-gtksource-4.0 libcogl-pango-dev libcogl-path-dev libcogl-dev libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libgraphene-1.0-dev gir1.2-graphene-1.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq' }}
   WINDOWS_GTK: ${{ '2022-01-04' }}
@@ -41,7 +42,7 @@ jobs:
       - name: Generate Documentation
         uses: rhx/swiftpm-generate-documentation@main
         with:
-          hosting-base-path: ${{ github.event.repository.name }} 
+          hosting-base-path: $HOSTING_BASE
 
       - name: Show Generated Content
         run: find . -type d -maxdepth 3
@@ -50,5 +51,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          external_repository: rhx/SwiftGtk4DocC
+          external_repository: rhx/$HOSTING_BASE
           publish_dir: ./docs
