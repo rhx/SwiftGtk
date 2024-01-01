@@ -15,8 +15,8 @@ way is to create an XML `ui` file and use ``/Gtk/Builder`` to create the widgets
 from the user interface file.  There are tools you can use to design user interfaces
 graphically, such as [Cambalache](https://flathub.org/apps/ar.xjuan.Cambalache)
 for gtk4 (as well as gtk3) and [Glade](https://gitlab.gnome.org/GNOME/glade)
-for gtk3 (but there are [recommendations to write user interface files by hand]
-(https://blogs.gnome.org/christopherdavis/2020/11/19/glade-not-recommended/)).
+for gtk3 (but there are
+[recommendations to write user interface files by hand](https://blogs.gnome.org/christopherdavis/2020/11/19/glade-not-recommended/)).
 
 ## Adding Widgets
 
@@ -170,7 +170,8 @@ has been received by the widget).
 
 For example, the button has a ``/Gtk/ButtonSignalName/clicked`` signal
 that occurs whenever the button has been clicked.
-We can connect a closure to the ``/Gtk/ButtonSignalName/clicked`` signal:
+We can connect a closure to the `.clicked` signal through the
+``/Gtk/ButtonProtocol/onClicked(flags:handler:)`` method:
 
 ```Swift
     button.onClicked {
@@ -178,14 +179,15 @@ We can connect a closure to the ``/Gtk/ButtonSignalName/clicked`` signal:
     }
 ```
 
-The ``/Gtk/ButtonProtocol/onClicked`` method is a Swift convenience method
-that wraps the low-level ``/Gtk/ButtonProtocol/connect(signal:flags:handler:)``
+The ``/Gtk/ButtonProtocol/onClicked(flags:handler:)`` method
+is a Swift convenience method that wraps the low-level
+``/Gtk/ButtonProtocol/connect(signal:flags:handler:)``
 method (which itself is a convenience method that wraps a Swift closure into
 user data that are passed to a `Callback` function pointer using the
-``/Gtk/ButtonProtocol/connect(signal:flags:data:destroyData:signalHandler:)`` method.)
-The parameter that is passed in (`$0` in the example) is a reference to the widget
-that received the signal (in this case the ``/Gtk/Button`` itself).
-The whole program now looks like this:
+``/Gtk/ButtonProtocol/connect(signal:flags:data:destroyData:signalHandler:)``
+method).  The parameter that is passed in (`$0` in the example) is a
+reference to the widget that received the signal (in this case the
+``/Gtk/ButtonRef`` itself).  The whole program now looks like this:
 
 ```Swift
 import Gtk
@@ -217,3 +219,35 @@ guard status == 0 else {
 }
 ```
 
+Let us now look at what is happening behind the scences in this application.
+
+## Summary and Explanation
+
+In a GTK application the ``/Gtk/Application`` is the main instance
+representing the running program, it user interface, and interaction
+with the system.  The static
+``/Gtk/Application/run(id:flags:arguments:startupHandler:activationHandler:)``
+factory method creates an ``/Gtk/Application`` instance (by internally
+calling ``/Gtk/Application/init(id:flags:)`` and then running the application by
+calling ``/Gtk/Application/run(arguments:startupHandler:activationHandler:)``.
+The application will then call the startup handler (if non-`nil`) followed by
+the activation handler once active.
+
+>Important: In a real-world application you should not omit the `id` parameter.
+Instead, you want to pass in a unique "reverse DNS" order string,
+representing your application.  For more information, see the
+[GNOME Developer Guide on Application IDs](https://developer.gnome.org/documentation/tutorials/application-id.html).
+
+Once the GTK application has become active, in our example above,
+we create a main application window by calling
+``/Gtk/ApplicationWindowRef/init(application:)``, passing in the
+`app` parameter to our activation handler.  The `app` parameter is an
+ ``/Gtk/ApplicationRef`` referencing our ``/Gtk/Application``.
+ We then set the title of our ``/Gtk/ApplicationWindow`` by assigning
+ the "Hello, World" string to its ``/Gtk/ApplicationWindow/title``
+ property.  After that, we set the Window's default size by calling
+ ``/Gtk/ApplicationWindow/setDefaultSize(width:height:)``.
+ After creating and adding the widgets as discussed above, we display
+ the window by calling ``/Gtk/ApplicationWindow/set(visible:)`` and
+ setting its visibility to `true`.
+ 

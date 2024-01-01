@@ -82,7 +82,8 @@ Gtk using:
 The easiest way to compile programs and libraries using
 SwiftGtk is through projects using the
 [Swift Package Manager](https://swift.org/package-manager/).
-Here is an example for a simple [Hello World](https://github.com/rhx/SwiftHelloGtk/tree/gtk4)
+Here is an example for a simple
+[Hello World](https://github.com/rhx/SwiftHelloGtk/tree/gtk4)
 program.
 
 ### Creating a Project
