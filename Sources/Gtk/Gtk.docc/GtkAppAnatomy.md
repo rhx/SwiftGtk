@@ -121,9 +121,10 @@ using a vertical layout, we can use following:
 ```
 
 This creates a vertical layout ``/Gtk/Box`` with a spacing
-of 8 points.  The ``/Gtk/Box/halign`` and ``/Gtk/Box/valign``
-properties are set to ``/Gtk/Align/center`` to ensure the
-child widgets (the ``/Gtk/Label`` and the ``/Gtk/Button``)
+of 8 points.  The ``/Gtk/WidgetProtocol/halign`` and
+``/Gtk/WidgetProtocol/valign`` properties are set to
+``/Gtk/GtkAlign/center`` to ensure the child widgets
+(the ``/Gtk/Label`` and the ``/Gtk/Button``)
 are horizontally and vertically centred in the box.
 
 Here is what the resulting program looks like:
@@ -219,7 +220,7 @@ guard status == 0 else {
 }
 ```
 
-Let us now look at what is happening behind the scences in this application.
+Let us now look at what is happening behind the scenes in this application.
 
 ## Summary and Explanation
 
@@ -233,7 +234,7 @@ calling ``/Gtk/Application/run(arguments:startupHandler:activationHandler:)``.
 The application will then call the startup handler (if non-`nil`) followed by
 the activation handler once active.
 
->Important: In a real-world application you should not omit the `id` parameter.
+>Important: In a real-world application you should **not** omit the `id` parameter.
 Instead, you want to pass in a unique "reverse DNS" order string,
 representing your application.  For more information, see the
 [GNOME Developer Guide on Application IDs](https://developer.gnome.org/documentation/tutorials/application-id.html).
@@ -242,12 +243,11 @@ Once the GTK application has become active, in our example above,
 we create a main application window by calling
 ``/Gtk/ApplicationWindowRef/init(application:)``, passing in the
 `app` parameter to our activation handler.  The `app` parameter is an
- ``/Gtk/ApplicationRef`` referencing our ``/Gtk/Application``.
- We then set the title of our ``/Gtk/ApplicationWindow`` by assigning
- the "Hello, World" string to its ``/Gtk/ApplicationWindow/title``
- property.  After that, we set the Window's default size by calling
- ``/Gtk/ApplicationWindow/setDefaultSize(width:height:)``.
- After creating and adding the widgets as discussed above, we display
- the window by calling ``/Gtk/ApplicationWindow/set(visible:)`` and
- setting its visibility to `true`.
- 
+``/Gtk/ApplicationRef`` referencing our ``/Gtk/Application``.
+We then set the title of our ``/Gtk/ApplicationWindow`` by assigning
+the "Hello, World" string to its ``/Gtk/WindowProtocol/title``
+property.  After that, we set the Window's default size by calling
+``/Gtk/WindowProtocol/setDefaultSize(width:height:)``.
+After creating and adding the widgets as discussed above, we display
+the window by calling ``/Gtk/WidgetProtocol/set(visible:)``
+and setting its visibility to `true`.

@@ -6,8 +6,6 @@ This project tries to make gtk more "swifty" than using the plain C language int
 For up to date (auto-generated) reference documentation, see [https://rhx.github.io/SwiftGtk/](https://rhx.github.io/SwiftGtk/).
 
 
-## Overview
-
 [SwiftGtk](git@github.com:rhx/SwiftGtk.git) allows you to use the Gtk user interface toolkit
 directly from Swift without having to resort to using the low-level C interface.
 Gtk has been in development for many years and is used by numerous open source

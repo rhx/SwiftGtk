@@ -45,7 +45,7 @@ If, when you run `swift build`, you get a `Segmentation fault (core dumped)` or 
 	warning: circular dependency detected while parsing pangocairo: harfbuzz -> freetype2 -> harfbuzz
 	
 this probably means that your Swift toolchain is too old, particularly on Linux.
-Make sure the latest toolchain is the one that is found when you run the Swift compiler (see above).
+Make sure the latest toolchain is the one that is found when you run the Swift compiler (see <doc:GettingStarted>).
 
   If you get an older version, make sure that the right version of the swift compiler is found first in your `PATH`.  On macOS, use xcode-select to select and install the latest version, e.g.:
 

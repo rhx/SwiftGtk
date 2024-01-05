@@ -1,7 +1,7 @@
 # Getting Started
 
 This section contains the information to get you started in setting up the pre-requisites for building this library.
-You can then add this package as a dependency to your own project (see <doc:Usage> below).
+You can then add this package as a dependency to your own project (see <doc:Usage>).
 
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
