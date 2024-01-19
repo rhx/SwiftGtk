@@ -1,18 +1,20 @@
 #!/bin/sh
 #
-# Wrapper around `swift build' that uses pkg-config in config.sh
-# to determine compiler and linker flags
+# Generate documentation using DocC
 #
 . ./config.sh
-if [ -z "$@" ]; then
-    JAZZY_ARGS="--theme fullwidth --author Ren&eacute;&nbsp;Hexel --author_url https://experts.griffith.edu.au/9237-rene-hexel --github_url https://github.com/rhx/Swift$Mod --github-file-prefix https://github.com/rhx/Swift$Mod/tree/generated --root-url http://rhx.github.io/Swift$Mod/ --output docs"
+if [ $# -eq 0 ]; then
+    GENDOC_ARGS="--output-path docs"
+else
+    GENDOC_ARGS="$@"
 fi
-[ -e "$BUILD_DIR/build.db" ] || ./build.sh
 rm -rf .docs.old
 mv docs .docs.old 2>/dev/null
+mkdir -p "$BUILD_DIR"
 [ -e .build ] || ln -s "$BUILD_DIR" .build
-sourcekitten doc --spm --module-name $Mod -- --build-path "$BUILD_DIR"  \
-	$CCFLAGS $LINKFLAGS > "$BUILD_DIR/$Mod-doc.json"
-jazzy --sourcekitten-sourcefile "$BUILD_DIR/$Mod-doc.json" --clean	\
-      --module-version $JAZZY_VER --module $Mod $JAZZY_ARGS "$@"
+if [ ! -d "$BUILD_DIR/swiftpm-generate-documentation" ]; then
+    ( cd "$BUILD_DIR" &&
+    git clone https://github.com/rhx/swiftpm-generate-documentation.git )
+fi
+swift "$BUILD_DIR/swiftpm-generate-documentation/src/main.swift" $GENDOC_ARGS
 rm -f .build 2>/dev/null
