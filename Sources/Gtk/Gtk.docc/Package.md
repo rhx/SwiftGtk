@@ -27,16 +27,36 @@ which makes it more straightforward to keep up with changes in they underlying G
 - <doc:Usage>
 - <doc:Documentation>
 
+
 ### Tutorials
 
 - <doc:Tutorial>
 - <doc:GtkAppAnatomy>
 
+
+### Components
+
+- <doc:Gtk>
+- [GLib](/GLib/documentation/glib)
+- [GObject](/GLibObject/documentation/glibobject)
+- [GIO](/GIO/documentation/gio)
+- [GModule](/GModule/documentation/gmodule)
+- [Atk](/Atk/documentation/atk)
+- [Cairo](/Cairo/documentation/cairo)
+- [Gdk](/Gdk/documentation/gdk)
+- [GdkPixBuf](/GdkPixBuf/documentation/gdkpixbuf)
+- [Graphene](/Graphene/documentation/graphene)
+- [Gsk](/Gsk/documentation/gsk)
+- [HarfBuzz](/HarfBuzz/documentation/harfbuz)
+- [Pango](/Pango/documentation/pango)
+- [PangoCairo](/PangoCairo/documentation/pangocairo)
+
+
 ### Troubleshooting
 
 - <doc:Troubleshooting>
 
+
 ### Building and Testing SwiftGtk
 
 - <doc:Building>
-
