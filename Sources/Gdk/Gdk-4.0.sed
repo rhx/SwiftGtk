@@ -26,4 +26,9 @@ s/\(gdk_key_event.*\)key_\(event_ptr\)/\1\2/
 s/\(gdk_pad_event.*\)pad_\(event_ptr\)/\1\2/
 s/\(gdk_scroll_event.*\)scroll_\(event_ptr\)/\1\2/
 s/\(gdk_touch.*_event.*\)touch.*_\(event_ptr\)/\1\2/
-
+s/\(public let key\)CH\( = GDK_KEY_C_H\)/\1_C_H\2/
+s/\(public let key\)Ch\( = GDK_KEY_C_h\)/\1_C_h\2/
+s/\(public let key\)ch\( = GDK_KEY_c_h\)/\1_c_h\2/
+s/\(public let key\)Ch\( = GDK_KEY_CH\)/\1CH\2/
+s/\(public let key\)Eth\( = GDK_KEY_ETH\)/\1ETH\2/
+s/\(public let key\)Thorn\( = GDK_KEY_THORN\)/\1THORN\2/
