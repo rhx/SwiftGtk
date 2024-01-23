@@ -18,7 +18,7 @@ class GdkTests: XCTestCase {
     func testThreadsAddIdle() {
         let mainLoop = MainLoopRef(context: mainContextDefault(), isRunning: false)
         var done = false
-        let id = threadsAddIdle(priority: PRIORITY_HIGH_IDLE) {
+        let id = threadsAddIdle(priority: priorityHighIdle) {
             done = true
             mainLoop.quit()
             return false
