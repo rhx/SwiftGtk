@@ -3,10 +3,12 @@
 #include <glib/gversionmacros.h>
 #undef __GLIB_H_INSIDE__
 
+struct _GAllocator {};
 struct _GAsyncQueue {};
 struct _GBookmarkFile {};
 struct _GBinding {};
 struct _GBytes {};
+struct _GCache {};
 struct _GChecksum {};
 struct _GData {};
 struct _GDatagramBased {};
@@ -21,6 +23,7 @@ struct _GMainLoop {};
 struct _GMappedFile {};
 struct _GMarkupParseContext {};
 struct _GMatchInfo {};
+struct _GMemChunk {};
 struct _GMemoryMonitor {};
 struct _GModule {};
 struct _GMutexLocker {};
@@ -31,6 +34,7 @@ struct _GPatternSpec {};
 struct _GPowerProfileMonitor {};
 struct _GRand {};
 struct _GRegex {};
+struct _GRelation {};
 struct _GSequence {};
 struct _GSequenceNode {};
 struct _GSequenceIter {};
@@ -368,3 +372,15 @@ typedef GUriParamsFlags GURIParamsFlags;
 typedef GUriHideFlags GURIHideFlags;
 typedef struct _GTreeNode GTreeNode;
 typedef struct _GStrvBuilder GStrvBuilder;
+
+#if GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION >= 80
+extern GType g_threaded_resolver_get_type(void);
+
+struct _GThreadedResolver {};
+struct _GThreadedResolverClass
+{
+    GResolverClass parent_class;
+};
+typedef struct _GThreadedResolver GThreadedResolver;
+typedef struct _GThreadedResolverClass GThreadedResolverClass;
+#endif
