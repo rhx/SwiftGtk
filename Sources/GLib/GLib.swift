@@ -145,9 +145,9 @@ extension LogLevelFlags: Hashable {}
 ///   - level: log level (defaults to `.debug`)
 @inlinable public func g_log(messagePtr: UnsafePointer<CChar>?, level: LogLevelFlags = .debug) {
     guard let msg = messagePtr else { return }
-    #if swift(<5.2)
+#if swift(<5.2)
     g_logv(nil, level.value, msg, CVaListPointer(_fromUnsafeMutablePointer: UnsafeMutableRawPointer(mutating: msg)))
-    #else
+#else
     guard GLIB_MAJOR_VERSION > 2 || GLIB_MINOR_VERSION >= 50 else {
         print(String(cString: msg))
         return
@@ -161,7 +161,7 @@ extension LogLevelFlags: Hashable {}
             logStructuredArray(logLevel: level, fields: &fields, nFields: fields.count)
         }
     }
-    #endif
+#endif
 }
 
 /// Logging function
@@ -178,9 +178,9 @@ extension LogLevelFlags: Hashable {}
     withUnsafeMutableBytes(of: &buffer) {
         guard let buffer = $0.baseAddress else { return }
         let msg = buffer.assumingMemoryBound(to: CChar.self)
-        #if swift(<5.2)
+#if swift(<5.2)
         g_logv(domain, level.value, msg, CVaListPointer(_fromUnsafeMutablePointer: buffer))
-        #else
+#else
         guard GLIB_MAJOR_VERSION > 2 || GLIB_MINOR_VERSION >= 50 else {
             print(message)
             return
@@ -199,7 +199,7 @@ extension LogLevelFlags: Hashable {}
                 }
             }
         }
-        #endif
+#endif
     }
 }
 #endif
@@ -216,3 +216,175 @@ extension LogLevelFlags: Hashable {}
         g_log(message, level: .warning)
     }
 }
+
+#if os(macOS) || os(Linux)
+/// Change the mode oft a filesystem object.
+///
+/// This function is a wrapper around the `chmod()` system call,
+/// changing the mode of the filesystem object pointed to by `path`.
+///
+/// - Parameters:
+///   - path: The filesystem path of the object to query.
+///   - mode: The new mode for the object.
+/// - Returns: `0` on success, `-1` on error.
+@inlinable
+public func g_chmod(_ path: UnsafePointer<CChar>, _ mode: gint) -> CInt {
+    return chmod(path, mode_t(mode))
+}
+
+/// Create a file.
+///
+/// This function is a wrapper around the `creat()` system call,
+/// creating a filesystem object pointed to by `path`.
+///
+/// - Parameters:
+///   - path: The filesystem path of the object to create.
+///   - mode: The new mode for the object.
+/// - Returns: `0` on success, `-1` on error.
+@inlinable
+public func g_creat(_ path: UnsafePointer<CChar>, _ mode: gint) -> CInt {
+    return creat(path, mode_t(mode))
+}
+
+/// Open or create a buiffered stream.
+///
+/// This function is a wrapper around the `fopen()` system call,
+/// creating a filesystem stream object pointed to by `path`.
+///
+/// - Parameters:
+///   - path: The filesystem path of the object to open.
+///   - mode: The new mode for the object when created.
+/// - Returns: a pointer to the new stream object, `nil` on error.
+@inlinable
+public func g_fopen(_ path: UnsafePointer<CChar>, _ mode: UnsafePointer<CChar>) -> UnsafeMutablePointer<FILE>? {
+    return fopen(path, mode)
+}
+
+/// Repen a buiffered stream.
+///
+/// This function is a wrapper around the `freopen()` system call,
+/// reopening a filesystem stream object pointed to by `path` and
+/// associates the stream with the given file pointer.
+///
+/// - Parameters:
+///   - path: The filesystem path of the object to open.
+///   - mode: The new mode for the object when created.
+///   - stream: The stream to associate with the file pointer.
+/// - Returns: a pointer to the  stream object, `nil` on error.
+@inlinable
+public func g_freopen(_ path: UnsafePointer<CChar>, _ mode: UnsafePointer<CChar>, _ stream: UnsafeMutablePointer<FILE>!) -> UnsafeMutablePointer<FILE>? {
+    return freopen(path, mode, stream)
+}
+
+/// Syncronize a filesystem object.
+///
+/// This function is a wrapper around the `fsync()` system call,
+/// synchronising the files descriptor passed in.
+///
+/// - Parameters:
+///   - fileDescriptor: The file descriptor to syncronise.
+/// - Returns: `0` on success, `-1` on error.
+@inlinable
+public func g_fsync(_ fileDescriptor: CInt) -> CInt {
+    return fsync(fileDescriptor)
+}
+
+/// Get information about a filesystem object.
+///
+/// This function is a wrapper around the `lstat()` system call,
+/// returning information about the file pointed to by `path`,
+/// without following symbolic links.
+///
+/// - Parameters:
+///   - path: The filesystem path of the object to query.
+///   - buf: A `GStatBuf` structure to fill in with information about the file.
+/// - Returns: `0` on success, `-1` on error.
+@inlinable
+public func g_lstat(_ path: UnsafePointer<CChar>, _ buf: UnsafeMutablePointer<GStatBuf>!) -> CInt {
+    return lstat(path, buf)
+}
+
+/// Create a directory.
+///
+/// This function is a wrapper around the `mkdir()` system call,
+/// creating a directory pointed to by `path`.
+///
+/// - Parameters:
+///   - path: The filesystem path of the directory to create.
+///   - mode: The new mode for the directory.
+/// - Returns: `0` on success, `-1` on error.
+@inlinable
+public func g_mkdir(_ path: UnsafePointer<CChar>, _ mode: gint) -> CInt {
+    return mkdir(path, mode_t(mode))
+}
+
+/// Open a file.
+///
+/// This function is a wrapper around the `open()` system call,
+/// opening a filesystem object pointed to by `path`.
+///
+/// - Parameters:
+///   - path: The filesystem path of the object to open.
+///   - flags: The flags to use when opening the object.
+///   - mode: The new mode for the object.
+/// - Returns: `0` on success, `-1` on error.
+@inlinable
+public func g_open(_ path: UnsafePointer<CChar>, _ flags: CInt, _ mode: gint = 0) -> CInt {
+    return open(path, flags, mode_t(mode))
+}
+
+/// Remove a filesystem object.
+///
+/// This function is a wrapper around the `remove()` system call,
+/// removing the filesystem object pointed to by `path`.
+///
+/// - Parameter path: The filesystem path of the object to remove.
+/// - Returns: `0` on success, `-1` on error.
+@inlinable
+public func g_remove(_ path: UnsafePointer<CChar>) -> CInt {
+    return remove(path)
+}
+
+/// Rename a filesystem object.
+///
+/// This function is a wrapper around the `rename()` system call,
+/// renaming the filesystem object pointed to by `old` to `new`.
+///
+/// - Parameters:
+///   - old: The old filesystem path.
+///   - new: The new filesystem path.
+/// - Returns: `0` on success, `-1` on error.
+@inlinable
+public func g_rename(_ old: UnsafePointer<CChar>, _ new: UnsafePointer<CChar>) -> CInt {
+    return rename(old, new)
+}
+
+/// Get information about a filesystem object.
+///
+/// This function is a wrapper around the `stat()` system call,
+/// returning information about the file pointed to by `path`.
+///
+/// - Parameters:
+///   - path: The filesystem path of the object to query.
+///   - buf: A `GStatBuf` structure to fill in with information about the file.
+/// - Returns: `0` on success, `-1` on error.
+@inlinable
+public func g_stat(_ path: UnsafePointer<CChar>, _ buf: UnsafeMutablePointer<GStatBuf>!) -> CInt {
+    return stat(path, buf)
+}
+
+/// Set filesystem object times.
+///
+/// This function is a wrapper around the `utime()` system call,
+/// setting time information about the file pointed to by `path`.
+///
+/// - Parameters:
+///   - path: The filesystem path of the object to query.
+///   - times: Pointer to a`utimbuf` structure with information about the file access and modification times.
+/// - Returns: `0` on success, `-1` on error.
+@inlinable
+public func g_utime(_ path: UnsafePointer<CChar>, _ times: UnsafePointer<utimbuf>!) -> CInt {
+    return utime(path, times)
+}
+#endif
+
