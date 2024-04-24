@@ -318,6 +318,7 @@ public func g_mkdir(_ path: UnsafePointer<CChar>, _ mode: gint) -> CInt {
     return mkdir(path, mode_t(mode))
 }
 
+#if os(macOS)
 /// Open a file.
 ///
 /// This function is a wrapper around the `open()` system call,
@@ -332,6 +333,7 @@ public func g_mkdir(_ path: UnsafePointer<CChar>, _ mode: gint) -> CInt {
 public func g_open(_ path: UnsafePointer<CChar>, _ flags: CInt, _ mode: gint = 0) -> CInt {
     return open(path, flags, mode_t(mode))
 }
+#endif
 
 /// Remove a filesystem object.
 ///
