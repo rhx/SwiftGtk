@@ -1,3 +1,8 @@
+#ifdef __linux__
+#include <sys/types.h>
+#include <utime.h>
+extern int g_open (const char *, int, ...) __nonnull ((1));
+#endif
 #define __GLIB_H_INSIDE__
 #include <glib/gversion.h>
 #include <glib/gversionmacros.h>
