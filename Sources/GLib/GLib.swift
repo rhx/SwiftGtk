@@ -390,3 +390,18 @@ public func g_utime(_ path: UnsafePointer<CChar>, _ times: UnsafePointer<utimbuf
 }
 #endif
 
+#if os(Linux)
+/// Set the program name.
+///
+/// This function is a wrapper around the `g_set_prgname()` function,
+/// setting the program name to the given string.
+///
+/// - Parameters:
+///   - name: The new program name.
+/// - Returns: `0` on success, `-1` on error (not implemented).
+@inlinable
+public func g_set_prgname_once(_ name: UnsafePointer<CChar>) -> CInt {
+    g_set_prgname(name)
+    return 0
+}
+#endif

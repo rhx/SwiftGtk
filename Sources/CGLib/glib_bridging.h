@@ -1,12 +1,20 @@
 #ifdef __linux__
 #include <sys/types.h>
 #include <utime.h>
-extern int g_open (const char *, int, ...) __nonnull ((1));
+#ifdef __aarch64__
+extern int g_open(const char *, int, int) __nonnull ((1));
+#define g_open g_open_orig
+#else
+extern int g_open(const char *, int, ...) __nonnull ((1));
+#endif
 #endif
 #define __GLIB_H_INSIDE__
 #include <glib/gversion.h>
 #include <glib/gversionmacros.h>
 #undef __GLIB_H_INSIDE__
+#if defined(__linux__) && defined(__aarch64__)
+#undef g_open
+#endif
 
 struct _GAllocator {};
 struct _GAsyncQueue {};
