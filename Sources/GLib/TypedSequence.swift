@@ -15,6 +15,7 @@ import CGLib
 /// For a concrete class that implements these methods and properties, see `TypedSequence`.
 /// Alternatively, use `TypedSequenceRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
+/// - Note: This protocol is mainly for  primitive types.  For referencing GLib objects, use `ReferenceSequenceProtocol`.
 public protocol TypedSequenceProtocol: SequenceProtocol, BidirectionalCollection, MutableCollection {
     /// The element contained in each `SList` node.
     associatedtype Element
@@ -97,6 +98,7 @@ public extension TypedSequenceProtocol {
 /// The `TypedSequence` class acts as a typed wrapper around `GSequence`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for primitive types.  For referencing GLib objects, use `ReferenceSequence`.
 public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, ExpressibleByArrayLiteral {
     /// Array literal initialiser
     ///
@@ -121,14 +123,27 @@ public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, Expressibl
     deinit {
         g_sequence_free(_ptr)
     }
+
+    /// Create an interator over a`TypedSequence`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> TypedSequenceIterator<Element> {
+        TypedSequenceIterator(getBeginIter())
+    }
 }
 
-/// The `TypedSequenceRef` struct acts as a lightweight, typed wrapper aroundptr `GList`,
+/// The `TypedSequenceRef` struct acts as a lightweight, typed wrapper around `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for primitive types.  For referencing GLib objects, use `ReferenceSequenceRef`.
 public struct TypedSequenceRef<Element>: TypedSequenceProtocol {
     /// Untyped reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!
+
+    /// Create an interator over a`TypedSequenceRef`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> TypedSequenceIterator<Element> {
+        TypedSequenceIterator(getBeginIter())
+    }
 }
 
 public extension TypedSequenceRef {

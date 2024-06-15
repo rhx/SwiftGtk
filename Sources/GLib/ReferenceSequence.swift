@@ -123,6 +123,12 @@ public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, Ex
     deinit {
         g_sequence_free(_ptr)
     }
+
+    /// Create an interator over a`ReferenceSequence`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> ReferenceSequenceIterator<Element> {
+        ReferenceSequenceIterator(getBeginIter())
+    }
 }
 
 /// The `ReferenceSequenceRef` struct acts as a lightweight, Reference wrapper around `GList`,
@@ -132,6 +138,12 @@ public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, Ex
 public struct ReferenceSequenceRef<Element>: ReferenceSequenceProtocol {
     /// UnReference reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!
+
+    /// Create an interator over a`ReferenceSequenceRef`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> ReferenceSequenceIterator<Element> {
+        ReferenceSequenceIterator(getBeginIter())
+    }
 }
 
 public extension ReferenceSequenceRef {
