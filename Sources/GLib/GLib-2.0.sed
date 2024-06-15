@@ -49,3 +49,4 @@ s|@available(\*, deprecated) @inlinable public init( identifier: UnsafePointer<g
 s/class ByteArray/class ByteArrayBase/
 s/``Array``/``ArrayType``/g
 s/``Error``/``GLibError``/g
+s|Dir(gconstpointer: gconstpointer(result))|result.map { Dir(retainingCPointer: $0) }|
