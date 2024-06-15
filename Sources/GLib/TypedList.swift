@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022, 2023, 2024 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -17,6 +17,7 @@ import CGLib
 /// Alternatively, use `TypedListRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
 ///
+/// - Note: This colection type is mainly for primitive types.  For referencing GLib objects, use `ReferenceListProtocol`.
 public protocol TypedListProtocol: ListProtocol, Swift.Sequence {
     /// The element contained in each `GList` node.
     associatedtype Element
@@ -39,19 +40,16 @@ public extension TypedListProtocol {
     /// If `Element` is not pointer size, the list
     /// node pointer is treated as pointing to `Element`
     @inlinable var element: Element! {
-#if swift(>=5.7)
         data?.withMemoryRebound(to: Element.self, capacity: 1) {
             $0.pointee
         }
-#else
-        data?.assumingMemoryBound(to: Element.self).pointee
-#endif
     }
 }
 
 /// The `TypedList` class acts as a typed wrapper around `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for  primitive types.  For referencing GLib objects, use `ReferenceList`.
 public class TypedList<Element>: List, TypedListProtocol, ExpressibleByArrayLiteral {
     /// `true` to deallocate the associated list nodes on deinit.
     public var freeNodes = true
@@ -102,6 +100,7 @@ public class TypedList<Element>: List, TypedListProtocol, ExpressibleByArrayLite
 /// The `TypedListRef` struct acts as a lightweight, typed wrapper around `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for  primitive types.  For referencing GLib objects, use `ReferenceListRef`.
 public struct TypedListRef<Element>: TypedListProtocol {
     public var ptr: UnsafeMutableRawPointer!
 }
