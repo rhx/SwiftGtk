@@ -2,7 +2,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022, 2023, 2024 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -38,8 +38,8 @@ public extension ReferenceSListProtocol {
     /// node pointer is treated as pointing to `Element`
     @inlinable var element: Element! {
         assert(MemoryLayout<Element>.size == MemoryLayout<gpointer>.size)
-        guard var data = data else { return nil }
-        return withUnsafeBytes(of: &data) {
+        guard let data = data else { return nil }
+        return withUnsafeBytes(of: data) {
             $0.baseAddress?.assumingMemoryBound(to: Element.self).pointee
         }
     }
@@ -60,18 +60,15 @@ public class ReferenceSList<Element>: SList, ReferenceSListProtocol, Expressible
     /// that will be freed upon deallocation.
     ///
     /// - Parameter elements: The elements to initialise the sequence with
-    @inlinable required public init(arrayLiteral elements: Element...) {
+    @inlinable
+    required public init(arrayLiteral elements: Element...) {
         var last: UnsafeMutablePointer<GSList>! = nil
         freeNodes = true
-        for var element in elements.reversed() {
-            withUnsafeMutableBytes(of: &element) {
-#if swift(>=5.7)
+        for element in elements.reversed() {
+            withUnsafeBytes(of: element) {
                 $0.withMemoryRebound(to: gpointer.self) {
                     last = g_slist_prepend(last, $0.baseAddress?.pointee)
                 }
-#else
-                last = g_slist_prepend(last, $0.baseAddress?.assumingMemoryBound(to: gpointer.self).pointee)
-#endif
             }
         }
         super.init(last)

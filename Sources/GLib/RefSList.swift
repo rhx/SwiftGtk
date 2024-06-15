@@ -2,7 +2,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022, 2023, 2024 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -39,8 +39,8 @@ public extension RefSListProtocol {
     /// node pointer is treated as pointing to `Element`
     @inlinable var element: Element! {
         assert(MemoryLayout<Element>.size == MemoryLayout<gpointer>.size)
-        guard var data = data else { return nil }
-        return withUnsafeBytes(of: &data) {
+        guard let data = data else { return nil }
+        return withUnsafeBytes(of: data) {
             $0.baseAddress.map { Element(raw: $0.assumingMemoryBound(to: UnsafeMutableRawPointer.self).pointee) }
         }
     }
