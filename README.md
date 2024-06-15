@@ -33,7 +33,7 @@ After this, you should be able to `import Gtk` in your sources and use `swift bu
 Alternatively, you can manually download [run-gir2swift.sh](https://github.com/rhx/gir2swift/raw/main/run-gir2swift.sh ) and add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
-// swift-tools-version:5.6
+// swift-tools-version:5.7
 
 import PackageDescription
 
@@ -91,7 +91,7 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 
 ## Prerequisites
 
-### Swift 5.6 or higher
+### Swift 5.7 or higher
 
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
