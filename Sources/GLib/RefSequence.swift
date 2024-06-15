@@ -120,6 +120,12 @@ public class RefSequence<Element: PointerWrapper>: Sequence, RefSequenceProtocol
     deinit {
         g_sequence_free(_ptr)
     }
+
+    /// Create an interator over a`RefSequence`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> RefSequenceIterator<Element> {
+        RefSequenceIterator(getBeginIter())
+    }
 }
 
 /// The `RefSequenceRef` struct acts as a lightweight, Ref wrapper aroundptr `GList`,
@@ -129,6 +135,12 @@ public class RefSequence<Element: PointerWrapper>: Sequence, RefSequenceProtocol
 public struct RefSequenceRef<Element: PointerWrapper>: RefSequenceProtocol {
     /// UnRef reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!
+
+    /// Create an interator over a`RefSequence`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> RefSequenceIterator<Element> {
+        RefSequenceIterator(getBeginIter())
+    }
 }
 
 public extension RefSequenceRef {
