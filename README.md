@@ -108,7 +108,7 @@ on macOS, or on Linux you should get something like:
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.74, 2.76, 2.78 and 2.80, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2, 4.4, 4.6, 4.8, 4.10, 4.12, and 4.14 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.74, 2.76, 2.78, 2.80 and 2.82, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2, 4.4, 4.6, 4.8, 4.10, 4.12, 4.14, and 4.16 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
