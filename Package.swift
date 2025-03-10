@@ -20,7 +20,6 @@ let package = Package(
         .target(
             name: "GLib",
             dependencies: [
-                .product(name: "gir2swift", package: "gir2swift"),
                 "CGLib",
             ],
             swiftSettings: [
