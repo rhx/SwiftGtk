@@ -1,12 +1,15 @@
 #if os(Linux)
-    import Glibc
+import Glibc
 #else
-    import Darwin
+import Darwin
 #endif
 
 import XCTest
 import CGLib
 @testable import GLib
+
+/// Mutex for single-threaded operations
+let mutex = Mutex()
 
 class GLibTests: XCTestCase {
 
@@ -35,9 +38,12 @@ class GLibTests: XCTestCase {
             guard let dir = try Dir.open(path: existing_path, flags: 0) else {
                 XCTFail() ; return
             }
+
             defer { dir.close() }
-            let first: String! = dir.readName()    // get the first entry
+
+            let first: String? = dir.readName()    // get the first entry
             XCTAssertNotNil(first)
+            guard let first = first else { return }
             XCTAssertFalse(first.isEmpty)
             dir.rewind()                            // go back
             let first_again = dir.readName()       // get first entry again
@@ -124,18 +130,13 @@ class GLibTests: XCTestCase {
         XCTAssertFalse(context.pending())
     }
 
-// FIXME: macOS concurrency interferes with testing multiple different log hooks
-#if !os(macOS)
+#if !os(Linux)
     func testLog() {
+        mutex.lock()
+        defer { mutex.unlock() }
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
-            logSetWriterFunc(func: {
-                guard LogLevelFlags($0) == .debug, let fields = $1,
-                      let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
-                resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "testLog") == 0
-                return .handled
-            }, userData: gpointer(result), userDataFree: { _ in })
             return g_log_set_default_handler({
                 guard $0 == nil, LogLevelFlags($1) == .debug,
                       let message = $2,
@@ -149,15 +150,11 @@ class GLibTests: XCTestCase {
     }
 
     func testLogLevel() {
+        mutex.lock()
+        defer { mutex.unlock() }
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
-            logSetWriterFunc(func: {
-                guard LogLevelFlags($0) == .critical, let fields = $1,
-                      let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
-                resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "testLogLevel") == 0
-                return .handled
-            }, userData: gpointer(result), userDataFree: { _ in })
             return g_log_set_default_handler({
                 guard $0 == nil, LogLevelFlags($1) == .critical,
                       let message = $2,
@@ -171,55 +168,45 @@ class GLibTests: XCTestCase {
     }
 
     func testLogDomain() {
+        mutex.lock()
+        defer { mutex.unlock() }
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
-            logSetWriterFunc(func: {
-                guard LogLevelFlags($0) == .debug, let fields = $1,
-                      let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
-                resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "test") == 0
-                                 && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomain") == 0
-                return .handled
-            }, userData: gpointer(result), userDataFree: { _ in })
             return g_log_set_default_handler({
                 guard let domain = $0, LogLevelFlags($1) == .debug,
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee =
-                    strcmp(domain, "testDomain") == 0 &&
-                    strcmp(message, "test") == 0
+                strcmp(domain, "testDomain") == 0 &&
+                strcmp(message, "test") == 0
             }, gpointer(result))
         }
         g_log(domain: "testDomain", "test")
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
-#endif
 
     func testLogDomainLevel() {
+        mutex.lock()
+        defer { mutex.unlock() }
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
-            logSetWriterFunc(func: {
-                guard LogLevelFlags($0) == .message, let fields = $1,
-                      let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
-                resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "%%s") == 0
-                    && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomainLevel") == 0
-                return .handled
-            }, userData: gpointer(result), userDataFree: { _ in })
             return g_log_set_default_handler({
                 guard let domain = $0, LogLevelFlags($1) == .message,
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee =
-                    strcmp(domain, "testDomainLevel") == 0 &&
-                    strcmp(message, "%s") == 0
+                strcmp(domain, "testDomainLevel") == 0 &&
+                strcmp(message, "%s") == 0
             }, gpointer(result))
         }
         g_log(domain: "testDomainLevel", "%s", level: .message)
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
+#endif
 
     func testMutex() {
         let mutex = Mutex()

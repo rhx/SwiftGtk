@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022, 2023, 2024 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -66,23 +66,18 @@ public extension RefSequenceProtocol {
     /// treat the node data as a pointer to the given element.
     @inlinable subscript(position: SequenceIterRef) -> Element {
         get {
-            guard var data = position.sequenceGet() else {
+            guard let data = position.sequenceGet() else {
                 fatalError("Invalid subscript index at \(position.position)")
             }
-            return withUnsafeBytes(of: &data) {
+            return withUnsafeBytes(of: data) {
                 $0.baseAddress.map {
                     Element(raw: $0.assumingMemoryBound(to: UnsafeMutableRawPointer.self).pointee)
                 }
             }!
         }
         set {
-            var pointerValue = newValue.ptr
-            withUnsafeBytes(of: &pointerValue) {
-#if swift(>=5.7)
+            withUnsafeBytes(of: newValue.ptr) {
                 position.sequenceSet(data: $0.assumingMemoryBound(to: gpointer.self).baseAddress?.pointee)
-#else
-                position.sequenceSet(data: $0.baseAddress?.assumingMemoryBound(to: gpointer.self).pointee)
-#endif
             }
         }
     }
@@ -120,6 +115,12 @@ public class RefSequence<Element: PointerWrapper>: Sequence, RefSequenceProtocol
     deinit {
         g_sequence_free(_ptr)
     }
+
+    /// Create an interator over a`RefSequence`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> RefSequenceIterator<Element> {
+        RefSequenceIterator(getBeginIter())
+    }
 }
 
 /// The `RefSequenceRef` struct acts as a lightweight, Ref wrapper aroundptr `GList`,
@@ -129,6 +130,12 @@ public class RefSequence<Element: PointerWrapper>: Sequence, RefSequenceProtocol
 public struct RefSequenceRef<Element: PointerWrapper>: RefSequenceProtocol {
     /// UnRef reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!
+
+    /// Create an interator over a`RefSequence`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> RefSequenceIterator<Element> {
+        RefSequenceIterator(getBeginIter())
+    }
 }
 
 public extension RefSequenceRef {
@@ -214,10 +221,15 @@ public struct RefSequenceIterator<Element: PointerWrapper>: IteratorProtocol {
 
     /// Return the next element in the list
     /// - Returns: a pointer to the next element in the list or `nil` if the end of the list has been reached
-    @inlinable public mutating func next() -> Element? {
-        defer { iterator = iterator?.next() }
-        guard var data = iterator?.sequenceGet() else { return nil }
-        return withUnsafeBytes(of: &data) {
+    @inlinable
+    public mutating func next() -> Element? {
+        guard let iterator, !iterator.isEnd,
+              let data = iterator.sequenceGet() else {
+            self.iterator = nil
+            return nil
+        }
+        defer { self.iterator = iterator.next() }
+        return withUnsafeBytes(of: data) {
             $0.baseAddress.map {
                 Element(raw: $0.assumingMemoryBound(to: UnsafeMutableRawPointer.self).pointee)
             }

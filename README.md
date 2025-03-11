@@ -33,7 +33,7 @@ After this, you should be able to `import Gtk` in your sources and use `swift bu
 Alternatively, you can manually download [run-gir2swift.sh](https://github.com/rhx/gir2swift/raw/main/run-gir2swift.sh ) and add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
-// swift-tools-version:5.6
+// swift-tools-version:5.7
 
 import PackageDescription
 
@@ -91,23 +91,23 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 
 ## Prerequisites
 
-### Swift 5.6 or higher
+### Swift 5.7 or higher
 
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	swift-driver version: 1.90.11.1 Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+	swift-driver version: 1.115.1 Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
     Target: arm64-apple-macosx14.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.10 (swift-5.10-RELEASE)
+	Swift version 6.0 (swift-6.0-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.74, 2.76, 2.78 and 2.80, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2, 4.4, 4.6, 4.8, 4.10, 4.12, and 4.14 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.74, 2.76, 2.78, 2.80 and 2.82, and gdk/gtk 3.22, 3.24 as well as 4.0, 4.2, 4.4, 4.6, 4.8, 4.10, 4.12, 4.14, and 4.16 on the `gtk4` branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
