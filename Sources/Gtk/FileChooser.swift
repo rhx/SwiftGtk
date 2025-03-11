@@ -3,7 +3,7 @@
 //  SwiftGtk
 //
 //  Created by Rene Hexel on 4/8/19.
-//  Copyright © 2019, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2019, 2020, 2024 Rene Hexel.  All rights reserved.
 //
 import CGtk
 import GtkCHelpers
@@ -11,6 +11,7 @@ import GLib
 import GLibObject
 import GIO
 
+@available(*, deprecated, renamed: "FileDialog")
 public extension FileChooserDialog {
     /// Convenience constructor to create a file chooser dialog with two buttons.
     /// - Parameter title: Title of the dialog
