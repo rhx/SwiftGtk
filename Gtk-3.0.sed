@@ -1,4 +1,5 @@
 s/^public let STOCK_/\/\/ public let STOCK_/
+s/^public let stock/\/\/ public let stock/
 s/^let \(.*\): String/let \1: CChar/
 s/Gicon/Icon/g
 s/Id/ID/g
