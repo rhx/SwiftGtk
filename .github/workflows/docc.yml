@@ -1,0 +1,55 @@
+name: DocC
+
+# Dependencies of this package
+env:
+  HOSTING_BASE: ${{ 'SwiftGtk4DocC' }}
+  MACOS_BREW: ${{ 'gtk4 atk pango glib glib-networking gobject-introspection pkg-config jq' }}
+  UBUNTU_APT: ${{ 'libgtk-4-dev gir1.2-gtk-4.0 gir1.2-gtksource-4.0 libcogl-pango-dev libcogl-path-dev libcogl-dev libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libgraphene-1.0-dev gir1.2-graphene-1.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq' }}
+  WINDOWS_GTK: ${{ '2022-01-04' }}
+
+on:
+  push:
+    branches:
+      - gtk4-monorepo
+      - gtk4-monorepo-development
+
+jobs:
+  generate-docc:
+    strategy:
+      matrix:
+        os: [macos-13]
+    name: Generate Documentation
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest
+
+      - name: Print macOS and Swift version
+        run: |
+          uname -a
+          swift --version
+
+      - name: Fetch macOS dependencies
+        run: |
+          brew install python@3 || brew link --overwrite python@3
+          brew install $MACOS_BREW
+          sudo mv /Library/Developer/CommandLineTools /Library/Developer/CommandLineTools.orig
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Documentation
+        uses: rhx/swiftpm-generate-documentation@main
+        with:
+          hosting-base-path: SwiftGtk4DocC
+
+      - name: Show Generated Content
+        run: find . -type d -maxdepth 3
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: rhx/SwiftGtk4DocC
+          publish_dir: ./docs

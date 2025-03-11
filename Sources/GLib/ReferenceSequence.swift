@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022, 2023, 2024 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -66,22 +66,17 @@ public extension ReferenceSequenceProtocol {
     @inlinable subscript(position: SequenceIterRef) -> Element {
         get {
             assert(MemoryLayout<Element>.size == MemoryLayout<gpointer>.size)
-            guard var data = position.sequenceGet() else {
+            guard let data = position.sequenceGet() else {
                 fatalError("Invalid subscript index at \(position.position)")
             }
-            return withUnsafeBytes(of: &data) {
+            return withUnsafeBytes(of: data) {
                 $0.baseAddress?.assumingMemoryBound(to: Element.self).pointee
             }!
         }
         set {
             assert(MemoryLayout<Element>.size == MemoryLayout<gpointer>.size)
-            var pointerValue = newValue
-            withUnsafeBytes(of: &pointerValue) {
-#if swift(>=5.7)
+            withUnsafeBytes(of: newValue) {
                 position.sequenceSet(data: $0.assumingMemoryBound(to: gpointer.self).baseAddress?.pointee)
-#else
-                position.sequenceSet(data: $0.baseAddress?.assumingMemoryBound(to: gpointer.self).pointee)
-#endif
             }
         }
     }
@@ -105,10 +100,11 @@ public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, Ex
     /// that will be freed upon deallocation.
     ///
     /// - Parameter elements: The elements to initialise the sequence with
-    @inlinable required public init(arrayLiteral elements: Element...) {
+    @inlinable
+    required public init(arrayLiteral elements: Element...) {
         super.init(retaining: g_sequence_new(nil))
-        for var element in elements {
-            withUnsafeMutablePointer(to: &element) {
+        for element in elements {
+            withUnsafePointer(to: element) {
                 $0.withMemoryRebound(to: gpointer.self, capacity: 1) {
                     append(data: $0.pointee)
                 }
@@ -123,6 +119,12 @@ public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, Ex
     deinit {
         g_sequence_free(_ptr)
     }
+
+    /// Create an interator over a`ReferenceSequence`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> ReferenceSequenceIterator<Element> {
+        ReferenceSequenceIterator(getBeginIter())
+    }
 }
 
 /// The `ReferenceSequenceRef` struct acts as a lightweight, Reference wrapper around `GList`,
@@ -132,6 +134,12 @@ public class ReferenceSequence<Element>: Sequence, ReferenceSequenceProtocol, Ex
 public struct ReferenceSequenceRef<Element>: ReferenceSequenceProtocol {
     /// UnReference reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!
+
+    /// Create an interator over a`ReferenceSequenceRef`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> ReferenceSequenceIterator<Element> {
+        ReferenceSequenceIterator(getBeginIter())
+    }
 }
 
 public extension ReferenceSequenceRef {
@@ -218,10 +226,15 @@ public struct ReferenceSequenceIterator<Element>: IteratorProtocol {
 
     /// Return the next element in the list
     /// - Returns: a pointer to the next element in the list or `nil` if the end of the list has been reached
-    @inlinable public mutating func next() -> Element? {
-        defer { iterator = iterator?.next() }
-        guard var data = iterator?.sequenceGet() else { return nil }
-        return withUnsafeBytes(of: &data) {
+    @inlinable
+    public mutating func next() -> Element? {
+        guard let iterator, !iterator.isEnd,
+              let data = iterator.sequenceGet() else {
+            self.iterator = nil
+            return nil
+        }
+        defer { self.iterator = iterator.next() }
+        return withUnsafeBytes(of: data) {
             $0.baseAddress?.assumingMemoryBound(to: Element.self).pointee
         }
     }

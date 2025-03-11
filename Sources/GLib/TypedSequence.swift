@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022, 2023, 2024 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -15,6 +15,7 @@ import CGLib
 /// For a concrete class that implements these methods and properties, see `TypedSequence`.
 /// Alternatively, use `TypedSequenceRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
+/// - Note: This protocol is mainly for  primitive types.  For referencing GLib objects, use `ReferenceSequenceProtocol`.
 public protocol TypedSequenceProtocol: SequenceProtocol, BidirectionalCollection, MutableCollection {
     /// The element contained in each `SList` node.
     associatedtype Element
@@ -68,16 +69,12 @@ public extension TypedSequenceProtocol {
     /// `position.sequenceGet()`).
     @inlinable subscript(position: SequenceIterRef) -> Element {
         get {
-            guard var data = position.sequenceGet() else {
+            guard let data = position.sequenceGet() else {
                 fatalError("Invalid subscript index at \(position)")
             }
-#if swift(>=5.7)
             return data.withMemoryRebound(to: Element.self, capacity: 1) {
                 $0.pointee
             }
-#else
-            return data.assumingMemoryBound(to: Element.self).pointee
-#endif
         }
         set {
             let newElementPointer = UnsafeMutablePointer<Element>.allocate(capacity: 1)
@@ -97,6 +94,7 @@ public extension TypedSequenceProtocol {
 /// The `TypedSequence` class acts as a typed wrapper around `GSequence`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for primitive types.  For referencing GLib objects, use `ReferenceSequence`.
 public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, ExpressibleByArrayLiteral {
     /// Array literal initialiser
     ///
@@ -121,14 +119,27 @@ public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, Expressibl
     deinit {
         g_sequence_free(_ptr)
     }
+
+    /// Create an interator over a`TypedSequence`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> TypedSequenceIterator<Element> {
+        TypedSequenceIterator(getBeginIter())
+    }
 }
 
-/// The `TypedSequenceRef` struct acts as a lightweight, typed wrapper aroundptr `GList`,
+/// The `TypedSequenceRef` struct acts as a lightweight, typed wrapper around `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for primitive types.  For referencing GLib objects, use `ReferenceSequenceRef`.
 public struct TypedSequenceRef<Element>: TypedSequenceProtocol {
     /// Untyped reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!
+
+    /// Create an interator over a`TypedSequenceRef`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> TypedSequenceIterator<Element> {
+        TypedSequenceIterator(getBeginIter())
+    }
 }
 
 public extension TypedSequenceRef {
@@ -215,21 +226,20 @@ public struct TypedSequenceIterator<Element>: IteratorProtocol {
 
     /// Return the next element in the list
     /// - Returns: a pointer to the next element in the list or `nil` if the end of the list has been reached
-    @inlinable public mutating func next() -> Element? {
-        defer { iterator = iterator?.next() }
-        guard var data = iterator?.sequenceGet() else { return nil }
+    @inlinable
+    public mutating func next() -> Element? {
+        guard let iterator, !iterator.isEnd,
+              let data = iterator.sequenceGet() else {
+            self.iterator = nil
+            return nil
+        }
+        defer { self.iterator = iterator.next() }
         if MemoryLayout<Element>.size == MemoryLayout<gpointer>.size {
-            return withUnsafeBytes(of: &data) {
+            return withUnsafeBytes(of: data) {
                 $0.baseAddress?.assumingMemoryBound(to: Element.self).pointee
             }!
         } else {
-#if swift(>=5.7)
-            return data.withMemoryRebound(to: Element.self, capacity: 1) {
-                $0.pointee
-            }
-#else
             return data.assumingMemoryBound(to: Element.self).pointee
-#endif
         }
     }
 }
