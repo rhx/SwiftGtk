@@ -1,0 +1,2 @@
+s|UnsafeMutablePointer<GMainContextPusher>|UnsafeMutableRawPointer|g
+s|UnsafePointer<GMainContextPusher>|UnsafeRawPointer|g
