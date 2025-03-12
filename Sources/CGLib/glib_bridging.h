@@ -12,7 +12,7 @@ extern int g_open(const char *, int, ...) __nonnull ((1));
 #include <glib/gversion.h>
 #include <glib/gversionmacros.h>
 #undef __GLIB_H_INSIDE__
-#if defined(__linux__) && defined(__aarch64__)
+#if defined(__linux__)
 #undef g_open
 #endif
 
@@ -70,7 +70,9 @@ struct _GUnixSocketAddressPrivate {};
 struct _GUri {};
 struct _GVariant {};
 struct _GVariantType {};
+#if GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION < 84
 struct GMainContextPusher {};
+#endif
 struct GMutexLocker {};
 struct GTestCase {};
 struct GTestSuite {};
