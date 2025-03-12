@@ -3,3 +3,6 @@ String_autoptr
 g_iconv
 g_time_zone_new
 macro__has_attribute___noreturn__
+macro__has_attribute_ifunc
+macro__has_attribute_no_sanitize_address
+MainContextPusher
