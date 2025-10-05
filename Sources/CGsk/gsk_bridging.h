@@ -9,6 +9,8 @@ struct _GskCairoRendererClass {};
 struct _GskClipNode {};
 struct _GskColorMatrixNode {};
 struct _GskColorNode {};
+struct _GskComponentTransfer {};
+struct _GskComponentTransferNode {};
 struct _GskConicGradientNode {};
 struct _GskContainerNode {};
 struct _GskCrossFadeNode {};
