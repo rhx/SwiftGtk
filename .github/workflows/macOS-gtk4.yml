@@ -1,0 +1,53 @@
+name: macOS (gtk4)
+
+# Dependencies of this package
+env:
+  MACOS_BREW: ${{ 'gtk4 pango glib glib-networking gobject-introspection pkg-config jq' }}
+
+on:
+  push:
+    branches: [gtk4-development, gtk4]
+  pull_request:
+    branches: [gtk4-development, gtk4]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-macos:
+    name: macOS (Xcode ${{ matrix.xcode }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            xcode: "16.3"
+          - os: macos-14
+            xcode: "16.2"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: SwiftGtk
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ${{ matrix.xcode }}
+
+      - name: Swift version
+        run: swift --version
+
+      - name: Fetch macOS dependencies
+        run: |
+          brew install python@3 || brew link --overwrite python@3
+          brew install $MACOS_BREW
+          mv /Library/Developer/CommandLineTools /Library/Developer/CommandLineTools.orig || sudo mv /Library/Developer/CommandLineTools /Library/Developer/CommandLineTools.orig
+
+      - name: Build
+        run: cd SwiftGtk && swift build
+
+      - name: Test
+        run: cd SwiftGtk && swift test
