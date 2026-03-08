@@ -4,18 +4,8 @@ A Swift wrapper around gtk-3.x and gtk-4.x that is largely auto-generated from g
 This project tries to make gtk more "swifty" than using the plain C language interface.
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGtk/
 
-![macOS](https://github.com/rhx/SwiftGtk/actions/workflows/macOS.yml/badge.svg?branch=development)
-![Linux](https://github.com/rhx/SwiftGtk/actions/workflows/Linux.yml/badge.svg?branch=development)
-![macOS](https://github.com/rhx/SwiftGtk/actions/workflows/macOS.yml/badge.svg?branch=main)
-![Linux](https://github.com/rhx/SwiftGtk/actions/workflows/Linux.yml/badge.svg?branch=main)
-![macOS (gtk4)](https://github.com/rhx/SwiftGtk/actions/workflows/macOS-gtk4.yml/badge.svg?branch=gtk4-development)
-![Linux (gtk4)](https://github.com/rhx/SwiftGtk/actions/workflows/Linux-gtk4.yml/badge.svg?branch=gtk4-development)
 ![macOS (gtk4)](https://github.com/rhx/SwiftGtk/actions/workflows/macOS-gtk4.yml/badge.svg?branch=gtk4)
 ![Linux (gtk4)](https://github.com/rhx/SwiftGtk/actions/workflows/Linux-gtk4.yml/badge.svg?branch=gtk4)
-![macOS (gtk4-monorepo)](https://github.com/rhx/SwiftGtk/actions/workflows/macOS-gtk4-monorepo.yml/badge.svg?branch=gtk4-monorepo-development)
-![Linux (gtk4-monorepo)](https://github.com/rhx/SwiftGtk/actions/workflows/Linux-gtk4-monorepo.yml/badge.svg?branch=gtk4-monorepo-development)
-![macOS (gtk4-monorepo)](https://github.com/rhx/SwiftGtk/actions/workflows/macOS-gtk4-monorepo.yml/badge.svg?branch=gtk4-monorepo)
-![Linux (gtk4-monorepo)](https://github.com/rhx/SwiftGtk/actions/workflows/Linux-gtk4-monorepo.yml/badge.svg?branch=gtk4-monorepo)
 
 ## What is new?
 
