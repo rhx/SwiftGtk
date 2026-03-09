@@ -47,7 +47,7 @@ jobs:
           mv /Library/Developer/CommandLineTools /Library/Developer/CommandLineTools.orig || sudo mv /Library/Developer/CommandLineTools /Library/Developer/CommandLineTools.orig
 
       - name: Build
-        run: cd SwiftGtk && swift build
+        run: cd SwiftGtk && swift build --jobs 1
 
       - name: Test
-        run: cd SwiftGtk && swift test
+        run: cd SwiftGtk && swift test --jobs 1

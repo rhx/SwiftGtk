@@ -2,7 +2,7 @@ name: Linux
 
 # Dependencies of this package
 env:
-  UBUNTU_APT: ${{ 'libgtk-3-dev gir1.2-gtk-3.0 gir1.2-gtksource-3.0 libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq' }}
+  UBUNTU_APT: ${{ 'libgtk-3-dev gir1.2-gtk-3.0 gir1.2-gtksource-3.0 libpango1.0-dev gir1.2-pango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq xvfb' }}
 
 on:
   push:
@@ -51,4 +51,4 @@ jobs:
         run: cd SwiftGtk && swift build
 
       - name: Test
-        run: cd SwiftGtk && swift test
+        run: cd SwiftGtk && xvfb-run -a swift test
