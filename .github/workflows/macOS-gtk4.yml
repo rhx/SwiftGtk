@@ -2,7 +2,7 @@ name: macOS (gtk4)
 
 # Dependencies of this package
 env:
-  MACOS_BREW: ${{ 'gtk4 pango glib glib-networking gobject-introspection pkg-config jq' }}
+  MACOS_BREW: ${{ 'atk gtk4 pango glib glib-networking gobject-introspection pkg-config jq' }}
 
 on:
   push:
