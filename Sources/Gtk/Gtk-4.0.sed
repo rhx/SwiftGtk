@@ -52,3 +52,4 @@ s/free(UnsafeMutableRawPointer/systemFree(UnsafeMutableRawPointer/
 s/func load(from path: UnsafePointer<CChar>/func loadFrom(file path: UnsafePointer<CChar>/
 s/func load(from string: UnsafePointer<CChar>/func loadFrom(string: UnsafePointer<CChar>/
 s/gtk_menu_button_set_popover(\([^,]*\), \([^)]*\)\.popover_ptr)/gtk_menu_button_set_popover(\1, \2.widget_ptr)/g
+s/gtk_popover_bin_set_popover(\([^,]*\), \([^)]*\)\.popover_ptr)/gtk_popover_bin_set_popover(\1, \2.widget_ptr)/g
