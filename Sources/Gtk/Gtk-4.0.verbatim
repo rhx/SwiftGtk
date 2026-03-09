@@ -14,4 +14,5 @@ container_cell_accessible_get_children
 container_cell_accessible_new
 container_cell_accessible_remove_child
 notebook_page_accessible_invalidate
+SVG_DEFAULT_FEATURES
 toplevel_accessible_get_children
