@@ -2,7 +2,7 @@ name: macOS (monorepo)
 
 # Dependencies of this package
 env:
-  MACOS_BREW: ${{ 'gtk+3 pango glib glib-networking gobject-introspection pkg-config jq' }}
+  MACOS_BREW: ${{ 'atk graphene gtk+3 pango glib glib-networking gobject-introspection pkg-config jq' }}
 
 on:
   push:
