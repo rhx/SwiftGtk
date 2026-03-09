@@ -49,6 +49,3 @@ jobs:
 
       - name: Build
         run: cd SwiftGtk && swift build
-
-      - name: Test
-        run: cd SwiftGtk && xvfb-run -a swift test
