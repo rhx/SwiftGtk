@@ -4,11 +4,8 @@ A Swift wrapper around gtk-3.x and gtk-4.x that is largely auto-generated from g
 This project tries to make gtk more "swifty" than using the plain C language interface.
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGtk/
 
-![macOS 11 build](https://github.com/rhx/SwiftGtk/workflows/macOS%2011/badge.svg)
-![macOS 10.15 build](https://github.com/rhx/SwiftGtk/workflows/macOS%2010.15/badge.svg)
-![macOS gtk4 build](https://github.com/rhx/SwiftGtk/workflows/macOS%20gtk4/badge.svg)
-![Ubuntu 20.04 build](https://github.com/rhx/SwiftGtk/workflows/Ubuntu%2020.04/badge.svg)
-![Ubuntu 18.04 build](https://github.com/rhx/SwiftGtk/workflows/Ubuntu%2018.04/badge.svg)
+![macOS (monorepo)](https://github.com/rhx/SwiftGtk/actions/workflows/macOS-monorepo.yml/badge.svg?branch=monorepo-development)
+![Linux (monorepo)](https://github.com/rhx/SwiftGtk/actions/workflows/Linux-monorepo.yml/badge.svg?branch=monorepo-development)
 
 ## What is new?
 
