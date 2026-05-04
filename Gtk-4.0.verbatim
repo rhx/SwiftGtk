@@ -1,4 +1,5 @@
 PRIORITY_RESIZE
+SVG_DEFAULT_FEATURES
 TEXT_VIEW_PRIORITY_VALIDATE
 cell_accessible_parent_activate
 cell_accessible_parent_edit
