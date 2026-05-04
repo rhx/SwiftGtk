@@ -142,6 +142,10 @@ struct _GIOStreamAdapter {};
 struct _GIOStreamPrivate {};
 struct _GIConv {};
 struct _GIcon {};
+#if GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION >= 88
+struct _GIPTosMessage {};
+struct _GIPv6TclassMessage {};
+#endif
 struct _GInetAddressMaskPrivate {};
 struct _GInetAddressPrivate {};
 struct _GInetSocketAddressPrivate {};
