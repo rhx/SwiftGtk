@@ -1,5 +1,5 @@
 s/Func(`func`:/Func(_ `func`: @escaping/
-s/: \(hb_.*_func_t[^?]\)/: @escaping \1/
+s/: \(hb_[A-Za-z0-9_]*_func_t\)\([^?]\)/: @escaping \1\2/g
 s/\(C[GT]Font\)Ref\([^!?]\)/\1!\2/g
 s/\(FT_Face\)\([^!?]\)/\1!\2/g
 s/\(let result = hb_coretext_f..._get_c._font.*\)/\1?.takeRetainedValue()/
