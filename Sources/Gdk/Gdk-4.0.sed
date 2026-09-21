@@ -32,3 +32,6 @@ s/\(public let key\)ch\( = GDK_KEY_c_h\)/\1_c_h\2/
 s/\(public let key\)Ch\( = GDK_KEY_CH\)/\1CH\2/
 s/\(public let key\)Eth\( = GDK_KEY_ETH\)/\1ETH\2/
 s/\(public let key\)Thorn\( = GDK_KEY_THORN\)/\1THORN\2/
+s/var metatypeReferenceForAppLaunchContext:/var metatypeReferenceForGdkAppLaunchContext:/
+s/var metatypeForAppLaunchContext:/var metatypeForGdkAppLaunchContext:/
+s/var wrapperForAppLaunchContext:/var wrapperForGdkAppLaunchContext:/
