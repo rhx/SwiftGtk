@@ -17,4 +17,5 @@ s/\(shapeListShapers() -> UnsafeMutablePointer<Unsafe\)Mutable\(Pointer<CChar>\)
 s/getColorStops: @escaping hb_color_line_get_color_stops_func_t/getColorStops: hb_color_line_get_color_stops_func_t!/
 s/getExtend: @escaping hb_color_line_get_extend_func_t/getExtend: hb_color_line_get_extend_func_t!/
 s/HB_CODEPOINT_INVALID/UInt32.max/
+s/HB_BUDGET_DEFAULT/Int64.min/
 s/\(public let \)versionString\( = HB_VERSION_STRING\)/\1hbVersionString\2/
