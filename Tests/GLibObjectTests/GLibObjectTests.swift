@@ -372,14 +372,14 @@ fileprivate func type_a_class_init(_ cl: gpointer?, _: gpointer?) {
     guard let object_class = cl?.assumingMemoryBound(to: GObjectClass.self) else { return }
     object_class.pointee.set_property = type_a_set_property
     object_class.pointee.get_property = type_a_get_property
-    g_object_class_install_property(object_class, 1, g_param_spec_long(integerProperty.name, integerProperty.name, "Integer property", Int.min, Int.max, 0, G_PARAM_READWRITE))
+    g_object_class_install_property(object_class, 1, g_param_spec_long(integerProperty.name, integerProperty.name, "Integer property", Int.min, Int.max, 0, ParamFlags.readwrite.value))
 }
 
 fileprivate func type_b_class_init(_ cl: gpointer?, _: gpointer?) {
     guard let object_class = cl?.assumingMemoryBound(to: GObjectClass.self) else { return }
     object_class.pointee.set_property = type_b_set_property
     object_class.pointee.get_property = type_b_get_property
-    g_object_class_install_property(object_class, 1, g_param_spec_string(stringProperty.name, stringProperty.name, "String property", "", G_PARAM_READWRITE))
+    g_object_class_install_property(object_class, 1, g_param_spec_string(stringProperty.name, stringProperty.name, "String property", "", ParamFlags.readwrite.value))
 }
 
 fileprivate var typeA: GType = 0
