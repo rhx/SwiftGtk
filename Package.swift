@@ -9,7 +9,7 @@ let package = Package(
         .package(url: "https://github.com/rhx/gir2swift.git",     branch: "main"),
         .package(url: "https://github.com/rhx/SwiftGraphene.git", branch: "main"),
         .package(url: "https://github.com/rhx/SwiftAtk.git",      branch: "main"),
-        .package(url: "https://github.com/rhx/SwiftGsk.git",      branch: "main"),
+        .package(url: "https://github.com/rhx/SwiftGsk.git",      branch: "gtk4"),
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
     ],
     targets: [
