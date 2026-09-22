@@ -95,6 +95,7 @@ class GLibTests: XCTestCase {
     func testTimeoutAdd() {
         let mainLoop = MainLoop()
         let context = MainContextRef(mainLoop.context)
+        let invalidSourceID = 0
         var count1 = 10
         withUnsafeMutablePointer(to: &count1) {
             let rv = timeoutAdd(interval: 10, function: {
@@ -105,7 +106,7 @@ class GLibTests: XCTestCase {
                 p.pointee -= 1
                 return p.pointee == 0 ? 0 : 1
             }, data: UnsafeMutableRawPointer($0))
-            XCTAssertEqual(rv, 1)
+            XCTAssertGreaterThan(rv, invalidSourceID)
             while $0.pointee > 0 {
                 let oldCount = $0.pointee
                 let trigger = context.iteration(mayBlock: true)
@@ -120,7 +121,7 @@ class GLibTests: XCTestCase {
             count2 -= 1
             return count2 != 0
         }
-        XCTAssertEqual(rv, 2)
+        XCTAssertGreaterThan(rv, invalidSourceID)
         while count2 > 0 {
             let oldCount = count2
             let trigger = context.iteration(mayBlock: true)

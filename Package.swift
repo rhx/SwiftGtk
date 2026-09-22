@@ -276,7 +276,7 @@ let package = Package(
                 .plugin(name: "gir2swift-plugin", package: "gir2swift")
             ]
         ),
-        .testTarget(name: "GdkTests", dependencies: ["Gdk"]),
+        .testTarget(name: "GdkTests", dependencies: ["Gdk", "CGdk"]),
         .systemLibrary(
             name: "CGsk",
             pkgConfig: "gtk4",
