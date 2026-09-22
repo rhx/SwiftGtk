@@ -28,7 +28,7 @@ After this, you should be able to `import Gtk` in your sources and use `swift bu
 Alternatively, you can manually download [run-gir2swift.sh](https://github.com/rhx/gir2swift/raw/main/run-gir2swift.sh ) and add `SwiftGtk` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
-// swift-tools-version:5.7
+// swift-tools-version:5.6
 
 import PackageDescription
 
@@ -47,7 +47,7 @@ let package = Package(name: "MyPackage",
 )
 ```
 
-For gtk3 replace `.branch("gtk3")` with `.branch("gtk3")`.
+For GTK 3, use the `gtk3` branch instead of `gtk4`.
 
 ### Examples
 
@@ -86,7 +86,7 @@ After that, use the (usual) Build and Test buttons to build/test this package.  
 
 ## Prerequisites
 
-### Swift 5.7 or higher
+### Swift 5.6 or higher
 
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
