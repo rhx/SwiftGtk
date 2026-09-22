@@ -1,5 +1,5 @@
 s/Func(`func`:/Func(_ `func`: @escaping/
-s/: \(hb_.*_func_t[^?]\)/: @escaping \1/
+s/: \(hb_[A-Za-z0-9_]*_func_t\)\([^?]\)/: @escaping \1\2/g
 s/\(C[GT]Font\)Ref\([^!?]\)/\1!\2/g
 s/\(FT_Face\)\([^!?]\)/\1!\2/g
 s/\(let result = hb_coretext_f..._get_c._font.*\)/\1?.takeRetainedValue()/
@@ -17,3 +17,5 @@ s/\(shapeListShapers() -> UnsafeMutablePointer<Unsafe\)Mutable\(Pointer<CChar>\)
 s/getColorStops: @escaping hb_color_line_get_color_stops_func_t/getColorStops: hb_color_line_get_color_stops_func_t!/
 s/getExtend: @escaping hb_color_line_get_extend_func_t/getExtend: hb_color_line_get_extend_func_t!/
 s/HB_CODEPOINT_INVALID/UInt32.max/
+s/HB_BUDGET_DEFAULT/Int64.min/
+s/\(public let \)versionString\( = HB_VERSION_STRING\)/\1hbVersionString\2/

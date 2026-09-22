@@ -22,3 +22,4 @@ s/(CChar, CChar, CChar, CChar, CChar, CChar, CChar)/(Int8, Int8, Int8, Int8, Int
 s/\(@inlinable var shapeEngine:\) gpointer. {/\1 UnsafeMutablePointer<PangoEngineShape>! {/
 s/\(@inlinable var langEngine:\) gpointer. {/\1 UnsafeMutablePointer<PangoEngineLang>! {/
 s/rv.map { PangoLanguageUnsafeMutablePointer<PangoLanguage>.*/rv/
+s/PANGO_RENDER_COMPONENT_ALL/Int32(PANGO_RENDER_COMPONENT_PLAIN_GLYPH.rawValue | PANGO_RENDER_COMPONENT_COLOR_GLYPH.rawValue | PANGO_RENDER_COMPONENT_BACKGROUND.rawValue | PANGO_RENDER_COMPONENT_UNDERLINE.rawValue | PANGO_RENDER_COMPONENT_STRIKETHROUGH.rawValue | PANGO_RENDER_COMPONENT_OVERLINE.rawValue)/
