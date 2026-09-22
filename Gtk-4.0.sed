@@ -54,4 +54,5 @@ s/func load(from string: UnsafePointer<CChar>/func loadFrom(string: UnsafePointe
 s/gtk_menu_button_set_popover(\([^,]*\), popover?\.popover_ptr)/gtk_menu_button_set_popover(\1, popover?.widget_ptr)/g
 s/gtk_menu_button_set_popover(\([^,]*\), UnsafeMutablePointer<GtkWidget>(newValue?\.popover_ptr))/gtk_menu_button_set_popover(\1, newValue?.widget_ptr)/g
 s/gtk_menu_button_set_popover(\([^,]*\), \([^)]*\)\.popover_ptr)/gtk_menu_button_set_popover(\1, \2.widget_ptr)/g
+s/gtk_popover_bin_set_popover(\([^,]*\), UnsafeMutablePointer<GtkWidget>(newValue?\.popover_ptr))/gtk_popover_bin_set_popover(\1, newValue?.widget_ptr)/g
 s/gtk_popover_bin_set_popover(\([^,]*\), \([^)]*\)\.popover_ptr)/gtk_popover_bin_set_popover(\1, \2.widget_ptr)/g
