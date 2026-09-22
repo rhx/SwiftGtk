@@ -107,11 +107,14 @@ class GLibTests: XCTestCase {
                 return p.pointee == 0 ? 0 : 1
             }, data: UnsafeMutableRawPointer($0))
             XCTAssertGreaterThan(rv, invalidSourceID)
+            let unrelatedSourceID = idleAddFull(priority: Int(priorityHigh), function: { _ in 0 })
+            XCTAssertGreaterThan(unrelatedSourceID, invalidSourceID)
             while $0.pointee > 0 {
                 let oldCount = $0.pointee
                 let trigger = context.iteration(mayBlock: true)
-                let value = trigger ? oldCount - 1 : oldCount
-                XCTAssertEqual($0.pointee, value)
+                let minimumCount = trigger ? oldCount - 1 : oldCount
+                XCTAssertGreaterThanOrEqual($0.pointee, minimumCount)
+                XCTAssertLessThanOrEqual($0.pointee, oldCount)
             }
         }
         XCTAssertFalse(context.pending())
@@ -122,11 +125,14 @@ class GLibTests: XCTestCase {
             return count2 != 0
         }
         XCTAssertGreaterThan(rv, invalidSourceID)
+        let unrelatedSourceID = idleAddFull(priority: Int(priorityHigh), function: { _ in 0 })
+        XCTAssertGreaterThan(unrelatedSourceID, invalidSourceID)
         while count2 > 0 {
             let oldCount = count2
             let trigger = context.iteration(mayBlock: true)
-            let value = trigger ? oldCount - 1 : oldCount
-            XCTAssertEqual(count2, value)
+            let minimumCount = trigger ? oldCount - 1 : oldCount
+            XCTAssertGreaterThanOrEqual(count2, minimumCount)
+            XCTAssertLessThanOrEqual(count2, oldCount)
         }
         XCTAssertFalse(context.pending())
     }
