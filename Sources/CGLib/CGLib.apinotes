@@ -1,0 +1,9 @@
+---
+Name: CGLib
+Tags:
+- Name: GIOModuleScopeFlags
+  FlagEnum: false
+- Name: GTlsCertificateRequestFlags
+  FlagEnum: false
+- Name: GTlsDatabaseLookupFlags
+  FlagEnum: false
